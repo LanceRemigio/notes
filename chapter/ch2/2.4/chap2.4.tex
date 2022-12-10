@@ -1,0 +1,309 @@
+\section{The Monotone Convergence Theorem}
+
+As we have seen in the last section, convergent sequences are bounded while the converse is not true. But if a sequence is monotone then surely it is convergent. 
+
+\begin{tcolorbox}
+\begin{defn}
+    A sequence \( (a_n) \) is \textit{increasing } if \( a_n \leq a_{n+1}\) for all \( n \in \N \) and \textit{decreasing} if \( a_n \geq a_{n+1}\) for all \( n \in \N \). A sequence is \textit{monotone} if it is either increasing or decreasing.
+\end{defn}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+    \begin{thm}[Monotone Convergence Theorem]
+        If a sequence is monotone and bounded, then it converges.
+    \end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+Let \( (a_n)\) be \textit{monotone} and \textit{bounded}. We need to show that \( (a_n)\) converges to some value \( s \). Let our set of points \( a_n\) be defined as 
+\[ A = \{ a_n : \text{ for all } n \in \N  \}\] 
+and because we have a bounded sequence, we must have an upper bound \( s \) which can be defined as out supremum i.e
+\[ s = \sup \{ a_n : \text{ for all } n \in \N  \}.\]
+Let \( \epsilon > 0 \). We need to show that 
+\[ |a_n - s| < \epsilon \] 
+Since \( s - \epsilon  \) is not an upper bound of \( A \), there exists \( N \in \N \) such that 
+\[ s - \epsilon < a_N.\]
+Let's assume that \( (a_n)\) is an increasing sequence. By assuming \(n \geq N \), we can say that \( a_n \geq a_N\). Since \( s + \epsilon \) is an upper bound and \( s \) is the least upper bound, then we can say that  
+\[ s - \epsilon < a_N \leq a_n < s \leq s + \epsilon \]
+which imply that 
+\begin{align*}
+    &s - \epsilon  <  a_n < s + \epsilon  \\
+    &\implies |a_n - s| < \epsilon.  
+\end{align*}
+Hence, it follows that any \textit{monotone} and \textit{bounded} sequence converges.
+\end{proof}
+
+The key takeaway from this theorem is that we don't actually need to specify a value for a limit in order to show that it converges. As long as we have a monotone sequence and that we know it is bounded then we know for sure that the sequence converges.
+
+\begin{tcolorbox}
+    \begin{defn}[Convergence of a Series]
+        Let \( (b_n)\) be a sequence. An \textit{infinite series} is a formal expression of the form 
+        \[ \sum_{n=1}^{ \infty} b_n = b_1 + b_2 + b_3 + \dots { }. \]
+        We define the corresponding \textit{sequence of partial sums} \( (s_m)\) by 
+        \[ s_m = b_1 + b_2 + b_3 + ... + b_m = \sum_{i=1}^{m} s_i,\]
+        and say that the series \( \sum_{n=1}^{ \infty} b_n \) \textit{converges} to \( B \) if the sequence \( (s_m)\) converges to \( B \). In this case, we write 
+        \[ \sum_{n=1}^{ \infty} b_n = B.\]
+\end{defn}
+\end{tcolorbox} 
+
+\begin{ex}
+Consider 
+\[ \sum_{n=1}^{ \infty} \frac{1}{n^2}.\]
+Because the terms in the sum are all positive, the sequence of partial sums are given by 
+\[ s_m = \sum_{k = 1}^{ m} \frac{1}{k^2}\]
+is increasing. Our goal is to show that this sequence is convergent so that the series converges. We proceed by using the Monotone Convergence Theorem to do this. Since we already have a monotone sequence of partial sums, only we need to do now find an upper bound for \( s_m \). Observe that  
+\begin{align*}
+s_m &= 1 = \frac{1}{2 \cdot 2} + \frac{1}{3 \cdot 3} + \frac{1}{4 \cdot 4} + ... + \frac{1}{m^2} \\
+    &< 1 + \frac{1}{2 \cdot 1} + \frac{1}{3 \cdot 2} + \frac{1}{4 \cdot 3} + ... + \frac{1}{m(m-1)} \\
+    &= 1 + \Big(  1 - \frac{1}{2}\Big) + \Big( \frac{1}{2} - \frac{1}{3} \Big) + \Big( \frac{1}{3} - \frac{1}{4} \Big) + ... + \Big( \frac{1}{(m-1)} - \frac{1}{m} \Big) \\
+    &= 1 + 1 - \frac{1}{m} \\
+    &< 2. 
+\end{align*}
+The third second equality is found by taking the partial fractions of the line before it.
+Thus, we find that \( 2 \) is an upper bound for the sequence of partial sums, so we can conclude that the infinite series 
+\[ \sum_{n=1}^{ \infty} \frac{1}{n^2} \]
+is convergent.
+\end{ex}
+
+\begin{ex}[Harmonic Series]
+    Let's consider the Harmonic Series 
+    \[ \sum_{n=1}^{ \infty} \frac{1}{n}. \]
+    The sequence of partial sums is defined as follows
+    \[ s_m = \sum_{k=1}^{m} \frac{1}{k}.\]
+    Like our last example, we expect these sequence of terms to be bounded by 2 but upon further inspection, we have 
+    \[ s_4 = 1  + \frac{1}{2} + \Big( \frac{1}{3} + \frac{1}{4} \Big) > 1 + \frac{1}{2} + \Big( \frac{1}{4}+ \frac{1}{4} \Big) = 2\]
+    which is not true. Similarly, we find that \( s_8 > 2 \frac{1}{2}\), and we can see that in general we have that 
+    \begin{align*}
+        s_{2^k}&= 1 + \frac{1}{2} + \Big( \frac{1}{3} + \frac{1}{4} \Big) + \Big( \frac{1}{5} + ... + \frac{1}{8} \Big) + ... + \Big( \frac{1}{2^{k-1}} + ... + \frac{1}{2^k} \Big) \\
+               &> 1 + \frac{1}{2} + \Big( \frac{1}{4} + \frac{1}{4}\Big) + \Big( \frac{1}{8} + ... + \frac{1}{8}\Big) + ... + \Big( \frac{1}{2^k} + ... + \frac{2}{2^k}\Big) \\
+               &= 1 +... + \Big( 2^{k-1} \frac{1}{2^k}\Big) \\ 
+               &= 1 + \frac{1}{2} + \frac{1}{2} + ... + \frac{1}{2} \\
+               &= 1 + k\frac{1}{2}.
+    \end{align*}
+    This shows that our sequence is unbounded because we found \( M = 1 + k \Big( \frac{1}{2}\Big) > 0\) such that \( s_k > M \). Despite how slow the sequence of partial of sums may be at reaching this point, it does end up surpassing every number on the postive real line. Since we have an unbounded sequence of partial sums, we conclude that the Harmonic series as divergent.
+
+\end{ex}
+
+
+\begin{tcolorbox}
+    \begin{thm}[Cauchy Condensation Test]
+    Suppose \( (b_n)\) is decreasing and satisfies \( b_n \geq 0  \) for all \( n \in \N \). Then, the series 
+    \[ \sum_{n=0}^{ \infty} b_n \]
+    converges if and only if 
+    \[ \sum_{n=0}^{ \infty} 2^n b_{2^n}\]
+converges.
+\end{thm}
+\end{tcolorbox} 
+
+\begin{proof}
+    For the forwards direction, assume that \( \sum_{n=0}^{ \infty} 2^n b_{2^n}\) converges. This means that the sequence of partial sums 
+    \[ t_k = b_1 + 2b_2 + ... + 2^k b_{2k}\] are bounded. Hence, there exists \( M > 0 \) such that \( t_k \leq M \) for all \( k \in \N \). Our goal is to show that the sequence of partial sums for the series 
+    \[ \sum_{n=0}^{ \infty} b_n.\] 
+     Since \( b_n \geq 0 \) and that for all \( n \in \N \) \( b_n \) decreasing, we have that the partial sums \( t_k \) is monotone. Our goal is to show that 
+     \[ s_m = \sum_{k=0}^{m} b_k  \]
+     is bounded. Hence, fix \( m\) and let \( k \) be large enough to ensure \( m \leq 2^{k+1} - 1\) and hence \( s_m \leq s_{2^{k+1} - 1}\) which imply that 
+     \begin{align*}
+         s_{2^{k+1}-1}&= b_1 + (b_2 + b_3) + (b_4 + b_5 + b_6 + b_7 ) + ... + (b_{2^k} + ... + b_{2^{k+1}-1})\\ 
+                      &\leq b_1 + (b_2 + b_2) + (b_4 + b_4 + b_4 + b_4) + ... + (b_{2k} + ... + b_{2k}) \\
+                      &= b_1 + 2b_2 + 4b_4 + ... + 2^k b_{2k} \\
+                      &= t_k 
+     \end{align*}
+     Hence, we have \( s_m \leq s_{2^{k+1} - 1} < t_k \leq M \) which means that \( (s_m)\) is bounded. By the Monotone Convergence Theorem, it follows that the series \( \sum_{n=1}^{ \infty} b_n \) converges. 
+     For the forwards direction, we proceed with contrapostive. Hence, assume for sake of contradiction that the series 
+     \[ \sum_{n=0}^{ \infty} 2^n b_{2^n}\]
+     is a divergent series. We want to show that the series 
+     \[ \sum_{n=0}^{ \infty} b_n \]
+     is also a divergent series.
+\end{proof}
+
+\section{Exercises}
+
+\subsection{Exercise 2.4.1}
+\addcontentsline{toc}{section}{\protect\numberline{}Your section name}
+\begin{enumerate}
+    \item[(a)] Prove that the sequence defined by \( x_1 = 3\) and 
+        \[ x_{n+1} = \frac{1}{4 - x_n}\]
+        for all \( n \in \N \) converges.
+        \begin{proof}
+            Let \( (x_n)\) be the sequence defined by \( x_1 = 3\) and 
+            \[ x_{n+1} = \frac{1}{4-x_n}\]
+            for all \( n \in \N\). Our goal is to show that \( (x_n)\) is convergent. It is sufficient to show that \( (x_n)\) is both \textit{monotone} and \textit{bounded}. We first show that \( (x_n)\) is \textit{monotone}. We claim that \( (x_n)\) is a \textit{decreasing} sequence. Hence, we will show that for all \( n \in \N \), we have \( x_n > x_{n+1}\). We proceed by inducting on \( n \). Let the base case be \( n = 1 \). Then we have that 
+            \begin{align*}
+                x_1 = 3 &> x_2 = \frac{1}{4 - 3} = 1. \\ 
+            \end{align*}
+            Hence, we have \( x_1 > x_2 \). Now we assume that \( (x_n)\) is decreasing for all \( 1 < n \leq k-1 \). We want to show that \( x_n > x_k \) for all \( n < k \). Since \( n \leq k - 1\), we have \( x_{k-1} \leq x_n \) by inductive hypothesis. Consider \( x_k \). By definition, we have that \( x_k = 1 /(4 - x_{k-1})\). Since \( x_{k-1} \leq x_n \), then for all \( n \in \N \) we have 
+            \[
+                x_k = \frac{1}{4 - x_{k-1}} < \frac{1}{4-x_n}.
+            \]
+            Hence, \( x_k < x_n \) for all \( n \in \N \). This is equivalent to showing \( x_n > x_{n+1}\) for all \( n \in \N \). Therefore, \( (x_n)\) is a \textit{monotone} sequence. 
+            Now we show that \( (x_n)\) is \textit{bounded}. Since \( 3 = x_1 \geq x_{n+1}\) for all \( n \in \N \) and \( x_{n+1} = 1 / (4 - x_n) > 0 \), we have that 
+            \[ 0 < x_n \leq 3.\]
+            Hence, \( (x_n)\) is bounded. Since \( (x_n)\) is \textit{monotone} and \textit{bounded}, we have that 
+            \( (x_n)\) is a convergent sequence by the Monotone Convergence theorem. 
+        \end{proof}
+    \item[(b)] Now that we know \( \lim x_n \) exists, explain why \( \lim x_{n+1}\) must also exist and equal the same value.
+        \begin{proof}[Solution]
+            Since \( (x_n) \) is \textit{monotone} and \textit{bounded}, then \( (x_{n+1})\) is also \textit{monotone} and \textit{bounded}. By the Monotone Convergence Theorem, we have that \( (x_{n+1})\) is also convergent. Hence, \( \lim x_{n+1}\) also exists.    
+        \end{proof}
+    \item[(c)] Take the limit of each side of the recursive equation in part (a) to explicitly compute \( \lim x_n \). 
+        \begin{proof}[Solution]
+            Since \( \lim x_n = \lim x_{n+1}\), we have
+            \begin{align*}
+                x = \lim x_{n+1} &= \lim \frac{1}{4-x_n}  \\ 
+                                 &= \frac{ \lim 1 }{ \lim (4 - x_n ) } \\ 
+                                 &= \frac{1}{ \lim (4) - \lim x_n} \\
+                                 &= \frac{1}{4 - x} \tag{ \( \lim x_n = x \)}.
+            \end{align*}
+            Then we have 
+            \begin{align*}
+                x &= \frac{1}{4-x} \\
+            \end{align*}
+            and then 
+            \begin{align*}
+                x^2 - 4x + 1 = 0 \\ 
+            \end{align*}
+            which we can solve via the quadratic formula. Hence, we have \( x = 2 + \sqrt{3}\). 
+        \end{proof}
+
+\end{enumerate}
+
+\subsection{Exercise 2.4.3}
+Following the model of Exercise 2.4.2, show that the sequence defined by \( y_1 = 1 \) and \( y_{n+1} = 2 - \frac{1}{y_n}\) converges and find the limit.
+
+\begin{proof}
+Let \( (y_n)\) be the sequence defined by \( y_1 = 1 \) and 
+\[
+    y_{n+1} = 4 - \frac{1}{y_n}.
+\] for all \( n \in \N \). 
+We want to show that \( (y_n)\) converges. Hence, our goal is to show that \( (y_n)\) is \textit{monotone} and \textit{bounded}. We claim that \( (y_n)\) is increasing. Hence, we show this by inducting on \( n \in \N \). Our goal is to show that \( y_n \leq y_{n+1}\) for all \( n \in \N \). Let the base case be \( n = 1 \). Then observe that 
+\begin{align*}
+ y_1 &= 1 < y_2 = 4 - \frac{1}{1} = 3  \\ 
+\end{align*}
+Hence, we have \( y_1 < y_2\). 
+
+Now assume that \( (y_n)\) is increasing for all \( 1 \leq n \leq k - 1\). Hence, \( y_n \leq y_{k-1}\). Our goal now is to show that \( y_n \leq y_k\) for all \( n \in \N \). Let's consider \( y_k\). Then by definition of \( (y_n)\), we have 
+\[
+    y_k = 4 - \frac{1}{y_{k-1}}.
+\]
+Since \( y_n \leq y_{k-1}\), we have 
+\[
+y_k = 4 - \frac{1}{y_{k-1}} \geq 4 - \frac{1}{y_{n}}
+\]
+This shows that \( y_{k} \geq y_n \) for any \( n \in \N \). Hence, it follows that \( y_{n}\) is an increasing sequence and, therefore, \textit{monotone}. Now
+
+Now we want to show that \( (y_n)\) is \textit{bounded}. Observe that \( 1 < y_n \) for all \(n \in \N \) which means \( (y_n)\) contains a lower bound. Furthermore, for each \(n \in \N\) we also have that \( y_{n+1} = 4 - 1/y_n < 4\) which means that \( (y_n)\) also contains an uppper bound. Hence, it follows that 
+\[
+1 < y_n < 4
+\]
+for all \( n \in \N \). Hence, we have \( (y_n)\) is \textit{bounded}. By the Monotone Convergence Theorem, it follows that \( (y_n)\) is a convergent sequence. 
+
+By last exercise, we know that \( \lim y_n = \lim y_{n+1}  \). Let's assume \( (y_n) \to y \). Our goal is to compute \( \lim y_n \). By the Algebraic Limit Theorem, we have 
+\begin{align*}
+    y = \lim y_n &= \lim \Big( 4 - \frac{1}{y_n}\Big)  \\ 
+                 &= \lim (4) - \lim \Big( \frac{1}{y_n}\Big) \\
+                 &= 4 - \frac{ \lim(1) }{ \lim y_n } \\
+                 &= 4 - \frac{1}{y}.
+\end{align*}
+Hence, we have 
+\begin{align*}
+y &= 4 - \frac{1}{y} \\ 
+\end{align*}
+which yields the following quadratic equation set to zero
+\[
+y^2 -4y + 1 = 0. 
+\]
+Solving for \( y \) using the quadratic formula yields \( y = 2 + \sqrt{3}\)
+\end{proof}
+
+\subsection*{Exercise 2.4.5 (Calculating Square Roots)}
+Let \(x_1 = 2\), and define 
+\[
+    x_{n+1} = \frac{1}{2} \Big( x_n + \frac{2}{x_n}\Big).
+\]
+
+\begin{enumerate}
+    \item[(a)] Show that \( x_n^2\) is always greater than 2, and then use this to prove that \( x_n - x_{n+1} \geq 0\). Conclude that \( \lim x_n = \sqrt{2} \).
+        \begin{proof}
+         Our first goal is to show that \( x_n^2 > 2 \) for all \( n \in \N \). We proceed by inducting on \( n \in \N\). Let our base case be \( n = 1\). Then 
+         \begin{align*}
+         x_1 = 2 &< x_1^2   \\
+                 &= 4 \\ 
+                 &< \frac{9}{4} \\
+                 &= \frac{1}{4} \Big( x_1^2 + \frac{4}{x_1^2} + 4 \Big) \\
+                 &= x_2^2
+         \end{align*}
+         which implies that \( 2 < x_1^2 < x_2^2\). Now suppose \( x_{k-1}^2 > 2\) for all \( n \leq k - 1\). We want to show that \( x_k^2 > 2 \) for all \( n \in [1, k)\). Consider \( x_k \) and then by definition, we have 
+         \begin{align*}
+             x_{k}^2 &= \frac{1}{4} \Big( x_{k-1}^2 + \frac{4}{x_{k-1}^2} + 4 \Big) \\
+                   &> \frac{1}{4} (2 + 2 + 4) \\ 
+                   &= \frac{8}{4} \\
+                   &= 2.\\
+        \end{align*}
+        Hence, \( x_k^2 > 2\) for all \( n \in \N\).  Now we want to show that \( x_n - x_{n+1} \geq 0  \) for all \( n \in \N \). Consider \( x_n - x_{n+1}\) then observe that since \( x_n^2 > 2 \) for all \( n \in \N \), we have 
+        \begin{align*}
+            x_n - x_{n+1}&= x_n - \frac{1}{2} \Big( x_n + \frac{2}{x_n}\Big) \\ 
+                        &= \frac{x_n^2 - 2 }{2x_n} \\
+                        &> \frac{2 - 2 }{2 \sqrt{2}} \\
+                        &= 0. 
+        \end{align*}
+        Furthermore, when \( x^2 = 2 \) we get that \( x_n - x_{n+1} = 0 \). Hence, we have \( x_n - x_{n+1} \geq 0\) for all \( n \in \N \). By the Monotone Convergence Theorem, we get that \( (x_n)\) is a convergent sequence. Since \( \lim x_n = \lim x_{n+1}  \), we can show that \( \lim x_n = \sqrt{2}\). By the Algebraic Limit Theorem, we have 
+        \begin{align*}
+            x = \lim x_{n+1} &= \lim \Big( \frac{1}{2} \Big( x_n + \frac{2}{x_n}\Big)\Big)  \\ 
+                            &= \frac{1}{2} \lim \Big( x_n + \frac{2}{x_n}\Big) \\ 
+                            &= \frac{1}{2} \Big( \lim x_n + \lim  \frac{2}{x_n}  \Big) \\
+                            &= \frac{1}{2} \Big(x + \frac{2}{x}\Big) \\
+                            &= \frac{1}{2}x + \frac{1}{x} \\
+                            &= \frac{x^2 + 2}{2x} \\
+        \end{align*}
+        which implies that 
+        \begin{align*}
+        x^2 &= 2 \\ 
+        \implies x &= \sqrt{2}.
+        \end{align*}
+        Hence, we have \( \lim x_n = \sqrt{2} \)
+    \end{proof} 
+    \item[(b)] Modify the sequence \( (x_n)\) so that it converges to \( \sqrt{c}\).
+        \begin{proof}[Solution]
+         Let the sequence \( (x_n)\) be defined recursively as \( x_1  =c \) and 
+        \[
+            x_{n+1} = \frac{1}{c} \Big( x_n + \frac{c}{x_n}\Big). 
+        \] 
+        Assume \( x_n^2 > c \) for all \( n \in \N \) and \( x_n - x_{n+1} \geq 0\), then we have \( \lim x_n = \sqrt{c} \).
+        \end{proof}
+        
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

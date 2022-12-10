@@ -1,0 +1,360 @@
+\chapter{Sequences and Series}
+
+\section{The Limit of a Sequence}
+
+Understanding infinite series depends on understanding sequences that make up sequences of partial sums.
+
+\begin{tcolorbox}
+\begin{defn}
+A sequence is a function whose domain is \( \N \).
+\end{defn}
+\end{tcolorbox}
+
+A way we describe sequences is to assign each \( n \in \N \), use a mapping rule, and then have an output for the \( n \)th term. Mathematically we can describe it as a map \( f: \N \to \R \).
+
+\begin{ex}
+    Each of the following are common ways to describe a sequence. 
+    \begin{enumerate}
+        \item \( (1, \frac{1}{2},  \frac{1}{3}, \frac{1}{4},...  )\)
+        \item \( \{  \frac{1+n}{n}  \}_{n=1}^{ \infty} = ( \frac{2}{1}, \frac{3}{2}, \frac{4}{3}, ...)\)
+        \item \( (a_n) \), where \( a_n = 2^n \) for each \( n \in \N \),
+        \item \( (x_n)\), where \( x_1 = 2 \) and \( x_{n+1} = \frac{x_n + 1 }{2}\).
+    \end{enumerate}
+\end{ex}
+It should not be confused that in some instances, the index \( n \) will start at \( n = 0 \) or \( n = n_0 \) for some other \( n_0 > 1 \). It is important to keep in mind that sequences are just infinite lists of real numbers. The main point of our analysis deals with what happens at the "tail" end of a given sequence. 
+
+\begin{tcolorbox}
+\begin{defn}[Convergence of a Sequence]
+A sequence \( (a_n) \) \textit{converges} to a real number \( a \) if, for every \( \epsilon > 0 \), there exists an \( N \in \N \) such that whenever \( n \geq N \) it follows that \( |a_n - a | < \epsilon \).
+\end{defn}
+\end{tcolorbox}
+Furthermore, the convergence of a sequence \( (a_n) \) to \( a \) is denoted by 
+\[ \lim_{n \to \infty} a_n = a.\]
+
+To understand the last part of this definition, namely, \( |a_n - a| < \epsilon \), we can think of it as a neighborhood where a given value will be located in. 
+\begin{tcolorbox}
+\begin{defn}
+Given \( a \in \R \) and \( \epsilon  > 0 \), the set 
+\[ V_{  \epsilon }(a) = \{ x \in \R : |x-a| < \epsilon  \}\]
+is called the \textit{\( \epsilon \)-neighborhood of \( a \)}. 
+\end{defn}
+\end{tcolorbox}
+We can think of \( V_{ \epsilon }(a)\) as an interval where 
+\[ a - \epsilon < a < a + \epsilon.\]
+Another way is to think of it as a ball with radius \( \epsilon > 0\) centered at \( a \). 
+we can also think about the convergence of a sequence to a point with the following definition.
+\begin{tcolorbox}
+\begin{defn}
+    A sequence \( (a_n) \) converges to \( a \) if, given any \( \epsilon-\)neighborhood \( V_{ \epsilon } (a)\) of \( a \), there exists a point in the sequence after which all of the terms are in \( V_{ \epsilon } (a) \). In other words, every \( \epsilon - \)neighborhood contains all but a finite number of the terms of \( (a_n) \). 
+\end{defn}
+\end{tcolorbox}
+
+The main idea here is that for some \( n \in \N \) along a sequence \( (a_n) \), all the points of the sequence converge to some point within a certain \( \epsilon -\)neighborhood. Note that when increase the value of \( n \in \N \), the smaller this \( \epsilon-\)neighborhood has to be and vice versa.
+
+\begin{ex}
+Consider the sequence \( (a_n) \), where \( a_n = \frac{1}{ \sqrt{n} }\). From our regular understanding of calculus, one can see that the limit of this sequence goes to zero. 
+
+\begin{proof}
+Let \( \epsilon  > 0 \). Choose \( N \in \N \) such that 
+\[ N > \frac{1}{e^2}.\]
+We now proceed by verifying that this choice \( N \in \N \) has the desired property that \( a_n \to 0 \). Let \( n \geq N \) such that \( n > \frac{1}{ \epsilon^2} \). Hence, we have 
+\[ \frac{1}{ \sqrt{n}} < \epsilon. \]
+But this implies that \( |a_n - 0| < \epsilon \) and hence our sequence contains the desired property. 
+\end{proof}
+\end{ex}
+The main idea of these convergence proofs is to find an \( N \in \N \) such that the value we want can be "hit" within some range that we specify with any number \( \epsilon > 0   \).
+
+
+\section{Quantifiers}
+
+The phrase 
+
+\begin{center}
+"For all \( \epsilon> 0 \)", there exists \( N \in \N \) such that ..."
+\end{center}
+
+means that for every positive integer I give you, there exists some index or natural number that contains some property that allows the sequence to converge to some value that we desire and as long as we satisfy this rule, then we can say that the sequence converges to our desired value. The template for our subsequent covergence proof will follow the steps below:
+
+\begin{itemize}
+    \item "Let \( \epsilon> 0 \)" be arbitrary."
+    \item Demonstrate that a specific choice of \( N \in \N \) leads to the desired property. Note that finding this \( N \) often involves working backwards from \( |a_n - a | < \epsilon \). 
+    \item Show that this \( N \) actually works.
+    \item Now assume \( n \geq N \). 
+    \item With this choice of \( \N \), you can work towards the property that \( |a_n - a | < \epsilon \)
+\end{itemize}
+
+\begin{ex}
+Show 
+\[ \lim \Big( \frac{n+1}{n}\Big) = 1.\]
+In other words, show that for every \( \epsilon  > 0 \), there exists some \( N \in \N \) such that 
+\[ |a_n - 1| < \epsilon \] where 
+\[ a_n = \frac{n+1}{n}. \]
+To obtain our choice of \( N \in \N \), we must work backwards from our conclusion. Hence, we have 
+\begin{align*}
+a_n - 1 &< \epsilon  \\
+\frac{n+1}{n} - \frac{n}{n} &< \epsilon \\ 
+\iff \frac{1}{n} &<  \epsilon \\
+\iff \frac{1}{ \epsilon } &< n.
+\end{align*}
+Hence, our choice of \( N \in \N \) is \( N = 1/ \epsilon \). Now for the actual proof. 
+
+\begin{proof}
+Let \( \epsilon  > 0 \) be arbitrary. Choose \( N = 1 / \epsilon  \) such that 
+\[ N > \frac{1}{ \epsilon }.\]
+Let \( n \geq N \). Then we proceed by showing that this choice of \( N \in \N \) leads to the desired property. 
+Hence, 
+\begin{align*}
+n &> \frac{1}{ \epsilon } \\
+\epsilon &> \frac{1}{ n } \\
+\epsilon  &> \frac{ n+1 }{n} - \frac{n}{n} \\ 
+\epsilon &> \frac{n+1}{n} - 1 \\
+\epsilon  &> |a_n - 1|.
+\end{align*}
+Hence, our choice of \( N \in \N \) leads to \( a_n \to 1 \). We can now conclude that 
+\[ \lim_{n \to \infty} a_n = 1.\]
+\end{proof}
+\end{ex}
+
+\begin{tcolorbox}
+    \begin{thm}[Uniqueness of Limits]
+The limit of a sequence, when it exists, must be unique.
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+Suppose we have \( (a_n) \subseteq \R \). Suppose \( a_n \to a \) and \( a_n \to a' \). We want to show that 
+\[ a = a' .  \]
+By definition, we have that 
+\begin{align*}
+    |a_n - a |&< \epsilon/2   \text{ for some } n_1 \in \N \\
+    |a_n - a'| &< \epsilon/2 \text{ for some } n_2 \in \N .
+\end{align*}
+We can show that \( a = a' \) by showing that \( |a - a'| < \epsilon\). Hence, choose \( N = \min \{ n_1, n_2 \}\) such that 
+\begin{align*}
+ |a - a'|&< |a - a_n + a_n - a' |  \\
+         &< |a - a_n | + |a_n - a'| \\
+         &< \epsilon/2 + \epsilon/2 \\
+         &= \epsilon.
+\end{align*}
+Hence, we have that \( a = a' \) showing that our limit is unique. 
+\end{proof}
+
+
+
+\subsection{Divergence}
+
+We can study the divergence of sequences by negating the definition we have above. 
+\begin{ex}
+Consider the sequence 
+\[ \Big(1, -\frac{1}{2}, \frac{1}{3}, -\frac{1}{4}, \frac{1}{5}, -\frac{1}{5}, \frac{1}{5}...  \Big)\]
+We can prove that this sequence does not converge to zero. Why? When we choose an \( \epsilon  = 1/10 \), there is none of the term of the sequence converge within the neighborhood \( (-1/10, 1/10 )\) since the sequence oscillates between \(-1 / 5 \)  and \( 1 / 5\). There is no \( N \in \N \), that satisfies \( a_n \to 0 \). We can also give a counter-example in which we disprove the claim that \( (a_n) \) converges to \( 1 / 5 \). Choose \( \epsilon = 1 / 10 \). This produces the neighborhood \( (1/10, 3/10 ) \). We can see that the sequence does in fact converge to \( 1 / 5 \), but it does so in an oscillating fashion. Furthermore, the sequence does not stay within the neighbor we specified where we expect all the terms of the sequence to converge towards the value. Hence, there is no such \( N \in \N \) where the property can be satisfied.  
+\end{ex}
+
+
+\begin{tcolorbox} 
+\begin{defn}
+A sequence that does not converge is said to diverge.
+\end{defn}
+\end{tcolorbox}
+
+
+\section{Exercises}
+
+\subsection{Exercise 2.2.1} What happens if we reverse the order of the quantifiers in our convergence definition? 
+\begin{tcolorbox}
+    \begin{defn}[Reversed]
+A sequence \( x_n \) converges to \( x \) if there exists an \( \epsilon > 0 \) such that for all \( N \in \N \) we have for \( n \geq N \) such that 
+\[ |x_n  - x| < \epsilon.\]
+\end{defn}
+\end{tcolorbox}
+Give an example of a convergent sequence. Is there an example of a convergent sequence that is divergent? Can a sequence converge to two different values? What exactly is being described in this strange definition.
+
+\begin{enumerate}
+    \item [(a)] When we reverse the quantifiers, the definition now requires us to construct such an \( \epsilon  \) such that any choice of \( N \in \N \) will satisfy the property. 
+    \item [(b)] An example of a convergent sequence is \( x_n = 1/n \). It can be easily shown that \( x_n \to 0 \).  
+    \item [(c)] Based on our definition and the fact that we can choose any \( N \in \N \) suggest that we can have two different values for which the sequence can converge to.
+    \item [(d)] There is a specific contruction of an \( \epsilon\) such that all \( x_n \) clusters converges towards a point determined by any choice of \( N \in \N \). 
+\end{enumerate}
+
+\subsection{Exercise 2.2.2}
+Verify, using the definition of convergence of a sequence, that the following sequences converge to the 
+proposed limit. 
+
+\begin{enumerate}
+    \item \( \lim \frac{2n+1}{5n+4} = \frac{2}{5}\)
+            Let \( x_n = \frac{2n+1}{5n+4} \). We want to work backwards from our conclusion 
+            \[ |x_n - \frac{2}{5}| < \epsilon \] to find our choice of \( N \in \N \). Hence,
+            \begin{align*}
+                \Big| \frac{2n+1}{5n+4} - \frac{2}{5} \Big| &< \epsilon  \\
+                \frac{3}{5(5n+4)} &< \epsilon.  \\
+            \end{align*}
+    Solving for \( n \), we get that 
+    \[ n > \frac{ 3/ \epsilon - 20}{25}.\]
+    This only holds for all \( 0 < \epsilon < 3/20\). Hence, our choice of \( N \in \N \) is 
+    \[ N = \frac{ 3/ \epsilon - 20}{25}.\]
+        \begin{proof}
+        Let \( 0 < \epsilon < 3/20 \). Choose \( N = \frac{ 3/ \epsilon - 20}{25}\) such that 
+        \( N > \frac{ 3/ \epsilon - 20}{25}\). Suppose \( n \geq N \). We want to show that 
+        \[ \Big| \frac{2n+1}{5n+4} - \frac{2}{5} \Big| < \epsilon.\]
+        So we have the folowing manipulations
+        \begin{align*} 
+        n &> \frac{ 3/ \epsilon - 20}{25} \\
+        25n \epsilon &> 3 - 20 \epsilon
+        \end{align*}
+        so we have 
+        \begin{align*}
+          \epsilon (25n + 20)&> 3.\\
+        \end{align*}
+        Hence, we have 
+        \[  \epsilon > \frac{3}{25n + 20}\] which satisfies our given property that 
+        \[ \lim x_n = 2/5.\]
+
+        \end{proof}
+    \item \( \lim \frac{2n^2}{n^3 + 3} = 0 \)
+        Let \( x_n = \frac{2n^2}{n^3 + 3}\). We want to produce an \( N \in \N \) from 
+        \[ |x_n - 0| < \epsilon. \]
+        Observe that 
+        \begin{align*}
+        \frac{2n^2}{n^3 + 3}&< \epsilon  \\
+        \end{align*}
+       Notice that it is somewhat difficult to solve for \( n \) so we need to upper bound and lower bound the numerator and the denominator separately. Furthermore, we notice that \( (x_n)\) is bounded by \( \frac{2n^2}{n^3} = \frac{2}{n} \).  Then we lower bound the denominator. Observe that \( n^3 + 3 \geq n^3  \). Hence, we can estimate \( x_n \) to have the following form:
+       \[ \frac{2n^2}{n^3 + 3 } \leq \frac{2}{n} < \epsilon \]
+       which implies that 
+       \[ n > \frac{2}{ \epsilon }\]
+       for \( n > 2 \). 
+
+        \begin{proof}
+            Let \( \epsilon  > 0 \). Choose \( N = \min \{2,\frac{2}{ \epsilon }\} \) and suppose \( n \geq N \). Then observe that 
+            \begin{align*}
+               \epsilon &> \frac{2}{n} \geq \frac{2n^2}{n^3+3}.\
+            \end{align*}
+            Hence, we have 
+            \[ \frac{2n^2}{n^3 + 3 } < \epsilon\] and our property is satisfied. 
+        \end{proof}
+    \item \( \lim \frac{ \sin (n^2)}{ n^{1/3} } = 0 \)
+
+        \begin{proof}
+        Let \( \epsilon > 0  \) be arbitrary. Choose \( N = 1 / \epsilon^3 \in \N \) and assume \( n > N \). Then observe that 
+        \begin{align*}
+            \frac{\sin (n^2)}{n^{1/3}} \leq \frac{1}{n^{1/3}} < \epsilon \\
+        \end{align*}
+        since \( \sin (n^2) \leq 1 \). Hence, we have that 
+        \[ 
+            \Big| \frac{\sin(n^2)}{n^{1/3}} - 0 \Big| < \epsilon.
+        \] Hence, the property is satisfied.
+        \end{proof}
+\end{enumerate}
+
+\begin{tcolorbox}
+    \begin{defn}[Greatest Integer]
+        For all \( x \in \R \), if for all \( k \in \Z \), \( r \in \Z \) where \( k > r \)  such that \( k \leq x < k + 1 \) and \( r \leq x < r+1 \) then we say that \( \max(k,r) \) is the greatest integer less than or equal to \( x \) and denote it as 
+        \[ k = [[x ]].\]
+\end{defn}
+\end{tcolorbox}
+
+\subsection{Exercise 2.2.5} 
+Let \( [[x]] \) be the greatest integer less than or equal to \( x \). For example, \( [[\pi]] = 3  \) and \( [[3]] = 3 \). Find \( \lim a_n \) and supply proofs for each conlusion if  
+\begin{enumerate}
+    \item[(a)] \( a_n = [[ 1/n ]]\),
+    \begin{proof}
+        We claim that the limit of \( a_n = [[ 1 / n ]]\) is equal to zero. We want to show that 
+        for all \( \epsilon  > 0 \), there exists an \( n \in \N \) such that for every \( n \geq N \) \[ | a_n - 0 | < \epsilon. \]
+        We proceed by choosing \( N > 1 \). Suppose \( n \geq N \). Our goal is to show that following property above. Since for every \( N > 1 \) such that \( a_n = 0 \), we have \( n \geq N \) \[ | a_n - 0 | = | 0 - 0 | = 0 < \epsilon  .\] 
+        Hence, our \( N \in \N \) shows that \( \lim a_n =0\).
+    \end{proof}
+    \item [(b)] \(a_n =  [[ (10+n) / 2n]]\).
+        \begin{proof}
+        We claim that \( \lim a_n = 0 \). Our goal is to show that for every \( \epsilon  > 0 \), there exists \( N \in \N \) such that for every \( n \geq N \), we have  
+        \[ |a_n - 0 | < \epsilon \]
+        Choose \( N > 10\). Suppose \( n \geq N \) then we have 
+    \[ | a_n - 0 | = |0 - 0| < \epsilon.\]
+        Hence, we have \( \lim a_n = 0 \).
+        \end{proof}
+\end{enumerate}
+Reflecting on these examples, comment on the statement following Definition 2.2.3 that "the smaller the \(\epsilon-\)neighborhood, the larger \( N \) may have to be."
+
+\subsection{Exercise 2.2.6}
+Prove the uniqueness of limits theorem. To get started, assume \( (a_n) \to a \) and \( (a_n) \to b \). Now argue \( a = b \).
+\begin{proof}
+Suppose \( a_n \to a \) and \( a_n \to b \). Then for every \( \epsilon  > 0 \), there exists \( N_1, N_2 \in \N \) such that for every \( n \geq N_1 \) and \( n \geq N_2\)
+\begin{align*}
+    | a_n - a |  &< \epsilon /2, \\
+    | a_n - b  | &< \epsilon / 2. 
+\end{align*}
+Choose \( N = \min \{ N_1, N_2 \}\) and assume \( n \geq N \). We want to show that \( a = b \) by showing that 
+\[ | a - b  | < \epsilon. \]
+Hence, we have 
+
+\begin{align*}
+   |a - b | &< | a - a_n + a_n - b | \\
+            &< |a - a_n| + |a_n - n | \tag{Triangle Inequality}\\  
+            &< \epsilon /2 + \epsilon /2 \tag{ \( a_n \to a \), \( a_n \to b\)} \\ 
+            &= \epsilon.
+\end{align*}
+Therefore, \( | a - b  | < \epsilon  \) and thus \( a = b \).
+
+\end{proof}
+\subsection{Exercise 2.2.7}
+
+Here are two useful definitions 
+\begin{tcolorbox}
+\begin{defn}
+A sequence \( (a_n)\) is \textit{eventually} in a set \( A \subseteq \R \) if there exists an \( N \in \N \) such that \( a_n \in A \) for all \( n \geq N \).
+\end{defn}
+\end{tcolorbox}
+
+and
+
+\begin{tcolorbox}
+\begin{defn}
+A sequence \( (a_n)\) is \textit{frequently} in a set \( A \subseteq \R \) if, for every \( N \in \N \), there exists an \( n \geq N \) such that \( a_n \in A \).
+\end{defn}
+\end{tcolorbox}
+
+\begin{enumerate}
+    \item[(a)] Is the sequence \( (-1)^n \) eventually or frequently in the set \( \{ 1 \}\)? 
+        \begin{proof}[Solution]
+        The sequence \(  (-1)^n\) is frequently in the set \( \{ 1 \}\) since for every \( n > 0 \), the sequence oscillates between two values in the set \( \{  -1, 1 \}\).
+        \end{proof}
+    \item[(b)] Which definition is stronger? Does frequently imply eventually or does eventually imply frequently?
+        \begin{proof}[Solution]
+        The first definition is stronger because it implies that any sequence \( (x_n)\) will eventually converge to a point in some set \( A \subseteq \R \) whereas the second definition explains how a point is constantly being "hit" but not letting all the terms of \( x_n\) settle within \( A \subseteq \R \) past some \( N \in \N \).
+        \end{proof}
+    \item[(c)] Give an alternate rephrasing of Definition 2.2.3B using either frequently or eventually. Which is the term we want? 
+        \begin{proof}[Solution]
+        We can rephrase definition 2.2.3B (Convergence of a Sequence: Topological Version) 
+by replacing every instance of the word \textit{converge} with the phrase "eventually settling into" and rephrasing the \( \epsilon-\)neighborhood as a set \( A \subseteq \R \) that a sequence  \( x_n \) "eventually settles into to".
+
+
+
+
+        \end{proof}
+    \item[(d)] Suppose an infinite number of terms of a sequence \( (x_n)\) are equal to \( 2 \). Is \( (x_n)\) necessarily eventually in the interval \( (1.9, 2.1)\)? Is it frequently in \( (1.9,2.1)\)?
+        \begin{proof}[Solution]
+        Since \( (x_n) = 2 \) for all \( n \in \N \), \( x_n \) is frequently in the interval \( (1.9,2.1)\).
+        \end{proof}
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

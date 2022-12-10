@@ -1,0 +1,394 @@
+% \begin{document}
+
+
+\section{The Density of the Rationals }
+
+\begin{tcolorbox}
+\begin{thm}(Archimedean Property)
+    \begin{itemize}
+        
+        \item Given any number \( x \in \R \), there exists an \( n \in \N \) satisfying an \( n \in \N \) satisfying \( n > x \)
+        \item Given any real number \( y > 0 \), there exists an \( n \in \N \) satisfying \( 1/n < y \)
+
+    \end{itemize}
+    
+\end{thm}
+\end{tcolorbox}
+
+Before we head on to the proof, it is important to notice that \( \N \) is not bounded above and we shall not prove this fact since we are taking this property of the set to be a given just like all the properties that are contained in \( \N, \Z,\)  and \( \Q \). 
+
+\begin{proof}
+    Assume for sake of contradiction that \( \N \) is bounded above. Using the Axiom of Completeness, \( \N \) contains a supremum, say, \( \sup \N = \alpha \). Using lemma 1.3.8, we know that there exists \( n \in \N \) such that 
+    \[  \alpha - 1 < n \tag{\( \epsilon = 1 \)}.\]
+    This impplies that 
+    \[ \alpha < n + 1 \]
+    but this shows that \( n+1 \in \N \) which is a contradiction because we assumed that \( \alpha \geq n \) for all \( n \in \N \) thereby rendering \( \alpha \) to no longer be an upper bound for \( \N \). Hence, we have that 
+    there exists an \( n \in \N \) satisfying an \( n \in \N \) satisfying \( n > x \).
+    The second part of this theorem follows immediately by setting \( x = 1/y \).
+\end{proof}
+
+\begin{tcolorbox}
+    \begin{thm}(Density of \( \Q \) in \( \R \))
+        For every two \( a,b \in \R \) with \( a < b \), there exists \( r \in \Q \) such that \( a < r < b \).
+    \end{thm}
+\end{tcolorbox}
+
+
+\begin{proof}
+    Our goal is to choose \( m \in \Z \) and \( n \in \N \) such that 
+    \[  a < \frac{ m}{n} < b \tag{1}\]
+    The idea is to choose a denominator large enough so that when we increment by size \( \frac{1}{n}\) that it will be too big to increment over the open interval \( (a,b)\). Using the (2) of the Archimedean Property, we choose \( n \in \N \) such that 
+    \[ \frac{1}{n} < b - a \tag{2}.\]
+    We now need to choose an \( m \in \Z \) such that \( na \) is smaller than this chosen number. A diagram for choosing such a number is helpful. Hence, 
+
+    Judging from our diagram, we can see that 
+    \[ m-1 \leq na < m.\]
+    Focusing on the left part of the inequality, we can solve (2) for \( a \) and say that 
+    \begin{align*}
+        m &\leq na + 1  \\ 
+            &< n(b - 1/n) + 1 \\ 
+            &= nb
+    \end{align*} 
+    This implies that \( m < nb \) and consequently \( na < m < nb \) which is equivalent to (1). 
+    
+    
+\end{proof}
+
+
+
+\section{The Existence of Square Roots}
+\begin{tcolorbox}
+    \begin{thm}
+        There exists \( \alpha \in \R  \) satisfying \( \alpha^2 = 2 \).
+    \end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    Consider the set 
+    \[ T = \{ t \in \R : t^2 < 2 \} \]
+    and set \( \alpha = \sup T \). We need to show that \( \alpha^2 = 2\). Hence, we need to show cases where \(  \alpha^2 < 2 \) and \( \alpha^2 > 2 \). The idea behind these cases is to produce a contradiction that will show that having either one of these cases will violate the fact that \( \alpha \)is an upper bound for \( T \) and \( \alpha\) is the least upper bound respectively. 
+
+    Assume the first case, \( \alpha^2 < 2 \). We know that \( \alpha\) is an upper bound for \( T \). We need to construct an element that is larger than \( \alpha \). Hence, we construct 
+    \[ \alpha + \frac{1}{n} \in T \tag{1}\]
+    Squaring (1) we have that 
+    \begin{align*}
+        \bigg(\alpha + \frac{1}{n}\bigg)^2 &= \alpha^2 + \frac{2\alpha}{n} + \frac{1}{n^2} \\ 
+                &< \alpha^2 + \frac{2\alpha}{n} + \frac{1}{n} \\
+                &= \alpha^2 + \frac{2\alpha + 1}{n}.
+    \end{align*}
+
+    We can use the fact that \( \Q \) is dense in \( \R \) to choose an \( n_0 \in \N \) such that 
+    \[ \frac{1}{n_0} < \frac{ 2 - \alpha^2}{2 \alpha + 1 }.\]
+    Rearranging we get that 
+    \[ \frac{2 \alpha + 1}{n_0} <  2 - \alpha^2 \] 
+    and consequently 
+    \[\bigg(\alpha + \frac{1}{n_0}\bigg)^2 < \alpha^2 + (2 - \alpha^2) = 2 \]
+    But this means that \( \alpha + 1/n_0 \in T \) showing that \( \alpha \) is not an upper bound for \( T \) contradicting our assumption. 
+
+    Now we want to show the other case that \( \alpha^2 < 2 \) cannot happen. Now we need to produce an element in \( T \) such that it is less than \( \alpha \), thereby showing that \( \alpha \) is not the least upper bound of \( T \). Hence, we construct the following element 
+    \[ \bigg(\alpha - \frac{1}{n}\bigg)\in T. \]
+    Squaring this quantity will give us the following
+    \begin{align*}
+        \bigg(\alpha - \frac{1}{n}\bigg)^2 &= \alpha^2 -\frac{2\alpha}{n} + \frac{1}{n^2} \\
+        &> \alpha^2 - \frac{2 \alpha}{n}.
+    \end{align*}
+    Like we did before, we get to choose an \( n_0 \in \N \) such that 
+    \[ \frac{1}{n_0} > \frac{\alpha^2 - 2}{2 \alpha} \]
+    to make 
+    \[\bigg(\alpha - \frac{1}{n_0}\bigg)^2 < \alpha^2 - (\alpha^2 - 2) = 2.\]
+    But this shows that \( \alpha - \frac{1}{n_0} < \alpha \) showing that \( \alpha \) and that our constructed element contradicts that fact that \( \alpha\) is the least upper bound. 
+
+\end{proof}
+
+
+\section{Exercises}
+
+\subsection{Exercise 1.4.1} Recall that \( \mathbb{I}\) stands for the set of irrational numbers. 
+
+\begin{enumerate}
+    \item[(a)] Show that if \( a,b \in \Q \), then \( ab \) and \( a + b \) are elements of \( \Q \) as well. 
+        
+    
+    \begin{proof}
+        Suppose \( a,b \in \Q \). Then \( p,q,m,n \in \Z \) such that \( n, q \neq 0 \). Hence, \( a = \frac{p}{q} \) and \( b = \frac{m}{n}\). Adding \( a + b \) will give us 
+        \begin{align*}
+            a + b &= \frac{p}{q} + \frac{m}{n} \\ 
+                  &= \frac{pn + mq}{qn}. 
+        \end{align*}
+        Since \( pq + mn, qn \in \Z \) with \( q,n \neq 0 \), we have that \( a + b \in \Q \). Now we multiply \( a \) and \( b \) together. Then we have 
+        \begin{align*}
+            ab &= \frac{p}{q} \cdot \frac{m}{n} \\ 
+               &= \frac{pm}{qn}.
+        \end{align*}
+        Since \( pm, qn \in \Z \) and \( q,n \neq 0 \), we have that \( ab \in \Q \).
+    \end{proof}
+
+    \item[(b)] Show that if \( a \in \Q  \) and \( t \in \mathbb{I} \) and \( at \in \mathbb{I} \) as long as \( a \neq 0 \). 
+    \begin{proof}
+       Suppose for sake of contradiction that \( at = r \) where \( r \in \Q \). Solving for \( t \), we have that \( t = \frac{r}{a} \). But this tells us that \( t \in \Q \) since \( r, a \in \Q \) which is a contradics our assumption that \( t \in \mathbb{I} \).
+    
+    \end{proof}
+     
+    \item[(c)] Part (a) can be summarised by saying that \( \Q \) is closed under addition and multiplication. Is \( \mathbb{I} \) closed under addition and multiplication? Given two irrational numbers \( s \) and \( t \), what can we say about \( s + t \) and \( st\)?
+        
+    
+    \begin{proof}[Solution]
+        We can say that \( s + t \) is an irrational number while \( st \) can either be rational or irrational depending if \( s = t \) or \( s \neq t \). If \( s = t \), then \( st \) is rational and if \( s \neq t \), then \( st \) is irrational. 
+    \end{proof}
+    
+\end{enumerate}
+
+\subsection{Exercise 1.4.2} 
+    Let \( A \subseteq \R \) be nonempty and bounded above, and let \( s \in \R \) have the property that for all \( n \in \N \), \( s + \frac{1}{n} \) is an upper bound for \( A \) and \( s - \frac{1}{n} \) is not an upper bound for \( A \). \textbf{Show that } \( s = \sup A \).
+        
+    
+    \begin{proof}
+        Since \( A \neq \emptyset \) and bounded above, we have that \( \sup A \) exists. Since \( s + \frac{1}{n} \) for all \( n \in \N \) is an upper bound for \( A \), we have that 
+        \[ \sup A \leq s + \frac{1}{n} \tag{1} \]
+        for all \( n \in \N \). On the other hand, \( s - \frac{1}{n} \) is a lower bound for \( A \). Hence, 
+        \[ \sup A > s - \frac{1}{n} \tag{2} \]
+        for all \( n \in \N \). We have \( (1) \) and \( (2) \) imply 
+        \[ s - \frac{1}{n} < \sup A \leq s + \frac{1}{n}. \tag{3} \]
+        This means that either \( \sup A < s, \sup A > s, \) or \( \sup A = s, \). 
+        If \( \sup A < s  \), then \( s - \sup A > 0 \). Using the Archimedean Property, we can find an \( n \in \N \) such that 
+        \[ s - \sup A > \frac{1}{n}\]
+        but this means that \( \sup  A < s - \frac{ 1}{n}\) which contradicts \( (3) \). On the other hand, if \( \sup A > s \), then \( \sup A - s > 0 \). Using the Archimedean property again, we can find an \( n \in \N \) such that 
+        \[ \sup A - s > \frac{1}{n} \]
+        but this means that \( \sup A > s + \frac{1}{n} \) which is a contradiction since \( \sup A < s + \frac{1}{n} \) from (3). Hence, it must be that \( \sup A = s \). 
+    \end{proof}
+    
+\subsection{Exercise 1.4.3}
+    Prove that \( \cap_{n=1}^{\infty} (0,1/n) = \emptyset \). Notice that this demonstrates that the intervals in the Nested Interval Property must be closed for the conclusion for the theorem to hold. 
+    \begin{proof}
+        Suppose \( x \in (0,\frac{1}{n}) \), then \( x > 0 \). By the Archimedean Property, we can find an \( N \in \N \) that is sufficiently large such that \( x > \frac{1}{N} \). But this means that \( x \in (0, 1/n )\) for all \( n \in \N  \). Hence, \( x \not\in \cap_{n=1}^{\infty} (0,\frac{1}{n})\) and then 
+        \[ \cap_{n=1}^{\infty} (0,\frac{1}{n}) = \emptyset.\]
+    \end{proof}
+    
+    \subsection{Exercise 1.4.4}
+    Let \( a < b \) be real numbers and consider the set \( T = \Q \cap [a,b]\). Show that \( \sup T = b \). 
+
+        \begin{proof}
+            Let \( a < b \) where \( a,b \in \R \). Consider the following set \( T = \Q \cap [a,b] \). We want to show that \( \sup T = b \). By definition, \( b \) is an upper bound for \( T \) since \( a < b \). All we need to show is that \( b \) is the least upper bound. Hence, we use lemma 1.3.8 and the fact that \( \Q \) is dense in \( \R  \) to state that for every \( \epsilon > 0 \), there exists \( r \in \Q \) such that \( b - \epsilon < r < b \). But this means that \( r \in T \) and \( b - \epsilon \) is not an upper bound for \( T \). Hence, \( \sup T = b \).
+
+
+        \end{proof}
+    
+
+    Another proof for this: 
+
+        \begin{proof}
+            Let \( a < b \) where \( a,b \in \R \). Consider the following set \( T = \Q \cap [a,b] \). We want to show that \( \sup T = b \). By definition, \( b \) is an upper bound for \( T \) since \( a < b \). All we need to show is that \( b \) is the least upper bound. Since \( a < b \) where \( a,b \in \R \), we can find \(x \in \Q \) such that \( a < x < b \). Since \( x = \frac{m}{n}\) where \( m,n \in \Z \) with \( n \neq 0 \), we have that \( na < m < nb\). But note that \( nb \) is another upper bound for \( T \) for \( n \) sufficiently large and \( nb > b \) implying that \( b \) is the least upper bound of \( T \). Hence, \( \sup T = b \).
+        \end{proof}
+    
+
+    \subsection{Exercise 1.4.5}
+
+    Using Exercise 1.4.1, supply a proof for Corollary 1.4.4 by considering the real numbers \( a - \sqrt{2} \) and \( b - \sqrt{2}\). 
+
+        \begin{proof}
+            Consider the real numbers \( a - \sqrt{p}\) and \( b - \sqrt{p}\) where \( p \) is any prime number. Using the fact that \( \Q \) is dense in \( \R \), we have that 
+            \[ a - \sqrt{p} < r < b - \sqrt{p} \] 
+            for some \( r \in \Q \). Adding \( \sqrt{p} \) to both sides, we have that 
+            \[ a < r + \sqrt{p} < b .\]
+            But know that \( r + \sqrt{p} \in \mathbb{I} \) by (c) of Exercise 1.4.1. Hence, \( t = r + \sqrt{p} \). We can follow the same procedure for trancendental numbers and make this conclusion. 
+        \end{proof}
+    
+
+
+    \subsection{Exercise 1.4.7}
+
+    Finish the proof of Theorem 1.4.5 by showing that the assumption \( \alpha ^2 > 2 \) leads to a contradiction of the fact that \( \alpha = \sup T \). 
+        
+        
+    
+    \begin{proof}
+        Now we want to show the other case that \( \alpha^2 < 2 \) cannot happen. Now we need to produce an element in \( T \) such that it is less than \( \alpha \), thereby showing that \( \alpha \) is not the least upper bound of \( T \). Hence, we construct the following element 
+        \[ \bigg(\alpha - \frac{1}{n}\bigg)\in T. \]
+        Squaring this quantity will give us the following
+        \begin{align*}
+            \bigg(\alpha - \frac{1}{n}\bigg)^2 &= \alpha^2 -\frac{2\alpha}{n} + \frac{1}{n^2} \\
+            &> \alpha^2 - \frac{2 \alpha}{n}.
+        \end{align*}
+        Like we did before, we get to choose an \( n_0 \in \N \) such that 
+        \[ \frac{1}{n_0} > \frac{\alpha^2 - 2}{2 \alpha} \]
+        to make 
+        \[\bigg(\alpha - \frac{1}{n_0}\bigg)^2 < \alpha^2 - (\alpha^2 - 2) = 2.\]
+        But this shows that \( \alpha - \frac{1}{n_0} < \alpha \) showing that \( \alpha \) and that our constructed element contradicts that fact that \( \alpha\) is the least upper bound. 
+    \end{proof}
+
+
+    \subsection{Exercise 1.4.6}
+    Recall that a set \( B \) is dense in \( \R \) if an element of \( B \) can be found between any two real numbers \( a < b \). Which of the following sets are dense in \( \R \)? Take \( p \in \Z \) and \( q \in \N \) in every case. 
+    \begin{enumerate}
+        \item[(a)]
+        The set \( \{ r \in \Q : q \leq 10  \} \)
+        \begin{proof}[Solution]
+            Yes, since \( a < \frac{p}{10} < \frac{p}{q} < b \). 
+            
+        \end{proof}
+        
+        \item[(b)]
+        The set of all rationals \( p/q \) such that \( q \) is a power of 2.
+        \begin{proof}
+            Yes since \( a < \frac{p}{2^n} < b \) for \( n \in \N \). 
+        \end{proof}
+        
+        \item[(c)] 
+        The set of all rationals \( p/q \) with \( 10|p| \geq q \)
+            \begin{proof}
+                
+            \end{proof}
+        
+    \end{enumerate}
+
+
+
+
+
+
+
+    \subsection{Extra Exercises}
+    \begin{enumerate}
+        \item Show that \( \sup A = r \) where \( r \in \R \) and 
+        \[A = \{ q \in \Q: q < r \}.\]
+   
+
+            \begin{proof}
+                We know that the \( \sup A \) exists since the Archimedean Property implies that \( A \neq \emptyset \) and \( r \) is an upper bound of \( A \) by definition of \( A \). Now we need to show that \( r \) is the least upper bound of \( A \). By definition, \( \sup A \leq r \). Suppose for sake of contradiction that \( \sup A < r \). Since \( \Q \) is dense in \( \R \), we can find a \( q \in \Q \) such that \[ \sup A < q < r .\]
+                But this means that \( q \in A \) implying that \( \sup A \) is not an upper bound for \( A \) which is a contradiction. Hence, it must be that \( \sup A \leq r \). Hence, \( \sup A = r \).
+            \end{proof}
+        
+        \item Assume that \( A, B \) are non-empty sets of reals that are bounded above and \( A \subseteq B \). Show that \( \sup A \leq \sup B \). 
+
+            \begin{proof}
+                Suppose \( A, B \neq \emptyset \) where \( A, B \subseteq \R \) and bounded above. Furthermore, \( A \subseteq B \). By Axiom of Completeness, \( \sup A \) and \( \sup B \) exists. Using lemma 1.3.8, we can say that for every \( \epsilon > 0 \) 
+                \[ \sup A - \epsilon \leq \alpha \tag{1} \]
+                for some \(\alpha \in A \). Since \( A \subseteq B  \), \( \alpha \in B \) so by definition of \( \sup B \), we have that  \( \alpha \leq \sup B \). Hence, (1) implies that 
+                \[ \sup A - \epsilon \leq \sup B.\]
+                Of course, it follows immediately that \( \sup A \leq \sup B \).
+            \end{proof}
+        
+
+        \item                
+        Given nonempty subsets \( A \) and \( B \) of positive real numbers, define 
+        \[  A \cdot B = \{ z = x \cdot y : x \in A, y \in B \} \]
+        Show that \( \sup (A \cdot B ) = \sup A \cdot \sup B \)
+
+            \begin{proof}
+                Since \( A, B \neq \emptyset \) and bounded above, we can say that \( \sup A \) and \( \sup B \) exists. Label these supremum by the following \( \sup A = \alpha \) and \( \sup B = \beta \). By definition, we have that 
+                \begin{align*}
+                    x \leq \alpha, \text{ for all } x \in A  \\ 
+                    y \leq \beta, \text{ for all } y \in B. 
+                \end{align*}
+                Multiplying these inequalities together, we have that 
+            \[ xy \leq \alpha \beta \text{ for all } x \in A, y \in B. \]
+            Hence, we have that \( \alpha\beta \in A \cdot B \) is an upper bound. 
+            Now we want to show that \( \alpha \beta \in A \cdot B   \) is the least upper bound. For every \( \epsilon > 0 \), we have 
+            \begin{align*}
+                \alpha - \epsilon < a \leq \alpha \\ 
+                \beta - \epsilon < b  \leq \beta
+            \end{align*}
+            for some \( a \in A \) and for some \( b \in B \). Multiplying these two quantities together we have that 
+            \begin{align*}
+                \alpha \beta - \epsilon( \alpha + \beta + \epsilon) \leq \alpha \beta.
+            \end{align*} 
+            Since we can make \( \epsilon' = \epsilon( \alpha + \beta + \epsilon) > 0 \) abirtrarly small so that \( \alpha \beta - \epsilon' \) is not an upper bound of \( A \cdot B \). Hence, we have that 
+            \[ \sup (A \cdot B ) = \sup A \cdot \sup B. \]
+            \end{proof}
+           
+		\item Let \( A \subseteq \R \) be a nonempty set. Define the following set as 
+			\[ -A = \{  x: -x \in A \}. \]
+			Show that 
+			\begin{align*}
+				\sup(-A ) &= - \inf A \\ 
+				 \inf (-A ) &= -\sup A. 
+			\end
+            {align*}
+           
+
+        \begin{proof}
+        Since \( - A \neq \emptyset \) and \( -A \) is bounded above by every \( a \in A \), we know that for every \( \epsilon  > 0 \) we have that 
+        \[ \sup (-A) - \epsilon \leq - \alpha\]
+        for some \( -\alpha \in -A \). Multiplying by a negative, we have that 
+        \[\alpha \leq -\sup (-A) + \epsilon.\]
+        But this is just the lemma for the infimum so we have that \( \inf A = - \sup (-A)\) so we have that \[ \sup (-A) = -\inf A .\] 
+
+        Now we want to show (2). We can do the same process as we did above and use lemma 1.3.8 to say that 
+        for every \( \epsilon  > 0 \), we have that \[  - \beta \leq \inf (-A) + \epsilon \] for some 
+        \( -\beta \in -A \). Multiplying by a negative again, we get that 
+        \[ -\inf (-A) - \epsilon \leq \beta.\]
+        Note that this is some \( \beta \in A \). So by lemma 1.3.8, we have that \( -\inf (-A) = \sup A \)
+        and hence 
+        \[ \inf (-A) = -\sup A.\]
+        \end{proof}
+\item 
+
+Let \( A, B \subseteq \R \) be nonempty. Define the following sets as the following:
+\begin{align*}
+    \sup (A-B) &= \sup A - \inf B. 
+\end{align*}
+
+\begin{proof}
+Since \( A, B \neq \emptyset \), \( \sup A \) and \( \sup B \) exist by the axiom of completeness.  
+In order to show (1), we would need to show that following:
+\begin{align*}
+ \sup (A - B) &\leq \sup A - \inf B,  \\
+ \sup A - \inf B &\leq \sup(A - B ). 
+\end{align*}
+To show the first inequality, suppose we have \( x - y  \in A - B \) such that this bounds \( \sup (A - B )\).Hence, we have 
+\[ \sup (A - B) \leq x - y.\]
+If we add \( y \in B \) to both sides, then we get the following 
+\[ \sup (A - B) +y \leq x.\] But since \( x \in A \) is bounded by \( \sup A \), we have that 
+\[ \sup ( A - B ) + y \leq \sup A.\] Now we want to isolate \( y \in B \) to get 
+\[ \sup (A - B) - \sup A \leq -y\]
+Since \( -y \in -B\), we have that \( -y \leq \sup (-B) \) for all \( -y \in -B \). Hence, 
+\[ \sup (A - B ) - \sup A \leq \sup (-B). \] But we know from problem 1 that \( \sup (-B) = - \inf B \) so we have 
+\[ \sup (A - B ) \leq \sup A - \inf B.\]
+Now we need to show the other inequality. By lemma 1.3.8, we have that for every \( \epsilon > 0 \), there exists some \( \alpha \in A \) and \( -\beta \in -B \) such that 
+\begin{align*}
+\sup A - \epsilon/2 &\leq \alpha, \\
+\sup (-B) - \epsilon/2 &\leq -\beta.
+\end{align*}
+Adding these two inequalities, we have 
+\[ \sup A + \sup (-B) - \epsilon  \leq \alpha - \beta.\]
+But this means we can take \( \epsilon > 0\) abitrarly small to make the left-hand side not an upper bound. Hence, we have that 
+\[ \sup A + \sup (-B) \leq \sup (A - B)\] which implies that 
+\[ \sup A - \inf B \leq \sup (A-B).\]
+\end{proof}
+
+\item 
+
+
+Given two sets of positive real numbers \( A,B \neq \emptyset \) that are bounded, define 
+\[ \frac{1}{A } = \bigg\{ z = \frac{1}{x} : x \in A \bigg\}.\]
+Prove that 
+\[ \sup \bigg(\frac{ 1}{A}\bigg) = \frac{ 1 }{\inf A }\]
+and prove that 
+\[ \sup \Big( \frac{1}{A}\Big) = +\infty \]
+if \( \inf A > 0 \).
+\begin{proof}
+Since \( A \subseteq \R^+\) is bounded, we know that \( x \geq \inf A \) for all \( x \in A \). Since \( x > 0 \) and \( \inf A > 0 \), we have that 
+\[ \frac{1}{x} \leq \frac{1}{\inf A}.\]
+
+for all \( z = \frac{1}{x} \in \frac{1}{A}\). This shows that \( \frac{ 1}{ \inf A }\) is an upper bound for \( \frac{1}{A}\). Now we want to show that \( \frac{1 }{\inf A } \) is the least upper bound. Using lemma 1.3.8, we have for every \( \epsilon > 0 \)
+\[ \alpha \leq \inf A + \epsilon \]
+for some \( \alpha \in A \). Since \( \alpha > 0 \) and \( \inf A > 0 \), we get that 
+\[ \frac{1}{\inf A} - \epsilon' \leq \frac{1}{\alpha}\]
+which holds true for all \( e' = \frac{ \epsilon }{\inf A \cdot \alpha} > 0\) for some
+\( \frac{1}{\alpha} \in \frac{1}{A}\). Using lemma 1.3.8, we have, indeed, \( \frac{ 1}{\inf A }\) is the least upper found of \( \frac{1}{A}\). Hence, we obtain 
+\[ \sup \Big( \frac{1}{A}\Big) = \frac{1}{\inf A }.\]
+\end{proof} 
+    \end{enumerate}
+    
+
+
+
+
+
+
+
+
+
+
+% \end{document}
+

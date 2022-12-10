@@ -1,0 +1,37 @@
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{hyperref,enumitem,tcolorbox}
+\usepackage{fancyhdr, bookmark, parskip}
+\usepackage[hmarginratio=1:1]{geometry}
+\setlength{\headheight}{28pt}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+\usepackage{tcolorbox}
+\usepackage{graphicx}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{cor}{Corollary}[thm]
+\newtheorem{lem}{Lemma}[section]
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem*{rem}{Remark}
+\newtheorem*{ex}{Example}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\nouppercase{\rightmark\hfill\leftmark}}
+\fancyhead[RO]{\nouppercase{\leftmark\hfill\rightmark}}
+\fancyfoot[LE,RO]{\hfill\thepage\hfill}
+
+\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[LO,CE]{Lance Remigio}
+
+
+
