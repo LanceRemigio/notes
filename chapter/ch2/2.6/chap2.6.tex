@@ -1,0 +1,193 @@
+\section{The Cauchy Criterion}
+
+\begin{tcolorbox}
+\begin{defn}
+A sequence \((a_n)\) is called a \textit{Cauchy Sequence} if, for every \( \epsilon > 0 \), there exists an \( N \in \N \) such that whenever \( m,n \geq N \) it follows that 
+\[ | a_n - a_m | < \epsilon.\]
+\end{defn}
+\end{tcolorbox}
+
+In the regular convergence defintion, we are given any \( \epsilon > 0 \) where there is a point in the sequence \(N \in \N \) such that past this point, all of our terms fall within an \(\epsilon\) range around some limit point. In the Cauchy Criterion defintion, we begin with the same conditions but this time, all the terms of the sequence are all tightly packed together wthin the \(\epsilon > 0 \) range we were given. It turns out, that these two definitions are equivalent: that is, \textit{Cauchy sequences} are convergent sequences and convergent sequences are \textit{Cauchy sequences}. 
+
+\begin{tcolorbox}
+\begin{thm}
+Every convergent sequence is a Cauchy sequence. 
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+Assume \((x_n)\) converges to \(x\). To show that \((x_n)\) is \textit{Cauchy}, there must existsa point \( N \in \N \) after which we can conclude that 
+\[ |x_n - x_m| < \epsilon. \]
+Let \( \epsilon > 0 \). Since \( (x_n) \to x \), we can choose \( N \in \N \) such that for any \( n,m \geq N \), we have 
+\begin{align*}
+    |x_n - x|&< \frac{\epsilon}{2}, \tag{1} \\
+    |x_m - x|&< \frac{\epsilon}{2}. \tag{2}
+\end{align*}
+Consider \( |x_n - x_m| \). Then (1) and (2) imply that 
+\begin{align*}
+    |x_n - x_m|&= |x_n - x + x - x_m| \\
+               &< | x_n - x | + | x - x_n | \tag{\text{Triangle Inequality}}\\  
+               &< \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
+               &= \epsilon.
+\end{align*}
+Hence, \((x_n)\) is a \textit{Cauchy Sequence}.
+\end{proof}
+
+We can prove the other direction, by using either the \textit{Bolzano Weierstrass Theorem} or the \textit{Monotone Convergence Theorem}. This is a little bit more difficult since we need to have a proposed limit for the sequence to converge to.  
+\begin{tcolorbox}
+\begin{lem}
+Cauchy sequences are bounded.
+\end{lem}
+\end{tcolorbox}
+
+\begin{proof}
+    Given \( \epsilon = 1\), there exists an \( N \in \N \) such that \( |x_m - x_n | < 1 \) for amm \( m,n \geq N \). Thus, we must have \( |x_n| < |x_{N}| + 1 \) for all \( n \geq N \) (just substituted \(m = N \) here). Hence, define 
+    \[ M = \max \{ |x_1|, |x_1|, |x_1|,..., |x_{N-1}|, |x_{N}| + 1 \}.\]
+   Therefore, \( |x_n| < M \) for all \( n \in \N \) Hence, the \textit{Cauchy sequence} \((x_n)\) is \textit{bounded}.
+\end{proof}
+
+\begin{tcolorbox}
+\begin{thm}
+A sequence converges if and only if it is a Cauchy sequence.
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    (\(\Rightarrow\)) This direction is just Theorem 2.6.2 which we have proved above. 
+
+    (\( \Leftarrow\)) Suppose \((x_n)\) is a \textit{Cauchy sequence}. Let \( \epsilon > 0 \). Since \( (x_n)\) is a \textit{bounded} sequence, there exists a subsequence \((x_{n_k})\) such that \((x_{n_k}) \to x \) by the \textit{Bolzano Weierstrass Theorem}. Let \( \epsilon > 0 \). Then for some \( N \in \N \), every \( n_k \geq N \) has the property
+    \[ |x_{n_k} - x| < \epsilon.\]
+\end{proof}
+Our goal now is to show that \( (x_n) \to x\). Hence, consider \( |x_n - x| \). Then for every \(n, n_{k} \geq N \), we have 
+\begin{align*}
+    |x_n - x | &= |x_n - x_{n_k} + x_{n_k} - x | \\
+     &< |x_n - x_{n_k}| + |x_{n_k} - x| \\
+     &< \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
+     &= \epsilon.
+\end{align*}
+Hence, \((x_n) \to x \).  
+
+\subsection{Completeness Revisited}
+
+We can summarize all of our results thus far in the following way 
+\[ \text{AOC} 
+\begin{cases}
+    \text{NIP} \implies \text{BW} \implies \text{CC} \\ 
+    \text{MCT} 
+\end{cases}   \]
+where AOC is our defining axiom to base all our reults on and giving us the notion that an ordered field contains no holes. We could also take the MCT to be our defining axiom and gives us the notion of least upper bounds by proving NIP. In addition, we could also take NIP to be our starting point but we need to have an extra hypothesis; that is, the Archimedean Property to prove all our results above (This is unavoidable).
+
+It could be possible to assume the Arcimedean property holds, suppose one of the results we have proven is true, and derive the others yet this is sort of limited since \( \Q \) contains a set that is not complete. 
+
+Below is the least of implications we can prove based on which theorem we would like to select asour defining axiom. Hence, we have
+\[ \text{NIP} + \text{Archimedean Property} \implies \text{AOC} \] and 
+\[ \text{BW} \implies \text{MCT} \implies \text{Archimedean Property}\]
+
+\subsection{Exercises}
+
+\subsubsection{Exercise 2.6.1}
+Prove that every convergent sequence is \textit{Cauchy}.
+\begin{proof}
+Assume \( (x_n)\) converges to \(x\). To show that \((x_n)\) is \textit{Cauchy}, we must have for every \( \epsilon > 0 \),  there must exists \( N \in \N \) such that for \( m,n \geq N \), we must have 
+\[ |x_n - x_m| < \epsilon. \]
+Let \( \epsilon > 0 \). Since \( (x_n) \to x \), there exists \( N \in \N \) such that for every \( n \geq N \), we must have 
+\[ |x_n - x| < \frac{\epsilon}{2}. \]
+Since \( (x_n)\) converges to \(x\), every subsequence \( (x_{n_k})\) of \((x_n)\) converges to \(x \). This means for \( n_k \geq N \), we also have 
+\[ | x_{n_k} - x | < \frac{ \epsilon }{2}.\] 
+Now consider \(|x_n - x_{n_k}| \) and assume \( n, n_k \geq N \). Then by the \textit{triangle inequality}, we can write 
+\begin{align*}
+    |x_n - x_{n_k}| &= |x_n - x + x - x_{n_k} | \\
+                    &< |x_n - x| + |x - x_{n_k}| \\
+               &< \frac{\epsilon}{2} + \frac{\epsilon }{2} \\
+               &= \epsilon.
+\end{align*}
+Hence, \((x_n)\) is a \textit{Cauchy Sequence}. 
+\end{proof}
+
+\subsubsection{Exercise 2.6.2}
+Give an example of each of the following, or argue that such a request is impossible.
+\begin{enumerate}
+    \item[(a)] A Cauchy sequence that is not \textit{monotone}. 
+        \begin{proof}[Solution]
+         This is possible. Suppose \((x_n)\) is defined such that 
+         \[ x_n = \frac{(-1)^{n}}{n}.\]
+         We have \((x_n)\) is Cauchy and thus convergent but it is not monotonic.
+        \end{proof}
+        \textit{Takeaway:} Just because a sequence is convergent does not generally imply that it is monotonic.
+    \item[(b)] A cauchy sequence with an unbounded subsequence. 
+        \begin{proof}[Solution]
+        This is not possible since cauchy sequences must be convergent and convergent sequences are bounded which means every subsequence is bounded as well.   
+        \end{proof}
+    \item[(c)] A divergent monotone sequence with a Cauchy subsequence.
+        \begin{proof}[Solution]
+        This is not possible. A divergent monotone sequence must contain divergent subsequences. Thus, these subsequences cannot be Cauchy by the Cauchy Criterion. 
+        \end{proof}
+    \item[(d)] An unbounded sequence containing a subsequence that is Cauchy.
+        \begin{proof}[Solution]
+        This is possible. Let's define the following sequence 
+        \[ (1,2,1,4,1,6,1,8,...)\] where
+        \[ x_n =  
+        \begin{cases}
+            1 \text{ if } n \text{ odd} \\ 
+            \text{even}  \text{ if } n \text{ even }.
+        \end{cases}\]
+        is an \textit{unbounded} sequence. 
+        As we can see, if we take the subsequence \((x_{2k+1})\), then we find the subsequence 
+        \[ (1,1,1,1,1,... )\]
+        converges to \( 1\).
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 2.6.3} If \((x_n)\) and \((y_n)\) are \textit{Cauchy} sequences, then one easy way to prove that \((x_n + y_n)\) is \textit{Cauchy} is to use the Cauchy Criterion. By Theorem 2.6.4, \((x_n)\) and \((y_n)\) must be convergent, and the \textit{Algebraic Limit Theorem} then implies \((x_n + y_n )\) is convergent and hence \textit{Cauchy}.
+\begin{enumerate}
+    \item[(a)] Give a direct argument that \((x_n + y_n)\) is a Cauchy sequence that does not use the Cauchy Criterion or the Algbraic Limit Theorem. 
+        \begin{proof}
+         Suppose \( (x_n)\) and \((y_n)\) are \textit{Cauchy Sequences}. Our goal is to show that \((x_n + y_n)\) is also a \textit{Cauchy} sequence. Since \( (x_n)\) is \textit{Cauchy}, let \(\epsilon > 0 \) such that there exists \( N_1 \in \N \) for every \(m,n \geq N \), we have 
+         \[ |x_n - x_m | < \frac{\epsilon}{2}.\]
+         Likewise, there exists \( N_2 \in \N \) such that for every \( m,n \geq N \), we have 
+         \[ |y_n - y_m | < \frac{\epsilon}{2}.\]
+         Our goal is to show that 
+         \[ |(x_n + y_n) - (x_{m} + y_{m})| < \epsilon\]
+         Now choose \( N = \max \{ N_1, N_2 \}\) such that \( n, m \geq N \) and using the triangle inequality, we write
+         \begin{align*}
+             |(x_n + y_n) - (x_{m} + y_{m})| &= | (x_n - x_{m}) + (y_n - y_{m})| \\
+                                                 &< | x_n - x_{m}| + |y_n - y_{m}| \\
+                                                 &< \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
+                                                 &= \epsilon.
+         \end{align*}
+         Hence, we have \( (x_n + y_n)\) is also \textit{Cauchy}.
+        \end{proof}
+    \item[(b)] Do the same for the product \((x_ny_n)\).
+        \begin{proof}
+            Suppose \( (x_n)\) and \((y_n)\) are both \textit{Cauchy}. This implies \((x_n)\) and \((y_n)\) are \textit{bounded} as well as their subsequences \((x_{n_k})\) and \((y_{b_k})\). Hence, there exists \(N_1, N_2 \in \N \) such that for every \(n_k \geq N_1, N_2 \), 
+            Since \((x_{n_k})\) converges and \((y_{n})\) are Cauchy sequences, it follows that they are also \textit{bounded}. Hence, there exists \(M_1, M_2 > 0 \) such that \( |y_n| < M_1\) and \( |x_{n_k}| < M_2 \) for all \( n, n_k \). Our goal is to show 
+            \[ |x_ny_n - x_{n_k}y_{n_k}| < \epsilon.\]
+            Choose \( N = \max \{ N_1, N_2 \}\) such that for every \( n, n_k \geq N \)
+            \begin{align*}
+                |x_ny_n - x_{n_k}y_{n_k}| &= |x_n y_n - x_{n_k}y_n + x_{n_k}y_n -x_{n_k}y_{n_k} |  \\
+                                          &= | y_n (x_n - x_{n_k}) + x_{n_k}(y_n - y_{n_k})| \\
+                                          &< |y_n| |x_n - x_{n_k}| + |x_{n_k}| |y_n - y_{n_k}| \\
+                                          &< M_1 \cdot \frac{\epsilon}{2 M_1} + M_2 \cdot \frac{\epsilon}{2M_2} \\
+                                          &= \epsilon.
+            \end{align*}
+            Hence, \((x_ny_n)\) is a \textit{Cauchy sequence}.
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 2.6.4} Let \((a_n)\) and \((b_n)\) be \textit{Cauchy sequences}. Decide whether each of the following sequences is a \textit{Cauchy sequence}, justifying each conclusion.
+\begin{enumerate}
+    \item[(a)] \( x_n = |a_n - b_n|.\)
+        \begin{proof}[Solution]
+        
+        \end{proof}
+    \item[(b)] \(c_n = (-1)^n a_n \).
+        \begin{proof}[Solution]
+        
+        \end{proof}
+    \item[(c)] \(c_n = [[a_n]]\), where \([[x]]\) refers to the greatest integer less than or equal to \(x\).
+        \begin{proof}[Solution]
+        
+        \end{proof}
+\end{enumerate}
+
+
