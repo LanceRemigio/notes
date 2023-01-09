@@ -272,6 +272,195 @@ Let \(x_1 = 2\), and define
         
 \end{enumerate}
 
+\subsection{Exercise 2.4.6 (Limit Superior.) }
+Let \( (a_n)\) be a \textit{bounded} sequence. 
+\begin{enumerate}
+    \item[(a)] Prove that the sequence defined by \( y_n = \sup \{ a_k : k \geq n \}\) converges. 
+        \begin{proof}
+        Let \( (a_n)\) be a \textit{bounded} sequence. Let \( (y_n)\) be defined as 
+        \[ y_n = \sup \{ a_k : k \geq n \}\] and further denote
+        \[ A_n = \{ a_k : k \geq n\}.\]
+        Our goal is to show that \( (y_n)\) converges. Thus, our goal is to show that \( (y_n)\) is both \textit{monotone} and \textit{bounded}.
+
+        We first show the former. We claim that \( (y_n)\) is a \textit{decreasing} sequence. Hence, we need to show that \( y_n \geq y_{n+1}\) for all \( n \in \N \). We know that for each term \( y_n \), by definition, is the \textit{least upper bound} of the set \( \{a_k: k \geq n\}\). By exercise 1.3.4, we know that since \( A_{n+1} \subseteq A_n \), we have that \( y_{n+1} \leq y_n\) for all \( n \in \N \). Hence, we have that \( y_n\) is a \textit{decreasing} sequence.
+
+        Now we want to show that \( (y_n)\) is \textit{bounded}. Since \( (a_n)\) is a \textit{bounded} sequence, there exists an \( M > 0 \) such that \( M \leq a_n \leq y_n  \) for all \( n \in \N \). Hence, \( (y_n)\) is a \textit{bounded} sequence. In this case, it is enough to have \( (y_n)\) be bounded below.
+
+        Since \( (y_n)\) is \textit{monotone} and \textit{bounded}, we have that \( (y_n)\) is a convergent sequence.
+
+        \end{proof}
+    \item[(b)] The \textit{limit superior} of \( (a_n)\), or \( \lim \sup a_n   \) is defined by 
+        \[ \lim  \sup a_n = \lim y_n   \] where \( y_n \) is the sequence from part (a) of this exercise. Provide a reasonable definition for \( \lim \inf a_n  \) and briefly explain why it always exists for any bounded sequence.
+      \begin{proof}[Solution]
+       Let \( a_n \) be a \textit{bounded} sequence. Then define   
+       \[ w_n = \inf \{ a_k : k \geq n  \}\]
+       so we can have 
+       \[ \lim w_n = \lim \inf\{a_k : k \geq n\}. \]
+      This limit exists because the terms of \( (w_n) \) are \textit{increasing} and that \( (w_n) \) is \textit{bounded} since there exists an \( L > 0 \) such that \( w_n \leq a_n \leq L \).
+
+
+       \end{proof} 
+    \item[(c)] Prove that \( \lim \inf a_n \leq \lim \sup a_n  \) for every \textit{bounded} sequence, and give an example of a sequence for which the inequality is strict.
+        \begin{proof}
+        Suppose that \( (a_n)\) is a \textit{bounded} sequence. Since \( \lim \inf a_n \) and \( \lim \sup a_n \) exists, we have that \( \lim \inf a_n \leq a_n \leq \lim \sup a_n  \). Hence, 
+        \[ \lim \inf a_n \leq \lim \sup a_n.  \]
+        \end{proof}
+    \item[(d)] Show that \( \lim \inf a_n = \lim \sup a_n\) if and only if \( \lim a_n \) exists. In this case, all three share the same value.
+        \begin{proof}
+        We start by assuming that \( \lim \inf a_n = \lim \sup a_n \). We want to show that the \( \lim a_n  \) exists. Define the following:
+        \begin{align*}
+        w &= \lim \inf a_n = \lim w_n ,  \\ 
+        y &= \lim \sup a_n = \lim y_n . 
+        \end{align*} 
+        Since \( w_n \) and \( y_n\) both bound \( a_n \), it follows that \( w_n \leq a_n \leq y_n\).
+        Since the \( \lim \inf a_n \) and \( \lim \sup a_n \) both exists such that \( \lim  w_n = \lim y_n = \ell \), it follows that \( \lim a_n = \ell \) by the \textit{Squeeze Theorem}. Hence, \( \lim a_n \) exists.
+
+        Now assume the converse. Hence, our goal now is to show that \( \lim \inf a_n = \lim \sup a_n\). Since \( (a_n)\) is a convergent sequence, let \( \epsilon > 0  \) such that there exists an \( N \in \N\) where for every \( n \geq N \), we have
+        \[ |a_n - \ell| < \epsilon. \]  
+        This is equivalent to saying 
+        \[ \ell - \epsilon \leq a_n \leq \ell + \epsilon. \]
+        Since \( \epsilon > 0  \) is abitrary, we can conclude that \( \lim \inf a_n = \lim \sup a_n  \).
+
+        \end{proof}
+        
+\end{enumerate}
+
+
+\subsection{Exercise 2.4.9} Complete the proof of Theorem 2.4.6 by showing that if the series \( \sum_{n=0}^{ \infty} 2^n b_{2n}  \) diverges, then so does \( \sum_{n=1}^{ \infty} b_n \). Example 2.4.5 may be a useful reference.
+
+\begin{proof}
+    Our goal is to show that \( \sum_{n=1}^{ \infty} b_n\) diverges. Since \( \sum_{n=0}^{ \infty} b_{{2^n}} \) diverges, the sequence of partial sums 
+    \[t_k = b_1 + 2b_2 + 4b_4 + ... + 2^k b_{2^k}\]
+    diverges. This implies that \( t_k \) is \textit{unbounded}: that is, there exists \( M > 0 \) such that for some \( K \in \N \), we have for all \( k \geq K \) we have \( t_k > M \). Since \( b_n \geq 0\), it suffices to show that the partial sums of \( \sum_{n=1}^{ \infty} b_n\) are \textit{unbounded}. Let 
+    \[ s_m = \sum_{k=1}^{m} b_k = b_1 + b_2 + b_2 + ... + b_m.  \]
+    Let us fix \( m \) such that we choose \( k \) sufficiently large so that \( m \geq 2^{k+1} + 1 \). Hence, we have that \( s_m \geq s_{2^{k-1} + 1} \). Observe that 
+    \begin{align*}
+        s_{2^{k+1}+1} &= b_1 + (b_2 + b_3) + (b_4 + b_5 + b_6 + b_7) + ... + (b_{2^k} + ... + b_{2^{k+1}+1})  \\ 
+                      &\geq b_1 + (b_2 + b_2) + (b_4 + b_4 + b_4 + b_4) + ... + (b_{2k} + ... + b_{2k}) \\
+                      &= b_1 + 2b_2 + 4b_4 + ... + 2^k b_{2k} \\
+                      &= t_k.
+    \end{align*}
+    This implies that \( s_m \geq s_{2^{k+1}+1} \geq t_k > M \) for all \( k \geq K\). Hence, we conclude \( t_k\) is \textit{unbounded}. Thus, the series 
+    \[ \sum_{n=1}^{ \infty} b_n.\]
+    diverges.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection{Exercise 2.4.10 (Infinite Products)}
+A close relative of infinite series is the \textit{infinite product} 
+\[ \prod_{n=1}^{ \infty } b_n = b_1 b_2 b_3 \dots \]
+which is understood in terms of its sequence of \textit{partial products}
+\[ p_m = \prod_{n=1}^m b_n = b_1b_2b_3 \dots b_m.\]
+Consider the special class of infinite products of the form 
+\[ \prod_{n=1}^{ \infty} (1 + a_n) = (1+a_1)(1+a_2)(1+a_3) \dots ~ \text{where } a_n \geq 0 \]
+\begin{enumerate}
+    \item[(a)] Find an explicit formula for the sequence of partial products in the case where \( a_n = 1 / n \) and decide whether the sequence converges. Write out the first few terms in the sequence of partial products in the case where \( a_n = 1 / n^2\) and make a conjecture about the convergence of this sequence.
+    \item[(b)] Show, in general, that the sequence of partial products converges if and only if \( \sum_{n=1}^{ \infty} a_n \) converges. (The inequality \( 1 + x \leq 3^x\)) for positive \( x \) will be useful in one direction.)
+\end{enumerate}
+
+\subsection{Exercise 2.4.6 (Limit Superior.) }
+Let \( (a_n)\) be a \textit{bounded} sequence. 
+\begin{enumerate}
+    \item[(a)] Prove that the sequence defined by \( y_n = \sup \{ a_k : k \geq n \}\) converges. 
+        \begin{proof}
+        Let \( (a_n)\) be a \textit{bounded} sequence. Let \( (y_n)\) be defined as 
+        \[ y_n = \sup \{ a_k : k \geq n \}\] and further denote
+        \[ A_n = \{ a_k : k \geq n\}.\]
+        Our goal is to show that \( (y_n)\) converges. Thus, our goal is to show that \( (y_n)\) is both \textit{monotone} and \textit{bounded}.
+
+        We first show the former. We claim that \( (y_n)\) is a \textit{decreasing} sequence. Hence, we need to show that \( y_n \geq y_{n+1}\) for all \( n \in \N \). We know that for each term \( y_n \), by definition, is the \textit{least upper bound} of the set \( \{a_k: k \geq n\}\). By exercise 1.3.4, we know that since \( A_{n+1} \subseteq A_n \), we have that \( y_{n+1} \leq y_n\) for all \( n \in \N \). Hence, we have that \( y_n\) is a \textit{decreasing} sequence.
+
+        Now we want to show that \( (y_n)\) is \textit{bounded}. Since \( (a_n)\) is a \textit{bounded} sequence, there exists an \( M > 0 \) such that \( M \leq a_n \leq y_n  \) for all \( n \in \N \). Hence, \( (y_n)\) is a \textit{bounded} sequence. In this case, it is enough to have \( (y_n)\) be bounded below.
+
+        Since \( (y_n)\) is \textit{monotone} and \textit{bounded}, we have that \( (y_n)\) is a convergent sequence.
+
+        \end{proof}
+    \item[(b)] The \textit{limit superior} of \( (a_n)\), or \( \lim \sup a_n   \) is defined by 
+        \[ \lim  \sup a_n = \lim y_n   \] where \( y_n \) is the sequence from part (a) of this exercise. Provide a reasonable definition for \( \lim \inf a_n  \) and briefly explain why it always exists for any bounded sequence.
+      \begin{proof}[Solution]
+       Let \( a_n \) be a \textit{bounded} sequence. Then define   
+       \[ w_n = \inf \{ a_k : k \geq n  \}\]
+       so we can have 
+       \[ \lim w_n = \lim \inf\{a_k : k \geq n\}. \]
+      This limit exists because the terms of \( (w_n) \) are \textit{increasing} and that \( (w_n) \) is \textit{bounded} since there exists an \( L > 0 \) such that \( w_n \leq a_n \leq L \).
+
+
+       \end{proof} 
+    \item[(c)] Prove that \( \lim \inf a_n \leq \lim \sup a_n  \) for every \textit{bounded} sequence, and give an example of a sequence for which the inequality is strict.
+        \begin{proof}
+        Suppose that \( (a_n)\) is a \textit{bounded} sequence. Since \( \lim \inf a_n \) and \( \lim \sup a_n \) exists, we have that \( \lim \inf a_n \leq a_n \leq \lim \sup a_n  \). Hence, 
+        \[ \lim \inf a_n \leq \lim \sup a_n.  \]
+        \end{proof}
+    \item[(d)] Show that \( \lim \inf a_n = \lim \sup a_n\) if and only if \( \lim a_n \) exists. In this case, all three share the same value.
+        \begin{proof}
+        We start by assuming that \( \lim \inf a_n = \lim \sup a_n \). We want to show that the \( \lim a_n  \) exists. Define the following:
+        \begin{align*}
+        w &= \lim \inf a_n = \lim w_n ,  \\ 
+        y &= \lim \sup a_n = \lim y_n . 
+        \end{align*} 
+        Since \( w_n \) and \( y_n\) both bound \( a_n \), it follows that \( w_n \leq a_n \leq y_n\).
+        Since the \( \lim \inf a_n \) and \( \lim \sup a_n \) both exists such that \( \lim  w_n = \lim y_n = \ell \), it follows that \( \lim a_n = \ell \) by the \textit{Squeeze Theorem}. Hence, \( \lim a_n \) exists.
+
+        Now assume the converse. Hence, our goal now is to show that \( \lim \inf a_n = \lim \sup a_n\). Since \( (a_n)\) is a convergent sequence, let \( \epsilon > 0  \) such that there exists an \( N \in \N\) where for every \( n \geq N \), we have
+        \[ |a_n - \ell| < \epsilon. \]  
+        This is equivalent to saying 
+        \[ \ell - \epsilon \leq a_n \leq \ell + \epsilon. \]
+        Since \( \epsilon > 0  \) is abitrary, we can conclude that \( \lim \inf a_n = \lim \sup a_n  \).
+
+        \end{proof}
+        
+\end{enumerate}
+
+
+\subsection{Exercise 2.4.9} Complete the proof of Theorem 2.4.6 by showing that if the series \( \sum_{n=0}^{ \infty} 2^n b_{2n}  \) diverges, then so does \( \sum_{n=1}^{ \infty} b_n \). Example 2.4.5 may be a useful reference.
+
+\begin{proof}
+    Our goal is to show that \( \sum_{n=1}^{ \infty} b_n\) diverges. Since \( \sum_{n=0}^{ \infty} b_{{2^n}} \) diverges, the sequence of partial sums 
+    \[t_k = b_1 + 2b_2 + 4b_4 + ... + 2^k b_{2^k}\]
+    diverges. This implies that \( t_k \) is \textit{unbounded}: that is, there exists \( M > 0 \) such that for some \( K \in \N \), we have for all \( k \geq K \) we have \( t_k > M \). Since \( b_n \geq 0\), it suffices to show that the partial sums of \( \sum_{n=1}^{ \infty} b_n\) are \textit{unbounded}. Let 
+    \[ s_m = \sum_{k=1}^{m} b_k = b_1 + b_2 + b_2 + ... + b_m.  \]
+    Let us fix \( m \) such that we choose \( k \) sufficiently large so that \( m \geq 2^{k+1} + 1 \). Hence, we have that \( s_m \geq s_{2^{k-1} + 1} \). Observe that 
+    \begin{align*}
+        s_{2^{k+1}+1} &= b_1 + (b_2 + b_3) + (b_4 + b_5 + b_6 + b_7) + ... + (b_{2^k} + ... + b_{2^{k+1}+1})  \\ 
+                      &\geq b_1 + (b_2 + b_2) + (b_4 + b_4 + b_4 + b_4) + ... + (b_{2k} + ... + b_{2k}) \\
+                      &= b_1 + 2b_2 + 4b_4 + ... + 2^k b_{2k} \\
+                      &= t_k.
+    \end{align*}
+    This implies that \( s_m \geq s_{2^{k+1}+1} \geq t_k > M \) for all \( k \geq K\). Hence, we conclude \( t_k\) is \textit{unbounded}. Thus, the series 
+    \[ \sum_{n=1}^{ \infty} b_n.\]
+    diverges.
+\end{proof}
+
+
+\subsection{Exercise 2.4.10 (Infinite Products)}
+A close relative of infinite series is the \textit{infinite product} 
+\[ \prod_{n=1}^{ \infty } b_n = b_1 b_2 b_3 \dots \]
+which is understood in terms of its sequence of \textit{partial products}
+\[ p_m = \prod_{n=1}^m b_n = b_1b_2b_3 \dots b_m.\]
+Consider the special class of infinite products of the form 
+\[ \prod_{n=1}^{ \infty} (1 + a_n) = (1+a_1)(1+a_2)(1+a_3) \dots ~ \text{where } a_n \geq 0 \]
+\begin{enumerate}
+    \item[(a)] Find an explicit formula for the sequence of partial products in the case where \( a_n = 1 / n \) and decide whether the sequence converges. Write out the first few terms in the sequence of partial products in the case where \( a_n = 1 / n^2\) and make a conjecture about the convergence of this sequence.
+    \item[(b)] Show, in general, that the sequence of partial products converges if and only if \( \sum_{n=1}^{ \infty} a_n \) converges. (The inequality \( 1 + x \leq 3^x\)) for positive \( x \) will be useful in one direction.)
+\end{enumerate}
+
+
+
 
 
 
