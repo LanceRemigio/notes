@@ -1,0 +1,512 @@
+\section{Properties of Infinite Series}
+
+We have learned the convergence of the series \( \sum_{k=1}^{\infty} a_k \) is defined in terms of the sequence \( (s_n)\) where 
+\[ \sum_{k=1}^{\infty} a_k = A \text{ means that } \lim s_n = A.\]
+We called \( (s_n)\) the \textit{sequence of partial sums} of the series \( \sum_{k=1}^{\infty} a_k\). Just like the \textit{Algebraic Limit Theorem} for sequences, we can also do the same thing for series. 
+
+\begin{tcolorbox}
+    \begin{thm}[Algebraic Limit Theorem for Series] 
+If \( \sum_{k=1}^{ \infty} a_k = A \) and \( \sum_{k=1}^{ \infty} b_k = B \), then 
+\begin{enumerate}
+    \item[(i)] \( \sum_{k=1}^{ \infty } ca_k = cA \) for all \( c \in \R \),
+    \item[(ii)] \( \sum_{k=1}^{ \infty } (a_k + b_k) = A + B\)
+\end{enumerate}
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+Suppose \( \sum_{k=1}^{\infty} a_k = A \) and let \( c \in \R \). Define the sequence of partial sums of \( \sum_{k=1}^{ \infty} ca_k \) as 
+\[ t_k = cs_n =  ca_1 + ca_2 + ca_3 + ... + ca_n.\]
+By the \textit{Algebraic Limit Theorem}, we know that \( \lim cs_n = cA \). Hence, 
+\[ \sum_{k=1}^{\infty} ca_k = cA.\]
+To prove the addition rule, suppose \( \sum_{k=1}^{ \infty} b_k = B \). We want to show that 
+\[ \sum_{k=1}^{\infty} (a_k + b_k) = A + B.\]
+Define the sequence of partial sums for the two series as the following:
+\begin{align*}
+    t_k &= a_1 + a_2 + ... + a_n, \\
+    u_k &= b_1 + b_2 + ... + b_n
+\end{align*}
+Since \( \sum_{k=1}^{\infty} a_k = A \) and \( \sum_{k=1}^{\infty} b_k = B \), their sequence of partial sums also converges to the same value. Hence, let \( \lim t_k = A \) and \( \lim u_k = B \). By the \textit{Algebraic Limit Theorem}, the sum of these two limits also converges i.e  
+\[ \lim ( t_k + u_k ) = \lim t_k + \lim u_k = A + B.\] 
+Hence, 
+\[ \sum_{k=1}^{\infty} (a_k + b_k) = A + B \]
+\end{proof}
+
+We can summarize this theorem by keeping in mind that we can perform distribution over infinite addition and that we can add two infinite series together. 
+
+\begin{tcolorbox}
+    \begin{thm}[Cauchy Criterion for Series]
+     The series \( \sum_{k=1}^{ \infty} a_k \) converges if and only if, given \( \epsilon > 0\), there exists \( N \in \N \) such that whenever \( n > m \geq N \) it follows that 
+     \[ |a_{m+1} + a_{m+2} + ... + a_n| < \epsilon.\]
+    \end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    Let \(\epsilon > 0 \). We want to show that there exists \( N \in \N \) such that whenever \( n > m \geq N \) it follows that 
+    \[|a_{m+1} + a_{m+2} + ... + a_n| < \epsilon.\]
+    Suppose \( \sum_{k=1}^{\infty} a_k \) converges. This is true if and only if the sequence of partial sums \( (t_k)\) converges. This is true if and only if \( (s_k)\) is \textit{Cauchy} by the \textit{Cauchy Criterion}. Hence, there exists \( N \in \N \) such that whenever \( n > m \geq N \) 
+    \[ |s_n - s_m | < \epsilon.\]
+Note that 
+\begin{align*}
+    |s_n - s_m|&= | \sum_{k=m+1}^{\infty} a_k - \sum_{k=m}^{m} a_k|  \\
+               &= |\sum_{k=m+1}^{n}a_k|\\
+               &= |a_{m+1} + ... + a_n| < \epsilon
+\end{align*}
+\end{proof}
+
+This gives us the opportunity to prove some basic facts about series.
+
+\begin{tcolorbox}
+\begin{thm}
+If the series \( \sum_{k=1}^{\infty} a_k \) converges, then \( (a_k) \to 0\).
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+From the last theorem, we note that for every \( \epsilon > 0 \) such that whenever \(n  \geq m \geq N \), we have  
+\[ | s_n - s_m| = \Big| \sum_{k=m+1}^{ \infty} a_k - 0 \Big| < \epsilon\]
+implies that \( (a_n) \to 0 \).
+\end{proof}
+
+Keep in mind that the converse of this statement is not true! Just because \( (a_k)\) tends to \( 0 \) does not immediately imply that the series converges! 
+
+\begin{tcolorbox}
+    \begin{thm}[Comparison Test]
+Assume \((a_k)\) and \((b_k)\) are sequences satisfying \( 0 \leq a_k \leq b_k \) for all \( k \in \N \). Then we have 
+
+\begin{enumerate}
+    \item[(i)] If \( \sum_{k=1}^{\infty}b_k\) converges, then \( \sum_{k=1}^{\infty} a_k\) converges.
+    \item[(ii)] If \( \sum_{k=1}^{\infty} a_k\) diverges, then \( \sum_{k=1}^{\infty} b_k\) diverges.
+\end{enumerate}
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+Let us show part (i). Suppose \( \sum_{k=1}^{\infty} b_k \) converges. We want to show that \( \sum_{k=1}^{\infty} a_k\) converges. Let \( \epsilon > 0 \). There exists \( N \in \N \) such that for every \( n > m \geq N \) and the fact that \( a_k \leq b_k\) for all \(k \in \N \) 
+\begin{align*}
+    \Big|\sum_{k=m+1}^{n} a_k \Big| &\leq \Big|\sum_{k=m+1}^{n}b_k\Big| \\ 
+                                    &< \epsilon.
+\end{align*}
+Hence, \(a_k\) converges as well. 
+
+Note that part (ii) is just the contrapositive of part (i) which is also true. 
+\end{proof}
+
+Note that the convergence of sequences and series are relatively immutable when it comes to changes in some finite number of initial terms: that is, the behavior of sequences and series can be found past some choice of \( N \in \N \). In order for the above test to be of any use to us, it is important to have a few examples under our belt i.e any \( p > 1 \) implies that 
+\begin{center}
+    \( \sum_{n=1}^{\infty} 1/ n^p\) converges if and only if \( p > 1\).    
+\end{center}
+
+\begin{ex}
+A series is called \textit{geometric} if it is of the form 
+\[ \sum_{k=0}^{\infty} ar^k = a + ar + ar^2 + ar^3 + ... ~ .\]
+If \( r = 1 \) and \( a \neq  0\), the series diverges. We can use the following algebraic identity, for \( r \neq 1 \), to write the following: 
+\[ (1-r)(1 + r + r^2 ... + r^{m-1}) = 1 - r^m\]
+which allows us to rewrite the partial sum \( (s_m)\) of the above series to say that 
+\[ s_m = a+ ar + ar^2 + ar^3 + ... + a r^{m-1} = \frac{a(1-r^m)}{1-r}\]
+where \( s_m = at_{m}\) where 
+\[ t_m = 1 + r + r^2 + ... + r^{m-1}\]
+is a convergent sequence.
+Using the \textit{Algebraic Limit Theorem}, therefore, allows us to say that 
+\[ \sum_{k=0}^{\infty} ar^k = \frac{a}{1-r}\]
+if and only if \( |r| < 1\).
+\end{ex}
+
+The next theorem is a modification of the \textit{Comparison Test} to handle series that contain negative terms.
+
+\begin{tcolorbox}
+    \begin{thm}[Absolute Convergence Test]
+    If the series \( \sum_{n=1}^{\infty} |a_n| \) converges, then \( \sum_{n=1}^{\infty} a_n\) converges as well.
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose \( \sum_{n=1}^{\infty}|a_n|\) converges. We want to show that \( \sum_{n=1}^{\infty} a_n\) converges as well. Let \(\epsilon > 0 \). By the \textit{Cauchy Criterion} for series, there exists \( N \in \N \) such that whenever \( n > m \geq N \), we have 
+\begin{align*}
+    \Big|\sum_{k=m+1}^{n} a_k \Big|&\leq \sum_{k=m+1}^{n} |a_k| \\
+                     &< \epsilon.
+\end{align*}
+Hence, \( \sum_{n=1}^{\infty} a_n \) converges.
+\end{proof}
+
+Note that the converse of the above statement is false as taking the absolute value of the alternating harmonic series 
+\[ 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \frac{1}{5} - \frac{1}{6} + ... ~  \]
+produces the regular harmonic series which \textit{diverges}.
+
+\begin{tcolorbox}
+    \begin{thm}[Alternating Series Test]
+    Let \((a_n)\) be a sequence satisfying, 
+    \begin{enumerate}
+        \item[(i)] \( a_1 \geq a_2 \geq a_3 ... \geq a_n \geq a_{n+1} \geq ... \) and
+        \item[(ii)] \((a_n) \to 0\).
+    \end{enumerate}
+    Then, the alternating series \( \sum_{n=1}^{\infty} (-1)^{n+1} a_n\) converges.
+\end{thm}
+\end{tcolorbox}
+% correct this proof
+\begin{proof}
+See exercise 2.7.1 for proof
+\end{proof}
+
+\begin{tcolorbox}
+\begin{defn}
+If \( \sum_{n=1}^{\infty} |a_n| \) converges, then we say that the original series \( \sum_{n=1}^{\infty} a_n \) \textit{converges absolutely}. If, on the other hand, the series \( \sum_{n=1}^{\infty} a_n \) converges but the series of absolute values \( \sum_{n=1}^{\infty} |a_n|\) does not converges, then we say that the original series \(\sum_{n=1}^{\infty} a_n \) \textit{converges conditionally}.
+\end{defn}
+\end{tcolorbox}
+
+We can chart a few examples of some \textit{conditionally convergent } series and \textit{absolutely convergent} series.
+
+\begin{itemize}
+    \item \(\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n} \implies \) \textit{conditionally convergent}
+    \item \(\sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{n^2}, \sum_{n=1}^{\infty} \frac{1}{2^n},  \) and \( \sum_{n=1}^{\infty} \frac{(-1)^{n+1}}{2^n} \implies \) \textit{converges absolutely} 
+\end{itemize}
+
+This tells us that any convergent series with positive terms must converge absolutely. 
+
+\subsection{Rearrangements}
+
+We can obtain a rearrangement of an infinite series by permuting terms in the sum in some other order. In order for a sum to be a valid rearrangement, all the terms must appear and there should be no repeats.
+
+\begin{tcolorbox}
+\begin{defn}
+    Let \( \sum_{k=1}^{\infty} a_k\) be a series. A series \( \sum_{k=1}^{\infty} b_k\) is called a \textit{rearrangement} of \(\sum_{k=1}^{\infty} a_k \) if there exists a \textit{bijective} function \(f: \N \to \N \) such that \( b_{f(k)} = a_k \) for all \( k \in \N \).
+\end{defn}
+\end{tcolorbox}
+
+We can now explain the weird behavior for why the \textit{harmonic series} converges to a different limit when rearranging the terms; that is, it is because the \textit{harmonic series} is a \textit{conditionally convergent} series which leads us to the next theorem. 
+
+\begin{tcolorbox}
+\begin{thm}
+If a series converges absolutely, then any rearrangement of this series converges to the same limit.
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+Assume \(\sum_{k=1}^{\infty} a_k \) \textit{converges absolutely} to \(A\), and let \( \sum_{k=1}^{\infty} b_k \) be a rearrangement of \( \sum_{k=1}^{\infty} a_k\). 
+Let us define the sequence of partial sums of \( \sum_{k=1}^{\infty} a_k\) as 
+\[ s_n = \sum_{k=1}^{n}a_k\] and the sequence of partial sums for the rearranged series \( \sum_{n=1}^{\infty}b_n\) as 
+\[ t_m = \sum_{k=1}^{m} b_k.\] Since \( \sum_{n=1}^{\infty}a_n\) \textit{converges absolutely}, let \(\epsilon > 0 \) such that there exists \( N_1 \in \N \) such that whenever \( n \geq N \), we have 
+\[ |s_n - A | < \frac{\epsilon}{2}\]
+as well some \( N_2 \in \N \) such that whenever \( n > m \geq N_2\), we have 
+\[ \sum_{k=m+1}^{n} |a_k| < \frac{\epsilon}{2}.\]
+All that is left to do is to set a point in the sequence of the rearranged series where our ultimate goal is to have \( |t_m - A | < \epsilon.\) Hence, define 
+\[ M = \max \{ f(k): 1 \leq k \leq N \}.\]
+Let \( m \geq M \) such that, when using the \textit{triangle inequality}, we get 
+\begin{align*}
+    |t_m - A | &= |t_m - s_N + s_N - A |  \\
+               &\leq |t_m - s_N | + |s_N - A | \\
+               &< \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
+               &= \epsilon.
+\end{align*}
+Hence, we have that \( \sum_{n=1}^{\infty}b_n \) converges to \(A\).
+\end{proof}
+
+\subsection{Definitions}
+
+
+\begin{tcolorbox}
+    \begin{thm}[Algebraic Limit Theorem for Series] 
+If \( \sum_{k=1}^{ \infty} a_k = A \) and \( \sum_{k=1}^{ \infty} b_k = B \), then 
+\begin{enumerate}
+    \item[(i)] \( \sum_{k=1}^{ \infty } ca_k = cA \) for all \( c \in \R \),
+    \item[(ii)] \( \sum_{k=1}^{ \infty } (a_k + b_k) = A + B\)
+\end{enumerate}
+\end{thm}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+    \begin{thm}[Cauchy Criterion for Series]
+     The series \( \sum_{k=1}^{ \infty} a_k \) converges if and only if, given \( \epsilon > 0\), there exists \( N \in \N \) such that whenever \( n > m \geq N \) it follows that 
+     \[ |a_{m+1} + a_{m+2} + ... + a_n| < \epsilon.\]
+    \end{thm}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+\begin{thm}
+If the series \(\sum_{k=1}^{\infty} a_k  \) converges, then \( (a_k) \to 0 \).
+\end{thm}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+    \begin{thm}[Comparison Test]
+Assume \((a_k)\) and \((b_k)\) are sequences satisfying \( 0 \leq a_k \leq b_k \) for all \( k \in \N \). Then we have 
+
+\begin{enumerate}
+    \item[(i)] If \( \sum_{k=1}^{\infty}b_k\) converges, then \( \sum_{k=1}^{\infty} a_k\) converges.
+    \item[(ii)] If \( \sum_{k=1}^{\infty} a_k\) diverges, then \( \sum_{k=1}^{\infty} b_k\) diverges.
+\end{enumerate}
+\end{thm}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+    \begin{thm}[Absolute Convergence Test]
+    If the series \( \sum_{n=1}^{\infty} |a_n| \) converges, then \( \sum_{n=1}^{\infty} a_n\) converges as well.
+\end{thm}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\begin{defn}
+If \( \sum_{n=1}^{\infty} |a_n| \) converges, then we say that the original series \( \sum_{n=1}^{\infty} a_n \) \textit{converges absolutely}. If, on the other hand, the series \( \sum_{n=1}^{\infty} a_n \) converges but the series of absolute values \( \sum_{n=1}^{\infty} |a_n|\) does not converges, then we say that the original series \(\sum_{n=1}^{\infty} a_n \) \textit{converges conditionally}.
+\end{defn}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\begin{defn}
+    Let \( \sum_{k=1}^{\infty} a_k\) be a series. A series \( \sum_{k=1}^{\infty} b_k\) is called a \textit{rearrangement} of \(\sum_{k=1}^{\infty} a_k \) if there exists a \textit{bijective} function \(f: \N \to \N \) such that \( b_{f(k)} = a_k \) for all \( k \in \N \).
+\end{defn}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\begin{thm}
+If a series converges absolutely, then any rearrangement of this series converges to the same limit.
+\end{thm}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+    \begin{thm}[Alternating Series Test]
+    Let \((a_n)\) be a sequence satisfying, 
+    \begin{enumerate}
+        \item[(i)] \( a_1 \geq a_2 \geq a_3 ... \geq a_n \geq a_{n+1} \geq ... \) and
+        \item[(ii)] \((a_n) \to 0\).
+    \end{enumerate}
+    Then, the alternating series \( \sum_{n=1}^{\infty} (-1)^{n+1} a_n\) converges.
+\end{thm}
+\end{tcolorbox}
+
+
+
+
+
+\subsection{Exercises}
+
+
+\subsubsection{Exercise 2.7.1} Proving the \textit{Alternating Series Test} amounts to showing that the sequence of partial sums 
+\[ s_n = a_1 - a_2 + a_3 - ... \pm a_n\] converges. (The opening example in Section 2.1 includes a typical illustration of \((s_n)\). Different characterizations of completeness lead to different proofs. 
+\begin{enumerate}
+    \item[(a)] Prove the \textit{Alternating Series Test} by showing that \( (s_n)\) is a \textit{Cauchy Sequence}. 
+        \begin{proof}
+            Let \( (a_n)\) be a \textit{decreasing sequence} and suppose \( (a_n) \to 0 \). We want to show that the \textit{Alternating series} \( \sum_{n=1}^{\infty} (-1)^{n+1} a_n\) meets the \textit{Cauchy Criterion}. 
+
+            We first need to show that for every \( n > m\), we have the property
+            \[ 0 \leq |a_{m+1} - a_{m+2} + a_{m+3} - ... \pm a_n| \leq |a_{m+1}|\]
+            Hence, we proceed by induction on \( k\). Note that 
+
+            \[ \sum_{k=m+1}^{n} (-1)^{k+1}a_k = a_{m+1} - a_{m+2} + a_{m+3} - ... \pm a_n .\]
+            Let our base case be \( P(1)\). Then \( a_{m+1} \geq 0\). For \( P(2)\), we have \( a_{m+1} \geq a_{m+2}\) for all \( m \) since \( (a_n)\) is a \textit{decreasing sequence}. Suppose this holds for all \( m \leq k-1   \). We want to show that this holds for \( P(k)\). Since \((a_n)\) is \textit{decreasing}, we have that \( a_{k-1} \geq a_{k}\). Hence, \( a_{k-1} - a_{k} \geq 0 \). Since \( P(k-1)\) holds where 
+            \[ 0 \leq a_{m+1} - a_{m+2} + a_{m+3} - ... \pm a_{k-1} \leq a_{m+1}.\]
+            But this means that every term leading up to \( a_k \) is bounded by \( a_{m+1}\). Hence, 
+            \[ 0 \leq a_{m+1} - a_{m+2} + a_{m+3} - ... \pm a_k \leq a_{m+1}.\]
+        
+        Let \( \epsilon > 0 \). All is left to show is that 
+        \[ \Big|\sum_{k=1}^{n}(-1)^{k+1} a_k \Big| < \epsilon.\]
+        Hence, for some \( N \in \N \), let \( n > m \geq N \) and \( (a_n) \to 0 \) such that 
+        \begin{align*}
+            \Big| \sum_{k=1}^{\infty} (-1)^{k+1} a_k \Big|&\leq |a_{m+1}| \\
+                                        &< \epsilon.            
+        \end{align*}
+        Hence, the series \( \sum_{k=1}^{\infty}(-1)^{k+1} a_k \) meets the \textit{Cauchy Criterion}.
+        \end{proof}
+    \item[(b)] Supply another proof for this result using the Nested Interval Property. 
+        \begin{proof}
+            Suppose \( (a_n)\) is \textit{decreasing} sequence and \( (a_n) \to 0 \). Our goal is to show the series \( \sum_{n=1}^{\infty} (-1)^{n+1}a_n\) converges. Since \( (a_n)\) is \textit{decreasing}, we can use the \textit{Nested Interval Property} to construct closed intervals \( I_n = [s_n, s_{n+1}] \) such that the length of these intervals is \( |s_{n} - s_{n+1}| \leq a_n\). The \textit{Nested Interval Property} gurantees the following property that 
+            \[ I_1 \subseteq I_2 \subseteq I_3 \subseteq ...  \]
+            where \( \bigcap_{n=1}^{\infty} I_n \neq \emptyset\). Hence, \( S \in \R \) can be our candidate limit since \( S \in I_n\) for all \( n \). Let \( \epsilon > 0 \). Since \( (a_n) \to 0 \), there exists \( N \in \N \) such that \( n \geq N \)
+            \[ |s_n - S | \leq a_n < \epsilon.\]
+        \end{proof}
+        Hence, \( (s_n) \to S \). 
+    \item[(c)] Consider the subsequences \( (s_{2n})\) and \( (s_{2n+1})\), and show how the \textit{Monotone Convergence Theorem} leads to a third proof for the \textit{Alternating Series Test}. 
+        \begin{proof}
+        Define the subsequence of partial sums \( (s_{2n})\) as 
+        \[ \sum_{k=1}^{n} (-1)^{2k} a_{2k}.\]
+        Since \( (a_n)\) is a \textit{decreasing sequence}, we have that \( a_n \geq a_{n+1}\) for all \( n \in \N \). Observe that 
+        \begin{align*}
+            s_1 &= a_2 \geq 0  \\
+            s_2  &= a_2 + a_4  \geq s_1 \\
+            s_3 &= a_2 + a_4 + a_6 \geq s_2 \\
+                &\vdots \\ 
+            s_n &= a_2 + a_4 + a_6 + ... + a_{2n}.
+        \end{align*}
+        We can see that \( s_{2n}\) is an \textit{increasing sequence}. Also, \(|s_{2n}| < M \) since \( (a_n)\) is a \textit{bounded sequence}. Hence, we can conclude that the subsequence of partial sums \( (s_{2n})\) is converges to some \( S \in \R \). 
+
+        We can show that \( (s_{2n+1})\) converges to \( S \) as well. Since \( s_{2n+1} = s_{2n} + a_{2n+1} \), we can use the \textit{Algebraic Limit Theorem} to say that 
+        \begin{align*}
+            \lim(s_{2n+1})&= \lim(s_{2n} + a_{2n+1}) \\
+                          &= \lim(s_{2n}) + \lim (a_{2n+1}) \\
+                          &= S + 0 \\
+                          &= S.
+        \end{align*}
+        Since \( (s_{2n}) \to S \) and \( (s_{2n+1}) \to S \), we have \( (s_n) \to S \) as well. 
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 2.7.4}
+
+\begin{enumerate}
+    \item[(a)] Provide the details for the proof of the Comparison Test (Theorem 2.7.4) using the \textit{Cauchy Criterion} for Series.
+        \begin{proof}
+        Suppose \( (a_k)\) and \( (b_k)\) are sequences such that \( 0 \leq a_n \leq b_n\) for all \( n \in \N \). Assume \( \sum_{n=1}^{\infty} b_n \) converges. Our goal is to show that \( \sum_{k=1}^{\infty} a_k \) converges. Define the sequence of partial sums for \( \sum_{n=1}^{\infty}a_n\) as 
+        \[ t_n = \sum_{k=1}^{n}a_k.\]
+        Let \(\epsilon > 0 \). Since \( a_k \leq b_k \) and \( \sum_{n=1}^{\infty}b_n\) converges, there exists \( N \in \N \) such that for all \( n > m \geq N \), we have  
+        \begin{align*}
+             |t_n - t_m |&= \Big|\sum_{k=m+1}^{n} a_k\Big| \\
+                         &\leq \Big|\sum_{k=m+1}^{n} b_k \Big| \\
+                         &< \epsilon.
+        \end{align*}
+        Hence, the series \( \sum_{n=1}^{\infty} a_n \) converges. Note that part (ii) is just the contrapositive of part (i). Hence, it is also true.
+        \end{proof}
+    \item[(b)] Give another proof for the \textit{Comparison Test}, this time using the \textit{Monotone Convergence Theorem}.
+        \begin{proof}
+        Suppose the series \( \sum_{n=1}^{\infty} b_n \) converges. Our goal is to use the \textit{Monotone Convergence Theorem} to show that \( \sum_{n=1}^{\infty} a_n \) converges i.e our goal is to show that the sequence of partial sums \( t_n = \sum_{k=1}^{n} a_n \) is \textit{bounded} and \textit{monotone}. 
+
+        Since the sequence of partial sums of \( \sum_{n=1}^{\infty} b_n \) are \textit{bounded} and \( 0 \leq a_n \leq b_n \) for all \( n \in \N \), it follows that we have \( |t_n| \leq M  \) as well. 
+
+        Now we want to show that \( (t_n )\) is a \textit{decreasing sequence}. Since \( \sum_{n=1}^{\infty} b_n \) is convergent, we know that \( b_n \to  0 \). Since \( a_n \geq 0 \) and \( (b_n) \to 0 \), the terms \( (t_n)\) must also be \textit{decreasing}. Hence, \( t_{n+1} \leq t_n \) for all \( n \in \N \).
+        
+        Since \( (t_n)\) is both \textit{decreasing} and \textit{bounded}, it follows that \( \sum_{n=1}^{\infty} a_n \) is a convergent
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 2.7.4} Give an example of each or explain why the request is impossible referencing the proper theorem(s).
+\begin{enumerate}
+    \item[(a)] Two series \( \sum x_n \) and \( \sum y_n \) that both diverge but where \(\sum x_ny_n \) converges.
+        \begin{proof}[Solution]
+        Take \(\sum x_n = (-1)^n\) and \( \sum y_n = 1/n\). These two series diverge but \(\sum x_n y_n = (-1)^n / n \) converges.
+        \end{proof}
+    \item[(b)] A convergent series \( \sum x_n \) and a bounded sequence \( (y_n)\) such that \( \sum x_n y_n \) diverges.
+        \begin{proof}[Solution]
+        Take the convergent series \( \sum 1 / n^2\) and the bounded sequence \( y_n = \sin(n)\). We have \( \sum x_n y_n = \sum \sin(n)/n^2\) is divergent by the comparison test.
+        \end{proof}
+    \item[(c)] Two sequences \( (x_n)\) and \((y_n)\) where \(\sum x_n \) and \( \sum (x_n + y_n)\) both converges but \( \sum y_n \) diverges.
+        \begin{proof}[Solution]
+        This is impossible. By the Algebraic Series Theorem, we cannot have \( \sum (x_n + y_n)\) converge without \( \sum y_n \) converging as well. 
+        \end{proof}
+    \item[(d)] A sequence \( (x_n)\) satisfying \( 0 \leq x_n \leq 1/n\) where \( \sum (-1)^n x_n\) diverges.
+        \begin{proof}[Solution]
+        By the comparison test, \( \sum (-1)^n x_n \) diverges.
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 2.7.5} Now that we have proved the basic facts about geometric series, supply a proof for Corollary 2.4.7.
+\begin{tcolorbox}
+\begin{cor}
+The series \( \sum_{n=1}^{\infty} 1/n^p \) converges if and only if \( p > 1 \).
+\end{cor}
+\end{tcolorbox}
+\begin{proof}
+    We start with the backwards direction. Suppose \( p > 1 \). Our goal is to show that \( \sum_{n=1}^{\infty} 1/n^p\) converges. Notice that \( b_n = 1/n^p\) where \( b_n \geq 0 \) and \( b_n \)
+\textit{decreasing}. By the \textit{Cauchy Condensation Test}, we can prove that 
+\[ \sum_{n=0}^{\infty} 2^n b_{2^n} = \sum_{n=0}^{\infty} 2^n \Big( \frac{1}{2^p}\Big)^n.\]
+converges. Since \( p > 1 \), we have that 
+\[ \sum_{n=0}^{\infty} 2^n \Big( \frac{1}{2^n}\Big)^p = \sum_{n=0}^{\infty} 2^n \Big( \frac{1}{2^n}\Big)^p = \sum_{n=0}^{\infty} 2^n \Big( \frac{1}{2^n}\Big)^{p-1} = \sum_{n=0}^{\infty} \Big(\frac{1}{2^p} \Big)^n.\]
+Since \( |r| = |1/2^p| < 1 \), we know that \( \sum_{n=0}^{\infty}2^n b_{2^n}\) is a \textit{Geometric Series}. By the \textit{Cauchy Condensation Test}, we can say that \( \sum_{n=1}^{\infty} b_n \) converges. 
+
+For the forwards direction, since  \(\sum_{n=0}^{\infty} 2^n b_{2^n}\) converges, the only reasonable choice of \( p \) is when \( p > 1 \) or else it is \textit{Harmonic Series} which diverges.
+\end{proof}
+
+\subsubsection{Exercise 2.7.6}
+Let's say that a series \textit{subverges} if the sequence of partial sums contains a subsequence that converges. Consider this (invented) definition for a  moment, and then decide which of the following statements are valid propositions about \textit{subvergent} series: 
+\begin{enumerate}
+    \item[(a)] If \( (a_n)\) is \textit{bounded}, then \( \sum a_n \) \textit{subverges}.
+        \begin{proof}[Solution]
+        This is a valid proposition since the sequence of partial sums for \( \sum_{n=1}^{\infty}a_n\) are bounded which implies that the sequence of partial sums contains a subsequence partial sums that is convergent. Hence, we can say that \( \sum a_n \) is a \textit{subvergent} series. 
+        \end{proof}
+    \item[(b)] All convergent series are \textit{subvergent}. 
+        \begin{proof}[Solution]
+        This is valid since the sequence of partial sums for a convergent series converges and hence all of the possible subsequence of partial sums for the series converges to the same limit. 
+        \end{proof}
+    \item[(c)] If \( \sum |a_n| \) \textit{subverges}, then \(\sum a_n \) \textit{subverges} as well. 
+        \begin{proof}[Solution]
+        This is not valid. 
+        \end{proof}
+    \item[(d)] If \( \sum a_n \) \textit{subverges}, then \( (a_n)\) has a convergent subsequence. 
+        \begin{proof}[Solution]
+        This is not valid.
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 2.7.7}
+\begin{enumerate}
+    \item[(a)] Show that if \( a_n > 0 \) and \( \lim (na_n) = l  \) with \( l \neq 0 \), then the series \( \sum a_n \) diverges.
+        \begin{proof}
+        Suppose for sake of contradiction that \( \sum a_n  \) converges. Hence, \( (a_n) \to 0 \). This means that \( \lim (na_n) = 0 \) but this contradicts our assumption that \( \lim (na_n) = l \neq 0 \). Hence, the series \( \sum a_n \) must diverge. 
+        \end{proof}
+        Another why is to use the limit assumption directly. 
+        \begin{proof}
+        Suppose \( a_n > 0 \) and \( \lim (na_n) = l \). We want to show that \( \sum a_n  \) diverges. Since \( \lim (na_n) = l \neq 0 \), let \( \epsilon = 1  \) such that there exists \( N \in \N \) such that whenever \( n \geq N \) for all \( n \), we have 
+        \[ |na_n - l | < 1 \iff a_n < \frac{1+ l }{n }. \]
+        This implies that 
+        \[ \sum_{n=1}^{\infty } a_n < \sum_{n=1}^{\infty} \frac{1+l}{n}.\]
+        Note that \( \sum \frac{1+l }{n} \) is not a \textit{p-series} since \( n^p\) where \(p=1\). Hence, the series \( \sum \frac{1+l}{n}\) diverges. Hence, we have that \( \sum a_n \) is also a divergent series by the comparison test. 
+        \end{proof}
+    \item[(b)] Assume \( a_n > 0 \) and \( \lim (n^2 a_n )\) exists. Show that \( \sum a_n \) converges. 
+        \begin{proof}
+            Suppose \( a_n > 0 \) and \( \lim (n^2 a_n )\) exists. Suppose \( \lim (n^2 a_n  ) = L \) for some \( L \in \R \). Let \( \epsilon = 1 \), there exists \(  N \in \N \) such that whenever \( n \geq N \), we have 
+            \[ |n^2a_n - L | < \epsilon.\]
+        Hence, we have
+        \[ n^2 a_n - L < 1 \iff a_n < \frac{1+ l }{n^2 } \tag{1}\]
+        Our goal is to show via \textit{comparison test} that the series \( \sum a_n \) converges.
+        From (1), we have 
+        \[\sum_{n=1}^{\infty} a_n < \sum_{n=1}^{\infty} \frac{1 + l }{n^2 }.  \]
+        Observe that the series \( \sum \frac{1+l}{n^2} \) is a \textit{p-series} test which converges. Hence, the series \( \sum a_n \) converges by the \textit{Comparison test}.
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 2.7.8}
+
+Consider each of the following propositions. Provide short proofs for those that are true and counterexamples for any that are not.
+
+\begin{enumerate}
+    \item[(a)] If \( \sum a_n \) \textit{converges absolutely}, then \( \sum a_n^2\) also \textit{converges absolutely}.
+        \begin{proof}
+        Since \( \sum a_n \) converges absolutely, then we have the series \( \sum |a_n| \) converges. In order for \( \sum a_n^2 \) to converge absolutely, we need to show that \( \sum | a_n^2 |\) converges. Furthermore, \( (a_n) \) is a \textit{bounded} sequence. Hence, there exists \( M > 0 \) such that \( |a_n| \leq M \). Since there exists \( N \in \N \), for any \( n \geq N \), we can write
+        \begin{align*}
+            \sum |a_n^2|&= \sum | a_n \cdot a_n |  \\
+                        &= \sum |a_n | \cdot |a_n | \\
+                        &\leq \sum M \cdot |a_n | \\
+                        &= M \sum |a_n| \\
+        \end{align*}
+        We know by the \textit{Algebraic Limit Theorem} for series that \( M \sum |a_n|\) converges. Hence, the series \( \sum a_n^2 \) converges absolutely by the \textit{Comparison Test}.
+        \end{proof}
+    \item[(b)] If \( \sum a_n \) converges and \( (b_n)\) converges, then \( \sum a_n b_n \) converges. 
+        \begin{proof}
+        Since \( (b_n)\) converges, we have that \( (b_n)\) is also \textit{bounded}. Hence, there exists \( M > 0 \) such that for all \( n \) we have \( b_n \leq M \). Hence, we have 
+        \[ \sum a_n b_n \leq M \sum a_n. \]
+        By the \textit{Algebraic Limit Theorem} for series, we have that \( M \sum a_n \) converges. Since \( a_n b_n \leq Ma_n \), we have that the series \( \sum a_n b_n \) also converges by the \textit{Comparison test}.
+        \end{proof}
+    \item[(c)] If \( \sum a_n \) \textit{converges conditionally}, then \(\sum n^2 a_n \) diverges. \begin{proof}[Solution]
+   This is false. Consider the series \( \sum \frac{(-1)^n}{n^2}\) which \textit{converges conditionally} but note that \( \sum n^2 \frac{(-1)^n}{n^2} = \sum (-1)^n\) diverges. 
+\end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 2.7.9 (Ratio Test).}  
+Given a series \( \sum_{ n=1}^{\infty} a_n \) with \( a_n \neq 0 \), the \textit{Ratio Test} states that if \( (a_n)\) satisfies 
+\[ \lim \Big| \frac{a_{n+1}}{a_n}\Big| = r < 1, \]
+then the series converges absolutely.
+
+\begin{enumerate}
+    \item[(a)] Let \( r' \) satisfy \( r < r' < 1 \). Explain why there exists an \( N \) such that \( n \geq N \) implies \( | a_{n+1}| \leq |a_n|r'\).
+        \begin{proof}
+            There exists \( N \in \N \) such that \( n \geq N \) because \( \lim  | \frac{a_{n+1}}{a_n}| = r \). This means that \( | \frac{a_{n+1}}{a_n}|\) is \textit{bounded}. Hence, we have that \( | \frac{a_{n+1}}{a_n}| \leq r' \) which means that \( |a_{n+1}| \leq r' |a_n|\).
+        \end{proof}
+    \item[(b)] Why does \( |a_{N}| \sum (r')^n \) converge?
+        \begin{proof}
+        The series \( |a_N | \sum (r')^n \) converges because \( | r' | < 1 \) which means that \( |a_N| \sum (r')^n \) is a \textit{geometric series} which converges.  
+        \end{proof}
+    \item[(c)] Now, show that \( \sum |a_n|\) converges, and conclude that \( \sum a_n \) converges. 
+        \begin{proof}
+        Consider the series \( \sum |a_n|\) and the fact that
+        \[ \sum |a_n| \leq |a_N| \sum (r')^n \]
+        for all \( n \geq N \). Since the right hand series is \textit{geometric} which converges, we can conclude that \(\sum | a_n|\) also converges by the comparison test. Hence, the series \( \sum a_n \) converges \textit{absolutely} and thus the series \( \sum a_n \) converges.  
+
+
+
+
+
+        \end{proof}
+\end{enumerate}
+
+
+
+

@@ -1,5 +1,6 @@
 \section{The Cauchy Criterion}
 
+
 \begin{tcolorbox}
 \begin{defn}
 A sequence \((a_n)\) is called a \textit{Cauchy Sequence} if, for every \( \epsilon > 0 \), there exists an \( N \in \N \) such that whenever \( m,n \geq N \) it follows that 
@@ -176,18 +177,85 @@ Give an example of each of the following, or argue that such a request is imposs
 
 \subsubsection{Exercise 2.6.4} Let \((a_n)\) and \((b_n)\) be \textit{Cauchy sequences}. Decide whether each of the following sequences is a \textit{Cauchy sequence}, justifying each conclusion.
 \begin{enumerate}
-    \item[(a)] \( x_n = |a_n - b_n|.\)
+    \item[(a)] \( c_n = |a_n - b_n|.\)
         \begin{proof}[Solution]
-        
+        We claim that \((c_n)\) is a \textit{Cauchy} sequence. Let \(\epsilon > 0 \). We want to show that 
+        given some \(N \in \N \), if \(n,m \geq N \), then we have 
+        \begin{align*}
+            |c_n - c_m |&< \epsilon. \\
+        \end{align*}
+        Then, by the \textit{Reverse Triagle Inequality} 
+        \begin{align*}
+            |c_n - c_m |&= ||a_n - b_n| - |a_m - b_m || \\
+                        &\leq | (a_n - b_n) - (a_m - b_m) | \\
+                        &= | (a_n - a_m ) + (b_n - b_m)| \\
+                        &< |a_n - a_m| + |b_n - b_m| \\
+                        &= \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
+                        &= \epsilon.
+        \end{align*}
+        Hence, \((c_n)\) is \textit{Cauchy sequence}.
         \end{proof}
     \item[(b)] \(c_n = (-1)^n a_n \).
         \begin{proof}[Solution]
-        
+        This is false. Consider the \textit{Cauchy sequence} 
+        \[ a_n = (1,1,1,,1, ...)\]
+        If we take \(c_n = (-1)^n a_n \), then \((c_n)\) is not \textit{Cauchy sequence} since \[(1, -1, 1, -1, 1,...)\] 
+        is not.
         \end{proof}
     \item[(c)] \(c_n = [[a_n]]\), where \([[x]]\) refers to the greatest integer less than or equal to \(x\).
         \begin{proof}[Solution]
-        
+        This is false. Consider \((a_n)\) defined by the alternating sequence 
+        \[ a_n = \frac{(-1)^n}{n}.\]
+        This sequence is \textit{Cauchy} but \((c_n)\) is not because we have for all \(n \in \N\)
+        \[ c_n = \Big[ \Big[  \frac{(-1)^n}{n} \Big] \Big] = 
+        \begin{cases}
+            0 \text{ if } n=2k \\
+            -1  \text{ if } n=2k+1.
+        \end{cases}\]
+        which diverges.
         \end{proof}
 \end{enumerate}
+
+\subsubsection{Exercise 2.6.5} Consider the following (invented) definition: A sequence \((s_n)\) is \textit{pseudo-Cauchy} if, for all \(\epsilon > 0\), there exists an \(N \) such that if \(n \geq N \), then \( |s_{n+1} - s_n | < \epsilon\). 
+
+Decide which of the following two propositions is actually true. Supply a proof for the valid statement and a counterexample for the other.
+\begin{enumerate}
+    \item[(i)] Pseudo-Cauchy sequences are bounded. 
+        \begin{proof}[Solution]
+            False. Take the sequence \(a_n = n \) and note that \( |a_{n+1} - a_n| < \epsilon\) given any \(\epsilon > 0 \), but \(a_n \) is \textit{unbounded}.
+        \end{proof}
+    \item[(ii)] If \((x_n)\) and \((y_n)\) are pseudo-Cauchy, then \((x_n + y_n)\) is pseudo-Cauchy as well. 
+    \begin{proof}[Solution]
+        Suppose \((x_n)\) and \((y_n)\) are \textit{pseudo-Cauchy}. We want to show that \((x_n + y_n)\) is also \textit{pseudo-Cauchy}. Let \(\epsilon > 0\). Choose \( N = \max \{ N_1, N_2 \}\) such that for every \( n \geq N \), we have 
+        \begin{align*}
+            |(x_{n+1} + y_{n+1}) - (x_n + y_n)| &= |(x_{n+1} - x_n) + (y_{n+1} - y_n) | \\
+                                                &< |x_{n+1} - x_n| + |y_{n+1} - y_n| \\
+                                                &< \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
+                                                &= \epsilon
+        \end{align*}
+        by the \textit{Triangle Inequality}.
+        Hence, \((x_n + y_n)\) are \textit{pseudo-Cauchy}.
+    \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 2.6.7} Exercises 2.4.4 and 2.5.4 establish the equivalence of the Axiom of Completeness ans the Monotone Convergence Theorem. They also show the Nested Interval Property is equivalent to these other two in the presence of the Archimedean Property.
+\begin{enumerate}
+    \item[(a)] Assume the Bolzano-Weierstrass Theorem is true and use it to construct a proof of the Monotone Convergence Theorem without manking any appeal to the Archimedean Property. This shows that BW, AOC, and MCT are all equivalent. 
+        \begin{proof}
+            Suppose \((x_n)\) is a \textit{bounded} and \textit{monotone} sequence. Our goal is to show that \((x_n) \to x\). By assumption, there exists a subsequence \((x_{n_k})\) such that \( (x_{n_k}) \to x \). Let \( \epsilon > 0 \). Then there exists \( N \in \N \) such that for every \( n_k \geq N \), we have 
+            \[ | x_{n_k} - x| < \epsilon.\]
+        Since \((x_n)\) is \textit{monotone}, then either \( n_k \geq n \) or \( n \geq n_k \). If \(n \geq n_k \geq N  \) for all \( n \in \N \), then \( |x_n - x| < \epsilon \). If \( n_k \geq n \), then for any choice of \( n \geq N \), we observe that 
+        \[ |x_n - x| \leq |x_{n_k} - x | < \epsilon.\]
+        Hence, we conclude that \( (x_n)\) is a convergent sequence. 
+        \end{proof}
+    \item[(b)] Use the Cauchy Criterion to prove the Bolzano-Weierstrass Theorem, and find the point in the argument where the Archimedean Property is implicitly required. This establishes the final link in the equivalence of the five characterizations of completeness discussed at the end of Section 2.6. 
+        \begin{proof}
+            Assume the \textit{Cauchy Criterion} holds. We want to show that there exists \( (x_{n_k})\) such that \( (x_{n_k}) \to x \). Since \( (x_n)\) \textit{bounded above} and \textit{non-empty}, \( x = \sup (x_n)\) exists. Furthermore, \((x_n) \to x \) since \( (x_n)\) is \textit{Cauchy}. Since \(n_k\) is an \textit{increasing} set of natural numbers and \((x_n)\) is \textit{bounded above}, we have that
+            \[ x_{n} - \frac{1}{n_k} \leq x_{n_k} \leq x. \]
+        By the \textit{Squeeze Theorem}, we have \( (x_{n_k}) \to x\).
+        \end{proof}
+\end{enumerate}
+
+
 
 

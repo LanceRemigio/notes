@@ -93,16 +93,16 @@ Hence, \( s = \sup A \).
 
 
 
-\subsection{Exercises}
+\subsubsection{Exercises}
 
 
 
 
 
-\subsection{Exercise 1.3.3} \begin{enumerate} \item[(a)] Let \( A \neq \emptyset \) and bounded below, and define \[ B = \{ b \in \R : b \text{ is a lower bound for   } A  \},\] Show that \( \inf A = \sup B \). \begin{proof} Our goal is to show that both \( \inf A \leq \sup B \) and \( \inf A \geq \sup B \). Since \( B \neq \emptyset\) and bounded above, we have that the \( \sup B \) exists. First we want to show that \( \inf A \leq \sup B \). By definition of \( \sup B \), it is the greatest lower bound of \( B \). Since \( A \neq \emptyset \) and bounded below, we have that the \( \sup B \) is greater than any lower bound of \( A \). Hence, we have that \( \inf A \leq \sup B \). Now we want to show that \( \inf A \geq \sup B \). Suppose for sake of contradiction that \( \inf A < \sup B \). Since \( A \neq \emptyset\) and bounded below, we have that \[ a - \epsilon \geq \inf A \tag{1}\] for some \( a \in A \). Our goal is to show that there exists that some \( a \in A \) is less than \( \sup B \). Hence, choose \( \epsilon = \sup B + a \) such that (1) and \( \inf A < \sup B \) implies that \begin{align*} a - \epsilon &< \sup B \\ a - (\sup B + 3a) &< \sup B \\ a &< \sup B. \end{align*}  But this is a contradiction since every element in \(A  \) has to be bigger than \( B \) i.e \( b > a \) for all \( b \in B \). Hence, it must be the case that \(\inf A \geq \sup B  \). Hence, we have that \( \inf A = \sup B \). \end{proof} \item[(b)] Use (a) to explain why there is no need to assert that greatest lower bounds exist as part of the Axiom of Completeness. \begin{proof}[Solution] There is no need to assert that greatest lower bounds exist as part of the axiom because we can always seperate a set \( A \) that is bounded below into a set \( B \) that just consists of lower bounds from \( A \). Since the infimum is just the greatest lower bound, it is equivalent to taking the supremum of a set of lower bounds. We can do this because every element in \( B \) is bounded above by every element in \( A \) which is permitted by the Axiom of Completeness.  \end{proof}
+\subsubsection{Exercise 1.3.3} \begin{enumerate} \item[(a)] Let \( A \neq \emptyset \) and bounded below, and define \[ B = \{ b \in \R : b \text{ is a lower bound for   } A  \},\] Show that \( \inf A = \sup B \). \begin{proof} Our goal is to show that both \( \inf A \leq \sup B \) and \( \inf A \geq \sup B \). Since \( B \neq \emptyset\) and bounded above, we have that the \( \sup B \) exists. First we want to show that \( \inf A \leq \sup B \). By definition of \( \sup B \), it is the greatest lower bound of \( B \). Since \( A \neq \emptyset \) and bounded below, we have that the \( \sup B \) is greater than any lower bound of \( A \). Hence, we have that \( \inf A \leq \sup B \). Now we want to show that \( \inf A \geq \sup B \). Suppose for sake of contradiction that \( \inf A < \sup B \). Since \( A \neq \emptyset\) and bounded below, we have that \[ a - \epsilon \geq \inf A \tag{1}\] for some \( a \in A \). Our goal is to show that there exists that some \( a \in A \) is less than \( \sup B \). Hence, choose \( \epsilon = \sup B + a \) such that (1) and \( \inf A < \sup B \) implies that \begin{align*} a - \epsilon &< \sup B \\ a - (\sup B + 3a) &< \sup B \\ a &< \sup B. \end{align*}  But this is a contradiction since every element in \(A  \) has to be bigger than \( B \) i.e \( b > a \) for all \( b \in B \). Hence, it must be the case that \(\inf A \geq \sup B  \). Hence, we have that \( \inf A = \sup B \). \end{proof} \item[(b)] Use (a) to explain why there is no need to assert that greatest lower bounds exist as part of the Axiom of Completeness. \begin{proof}[Solution] There is no need to assert that greatest lower bounds exist as part of the axiom because we can always seperate a set \( A \) that is bounded below into a set \( B \) that just consists of lower bounds from \( A \). Since the infimum is just the greatest lower bound, it is equivalent to taking the supremum of a set of lower bounds. We can do this because every element in \( B \) is bounded above by every element in \( A \) which is permitted by the Axiom of Completeness.  \end{proof}
 \end{enumerate}
 
-\subsection{Exercise 1.3.4}
+\subsubsection{Exercise 1.3.4}
 Let \( A_1, A_2, A_3,... \) be a collection of nonempty sets, each of which is bounded above. 
 
 \begin{enumerate}
@@ -121,7 +121,7 @@ Let \( A_1, A_2, A_3,... \) be a collection of nonempty sets, each of which is b
 
 
 
-\subsection{Exercise 1.3.5}
+\subsubsection{Exercise 1.3.5}
 As in Example 1.3.7, let \( A \subseteq \R \) be nonempty and bounded above, and let \( c \in \R \). This time define the set 
 \[ cA = \{ca: a \in A \}. \]
 \begin{enumerate}
@@ -146,7 +146,7 @@ As in Example 1.3.7, let \( A \subseteq \R \) be nonempty and bounded above, and
 
 
 
-\subsection{Exercise 1.3.6}
+\subsubsection{Exercise 1.3.6}
 Suppose that \( A,B \neq \emptyset \) and bounded above. Prove that 
 \[ 
 \sup(A+B) = \sup A + \sup B     
@@ -220,7 +220,7 @@ Since we have (1) and (2), we see that
 
 
 
-\subsection{Exercise 1.3.7}
+\subsubsection{Exercise 1.3.7}
 
 Prove that if \( a \) is an upper bound for \( A \), and \( a \in A \), then \( \sup A = a \).
     
@@ -241,7 +241,7 @@ Prove that if \( a \) is an upper bound for \( A \), and \( a \in A \), then \( 
 
 
 
-\subsection*{Exercise 1.3.8}
+\subsubsection{Exercise 1.3.8}
 
 \begin{enumerate}
     
@@ -268,7 +268,7 @@ Prove that if \( a \) is an upper bound for \( A \), and \( a \in A \), then \( 
 
 \end{enumerate}
 
-    \subsection{Exercise 1.3.10 (Cut Property)}
+    \subsubsection{Exercise 1.3.10 (Cut Property)}
     If \( A \) and \( B \) are nonempty, disjoint sets with \( A \cup B = \R \) and \( a < b \) for all \( a \in A \) and \( b \in B \), then there exists \( c \in \R \) such that \( x \leq c \) whenever \( x \in A \) and \( x \geq c \) whenever \( x \in B \). 
    
     \begin{enumerate}
@@ -304,25 +304,6 @@ Prove that if \( a \) is an upper bound for \( A \), and \( a \in A \), then \( 
 
 
 
-\chapter{Consequences of Completeness}
-
-The first application of the Axiom of Completeness is a result that says that the real line contains no gaps. 
-
-\begin{tcolorbox}
-    \begin{thm}
-        For each \( n \in \N \), assume we are given a closed interval \( I_n = [a_n, b_n ] = \{ x \in \R : a_n \leq x \leq b_n \} \). Assume also that each \( I_n \) contains \( I_{n+1}\). Then, the resulting nested sequence of closed intervals 
-        \[ I_1 \supseteq I_2 \supseteq I_3 \supseteq I_4 \supseteq ... \]
-        has a nonempty intersection; that is, \( \cap_{n=1}^{\infty} I_n \neq \emptyset \).
-    \end{thm}
-\end{tcolorbox}
-
-\begin{proof}
-    Our goal is to produce a real number \( x \) such that this element is in every closed interval \( I_n \) for every \( n \in \N \). Using the Axiom of Completeness, we can denote the following sets 
-    \begin{align*} A &= \{  a_n : n \in \N  \} \\ 
-                   B &= \{  b_n : n \in \N  \}
-     \end{align*} 
-    where \( A \) and \( B \) consists of the left-hand and right-hand endpoints respectively. Since every closed interval are nested, we know that every \( b_n \) serves as an upper bound for \( A \). By the Axiom of completeness, we can say that a supremum exists for \( A \) and we can label this supremum as \( x = \sup A \). By definition, this is an upper bound for \( A \). Hence, we have that \( a_n \leq x \). But since \( x \) is the least upper bound and every \( b_n \in B \) is an upper bound for every \( a_n \in A \), we have that \( x \leq b_n \). Hence, we have that \( a_n \leq x \leq b_n \) which means that \( x \in I_n \) for all \( n \in \N \). This precisely means that \( \cap_{n=1}^{\infty} I_n \neq \emptyset \).
-\end{proof}
 
 
 % \end{document}

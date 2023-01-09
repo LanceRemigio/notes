@@ -99,7 +99,7 @@ form a nested sequence of closed intervals.
 
 
 
-\subsection{Definitions}
+\subsubsection{Definitions}
 
 
 \begin{tcolorbox}
@@ -124,10 +124,10 @@ Subsequences of a convergent sequence converge to the same limit as the original
 \end{thm}
 \end{tcolorbox}
 
-\section{Exercises}
+\subsection{Exercises}
 
 
-\subsection{Exercise 2.5.1} Give an example of each of the following, or argue that such a request is impossible. 
+\subsubsection{Exercise 2.5.1} Give an example of each of the following, or argue that such a request is impossible. 
 
 \begin{enumerate}
     \item[(a)] A sequence that has a subsequence that is bounded but contains no subsequence that converges.
@@ -162,7 +162,7 @@ Subsequences of a convergent sequence converge to the same limit as the original
         \end{proof}
 \end{enumerate}
 
-\subsection{Exercise 2.5.2}
+\subsubsection{Exercise 2.5.2}
 Decide whether the following propositions are true or false, providing a short justification for each conclusion.
 \begin{enumerate}
     \item[(a)] If every proper subsequence of \( (x_n)\) converges, then \((x_n)\) converges as well.
@@ -186,7 +186,7 @@ Decide whether the following propositions are true or false, providing a short j
         \end{proof}
 \end{enumerate}
 
-\subsection{Exercise 2.5.3}
+\subsubsection{Exercise 2.5.3}
 \begin{enumerate}
     \item[(a)] Prove that if an infinite series converges, then the associative propeprty holds. Assume \(a_1 + a_2 + a_3 + a_4 + a_5 + ...\) converges to a limit \(L \) (i.e., the sequence of partial sums \((s_n) \to L \)). Show that any regrouping of the terms 
         \[ (a_1 + a_2 + ... + a_{n_1}) + (a_1 + a_2 + ... + a_{n_2}) + (a_1 + a_2 + ... + a_{n_3}) + ...\]
@@ -213,11 +213,11 @@ Since \( \lim s_n = L \), its sequence of partial sums also converge to \(L\). B
     \end{proof}
 \end{enumerate}
 
-\subsection{Exercise 2.5.5} Assume \((a_n)\) is \textit{bounded} sequence with the property that every convergent subsequence of \((a_n)\) converges to the same limit \(a \in \R\). Show that \((a_n)\) must converge to \(a\).
+\subsubsection{Exercise 2.5.5} Assume \((a_n)\) is \textit{bounded} sequence with the property that every convergent subsequence of \((a_n)\) converges to the same limit \(a \in \R\). Show that \((a_n)\) must converge to \(a\).
 \begin{proof}
     Suppose for sake of contradiction that \((a_n) \not\to a\). Then there exists \(\epsilon_0 > 0\) such that \(|a_n - a| \geq \epsilon_0\) for all \(N \in \N \). Since \((a_n)\) is \textit{bounded}, we can find a subsequence \((a_{n_k})\) that converges to some \( \ell \in \R \). Since \((a_n) \not\to a\), then \( (a_{n_k}) \to \ell \) where \( \ell \neq a\). Yet we assumed every convergent subsequence of \((a_n)\) converges to the same limit \( a \) but \( a \neq \ell \) which is a contradiction. Hence, it must be the case that \( \lim a_n = a \).
 \end{proof}
-\subsection{Exercise 2.5.6}
+\subsubsection{Exercise 2.5.6}
 Use a similar strategy to the one in Example 2.5.3 to show \(\lim b^{1/n} \) exists for all \( b \geq 0\) and find the value of the limit. (The results in Exercise 2.3.1 may be assumed)
 \begin{proof}
     Let \(b \geq 0 \). Our goal is to show that \( \lim b^{1/n}\) exists. We observe that 
@@ -226,7 +226,7 @@ Use a similar strategy to the one in Example 2.5.3 to show \(\lim b^{1/n} \) exi
     sequence. Since \( 0 \leq b^{1/n} < b\), we can also conclude that \( (b^{1/n})\) is a \textit{bounded} sequence. Hence, \((b^{1/n})\) is a convergent sequence. But note that \((b^{1/n}) \to 0\) for all \(b^{1/n} \geq 0\) by exercise 2.3.1. Hence, \(\lim b^{1/n} = 0\).
 \end{proof}
 
-\subsection{Exercise 2.5.7}
+\subsubsection{Exercise 2.5.7}
 Extend the result proved in Example 2.5.3 to the case \(|b|<1\); that is, show \(\lim(b^n) = 0\) if and only if \(-1 < b < 1\). 
 \begin{proof}
 Suppose \(\lim b^n = 0 \). Let \( \epsilon = 1\), then there exists \( N \in \N \) such that for any \( n \geq N \), we have \( -1 < b^n < 1 \). Then we have \( -1 < b < 1 \). Hence, \( |b| < 1\). 
@@ -244,7 +244,7 @@ Then by the same process in Example 2.5.3, we have \( \lim (b^n) = 0 \).
 
 \end{proof}
 
-\subsection{Exercise 2.5.6}
+\subsubsection{Exercise 2.5.6}
 Let \((a_n)\) be a \textit{bounded} sequence, and define the set 
 \[ S = \{ x \in \R : x < a_n \text{ for infinitely many terms } a_n \}.\]
 Show that there exists a subsequence \((a_{n_k})\) converging to \( s = \sup S\). (This is a direct proof of the Bolzano-Weierstrass Theorem using the Axiom of Completeness.) 

@@ -147,10 +147,10 @@ But this means that \( a_N < 0\) which is a contradiction since \( a_N \geq 0\).
 \end{enumerate}
 
 
-\section{Exercises}
+\subsection{Exercises}
 
 
-\subsection{Exercise 2.3.1} Let \( x_n \geq 0\) for all \( n \in \N \).
+\subsubsection{Exercise 2.3.1} Let \( x_n \geq 0\) for all \( n \in \N \).
 
 \begin{enumerate}
     \item[(a)] If \( (x_n ) \to 0 \), show that \( \sqrt{x_n} \to 0\).
@@ -182,7 +182,7 @@ But this means that \( a_N < 0\) which is a contradiction since \( a_N \geq 0\).
         \end{proof}
 \end{enumerate}
 
-\subsection{Exercise 2.3.2}
+\subsubsection{Exercise 2.3.2}
 Using only Definition 2.2.3, prove that if \( (x_n) \to 2\), then 
 \begin{enumerate}
     \item[(a)] \(  \Big(\frac{2x_n - 1}{ 3} \Big) \to 1\);
@@ -218,7 +218,7 @@ Using only Definition 2.2.3, prove that if \( (x_n) \to 2\), then
 
 \end{enumerate}
 
-\subsection{Exercise 2.3.3}
+\subsubsection{Exercise 2.3.3}
 Show 
 \begin{tcolorbox}
     \begin{thm}[Squeeze Theorem]
@@ -231,7 +231,7 @@ Show
     Hence, it follows that \( \lim y_n = \ell\).
 \end{proof}
 
-\subsection{Exercise 2.3.4}
+\subsubsection{Exercise 2.3.4}
 Let \( (a_n) \to 0\), and use the Algebraic Limit Theorem to compute each of the following limits (assuming the fractions are always defined).
 \begin{enumerate}
     \item[(a)] \( \lim \Big( \frac{1 + 2a_n}{ 1 + 3a_n - 4a_n^2}   \Big) \)
@@ -267,7 +267,7 @@ Let \( (a_n) \to 0\), and use the Algebraic Limit Theorem to compute each of the
         \end{proof}
 \end{enumerate}
 
-\subsection{Exercise 2.3.5}
+\subsubsection{Exercise 2.3.5}
 Let \( (x_n)\) and \( (y_n)\) be given, and define \( (z_n)\) to be the "shuffled" sequence \[ (x_1, y_1, x_2, y_2 ,...,x_n, y_n).\] 
 For the forwards direction, assume \( (z_n) \) is a convergent sequence. We want to show that \( \lim x_n = \lim y_n \). It suffices to show that given any \( \epsilon > 0\), there exists an \( N \in \N \) such that for any \( n \geq N \), we have 
 \[ | x_n - y_n | < \epsilon.\]
@@ -285,7 +285,7 @@ which means \( \lim (x_n - y_n) = \lim x_n - \lim y_n = 0\).
 Now for the backwards direction, assume \( \lim x_n = \lim y_n\). We want to show \( (z_n)\) converges i.e for every \( \epsilon> 0\), there exists \( N \in \N \) such that for every \( n \geq N \), we have 
 \[ | z_n - z | < \epsilon.\]
 
-\subsection{Exercise 2.3.6} 
+\subsubsection{Exercise 2.3.6} 
 Consider the sequence given by \( b_n = n - \sqrt{n^2 + 2n}\). Taking \( (1 / n ) \to 0\) as given, and using both the Algebraic Limit Theorem and the result in Exercise 2.3.1, show \( \lim b_n \) exists and find the value of the limit.
 
 \begin{proof}
@@ -329,7 +329,7 @@ Hence, it follows that \( | b_n + 1  | < \epsilon\).
 
 \end{proof}
 
-\subsection{Exercise 2.3.8}
+\subsubsection{Exercise 2.3.8}
 Let \( (x_n) \to x \) and let \( p(x)\) be a polynomial.
 \begin{enumerate}
     \item[(a)] Show \( p(x_n) \to p(x)\).
@@ -356,7 +356,7 @@ Let \( (x_n) \to x \) and let \( p(x)\) be a polynomial.
         
 \end{enumerate}
 
-\subsection{Exercise 2.3.9}
+\subsubsection{Exercise 2.3.9}
 \begin{enumerate}
     \item[(a)] Let \( (a_n)\) be a bounded (not necessarily convergent) sequence, and assume \( \lim b_n  = 0\). Show that \( \lim (a_n b_n) = 0\). Why are we not allowed to use the Algebraic Limit Theorem to prove this? 
         \begin{proof}
@@ -386,7 +386,7 @@ Let \( (x_n) \to x \) and let \( p(x)\) be a polynomial.
         \end{proof}
 \end{enumerate}
 
-\subsection{Exercise 2.3.10} Consider the following list of conjectures. Provide a short proof that are true and a counterexample for any that are false.
+\subsubsection{Exercise 2.3.10} Consider the following list of conjectures. Provide a short proof that are true and a counterexample for any that are false.
 \begin{enumerate}
     \item[(a)] If \( \lim (a_n - b_n) = 0 \), then \( \lim a_n = \lim b_n\). 
         \begin{proof}[Counterexample]
@@ -425,6 +425,41 @@ Let \( (x_n) \to x \) and let \( p(x)\) be a polynomial.
         Hence, it follows that \( (b_n ) \to b\).
         \end{proof}
 \end{enumerate}
+
+\subsubsection{Exercise 2.3.13(Iterated Limits).} Given a doubly indexed array \( a_{mn}\) where \( m, n \in \N \), what should \(\lim_{m,n \to \infty} a_{mn}\) represent?  
+
+\begin{enumerate}
+    \item[(a)] Let \( a_{mn} = m / (m+n)\)  and compute the \textit{iterated} Limits
+        \[ \lim_{n \to \infty } \Big( \lim_{m \to \infty} a_{mn} \Big) \text{ and } \lim_{m \to \infty } \Big( \lim_{n \to \infty} a_{mn} \Big).\]
+        Define \(\lim_{m,n \to \infty} a_{mn} = a \) to mean that for all \( \epsilon > 0 \) there exists an \( N \in \N \) such that if both \( m,n \geq N \), then \( |a_{mn} - a | < \epsilon \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Let \( a_{mn} = 1/(m+n)\). Does \( \lim_{m,n \to \infty} a_{mn} \) exist in this case? Do the two iterated limits exists? How do these three values compate? Answer these same questions for \( a_{mn} = mn / (m^2 + n^2 )\). 
+        \begin{proof}
+        
+        \end{proof}
+    \item[(c)] Produce an example where \( \lim_{m,n \to \infty} a_{mn}\) exists but neither iterated limit can be computed. 
+        \begin{proof}[Solution]
+        
+        \end{proof}
+    \item Assume \( \lim_{m,n \to \infty} a_{mn} = a \), and assume that for each fixed \( m \in \N \), \( \lim_{n \to \infty} (a_{mn}) \to b_m \). Show \( \lim_{m \to \infty} b_m = a .\)
+        \begin{proof}
+            Suppose \( \lim_{m,n \to \infty} a_{mn} = a \), and assume that for each fixed \( m \in \N \), \( \lim_{n \to \infty } (a_{mn}) \to b_m \). We want to show that \( \lim_{m \to \infty } b_m = a \). Consider \( | b_m - a | \). Then fix \( m \in \N \) such that for any \( m,n \geq N \), we have that  
+            \begin{align*}
+                |b_m - a |&= |b_m - a_{mn} + a_{mn} - a | \\
+                          &\leq |b_m - a_{mn}| + |a_{mn} - a | \\
+                          &< \frac{\epsilon}{2} + \frac{\epsilon}{2} \\
+                          &= \epsilon.
+            \end{align*}
+        Hence, \( (b_{m}) \to a \). 
+        \end{proof}
+\end{enumerate}
+
+
+
+
+
 
 
 
