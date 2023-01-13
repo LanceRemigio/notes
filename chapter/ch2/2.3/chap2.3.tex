@@ -1,3 +1,6 @@
+
+% !TEX root =  ../../../main.tex 
+
 \section{The Algebraic and Order Limit Theorems}
 
 The goal of having a rigorous definition of convergence in Analysis is to prove statements about sequences in general like the notion of "boundedness" which we will define below.
@@ -433,15 +436,45 @@ Let \( (x_n) \to x \) and let \( p(x)\) be a polynomial.
         \[ \lim_{n \to \infty } \Big( \lim_{m \to \infty} a_{mn} \Big) \text{ and } \lim_{m \to \infty } \Big( \lim_{n \to \infty} a_{mn} \Big).\]
         Define \(\lim_{m,n \to \infty} a_{mn} = a \) to mean that for all \( \epsilon > 0 \) there exists an \( N \in \N \) such that if both \( m,n \geq N \), then \( |a_{mn} - a | < \epsilon \).
         \begin{proof}
-        
+        Let \( a_{mn} = m / (m+n)\). We can compute the \textit{iterated} limits 
+        \[  \lim_{n \to \infty} \Big( \lim_{m \to \infty} \frac{m}{m+n}\Big) \tag{1}  \]
+        and
+        \[ \lim_{m \to \infty} \Big( \lim_{n \to \infty} \frac{m}{m+n}\Big). \tag{2}\]
+        We start with (1). Hence, we have 
+        \begin{align*}
+            \lim_{n \to \infty } \Big( \lim_{ m \to \infty} \frac{m}{m+n}\Big)  &= \lim_{ n \to \infty} (1)  \\
+                                                                                &= 1.
+        \end{align*}
+        With (2), we have 
+        \begin{align*}
+            \lim_{m \to \infty} \Big( \lim_{ n \to \infty} \frac{m}{m+n}\Big)&= \lim_{m \to \infty} (0) \\
+                                                                             &= 0. 
+        \end{align*}
+
         \end{proof}
-    \item[(b)] Let \( a_{mn} = 1/(m+n)\). Does \( \lim_{m,n \to \infty} a_{mn} \) exist in this case? Do the two iterated limits exists? How do these three values compate? Answer these same questions for \( a_{mn} = mn / (m^2 + n^2 )\). 
+    \item[(b)] Let \( a_{mn} = 1/(m+n)\). Does \( \lim_{m,n \to \infty} a_{mn} \) exist in this case? Do the two iterated limits exists? How do these three values compare? Answer these same questions for \( a_{mn} = mn / (m^2 + n^2 )\). 
         \begin{proof}
-        
+            Let us try and compute the limit of \( a_{mn} \) the same way we did above. Hence, we have 
+            \[
+                \lim_{n \to \infty} \Big( \lim_{m \to \infty} \frac{1}{m+n} \Big)= \lim_{n \to \infty} \Big( \lim_{ m \to \infty} \frac{1}{1 + n/m}\Big)= \lim_{ n \to \infty} (1) = 1 \tag{1}\\
+            \]
+            and 
+            \[ \lim_{m \to \infty} \Big( \lim_{n \to \infty} \frac{1}{m+n} \Big) = 1. \tag{2}\]
+            We claim that for \( \lim_{m,n \to  \infty} a_{mn}\) to exists, we have to have 
+            \[ \lim_{n \to \infty} \Big( \lim_{m \to \infty} a_{mn}\Big) = \lim_{m \to \infty} \Big( \lim_{n \to \infty} a_{mn}\Big) \]
+            hold. Since (1) and (2) are the equal to each other, we claim that \( \lim_{m,n \to  \infty} a_{mn}\) exists. 
+
+            We can try to do the same process for the sequence \( a_{mn} = mn / (m^2 + n^2 )\). Hence, we have 
+            \[ \lim_{n \to \infty} \Big( \lim_{m \to \infty} \frac{mn}{m^2 + n^2 } \Big) = \lim_{n \to \infty} (0) = 0 \tag{3} \]
+            and 
+            \[ \lim_{m \to \infty} \Big( \lim_{ n \to \infty} \frac{mn}{m^2 + n^2 } \Big) = \lim_{m \to \infty} (0)  = 0 \tag{4}\]
+            Since (2) and (3) are equal, we have that \( \lim_{m,n \to  \infty} a_{mn}\) exists.  
         \end{proof}
     \item[(c)] Produce an example where \( \lim_{m,n \to \infty} a_{mn}\) exists but neither iterated limit can be computed. 
         \begin{proof}[Solution]
-        
+        Consider 
+        \[ a_{m,n} = \frac{(-1)^n}{m} + \frac{(-1)^m}{n}\]
+        where the iterated limits cannot be computed.
         \end{proof}
     \item Assume \( \lim_{m,n \to \infty} a_{mn} = a \), and assume that for each fixed \( m \in \N \), \( \lim_{n \to \infty} (a_{mn}) \to b_m \). Show \( \lim_{m \to \infty} b_m = a .\)
         \begin{proof}
@@ -455,8 +488,7 @@ Let \( (x_n) \to x \) and let \( p(x)\) be a polynomial.
         Hence, \( (b_{m}) \to a \). 
         \end{proof}
 \end{enumerate}
-
-
+ 
 
 
 

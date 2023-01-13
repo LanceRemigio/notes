@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1673244706 "main.tex" "main.pdf" "main" 1673244709
+["pdflatex"] 1673600322 "main.tex" "main.pdf" "main" 1673600324
   "/etc/texmf/web2c/texmf.cnf" 1671965136 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -168,18 +168,18 @@
   "chapter/ch1/1.4/chap1.4.tex" 1672107417 15732 c683445e166eb4bddc77c8599fbf233a ""
   "chapter/ch1/1.5/chap1.5.tex" 1672107014 21556 a5b3aafef90f401fe1ec4e1c0b37be12 ""
   "chapter/ch2/2.2/chap2.2.tex" 1672105861 17693 efbc78759ceacd3c5b600b486a220a67 ""
-  "chapter/ch2/2.3/chap2.3.tex" 1673244705 25494 350e50d4b78c174828158f5890c71ef3 ""
-  "chapter/ch2/2.4/chap2.4.tex" 1672108026 16472 9345742da4a96e109b626e0b0d56306c ""
+  "chapter/ch2/2.3/chap2.3.tex" 1673493128 27734 f133e8ef4268fe4ef4a74cf8f0448aee ""
+  "chapter/ch2/2.4/chap2.4.tex" 1673246772 29781 3fee8111dcfc580ad4afb6af6433a82e ""
   "chapter/ch2/2.5/chap2.5.tex" 1672459480 16455 30b52d5038505ab6ad57c4fe708714ea ""
   "chapter/ch2/2.6/chap2.6.tex" 1672194727 16429 b4f49fb338091e23fe41accd252ba68d ""
-  "chapter/ch2/2.7/chap2.7.tex" 1673241811 30724 570de2c48a2a4357fea3dd9d4796c05d ""
-  "chapter/ch2/2.8/chap2.8.tex" 1673242687 918 ef4803abcf500521f618e5fd8ddb24f7 ""
-  "main.aux" 1673244709 13925 04d1319d749faac05056e0b69918dcd7 "pdflatex"
+  "chapter/ch2/2.7/chap2.7.tex" 1673489173 30725 ec0e05b35921b5305cd75ff0d68c0234 ""
+  "chapter/ch2/2.8/chap2.8.tex" 1673600321 4756 1255485f094c2c0ebf9ed80cc8c54a2e ""
+  "main.aux" 1673600324 15670 85b6cc5407fd9010c6edbd5409f1ece7 "pdflatex"
   "main.tex" 1673242174 829 446ac6d125956a675a81e3387d1e51ba ""
-  "main.toc" 1673244709 6478 0e999f5ef3676c04f19760df9d444647 "pdflatex"
+  "main.toc" 1673600324 7147 2cd5364a397295499ee4f4d7375b4782 "pdflatex"
   "preamble/preamble.tex" 1671966848 729 c5963e828a251cd6349d8d92b99b0651 ""
   (generated)
-  "main.aux"
-  "main.toc"
   "main.log"
   "main.pdf"
+  "main.aux"
+  "main.toc"

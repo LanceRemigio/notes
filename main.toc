@@ -51,41 +51,48 @@
 \contentsline {subsubsection}{Exercise 2.3.9}{54}{section*.69}%
 \contentsline {subsubsection}{Exercise 2.3.10}{55}{section*.75}%
 \contentsline {subsubsection}{Exercise 2.3.13(Iterated Limits).}{56}{section*.76}%
-\contentsline {section}{\numberline {2.3}The Monotone Convergence Theorem}{57}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Exercises}{61}{subsection.2.3.1}%
-\contentsline {subsubsection}{Exercise 2.4.1}{61}{section*.77}%
-\contentsline {subsubsection}{Exercise 2.4.3}{63}{section*.80}%
-\contentsline {subsubsection}{Exercise 2.4.5 (Calculating Square Roots)}{65}{section*.81}%
-\contentsline {section}{\numberline {2.4}Subsequences and Bolzano-Weierstrass}{67}{section.2.4}%
-\contentsline {subsubsection}{Definitions}{69}{section*.82}%
-\contentsline {subsection}{\numberline {2.4.1}Exercises}{70}{subsection.2.4.1}%
-\contentsline {subsubsection}{Exercise 2.5.1}{70}{section*.83}%
-\contentsline {subsubsection}{Exercise 2.5.2}{71}{section*.84}%
-\contentsline {subsubsection}{Exercise 2.5.3}{72}{section*.85}%
-\contentsline {subsubsection}{Exercise 2.5.5}{72}{section*.86}%
-\contentsline {subsubsection}{Exercise 2.5.6}{73}{section*.87}%
-\contentsline {subsubsection}{Exercise 2.5.7}{73}{section*.88}%
-\contentsline {subsubsection}{Exercise 2.5.6}{74}{section*.89}%
-\contentsline {section}{\numberline {2.5}The Cauchy Criterion}{74}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}Completeness Revisited}{76}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}Exercises}{77}{subsection.2.5.2}%
-\contentsline {subsubsection}{Exercise 2.6.1}{77}{section*.96}%
-\contentsline {subsubsection}{Exercise 2.6.2}{78}{section*.97}%
-\contentsline {subsubsection}{Exercise 2.6.3}{79}{section*.98}%
-\contentsline {subsubsection}{Exercise 2.6.4}{80}{section*.99}%
-\contentsline {subsubsection}{Exercise 2.6.5}{81}{section*.100}%
-\contentsline {subsubsection}{Exercise 2.6.7}{82}{section*.101}%
-\contentsline {section}{\numberline {2.6}Properties of Infinite Series}{83}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}Rearrangements}{88}{subsection.2.6.1}%
-\contentsline {subsection}{\numberline {2.6.2}Definitions}{89}{subsection.2.6.2}%
-\contentsline {subsection}{\numberline {2.6.3}Exercises}{90}{subsection.2.6.3}%
-\contentsline {subsubsection}{Exercise 2.7.1}{90}{section*.102}%
-\contentsline {subsubsection}{Exercise 2.7.4}{92}{section*.103}%
-\contentsline {subsubsection}{Exercise 2.7.4}{93}{section*.104}%
-\contentsline {subsubsection}{Exercise 2.7.5}{94}{section*.105}%
-\contentsline {subsubsection}{Exercise 2.7.6}{95}{section*.106}%
-\contentsline {subsubsection}{Exercise 2.7.7}{95}{section*.107}%
-\contentsline {subsubsection}{Exercise 2.7.8}{96}{section*.109}%
-\contentsline {subsubsection}{Exercise 2.7.9 (Ratio Test).}{97}{section*.110}%
-\contentsline {section}{\numberline {2.7}Double Summations and Products}{98}{section.2.7}%
-\contentsline {subsubsection}{Exercise 2.8.1}{99}{section*.112}%
+\contentsline {section}{\numberline {2.3}The Monotone Convergence Theorem}{58}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Exercises}{62}{subsection.2.3.1}%
+\contentsline {subsubsection}{Exercise 2.4.1}{62}{section*.83}%
+\contentsline {subsubsection}{Exercise 2.4.3}{64}{section*.86}%
+\contentsline {subsubsection}{Exercise 2.4.5 (Calculating Square Roots)}{66}{section*.87}%
+\contentsline {subsection}{\numberline {2.3.2}Exercise 2.4.6 (Limit Superior.) }{68}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Exercise 2.4.9}{70}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Exercise 2.4.10 (Infinite Products)}{70}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Exercise 2.4.6 (Limit Superior.) }{71}{subsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.3.6}Exercise 2.4.9}{73}{subsection.2.3.6}%
+\contentsline {subsection}{\numberline {2.3.7}Exercise 2.4.10 (Infinite Products)}{74}{subsection.2.3.7}%
+\contentsline {section}{\numberline {2.4}Subsequences and Bolzano-Weierstrass}{74}{section.2.4}%
+\contentsline {subsubsection}{Definitions}{77}{section*.88}%
+\contentsline {subsection}{\numberline {2.4.1}Exercises}{77}{subsection.2.4.1}%
+\contentsline {subsubsection}{Exercise 2.5.1}{77}{section*.89}%
+\contentsline {subsubsection}{Exercise 2.5.2}{78}{section*.90}%
+\contentsline {subsubsection}{Exercise 2.5.3}{79}{section*.91}%
+\contentsline {subsubsection}{Exercise 2.5.5}{80}{section*.92}%
+\contentsline {subsubsection}{Exercise 2.5.6}{81}{section*.93}%
+\contentsline {subsubsection}{Exercise 2.5.7}{81}{section*.94}%
+\contentsline {subsubsection}{Exercise 2.5.6}{82}{section*.95}%
+\contentsline {section}{\numberline {2.5}The Cauchy Criterion}{82}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Completeness Revisited}{84}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Exercises}{84}{subsection.2.5.2}%
+\contentsline {subsubsection}{Exercise 2.6.1}{84}{section*.102}%
+\contentsline {subsubsection}{Exercise 2.6.2}{85}{section*.103}%
+\contentsline {subsubsection}{Exercise 2.6.3}{86}{section*.104}%
+\contentsline {subsubsection}{Exercise 2.6.4}{88}{section*.105}%
+\contentsline {subsubsection}{Exercise 2.6.5}{89}{section*.106}%
+\contentsline {subsubsection}{Exercise 2.6.7}{89}{section*.107}%
+\contentsline {section}{\numberline {2.6}Properties of Infinite Series}{90}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Rearrangements}{95}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Definitions}{96}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.6.3}Exercises}{98}{subsection.2.6.3}%
+\contentsline {subsubsection}{Exercise 2.7.1}{98}{section*.108}%
+\contentsline {subsubsection}{Exercise 2.7.4}{100}{section*.109}%
+\contentsline {subsubsection}{Exercise 2.7.4}{101}{section*.110}%
+\contentsline {subsubsection}{Exercise 2.7.5}{102}{section*.111}%
+\contentsline {subsubsection}{Exercise 2.7.6}{102}{section*.112}%
+\contentsline {subsubsection}{Exercise 2.7.7}{103}{section*.113}%
+\contentsline {subsubsection}{Exercise 2.7.8}{104}{section*.115}%
+\contentsline {subsubsection}{Exercise 2.7.9 (Ratio Test).}{105}{section*.116}%
+\contentsline {section}{\numberline {2.7}Double Summations and Products}{106}{section.2.7}%
+\contentsline {subsubsection}{Exercise 2.8.1}{106}{section*.118}%
+\contentsline {subsubsection}{Exercise 2.8.2}{107}{section*.119}%

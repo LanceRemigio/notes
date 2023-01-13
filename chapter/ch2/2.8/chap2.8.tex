@@ -1,4 +1,7 @@
 
+% !TEX root =  ../../../main.tex 
+
+
 \section{Double Summations and Products}
 
 We discovered in an earlier section that given any doubly indexed array of real numbers \( \{  a_{ij} : i,j \in \N  \}\), it can be an ambiguous task to define 
@@ -9,9 +12,68 @@ for \( m, n \in \N \). In order for the sum of (1) to converge we have to have t
 \[ \sum_{i,j = 1 }^{\infty} a_{ij} = \lim_{n \to \infty} s_{mn}\]
 
 \subsubsection{Exercise 2.8.1} Using the particular array \( (a_{ij})\) from Section 2.1, compute \( \lim_{n \to \infty} s_{mn}\). How does this value compare to the two iterated values for the sum already computed?  
+
+The double summation from section 2.1 is \( a_{ij} = \frac{1}{2^{j-i}}\) where \( \{ a_{ij} : i, j \in \N  \}\) if \( j > i \), \( a_{ij} = -1 \) if \( j = i \), and \( a_{ij} = 0 \) if \( j < i \). 
 \begin{proof}
+    To find \( \sum_{i,j = 1}^{\infty} a_{ij} = \lim_{n \to \infty} s_{mn}\), we first need to define the sequence of partial sums. We can fix \( j \) (the rows of the matrix) and define the sequence of partial sums for the series \( \sum_{i,j = 1 }^{\infty} a_{ij}\) as 
+    \[ s_n = \sum_{k=1}^{n} \Big( \frac{1}{2^{n-1}}\Big) = -2 + \frac{1}{2^{n-1}} \]
+    which taking the limit leads to 
+    \[ \lim_{n \to \infty} \Big( -2 + \frac{1}{2^{n-1}} \Big) = -2.\]
 
 \end{proof}
+
+The issue of rearrangements to an infinite series arises due to commutativity of addition in an infinite context. It was found that having an absolutely converging infinite series fixes this problem. 
+
+\subsubsection{Exercise 2.8.2}
+
+Show that if the iterated series 
+\[ \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} |a_{ij}|\]
+converges (meaning that for each fixed \( i \in \N \) the series \( \sum_{j=1}^{\infty} |a_{ij}|\) converges to some \( b_i \in \R \), and the series \( \sum_{i=1}^{\infty} b_i \) converges as well), then the iterated series 
+\[ \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} a_{ij}\]
+converges.
+
+\begin{proof}
+Suppose the iterated series 
+\[ \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} |a_{ij}|  \tag{1}\]
+converges. This means that the (1) meets the \textit{Cauchy Criterion}. Let \(\epsilon > 0 \). This implies that there exists \( N \in \N \) such that for every \( n > m  \geq N \), we have that 
+\[ \sum_{i= p + 1}^{m} \sum_{j= \ell + 1}^{n} |a_{ij}| < \epsilon.\]
+Consider \( \Big| \sum_{i=p+1}^{\infty} \sum_{j = \ell + 1 }^{\infty} a_{ij} \Big|\). Using the \textit{Triangle Inequality}, we find that  
+j\begin{align*}
+    \Big| \sum_{i=p+1}^{\infty} \sum_{j = \ell + 1 }^{\infty} a_{ij} \Big|&\leq \sum_{i=p+1}^{\infty} \Big|\sum_{ j = \ell + 1 }^{\infty} a_{ij} \Big|   \\
+                                                                          &\leq \sum_{i = p + 1}^{\infty} \sum_{j = \ell + 1 }^{\infty} |a_{ij}| \\
+                                                                          &< \epsilon.
+\end{align*}
+Since (1) meets the \textit{Cauchy Criterion} for series, we know that (1) converges as well. 
+\end{proof}
+
+Another proof using the Comparison Test goes something like this
+
+\begin{proof}
+    Suppose the iterated series 
+    \[ \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} |a_{ij}| \]
+    converges. This means that for each \( i \in \N \) the infinite series 
+    \[ \sum_{j=1}^{\infty} a_{ij} = r_i \] for some \( r_i \in \R \). Hence, we have the infinite series 
+    \[ \sum_{i=1}^{\infty} r_i. \tag{1} \]
+    Our goal is to show that (1) converges. Suppose we look at the terms 
+    \[ |r_i| = \Big| \sum_{j=1}^{\infty} a_{ij}\Big|.\]
+    Note by the \textit{Triangle Inequality} that 
+    \[ \sum_{i=1}^{\infty} |r_i| \leq \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} |a_{ij}|.  \]
+    by assumption the infinite series to the right converges. Hence, the series to the left must also converge by the \textit{Comparison Test}. Since \( \sum |r_i|\) converges, then the series 
+    \( \sum r_i \) converges as well. 
+\end{proof}
+
+\begin{tcolorbox}
+\begin{thm}
+    Let \( \{ a_{ij} : i,j \in \N  \}\) be a doubly indexed array of real numbers. If 
+    \[ \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} |a_{ij}|\]
+    converges, then both \( \sum_{i=1}^{\infty} a_{ij}\) and \( \sum_{j=1}^{\infty} \sum_{i=1}^{\infty} a_{ij} \) converge to the same value. Moreover, we have that 
+    \[ \lim_{n \to \infty} s_{nn} = \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} a_{ij} = \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} a_{ij},\]
+    where \( s_{nn} = \sum_{i=1}^{n} \sum_{j=1}^{n} a_{ij}\). 
+\end{thm}
+\end{tcolorbox}
+
+
+
 
 
 
