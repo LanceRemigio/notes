@@ -96,3 +96,6 @@
 \contentsline {section}{\numberline {2.7}Double Summations and Products}{106}{section.2.7}%
 \contentsline {subsubsection}{Exercise 2.8.1}{106}{section*.118}%
 \contentsline {subsubsection}{Exercise 2.8.2}{107}{section*.119}%
+\contentsline {subsubsection}{Exercise 2.8.3}{109}{section*.122}%
+\contentsline {subsubsection}{Exercise 2.8.4}{111}{section*.124}%
+\contentsline {subsubsection}{Exercise 2.8.5}{112}{section*.125}%
