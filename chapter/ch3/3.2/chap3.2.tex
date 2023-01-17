@@ -1,0 +1,114 @@
+
+
+\section{Open and Closed Sets}
+
+Recall that given any \( \epsilon >0 \), the \( \epsilon-\)neighborhood of \( a \in \R  \) is the set 
+\[ V_{\epsilon } = \{ x \in \R : | x - a | < \epsilon  \}.\]
+In other words, we have an open interval \( (a -\epsilon , a + \epsilon ) \) or \( a - \epsilon < x < a + \epsilon  \) centered at \( a \) with radius \( \epsilon  \). 
+
+\begin{tcolorbox}
+\begin{defn}
+    A set \( A \subseteq \R  \) is \textit{open} if for all points \( a \in A \) there exists an \( \epsilon - \)neighborhood \(  V_{\epsilon }(a) \subseteq A \). 
+\end{defn}
+\end{tcolorbox}
+
+\begin{ex}
+\begin{enumerate}
+    \item[(i)] The set \( \R  \) is an \textit{open} set because for any \( a \in \R  \), we can pick a \( \epsilon- \)neighborhood \( V_{\epsilon }(a) \) such that \( V_{\epsilon } (a) \subseteq \R \). 
+    \item[(ii)] The empty set \( \emptyset \) is an open subset of the real line. This statement is vacuously true due to the definition of an open \textit{set} i.e this set has no interior points to consider so it is true by default. 
+    \item[(iii)] Take any \( c,d \in \R  \) and create an open interval as such where 
+        \[  (c,d) = \{ x \in \R : c < x < d \}.\] To see why \( (c,d) \) is an \textit{open} set, let \( x \in (c,d) \) be an arbitrary point. Let \(  \epsilon = \min\{ x - c, d -x  \}  \), then we can construct the following \( \epsilon-\)neighborhood where
+        \[  V_{\epsilon} = \{ x' \in \R : | x' - x  | < \epsilon \}.  \]
+\end{enumerate}
+\end{ex}
+
+\begin{tcolorbox}
+\begin{thm}
+\begin{enumerate}
+    \item[(i)] The union of an arbitrary collection open sets is open.
+    \item[(ii)] The intersection of a finite collection of open sets is open. 
+\end{enumerate}
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    To prove (i), define \( \{ O_{\lambda} : \lambda \in A \}  \) be a collection of open sets and let \( O = \bigcup_{ \lambda \in A  } O_{\lambda} \). Let \( a  \) be an arbitrary element of \( O \). In order to show that \( O \) is \textit{open}, we need to show that \( V_{\epsilon }(a) \subseteq O \) where \( V_{\epsilon }(a) \) is the \( \epsilon - \)neighborhood. Let \(  a \in O_{\lambda} \) be an arbitrary element. Since we have a collection of open sets 
+    \[ \{ O_{\lambda}  : \lambda \in A \}  \]
+    we can create a \( \epsilon - \)neighborhood around \( a \in O_{\lambda}  \) for some \( \lambda \in A  \) such that \( V_{\epsilon }(a) \subseteq O_{\lambda}\). But note that \( O_{\lambda} \subseteq O \). Hence, we have that \( V_{\epsilon } (a) \subseteq O = \bigcup_{ \lambda \in A  } O_{\lambda}\). Hence, \( O \) is an \textit{open} set.
+    
+    To prove (ii), suppose \( O = \bigcap_{ i =1  }^{ N } O_{i}  \). Suppose \( a \in O_{i} \) for all \( 1 \leq  i \leq N \) where \( O_{i} \) is a collection of open sets. Hence, there exists an \( \epsilon- \)neighborhood for every \( O_i  \). We need only one value of \( \epsilon  \) to make this work so define \( \epsilon = \min \{ \epsilon_1, \epsilon_2, \epsilon_3, ... \epsilon_N \}  \).  This means that \[ V_{\epsilon_i} (a) \subseteq V_{\epsilon}(a) \subseteq O_{i} \subseteq O  \] 
+Hence, we have 
+\[ V_{\epsilon}(a) \subseteq \bigcap_{ i=1 }^{ N } O_i. \] 
+\end{proof}
+
+\subsection{Closed Sets} 
+
+\begin{tcolorbox}
+\begin{defn}
+    A point \( x \) is a \textit{limit point} of a set \( A  \) if every \( \epsilon- \)neighborhood \( V_{\epsilon }(x) \) of \( x \) intersects the set \( A  \) at some point other than \( x \). 
+\end{defn}
+\end{tcolorbox}
+
+This is another way of saying that a sequence approaches of values approaches the limit point \( x \) where \( V_{\epsilon }(x) \) can be thought of as neighborhoods "clustering" around the point \( x \). 
+
+\begin{tcolorbox}
+\begin{thm}
+A point \( x \) is a limit point of a set \( A \) if and only of \( x = \lim a_n \) for some sequence \( (a_n) \) contained in A satisfying \( a_n \neq x  \) for all \( n \in \N  \). 
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    \( (\Rightarrow) \) Let \( V_{\epsilon }(x) \) be an \( \epsilon-\)neighborhood around \( x \). We want to show that \( \lim a_n = x  \) for some sequence \( (a_n) \) contained in \( A  \) satisfying \( a_n \neq x  \) for all \( n \in \N  \). By definition, 
+    \[ V_{\epsilon}(x) = \{ x \in \R : | a_n - x  | < \epsilon  \}.  \]
+    Let \( \epsilon = \frac{ 1 }{ n }  \). Since \( x  \) is a \textit{limit point}, for each \( n \in \N  \), we can pick any point 
+    \[ a_n \in V_{1/n}(x) \cap A. \]Then we have 
+    \[  | a_n - x | < \frac{ 1 }{ n }  \]
+    which is equivalent to 
+    \[ x - \frac{ 1 }{ n } < a_n < x + \frac{ 1 }{ n }. \] 
+    By the Algebraic limit theorem and Squeeze Theorem, we have that \( (a_n) \to x  \) where \( a_n \neq x  \) for all \( n \in \N  \). 
+
+    \( (\Leftarrow) \) Suppose \( x = \lim a_n \) for some sequence \( (a_n) \) contained in \( A \) satisfying \( a_n \neq x  \) for all \( n \in \N  \). We want to show the converse. Let \( \epsilon > 0  \). Then By definition of \( \lim a_n = x  \), there exists \( N \in \N  \) such that for any \( n \geq N \), we have  
+    \[  | a_n - x  | < \epsilon.  \]
+    But this is also the definition of an \( \epsilon-\)neighborhood. Hence, \( a_n \neq x  \) for all \( n \in \N  \) and \( x \in A  \) is a limit point implies 
+    \[ V_{\epsilon }(x) \cap A \]
+    for all \( \epsilon- \)neighborhoods. 
+\end{proof}
+
+Keep in mind that \( a \in A  \) means that there is a sequence in \( A  \) such that \( a_n = {a,a,a, ...} \) which is uninteresting for the most part. We can distinguish \textit{limit points} from \textit{isolated points}.  
+
+\begin{tcolorbox}
+\begin{defn}
+A point \( a \in A  \) is an \textit{isolated point} of \( A \) if it is not a \textit{limit point} of \( A \).  
+\end{defn}
+\end{tcolorbox}
+
+Remember that an isolated point is always in the set \( A  \), but a limit point can be sometimes be outside of the set \( A \). An example of this is the endpoint of an open interval. A sequence can approach the endpoint where \( a_n \neq x  \) for all \( n \in \N  \) but \( x  \) is not in the set.  
+
+\begin{tcolorbox}
+\begin{defn}
+A set \( F \subseteq \R  \) is \textit{closed} if it contains its limit points. 
+\end{defn}
+\end{tcolorbox}
+
+In other words, can say that a set \( A  \) is closed if sequences contained in \(  A  \) converge to their limits that are within the set \( A  \). 
+
+\begin{tcolorbox}
+\begin{thm}
+A set \( F \subseteq \R \) is closed if and only if every Cauchy sequence contained in \( F \) has a limit that is also an element of \( F \). 
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose \( F \subseteq \R  \) is closed. Let \( x \in F \) be a limit point. Let \( (x_n) \) be a Cauchy sequence contained in \( F  \). By the Cauchy Criterion, \( (x_n) \) converges to \( x \in F  \). 
+\end{proof}
+
+\begin{ex}
+\begin{enumerate}
+    \item[(i)] Consider the set 
+        \[ A = \{ \frac{ 1 }{ n } : n \in \N  \}  \]
+\end{enumerate}
+\end{ex}
+
+
+
+

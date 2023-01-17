@@ -36,14 +36,14 @@ converges.
 Suppose the iterated series 
 \[ \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} |a_{ij}|  \tag{1}\]
 converges. This means that the (1) meets the \textit{Cauchy Criterion}. Let \(\epsilon > 0 \). This implies that there exists \( N \in \N \) such that for every \( n > m  \geq N \), we have that 
-\[ \sum_{i= p + 1}^{m} \sum_{j= \ell + 1}^{n} |a_{ij}| < \epsilon.\]
-Consider \( \Big| \sum_{i=p+1}^{\infty} \sum_{j = \ell + 1 }^{\infty} a_{ij} \Big|\). Using the \textit{Triangle Inequality}, we find that  
+\[ \sum_{i= 1}^{m} \sum_{j= 1}^{n} |a_{ij}| < \epsilon.\]
+Consider \( \Big| \sum_{(i,j) \in A(m,n)} a_{ij} \Big|\) where 
+\[  A(m,n) = \{ (i,j) : 1 \leq i \leq j \leq n \}.  \] Using the \textit{Triangle Inequality}, we find that  
 j\begin{align*}
-    \Big| \sum_{i=p+1}^{\infty} \sum_{j = \ell + 1 }^{\infty} a_{ij} \Big|&\leq \sum_{i=p+1}^{\infty} \Big|\sum_{ j = \ell + 1 }^{\infty} a_{ij} \Big|   \\
-                                                                          &\leq \sum_{i = p + 1}^{\infty} \sum_{j = \ell + 1 }^{\infty} |a_{ij}| \\
-                                                                          &< \epsilon.
+    \Big| s_{m m} - s_{nn} \Big| &= \Big| \sum_{ (i,j) \in A(m,n)} a_{ij} \Big| \\ 
+                                 &\leq \sum_{(i,j) \in A(m,n)} | a_{ij} | \tag{2}\\                          &< \epsilon.
 \end{align*}
-Since (1) meets the \textit{Cauchy Criterion} for series, we know that (1) converges as well. 
+Since (2) meets the \textit{Cauchy Criterion} for series, we know that \( \sum_{ m,n }^{ \infty  } a_{ij} \) must be \textit{Cauchy} and thus must converge as well. 
 \end{proof}
 
 Another proof using the Comparison Test goes something like this
@@ -98,6 +98,14 @@ Another proof using the Comparison Test goes something like this
                                 &= \epsilon.
             \end{align*}
             Hence, the sequence of partial sums \(  (t_{nn}) \) converges. 
+        \end{proof}
+
+        Another way we can prove this is to use the Monotone Convergence Theorem. 
+
+        \begin{proof}
+            Our goal is to show that \( (t_{nn}) \) is converges to \( L \). That is, our goal is to show that \( (t_{nn}) \) is bounded and monotone. We know that \( (t_{nn}) \) is monotone since all \( t_{nn} \) are non-negative terms and that \( \sum_{ n,m }^{ \infty  } | a_{ij} |  = L  \) where \( L \geq 0 \). To show that \( (t_{nn}) \) is bounded note that 
+            \[ t_{mn} = \sum_{ i=1 }^{ m } \sum_{ j=1 }^{ n } | a_{ij} | \leq \sum_{ i=1 }^{ m } \sum_{ j=1 }^{ \infty  } | a_{ij} | \leq \sum_{ i=1 }^{ m } b_i \leq L. \]
+            Hence, \( (t_{nn}) \) is a bounded sequence. By the Monotone Convergence Theorem, \( (t_{nn}) \) converges.
         \end{proof}
     \item[(b)] Now, use the fact that \( (t_{nn})\) is a Cauchy sequence to argue that \( (s_{nn})\) converges. In order to prove the theorem, we must show that the two iterated sums converge to this same limit. We will first show that 
         \[ S = \sum_{ i=1 }^{ \infty  } \sum_{ j=1 }^{ \infty  } a_{ij}, \] 
@@ -160,10 +168,90 @@ Another proof using the Comparison Test goes something like this
             \item[(a)] Show that for all \( m \geq N \) 
                 \[ | (r_1 + r_2 + ... + r_m) - S  | \leq \epsilon. \]
                 Conclude that the iterated sum \( \sum_{ i=1 }^{ \infty  } \sum_{ j=1 }^{ \infty  } a_{ij} \) converges to \( S \). 
+                \begin{proof}
+                    By exercise 2.8.4, we know that \( s_{mn} \to S  \). Note that 
+                    \[  \sum_{ i=1 }^{ \infty   } \sum_{ j=1 }^{ \infty   } a_{ij} = \sum_{ i=1 }^{ \infty   } r_i \text{ for each } i.\]
+                    Hence, we have 
+                    \[ \lim_{ m,n \to \infty  } s_{mn} = \lim_{ m \to \infty  } \sum_{ i=1 }^{ m }r_i = S  \]
+                    which is equivalent to saying that for all \( m > N  \) for some \( N \in \N  \) we have that 
+                    \[  \Big| \Big( \sum_{ i=1 }^{ m } r_i \Big) - S \Big| \leq \epsilon.    \]
+                \end{proof}
+            \item[(b)] Finish the proof by showing that the other iterated sum, \( \sum_{ j=1 }^{ \infty  } a_{ij} \) converges to \( S \) as well. Notice that the same argument can be used once it is established that, for each fixed column \( j \), the sum \( \sum_{ i=1 }^{ \infty  } a_{ij} \) converges to some real number \( c_j \). 
+                \begin{proof}
+                    Using the same process above for summing up the columns of \( \sum_{ j=1 }^{ \infty  } \sum_{ i =1  }^{ \infty  } a_{ij} \) leads to 
+                    \[ \Big| \Big( \sum_{ j=1 }^{ n  } c_j \Big) - S \Big| \leq  \epsilon.  \]
+                    Hence, we must have that 
+                    \[  \lim_{ n \to \infty  } \sum_{ i=1 }^{ \infty  } a_{ij} = \sum_{ j=1 }^{ \infty  } \sum_{ i =1 }^{ \infty  } a_{ij}. \]
+                \end{proof}
         \end{enumerate}
 
 \end{enumerate}
 
+Another way of computing double sums is to sum along the diagonals of a rectangular matrix.
+
+Let \(  \{ a_{ij} : i,j \in \N  \}  \) be a doubly indexed array where 
+\[  d_2 = a_{11}, d_3 = a_{12} + a_{21}, d_4 = a_{13} + a_{22} + a_{31} \]
+and in general 
+\[  d_k = a_{1,k-1} + a_{2,k-2} + \dots + a_{k-1,1}. \]
+Then, \( \sum_{ k=2 }^{ \infty  } d_k  \) represents another reasonable way of summing over every \( a_{ij} \) in the array.
+
+\subsubsection{Exercise 2.8.6}
+
+\begin{enumerate}
+    \item[(a)] Assuming the hypothesis and hence the conclusion of Theorem 2.8.1, show that \( \sum_{ k=2 }^{ \infty  } d_k \) converges absolutely. 
+        \begin{proof}
+        Our goal is to show that \( \sum_{ k=1 }^{ \infty  } | d_k |  \) converges. Since 
+        \[  d_k = a_{1,k-1} + a_{2,k-2} + \dots + a_{k-1, 1} \]
+        we can define the sequence of partial sums for \( \sum_{ k=1 }^{ \infty  } | d_k |  \) as 
+        \[ \sum_{ i=1 }^{ n } \Big| \sum_{ j=1 }^{ n } a_{ij}  \Big| \tag{1}.  \]
+        We know by Theorem 2.8.1 that the series \( \sum_{ i=1 }^{ \infty  } \sum_{ j=1 }^{ \infty  } | a_{ij} |  \) converges. Hence, we can write
+        \[ \sum_{ k=2 }^{ n } | d_k |  = \sum_{ i=1 }^{ n } \Big| \sum_{ j=1 }^{ n } a_{ij}  \Big| \leq \sum_{ i=1 }^{ n }  \sum_{ j=1 }^{ n } |a_{ij}|  \]
+        using the Triangle Inequality. By the Comparison Test, we must have that (1) converges as well. 
+        \end{proof}
+\end{enumerate}
+
+\subsection{Products of Series}
+
+We can take the product of two series by doing the following algebra below:
+
+\begin{align*}
+    \Big( \sum_{ i=1 }^{ \infty  } a_i \Big) \Big( \sum_{ j=1 }^{ \infty  } b_j \Big) &= (a_1 + a_2 + a_3 +  \dots) (b_1 + b_2 + b_3 \dots) \\
+                                                                                      &= a_1 b_1 + (a_1 b_2 + a_2 b_1 ) + (a_3 b_1 + a_2 b_2 + a_1 b_3 ) + ...  \\
+                                                                                      &= \sum_{ k=2 }^{ \infty  } d_k 
+\end{align*}
+where 
+\[  d_k = a_1 b_{k-1} + a_2 b_{k-2} + \dots + a_{k-2} b_1.\]
+
+\subsubsection{Exercise 2.8.7}
+Assume that \( \sum_{ i=1 }^{ \infty  } a_i  \) converges absolutely to \( A  \), and \( \sum_{ j=1 }^{ \infty  } b_j  \) converges absolutely to \( B \). 
+\begin{enumerate}
+    \item[(a)] Show that the iterated sum \( \sum_{ i=1 }^{ \infty  } \sum_{ j=1 }^{ \infty  } | a_i b_j |  \) converges so that we may apply Theorem 2.8.1. 
+    \begin{proof}
+    Our goal is to show that \( \sum_{ i=1 }^{ \infty  } \sum_{ j=1 }^{ \infty  } a_i b_j  \) converges absolutely. Observe that 
+    \begin{align*}
+        \sum_{ i=1 }^{ \infty  } \Big| \sum_{ j=1 }^{ \infty  } a_i b_j  \Big| &\leq \sum_{ i=1 }^{ \infty  } \sum_{ j=1 }^{\infty } | a_i b_j  | \tag{1} \\
+                                                                               &= \sum_{ i=1 }^{ \infty  } | a_i  |  \Big( \sum_{ j=1 }^{ \infty  } | b_j |  \Big) \\
+                                                                               &= \sum_{ i=1 }^{ \infty  } | a_i | \cdot | B | \tag{2}\\
+    \end{align*}
+    Since (2) converges absolutely by the Algebraic Series Theorem, we have that (1) converges. 
+    converges. 
+    \end{proof}
+\item[(b)] Let \( s_{nn} = \sum_{ i=1 }^{ \infty  } \sum_{ j=1 }^{ \infty  } a_i b_j   \), and prove that \( \lim_{ n \to \infty  } s_{nn} = AB\). Conclude that 
+    \[ \sum_{ i=1 }^{ \infty  } \sum_{ j=1 }^{ \infty  }a_i b_j = \sum_{ j=1 }^{ \infty  } \sum_{ i=1 }^{ \infty  } a_i b_j = \sum_{ k=2 }^{ \infty  } d_k = AB, \]
+    where, as before, \( d_k = a_1b_{k-1} + a_2 b_{k-2} + \dots + a_{k-1} b_1. \)
+    \begin{proof}
+        We can show that \( (t_{nn}) \) converges via the Monotone Convergence Theorem where
+        \[ t_{nn} = \sum_{ i=1 }^{ \infty  } \sum_{ j=1 }^{ \infty  } |a_{i} b_jj|. \]
+        Observe that all the terms of \( (t_{nn}) \) are positive and increasing. Now all we need to show is that \( (t_{nn}) \) is bounded. Since \( \sum_{ i=1 }^{ n  } | a_i | \leq M  \) and \( \sum_{ j=1 }^{ \infty  } | b_i | \leq L \) for some \( M, L \in \R \), we have that 
+        \begin{align*}
+            t_{nn} = \sum_{ i=1 }^{ n } \sum_{ j=1 }^{ n } | a_i b_j | &\leq \sum_{ i=1 }^{ \infty  } | a_j | \sum_{ j=1 }^{ \infty  } | b_j |  \\
+                                                                       &\leq M \cdot L. 
+        \end{align*}
+        Hence, \( (t_{nn}) \) is a bounded sequence of partial sums. Now by theorem 2.8.1, we can say that 
+    \[\lim_{ n \to \infty  } s_{nn} =  \sum_{ i=1 }^{ \infty  } \sum_{ j=1 }^{ \infty  }a_i b_j = \sum_{ j=1 }^{ \infty  } \sum_{ i=1 }^{ \infty  } a_i b_j = \sum_{ k=2 }^{ \infty  } d_k = AB. \]
+
+    \end{proof}
+\end{enumerate}
 
 
 
