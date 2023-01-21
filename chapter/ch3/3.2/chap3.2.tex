@@ -48,7 +48,8 @@ Hence, we have
     A point \( x \) is a \textit{limit point} of a set \( A  \) if every \( \epsilon- \)neighborhood \( V_{\epsilon }(x) \) of \( x \) intersects the set \( A  \) at some point other than \( x \). 
 \end{defn}
 \end{tcolorbox}
-
+In other words, we have the following intersection 
+\[ x \notin V_{\epsilon }(x) \cap A.  \]
 This is another way of saying that a sequence approaches of values approaches the limit point \( x \) where \( V_{\epsilon }(x) \) can be thought of as neighborhoods "clustering" around the point \( x \). 
 
 \begin{tcolorbox}
@@ -105,9 +106,254 @@ A set \( F \subseteq \R \) is closed if and only if every Cauchy sequence contai
 \begin{ex}
 \begin{enumerate}
     \item[(i)] Consider the set 
-        \[ A = \{ \frac{ 1 }{ n } : n \in \N  \}  \]
+        \[ A = \Big\{ \frac{ 1 }{ n }  : n \in \N \Big\}.   \]
+        Let's show that each point of \( A  \) is isolated. We can show that each point of \( A  \) is isolated. Given \( \frac{ 1 }{ n }  \in A \). Choose \( \epsilon = \frac{ 1 }{ n }  - \frac{ 1 }{ (n+1) }. \) Then, 
+        \[ V_{\epsilon } (1/n) \cap A = \Big\{ \frac{ 1 }{ n } \Big\}. \]
+        It follows from Definition 3.2.4 that \( \frac{ 1 }{ n }  \) is not a limit point and so is isolated. Although all of the points of \( A  \) are isolated, the set \( A  \) does have only one limit point 0. The reason for this is can be explained by the very definition of \( A  \) where \( 0 \notin A  \). Since the limit of \( A \) is not contained in \( A \), we can say that \( A  \) is not closed. The set \( F = A \cup \{ 0 \}  \) is an example of a closed set and is called the closure of \( A \).   
+    \item[(ii)] Let's prove that a closed interval 
+        \[ [c,d] = \{ x \in \R : c \leq c \leq d \}  \]
+        is a closed set using Definition 3.2.7. If \( x \) is a limit point of \( [c,d] \), then by Theorem 3.2.5 there exists \( (x_n) \subseteq [c,d] \) with \( (x_n) \to x  \). Since \( (x_n) \to x  \), we can use the Order Limit Theorem to say that 
+        \[ c \leq x_n \leq d \iff c \leq x \leq d. \]
+        This means \( x \in [c,d] \) which proves that \( [c,d] \) is a closed set. 
+    \item[(iii)] Consider the set \( \Q \subseteq \R  \) of rational numbers. An interesting property of \( \Q \) is that all of its limit points is actually all of \( \R  \). To see why this is so, let us have \( y \in \R  \) be arbitrary and construct \( V_{\epsilon }(y) \) such that we have the open set \( (y- \epsilon , y + \epsilon ) \). Since \( \Q  \) is dense in \( \R \), there exists \( x \in \Q \) where \( x \neq y \) such that \(x \in (y-\epsilon , y+\epsilon ) \). Hence, \( y  \) is a limit point of \( \Q \).  
 \end{enumerate}
 \end{ex}
+
+We can actually restate the Density Property from the first chapter by saying the following:
+
+\begin{tcolorbox}
+\begin{thm}
+For every \( y \in \R  \), there exists a sequence of rational numbers that converges to \( y \). 
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    Let \( y \in \R  \) and let \( \epsilon = \frac{ 1 }{ n }  \). Create the following \( \epsilon- \)neighborhood \( (y-\frac{ 1 }{ n }, y + \frac{ 1 }{ n } ) \). Since the end points of this \( \epsilon- \)neighborhood are real numbers, we can find a sequence of rational numbers \( (x_n) \subseteq (y - \epsilon , y + \epsilon  )\) by the Density of \( \Q \) in \( \R \) such that 
+    \[ y - \frac{ 1 }{ n } < x_n < y + \frac{ 1 }{ n }. \]
+    By the Squeeze Theorem, we can write that \( (x_n) \to y \) where \( x_n \neq y \) for all \( n \in \N  \). 
+\end{proof}
+
+\subsection{Closure}
+
+\begin{tcolorbox}
+\begin{defn}
+    Given a set \( A \subseteq \R  \), let \( L \) be the set of all limit points of \( A \). The closure of \( A \) is defined to be the \( \bar{A} = A \cup L \). 
+\end{defn}
+\end{tcolorbox}
+
+\begin{ex}
+\begin{enumerate}
+    \item[(i)] Consider \( A = \{ 1/n : n \in \N  \}  \), then the \textit{closure of} \( A \) is 
+    just 
+    \[ \bar{A} = A \cup \{ 0 \}. \]
+\item[(ii)] In the last example, \( y \notin (y- \epsilon , y + \epsilon ) \) where \( y \in \R  \) gurantees that the closure of \( \Q  \) in \( \R  \); that is, \( \bar{\Q} = \R  \). 
+\item[(iii)] If \( A \) is an open interval \( (a,b) \), then the closure is just \( \bar{A} = [a,b] \); that is, \( \bar{A} = A \cup \{ a,b \}  \) where \( a,b \in \R  \) are the endpoints of the set \( (a,b) \). 
+\item[(iv)]If \( A \) is a closed interval then the closure is just \( \bar{A} = A  \). The obvious conclusion from this is that closed intervals are always closed sets. 
+\end{enumerate}
+\end{ex}
+
+\begin{tcolorbox}
+\begin{thm}
+    For any \( A \subseteq \R  \), the closure of \( \bar{A} \) is a closed set and is the smallest closed set containing \( A \). 
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    Since \( L \) is the set of limit points of \( A \), it follows immediately that \( \bar{A} \)
+    contains its limit points of \( A \). The problem here is that taking the union of \( A \) and \( L \) could produce some new limit points. 
+    \begin{center}
+        The details are in exercise 3.2.7
+    \end{center}
+    Hence, any closed set containing \( A \) must contain \( L \) as well. Hence, we have 
+    \( \bar{A} = A \cup L  \) is the smallest closed set containing \( A \). 
+\end{proof}
+
+\subsection{Complements}
+
+The notions of open and closed imply that they are not antonyms of each other. Just because a set is not open, does not immediately imply that it is closed. We can see this in action by considering the half-open interval 
+\[ (c,d] = \{ x \in \R : c \leq x \leq d \}  \]
+as being neither open nor closed. Furthermore, \( \R \) and \( \emptyset \) are both simultaneously open and closed at the same time. Luckily, these are the only two sets that exhibit this confusing property. We do have a relationship between open and closed sets however.   
+
+Recall that the complement of a set \( A \subseteq \R  \) is defined to be the set
+\[ A^c = \{ x \in \R : x \notin A  \} \]
+which describes all of the elements that are not in \( A \). 
+
+\begin{tcolorbox}
+\begin{thm}
+A set \( A \) is open if and only if \( A^c \) is closed. Likewise, a set \( B \) is closed if and only if \( B^c \) is open. 
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose \( A \subseteq \R  \) is an open set. We want to show that \( A^c \) is a closed set. Let \( x  \) be a limit point of \( A^c \). Hence, there exists a sequence \( (x_n) \) such that \( \lim x_n = x \) where \( x_n \neq x  \) for all \( n \in \N  \). By definition of \( \lim x_n = x  \), there is an \( \epsilon- \)neighborhood \( V_{\epsilon } (x) \), but this means that \( x \notin A \) and must be in \( A^c \) since every \( \epsilon - \)neighborhood of \( x \) intersects \( A \) at some point other than \( x \). Hence, we have \( x \in O^c \). 
+    
+    For the converse statement, we assume \( A^c \) is a closed set. We want to show that \( A \) is open. Hence, let \( x \in A \). Since \( x \in A \), \( x \) is not a limit point of \( A^c \) and \( A^c \) is a closed set, there must exist an \( \epsilon - \)neighborhood such that \( x \notin V_{\epsilon }(x) \cap A^c \). This means \( x \in A \) and so \( V_{\epsilon } \subseteq A \). Hence, \( A \) is an open set.  
+    The second statement follows quickly when taking the complement of each going in each direction.
+\end{proof}
+
+\begin{tcolorbox}
+\begin{thm}
+\begin{enumerate}
+    \item[(i)] The union of a finite collection of closed sets is closed. 
+    \item[(ii)] The intersection of an arbitrary collection of closed sets is closed. 
+\end{enumerate}
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    De Morgan's Laws state that for any collection of sets \( \{ E_{\lambda} : \lambda \in \Lambda \}  \) it is true that 
+    \[ \Big( \bigcup_{\lambda \in \Lambda} E_{\lambda}\Big)^c = \bigcap_{\lambda \in \Lambda} E_{\lambda}^c ~~ \text{ and } ~~ \Big( \bigcap_{\lambda \in \Lambda} E_{\lambda}\Big)^c = \bigcup_{\lambda \in \Lambda} E_{\lambda}^c. \]
+\end{proof}
+
+
+\subsection{Definitions}
+
+\begin{tcolorbox}
+\begin{defn}
+    A set \( A \subseteq \R  \) is \textit{open} if for all points \( a \in A \) there exists an \( \epsilon - \)neighborhood \(  V_{\epsilon }(a) \subseteq A \). 
+\end{defn}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\begin{thm}
+\begin{enumerate}
+    \item[(i)] The union of an arbitrary collection open sets is open.
+    \item[(ii)] The intersection of a finite collection of open sets is open. 
+\end{enumerate}
+\end{thm}
+
+\end{tcolorbox}
+\begin{tcolorbox}
+\begin{defn}
+    A point \( x \) is a \textit{limit point} of a set \( A  \) if every \( \epsilon- \)neighborhood \( V_{\epsilon }(x) \) of \( x \) intersects the set \( A  \) at some point other than \( x \). 
+\end{defn}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+\begin{thm}
+A point \( x \) is a limit point of a set \( A \) if and only of \( x = \lim a_n \) for some sequence \( (a_n) \) contained in A satisfying \( a_n \neq x  \) for all \( n \in \N  \). 
+\end{thm}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\begin{defn}
+A point \( a \in A  \) is an \textit{isolated point} of \( A \) if it is not a \textit{limit point} of \( A \).  
+\end{defn}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\begin{defn}
+A set \( F \subseteq \R  \) is \textit{closed} if it contains its limit points. 
+\end{defn}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\begin{thm}
+A set \( F \subseteq \R \) is closed if and only if every Cauchy sequence contained in \( F \) has a limit that is also an element of \( F \). 
+\end{thm}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\begin{thm}
+For every \( y \in \R  \), there exists a sequence of rational numbers that converges to \( y \). 
+\end{thm}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\begin{defn}
+    Given a set \( A \subseteq \R  \), let \( L \) be the set of all limit points of \( A \). The closure of \( A \) is defined to be the \( \bar{A} = A \cup L \). 
+\end{defn}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+\begin{thm}
+    For any \( A \subseteq \R  \), the closure of \( \bar{A} \) is a closed set and is the smallest closed set containing \( A \). 
+\end{thm}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\begin{thm}
+A set \( A \) is open if and only if \( A^c \) is closed. Likewise, a set \( B \) is closed if and only if \( B^c \) is open. 
+\end{thm}
+\end{tcolorbox}
+
+
+\subsection{Exercises}
+
+
+
+
+
+\subsubsection{Exercise 1.2.13}
+Show De Morgan's Laws where \( \{ A_i : 1 \leq i \leq n \}  \) is a collection of sets such that
+\begin{align*}
+    \Big( \bigcup_{i = 1}^{n} A_i \Big)^c &= \bigcap_{ i=1 }^{ n } A_i^{c} \tag{1} \\
+    \Big( \bigcap_{i = 1}^{n} A_i \Big)^c &= \bigcup_{ i=1 }^{ n } A_i^{c} \tag{2} \\
+\end{align*}
+for any finite \( n \in \N \). 
+\begin{proof}
+Our goal is to show that both inclusions hold for (1) and (2). Our first step is to induct on \( n\in \N \) to show that 
+\[ \Big( \bigcup_{i=1}^{n} A_i \Big)^c \subseteq \bigcap_{i=1}^{n} A_i^c. \tag{1}\]
+Let \( n = 1 \) be the base case. It follows immediately that \( A_1^c \subseteq A_1^c \). Let \( n = 2 \), then it follows that \( (A_1 \cup A_2)^c \subseteq A_1^c \cap A_2^c \) by exercise 1.2.5. For the other inclusion, we also have \( A_1^c \cap A_2^c \subseteq (A_1 \cup A_2)^c \). Now suppose (1) holds for \( 1 \leq n \leq k-1 \). We want to show that (1) holds for \( k \). Let 
+\[ A' = \bigcup_{ n=1 }^{ k-1 } A_n  \]
+then consider the following 
+\[  \Big( \bigcup_{ n=1 }^{ k } A_n \Big)^c = \Big( A_k \cup \Big[ \bigcup_{ n=1 }^{ k-1 } A_n \Big] \Big)^c = ( A_k \cup A')^c \]
+Let \( x \in (A_{k} \cup A')^c \), then we know that \( x \notin (A_k \cup A') \). This means that \( x \notin A_k  \) and \( x \notin A'\). Hence, we have \( x \in A_k^c \) and \( x \in (A')^c \); that is, 
+\begin{align*}
+    (A_k \cup A')^c &\subseteq A_k^c \cap (A')^c  \\
+                    &= A_k^c \cap \Big( \bigcup_{n=1}^{k-1} A_n  \Big)^c. \\
+                    &\subseteq A_k^c \cap \Big( \bigcap_{n=1}^{k-1} A_n^c \Big) \\
+                    &= A_k \cap (A_{k-1} \cap ... \cap A_1) \\
+                    &= \bigcap_{n=1}^{k} A_n^c.
+\end{align*}
+Hence, we have 
+\[ \Big( \bigcup_{i=1}^{n} A_i \Big)^c \subseteq \bigcap_{i=1}^{n} A_i^c.\]
+For the other inclusion, suppose the containment 
+\[ \bigcap_{n=1}^{k-1}A_k^c \subseteq \Big( \bigcup_{n=1}^{k-1} A_k \Big)^c \tag{2} \]
+holds for \( 1 \leq n \leq k -1  \). We want to show that (2) holds for \( k  \). Consider the finite intersection
+\[ \bigcap_{ n=1 }^{ k } A_n^c = A_k^c \cap \Big( \bigcap_{ n=1 }^{ k-1 } A_{n}^c \Big).  \]
+If we know that \( x \notin \bigcap_{ n=1 }^{ k-1 } A_{n} \) and \( x \notin A_k \) then \( x \notin \Big( A_k \cup \Big( \bigcap_{ n=1 }^{ k-1 } A_n \Big) \Big) \). Hence, using our inductive hypothesis, we have
+\begin{align*}
+    \bigcap_{ n=1 }^{ k } A_n^c &= A_k^c \cap \Big( \bigcap_{ n=1 }^{ k-1 } A_{n}^c \Big)  \\
+                                &\subseteq A_k^c \cup \Big( \bigcap_{ n=1 }^{ k-1 } A_n \Big)^c \\ 
+                                &\subseteq A_k^c \cup \Big( \bigcup_{ n=1 }^{ k-1 } A_n^c \Big) \\
+                                &= \Big( \bigcup_{ n=1 }^{ k } A_n \Big)^c
+\end{align*}
+Since both containments hold, we must have 
+\[ \Big( \bigcup_{ n=1 }^{ k }A_n  \Big)^c = \bigcap_{ n=1 }^{ k } A_n^c.  \]
+The proof to the other equation is similar. 
+\end{proof}
+
+
+
+
+
+\subsubsection{Exercise 3.2.9}
+
+A proof for De Morgan's Laws in the case of two sets is outlined in Exercise 1.2.5. The general argument is similar. 
+
+Now, provide the details for the proof of Theorem 3.2.14. 
+    \begin{proof}
+    To prove part (i), suppose we have a finite collection of open sets where 
+    \[ \{ E_{i} : 1 \leq  i \leq N \}.   \]
+    Since \( E_i  \) closed, their complements \( E_i^c \) is open. Since the finite intersection of open sets is open, we have that 
+    \[\Big(  \bigcup_{ i=1 }^{ N } E_{i} \Big)^c = \bigcap_{ i=1 }^{ N  } E_{i}^c  \]
+    is open. But this means that 
+    \[ \bigcup_{i=1}^{N} E_{i} \]
+    is closed. 
+
+    To prove part (ii), suppose we have an arbitrary collection of closed sets 
+    \[ \{ E_\lambda : \lambda \in \Lambda \}.  \]
+    Since \(E_{\lambda}\) is closed, we have that their complement \( E_{\lambda}^c \) is open. But this means that the union 
+    \[ \bigcup_{\lambda \in \Lambda} E_{\lambda}^c = \Big( \bigcap_{ \lambda \in \Lambda } E_{\lambda}  \Big)^c \tag{1} \]
+    is also open. But since the complement of the intersection of (1) is open, we have 
+    \[ \bigcap_{ \lambda \in \Lambda } E_{\lambda}  \]
+    is closed. 
+    \end{proof}
+
+\subsubsection{Exercise 3.2.5} Prove Theorem 3.2.8. 
 
 
 
