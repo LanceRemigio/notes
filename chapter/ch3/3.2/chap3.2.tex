@@ -399,8 +399,19 @@ Show that a set \( F \subseteq \R  \) is closed if and only if if every Cauchy s
 
 A proof for De Morgan's Laws in the case of two sets is outlined in Exercise 1.2.5. The general argument is similar. 
 
-Now, provide the details for the proof of Theorem 3.2.14. 
-    \begin{proof}
+\begin{enumerate}
+    \item[(a)] Given a collection of sets \( \{ E_{\lambda} : \lambda \in \Lambda\}  \), show that \[ \Big( \bigcup_{ \lambda \in \Lambda } E_{\lambda}  \Big)^c = \bigcap_{ \lambda \in \Lambda } E_{\lambda}^c  ~~ \text{and} ~~ \Big( \bigcap_{ \lambda \in \Lambda } E_{\lambda}  \Big)^c = \bigcup_{ \lambda \in \Lambda } E_{\lambda}^c \]
+        \begin{proof}
+            Suppose we show the first equation. Let \( x \in \Big( \bigcup_{ \lambda \in \Lambda } E_{\lambda}  \Big)^c \) then for all \( E_{\lambda} \) where \( \lambda \in \Lambda \), we must have \( x \notin E_{\lambda} \). But this is equivalent to saying that \( x \in E_{\lambda}^c \) for all \( \lambda \in \Lambda \) where \( E_{\lambda}^c \subseteq \bigcap_{ \lambda \in \Lambda } E_{\lambda}^c  \). Hence, we have
+            \[  x \in \bigcap_{ \lambda \in \Lambda } E_{\lambda}^c.\]
+            Now let \( x \in \bigcap_{ \lambda \in \Lambda } E_{\lambda}^c  \). Then for all \( \lambda \in \Lambda \), we have \( x \in E_{\lambda}^c \). This is true if and only if \( x \notin E_{\lambda} \) for all \( \lambda \in \Lambda \). Since \( E_{\lambda} \subseteq \bigcup_{ \lambda \in \Lambda } E_{\lambda} \), we also have that \( x \notin \bigcup_{ \lambda \in \Lambda } E_{\lambda}  \). Hence, we have 
+            \[  x \in \Big( \bigcup_{ \lambda \in \Lambda } E_{\lambda}  \Big)^c. \]
+            Hence, 
+            \[ \Big( \bigcup_{ \lambda \in \Lambda } E_{\lambda}  \Big)^c = \bigcap_{ \lambda \in \Lambda } E_{\lambda}^c.\]
+            The other equation can be shown through a similar process above.
+        \end{proof}
+    \item[(b)] Now, provide the details for the proof of Theorem 3.2.14.
+        \begin{proof} 
     To prove part (i), suppose we have a finite collection of open sets where 
     \[ \{ E_{i} : 1 \leq  i \leq N \}.   \]
     Since \( E_i  \) closed, their complements \( E_i^c \) is open. Since the finite intersection of open sets is open, we have that 
@@ -416,7 +427,10 @@ Now, provide the details for the proof of Theorem 3.2.14.
     is also open. But since the complement of the intersection of (1) is open, we have 
     \[ \bigcap_{ \lambda \in \Lambda } E_{\lambda}  \]
     is closed. 
-    \end{proof}
+        \end{proof}
+\end{enumerate}
+
+
 
 \subsubsection{Exercise 3.2.11} 
 \begin{enumerate}

@@ -79,7 +79,7 @@ Now consider a similar cover for the closed interval \( [0,1] \). For \( x \in (
 is an open cover for \( [0,1] \) is a finite subcover for the closed interval \( [0,1] \).
 
 \begin{tcolorbox}
-\begin{thm}
+    \begin{thm}[Heine-Borel Theorem]
 Let \( K \) be a subset of \( \R \). All of the following statements are equivalent in the sense that any one of them implies the two others. 
 \begin{enumerate}
     \item[(i)] \( K \) is compact.
@@ -90,12 +90,30 @@ Let \( K \) be a subset of \( \R \). All of the following statements are equival
 \end{tcolorbox}
 
 \begin{proof}
-Notice that the equivalence of statements (i) and (ii) is the content of Theorem 3.3.1. What remains is to show that (iii) is equivalent to (i) and (ii). Let's first assume statement (iii), and show that it implies (ii) and thus (i) as well.
+Notice that the proof of the equivalence of (i) and (ii) has already been proven in Theorem 3.3.1. All we need to show now is that (iii) implies (ii) and (iii) implies (i). 
+
+To show (ii), we must show that \( K \) is both bounded and closed. To show that \( K \) is bounded, let us construct an open cover for \( K \) by defining \( O_x  \) to be an open interval of radius \( 1 \) (\( \epsilon  = 1  \)) for each \( x \in K \). This means there exists a \( \epsilon - \)neighborhood for each \( x \in K \); that is, \( O_x = V_1(x) \). Since the open cover \( \{ O_x : x \in K \}  \) contains a finite subcover for \( K \), we have the \( K \) contained in the union of the collection of sets \( \{ O_{x_1}, O_{x_2}, \dots , O_{x_n} \}  \). Hence, \( K \) itself is a bounded set.
+
+Now let us show that \( K \) is closed. Let \( (y_n) \) be a Cauchy sequence contained in \( K \) with \( \lim y_n = y  \). To show that \( K \) is closed, we must show that \( y \in K \). Suppose for sake of contradiction that \( y \notin K  \). By assumption we can construct an open cover by taking \( O_x  \) to be an interval of radius \( | x - y  | / 2  \) around each point \( x \in K \). Also, we are assuming that the open cover \( \{ O_x : x \in K \}  \) for \( K \) contains a finite subcover \( \{ O_{x_1}, O_{x_2}, \dots, O_{x_n} \}  \). If \( y \notin K \), then the distance from \( y \) to each \( x_i \in K \) must be 
+\[ \epsilon_0 := \min \Big\{ \frac{ | x_i - y  |  }{ 2  }   : 1 \leq i \leq n \Big\}.\]
+Since \( (y_n) \) is a Cauchy sequence, so it must converge. Hence, for some \( N \in \N \), we know that 
+\[ | y_N - y  | < \epsilon_0 \] we must have for every \( n \geq N \), 
+But note that since \( y \notin K  \), not all of the terms from the sequence \( (y_n) \) for every \( n \geq N \) that is contained in \( K \) are not included in the finite subcover
+\[ \bigcup_{ i=1 }^{ n } O_{x_i}. \]
+Hence, our finite subcover does not actually cover all of \( K \) which is a contradiction and thus we must have \( y \in K \).
+
+
+
+
 \end{proof}
 
 
 
+\subsection{Exercises}
 
+\subsubsection{Exercises 3.3.1} Show that if \( K \) is compact and nonempty, then \( \sup K  \) and \( \inf K \) both exists and are contained in \( K \).
+\begin{proof}
 
+\end{proof}
 
 
