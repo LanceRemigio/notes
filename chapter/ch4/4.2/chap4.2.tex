@@ -212,6 +212,58 @@ and thus we know that \( \lim_{x \to  0 } \sin(1/x)  \) does not exist.
         \end{proof}
 \end{enumerate}
 
+\subsubsection{Exercise 4.2.5} Use Definition 4.1.1 to supply a proper proof for the following limit statements. 
+\begin{enumerate}
+    \item[(a)] \( \lim_{ x \to 2 } (3x + 4 ) = 10 \).
+        \begin{proof}
+        Suppose there exists a \( \delta > 0  \) such that \( 0 < | x - 2  | < \delta \). Let \( \epsilon > 0  \). Then observe that by using definition 4.1.1 that 
+        \begin{align*}
+            | f(x) - 10 | &= | (3x+4) - 10 |  \\
+                          &= 3 | x - 2  | \\
+                          &< 3 \delta \\
+                          &= 3 \cdot \frac{ \epsilon  }{ 3 }\\
+                          &= \epsilon.
+        \end{align*}
+        \end{proof}
+    \item[(b)] \( \lim_{ x \to 0 } x^3 = 0  \).
+        \begin{proof}
+            Suppose there exists \( \delta > 0  \) such that \( 0 < | x  | < \delta \). By applying the definition of functional limits, choose \( \delta = (\epsilon )^{1/3} \)
+        \begin{align*}
+            | f(x) - 0  | &= | x^3  |  \\
+                          &< \delta^3 \\
+                          &= \epsilon.
+        \end{align*}
+        Hence, we have \( | f(x) - 0  | < \epsilon  \) which implies that 
+        \[  \lim_{ x \to 0 } x^3 = 0. \]
+        \end{proof}
+    \item[(c)] \( \lim_{ x \to 2 } (x^2 + x - 1 ) = 5.  \)
+        \begin{proof}
+        Let \( \epsilon > 0  \). Choose \( \delta = \min \{ \delta_1, \delta_2  \}  \) such that 
+        \begin{align*}
+            | f(x)  - 5 | &= | (x^2 + x - 1 ) - 5  |  \\
+                          &= | x^2 + x - 6  | \\
+                          &= | x + 3  | | x - 2  | \\
+                          &< | x+3  | \delta \\
+                          &< 3 \cdot \frac{ \epsilon  }{ 3 } .
+                          &= \epsilon.
+        \end{align*}
+        \end{proof}
+    \item[(d)] \( \lim_{ x \to 3 } 1/x = 1/3.\)
+        \begin{proof}
+        Let \( \epsilon > 0  \). Choose \( \delta = \min \{ \delta_1, \delta_2 \}  \) such that 
+        \begin{align*}
+            | f(x) - \frac{ 1 }{ 3 }  | &= | \frac{ 1 }{ x }  - \frac{ 1 }{ 3 }  |  \\
+                                        &= \Big| \frac{ x - 3  }{ 3x }  \Big| \\
+    &= \frac{ | x - 3  |  }{ 3| x |  } \\ 
+    &< 12 \epsilon \cdot \frac{ 1 }{ 12 } \\
+    &= \epsilon.
+        \end{align*}
+        \end{proof}
+\end{enumerate}
+
+
+
+
 \subsubsection{Exercise 4.2.6} Decide if the following claims are true or false, and give short justifications for each conclusion.
 
 \begin{enumerate}
@@ -289,6 +341,46 @@ We say \( \lim_{ x \to c } f(x) = \infty  \) to mean that for all \( M > 0  \), 
 \end{enumerate}
 
 
+\subsubsection{Exercise 4.2.10}
+
+Introductory calculus courses typically refer to the \textit{right-hand limit} of a function as the limit obtained by "letting \( x \) approach \( a \) from the right-hand side"
+
+\begin{enumerate}
+    \item[(a)] Give a proper definition in the style of Definition 4.1.1 for the right-hand and left-hand limit statements: 
+
+        \begin{center}
+            \( \lim_{ x \to a^{+} } f(x) = L  \) and \( \lim_{ x \to a^{-} } f(x) = M. \) 
+        \end{center}
+        \begin{tcolorbox}
+        \begin{defn}
+        We say that
+        \[ \lim_{ x \to a^{+}  } f(x) = L  \text{~and~} \lim_{ x \to a^{-} } f(x) = M  \]  
+        if for all \( \epsilon > 0  \), there exists a \(  \delta > 0 \) such that whenever \( 0 < | x - c  | < \delta \)  and \( 0 < | c - x  | < \delta  \) we have 
+        \begin{align*}
+            | f(x) - L  | &< \epsilon, \\
+            | f(x) - M  | &< \epsilon
+        \end{align*}
+        respectively.
+        \end{defn}
+        \end{tcolorbox}
+    \item[(b)] Prove that \( \lim_{ x \to a } f(x) = L  \) if and only if both the right and left-hand limits equal to \( L  \).
+        \begin{proof}
+        Suppose \( \lim_{ x \to a } f(x) = L  \). Let \( \epsilon > 0  \). Then there exists \( \delta > 0  \) such that whenever \( 0 < | x - a  | < \delta  \), we have 
+        \[ | f(x) - L  | < \epsilon. \tag{1} \]
+        This denotes our right-hand limit. Note that this also works if we flip the order of our \( \delta \) assumption. Hence, we have \( 0 < | a - x  | < \delta \) such that (1) holds. 
+        \end{proof}
+        But this means our right-hand and left-hand limits are equal to each other.
+
+        Now we show the converse. Suppose the right-hand and left-hand limits are equal to each other; that is, 
+        \[ \lim_{ x \to a^{+}  } f(x) = \lim_{ x \to a^{-}  } f(x).\]
+        We want to show that \( \lim_{ x \to a } f(x) = L  \). Since both \( | x - a  | < \delta \) and \( | a - x   | < \delta  \) hold for both limits, we immediately have that 
+        \[  | f(x) - L  | < \epsilon. \]
+        Hence, we have \( \lim_{ x \to a } f(x) = L  \).
+\end{enumerate}
+
+
+
+
 \subsubsection{Exercise 4.2.11(Squeeze Theorem).} Let \( f,g, \) and \( h \) satisfy \( f(x) \leq g(x) \leq h(x) \) for all \( x  \) in some common domain \( A  \). Suppose \( f(x) \leq g(x) \leq h(x) \ \). If \( \lim_{ x \to c  } f(x) = L  \) and \( \lim_{ x \to c } h(x) = L  \) at some limit point \( c \) of \( A  \), show 
 \[  \lim_{ x \to c } g(x) = L  \] as well.
 \begin{proof}
@@ -296,6 +388,27 @@ Let \( (x_n), (y_n), (z_n) \subseteq A   \). Suppose \( \lim_{ x \to c } f(x) = 
 \[ f(x_n) \leq g(y_n) \leq h(z_n) \iff L \leq g(y_n) \leq L. \]
 Hence, we have \( g(y_n) \to L  \) by the Squeeze Theorem for Sequences. By the Sequential Criterion, we must have \( \lim_{ x \to c } g(x) = L  \) as well.
 \end{proof}
+
+Another proof using the definition of Functional Limits directly.
+
+\begin{proof}
+Let \( f, g, h \) satisfy \( f(x) \leq g(x) \leq h(x) \) for all \( x  \) in some common domain \( A  \). Since \( \lim_{ x \to c } f(x) = L  \) and \( \lim_{ x \to c } h(x) = L  \), we know that 
+\[ \lim_{ x \to c } [h(x) - f(x)] = 0.  \]
+Suppose there exists \( \delta > 0  \) such that \(  0 < | x - c  | < \delta  \). Choose \( \delta = \min \{ \delta_1, \delta_2  \}  \). Since \( f(x) \leq g(x) \leq h(x) \), we have 
+\begin{align*}
+    | g(x) - L  | &\leq | h(x) - L  |  \\
+                  &= | h(x) - f(x) + f(x) - L  | \\
+                  &= | h(x) - f(x)  | + |  f(x) - L  | \\
+                  &\leq \frac{ \epsilon  }{ 2 } + \frac{ \epsilon  }{ 2 } \\
+                  &= \epsilon.
+\end{align*}
+But, this means that \( \lim_{ x \to a } g(x) = L.  \)
+\end{proof}
+
+
+
+
+
 
 
 
