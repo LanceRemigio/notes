@@ -1,2 +1,44 @@
-\chapter{Functional Limits and Continuity}
+
+\subsection{Towards a Formal Definition of Continuity}
+
+We want to define continuity at a point \( c \in A  \) to mean that if we have \( x \in A  \) that s chosen \textit{near} \( c \), then \( f(x) \) will be near \( f(c) \). We can define this notion mathematically to say that \( f \) is continuous at \( c  \) if 
+\[  \lim_{ x  \to  c } f(x) = f(c). \]
+
+This is a rational way to define continuity until we encounter a function like 
+\[ g(x) = 
+\begin{cases}
+    1 ~ \text{if} ~ x \in \Q  \\
+    0 ~ \text{if} ~ x \notin \Q 
+\end{cases} \]
+ 
+where we haven't yet defined what it means for \( \lim_{x \to 1/2} g(x) \). We can extend our notions of a limit from Chapter 2 to make sense of this expression. Hence, we can define a sequence \( (x_n) \) where \( (x_n) \to 1/2  \) and say that \( \lim_{ x \to 1/2 } g(x) \) as the limit of \( g(x_n) \). But the problem with this notion is that if \( (x_n) \) is defined as a sequence of rational points, then 
+\[  \lim_{ n \to \infty} g(x_n) = 1  \]
+but on the other hand, if \( (x_n) \) is irrational, then 
+\[  \lim_{ n \to \infty  } g(x_n) = 0. \]
+Very quickly, we can conclude that the limit of \( g(x) \) as \( x \to c  \) does not exists. Furthermore, we can also see that \( x = 1/2 \) causes \( g(x) \) to not be continuous. This is because both \( \Q  \) and \( \mathbb{I} \) are both dense in the real line. Hence, it follows that for any \( z \in \R  \), we can find sequences \( (x_n) \subseteq \Q  \) and \( (y_n) \subseteq \mathbb{I} \) such that 
+\( \lim x_n = \lim y_n = z.  \) But because 
+\[  \lim g(x_n) = \lim g(y_n),  \]
+we can say that the same line of reasoning applies to conclude that \( g(x) \) is not continuous at \( z  \) on \( \R  \). In other words, the Dirichlet function \( g(x) \) is nowhere continuous on \( \R  \).
+
+What happens when we adjust the definition of \( g(x) \) slightly such that 
+\[  h(x) = 
+\begin{cases}
+    x ~ \text{if} ~ x \in \Q  \\ 
+    0 ~ \text{if} ~ x \notin \Q.
+\end{cases} \]
+Suppose \( h(x) \) is defined on \( \R  \). Then letting \( c \in \R  \) be different from \( 0 \),then we can construct sequences \( (x_n) \to c  \) of rationals and \( (y_n) \to c  \) of irrationals such that 
+\[  \lim h(x_n) = c ~ \text{and} ~ \lim h(y_n) = 0. \]
+Thus, we have that \( h \) is not continuous at every point \( c \neq 0 \). If we set \( c = 0  \), then it turns out that these two functional limits are the same. This observation enables us to strive for a definition for functional limits by saying that 
+\[  \lim_{ x \to c } h(x) = L  \] if 
+\( h(z_n) \to L  \) for all sequences \( (z_n) \to c  \). We can make sense of these two different limits by constructing \( \epsilon - \)neighborhoods around \( c \) and \( L \) respectively.
+Another example of a non-continuous function is 
+\[  t(x) = 
+\begin{cases}
+    1 ~ \text{if} ~ x = 0  \\
+    1/n ~ \text{if} ~ x = \frac{ m }{ n } \in \Q \setminus \{ 0 \} \text{ where } n > 0 \text{ and }  (m,n) = 1   \\
+    0 ~\text{if}~ x \neq \Q.
+\end{cases} \]
+If we let \( c \in \Q  \), then \( t(c) > 0  \). But since \( \mathbb{I} \) is dense in \( \R  \), there exists a sequence of irrational numbers \( (y_n) \) in \( \R  \) such that \( (y_n) \to c  \). It immediately follows that \( t(x) \) is not continuous at every point in \( \Q  \) since 
+\[ \lim t(y_n) = 0 \neq t(c). \]
+But if we let \( c \in \mathbb{I} \), then we find that defining a sequence of rational numbers \( (y_n)  \) such that \( (y_n) \to c  \) reveals that \( \lim t(y_n) = 0  \) which makes \( t(x) \)continuous at every irrational point in \( \R  \). The takeaway from this section is that the characteristics of a given set \( A \subseteq \R  \) greatly determines the continuity of a function. 
 

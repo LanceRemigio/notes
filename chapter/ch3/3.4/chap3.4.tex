@@ -1,0 +1,194 @@
+\section{Perfect Sets}
+
+
+
+\begin{tcolorbox}
+\begin{defn}
+A set \( P \subseteq \R \) is \textit{perfect} if it is closed and contains no isolated points. \end{defn} 
+\end{tcolorbox}
+An straightforward example of perfect sets are closed intervals and singleton sets.
+
+\begin{ex}
+It is not too hard to see that the Cantor set from the very beginning of this chapter is perfect. We defined 
+\[  C = \bigcap_{ n=0 }^{ \infty  } C_n  \] where each \( C_n \) is a finite union of closed intervals. We know by Theorem 3.2.14 that each \( C_n \) is closed, and as a result of using the same theorem that \( C \) is closed as well. Now all we need to show is that \( C \) contains no isolated points. 
+
+Let \( x \in C \) be arbitrary. Let us construct a sequence \( (x_n) \) of points in \( C \) that are different from \( x  \) such that \( (x_n) \to x  \). We know that \( C \) contains endpoints of each interval that make up each \( C_n \). In exercise 3.4.3, we sketch the argument that these are all that is needed to construct such an \( (x_n) \).
+\end{ex}
+
+An argument for uncountability of the Cantor set.
+
+\begin{tcolorbox}
+\begin{thm}
+A nonempty perfect set is uncountable.
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+Suppose \( P \) is a set that is perfect and nonempty. Hence, it must be the case that \( P \) is an infinite set because otherwise it would only consist of isolated points. Assume for sake of contradiction that \( P \) is countable. Thus, we can define \( P \) as the following:
+\[ P = \{ x_1, x_2, x_3 \dots \},  \]
+where every element of \( P \) appears on this list. Our goal is to construct a sequence of nested compact sets \( K_n \) that is all contained within \( P \) with the property that 
+\( x_1 \notin K_2 \), \( x_2 \notin K_3 \), \( x_3 \notin K_4 \) and so on. Before proceeding with our argument, we must be sure that, in fact, each \( K_n \) is nonempty. Hence, we use the nested
+Compact interval theorem to produce 
+\[  x \in \bigcap_{ n=1 }^{ \infty  } K_n \subseteq P \]
+that cannot be on the list \( \{ x_1, x_2, x_3, \dots \}  \). 
+
+Let \( I_1  \) be a closed interval such that \( x_1 \in (I_0)^{\circ} \); that is, \( x_1  \) is not an endpoint of \( I_1 \). This produces an \( x_1 \) that is not isolated which means there exists some other point, say, \( y_2 \in P \) such that \( y_2 \in (I_1)^{\circ} \). Around \( y_2 \) we can construct a closed interval such that \( I_2 \supseteq I_1 \) with the condition that \( x_1 \notin I_2 \). Let \( \epsilon  > 0  \), then if \( I_1 = [a,b] \) we can define 
+\[ \epsilon = \min \{ y_2 - a, b- y_2 , | x_1 - y_2  |  \}.  \]
+
+Then, the interval \( I_2 = \{ [y_2 - \epsilon / 2, y_2 + \epsilon / 2 ] \}  \) has the desired properties. We can continue this process indefinitely. 
+
+Since \( y_2 \in P \) is not isolated, there must exists another point \( y_3 \in P  \) in the interior of \( I_2  \) such that \( y_3 \neq x_2  \). Again, construct a closed interval centered on \( y_3  \) with an \( \epsilon  \) small enough so that \( x_2 \notin I_3  \) and \( I_3 \subseteq I_2  \). Observe that \( I_3 \cap P \neq \emptyset \) because this intersection contains at least \( y_3  \). 
+
+We find that when we carry out this construction inductively, we have a sequence of closed intervals \( I_n \) satisfying the following properties:
+\begin{enumerate}
+    \item[(i)] \( I_{n+1} \subseteq I_n  \), 
+    \item[(ii)] \(x_n \notin I_{n+1} \), and 
+    \item[(iii)] \( I_n \cap P \neq \emptyset \).
+\end{enumerate}
+To finish the proof, let \( K_n = I_n \cap P \). For each \( n \in \N \), we have that \( K_n  \) is closed because it is the intersection of closed sets, and bounded since it is contained in the bounded sets \( I_n \). Hence, \( K_n  \) is compact. We can also see that \( K_n  \) is nonempty and \( K_{n+1} \subseteq K_n\). By employing the Nested Compact Set property, we can conclude that 
+\[ \bigcap_{ n=1  }^{ \infty  } K_n \neq \emptyset. \]
+But we find that each \( K_n \subseteq P \) where \( x_n \notin i_{n+1} \) leads to the conclusion that \( \bigcap_{ n=1 }^{ \infty  } K_n = \emptyset  \), which is a contradiction. 
+
+\end{proof}
+
+\subsection{Connected Sets}
+
+Consider the two open intervals \( (1,2) \) and \( (2,5) \). Notice that these two intervals have the limit point \( x =2   \) in common. However, there is some space between them in the sense that \( 2 \) isn't contained in the other. Another way to say this is that \( \overline{(1,2)} \cap (2,5) = \emptyset \) and likewise, \( \overline{(2,5)} \cap (1,2) = \emptyset \). Notice that this same observation cannot be extended to the two sets \( (1,2] \) and \( (2,5) \) even though these two sets are disjoint.
+
+\begin{tcolorbox}
+\begin{defn}
+\begin{enumerate}
+    \item[(i)] Two nonempty sets \( A,B \subseteq \R   \) are \textit{separated} if \( \overline{A} \cap B  \) and \( A \cap \overline{B} \) are both empty.
+    \item[(ii)] A set \( E \subseteq \R  \) is \textit{disconnected}  if it can be written as \( E = A \cup B \), where \( A  \) and \( B \) are nonempty separated sets.
+    \item[(iii)] A set that is not disconnected is called a \textit{connected} set. 
+\end{enumerate}
+\end{defn}
+\end{tcolorbox}
+
+
+
+
+
+
+\begin{ex}
+\begin{enumerate}
+    \item[(i)] If we let \( A = (1,2) \) and \( B = (2,5) \), then it is not difficult to verify that \( E = (1,2) \cup (2,5) \) is disconnected. Notice that the sets \( C = (1, 2] \) and \( D = (2,5) \) are NOT separated because \( C \cap \overline{D}  = \{ 2 \} \) is nonempty. We know that the interval \( (1,5) \) is the union of sets \( C  \) and \( D \), but we cannot say they are disconnected. We will prove later that every interval is a connected subset of \( \R  \) and vice versa. 
+    \item[(ii)] Consider the set of rational numbers 
+        \[ A = \Q \cap (- \infty , \sqrt{ 2 }  ) ~ \text{and} ~ B = \Q \cap (\sqrt{ 2 }, \infty  ). \]
+        It turns out that these two sets are disconnected such that \( \Q = A \cup B \). The fact that \( A \subseteq (\infty , \sqrt{ 2 }  ) \) implies that any limit point of \( A \) will necessarily fall in \( (-\infty , \sqrt{ 2 } ] \) by the Order Limit Theorem. Because this is disjoint from \( B \), we get that \( \overline{A} \cap B = \emptyset \). We can similarly show that \( A \cap \overline{B} = \emptyset \), which implies that \( A  \) and \( B \) are separated.
+\end{enumerate}
+\end{ex}
+
+The definition of connected is stated as the negation of disconnected, but using the logical negation of the quantifiers in the definition above results in a positive characterization of connectedness. 
+
+A way to show that a set \( E \) is connected is to partition \( E \) into two nonempty disjoint sets where we can show at least one of the sets contains a limit point of the other.
+
+\begin{tcolorbox}
+\begin{thm}
+A set \( E \subseteq \R \) is connected if and only if, for all nonempty disjoint sets \( A \) and \( B \) satisfying \( E = A \cup B \), there always exists a convergent sequence \( (x_n) \to x  \) with \( (x_n) \) contained in one of \( A \) or \( B \), and \( x  \) an element of the other.
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+Exercise 3.4.6.
+\end{proof}
+
+\begin{tcolorbox}
+\begin{thm}
+A set \( E \subseteq \R  \) is connected if and only if whenever \( a < c < b  \) with \( a,b \in E \), it follows that \( x \in E  \) as well.
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+Assume \( E \) is connected, and let \( a, b \in E  \) and \( a < c < b  \). We can set \( A  \) and \( B  \) such that 
+\[  A = (-\infty, c ) \cap E ~ \text{and} B = (c, \infty ) \cap E.  \]
+Because \( a \in A  \) and \( b \in B \), neither set is empty and, just as in Example 3.4.5 (ii), neither set contains a limit point of the other. If \( E = A \cup B  \), then we have that \( E  \) is disconnected. If \( E = A \cup B  \), then we would have that \( E  \) is disconnected, which it is not. It must be the case that \( A \cup B  \) is missing some element of \( E  \), and \( c \) is the only possibility. Thus, \( c \in E  \).
+
+Conversely, assume \( E  \) is an interval in the sense that whenever \( a, b \in E  \) satisfy \( a < c < b  \) for some \( c  \), then  \( c \in E  \). Our intent is to use the characterization of connected sets in Theorem 3.4.6, so let \( E = A \cup B \), where \( A  \) and \( B \) are nonempty and disjoint. 
+
+We need to show that one of these sets contains a limit point of the other. Pick \( a_0 \in A  \) and \( b_0 \in B \), and suppose \( a_0 < b_0  \) for sake of argument. Since \( E  \) is an interval, the interval \( I_0 = [a_0, b_0 ] \) is contained in \( E  \). Now, let us bisect \( I_0 \) into two equal halves. The midpoint of \( I_0  \) must either be in \( A \) or \( B \), and so choose \( I_1 = [a_1, b_1 ]  \) to be the half that allows us to have \( a_1 \in A  \) and \( b_1 \in B \). We can continue such a process inductively to get a sequence of nested intervals \( I_n [a_n, b_n] \), where \( a_n \in A \) and \( b_n \in B \), and the length \( (b_n - a_n) \to 0  \). Hence, the following intersection
+\[ \bigcap_{ n=0  }^{ \infty  } I_n \neq \emptyset. \]
+Since \( (a_n - b_n ) \to 0  \), we have that the sequences of endpoints have the same limit point \( x  \). Since \( x \in E  \), it must be the case that \( x  \) must belong to either \( A  \) or \( B \). Hence, \( E \) is a connected set. 
+\end{proof}
+
+
+\subsection{Definition}
+
+
+\begin{tcolorbox}
+\begin{defn}
+A set \( P \subseteq \R \) is \textit{perfect} if it is closed and contains no isolated points. \end{defn} 
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+\begin{thm}
+A nonempty perfect set is uncountable.
+\end{thm}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\begin{defn}
+\begin{enumerate}
+    \item[(i)] Two nonempty sets \( A,B \subseteq \R   \) are \textit{separated} if \( \overline{A} \cap B  \) and \( A \cap \overline{B} \) are both empty.
+    \item[(ii)] A set \( E \subseteq \R  \) is \textit{disconnected}  if it can be written as \( E = A \cup B \), where \( A  \) and \( B \) are nonempty separated sets.
+    \item[(iii)] A set that is not disconnected is called a \textit{connected} set. 
+\end{enumerate}
+\end{defn}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\begin{thm}
+A set \( E \subseteq \R \) is connected if and only if, for all nonempty disjoint sets \( A \) and \( B \) satisfying \( E = A \cup B \), there always exists a convergent sequence \( (x_n) \to x  \) with \( (x_n) \) contained in one of \( A \) or \( B \), and \( x  \) an element of the other.
+\end{thm}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\begin{thm}
+A set \( E \subseteq \R  \) is connected if and only if whenever \( a < c < b  \) with \( a,b \in E \), it follows that \( c \in E  \) as well.
+\end{thm}
+\end{tcolorbox}
+\subsection{Exercises}
+
+
+\subsubsection{Exercise 3.4.1} If \( P \) is a perfect set and \( K \) is compact, is the intersection \( P \cap K  \) always compact? Always perfect? 
+\begin{proof}[Solution]
+\( P \cap K \) always compact but not always perfect. This is because \( P \cap K  \) is always a closed and bounded set.
+\end{proof}
+
+\subsubsection{Exercise 3.4.5} 
+Let \( A  \) and \( B  \) be nonempty subsets of \( \R  \). Show that if there exists disjoint open sets \( U  \) and \( V  \) with \( A \subseteq U  \) and \( B \subseteq V  \), then \( A  \) and \( B  \) are separated.
+
+\begin{proof}
+    Let \( A  \) and \( B  \) be nonempty subsets of \( \R  \). Suppose there exists sets \( U \) and \( V  \) such that \( U \cap V = \emptyset \). Let \( x  \in U \). Since \( U \) is an open set, let \( x \in U^{\circ} \). Hence,  there exists \( V_{\epsilon }(x) \) such that \( V_{\epsilon }(x) \subseteq U  \). Let \( x  \) be a limit point of \( A  \) such that there exists \( (x_n) \to x  \) where \( x_n \neq x  \) for all \( n \in \N  \). Doing the same process for the set \( V \) suppose there exists \( (y_n)  \) is a sequence contained in \( B  \) such that \( (y_n) \to y  \) where \( y \in V  \) is an interior point such that there exist \( V_{\epsilon }(y) \subseteq V  \).
+
+    Since \( U \cap V = \emptyset \) and \( x  \) and \( y \) are interior points of \( U \) and \( V  \) respectively, it follows that \( V_{\epsilon }(x) \cap V_{\epsilon }(y) = \emptyset \). But this means neither limit point of \(A \) nor \( B \) is contained in the other. Hence, \( A  \) and \( B  \) must be separated sets.
+\end{proof}
+
+
+
+
+
+\subsubsection{Exercise 3.4.6} Prove Theorem 3.4.6.
+\begin{proof}
+    \( (\Rightarrow) \) Suppose \( E \subseteq \R  \) is connected and suppose \( A  \) and \( B \) are disjoint. Since \( E  \) is connected, we have \( \overline{A} \cap B \neq \emptyset \) and \( \overline{B} \cap A \neq \emptyset \). Without loss of generality, let \( x \in \overline{A}  \cap B  \). Since \( A  \) and \( B  \) are disjoint, we must not have \( x \in A   \). Hence, \( x \in B  \) else \( A  \) and \( B  \) would not be disjoint. Hence, \( x  \) is a limit point of \( A  \). Hence, there exists \( (x_n) \subseteq A  \) such that \( (x_n) \to x  \) where \( x \neq x_n \) for all \( n \in \N \).  
+
+\( (\Leftarrow) \) Our goal now is to show the converse; that is, show that \( A  \) and \( B \) are not separated i.e \( \overline{A} \cap B \neq \emptyset \) and \( \overline{B} \cap A \neq \emptyset \). Suppose there exists \( (x_n) \subseteq A \). By assumption \( (x_n) \to x  \) such that \( x \in B  \). Since \( \overline{A}  \) is a closed set, we have that \( x \in \overline{A} \). But this means that \( \overline{A} \cap B \neq \emptyset\). The argument is similar when \( (x_n) \subseteq B  \). Hence, \( \overline{B} \cap A \neq \emptyset \). But this means that \( E = A \cup B  \) is connected.
+\end{proof}
+
+\subsubsection{Exercise 3.4.7} A set \( E \) is \textit{totally disconnected} if, given any two distinct points \( x, y \in E  \), there exists separated sets \( A  \) and \( B  \) with \( x \in A  \), \( y \in B  \), and \( E = A \cup B  \).
+
+\begin{enumerate}
+    \item[(a)] Show that \( \Q  \) is totally disconnected.
+        \begin{proof}
+            Since the rational numbers are dense in \( \mathbb{I} \), we can construct the following interval \( x < c < y  \) where \( c \in \mathbb{I}  \). We can set \( A  \) and \( B \) such that 
+            \[  A = (-\infty, c ) \cap \Q \text{ ~ and ~ } B = \Q \cap (c, +\infty )   \]
+            Let \( x \in A  \) and \( y \in B  \), then neither set is empty and neither set contains a limit  point of the other. Since \( A \cap B = \Q  \), we must have \( \Q  \) as a totally disconnected set unless \( c \in \Q  \) which is not. 
+        \end{proof}
+    \item[(b)] Is the set of irrational numbers totally disconnected? 
+        \begin{proof}
+            The set of irrational numbers is totally disconnected because we can always find \( x \in \Q  \) such that for every \( z,y \in \mathbb{I} \), we have \( z < x < y  \). Thus, we can follow the same argument above to produce two sets that are separated.
+        \end{proof}
+\end{enumerate}
+
+
