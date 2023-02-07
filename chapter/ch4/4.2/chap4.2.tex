@@ -405,7 +405,23 @@ Suppose there exists \( \delta > 0  \) such that \(  0 < | x - c  | < \delta  \)
 But, this means that \( \lim_{ x \to a } g(x) = L.  \)
 \end{proof}
 
+Another proof 
 
+\begin{proof}
+Let \( f, g, h \) satisfy \( f(x) \leq g(x) \leq h(x) \) for all \( x  \) in some common domain \( A  \). 
+Suppose there exists \( \delta > 0  \) such that \(  0 < | x - c  | < \delta  \). Choose \( \delta = \min \{ \delta_1, \delta_2, \delta_3, \delta_4  \}  \). Since \( f(x) \leq g(x) \leq h(x) \), we have 
+\begin{align*}
+    | g(x) - L  | &= | g(x) - h(x) + h(x) - L  |  \\
+                  &\leq | g(x) - f(x) + f(x) - h(x)  | + | h(x) - L  | \\ 
+                  &\leq | g(x) - f(x) | + | f(x) - h(x)  | + | h(x) - L  | \\
+                  &\leq | h(x) - f(x)  | + | f(x) - L  | + | L - h(x) | + | h(x) - L  | \\
+                  &\leq | h(x) - L| + | L - f(x) | + 2| h(x) - L  | \\
+                  &< \frac{ \epsilon  }{ 4 } + \frac{ \epsilon  }{ 4 } + \frac{ 2 \epsilon  }{ 4 } \\
+                  &= \epsilon.
+\end{align*}
+Hence, it follows that 
+\[  \lim_{ x \to a } g(x) = L. \]
+\end{proof}
 
 
 
