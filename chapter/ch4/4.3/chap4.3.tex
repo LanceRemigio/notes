@@ -1,0 +1,49 @@
+
+\section{Continuous Functions}
+
+\begin{tcolorbox}
+    \begin{defn}[Continuity]
+    A function \( f: A \to \R  \) is \textit{continuous at a point} \( c \in A  \) if, for all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that whenever \( | x - c  | < \delta \) (and \( x \in A  \)) it follows that \( | f(x) - f(c) | < \epsilon  \). 
+    If \( f \) is continuous at every point in the domain \( A  \), then we say that \( f \) \textit{continuous} on \( A  \).
+    \end{defn}
+\end{tcolorbox}
+
+The difference between this definition and the definition for functional limits is that we require the limit point \( c  \) of \( A  \) to be in the domain of \(  f\). The value of \( f(c) \) is the value of \( \lim_{ x \to c } f(x)  \). It is indeed possible to shorten this definition to say that \( f  \) is continuous at \( c \in A  \) if 
+\[  \lim_{ x \to c } f(x) = f(c) \tag{1}\]
+so as long as \( c  \) is a limit point of \( A  \). The equation above gets undefined if \( c \) is an isolated point of \( A  \). But this does not stop \( f \) from being continuous at the point \( c \). In fact, functions can still be continuous at their isolated points such as \( c \).
+
+We observed in the previous section that functional limits can be formulated using sequences from chapter 2. The same can be done for continuity. 
+
+\begin{tcolorbox}
+    \begin{thm}[Characterizations of Continuity]
+    Let \( f: A \to \R  \), and let \( c \in A  \). The function \( f \) is continuous at \( c \) if and only if any one of the following three conditions is met:
+    \begin{enumerate}
+        \item[(i)] For all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that \( | x - c  | < \delta \) (and \( x \in A  \)) implies \( | f(x) - f(c) | < \epsilon; \)
+        \item[(ii)] For all \( V_{\epsilon }(f(c)) \), there exists a \( V_{\delta}(c)  \) with the property that \( x \in V_{\delta} (c) \) (and \( x \in A  \)) implies \( f(x) \in V_{\epsilon }(f(c))  \);
+        \item[(iii)] For all \( (x_n) \to c \) (with \( x_n \in A
+            \)), it follows that \( f(x_n) \to f(c) \).
+
+            If \( c \) is limit point of \( A  \), then the above conditions are equivalent to 
+    \item[(iv)] \( \lim_{ x \to c } f(x)  = f(c)\).
+    \end{enumerate}
+    \end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    ((i) \( \iff \) (ii)) Let \( V_{\epsilon}(f(c)) \) and let \( \epsilon > 0  \). By assumption, there exists \( \delta > 0  \) such that \( | x - c  | < \delta \) (and \( x \in A  \)) implies 
+    \[ | f(x) - f(c) | < \epsilon. \]
+    We can rephrase in terms of \( \epsilon  \) and \( \delta \) neighborhoods. Hence, the statement above is just equivalent to the statement that for all \( V_{\epsilon }(f(c)) \), there exists \( V_{\delta}(c) \) such that \( x \in V_{\delta}(c) \) which implies that \( f(x) \in V_{\epsilon }(f(c)) \). 
+
+    ( (iii) \( \iff \) (ii) ) First we show (ii) holds. Let \( (x_n) \to c  \) such that \( f(x_n) \to f(c)  \). In other words, \( f(x_n) \in V_{\epsilon }(f(c)) \). For sake of contradiction, that \( f(x) \notin V_{\epsilon }(f(c)) \). This means there exist \( \epsilon_0  \) such that for all \( \delta > 0  \) with the property that \( | x - c  | < \delta \) that 
+    \[  | f(x) - f(c)  | \geq \epsilon_0. \] Let \( \delta = 1 / n  \) and suppose we pick \( x_n \in V_{\delta}(c) \) such that \( f(x_n) \notin V_{\epsilon }(f(c)) \). But this contradicts our assumption that \( f(x_n) \in V_{\epsilon }(f(c)) \). Hence, it must be the case that \( f(x) \in V_{\epsilon }(f(c)) \).
+
+    Now we want to show that \( (iii) \) holds. Let \( (x_n) \subseteq A  \).
+    (with \( x_n \in A  \)). Since \( x_n \in A  \) \( x_n \neq c  \) or \( x_n = c  \). If \( x_n = c  \), then it immediately follows that \( f(x_n) \to f(c) \) given there exists \( | x_n  - c | < \delta \). Suppose \( x_n \neq c  \). Pick \( x_n \in V_{\delta}(c) \) for some \( \delta > 0  \). Then by assumption, we have \( f(x_n) \in V_{\epsilon }(f(c)) \). Hence, \( f(x_n) \to f(c) \).
+
+    To show (i) \( \implies \) (iv), suppose \( c  \) is a limit point of \( A  \). Let \( x \in A  \). Since \( c \in A \), either \( x \neq c  \) or \( x = c  \). The conclusion follows immediately from the latter statement. Suppose \( x_n \neq c  \). By assumption, there exists \( \delta > 0  \) such that \( | x_n -c  | < \delta \). From this, it follows that 
+    \[  |  f(x) - c  | < \epsilon. \]
+    And hence, 
+    \[ \lim_{ x \to c } f(x) = f(c). \]
+\end{proof}
+
+
