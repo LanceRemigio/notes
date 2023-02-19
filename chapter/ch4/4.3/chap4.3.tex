@@ -193,13 +193,52 @@ Exercise 4.3.3.
 \[ | f(x) - f(c) | = | f(c) - f(c) | = 0 < \epsilon. \]
 \end{proof}
 
-
+\subsubsection{Exercise 4.3.6} Using the \( \epsilon - \delta \) characterization of continuity (and thus using no previous results about sequences), show that the linear function \( f(x) = ax + b  \) is continuous at every point \( x \in \R  \).
+\begin{proof}
+Let \( \epsilon > 0  \) and let \( c \in \R  \) be arbitrary. Choose \( \delta = \epsilon  / a  \) such that whenever \( | x - c  | < \delta  \), we have that 
+\begin{align*}
+   | f(x) - f(c) |  &= |  (ax + b ) - (ac + b ) |  \\
+                    &= | a ( x - c ) | \\
+                    &= a | x - c  | \\
+                    &< a \cdot \frac{ \epsilon  }{ a  } \\
+                    &= \epsilon.
+\end{align*}
+Hence, every linear function \( f(x) = ax + b  \) is continuous at any point \( c \in \R  \).
+\end{proof}
 
 
 \subsubsection{Exercise 4.3.7} Assume \( h: \R \to \R  \) is continuous on \( \R  \) and let \( K = \{ x : h(x) = 0  \}  \). Show \( K \) is a closed set.
 \begin{proof}
 Let \( h: \R \to \R  \) be a continuous function on \( \R  \).  Let \( c \in K  \). Since \( h \) is continuous on \( \R  \) we can use the Sequential Criterion. Let \( x_n \in K  \). There exists  \( (x_n) \subseteq K\) such that \( (x_n) \to  c \) implying that \( h(x_n) \to h(c) \). Since every \( x \in K  \) has the property that \( h(x) = 0  \) and \( c \in K  \), we have that \( h(c) = 0  \). Hence, \( h(x_n) \to h(c) \) is contained in \( K \). Thus, \( K \) is closed. 
 \end{proof}
+
+
+
+
+
+
+
+\subsubsection{Exercise 4.3.10} Observe that if \( a  \) and \( b  \) are real numbers, then 
+\[  \max \{ a,b  \} = \frac{ 1 }{ 2 } [ (a+b) + | a - b  | ]. \]
+
+\begin{enumerate}
+    \item[(a)] Show that if \( f_1, f_2, \dots, f_n  \) are continuous functions, then 
+        \[ g(x) = \max \{ f_1(x), f_2(x), \dots f_n(x) \}  \]
+        is a continuous function.
+        \begin{proof}
+        Suppose \( f_1, f_2, \dots, f_n  \) are continuous functions. We proceed by inducting on \( n  \). Let our base case be \( n = 2  \). Then we have our continuous functions \( f_1, f_2  \). By using the \( \epsilon -\delta \) definition for continuity, we have that 
+        \begin{align*}
+            | g(x) - g(c) | &= \Big| \frac{ 1 }{ 2 } \Big[ (f_1(x) + f_2(x)) + | f_1(x) - f_2(x) |  \Big] \\
+                            &- \frac{ 1 }{ 2 } \Big[ (f_1(c) + f_2(c)) + | f_1(c) - f_2(c) |  \Big] \Big|  \\
+                            &= \Big| \frac{ 1 }{ 2 } \Big[  (f_1(x) - f_1(c)) + (f_2(x) - f_2(c))    \Big] \\  &+ \frac{ 1 }{ 2 } \Big[ |f_1(x) - f_2(x)| + | f_1(c) - f_2(c) |  \Big] \Big| \\
+                            &\leq \frac{ 1 }{ 2 } \Big[ | f_1(x) - f_1(c)  | + | f_2(x) - f_2(c) |  \\ 
+                            &+ | (f_1(x) - f_2(x)) - (f_1(c) -f_2(c))| \Big] \\
+        \end{align*}
+        \end{proof}
+\end{enumerate}
+
+
+
 
 
 

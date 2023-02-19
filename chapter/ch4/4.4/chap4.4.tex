@@ -1,0 +1,408 @@
+
+% !TEX root =  ../../../main.tex 
+
+\section{Continuous Functions on Compact Sets}
+
+Given a function \( f: A \to \R  \) and a given subset \( B \subseteq A  \), the notation \( f(B) \) can be defined as the range of \( f \) over the set \( B  \); in other words, we have that 
+\[  f(B) = \{ f(x) : x \in B  \}.  \]
+We can describe properties such as subsets of \( \R  \) being open, closed, bounded, compact, perfect, and connected, but a more interesting analysis arises when see which ones are preserved when mapping \( B  \) to \( f(B) \) via a continuous function. 
+
+For example, if \( B  \) is an open set and \( f \) is continuous, is the mapping \( f(B) \) necessarily open? The answer to this is no.  
+
+Suppose \( f(x) =x^2  \) and \( B = (-1,1) \) is an open interval, then we have that the interval \( [0,1) \) is not open. What if \( B  \) is closed? The same conjecture actually leads to the same conclusion that \( f(B) \) is not closed as well. Consider the function
+\[  g(x) = \frac{ 1 }{ 1 + x^2  }   \]
+and the closed set \( B = [0, \infty ) = \{ x : x \geq 0  \}  \). Because we have that \( g(B) = (0,1] \) is not closed, we must conclude that continuous functions do not generally map from closed sets to closed sets. However, if \( B  \) is compact, then \( B  \) gets mapped to closed and bounded subsets by continuous functions.
+
+\begin{tcolorbox}
+    \begin{thm}[Preservation of Compact Sets]
+    Let \( f: A \to \R  \) be continuous on \( A  \). If \( K \subseteq A  \) is compact, then \( f(K)  \) is compact as well.
+    \end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    Let \(  f: A \to \R  \) and \( K \subseteq A  \) be a compact set. Let \( (x_n) \subseteq K \) and \( (y_n) \subseteq f(K) \). Since \( K  \) is a compact set, there exists \( (x_{n_k}) \to x  \) such that \( x  \) is contained in \( K  \). Suppose \( f  \) is a continuous function. Define \( f(x_n) = y_n \). Since \( (x_{n_k}) \) converges to \( x  \) and \( f  \) is a continuous function, we have that 
+    \[  f(x_{n_k}) = y_{n_k} \to f(x) = y. \]
+    This means our subsequence \( (y_{n_k}) \subseteq f(K) \) converges to a limit \( y \) that is contained in \( f(K) \). Thus, \( f(K)  \) is a compact set.
+\end{proof}
+
+An extremely important result from this theorem deals with how compact sets are bounded and how they contain their supremums and infimums.
+
+
+
+
+\begin{tcolorbox}
+    \begin{thm}[Extreme Value Theorem]
+    If \( f: K \to \R  \) is continuous on a compact set \( K \subseteq \R  \), then \( f  \) attains a maximum and minimum value. In other words, there exists \( x_0, x_1 \in K  \) such that \( f(x_0) \leq f(x) \leq f(x_1) \) for all \( x \in K  \).
+    \end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    Since \( f(K) \) is a compact set, we can set \( \alpha = \sup f(K) \) and know that \( \alpha \in f(K) \) from Exercise 3.3.1. It immediately follows that for some \( x_1 \in K  \), this element gets mapped to \( \alpha = f(x_1) \) since \( f  \) is a continuous function. Likewise, we have \( \beta \in f(K) \) such that for some \( x_0 \in K  \), \( x_0  \) gets mapped to \( \beta = f(x_0 ) \) by the same reasoning above. Hence, we have that for any \( x \in K  \), 
+    \[  f(x_0) \leq f(x) \leq f(x_1). \]
+\end{proof}
+
+\subsection{Uniform Continuity}
+
+We learned in the last section that polynomials are always continuous on \( \R  \). In this section, we show that these functions are actually uniform continuous on \( \R  \); that is, they are everywhere continuous.
+
+\begin{ex}
+\begin{enumerate}
+    \item[(i)] Let \( f: \R \to \R  \) such that \( f(x) = 3x + 1  \). We want to show that this is continuous for any point \( c \in \R  \). Let \( \epsilon  > 0  \). Then choose \( \delta = \epsilon  / 3  \) such that whenever \( | x - c  | < \delta  \), we have that 
+\begin{align*}
+    | f(x) - f(c) | &= |  (3x + 1 ) - (3c + 1 ) |  \\
+                    &= 3 | x - c  | \\
+                    &< 3 \cdot \frac{ \epsilon  }{ 3 } \\
+                    &= \epsilon.
+\end{align*}
+Hence, \( \lim_{ x \to c } f(x) = f(c) \). The key observation here is that our choice of \( \delta  \) is the same regardless of the point \( c \in \R  \), we are considering.
+    \item[(ii)] Suppose how the situation changes when we consider another function, say, \( g(x) = x^2  \) and see how the choice of \( \delta  \) changes with each point \( c \in \R  \). Given \( c \in \R  \), observe that 
+        \[  | g(x) - g(c) | = | x^2 - c^2  | = | x -c | | x + c  |.  \]
+As was discussed in section 4.2, we need to upper bound \( | x + c  |  \), which, in this case, can be obtained by letting our choice \( \delta \) not exceed \( 1 \). This implies that all values of \( x  \) under consideration will fall in the interval \( (c - 1, c + 1 ) \). By using our assumption that \( | x - c  | < \delta  \) and letting \( \delta = 1  \), we have that 
+\[  | x + c  | \leq | x | + | c  | \leq (| c  | + 1 ) + | c  | = 2 | c | + 1  . \] Now let \( \epsilon  > 0  \). If we choose \( \delta = \min \{ 1, \epsilon / (2 | c  | + 1 ) \} \), then assume \( | x - c  | < \delta  \) such that 
+
+\[ | f(x) - f(c)  | = | x - c  | | x + c  | < \Big( \frac{ \epsilon  }{ 2 | c  | + 1  }  \Big) \cdot ( 2 | c  | + 1) = \epsilon. \]
+
+Notice how our choice of \( \delta \) depended on our choice of \( c \in \R  \) where 
+\[  \delta = \frac{ \epsilon  }{ 2 | c  | + 1  }. \]
+This means that as our choice of \( c \in \R  \) gets bigger and bigger, our \( \delta - \)neighborhood must get smaller and smaller.
+\end{enumerate}
+\end{ex}
+
+
+This leads us to our rigorous definition of what it means for a function to be uniform continuous.
+
+\begin{tcolorbox}
+\begin{defn}
+A function \( f: A \to \R  \) is \textit{uniformly continuous} on \( A  \) if for every \( \epsilon > 0  \) there exists a \( \delta > 0  \) such that for all \( x,y \in A  \), \( | x - y  | < \delta  \) implies \( | f(x) - f(y) | < \epsilon. \)
+\end{defn}
+\end{tcolorbox}
+
+The difference between regular continuity and uniform continuity is that regular implies continuity of a function at any point \( c \in \R  \) granted that our choice of \( \delta  \) is dependent on our choice of \( c \in \R  \) while uniform continuity implies that our choice of \( \delta  \) stays the same regardless of our choice of \( c \in \R  \).
+
+On the other hand, saying that a function is not uniform continuous is to say that given some \( \epsilon > 0  \), there is not suitable choice of \( \delta > 0  \) that will be a valid response to our \( \epsilon  \) challenge. That is, every point \( c \in \R  \) has a unique \( \delta > 0   \).   
+
+\begin{tcolorbox}
+    \begin{thm}[Sequential Criterion for Absence of Uniform Continuity]
+    A function \( f: A \to \R  \) fails to be uniformly continuous on \( A  \) if and only if there exists a particular \( \epsilon_0 > 0  \) and two sequences \( (x_n) \) and \( (y_n) \) in \( A  \) satisfying 
+    \[ | x_n - y_n  | \to 0 \text{~but~} | f(x_n) - f(y_n) | \geq \epsilon_0. \]
+    \end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    (\( \Rightarrow \)) We can negate the definition of uniform continuity to help us prove this direction. Hence, for some \( \epsilon_0 > 0  \), choose \( \delta_n = 1/n  \) such that whenever we have  sequences \( (x_n) \) and \( (y_n) \) that satisfy
+    \[ | x_n - y_n  | < \frac{ 1 }{ n }, \]
+we have that 
+\[ | f(x_n) - f(y_n) | \geq \epsilon_0. \]
+Clearly, we have \( | x_n - y_n | \to 0  \) by the Squeeze Theorem for sequences.
+
+(\( \Leftarrow \) ) Since \( | x_n - y_n | \to 0  \) for any \( n \geq N   \) for some \( N \in \N  \), we can see that any choice of \( \delta > 0  \) will not be a suitable response to the \( \epsilon_0  \) challenge; that is, \( | x_n - y_n | \to 0  \) implies that \( f  \) fails to be uniformly continuous on \( A  \). 
+\end{proof}
+
+
+\begin{ex}
+    Consider the function \( h(x) = \sin (1/x) \). We can see that \( h(x) \) is continuous at every point in the open interval \( (0,1) \) but is not uniformly continuous on this interval. We can prove this by defining the following sequence \( (x_n) \) and \( (y_n) \) to be 
+    \[  x_n = \frac{ 1 }{ \pi / 2 + 2n \pi } \text{~and~} y_n = \frac{ 1 }{ 3\pi / 2 + 2n \pi }. \]
+\end{ex}
+Since both sequences tend to zero, we have that \( | x_n - y_n | \to 0  \) such that letting \( \epsilon_0 = 2  \) leads to 
+\begin{align*}
+    | h(x_n) - h(y_n) | &= | \sin(\pi / 2 + 2n \pi ) - \sin( 3 \pi / 2 + 2n \pi)|  \\
+                        &= | 2\cos(n \pi) - (-2\cos(n \pi)  | \\ 
+                        &= 2 | \cos(n \pi) | \\  
+                        &= 2.
+\end{align*}
+
+\begin{tcolorbox}
+    \begin{thm}[Uniform Continuity on Compact Sets]
+    A function that is continuous on a compact set \( K  \) is uniformly continuous on \( K \).
+    \end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+Assume \( f: K \to \R  \) is continuous at every point of a compact set \( K \subseteq \R  \). Suppose for sake of contradiction that \( f \) is not uniformly continuous on \( K \). Then by the Sequential Criterion for Absence of Uniform Continuity, we have that for some \( \epsilon_0 > 0  \), we have two sequences \( (x_n) \) and \( (y_n) \) that satisfy the following property 
+\[  | x_n - y_n | \to 0  \] which implies that 
+\[  | f(x_n) - f(y_n) | \geq \epsilon_0. \]
+Since \( K  \) is a compact set, we can find a subsequence \( x_{n_k} \) such that \( (x_{n_k}) \to x  \) where \( x \in K  \). Suppose we want to show that \( y_{n_k} \to x  \). Hence, we can use the Algebraic Limit Theorem to say that 
+\[ \lim (y_{n_k}) = \lim ((y_{n_k} - x_{n_k}) + x_{n_k}) = \lim (y_{n_k} - x_{n_k}) + \lim x_{n_k} = 0 + x = x.  \]
+Since \( f \) is continuous on \( x \in K  \), we have that \( f(x_{n_k}) = f(x) \) and \( f(y_{n_k}) = f(x) \). But this means that 
+\[ \lim (f(x_{n_k}) - f(y_{n_k})) = 0   \]
+that is, \( | f(x_{n_k}) - f(y_{n_k})  | < \epsilon \)
+for all \( \epsilon > 0  \)
+which contradicts our original assumption that 
+\[  | f(x_n) - f(y_n) | \geq \epsilon_0 \]
+for all \( n \in \N  \). Hence, \( f \) must be uniformly continuous on \( K \).
+\end{proof}
+
+
+
+\subsection{Definitions}
+
+
+\begin{tcolorbox}
+    \begin{thm}[Preservation of Compact Sets]
+    Let \( f: A \to \R  \) be continuous on \( A  \). If \( K \subseteq A  \) is compact, then \( f(K)  \) is compact as well.
+    \end{thm}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+    \begin{thm}[Extreme Value Theorem]
+    If \( f: K \to \R  \) is continuous on a compact set \( K \subseteq \R  \), then \( f  \) attains a maximum and minimum value. In other words, there exists \( x_0, x_1 \in K  \) such that \( f(x_0) \leq f(x) \leq f(x_1) \) for all \( x \in K  \).
+    \end{thm}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\begin{defn}
+A function \( f: A \to \R  \) is \textit{uniformly continuous} on \( A  \) if for every \( \epsilon > 0  \) there exists a \( \delta > 0  \) such that for all \( x,y \in A  \), \( | x - y  | < \delta  \) implies \( | f(x) - f(y) | < \epsilon. \)
+\end{defn}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+    \begin{thm}[Sequential Criterion for Absence of Uniform Continuity]
+    A function \( f: A \to \R  \) fails to be uniformly continuous on \( A  \) if and only if there exists a particular \( \epsilon_0 > 0  \) and two sequences \( (x_n) \) and \( (y_n) \) in \( A  \) satisfying 
+    \[ | x_n - y_n  | \to 0 \text{~but~} | f(x_n) - f(y_n) | \geq \epsilon_0. \]
+    \end{thm}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+    \begin{thm}[Uniform Continuity on Compact Sets]
+    A function that is continuous on a compact set \( K  \) is uniformly continuous on \( K \).
+    \end{thm}
+\end{tcolorbox}
+\subsection{Exercises}
+
+\subsubsection{Exercise 4.4.1}
+
+\begin{enumerate}
+    \item[(a)] Show that \( f(x) = x^3  \) is continuous on all \( c \in \R  \).
+        \begin{proof}
+Let \( \epsilon > 0  \) and let \( c \in \R  \). Choose \( \delta = \min \{ 1, \epsilon / | (c+1)^2 + (c+1)c + c^2 |   \}   \). Let \( f(x) = x^3  \). Then whenever \( | x - c  | < \delta  \), we have that 
+\begin{align*}
+    | f(x) - f(c)  | &= |  x^3 - c^3  |  \\
+                     &=|x - c   | | x^2 + xc + c^2  | \\ 
+                     &< \frac{ \epsilon  }{ | (c+1)^2 + (c+1)c + c^2 |  }  \cdot | (c + 1)^2 + (c + 1)c + c^2  |  \\
+                     &= \epsilon.
+\end{align*}
+Hence, we have that \(\lim_{ x  \to c  } f(x) = f(c) \) for any \( c \in \R  \).
+        \end{proof}
+    \item[(b)] Argue, using Theorem 4.4.5, that \( f  \) is not uniformly continuous on \( \R  \).
+        \begin{proof}
+            Let \( (x_n) = n    \) and \( (y_n) = n + 1 / n   \), then 
+            \[  | x_n - y_n | = \Big| \frac{ 1 }{ n }  \Big| \to 0.  \]
+            Then we have that 
+            \begin{align*}
+                | f(x_n) - f(y_n)  | &= \Big| n^3 - \Big( n + \frac{ 1 }{ n }  \Big)^3  \Big|  \\
+                                     &= \Big| - \Big( 3n + \frac{ 3 }{ n } + \frac{ 1 }{ n^3 } \Big) \Big| \\
+                                     &= 3n + \frac{ 3 }{ n } + \frac{ 1 }{ n^3 } \\  
+                                     &\geq 3.
+            \end{align*}
+            Hence, there exists \( \epsilon_0 = 3  \) such that \( | f(x_n) - f(y_n) | \geq \epsilon_0. \) which implies \( f(x) = x^3  \) is not uniform continuous.
+        \end{proof}
+    \item[(c)] Show that \( f \) is uniformly continuous on any bounded subset of \( \R  \). 
+        \begin{proof}
+            Let \( (a,b) \) be a bounded subset of \( \R  \). Then let \( \epsilon > 0 \). Let \( x,y \in [a,b] \). Choose \( \delta =  \). Hence, whenever \( | x - y  | < \delta  \) we have that 
+            \begin{align*}
+                | f(x) - f(y) | &= | x^3 - y^3  |  \\
+                                &= | x - y  | | x^2 + xy + y^2  | \\
+                                &< \delta \cdot 3b^2 \\ 
+                                &= \frac{ \epsilon  }{ 3b^2 }  \cdot 3b^2 \\
+                                &= \epsilon.
+            \end{align*}
+            Hence, we have that \( f \) is uniformly continuous on the bounded set \( (a,b) \subseteq \R  \).
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 4.4.2} 
+\begin{enumerate}
+    \item[(a)] Is \( f(x) = 1 / x  \) uniformly continuous on \( (0,1) \)? 
+        \begin{proof}[Solution]
+        No it is not. Let \( (x_n), (y_n)  \) be two sequences such that \( x_n = 1 / 2n \) and \( y_n = 1 / (2n+1) \). Observe that \( | x_n - y_n  | \to 0  \) since both sequences tend to zero. Now we have that 
+        \begin{align*}
+            | f(x_n) - f(y_n) | &= | 2n - 2n - 1  |
+                                = 1 = \epsilon_0.
+        \end{align*}
+        Hence, \( f(x)  \) is not uniformly continuous on \( (0,1) \).
+        \end{proof}
+    \item[(b)] Is \( g(x) = \sqrt{ x^2 + 1  }  \) uniformly continuous on (0,1)?
+        \begin{proof}
+        Let \( \epsilon > 0  \) and choose \( \delta = \epsilon. \) Assume \( f(x) \) is defined on \( (0,1)  \). Then whenever \( | x - y  | < \delta  \), we have that 
+            \begin{align*}
+                | g(x) - g(y) | &= | \sqrt{ x^2 + 1  } - \sqrt{ y^2 + 1  }  |  \\
+                                &=  \frac{ | x^2 - y^2  |  }{ | \sqrt{ x^2 + 1  } + \sqrt{ y^2 + 1  }  |  }   \\
+                                &=  \frac{ | x - y  | | x + y  |  }{ | \sqrt{ x^2 + 1  } + \sqrt{ y^2 + 1  }   |  }  \\  
+                                &< \delta \cdot \frac{ | x+ y  |  }{ |  \sqrt{ x^2 + 1  } + \sqrt{ y^2 + 1  }   |  }  \\
+                                &< \delta \cdot \frac{ 2 }{ 2 }  \\
+                                &= \epsilon .
+            \end{align*}
+            Hence, we have that \( g(x)  \) is uniform continuous on \( (0,1) \subseteq \R  \).
+        \end{proof}
+\end{enumerate}
+
+
+\subsubsection{Exercise 4.4.3} Show that \( f(x) = 1 / x^2  \) is uniformly continuous on the set \( [1, \infty  ) \) but not on the set \( (0,1] \).
+\begin{proof}
+    Let \( \epsilon > 0  \). Choose \( \delta = \delta / 2  \) such that whenever \( | x - y  | < \delta  \) for any \( x,y \in [1,\infty ) \) we have that 
+    \begin{align*}
+        | f(x) - f(y) | &= \Big| \frac{ 1 }{ x^2  } - \frac{ 1 }{ y^2  }  \Big|   \\
+                        &= \frac{ | y^2 - x^2  |  }{  | x^2 y^2  |  } \\
+                        &= \frac{ | x - y  | | x + y  |  }{ | x^2  | | y^2  |  }   \\
+                        &\leq \frac{ | x - y  |  }{ | x^2  | | y^2  |  } (| x | + | y | ) \tag{Triangle Inequality}\\
+                        &< \delta \cdot \frac{ 1 }{ | x^2 y^2  |  } (| x  | + | y | ) \tag{\( | x - y  | < \delta  \)}\\ 
+                        &= \delta \cdot \Big( \frac{ 1 }{ x y^2  } + \frac{ 1 }{ x^2 y  }  \Big) \\
+                        &< \frac{ \epsilon  }{ 2 }  \cdot 2 \tag{\( x \geq  1  \) \text{and} \( \delta = \epsilon / 2  \) } \\  
+                        &= \epsilon.
+    \end{align*}
+    Hence, \( f(x) = 1 / x^2  \) is a continuous function on \( [1, \infty) \).
+    Now we want to show that \( f(x) \) is not uniformly continuous on \( (0,1] \). Hence, let \( (x_n), (y_n) \) be two sequences that are contained in \( (0,1] \). Defined these two sequences as follows: 
+    \begin{align*}
+        x_n &= \frac{ 1 }{ \sqrt{ 2n }  },  \\
+        y_n &= \frac{ 1 }{ \sqrt{ 2n + 1  }  }.
+    \end{align*}
+    Since \( (x_n) \) and \( (y_n) \) both tend towards zero, we have that \( | x_n - y_n  | \to 0  \). Now consider \( | f(x_n) - f(y_n) |  \). We want to construct an \( \epsilon_0  \) such that \( | f(x_n) - f(y_n) | \geq \epsilon_0  \). Hence, observe that 
+    \begin{align*}
+        | f(x_n) - f(y_n)  | &= \Big| \Big( \frac{ 1 }{ 1 / \sqrt{ 2n }  } \Big)^2  - \Big( \frac{ 1  }{ 1 / \sqrt{ 2n + 1  }  } \Big)^2   \Big|   \\
+                             &= |  2n - 2n - 1  | \\
+                             &= 1 \\
+                             &= \epsilon_0.
+    \end{align*}
+    Hence, we have that \( f(x) \) cannot be uniformly continuous on the interval \( (0, 1] \).
+\end{proof}
+
+
+
+\subsubsection{Exercise 4.4.4} Decide whether each of the following statements is true or false, justifying each conclusion.
+
+\begin{enumerate}
+    \item[(a)] If \( f \) is continuous on \( [a,b] \) with \( f(x) > 0  \) for all \( a \leq x \leq b  \), then \( 1 /  f \) is bounded on \( [a,b] \) (meaning \( 1/ f \) has bounded range).
+        \begin{proof}[Solution]
+            Let \( f  \) be a continuous function \( [a,b] \) with \( f(x) > 0  \) for all \( a \leq x \leq b  \). Since \( [a,b] \) are compact sets, and \( f  \) is continuous on \( [a,b]  \), we have \( f(a) \leq f(x) \leq f(b) \). Since \( f > 0  \) for all \( a \leq x \leq  b  \), we have that 
+            \[  \frac{ 1 }{ f(b) } \leq \frac{ 1 }{ f(x) } \leq \frac{ 1 }{ f(a) }   \]
+            which means \( 1 / f   \) is a bounded function on \( [a,b] \).
+        \end{proof}
+    \item[(b)] If \( f \) is uniformly continuous on a bounded set \( A  \), then \( f(A) \) is bounded.
+        \begin{proof}[Solution]
+        Let \( f  \) be a uniformly continuous function on a bounded set \( A  \). Hence, let \( \epsilon  = 1  \). There exists \( \delta > 0  \) such that whenever \( | x - y  | < \delta  \), we have that 
+        \[  | f(x) -f(y) | < \epsilon. \]
+Since \( A  \) is bounded, there exists a subsequence \( (x_n) \to x  \) where \( x  \) is a limit point of \( A  \). Suppose for sake of contradiction that \( f(A) \) is unbounded. Let \( \delta = 1  \). Since \( f  \) is unbounded, we have that whenever \( | x_n - x_m  | <  1 \) where \(  n \neq m  \), we have 
+    \[ | f(x_n) - f(x_m) | > 1.\]
+    But this means that our function is not uniformly continuous on \( A  \) which is a contradiction. Thus, \( f  \) must have a bounded range.
+
+        \end{proof}
+    \item[(c)] If \( f  \) is defined on \( \R  \) and \( f(K) \) is compact whenever \( K  \) is compact, then \( f  \) is continuous on \( \R  \).
+        \begin{proof}[Solution]
+        This is false. Suppose we have the function \( f  \) defined as follows:
+        \begin{align*}
+            f(x) &= 
+            \begin{cases}
+                1 &\text{if } x \in \Q \\ 
+                0 &\text{if } x \in \mathbb{I}.
+            \end{cases} \\
+        \end{align*}
+        We have that for any compact set \( K  \), we have that every element of \( x  \) gets mapped to \( f(K) \) but \( f(x) \) is not a continuous function.
+        \end{proof}
+\end{enumerate}
+
+
+\subsubsection{Exercise 4.4.5} Assume that \( g  \) is defined on an open interval \( (a,c) \) a nd it is known to be uniformly continuous on \( (a,b]  \) and \( [b, c) \). Let \( x \in (a,b] \) and \( y \in [b,c) \). Note that \( (a,c) = (a,b] \cup [b,c) \). Since \( f  \) is uniformly continuous on \( (a,b] \), we have that for any \( x, b \in (a,b] \), there exists \( \delta_1 > 0  \) such that whenever \( | x - b  | < \delta_2   \), we have that 
+\[ | f(x) - f(b)  | < \frac{ \epsilon  }{ 2 } .\] Similarly, there exists \( \delta_2 > 0  \) such that whenever \( | b - y  | < \delta_2 \) such that whenever 
+\[  | f(b) - f(y) | < \frac{ \epsilon  }{ 2 } . \]Choose \( \delta  =  \min \{ \delta_1, \delta_2  \}  \) such that whenever \( | x - y  | < \delta  \), we have that 
+\begin{align*}
+    | f(x) - f(y)  | &= | f(x) - f(b) + f(b) - f(y)  |  \\
+                     &= | f(x) - f(b)  | + | f(b) - f(y) | \\
+                     &< \frac{ \epsilon  }{ 2 } + \frac{ \epsilon  }{ 2 } \\ 
+                     &= \epsilon.
+\end{align*}
+Hence, \( f(x)  \) is uniformly continuous on \( (a,c) \).
+
+
+
+
+\subsubsection{Exercise 4.4.7} Prove that \( f(x) = \sqrt{ x  }  \) is uniformly continuous on \( [0,\infty ) \).
+\begin{proof}
+    Let \( \epsilon > 0  \) and let \( x, y \in [0, \infty ) \). If \( x,y = 0   \), then it immediately follows that \( f  \) is uniformly continuous since choosing \( \delta = \epsilon  \) implies that whenever \( | x - y  | < \delta  \), we have 
+    \[ | f(x) - f(y) | = | \sqrt{ 0 } - \sqrt{ 0 }   | = 0 < \epsilon.   \]Suppose \( x,y \neq  0  \). Then choose \( \delta = \epsilon  \cdot 2\sqrt{ c  }  \) for any \( c \in [0, \infty)\) such that whenever \( | x - y  | < \delta  \) we have that
+    \begin{align*}
+        | f(x) - f(y)  | &= | \sqrt{ x } - \sqrt{ y }  |  \\
+                         &= \Big| \frac{ x - y  }{ \sqrt{ x  } + \sqrt{ y }  }  \Big| \\
+                         &= \frac{ | x - y  |  }{  \sqrt{ x  } + \sqrt{ y }    } \\
+                         &\leq \frac{ | x - y  |  }{   2 \sqrt{ c }    }  \\
+                         &< \frac{ \delta  }{ 2 \sqrt{ c }  }  \\
+                         &= \epsilon. 
+    \end{align*}
+    Hence, we have that \( f(x)  = \sqrt{ x  }  \) is continuous on \( [0,\infty) \).
+\end{proof}
+
+\subsubsection{Exercise 4.4.9}
+\begin{tcolorbox}
+    \begin{defn}[Lipschitz Functions]
+        A function \( f: A \to \R  \) is called \textit{Lipschitz} if there exists a bound \( M > 0  \) such that 
+        \[ \Big| \frac{ f(x) - f(y) }{ x - y  }   \Big| \leq M  \]
+        for all \( x \neq y \in A  \).
+    \end{defn}
+\end{tcolorbox}
+Geometrically speaking, a function \( f \) is Lipschitz if there is a uniform bound on the magnitude of the slopes of lines drawn through any two points on the graph of \( f \).
+
+\begin{enumerate}
+    \item[(a)] Show that if \( f: A \to \R  \) is Lipschitz, then it is uniformly continuous on \( A  \).
+        \begin{proof}
+        Suppose \( f: A \to \R  \) is Lipschitz and let \( x \neq y \in A  \). Let \( \epsilon > 0  \) and choose \( \delta = \epsilon / M  \). Assume \( | x - y  | < \delta  \). Using the fact that \( f  \) is Lipschitz, we have 
+        \[ \Big| \frac{ f(x) - f(y)  }{ x - y  }   \Big| \leq M . \]
+        But this is equivalent to 
+        \[ | f(x) - f(y)  | \leq M | x - y  | < M \cdot \delta = M \cdot \frac{ \epsilon  }{ M  }  = \epsilon. \]
+        Hence, we have that \( | f(x) - f(y) | < \epsilon  \) for all \( x \neq y \in A  \) implying that \( f: A \to \R   \) is a uniformly continuous function.
+        \end{proof}
+    \item[(b)] Is the converse statement true? Are all uniformly continuous functions necessarily Lipschitz?
+        \begin{proof}[Solution]
+        No the converse statement is not true. Take the function \( f(x) = \sqrt{ x  }  \). This function contains a slope that gets arbitrarly steep as the values of \( x  \) tend toward infinity. Another example is the function \( g(x) = 1 / x^2  \). We can see that if \( g(x)  \) is defined on \( (0,1 ) \) then the slope of the \( g(x)  \) gets arbitrary big as \( x \to 0  \).
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 4.4.10} Assume that \( f \) and \( g  \) are uniformly continuous functions defined on a common domain \( A  \). Which of the following combinations are necessarily uniformly continuous on \( A  \):
+
+\[ f(x) + g(x), ~ f(x)g(x), ~ \frac{ f(x) }{ g(x) }, ~ g \circ f (x).  \]
+
+
+\begin{enumerate}
+    \item[(a)] \( f(x) + g(x) \).
+        \begin{proof}
+        The addition of two uniformly continuous functions \( f(x), g(x) \) defined on the common domain \( A  \) is continuous. Let \( \epsilon > 0  \). Then define \( \delta = \min \{ \delta_1, \delta_2  \}  \) such that whenever 
+        \begin{align*}
+            | x - y  | &< \delta_1,  \\
+            | x - y  | &< \delta_2 
+        \end{align*}
+        we have that 
+        \begin{align*}
+            | f(x) + g(x) - (f(y) - g(y)) | &= | (f(x) - f(y)) + (g(x) - g(y)) |  \\
+                                            &\leq | f(x) - f(y)  | + | g(x) - g(y) | \\
+                                            &< \frac{ \epsilon  }{ 2 } + \frac{ \epsilon  }{ 2 } \\
+                                            &= \epsilon.
+        \end{align*}
+        Hence, the sum of two uniformly continuous functions is uniformly continuous.
+        \end{proof}
+    \item[(b)] \( f(x)g(x) \).
+        \begin{proof}[Solution]
+        Not necessarily true unless both of the functions are both bounded.
+
+        \end{proof}
+    \item[(c)] \( f(x) / g(x)  \) where \( g(x) > 0  \).
+        \begin{proof}[Solution]
+        Like the product of two uniformly continuous functions, the quotient is also not necessarily true unless both \( g(x) \) and \( f(x) \) are bounded below and above respectively.
+        \end{proof}
+    \item[(d)] \( f(g(x))  \).
+        \begin{proof}
+        Given \( f: A \to \R  \) and \( g:  A \to \R  \) uniformly continuous, assume that the range \( f(A) = \{ f(x) : x \in A  \}  \) is contained in \( A  \) so that composition is defined on \( A  \). Let \( \epsilon > 0  \). Let \( x \neq y \in A  \). Since \( f(x) \) is uniformly continuous on \( A  \), choose \( \epsilon  = \delta   \) such that whenever \( | f(x) - f(y)  | < \delta  \) and \( g : A \to \R  \) being uniformly continuous on \( A  \), we have that
+        \begin{align*}
+            | g \circ f (x) - g \circ f(y) | &= | g(f(x)) - g(f(y)) |  \\
+                                             &< \epsilon.
+        \end{align*}
+        \end{proof}
+\end{enumerate}
+
+
+\subsubsection{Exercise 4.4.11(Topological Characterization of Continuity).} Let \( g  \) be defined on all of \( \R  \). If \( B  \) is a subset of \( \R  \), define the set \( g^{-1}(B)  \) by 
+\[  g^{-1}(B) = \{ x \in \R : g(x) \in B  \}. \]
+Show that \( g  \) is continuous if and only if \( g^{-1}(O)  \) is open whenever \( O \subseteq \R  \) is an open set.
+\begin{proof}
+
+\end{proof}
+
+
