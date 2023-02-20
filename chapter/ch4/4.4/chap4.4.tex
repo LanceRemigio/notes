@@ -316,6 +316,7 @@ Hence, \( f(x)  \) is uniformly continuous on \( (a,c) \).
 
 
 
+
 \subsubsection{Exercise 4.4.7} Prove that \( f(x) = \sqrt{ x  }  \) is uniformly continuous on \( [0,\infty ) \).
 \begin{proof}
     Let \( \epsilon > 0  \) and let \( x, y \in [0, \infty ) \). If \( x,y = 0   \), then it immediately follows that \( f  \) is uniformly continuous since choosing \( \delta = \epsilon  \) implies that whenever \( | x - y  | < \delta  \), we have 
@@ -330,6 +331,29 @@ Hence, \( f(x)  \) is uniformly continuous on \( (a,c) \).
     \end{align*}
     Hence, we have that \( f(x)  = \sqrt{ x  }  \) is continuous on \( [0,\infty) \).
 \end{proof}
+
+\subsubsection{Exercise 4.4.8} Give an example of each of the following, or provide a short argument for why the request is impossible.
+\begin{enumerate}
+    \item[(a)] A continuous function defined on \( [0,1] \) with range \( (0,1) \).
+        \begin{proof}[Solution]
+        Let \( f(x) = 1 / x(x+1) \). The range of \( f(x) \) is \( (0,1) \).   
+        \end{proof}
+    \item[(b)] A continuous function defined on \( (0,1) \) with range \( [0,1] \).
+        \begin{proof}[Solution]
+        Let the following function \( f(x) \) be defined as follows:
+        \[ f(x) = 
+        \begin{cases}
+            0 &\text{ if } x \in (0, \frac{ 1 }{ 4 } ) \\
+            2x - \frac{ 1 }{ 2 } &\text{ if } x \in [ \frac{ 1 }{ 4 }, \frac{ 3 }{ 4 } ] \\
+            1 &\text{ if } x \in (3/4, 1)
+        \end{cases} \]
+        \end{proof}
+    \item[(c)] A continuous function defined on \( (0,1] \) with range \( (0,1) \).
+        \begin{proof}[Solution]
+        
+        \end{proof}
+\end{enumerate}
+
 
 \subsubsection{Exercise 4.4.9}
 \begin{tcolorbox}
@@ -398,11 +422,14 @@ Geometrically speaking, a function \( f \) is Lipschitz if there is a uniform bo
 \end{enumerate}
 
 
-\subsubsection{Exercise 4.4.11(Topological Characterization of Continuity).} Let \( g  \) be defined on all of \( \R  \). If \( B  \) is a subset of \( \R  \), define the set \( g^{-1}(B)  \) by 
+\subsubsection{Exercise 4.4.11 (Topological Characterization of Continuity).} Let \( g  \) be defined on all of \( \R  \). If \( B  \) is a subset of \( \R  \), define the set \( g^{-1}(B)  \) by 
 \[  g^{-1}(B) = \{ x \in \R : g(x) \in B  \}. \]
 Show that \( g  \) is continuous if and only if \( g^{-1}(O)  \) is open whenever \( O \subseteq \R  \) is an open set.
 \begin{proof}
+    \( (\Leftarrow) \) Let us construct an \( \epsilon - \)neighborhood around \( g(c) \); that is, \( V_{\epsilon }(g(c)) \). Suppose \( V_{\delta}(c) \) with \( x \in V_{\delta}(c) \). Since \( g^{-1}(O) \) is an open set, we have that \( V_{\delta}(c) \subseteq g^{-1}(O) \). But this means that \( x \in g^{-1}(O) \) implying that \( g(x) \in V_{\epsilon }(g(c))  \) since \( g(x) \in O  \).
 
+
+    \( (\Rightarrow) \) Let \( V_{\epsilon }(g(c))  \) where \( c  \) is a limit point of \( O  \). Since \( g \) is a continuous function, there exists \( V_{\delta}(c)  \) such that whenever \( x \in V_{\delta}(c)  \), we have that \( g(x) \in V_{\epsilon}(g(c)) \). Since \( O  \) is an open set, we have that \( V_{\epsilon}(g(c)) \subseteq O  \). But this means that \( g(x) \in O  \) as well implying that \( x  \) is also an element of \( g^{-1}(O) \). Hence, we have that \( V_{\delta (c) }  \subseteq g^{-1}(O)\) and thus \( g^{-1}(O)  \) is an open set.
 \end{proof}
 
 
