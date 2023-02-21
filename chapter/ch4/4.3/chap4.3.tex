@@ -114,6 +114,68 @@ What about functions like \( h(x) = \sqrt{ 3x^2 + 5  }   \) is continuous. Hence
 Exercise 4.3.3.
 \end{proof}
 
+
+
+\subsection{Definitions} 
+
+\begin{tcolorbox}
+    \begin{defn}[Continuity]
+    A function \( f: A \to \R  \) is \textit{continuous at a point} \( c \in A  \) if, for all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that whenever \( | x - c  | < \delta \) (and \( x \in A  \)) it follows that \( | f(x) - f(c) | < \epsilon  \). 
+    If \( f \) is continuous at every point in the domain \( A  \), then we say that \( f \) \textit{continuous} on \( A  \).
+    \end{defn}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+    \begin{thm}[Characterizations of Continuity]
+    Let \( f: A \to \R  \), and let \( c \in A  \). The function \( f \) is continuous at \( c \) if and only if any one of the following three conditions is met:
+    \begin{enumerate}
+        \item[(i)] For all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that \( | x - c  | < \delta \) (and \( x \in A  \)) implies \( | f(x) - f(c) | < \epsilon; \)
+        \item[(ii)] For all \( V_{\epsilon }(f(c)) \), there exists a \( V_{\delta}(c)  \) with the property that \( x \in V_{\delta} (c) \) (and \( x \in A  \)) implies \( f(x) \in V_{\epsilon }(f(c))  \);
+        \item[(iii)] For all \( (x_n) \to c \) (with \( x_n \in A
+            \)), it follows that \( f(x_n) \to f(c) \).
+
+            If \( c \) is limit point of \( A  \), then the above conditions are equivalent to 
+    \item[(iv)] \( \lim_{ x \to c } f(x)  = f(c)\).
+    \end{enumerate}
+    \end{thm}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+    \begin{cor}[Criterion for Discontinuity]
+    Let \( f: A \to \R  \), and let \( c \in A  \) be a limit point of \( A  \). If there exists a sequence \( (x_n) \subseteq A  \) where \( (x_n) \to c  \) but such that \( f(x_n) \not \to f(c) \), we may conclude that \( f \) is not continuous at \( c \).
+    \end{cor}
+\end{tcolorbox}
+\begin{tcolorbox}
+    \begin{thm}[Algebraic Continuity Theorem] 
+    Assume \( f: A \to \R  \) and \( g: A \to \R  \) are continuous at point \( c \in A  \). Then, 
+    \begin{enumerate}
+        \item[(i)] \( kf(x)  \) is continuous at \( c  \) for all \( k \in \R  \);
+        \item[(ii)] \( f(x) + g(x) \) is continuous at \( c  \) for all \( k \in \R  \);
+        \item[(iii)] \( f(x) g(x) \) is continuous at \( c  \); and 
+        \item[(iv)] \( f(x) / g(x)  \) is continuous at \( c  \), provided the quotient is defined.
+    \end{enumerate}
+    \end{thm}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+    \begin{thm}[Algebraic Continuity Theorem] 
+    Assume \( f: A \to \R  \) and \( g: A \to \R  \) are continuous at point \( c \in A  \). Then, 
+    \begin{enumerate}
+        \item[(i)] \( kf(x)  \) is continuous at \( c  \) for all \( k \in \R  \);
+        \item[(ii)] \( f(x) + g(x) \) is continuous at \( c  \) for all \( k \in \R  \);
+        \item[(iii)] \( f(x) g(x) \) is continuous at \( c  \); and 
+        \item[(iv)] \( f(x) / g(x)  \) is continuous at \( c  \), provided the quotient is defined.
+    \end{enumerate}
+    \end{thm}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+    \begin{thm}[Composition of Continuous Functions]
+    Given \( f: A \to \R  \) and \( g: B \to \R  \), assume that the range \( f(A) = \{ f(x) : x \in A  \}  \) is contained in the domain \( B  \) so that the composition \( g \circ f(x) = g(f(x)) \) is defined on \( A  \). If \( f \) is continuous at \( c \in A  \), and \( g  \) is continuous at \( f(c) \in B  \), then \( g \circ f  \) is continuous at \( c  \).
+
+    \end{thm}
+\end{tcolorbox}
+
 \subsection{Exercises}
 
 \subsubsection{Exercise 4.3.1} Let \( g(x) = \sqrt[3]{x }  \).

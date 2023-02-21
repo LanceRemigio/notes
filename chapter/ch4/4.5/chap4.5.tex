@@ -1,1 +1,119 @@
 \section{The Intermediate Value Theorem}
+
+In intuitive terms, the Intermediate Value Theorem is an observation that explains how a continuous function \( f \) on a closed interval \( [a,b] \) attains every value that falls between two range values \( f(a) \) and \( f(b) \).
+
+
+\begin{tcolorbox}
+    \begin{thm}[Intermediate Value Theorem]
+    Let \( f: [a,b] \to \R  \) be continuous. If \( L  \) is a real number satisfying \( f(a) < L < f(b) \) or \( f(a) > L > f(b) \), then there exists a point \( c \in (a,b) \) where \( f(c) = L  \).
+    \end{thm}
+\end{tcolorbox}
+
+\subsection{Preservation of Connected Sets}
+
+Before we prove the Intermediate Value Theorem, we should understand that it is a special case of continuous functions mapping connected sets to connected sets. In the last section, we saw how continuous functions on compact sets \( K  \) produces range sets \( f(K) \) that are also compact. This just so happened to also hold for connected sets.
+
+
+\begin{tcolorbox}
+    \begin{thm}[Preservation of Connected Sets]
+    Let \( f: G \to \R  \) be continuous. If \( E \subseteq G  \) is connected, then \( f(E) \) is connected as well.
+    \end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+Our goal is to use the characterization of connected sets to prove this theorem. Let \( f(E) = A \cup B  \) where \( A  \) and \( B  \) are disjoint and nonempty. We want to produce a sequence that is contained in either \( A  \) or \( B  \) that converges to a limit contained in the other. Define the following sets:
+\begin{center}
+    \( C = \{ x \in E: f(x) \in A  \}  \) and \( D = \{ x \in E : f(x) \in B  \}  \).
+\end{center}
+These sets are the \textit{preimages} of \( A  \) and \( B  \) respectively. We can see, from the properties of both \( A  \) and \( B  \), that they are nonempty and disjoint such that they satisfy \( E = C \cup D  \). Now assume \( E  \) is a connected set. This means there exists a convergent sequence \( (x_n)  \) that is contained in either \( C  \) or \( D  \) with \( \lim x_n = x  \). Since \( f \) is continuous at \( x  \), we have that \( f(x) = \lim f(x_n) \). Thus, it follows that \( f(x_n) \) is a convergent sequence contained in either \( A  \) or \( B  \) while the limit \( f(x)  \)is an element of the other. Hence, \( f(E ) \) is also connected.
+\end{proof}
+
+In \( \R  \), a set is connected if and only if it is an interval (which is possibly unbounded). This in addition to the theorem above leads to a short proof of the Intermediate Value Theorem. 
+
+\subsection{Completeness}
+
+A typical application of the Intermediate Value Theorem involves proving the existence of roots. Given a function \( f(x) = x^2 - 2  \), we can see that \( f(1) = -1  \) and \( f(2) = 2  \). Hence, there exists a point \( c \in (1,2) \) where \( f(c) = 0  \). In Chapter 1, we prove the existence of \( \sqrt{ 2 }  \) using the Axiom of Completeness as our main assumption about the properties of \( \R  \). This fact sheds light on the relationship between the continuity of functions and the completeness of \( \R  \).
+
+Proof of the Intermediate Value Theorem using the Axiom of Completeness.
+\begin{proof}
+First, let us consider a special case where \( f  \) is a continuous function satisfying the property that \( f(a) < 0 < f(b) \). We want to show that \( f(c) = 0  \) for some \( c \in (a,b) \). Let us define the following set 
+\[  K = \{ x \in [a,b] : f(x) \leq 0  \}. \]
+This is the set of negative values that \( f(x) \) takes on the interval \( [a,b] \). Note that \( K  \) is bounded above by \( b \), and \( a \in K  \) so that \(  K \) is nonempty. Hence, we are allowed to assert that \( \sup K  \) exists and that \( \sup K = c  \). We have three cases to consider: 
+\begin{center}
+    \( f(c) > 0  \), \( f(c) < 0  \), and \( f(c) = 0  \).
+\end{center}
+By the fact that \( c  \) is the least upper bound of \( K  \) rules out the first two cases. Hence, we reach our desired conclusion that \( f(c) = 0  \). The details are requested in Exercise 4.5.5(a).
+\end{proof}
+
+Below is the second proof of the Intermediate Value Theorem using the Nested Interval Property.
+
+\begin{proof}
+    Consider the special case where \( L = 0  \) and \( f(a) < 0 < f(b) \). Let \( I_0 = [a,b] \), and consider the midpoint \( z = (a+b)/ 2  \). If \( f(z) \geq 0  \), then set \( a_1 = a  \) and \( b_1 = z  \). If \( f(z) < 0  \), then set \( a_1 = z  \) and \( b_1 = b  \). We have that, in either case, the interval \( I_1 =  [a_1, b_1 ] \) has the property that \( f  \) is negative at the left endpoint and nonnegative at the right. This procedure can be inductively repeated such that the Nested Interval Property can be applied to gain the conclusion of the theorem. The remainder of the argument is left to the reader in Exercise 4.5.5(b).
+\end{proof}
+
+\subsection{The Intermediate Value Property} 
+
+An interesting question we can ask is does the Intermediate Value Theorem have a converse that is true?
+
+\begin{tcolorbox}
+\begin{defn}
+    A function \( f  \) has the \textit{intermediate value property} on an interval \( [a,b] \) if for all \( x < y  \) in \( [a,b] \) and all \( L   \) between \( f(x)  \) and \( f(y) \), it is always possible to find a point \( c \in (x,y) \) where \( f(c) = L  \).
+\end{defn}
+\end{tcolorbox}
+
+This is to say that every continuous function \( f \) on an interval \( [a,b] \) must have the intermediate value property. We must be careful since this is not always true that a function that contains this property must necessarily be continuous. An example of this is the function 
+\[  g(x) = 
+\begin{cases}
+    \sin(1/x) &\text{if } x \neq 0 \\
+    0 &\text{if } x = 0
+\end{cases}  \]
+is not continuous at zero, but it does have the intermediate value property on \( [0,1] \). 
+
+
+\subsection{Definitions}
+
+
+\begin{tcolorbox}
+    \begin{thm}[Intermediate Value Theorem]
+    Let \( f: [a,b] \to \R  \) be continuous. If \( L  \) is a real number satisfying \( f(a) < L < f(b) \) or \( f(a) > L > f(b) \), then there exists a point \( c \in (a,b) \) where \( f(c) = L  \).
+    \end{thm}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+    \begin{thm}[Preservation of Connected Sets]
+    Let \( f: G \to \R  \) be continuous. If \( E \subseteq G  \) is connected, then \( f(E) \) is connected as well.
+    \end{thm}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+\begin{defn}
+    A function \( f  \) has the \textit{intermediate value property} on an interval \( [a,b] \) if for all \( x < y  \) in \( [a,b] \) and all \( L   \) between \( f(x)  \) and \( f(y) \), it is always possible to find a point \( c \in (x,y) \) where \( f(c) = L  \).
+\end{defn}
+\end{tcolorbox}
+
+\subsection{Exercises}
+
+\subsubsection{Exercise 4.5.3} A function \( f  \) is \textit{increasing} on \( A  \) if \( f(x) \leq f(y) \) for all \( x < y  \) in \( A  \). Show that if \( f  \) is increasing on \( [a,b] \) and satisfies the intermediate value property, then \( f  \) is continuous on \( [a,b] \). 
+\begin{proof}
+    Suppose \( f  \) satisfies the intermediate value property. We want to show that \( f  \) is continuous on \( [a,b] \). Let \( x < y  \) in \( [a,b] \). By assumption, it is always possible to find a point \( c \in (x,y)  \) where \( f(c) = L  \).
+\end{proof}
+
+
+\subsubsection{Exercise 4.5.5} 
+\begin{enumerate}
+    \item[(a)] Finish the proof of the Intermediate Value Theorem using the Axiom of Completeness started previously.
+        \begin{proof}
+        Considering the special case where \( f  \) is a continuous function satisfying the property that \( f(a) < 0 < f(b) \). Our goal is to show that \( f(c) \) for some \( c \in (a,b) \). Define the set 
+        \[ K = \{ x \in [a,b] : f(x) \leq 0  \}. \] 
+Note that \( f(b)  \) is an upper bound for \(  K \) and we know \( a \in K  \) since \( f(a) < 0  \). Hence, we have that \( \sup K  \) exists by the Axiom of Completeness. Our goal is to show that \( \sup  K = f(c) = 0  \). Consider the cases where \( f(c) > 0 , f(c) < 0,  \) and \( f(c) = 0  \). We will show that the first two cases contradict our notion that \( \sup K  \) is the least upper bound. Assume \( f(c) < 0  \) for some \( c \in (a,b) \). But this means that \( f(c)  \) would not be an upper bound of \(  K \) since there exists some \( \alpha  \) such that \( \sup K < \alpha  \)where \( \alpha  \) is not an upper bound of \( K  \). Assume \( f(c) > 0  \) for some \( c \in (a,b)  \). This implies that \( f(c) > 0  \) is an upper bound of \( K  \) but is not the least upper bound of \( K  \) which is a contradiction. Hence, it must be that \( f(c) = 0  \). 
+        \end{proof}
+    \item[(b)] Finish the proof of the Intermediate Value Theorem using the Nested Interval Property started previously.
+        \begin{proof}
+            Consider the special case where \( L = 0  \) and \( f(a) < 0 < f(b)  \). Let \( I_0 = [a,b] \) and consider the midpoint \( z = (a+b) / 2  \). If \( f(z) \geq 0  \), then set \( a_1 = z  \) and \( b_1 = b  \). In either case, the interval \( I_1 = [a_1, b_1 ] \) has the property that \( f  \) is negative at the left endpoint and positive at the right. We can extend this inductively to produce a sequence of closed intervals \( I_n = [a_n, b_n] \) with the property described above to make a nested sequence 
+            \[  I_0 \supseteq I_2 \supseteq I_3 \supseteq I_4 \supseteq \dots ~ . \]
+            Since the intersection of these nested intervals \( I_n  \) for all \( n \) is nonempty, we can find a \( c \in \bigcup_{n = 0 }^{\infty} I_n \) such that \( f(c) = 0  \) since \( f(x)  \) is a continuous function.
+        \end{proof}
+\end{enumerate}
+

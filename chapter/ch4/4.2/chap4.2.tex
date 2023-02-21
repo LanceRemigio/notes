@@ -121,6 +121,66 @@ Suppose we wanted to show that \( \lim_{ x \to 0 } \sin(1/x) \) does not exist. 
 and thus we know that \( \lim_{x \to  0 } \sin(1/x)  \) does not exist.
 \end{ex}
 
+\subsection{Definitions}
+
+
+\begin{tcolorbox}
+    \begin{defn}[Functional Limit]
+        Let \( f: A \to \R  \), and let \( c \) be a limit point of the domain \( A  \). We say that \( \lim_{ x \to c } f(x) = L   \) provided that, for all \( \epsilon > 0  \), there exists a \( \delta > 0  \) such that whenever 
+        \[ 0 <  | x - c  | < \delta  \] (and \( x \in A  \)) it follows that 
+        \[ | f(x) - L  | < \epsilon.  \]
+    \end{defn}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\begin{defn}
+    Let \( c  \) be a limit point of the domain \( f: A \to \R  \). We say \( \lim_{ x \to c } f(x) = L  \) provided that for every \( \epsilon - \)neighborhood \( V_{\epsilon }(L)  \) of \( L \), there exists a \( \delta- \)neighborhood \( V_{\epsilon }(c) \) around \( c \) with the property that for all \( x \in V_{\delta}(c) \) different from \( c  \) (with \( x \in A  \)) it follows that \( f(x) \in V_{\epsilon }(L) \).
+\end{defn}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+    \begin{thm}[Sequential Criterion for Functional Limits]
+    Given a function \( f: A \to \R  \) and a limit point \( c \) of \( A \), the following two statements are equivalent: 
+    \begin{enumerate}
+        \item[(i)] \( \lim_{ x \to c } f(x) = L. \)
+        \item[(ii)] For all sequences \( (x_n) \subseteq A  \) satisfying \( x_n \neq c  \) and \( (x_n) \to c  \), it follows that \( f(x_n) \to L  \).
+    \end{enumerate}
+    \end{thm}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+    \begin{thm}[Sequential Criterion for Functional Limits]
+    Given a function \( f: A \to \R  \) and a limit point \( c \) of \( A \), the following two statements are equivalent: 
+    \begin{enumerate}
+        \item[(i)] \( \lim_{ x \to c } f(x) = L. \)
+        \item[(ii)] For all sequences \( (x_n) \subseteq A  \) satisfying \( x_n \neq c  \) and \( (x_n) \to c  \), it follows that \( f(x_n) \to L  \).
+    \end{enumerate}
+    \end{thm}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+    \begin{cor}[Algebraic Limit Theorem for Function Limits]
+    Let \( f \) and \( g \) be functions defined on a domain \( A \subseteq \R  \), and assume \( \lim_{ x \to c } f(x) = L  \) and \( \lim_{ x \to c } g(x) = M  \) for some limit point \( c \) of \( A  \). Then, 
+    \begin{enumerate}
+        \item[(i)] \( \lim_{ x \to c } kf(x) = kL  \) for all \( k \in \R  \),
+        \item[(ii)] \( \lim_{ x \to c } [f(x) + g(x)] = L + M, \)
+        \item[(iii)] \( \lim_{ x \to c } [f(x)g(x)] = L \cdot M  \), and 
+        \item[(iv)] \( \lim_{ x \to c } \frac{ f(x) }{ g(x)  } = \frac{ L }{ M }  \) provided that \( M \neq  0 \).
+    \end{enumerate}
+    \end{cor}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+    \begin{cor}[Divergence Criterion for Functional Limits]
+    Let \( f \) be a function defined on \( A  \) and let \( c  \) be a limit point of \( A  \). If there exists two sequences \( (x_n) \) and \( (y_n) \) in \( A  \) with \( x_n \neq  c \) and \( y_n \neq c  \) 
+    \[  \lim x_n = \lim y_n = c \text{~but~} \lim f(x_n) \neq \lim f(y_n),  \]
+    then we conclude that the functional limit \( \lim_{x \to c } f(x)  \) does not exist.
+    \end{cor}
+\end{tcolorbox}
 \subsection{Exercises}
 \subsubsection{Exercise 4.2.1}
 
