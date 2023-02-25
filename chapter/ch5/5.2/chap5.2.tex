@@ -1,0 +1,140 @@
+\section{Derivatives and the IVP}
+
+\subsection{Definition of the Derivative}
+
+\begin{tcolorbox}
+    \begin{defn}[Differentiability]
+    Let \( g : A \to \R  \) be a function defined on an interval \( A  \). Given \( c \in A  \), the \textit{derivative} of \( g  \) at \( c  \) is defined by 
+    \[ g'(c) = \lim_{ x \to c } \frac{ g(x) - g(c)  }{ x - c  }, \]
+    provided this limit exists. In this case, we say that \( g  \) is \textit{differentiable} at \( c  \). If \( g'  \) exists for all points \( c \in A  \), we say that \( g  \) is \textit{differentible} on \( A  \).
+    \end{defn}
+\end{tcolorbox}
+
+
+\begin{ex}
+\begin{enumerate}
+    \item[(i)] Consider the function \( f(x) = x^n  \), where \( n \in \N  \), and let \( c  \) be any arbitrary point in \( \R  \). Using the following identity, 
+        \[  x^n - c^n = (x -c )(x^{n-1} + cx^{n-2} + c^2 x^{n-3} + \dots + c^{n-1}) \]
+        we can take the limit 
+        \begin{align*}
+            f'(c) &= \lim_{ x \to c  } \frac{ x^n - c^n  }{ x - c  }  \\
+                  &= \lim_{ x \to c } (x^{n-1} + cx^{n-2} + c^2 x^{n-3} + \dots + c^{n-1}) \\
+                  &= c^{n-1} + c^{n-1} + c^{n-1} + \dots + c^{n-1} \\
+                  &= nc^{n-1}\\
+        \end{align*}
+    \item[(ii)] If \( g(x) = | x  |  \), then if we want to take the derivative at \( c =0  \) produces the following limit
+        \[  g'(0) = \lim_{ x \to 0 } \frac{ | x |  }{ x }  \]
+        which is \( 1 \) if we approach from the right and \( -1 \) if we approach from the left. Hence, we have that \(g'(c) =  0  \) does not exist.
+\end{enumerate}
+\end{ex}
+
+This last example should remind us that continuity of a function does not necessarily imply that a function is differentiable. On the other hand, we can say that if \( g \) is differentiable at a point then \( g  \) is continuous at that point. 
+
+\begin{tcolorbox}
+\begin{thm}
+If \( g: A \to \R  \) is differentiable at a point \( c \in A  \), then \( g  \) is continuous at \( c  \) as well.
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+Assume \( g: A \to \R  \) is differentiable at a point \( c \in A  \). Hence, we have that the following limit exists
+    \[ g'(c) = \lim_{ x \to c } \frac{ g(x) - g(c)  }{ x - c  }. \]
+    Using the Algebraic Limit Theorem for functional limits, we have that 
+    \[  \lim_{ x \to c  } (g(x) - g(c) ) = \lim_{ x \to c  } \Big( \frac{ g(x) - g(c)  }{ x - c  }  \Big) (x - c) = g'(c) \cdot 0 = 0. \]
+    Hence, it follows that \( \lim_{ x \to c  } g(x) = g(c). \)
+\end{proof}
+
+We can prove the same fact using the epsilon-delta definition for functional limits. 
+\begin{proof}
+Assume \( g: A \to \R  \) is differentiable at at a point \( c \in A  \). Let \( \epsilon > 0  \). Then we can find a \( \delta > 0  \) such that whenever \( 0 < | x - c  | < \delta  \), we have that
+    \[ g'(c) = \lim_{ x \to c } \frac{ g(x) - g(c)  }{ x - c  }. \]
+    With a few algebraic manipulations, we can manipulate the above to state that
+    \[  | g(x) - g(c) - g(c)(x-c)  | <  | x - c  | \tag{1}  \]
+    with \( \epsilon = 1  \).
+Using the triangle inequality and choosing \( \delta = \min \{ 1 , \epsilon / (1   + | g(c) | ) \}  \) 
+\begin{align*}
+    | g(x) - g(c)  | &= | g(x) - g(c)(x-c) + g(c)(x-c) -  g(c) |  \\
+                     &\leq | g(x) - g(c)(x-c) | + | g(c)(x-c) - g(c) | \\
+                     &< | x - c  | + | g(c)  | | x - c  | \\
+                     &= | x - c  | (1 + | g(c) | ) \\
+                     &<  \delta \cdot (1 + | g(c)  | ) \\
+                     &= \frac{ \epsilon  }{ 1 + | g(c)  |  }  \cdot (1 + | g(c)  | ) \\
+                     &= \epsilon.
+\end{align*}
+Hence, \( g  \) is continuous at \( c \in A  \).
+\end{proof}
+
+\subsection{Combinations of Differentiable Functions}
+
+We can use the Algebraic Limit Theorem for functional limits to prove some basic algebraic combinations of differentiable functions.
+
+\begin{tcolorbox}
+    \begin{thm}[Algebraic Differentiability Theorem]
+    Let \( f  \) and \( g  \) be functions defined on an interval \( A  \), and assume both are differentiable at some point \( c \in A \). Then, 
+    \begin{enumerate}
+        \item[(i)] \( (f+g)'(c) = f'(c) + g'(c), \)
+        \item[(ii)] \( (kf)'(c) = kf'(c), \) for all \( k \in \R  \),
+        \item[(iii)] \( (fg)'(c) = f'(c)g(c) + f(c)g'(c),  \) and 
+        \item[(iv)] \( (f/g)'(c) = \frac{ g(c)f'(c) - f(c)g'(c)  }{ [g(c)]^2 }  \) provided that \( g(c) \neq  0 \).
+    \end{enumerate}
+    \end{thm}
+\end{tcolorbox}
+
+\begin{enumerate}
+    \item[(i)] \( (f+g)'(c) = f'(c) + g'(c)  \).
+        \begin{proof}
+        Assume \( f  \) and \( g  \) are functions that are both differentiable at some point \( c \in A  \). Since \( (f+g)(x) = f(x) + g(x)  \) and the Algebraic Function Limit Theorem, we have that
+        \begin{align*}
+            (f+g)'(x) &= \lim_{ x \to c } \frac{ (f+g)(x) - (f+g)(c) }{ x - c  }  \\
+                      &= \lim_{ x \to c } \frac{ f(x) + g(x) - (f(c) + g(c) ) }{ x - c  } \\
+                      &= \lim_{ x \to c  } \frac{ ( f(x) - f(c)) + (g(x) - g(c)) }{ x - c  } \\
+                      &= \lim_{ x \to c  } \Big(  \frac{ f(x) - f(c)  }{ x - c  } + \frac{ g(x) - g(c)   }{ x - c  }  \Big) \\
+                      &= \lim_{ x \to c  }  \frac{ f(x) - f(c)  }{ x - c  } + \lim_{ x \to c  } \frac{ g(x) - g(c)  }{ x - c  } \\
+                      &= f'(c) + g'(c).
+        \end{align*}
+        \end{proof}
+    \item[(ii)] \( (kf)'(c) = k f'(c)  \) for all \( k \in \R  \).
+        \begin{proof}
+        Since \( f  \) is differentiable at \( c \in A  \), we have that 
+        \begin{align*}
+            (kf)'(c) &= \lim_{ x \to c  } \frac{ (kf)(x) - (kf)(c)  }{ x - c  }  \\
+                     &= \lim_{ x \to c  }  \frac{ k f(x) - k f(c)  }{ x - c  } \\
+                     &= \lim_{ x \to c  } \frac{ k (f(x) - f(c) ) }{ x - c  } \\
+                     &=k \cdot  \lim_{ x \to c  } \frac{ f(x) - f(c) }{ x - c  } \\
+                     &= k f'(c).
+        \end{align*}
+        \end{proof}
+    \item[(iii)] \( (fg)'(c)  = f'(c)g(c) + f(c)g'(c). \)
+        \begin{proof}
+        Let \( f  \) and \( g  \) be differentiable at some point \( c \in A  \).  By using the Algebraic Function Limit Theorem, we have that 
+        \begin{align*}
+            (fg)'(c)  &= \lim_{ x \to c  } \frac{ (fg)(x) - (fg)(c) }{ x - c  }  \\
+                      &= \lim_{ x \to c  } \frac{ f(x)g(x) - f(c)g(c)  }{ x - c  } \\
+                      &= \lim_{ x \to c  } \frac{ f(x)g(x) - f(x)g(c) + f(x)g(c) - f(c)g(c) }{ x - c   } \\
+                      &= \lim_{ x \to c  }  \Big(  \frac{ f(x) (g(x) - g(c))  }{ x - c   }  + \frac{  g(c) (f(x) - f(c))  }{ x - c  } \Big) \\ 
+                      &= \lim_{ x \to c  } \frac{ f(x) (g(x) - g(c) ) }{ x - c  } + \lim_{ x \to c  } \frac{ g(c) (f(x) - f(c) ) }{ x - c  } \tag{ALFT} \\ 
+                      &= \lim_{ x \to c  } f(x)  \Big( \lim_{ x \to c  } \frac{ g(x) - g(c)  }{ x - c  }  \Big) + g(c) \cdot \lim_{ x \to c  } \frac{ f(x) - f(c)  }{ x - c  }   \\
+                      &= f(c) g'(c) + g(c)f'(c).
+        \end{align*}
+        Hence, we have that \( (fg)'(c) = f(c)g'(c) + f'(c)g(c) \).
+        \end{proof}
+    \item[(iv)] \( (f/g)'(c) = \frac{ g(c)f'(c) - f(c)g'(c)  }{ [g(c)]^2  }  \).
+        \begin{proof}
+        Let \( f  \) and \( g  \) be differentiable functions where \( g(x) \neq 0  \) for all \( x \in A   \). Note that since \(f \) and \( g  \) are differentiable, they are also continuous on \( A  \). Hence, \( \lim_{ x \to c  } f(x) = f(c)  \) and \( \lim_{ x \to c  } g(x) = g(c)  \). Then observe that 
+        \begin{align*}
+            (f/g)'(c) &= \lim_{ x \to c  } \frac{ (f/g)(x) - (f/g)(c)  }{ x - c  }  \\
+                      &= \lim_{ x \to c  } \frac{ f(x) / g(x) - f(c) / g(c)  }{ x - c  } \\
+                      &= \lim_{ x \to c  } \Big[ \frac{ 1 }{ g(x) g(c)  } \cdot \frac{ g(x) (f(x) - f(c)) - f(x) (g(x) - g(c) ) }{ x - c   } \Big] \\ 
+                      &= \lim_{ x  \to c  } \Big( \frac{ 1 }{ g(x) g(c) }  \Big) \lim_{ x \to c  } \Big( \frac{ g(x) (f(x) - f(c) )  - f(x) (g(x) - g(c) )}{ x - c  }  \Big) \\
+                      &= \lim_{ x \to c  } \Big( \frac{ 1 }{ g(x) g(c)  }  \Big) \lim_{ x \to c  } \Big( g(x) \frac{ f(x) - f(c)  }{ x - c  } - f(x) \frac{ g(x) - g(c)  }{ x - c  }  \Big) \\
+                      &= \lim_{ x \to c  } \Big( \frac{ 1 }{ g(x) g(c)  }   \Big) \Big( \lim_{ x \to c  } g(x) \frac{ f(x) - f(c)  }{ x - c  } - \lim_{ x \to c  } f(x) \frac{ g(x) - g(c)  }{ x - c  }  \Big) \\
+                      &= \frac{ 1 }{ [g(c)]^2  } \cdot (g(c) f'(c) - f(c)g'(c) ). \\ 
+        \end{align*}
+        \end{proof}
+\end{enumerate}
+
+
+
+
+
+

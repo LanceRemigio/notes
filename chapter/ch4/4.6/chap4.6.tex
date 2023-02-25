@@ -14,3 +14,75 @@ Some examples of sets of discontinuous points are
 \end{enumerate}
 
 We can always write the set of discontinuous points for a function \( D_f  \) as a countable union of closed sets. For monotone functions, these closed sets can taken as single points.
+
+\subsection{Monotone Functions}
+
+\begin{tcolorbox}
+\begin{defn}
+A function \( f: A \to \R  \) is \textit{increasing} on \( A \) if \( f(x) \leq f(y)  \) whenever \( x < y  \) and \textit{decreasing} if \( f(x) \geq f(y)  \) whenever \( x < y  \) in \( A  \). A \textit{monotone} function is one that is either increasing or decreasing.
+\end{defn}
+\end{tcolorbox}
+
+The continuity of a function at a point \( c  \) means that \( \lim_{ x \to c } f(x) = f(c) \). Discontinuities occur when right-hand limits do not equal the left-hand limits approaching \( c  \). 
+
+\begin{tcolorbox}
+\begin{defn}
+Given a limit point \( c  \) of a set \( A  \) and a function \( f: A \to \R  \), we write
+\[ \lim_{ x \to c^{+}   }  f(x) = L \]
+if for all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that \( | f(x) -  L  | < \epsilon  \) whenever \( 0 < x - c < \delta  \). Equivalently, in terms of sequences, \( \lim_{ x  \to c^{+} } f(x) = L  \) if \( \lim f(x_n) = L  \) for all sequences \( (x_n)  \) satisfying \( x_n >  c  \) and \( \lim (x_n) = c  \).
+\end{defn}
+\end{tcolorbox}
+
+\subsubsection{Exercise 4.6.3} State a similar definition for the left-hand limit
+\[  \lim_{ x \to c^{-} } f(x) = L. \]
+\begin{proof}[Solution]
+    We say \( \lim_{ x \to c^{-}  } f(x) = L  \) if for all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that \( | f(x) - L  | < \epsilon  \) whenever \( 0 < | c - x  | < \delta  \). Equivalently, \( \lim_{ x \to c^{-} } f(x) = L  \) if \( \lim f(y_n) = M  \) for all sequences \( (y_n)  \) satisfying \( y_n < c  \) and \( \lim (y_n) = c  \).
+\end{proof}
+
+\begin{tcolorbox}
+\begin{thm}
+Given \( f: A \to \R  \) and a limit point \( c  \) of \( A  \), \( \lim_{ x \to c  } f(x) = L  \) if and only if 
+\begin{center}
+    \( \lim_{ x \to c^{-} } f(x) = L  \) and \( \lim_{ x \to c^{+} } f(x) = L  \).
+\end{center}
+\end{thm}
+\end{tcolorbox}
+
+\subsubsection{Exercise 4.6.4} Supply a proof for this proposition.
+\begin{proof}
+    Let \( f: A \to \R  \) and a limit point \( c  \) of \( A  \). Assume \( \lim_{ x \to c  } f(x) = L  \). Let \( \epsilon > 0  \). Then there exists \( \delta > 0  \) such that \( | f(x) - L  | < \epsilon  \) whenever \( 0 < | x - c  | < \delta   \). To show that the right-hand limit equals \( L  \). Let \( x > c  \). Then immediately, we have that \( 0 < | x - c  | < \delta  \) implies \( \lim_{ x \to c^{+}  } f(x) = L  \) since \( | f(x) - L  | < \epsilon. \) For the left-hand limit, suppose \( x < c  \). Then 
+    \[  0 < | x - c  | < \delta \iff 0 < | c - x  | < \delta  \] implies \( | f(x) -  L | < \epsilon  \) holds. Hence, \( \lim_{ x \to c^{-} } f(x) = L  \).
+
+    Conversely, the fact that \( \lim_{ x \to c^{-} } f(x) = \lim_{ x \to c^{+} } = L  \) implies for some \( \delta > 0  \) that for any \( x >  c  \) or \( x < c  \) that \( 0 < | x - c  | < \delta  \) holds. Hence, we have that \( | f(x) - L  | < \epsilon  \); that is,
+    \( \lim_{ x \to c  } f(x) = L  \).
+\end{proof}
+Generally speaking, discontinuities can be divided into three categories: 
+\begin{enumerate}
+    \item[(i)] If \( \lim_{ x \to c  } f(x)  \) exists but has a value different from \( f(c) \), the discontinuity at \( c  \) is called \textit{removable}. 
+    \item[(ii)] If \( \lim_{ x \to c^{+} } f(x) \neq \lim_{ x \to c^{-}  } f(x)  \), then \( f  \) has a \textit{jump} discontinuity.
+    \item[(iii)] If \( \lim_{ x  \to c  }  f(x)  \) does not exist for some other reason, then the discontinuity at \( c  \) is called an \textit{essential} discontinuity.
+\end{enumerate}
+
+We now have the proper characteristics to describe our set of discontinuities \( D_f  \) for an arbitrary monotone function \( f \).
+
+\subsubsection{Exercise 4.6.5} Prove that the only type of discontinuity a monotone function can have is a jump discontinuity.
+\begin{proof}
+Without loss of generality, let \( f  \) be an increasing function. Then for all \( x < y  \), \( f(y) \geq f(x)  \). If \( \lim_{ x \to c  } f(x) = L  \), but \( L \neq f(c) \), then either \( f(c) < L  \) or \( f(c) > L \). In either case, there exists an \( x \in A  \) such that for all \( y \in A  \), we have \( f(x) > f(y)  \) or \( f(x) < f(y)  \). But this contradicts our assumption that \( f  \) is increasing. Hence, the discontinuity cannot be a \textit{removable} discontinuity. If there exist an \textit{essential discontinuity} then \( f  \) cannot be monotone since either the left-hand limit or the right-hand limit does not exists. Hence, the only type of discontinuity an increasing function can have is a jump discontinuity.
+\end{proof}
+
+\subsection{\( D_f \) for an Arbitrary Function}
+
+Review of infinite and finite closed or open sets:
+
+\begin{enumerate}
+    \item[(a)] Recall that the intersection of an infinite collection of closed sets is closed and the union of a finite collection of closed sets is closed.
+    \item[(b)] On the other hand, the intersection of a finite collection of open sets must be open and the union of a infinite collection of open sets must be open.
+\end{enumerate}
+
+\begin{tcolorbox}
+\begin{defn}
+    A set that can be written as the countable union of closed sets is in the class \( F_{\sigma} \).
+\end{defn}
+\end{tcolorbox}
+
+

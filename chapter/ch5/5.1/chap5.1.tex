@@ -1,0 +1,44 @@
+% !TEX root =  ../../../main.tex 
+
+
+\section{Are Derivatives Continuous?}
+
+The derivative of a function \( g(x)  \), namely \( g'(x)  \), can be defined as the slope of \( g  \) at each point \( x \in \text{Dom}(f)  \). As we have learned in our previous studies, the derivative is just the following limit
+\[  g'(c) = \lim_{ x \to c } \frac{ g(x) - g(c)  }{ x - c  }.\]
+A couple questions we can ask about the relationship between continuity and differentiability of functions is that: 
+\begin{enumerate}
+    \item[(i)] Are they continuous? 
+    \item[(ii)] Are continuous functions differentiable? 
+    \item[(iii)] How nondifferentiable can a continuous function be? 
+\end{enumerate}
+In the last section, we identified the discontinuous points of a monotone function and expressed them in terms of countable closed sets. Some examples of such functions are of the form 
+\[  g_n(x) = 
+\begin{cases}
+    x^n \sin(1/x) &\text{if } x \neq 0 \\ 
+    0 &\text{if } x = 0.
+\end{cases} \]
+When \( n = 0  \), we can see the oscillations of \( \sin(1/x)  \) prevent \( g  \) from being continuous at \( x = 0  \). But when \( n = 1  \), the oscillations of \( g  \) are sandwiched between \( | x  |   \) and \( - |  x  |  \) which implies that \( g  \) is continuous at \( x = 0  \). What can we say about \( g'_2(0) \)? Is it defined? Using our intuitive definition above, we have that 
+\[ g'_1(0) = \lim_{ x \to 0 } \frac{ g_1(x)  }{ x  } = \lim_{ x \to 0 } \sin( 1 / x ) \] which, in this case, does not exist. Thus, we have that \( g_1  \) is not differentiable at zero.
+However, if we let \( n = 2  \), then we have the following 
+\[  g'_2(0) = \lim_{ x \to 0 } x \sin (1/x) = 0. \]
+At nonzero points in the domain of \( g  \), we can use rules of differentiation (that will be justified later) to conclude the \( g_2  \) is differentiable everywhere in \( \R  \) with 
+\[  g'_2(x) = 
+\begin{cases}
+    - \cos(1/x) + 2x \sin (1/x) &\text{if } x \neq 0 \\
+    0 &\text{if } x = 0.
+\end{cases} \]
+But if we now consider the limit 
+\[ \lim_{ x \to 0  } g'_2(x)   \]
+we will find that it does not exist because for every \( x \neq 0  \), the \( \cos (1/x ) \) term is not preceded by a factor of \( x  \).
+
+In summary, when \( n = 2  \), \( g_2(x)  \) is continuous and differentiable everywhere on \( \R  \), but the derivative function \( g_2'(x)   \) is defined everywhere but is not continuous at \( x = 0  \). The conclusion is that we don't the derivative of a function to be continuous in general.
+
+The discontinuity we found from \( g'_2  \) is an \textit{essential} discontinuity; that is, the limit as \( x \to 0  \) does not exist as a one sided limit. What about a function with a simple jump discontinuity like 
+\[  h'(x) = 
+\begin{cases}
+    -1 &\text{if } x \leq 0 \\
+    1 &\text{if } x> 0.
+\end{cases} \]
+
+Notice that this function is actually the slopes of the absolute value function \( | x |  \) which is not differentiable at \( x = 0  \). How can we imply differentiability of \( h'  \) at \( x = 0  \)? Our main point here is that continuity is not a sufficient condition for derivatives to be possible.
+
