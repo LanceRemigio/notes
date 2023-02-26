@@ -133,6 +133,75 @@ We can use the Algebraic Limit Theorem for functional limits to prove some basic
         \end{proof}
 \end{enumerate}
 
+We can also compose two differentiable functions together and still get a differentiable function. This next fact is called the chain rule. A way to prove this fact is to use the following:
+\begin{align*}
+   (g \circ f)'(c) &= \lim_{ x \to c  } \frac{ g(f(x)) - g(f(c) ) }{ x - c  }  \\
+                   &= \lim_{ x \to c  } \frac{ g(f(x) ) - g(f(c) ) }{ x - c  } \\
+                   &= g'(f(c) ) \cdot f'(c).
+\end{align*}
+But an issue with this proof is that the expression \( f(x) - f(c)  \) might be zero in the denominator for arbitrarily small neighborhoods of \( c  \).
+
+\begin{tcolorbox}
+    \begin{thm}[Chain Rule]
+    Let \( f: A \to \R  \) and \( g: B \to \R  \) satisfy \( f(A) \subseteq B  \) so that the composition \(  g  \circ f \) is defined. If \( f  \) is differentiable at \( c \in A  \) and if \( g  \) is differentiable at \( f(c) \in B   \), then \( g \circ f  \) is differentiable at \( c  \) with \( (g \circ f)'(c) = g'(f(c)) \cdot f'(c)\).
+    \end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+Assume \( g  \) is differentiable at \( f(c)  \). Then we have that 
+\[  g'(f(c) )  = \lim_{ y  \to f(c)  }  \frac{ g(y) - g(f(c)) }{ y - f(c)  }.\]
+We can rewrite the quotient in the limit above by setting \( d(y)  \) to be the following:
+\[  d(y) = \frac{ g(y) -  g(f(c) ) }{ y - f(c)  }. \]
+This is equivalent to \( \lim_{ y \to f(c)  } d(y) = g'(f(c) ) \). The issue at the moment is when we set \( y = f(c)   \), \( d(y)  \) becomes undefined. But this can be mitigated by rewriting \( d(y)  \) like 
+\[  g(y) - g(f(c)) = d(y) (y - f(c)) \tag{1} \]
+which hold for all \( y \in B  \) including \( y = f(c)  \). Hence, we are allowed to substitute \( y = f(t)  \) for any arbitrary \( t \in A  \) into \( d(y)  \). If \( t \neq c  \), we can divide (1) by \( (t - c ) \) to get 
+\[  \frac{ g(f(t) - g(f(c) )) }{ t - c  } = d(f(t)) \frac{ f(t) - f(c)  }{ t - c  }. \]
+Hence, we have that 
+\begin{align*}
+    (g \circ f)'(c) &= \lim_{ x \to c  }  \frac{ g(f(x)) - g(f(c)) }{ x - c   } \\
+                    &= \lim_{ x \to c  } \Big( \frac{ g(f(x))  - g(f(c) )}{f(x) - f(c)  } \cdot \frac{ f(x) - f(c) }{ x - c  } \Big) \\
+                    &= g'(f(c)) \cdot f'(c)
+\end{align*}
+\end{proof}
+
+\subsection{Darboux's Theorem}
+
+A takeaway from our introduction to Derivatives is that differentiable functions need always be continuous and that our main example for this is for \( n = 2  \) with the function \( g_2(x) = x^2 \sin( 1 / x) \) where \( g_2(0)  \). However, differentiable functions do posses the intermediate value property. This leads us to next theorem that says that functions attain their max and mins at points where the derivative is zero. 
+
+\begin{tcolorbox}
+    \begin{thm}[Interior Extremum Theorem] Let \( f  \) be differentiable on an open interval \( (a,b)  \). If \( f  \) attains a maximum value at some point \( c \in (a,b)  \); that is, \( f(c) \geq f(x)  \) for all \( x \in (a,b)  \), then \( f'(c) = 0  \). The same is true if \( f(c)  \) is a minimum value.
+
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    Since \( c  \) is in an open interval \( (a,b) \), we can construct two sequences \( (x_n), (y_n) \subseteq (a,b)  \) such that both sequences converge to \( c \in (a,b)  \) and satisfy \( x_n < c < y_n  \) for all \( n \in \N  \). Since \( f  \) attains its maximum value at some point \( c \in (a,b)  \), we have that for all \( n \in \N  \), \( f(y_n) \leq f(c)  \). Hence, we can say that 
+    \[  f(y_n) - f(c) \leq 0. \]
+    Dividing by \( (y_n - c ) \) and using the Order Limit Theorem gives us the following
+    \[  f'(c) = \lim_{ n \to \infty   } \frac{ f(y_n) - f(c)  }{ y_n - c  } \leq 0 \tag{1}. \]
+    Now if \( f  \) attains a minimum, we have \( f(x_n) - f(c) \geq 0  \) for all \( n \in \N  \) which implies further that 
+    \[  f'(c) = \lim_{ n \to \infty  } \frac{ f(x_n) - f(c)  }{ x_n - c  } \geq 0 \]
+    by the Order Limit Theorem.
+\end{proof}
+
+This theorem leads to a very important result about differntiable functions containing the intermediate value property.
+
+\begin{tcolorbox}
+    \begin{thm}[Darboux's Theorem]
+    If \( f  \) is differentiable on an interval \( [a,b]  \), and if \( \alpha  \) satisfies \( f'(a) < \alpha < f'(b)  \) (or \( f'(a) > \alpha > f'(b)  \) ), then there exists a point \( c \in (a,b)  \) where \( f'(c) = \alpha \).
+    \end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    We can define a new function \( g(x) = f(x) - \alpha x  \) on \( [a,b]  \). Since \( g  \) is differentiable on \( [a,b]  \) with \( g'(x)  = f'(x) - \alpha  \) and that \( g'(a) < 0 < g'(b)  \), we want to show that \( g'(c) = 0  \) for some \( c \in (a,b)  \).
+\end{proof}
+
+\subsection{Exercises}
+
+
+
+
+
 
 
 
