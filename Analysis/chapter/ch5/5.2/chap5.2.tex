@@ -199,6 +199,154 @@ This theorem leads to a very important result about differntiable functions cont
 \subsection{Exercises}
 
 
+\subsubsection{Exercise 5.2.1} Supply proofs for parts (i) and (ii) of Theorem 5.2.4.
+\begin{enumerate}
+    \item[(i)] \( (f+g)'(c) = f'(c) + g'(c)  \).
+        \begin{proof}
+        Assume \( f  \) and \( g  \) are functions that are both differentiable at some point \( c \in A  \). Since \( (f+g)(x) = f(x) + g(x)  \) and the Algebraic Function Limit Theorem, we have that
+        \begin{align*}
+            (f+g)'(x) &= \lim_{ x \to c } \frac{ (f+g)(x) - (f+g)(c) }{ x - c  }  \\
+                      &= \lim_{ x \to c } \frac{ f(x) + g(x) - (f(c) + g(c) ) }{ x - c  } \\
+                      &= \lim_{ x \to c  } \frac{ ( f(x) - f(c)) + (g(x) - g(c)) }{ x - c  } \\
+                      &= \lim_{ x \to c  } \Big(  \frac{ f(x) - f(c)  }{ x - c  } + \frac{ g(x) - g(c)   }{ x - c  }  \Big) \\
+                      &= \lim_{ x \to c  }  \frac{ f(x) - f(c)  }{ x - c  } + \lim_{ x \to c  } \frac{ g(x) - g(c)  }{ x - c  } \\
+                      &= f'(c) + g'(c).
+        \end{align*}
+        \end{proof}
+    \item[(ii)] \( (kf)'(c) = k f'(c)  \) for all \( k \in \R  \).
+        \begin{proof}
+        Since \( f  \) is differentiable at \( c \in A  \), we have that 
+        \begin{align*}
+            (kf)'(c) &= \lim_{ x \to c  } \frac{ (kf)(x) - (kf)(c)  }{ x - c  }  \\
+                     &= \lim_{ x \to c  }  \frac{ k f(x) - k f(c)  }{ x - c  } \\
+                     &= \lim_{ x \to c  } \frac{ k (f(x) - f(c) ) }{ x - c  } \\
+                     &=k \cdot  \lim_{ x \to c  } \frac{ f(x) - f(c) }{ x - c  } \\
+                     &= k f'(c).
+        \end{align*}
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 5.2.2} Exactly one of the following requests is impossible. Decide which it is, and provide examples for the other three. In each case, let's assume the functions are defined on all of \( \R  \).
+
+\begin{enumerate}
+    \item[(a)] Functions \( f  \) and \( g  \) not differentiable at zero but where \( fg \) is differentiable at zero.
+        \begin{proof}[Solution]
+        Take \( g(x) = | x |  \) and \( f(x) = \frac{ 1 }{ | x |  }  \) where \( (fg)(x) = 1  \) is just a constant function that is differentiable everywhere (including zero).
+        \end{proof}
+    \item[(b)] A function \( f  \) not differentiable at zero and a function \( g  \) differentiable at zero where \( fg  \) is differentiable at zero.
+        \begin{proof}[Solution]
+        Take \( f(x) = \frac{ 1 }{ x }   \) and \( g(x) = x^2  \). Their product \( (fg)(x) = x  \) is differentiable at \( x = 0  \).
+        \end{proof}
+    \item[(c)] A function \( f  \) not differentiable at zero and a function \( g  \) differentiable at zero when \( f + g  \) is differentiable at zero.
+        \begin{proof}[Solution]
+        This is impossible since \( f = (f+g) - f   \) would be differentiable at zero.
+        \end{proof}
+    \item[(d)] A function \( f  \) is differentiable at zero but not differentiable at any other point.
+        \begin{proof}[Solution]
+        Let \( f(x)  \) be defined by the following:
+        \[ f(x) = 
+        \begin{cases}
+            x^3 &\text{if } x \in \Q \\ 
+            0 &\text{if } x \in \R \setminus \Q.
+        \end{cases} \]
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 5.2.3} 
+\begin{enumerate}
+    \item[(a)] Use the definition of the derivative to produce the proper formula for the derivative of \( h(x) = 1 / x  \).
+        \begin{proof}
+        Let \( h: A \to \R  \) be a function defined on an interval \( A  \). Let \( c \neq 0   \) in \( A  \) be arbitrary. Using the definition of the derivative, we have that 
+        \begin{align*}
+            h'(c) &= \lim_{ x \to c  } \frac{ h(x) - h(c)  }{ x - c  }  \\
+                  &= \lim_{ x \to c  } \frac{ 1 /x  - 1/c }{ x -c   } \\
+                  &= \lim_{ x \to c  } \frac{  -(x - c)  }{ xc  } \cdot \frac{ 1 }{ x - c  } \\
+                  &= \lim_{ x \to c  } -\frac{ 1 }{ xc } \\
+                  &= \frac{ -1 }{ c^2 }.
+        \end{align*}
+        Hence, we have that \( h'(c) = -1/c^2 \) for any \( c \neq 0  \) in \( A  \).
+        \end{proof}
+    \item[(b)] Combine the result in part (a) with the Chain Rule (Theorem 5.2.5) to supply a proof for part (iv) of Theorem 5.2.4.
+        \begin{proof}
+            Define \( h = (g)^{-1}  \). By the result in part (a) and the Chain Rule, we have that \( h'(c) = \frac{ -1 }{ [g(c)]^2 } \cdot g'(c)   \). Then by the Product Rule, we have that 
+            \begin{align*}
+                (f \cdot h)'(c) &= f'(c)h(c) + h'(c)f(c) \\
+                                &= \frac{ f'(c)  }{ g(c)  } - \frac{ f(c) g'(c)  }{ [g(c)]^2 } \\ 
+                                &= \frac{ f'(c) g(c) - f(c)g'(c)  }{ [g(c)]^2 }. 
+            \end{align*}
+        \end{proof}
+        \item[(c)] Supply a direct proof of Theorem 5.2.4 (iv) by algebraically manipulating the difference quotient for \( (f/g)  \) in a style similar to the proof of Theorem 5.2.4 (ii).
+            \begin{proof}
+        Let \( f  \) and \( g  \) be differentiable functions where \( g(x) \neq 0  \) for all \( x \in A   \). Note that since \(f \) and \( g  \) are differentiable, they are also continuous on \( A  \). Hence, \( \lim_{ x \to c  } f(x) = f(c)  \) and \( \lim_{ x \to c  } g(x) = g(c)  \). Then observe that 
+        \begin{align*}
+            (f/g)'(c) &= \lim_{ x \to c  } \frac{ (f/g)(x) - (f/g)(c)  }{ x - c  }  \\
+                      &= \lim_{ x \to c  } \frac{ f(x) / g(x) - f(c) / g(c)  }{ x - c  } \\
+                      &= \lim_{ x \to c  } \Big[ \frac{ 1 }{ g(x) g(c)  } \cdot \frac{ g(x) (f(x) - f(c)) - f(x) (g(x) - g(c) ) }{ x - c   } \Big] \\ 
+                      &= \lim_{ x  \to c  } \Big( \frac{ 1 }{ g(x) g(c) }  \Big) \lim_{ x \to c  } \Big( \frac{ g(x) (f(x) - f(c) )  - f(x) (g(x) - g(c) )}{ x - c  }  \Big) \\
+                      &= \lim_{ x \to c  } \Big( \frac{ 1 }{ g(x) g(c)  }  \Big) \lim_{ x \to c  } \Big( g(x) \frac{ f(x) - f(c)  }{ x - c  } - f(x) \frac{ g(x) - g(c)  }{ x - c  }  \Big) \\
+                      &= \lim_{ x \to c  } \Big( \frac{ 1 }{ g(x) g(c)  }   \Big) \Big( \lim_{ x \to c  } g(x) \frac{ f(x) - f(c)  }{ x - c  } - \lim_{ x \to c  } f(x) \frac{ g(x) - g(c)  }{ x - c  }  \Big) \\
+                      &= \frac{ 1 }{ [g(c)]^2  } \cdot (g(c) f'(c) - f(c)g'(c) ). \\ 
+        \end{align*}
+            \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 5.2.4} Follow these steps to provide a slightly modified proof of the Chain Rule.
+\begin{enumerate}
+    \item[(a)] Show that a function \( h: A \to \R  \) is differentiable at \( a \in A  \) if and only if there exists a function \( \ell : A \to \R  \) which is continuous at \( a  \) and satisfies 
+        \[  h(x)  - h(a) = \ell (x) (x - a)  \] for all \( x \in A  \).
+        \begin{proof}
+            (\( \Rightarrow \)) Suppose \( h: A \to \R  \) is differentiable at \( a \in A \). We want to show that there exists \( \ell: A \to \R  \) which is continuous at \( a  \) and satisfies the following: 
+            \[  h(x) - h(a) = \ell (x) (x - a ). \]
+            Since \( h  \) is differentiable at \( a \in  A  \), we know that the following 
+            \[  \lim_{ x \to a } \frac{ h(x) - h(a) }{ x - a  }  \]
+            exists. But we can define a function \(  \ell(x) \) inside the limit as
+            \[  \ell(x) = \frac{ h(x) - h(a)  }{ x - a  } \iff h(x) - h(a) = \ell (x) (x -a) . \]
+            But we know that \(  h  \) is continuous since \( h \) is differentiable so we have that \( \ell(x)  \) is also continuous. 
+
+            (\( \Leftarrow \)) Now we want to show the converse. Suppose there exists \( \ell : A \to \R  \) which is continuous at \( a  \) and satisfies
+            \[  h(x) - h(a) = \ell(x) (x - a )  \] for all \( a \in A  \). Since \( \ell  \) is continuous, we now for all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that whenever \( | x - a  | < \delta  \), we have that 
+            \[  | \ell(x) - \ell(a)  | < \epsilon \tag{1}. \]
+            But since 
+            \[  \ell (x) = \frac{ h(x) - h(a) }{ x - a  }  \]
+            we know that the limit 
+            \[  \lim_{ x \to a } \frac{ h(x) - h(a)  }{ x - a  }  \] exists. Hence, \( h  \) is differentiable at \( a  \).
+        \end{proof}
+    \item[(b)] Use this criterion for differentiability (in both directions) to prove Theorem 5.2.5.
+
+        \begin{proof}
+        Let \( f: A \to \R  \) and \( g: B \to \R  \) satisfy \( f(A) \subseteq B  \) so that the composition \( g \circ f  \) is defined. Let \( f  \) be a differentiable function at \( c \in  A \) and let \( g: B \to \R  \) be a differentiable function at \(  f(c) \in B  \). 
+
+        Since \( g  \) is differentiable at \( f(c) \in B  \), we can construct the function \( \ell  \) such that 
+        \[  \ell(f(x)) = \frac{ g(f(x)) - g(f(c))  }{ f(x) - f(c) } \tag{1}.  \]
+        By part (a), we know that \( \ell(f(x))  \) is a continuous function and that it satisfies the following property 
+        \[  g(f(x)) - g(f(c)) =  \ell(f(x)) (f(x) - f(c)) \tag{2}  \]
+for all \( f(c) \in B  \). Dividing (2) by \( (x-c) \), we get that 
+\[ (g \circ f)'(c)= \frac{ g(f(x)) - g(f(c))  }{ x - c   } = \ell(f(x)) \frac{ f(x) - f(c)  }{ x - c  } \tag{3}.  \]
+Assuming our result in part (a) and the fact that \( f  \) and \( g  \) are both differentiable at \( c \in A  \) and \( f(c) \in B  \) respectively, taking the limit of (3) leads to 
+the conclusion that \( (g \circ f)'(c) = g'(f(c)) \cdot f'(c) \). 
+        \end{proof}
+\end{enumerate}
+
+
+\subsubsection{Exercise 5.2.6} 
+Let \( g  \) be defined on an interval \( A  \), and let \( c \in A  \).
+\begin{enumerate}
+    \item[(a)] Explain why \( g'(c)  \) in Definition 5.2.1 could have been given by
+        \[  g'(c) = \lim_{ h \to 0 } \frac{ g(c + h) - g(c)  }{ h }. \]
+        \begin{proof}[Solution]
+        
+        \end{proof}
+    \item[(b)] Assume \( A  \) is open. If \( g  \) is differentiable at \( c \in A  \), show that 
+        \[  g'(c) = \lim_{ h \to 0 } \frac{ g(c+h) - g(c-h)  }{ 2h }. \]
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
+
+
+
+
 
 
 
