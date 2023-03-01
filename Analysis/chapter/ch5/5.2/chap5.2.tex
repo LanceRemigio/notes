@@ -328,29 +328,98 @@ the conclusion that \( (g \circ f)'(c) = g'(f(c)) \cdot f'(c) \).
 \end{enumerate}
 
 
+
+\subsubsection{Exercise 5.2.5} Let \( f_a (x) = 
+\begin{cases}
+    x^a &\text{if } x > 0 \\
+    0 &\text{if } x \leq 0. 
+\end{cases} \)
+
+\begin{enumerate}
+    \item[(a)] For which values of \( a \) is \( f  \) continuous at zero? 
+        \begin{proof}[Solution]
+        The function \( f \) is continuous for all \( a > 0  \).
+        \end{proof}
+    \item[(b)] For which values of \( a \) is \( f  \) differentiable at zero? In this case, is the derivative function continuous? 
+        \begin{proof}[Solution]
+        The function \( f  \) is differentiable at zero for all \( a >  1  \) and yes the derivative function is continuous in the same conditions.
+        \end{proof}
+    \item[(c)] For which values of \( a  \) is \( f  \) twice-differentiable?
+        \begin{proof}[Solution]
+        The function \( f  \) is twice-differentiable whenever \( a >  2  \).
+        \end{proof}
+\end{enumerate}
+
+
 \subsubsection{Exercise 5.2.6} 
 Let \( g  \) be defined on an interval \( A  \), and let \( c \in A  \).
 \begin{enumerate}
     \item[(a)] Explain why \( g'(c)  \) in Definition 5.2.1 could have been given by
         \[  g'(c) = \lim_{ h \to 0 } \frac{ g(c + h) - g(c)  }{ h }. \]
         \begin{proof}[Solution]
-        
+        Since \( g  \) is differentiable at \( c \in A  \) and \( A  \) is an interval, we can always define the difference quotient between two points, in this case \( c + h  \) and \( c  \), and still have the limit as \( h \to 0  \) and still have \( g'(c) \).
         \end{proof}
     \item[(b)] Assume \( A  \) is open. If \( g  \) is differentiable at \( c \in A  \), show that 
         \[  g'(c) = \lim_{ h \to 0 } \frac{ g(c+h) - g(c-h)  }{ 2h }. \]
         \begin{proof}
-        
+            Let \( c \in A  \) and let \( \epsilon = h  \). Since \( g  \) is defined on an interval \( A  \) and \( A  \) is open, there exists \( V_{h}(c) \subseteq A  \). Then let \( x \in (c -h, c + h ) \). Hence, our difference quotient can be written as follows
+            \[  d(h) = \frac{ g(c + h) - g(c -h ) }{ c + h - (c -h) } = \frac{ g(c + h) - g(c -h ) }{ 2h }  \]
+            which taking the limit as \( h \to 0  \) will give us \( g'(c) \) since \( g  \) is differentiable at \( c  \). Hence, 
+            \[  g'(c) = \lim_{ h \to 0 } \frac{ g(c+h) - g(c-h) }{ 2h }.\]
         \end{proof}
 \end{enumerate}
 
 
+\subsubsection{Exercise 5.2.7} Let 
+\[  g_a(x) = 
+\begin{cases}
+    x^a \sin(1/x) &\text{if } x \neq 0 \\
+    0 &\text{if } x = 0. 
+\end{cases} \]
+Find a particular (potentially noninteger) value for \( a \) so that
+\begin{enumerate}
+    \item[(a)] \( g_a \) is differentiable on \( \R  \) but such that \( g_a' \) is unbounded on \( [0,1] \).
+\end{enumerate}
 
 
+\subsubsection{Exercise 5.2.8} Review the definition of uniform continuity. Given a differentiable function \( f: A \to \R  \), let's say that \( f  \) is \textit{uniformly differentiable} on \( A  \) if, given \( \epsilon > 0  \) there exists \( \delta > 0  \) such that 
+\[\Big| \frac{ f(x) - f(y)  }{ x - y  } - f'(y) \Big| < \epsilon   \] whenever \(  0 < | x - y  |  < \delta  \).
+\begin{enumerate}
+    \item[(a)] Is \( f(x) = x^2  \) uniformly differentiable on \( \R  \)? How about \( g(x) = x^3 \)?
+        \begin{proof}[Solution]
+        \( f(x) = x^2  \) is uniformly differentiable on \( \R  \) but \( g(x) =x^3  \) is not.
+        \end{proof}
+    \item[(b)] Show that if a function is uniformly differentiable on an interval \( A  \), then the derivative must be continuous on \( A  \).
+        \begin{proof}
+        Let \( f: A \to \R  \) be uniformly differentiable on an interval \( A  \). Let \( \epsilon > 0  \) and let \( c \in A  \). We want to show that \( f'  \) is continuous on \(  A  \); that is, whenever \( |  x - c  | < \delta  \) for some \( \delta > 0  \), we have that 
+        \[ | f'(x) - f'(c) | < \epsilon. \]
+    By using the fact that \( f  \) is uniformly differentiable on an interval \( A  \), we have 
+    \begin{align*}
+        | f'(x) - f'(c) | &= \Big| f'(x) - \frac{ f(x) - f(c)  }{ x - c  } + \frac{ f(x) - f(c)  }{ x - c  } - f'(c)  \Big|  \\
+                          &\leq \Big| f'(x) - \frac{ f(x) - f(c)  }{ x - c  }  \Big| + \Big| \frac{ f(x) -f(c)  }{ x - c  } - f'(c)  \Big| \\
+                          &< \frac{ \epsilon  }{ 2 } + \frac{ \epsilon  }{ 2 } \\
+                          &= \epsilon.
+    \end{align*}
+    Hence, we have that \( f  \) is continuous on \( A  \).
+        \end{proof}
+    \item[(c)] Is there a theorem analogous to Theorem 4.4.7 for differentiation? Are functions that are differentiable on a closed interval \( [a,b] \) necessarily uniformly differentiable?
+        \begin{proof}[Solution]
+            Not necessarily. It is differentiable on \( [0,1]  \), but not uniformly differentiable since the \( \delta  \) response gets progressively smaller as we compute \( g_2'(x)  \) as \( x \to 0  \).
+        \end{proof}
+\end{enumerate}
 
 
-
-
-
+\subsubsection{Exercise 5.2.11} Assume that \( g  \) is differentiable on \( [a,b] \) and satisfies \( g'(a) < 0 < g'(b)  \).
+\begin{enumerate}
+    \item[(a)] Show that there exists a point \( x \in (a,b)  \) where \( g(a) > g(x)  \) and a point \( y \in (a,b)  \) where \( g(y) < g(b) \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Now complete the proof of  Darboux's Theorem started earlier.
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
 
 
 
