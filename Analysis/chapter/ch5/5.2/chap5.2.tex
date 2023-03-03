@@ -413,14 +413,22 @@ Find a particular (potentially noninteger) value for \( a \) so that
 \begin{enumerate}
     \item[(a)] Show that there exists a point \( x \in (a,b)  \) where \( g(a) > g(x)  \) and a point \( y \in (a,b)  \) where \( g(y) < g(b) \).
         \begin{proof}
-        
+            To prove \( g(a) > g(x)  \) for some \( x \in (a,b)  \), let us construct the sequence \( (x_n) \subseteq (a,b)  \) such that \( x_n \to x \). We can do this because \( g  \) being differentiable on \( [a,b]  \) immediately implies that \( g  \) is continuous on \( [a,b]  \). Since \( g'(a) < 0   \), we know that 
+            \[  \lim_{ n \to \infty  } \frac{ g(x_n) - g(a)  }{ x_n - a  } < 0  \tag{1}. \]
+            Since \( g  \) is continuous on \( [a,b] \), we have that (1) implies
+            \[ \frac{ g(x) - g(a)  }{ x - a  } < 0 \iff g(x) < g(a).     \]
+            Likewise, we can construct the sequence \( (y_n) \subseteq (a,b)  \) such that \( (y_n) \to y  \). Since \( g  \) is continuous we know that 
+            \[  \lim_{ n \to \infty  } \frac{ g(y_n) - g(b) }{ y_n - b  } > 0  \]
+            implies that 
+            \[  \frac{ g(y) - g(b)  }{ y - b } > 0 \iff g(y) > g(b). \]
         \end{proof}
     \item[(b)] Now complete the proof of  Darboux's Theorem started earlier.
         \begin{proof}
-        
+        Without loss of generality, suppose \( g(x) < g(y)  \). Since \( g  \) is a continuous function on \( (a,b)  \), there exists \( L  \) such that \( g(x) < L < g(y)  \) where \( f(c) = L  \) for some \( c \in (a,b)  \). Taking the derivative of both sides leads to \( g'(x) < 0 < g'(y)  \). But by definition, we have that \( g'(x) = f'(x) - \alpha    \) and thus we have \( f'(c) = \alpha \).
         \end{proof}
 \end{enumerate}
 
-
+\subsubsection{Exercise 5.2.12 (Inverse functions).} If \( f: [a,b] \to \R  \) is one-to-one, then there exists an inverse function \( f^{-1}  \) defined on the range of \( f  \) given by \( f^{-1}(y) = x  \) where \( y = f(x)  \). In Exercise 4.5.8, we saw that if \( f  \) is continuous on \( [a,b]  \), then \( f^{-1}  \) is continuous on its domain. Let's add the assumption that \( f  \) is differentiable on \( [a,b]  \) with \( f'(x) \neq 0  \) for all \( x \in [a,b]  \). Show \( f^{-1}  \) is differentiable with 
+\[  (f^{-1})'(y) = \frac{ 1 }{ f'(x)  }  \] where \( y = f(x)  \).
 
 
