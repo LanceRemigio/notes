@@ -196,6 +196,53 @@ This theorem leads to a very important result about differntiable functions cont
     We can define a new function \( g(x) = f(x) - \alpha x  \) on \( [a,b]  \). Since \( g  \) is differentiable on \( [a,b]  \) with \( g'(x)  = f'(x) - \alpha  \) and that \( g'(a) < 0 < g'(b)  \), we want to show that \( g'(c) = 0  \) for some \( c \in (a,b)  \).
 \end{proof}
 
+\subsection{Definitions and Theorems}
+
+\begin{tcolorbox}
+    \begin{defn}[Differentiability]
+    Let \( g : A \to \R  \) be a function defined on an interval \( A  \). Given \( c \in A  \), the \textit{derivative} of \( g  \) at \( c  \) is defined by 
+    \[ g'(c) = \lim_{ x \to c } \frac{ g(x) - g(c)  }{ x - c  }, \]
+    provided this limit exists. In this case, we say that \( g  \) is \textit{differentiable} at \( c  \). If \( g'  \) exists for all points \( c \in A  \), we say that \( g  \) is \textit{differentible} on \( A  \).
+    \end{defn}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+\begin{thm}
+If \( g: A \to \R  \) is differentiable at a point \( c \in A  \), then \( g  \) is continuous at \( c  \) as well.
+\end{thm}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+    \begin{thm}[Algebraic Differentiability Theorem]
+    Let \( f  \) and \( g  \) be functions defined on an interval \( A  \), and assume both are differentiable at some point \( c \in A \). Then, 
+    \begin{enumerate}
+        \item[(i)] \( (f+g)'(c) = f'(c) + g'(c), \)
+        \item[(ii)] \( (kf)'(c) = kf'(c), \) for all \( k \in \R  \),
+        \item[(iii)] \( (fg)'(c) = f'(c)g(c) + f(c)g'(c),  \) and 
+        \item[(iv)] \( (f/g)'(c) = \frac{ g(c)f'(c) - f(c)g'(c)  }{ [g(c)]^2 }  \) provided that \( g(c) \neq  0 \).
+    \end{enumerate}
+    \end{thm}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+    \begin{thm}[Chain Rule]
+    Let \( f: A \to \R  \) and \( g: B \to \R  \) satisfy \( f(A) \subseteq B  \) so that the composition \(  g  \circ f \) is defined. If \( f  \) is differentiable at \( c \in A  \) and if \( g  \) is differentiable at \( f(c) \in B   \), then \( g \circ f  \) is differentiable at \( c  \) with \( (g \circ f)'(c) = g'(f(c)) \cdot f'(c)\).
+    \end{thm}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+    \begin{thm}[Interior Extremum Theorem] Let \( f  \) be differentiable on an open interval \( (a,b)  \). If \( f  \) attains a maximum value at some point \( c \in (a,b)  \); that is, \( f(c) \geq f(x)  \) for all \( x \in (a,b)  \), then \( f'(c) = 0  \). The same is true if \( f(c)  \) is a minimum value.
+
+\end{thm}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+    \begin{thm}[Darboux's Theorem]
+    If \( f  \) is differentiable on an interval \( [a,b]  \), and if \( \alpha  \) satisfies \( f'(a) < \alpha < f'(b)  \) (or \( f'(a) > \alpha > f'(b)  \) ), then there exists a point \( c \in (a,b)  \) where \( f'(c) = \alpha \).
+    \end{thm}
+\end{tcolorbox}
 \subsection{Exercises}
 
 

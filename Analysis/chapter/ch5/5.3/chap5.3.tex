@@ -1,0 +1,72 @@
+
+\section{The Mean Value Theorems}
+
+\subsection{Mean Value Theorem}
+
+\begin{enumerate}
+    \item[(a)] We can find a point along some interval \( [a,b]  \) of a differentiable function \( f  \) such that we will have a slope of \( f  \) where 
+        \[  f'(c) = \frac{ f(b) - f(a)  }{  b - a  }  \]
+        for at least one point \( c \in (a,b) \).
+    \item[(b)] Used to prove L'hopital's rule for limits of quotients of differentiable functions.
+    \item[(c)] Used in the study of infinite series of differentiable functions.
+    \item[(d)] One of mechanisms needed to show Lagrange's Remainder Theorem and used to approximate the error between a Taylor polynomial.
+\end{enumerate}
+
+\begin{tcolorbox}
+    \begin{thm}[Rolle's Theorem]
+        Let \( f : [a,b] \to \R  \) be continuous on \( [a,b]  \) and differentiable on \( (a,b)  \). If \( f(a) = f(b) \), then there exists a point \( c \in (a,b)  \) where \( f'(c) = 0  \). 
+    \end{thm}
+\end{tcolorbox}
+
+
+\begin{proof}
+    Since \( f  \) is continuous on a compact set, we know that \( f  \) attains a maximum and a minimum. If \( f  \) attains a maximum and minimum at the endpoints and the fact that \( f(a) = f(b)  \), we know that \( f  \) must be a constant function. Hence, we can choose any \( x \in [a,b]  \) such that \( f'(x) = 0  \). If \( f  \) attains a maximum or minimum in the interior of \( f  \) then there exists \( c \in (a,b)  \) such that \( f'(c) = 0  \).
+\end{proof}
+
+\begin{tcolorbox}
+    \begin{thm}[Mean Value Theorem]
+        If \( f: [a,b] \to \R  \) is continuous on \( [a,b]  \) and differentiable on \( (a,b)  \), then there exists a point \( c \in (a,b)  \) where 
+        \[  f'(c) = \frac{ f(b) - f(a)  }{ b - a  }. \]
+    \end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    Notice that the Mean Value Theorem reduces to Rolle's Theorem in the case where \( f(a) = f(b)  \).
+Consider the equation of a line through \( (a, f(a) ) \) and \( (b , f(b) ) \) is 
+\[  y = \Big( \frac{ f(b) - f(a)  }{ b - a  } (x -a ) \Big) + f(a). \]
+Furthermore, we want to consider the difference between this line and the function \( f(x)  \). Define a new function \( d   \) where 
+\[  d(x) = f(x) - \Big[ \Big( \frac{ f(b) - f(a)  }{ b - a  }  \Big) (x - a ) + f(a)     \Big], \]
+Observe that \( d  \) is continuous on \( [a,b]  \) since \( f  \) is continuous on \( [a,b]  \) and differentiable on \( (a,b)  \) and satisfies \( d(a) = 0 = d(b)  \). By differentiating \( d(x)  \), we have that 
+\[  d'(x) = f'(x) - \frac{ f(b) - f(a)  }{ b - a  }. \]
+Now, using Rolle's Theorem, we can find a \( c \in (a,b)  \) such that \( d'(c) = 0   \). Hence, 
+\[  0 = f'(c) - \frac{ f(b) - f(a)  }{ b -a  } \iff f'(c) = \frac{ f(b) - f(a)  }{ b - a  }.  \] 
+
+\end{proof}
+
+Now consider a constant function \( f(x) = k  \) for any \( k  \). Intuition suggests that for all \( x \in A  \), we have \( f'(x) = 0  \). Is there any way we can prove that \( f(x)  \) is constant given \( f'(x) = 0  \) for all \( x \in A  \)? Indeed, we can using the Mean Value Theorem.
+
+\begin{tcolorbox}
+\begin{cor}
+If \( g: A \to \R  \) is differentiable on an interval \( A  \) and satisfies \( g'(x) = 0  \) for all \( x \in A  \), then \( g(x) = k  \) for some constant \(  k \in \R  \).
+\end{cor}
+\end{tcolorbox}
+
+\begin{proof}
+    Take \( x, y \in A  \) and assume \( x < y  \). Applying the Mean Value Theorem to \( g  \) on the interval \( [a,b ] \), we can see that 
+    \[  g'(c) = \frac{ g(y) - g(x)   }{ y- x  }.  \]
+    Since \( g(x) = 0  \) for all \( x \in A  \), we have that 
+    \[  \frac{ g(y) - g(x)  }{ y -x  } = 0  \iff g(y) = g(x). \]
+    Set \(  k  \) equal to this common value. Since \( x,y \in A  \) are arbitrary, it follows that \( g(x) = k \) for all \( x \in A  \).
+\end{proof}
+
+\begin{tcolorbox}
+\begin{cor}
+If \( f  \) and \( g  \) are differentiable functions on an interval \( A  \) and satisfy \( f'(x) = g'(x)   \) for all \( x \in A  \), then \( f(x) = g(x) + k  \) for some interval \(  k \in \R  \).
+\end{cor}
+\end{tcolorbox}
+
+
+
+
+
+
