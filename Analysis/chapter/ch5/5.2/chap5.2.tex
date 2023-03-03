@@ -424,11 +424,21 @@ Find a particular (potentially noninteger) value for \( a \) so that
         \end{proof}
     \item[(b)] Now complete the proof of  Darboux's Theorem started earlier.
         \begin{proof}
-        Without loss of generality, suppose \( g(x) < g(y)  \). Since \( g  \) is a continuous function on \( (a,b)  \), there exists \( L  \) such that \( g(x) < L < g(y)  \) where \( f(c) = L  \) for some \( c \in (a,b)  \). Taking the derivative of both sides leads to \( g'(x) < 0 < g'(y)  \). But by definition, we have that \( g'(x) = f'(x) - \alpha    \) and thus we have \( f'(c) = \alpha \).
+        Without loss of generality, suppose \( g(x) < g(y)  \). Since \( g  \) is a continuous function on \( (a,b)  \), there exists \( L  \) such that \( g(x) < L < g(y)  \) where \( g(c) = L  \) for some \( c \in (a,b)  \). Taking the derivative of both sides leads to \( g'(x) < 0 < g'(y)  \). But by definition, we have that \( g'(x) = f'(x) - \alpha    \) and thus we have \( f'(c) = \alpha \).
         \end{proof}
 \end{enumerate}
 
 \subsubsection{Exercise 5.2.12 (Inverse functions).} If \( f: [a,b] \to \R  \) is one-to-one, then there exists an inverse function \( f^{-1}  \) defined on the range of \( f  \) given by \( f^{-1}(y) = x  \) where \( y = f(x)  \). In Exercise 4.5.8, we saw that if \( f  \) is continuous on \( [a,b]  \), then \( f^{-1}  \) is continuous on its domain. Let's add the assumption that \( f  \) is differentiable on \( [a,b]  \) with \( f'(x) \neq 0  \) for all \( x \in [a,b]  \). Show \( f^{-1}  \) is differentiable with 
 \[  (f^{-1})'(y) = \frac{ 1 }{ f'(x)  }  \] where \( y = f(x)  \).
+\begin{proof}
+    Since \( f: [a,b] \to \R   \) is a one-to-one function, there exists an inverse function \( f^{-1} \) which is defined on the range of \( f  \) given by \( f^{-1}(y) = x  \) where \( y = f(x)  \). Since \( f  \) is differentiable on \( [a,b]  \) with \( f(x) \neq 0  \) for all \( x \in [a,b] \), we know that 
+    \begin{align*}
+        (f^{-1})'(y) &= \lim_{ y  \to f(c)  } \frac{ f^{-1}(y) - f^{-1}(f(c)) }{ y - f(c)  }  \\
+                     &= \lim_{ y \to f(c)  } \frac{ x - c  }{ y - f(c)  } \\
+                     &= \lim_{ x \to c  } \frac{ 1 }{ \frac{ f(x) - f(c)  }{ x - c  }  } \tag{1} \\
+                     &= \frac{ 1 }{ f'(c)  }.
+    \end{align*}
+    The reason why we can exchange the limits on (1) is due to the fact that \( f^{-1}  \) is continuous on the range of \( f  \).
 
+\end{proof} 
 
