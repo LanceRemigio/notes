@@ -65,8 +65,77 @@ If \( f  \) and \( g  \) are differentiable functions on an interval \( A  \) an
 \end{cor}
 \end{tcolorbox}
 
+\begin{proof}
+Suppose \( f \) and \( g  \) are differentiable functions on an interval \( A  \) and satisfy \( f'(x) = g'(x)  \). Let us define a new function \( h(x) = f(x) - g(x)  \). Differentiating this function gives us the following \( h'(x) = f'(x) - g'(x)  \). But since \( g'(x) = f'(x)  \), we have that \( h'(x) = 0  \). Since \( h  \) is differentiable on an interval \( A  \), we know that \( h(x) = k  \). Hence, we have that 
+\[  k = f(x) - g(x) \iff f(x) = g(x) + k. \]
+\end{proof}
+
+We can build a more general form of the Mean Value Theorem which can be used to prove L'hopital's rules and the Lagrange Remainder Theorem.
+
+\begin{tcolorbox}
+    \begin{thm}[Generalized Mean Value Theorem]
+    If \( f  \) and \( g  \) are continuous on the closed interval \( [a,b]  \) and differentiable on the open interval \( (a,b)  \), then there exists a point \( c \in (a,b)  \) where 
+    \[  [f(b) -f(a)]g'(c) = [g(b) -g(a)]f'(c). \]
+    If \( g'  \) is never zero on \( (a,b)  \), then the conclusion can be stated as 
+    \[  \frac{ f'(c)  }{ g'(c)  } = \frac{ f(b) - f(a)  }{ g(b) - g(a)  }. \]
+    \end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+This result follows by applying the Mean Value Theorem to the function 
+\[  h(x) = [f(b) - f(a)] g(x) = [g(b) - g(a)] f(x).  \]
+The details are requested in Exercise 5.3.5.
+\end{proof}
+
+\subsection{L'Hopital's Rules}
+
+The Algebraic Limit Theorem asserts that when taking a limit of a quotient of functions we can write 
+\[  \lim_{ x \to c  } \frac{ f(x)  }{ g(x)  } = \frac{ \lim_{ x \to c  } f(x)  }{ \lim_{ x \to c  } g(x)  }  \]
+provided that the quotient is well-defined. What happens when the denominator has a limit that goes to zero while the numerator goes to a limit that is non-zero? Both zero? Both infinite?
+
+\begin{tcolorbox}
+    \begin{thm}[L'Hopital's Rule: 0/0 case]
+    Let \( f  \) and \( g  \) be continuous on an interval containing \( a  \), and assume \( f  \) and \( g  \) are differentiable on this interval with the possible exception of the point \( a  \). If \( f(a) = g(a) = 0  \) and \( g'(x) \neq 0  \) for all \( x \neq a  \), then 
+    \begin{center}
+        \( \lim_{ x \to a } \frac{ f'(x)  }{ g'(x)  } = L  \) implies \( \lim_{ x \to a } \frac{ f(x)  }{ g(x)  } = L. \)
+    \end{center}
+    \end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+Of course they would leave this to the reader to finish. It is requested in Exercise 5.3.11.
+\end{proof}
+
+Next is the case when we replace the assumption of the last theorem with the case that \( \lim_{ x \to a } g(x) = \infty \). We can define what it means to have an infinite limit.
+
+\begin{tcolorbox}
+\begin{defn}
+Given \( g: A \to \R \) and a limit point \( c  \) of \( A  \), we say that \( \lim_{ x \to c  } g(x) = \infty  \) if, for every \( M > 0  \), there exists a \( \delta > 0  \) such that whenever \( 0 < | x -c  |  < \delta  \) it follows that \( g(x) \geq M  \). We can define \( \lim_{ x \to c  } g(x)  \) in a similar way.
+\end{defn}
+\end{tcolorbox}
+ 
+Next is the case of L'hopital's rule when applied to the case when both the numerator and the denominator go to infinity.
+
+\begin{tcolorbox}
+    \begin{thm}[L'Hopital's Rule: \( \infty / \infty  \) case]
+    Assume \( f  \) and \( g  \) are differentiable on \( (a,b)  \) and that \( g'(x) \neq 0  \) for all \( x \in (a,b) \). If \( \lim_{ x \to a } g(x) = \infty  \) (or \( - \infty  \)), then 
+    \[  \lim_{ x \to a } \frac{ f'(x)  }{ g'(x)  } = L \text{~implies~} \lim_{ x \to a } \frac{ f(x)  }{ g(x)  } = L. \]
+    \end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+Let \( \epsilon > 0  \). Since \( \lim_{ x \to a } \frac{ f'(x)  }{ g'(x)  } = L  \), there exists \( \delta_1 > 0  \) such that 
+\[   \Big| \frac{ f'(x)  }{ g'(x) } - L  \Big| < \frac{ \epsilon  }{ 2 } \tag{1} \]
+for all \( a < x < a + \delta_1  \). For convenience of notation, let \( t = a + \delta_1  \) and note that \( t  \) is fixed for the remainder of the argument. Let our functions \( f  \) and \( g  \) be defined on the interval \( [x,t] \) for any \( x \in (a,t)  \). We can use the Generalized Mean Value Theorem on the interval \( [x,t]  \) to get that 
+\[  \frac{ f'(c)  }{ g'(c)  } = \frac{ f(x) - f(t)  }{ g(x) - g(t)  }  \] for some \( c \in (x,t ) \). Since we are considering \( t = a + \delta_1  \), we have that 
+\[  L - \frac{ \epsilon  }{ 2 } < \frac{ f(x) - f(t)  }{ g(x) - g(t) } < L + \frac{ \epsilon  }{ 2 } \tag{2}  \] for all \( x \in (a,t). \) 
+\end{proof}
+
+\subsection{Definitions and Theorems}
 
 
+
+\subsection{Exercises}
 
 
 
