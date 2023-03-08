@@ -129,13 +129,224 @@ Let \( \epsilon > 0  \). Since \( \lim_{ x \to a } \frac{ f'(x)  }{ g'(x)  } = L
 for all \( a < x < a + \delta_1  \). For convenience of notation, let \( t = a + \delta_1  \) and note that \( t  \) is fixed for the remainder of the argument. Let our functions \( f  \) and \( g  \) be defined on the interval \( [x,t] \) for any \( x \in (a,t)  \). We can use the Generalized Mean Value Theorem on the interval \( [x,t]  \) to get that 
 \[  \frac{ f'(c)  }{ g'(c)  } = \frac{ f(x) - f(t)  }{ g(x) - g(t)  }  \] for some \( c \in (x,t ) \). Since we are considering \( t = a + \delta_1  \), we have that 
 \[  L - \frac{ \epsilon  }{ 2 } < \frac{ f(x) - f(t)  }{ g(x) - g(t) } < L + \frac{ \epsilon  }{ 2 } \tag{2}  \] for all \( x \in (a,t). \) 
+Our goal is to isolate the fraction \( f(x) / g(x)  \) by multiplying (2) by \( (g(x) - g(t)) / g(x)  \). We need to assume that \( g(x) \geq g(t)  \) so that the quantity we are multiplying by is positive (or else we will switch the order of the inequality which we don't want). Carrying our our plan results in the following inequality
+\[  L - \frac{ \epsilon  }{ 2 }  + \frac{ -Lg(t) + \frac{ \epsilon  }{ 2 } g(t) + f(t)  }{ g(x)  } < \frac{ f(x)  }{ g(x)  } < L + \frac{ \epsilon  }{ 2 } + \frac{ -L g(t) - \frac{ \epsilon  }{ 2 } g(t)  + f(t)  }{ g(x)  }.\]
+Since \( t  \) is fixed and that \( \lim_{ x \to a } g(x) = \infty  \), we can choose \( \delta_2 > 0  \) such that this our choice of multiplying by the above quantity will satisfy \( g(x) \geq g(t)  \) for all \( a < x < a + \delta_2 \). By the same fact, we can also choose \( \delta_3  \) such that \( a < c < a + \delta_3  \) implies that \( g(x)  \) is large enough to ensure that both 
+\[ \frac{ -Lg(t) + \frac{ \epsilon }{ 2 } g(t) + f(t)   }{ g(x)  } \text{ ~and~ } \frac{ -L g(t) - \frac{ \epsilon  }{ 2 } g(t) + f(t)   }{ g(x)  } \]
+are less than  \( \epsilon / 2   \) in absolute value. Choosing \( \delta = \min \{ \delta_1, \delta_2, \delta_3  \}  \) guarantees that 
+\[  \Big| \frac{ f(x)  }{ g(x)  } - L  \Big| < \epsilon \]
+for all \( a < x < a  + \delta. \)
 \end{proof}
 
 \subsection{Definitions and Theorems}
 
 
+\begin{tcolorbox}
+    \begin{thm}[Rolle's Theorem]
+        Let \( f : [a,b] \to \R  \) be continuous on \( [a,b]  \) and differentiable on \( (a,b)  \). If \( f(a) = f(b) \), then there exists a point \( c \in (a,b)  \) where \( f'(c) = 0  \). 
+    \end{thm}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+    \begin{thm}[Mean Value Theorem]
+        If \( f: [a,b] \to \R  \) is continuous on \( [a,b]  \) and differentiable on \( (a,b)  \), then there exists a point \( c \in (a,b)  \) where 
+        \[  f'(c) = \frac{ f(b) - f(a)  }{ b - a  }. \]
+    \end{thm}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\begin{cor}
+If \( g: A \to \R  \) is differentiable on an interval \( A  \) and satisfies \( g'(x) = 0  \) for all \( x \in A  \), then \( g(x) = k  \) for some constant \(  k \in \R  \).
+\end{cor}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\begin{cor}
+If \( f  \) and \( g  \) are differentiable functions on an interval \( A  \) and satisfy \( f'(x) = g'(x)   \) for all \( x \in A  \), then \( f(x) = g(x) + k  \) for some interval \(  k \in \R  \).
+\end{cor}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\begin{cor}
+If \( g: A \to \R  \) is differentiable on an interval \( A  \) and satisfies \( g'(x) = 0  \) for all \( x \in A  \), then \( g(x) = k  \) for some constant \(  k \in \R  \).
+\end{cor}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\begin{defn}
+Given \( g: A \to \R \) and a limit point \( c  \) of \( A  \), we say that \( \lim_{ x \to c  } g(x) = \infty  \) if, for every \( M > 0  \), there exists a \( \delta > 0  \) such that whenever \( 0 < | x -c  |  < \delta  \) it follows that \( g(x) \geq M  \). We can define \( \lim_{ x \to c  } g(x)  \) in a similar way.
+\end{defn}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+    \begin{thm}[Generalized Mean Value Theorem]
+    If \( f  \) and \( g  \) are continuous on the closed interval \( [a,b]  \) and differentiable on the open interval \( (a,b)  \), then there exists a point \( c \in (a,b)  \) where 
+    \[  [f(b) -f(a)]g'(c) = [g(b) -g(a)]f'(c). \]
+    If \( g'  \) is never zero on \( (a,b)  \), then the conclusion can be stated as 
+    \[  \frac{ f'(c)  }{ g'(c)  } = \frac{ f(b) - f(a)  }{ g(b) - g(a)  }. \]
+    \end{thm}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+    \begin{thm}[L'Hopital's Rule: 0/0 case]
+    Let \( f  \) and \( g  \) be continuous on an interval containing \( a  \), and assume \( f  \) and \( g  \) are differentiable on this interval with the possible exception of the point \( a  \). If \( f(a) = g(a) = 0  \) and \( g'(x) \neq 0  \) for all \( x \neq a  \), then 
+    \begin{center}
+        \( \lim_{ x \to a } \frac{ f'(x)  }{ g'(x)  } = L  \) implies \( \lim_{ x \to a } \frac{ f(x)  }{ g(x)  } = L. \)
+    \end{center}
+    \end{thm}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+    \begin{thm}[L'Hopital's Rule: \( \infty / \infty  \) case]
+    Assume \( f  \) and \( g  \) are differentiable on \( (a,b)  \) and that \( g'(x) \neq 0  \) for all \( x \in (a,b) \). If \( \lim_{ x \to a } g(x) = \infty  \) (or \( - \infty  \)), then 
+    \[  \lim_{ x \to a } \frac{ f'(x)  }{ g'(x)  } = L \text{~implies~} \lim_{ x \to a } \frac{ f(x)  }{ g(x)  } = L. \]
+    \end{thm}
+\end{tcolorbox}
+
 
 \subsection{Exercises}
+
+\subsubsection{Exercise 5.3.1} Recall from Exercise 4.4.9 that a function \( f: A \to \R  \) is Lipschitz on \( A  \) if there exists an \( M > 0  \) such that 
+\[  \Big| \frac{ f(x) - f(y)  }{ x - y  } \leq M  \Big|    \] for all \( x \neq y  \) in \( A  \).
+
+\begin{enumerate}
+    \item[(a)] Show that if \( f  \) is differentiable on a closed interval \( [a,b]  \) and if \( f'  \) is continuous on \( [a,b]  \), then \( f  \) is Lipschitz on \( [a,b]  \).
+        \begin{proof}
+            Let \( f  \) be a differentiable function on a closed interval \( [a,b]  \) and suppose \( f'  \) is continuous on \( [a,b]  \). We want to show that \( f  \) is Lipschitz on \( [a,b]  \). Let \( x \neq y  \) in \( [a,b]   \). Since \( f  \) is continuous on \( [a,b]  \) and \( f  \) is differentiable on \( (x,y)  \), there exists a \( c \in (x,y)  \) such that 
+            \[  f'(c) = \frac{ f(x) - f(y)  }{ x - y  }. \]
+            Since \( f' \) is continuous on \( [a,b]  \) and \( [a,b]  \) is a compact set, we know that \( f'  \) must attain its maximum an minimum. Hence, there exists \( M > 0  \) such that \( | f'(x)  | \leq M  \) for all \( c \in [a,b]  \). Let \( \epsilon = 1  \). Since \( f'  \) is continuous on \( [a,b]  \), we can choose \( \delta  > 0   \) such that whenever \( |  x - c  | < \delta  \), we have  
+            \[  | f'(c)  | = \Big| \frac{ f(x) - f(y)  }{ x - y  }  \Big|  < | f'(x)  | + 1 \leq M + 1.  \]
+            Setting \( M' = M + 1 \), we can see that \( f \) is Lipschitz.
+        \end{proof}
+    \item[(b)] Review the definition of a contractive function in Exercise 4.3.11. If we add the assumption that \( | f'(x)  | < 1  \) on \( [a,b]  \), does it follow that \( f  \) is contractive on this set? 
+    \begin{proof}[Solution]
+        Yes. Suppose \( | f'(x) | < 1  \) on \( [a,b]  \) and let \( x \neq y  \) in \( [a,b] \) as before. By using the fact that \( f'(x)  \) is continuous on \( [a,b]  \), \( f'  \) differentiable on \( [a,b]  \) and the Mean Value Theorem, we get that for some \( c \in (x,y)  \), we have that 
+        \[  | f'(c)  | = \Big| \frac{ f(x) - f(y)   }{ x-y }  \Big| < | f'(x)  | + 1 \iff \Big| \frac{ f(x) - f(y)  }{ x - y  }  \Big| < 2\]
+        which implies that 
+        \[  | f(x) - f(y)  | < 2 | x - y  |. \]
+        Hence, \( f  \) is a contractive function.
+    \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 5.3.2} Let \( f  \) be differentiable on an interval \( A  \). If \( f'(x) \neq 0  \) on \( A  \), show that \( f  \) is injective on \( A  \). Provide an example that the converse statement need not be true.
+
+\begin{proof}
+Let \( x \neq y  \) for any \( x,y \in A  \). Suppose \( f'(x) \neq 0  \) on \( A  \), we know that 
+\[  \lim_{ n \to \infty  } \frac{ f(x_n) - f(y) }{ x_n - y   }. \]
+Since \( f  \) is continuous on \( A  \), we have \( (x_n) \subseteq A  \) such that \( (x_n) \to x  \). Since \( f'(x) \neq 0  \), we have that 
+\[  f'(y) = \frac{ f(x) - f(y)  }{ x - y  } \neq 0   \] implies that \( f(x) \neq f(y) \). Hence, \( f  \) is injective.
+\end{proof}
+
+\subsubsection{Exercise 5.3.3} Let \( h  \) be differentiable function defined on the interval \( [0,3] \), and assume that \( h(0) = 1  \), \( h(1) = 2  \), and \( h(3) = 2  \).
+\begin{enumerate}
+    \item[(a)] Argue that there exists a point \( d \in [0,3]  \) where \( h(d) = d  \).
+        \begin{proof}
+            Since \( h  \) is a differentiable function that is defined on \( [0,3] \), we can find a \( d \in (1,3)  \) such that 
+            \[  h'(d) = \frac{ h(3) - h(1)  }{ 3 - 1  } = \frac{ 2 - 2  }{ 3 - 1  } = 0. \]
+            Since \( h'(d) = 0  \), we know that \( h(d)  \) must be a constant. Hence, \( h(d) = d  \) for some \( d \in [0,3] \).
+        \end{proof}
+    \item[(b)] Argue that at some point \( c  \) we have \( h'(c) = 1 / 3  \).
+        \begin{proof}
+            Since \( h  \) is a differentiable function defined on \( [0,3]  \), we can use the Mean Value Theorem to state that there exists a \( c \in (0,3) \) such that 
+            \[ h'(c) = \frac{ h(3) - h(0) }{ 3 - 0  } = \frac{ 1 }{ 3 }.  \]
+        \end{proof}
+    \item[(c)] Argue that \( h'(x) = 1/4 \) at some point in the domain.
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
+
+\subsubsection{Exercise 5.3.4} Let \( f  \) be differentiable on an interval \( A  \) containing zero, and assume \( (x_n)  \) is a sequence in \( A  \) with \( (x_n) \to 0  \) and \( x_n \neq 0 \).
+
+\begin{enumerate}
+    \item[(a)] If \( f(x_n) = 0  \) for all \( n \in \N  \), show \( f(0) = 0  \) and \( f'(0) = 0  \). 
+        \begin{proof}
+            Suppose \( f(x_n) = 0  \) for all \( n \in \N  \). Since \( f  \) is differentiable on the interval \( A  \), we know that \( f  \) is also continuous on \( A  \). Since \( (x_n) \to 0  \) for \( x_n \neq 0  \), we know that \( f(x_n) = 0  \) implies \( f(0) = 0  \). Since \( f  \) is differentiable, \( f(0) = 0  \), and \( x_n \neq 0  \), we have that
+            \begin{align*}
+                f'(0) &= \lim_{ n \to \infty  } \frac{ f(x_n) - f(0)  }{ x_n  }  \\
+                      &= 0. 
+            \end{align*}
+        \end{proof}
+    \item[(b)] Add the assumption that \( f  \) is twice-differentiable at zero and show that \( f''(0) = 0  \) as well.
+        \begin{proof}
+        Suppose \( f  \) is twice-differentiable at zero. This means \( f'(x_n) = 0  \) as well. Since \( x_n \neq 0  \) and \( f'(0) = 0  \), we have
+        \[  f''(0) = \lim_{n  \to \infty  } \frac{ f'(x_n) - f'(0) }{ x_n } = 0.   \]
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 5.3.5} 
+\begin{enumerate}
+    \item[(a)] Supply the details for the proof of Cauchy's Generalized Mean Value Theorem.
+        \begin{proof}
+            Suppose \( f  \) and \( g  \) are continuous on the closed interval \( [a,b]  \) and differentiable on the open interval \( (a,b)  \). By the Mean Value Theorem, we can find a \( c \in (a,b)  \) such that 
+            \begin{align*}
+                f'(c) &= \frac{ f(b) - f(a)  }{ b -a  },  \\
+                g'(c) &= \frac{ g(b) - g(a)  }{ b -a  }.
+            \end{align*}
+            Define \( h(x)  = [f(b) -f(a) ] g(x) - [g(b) -g(a)] f(x)   \). Note that \( h  \) is also continuous on \( [a,b]  \) and differentiable on the open interval  \(  (a,b) \) since \( f  \) and \( g  \) are both continuous on \( [a,b]  \) and differentiable on \( (a,b)  \). Using the Mean Value Theorem again, we can find a \( c \in (a,b)  \) such that 
+            \[  h'(c) = \frac{ h(b) - h(a)  }{ b - a  }. \tag{1}  \]
+            Using algebraic manipulations, we end up having \( h(b) - h(a) = 0  \) implying that \( h'(c) = 0  \). Expanding the right side of (1), we have that 
+            \begin{align*}
+                \frac{ h(b) - h(a)  }{ b -a  } &= (f(b) -f(a)) \cdot \frac{  g(b) - g(a)}{ b - a }  - (g(b) - g(a)) \cdot \frac{f(b) - f(a)}{ b - a  }  \\
+                                               &=  (f(b) - f(a)) g'(c) - (g(b) -g(a)) f'(c). \\
+            \end{align*}
+            Since \( h'(c) = 0  \), we arrive at 
+            \[  [f(b) - f(a)] g'(c) = [g(b) - g(a)] f'(c). \]
+            If \( g' \neq 0  \) for all \( x \in (a,b)  \), then our conclusion can be stated as follows:
+            \[  \frac{ f'(c)  }{ g'(c)  } = \frac{ f(b) - f(a)  }{ g(b) - g(a)  }. \]
+        \end{proof}
+    \item[(b)] Give a graphical interpretation of the Generalized Mean Value Theorem analogous to the one given for the Mean Value Theorem at the beginning of Section 5.3. (Consider \( f  \) and \( g  \) as parametric equations for a curve).
+        \begin{proof}[Solution]
+        Graphically, we can find a tangent through \( (f(a) , g(a))  \) and \( (f(b) , g(b) ) \) such that it, meaning \( g's  \) slope is parallel to the tangent of \(  f   \).
+        \end{proof}
+\end{enumerate}
+
+
+\subsubsection{Exercise 5.3.6} 
+\begin{enumerate}
+    \item[(a)] Let \( g: [0,a] \to \R  \) be differentiable, \( g(0) = 0  \), and \( | g'(x)  | \leq M  \) for all \( x \in [0,a]  \). Show \( | g(x)  | \leq M x  \) for all \( x \in [0,a] \).
+        \begin{proof}
+            Suppose \( g  \) is a differentiable function defined on \( [0,a]  \). Since \( g  \) is continuous on \( [0,a]  \), differentiable on \( (a,b) \) and \( g(0) = 0  \), we use the Mean Value Theorem to state that there exists \( c \in (a,b)  \) such that
+            \[ g'(c) = \frac{ g(x) - g(0)  }{ x - 0  } = \frac{ g(x)  }{ x }.\]
+            Since \( | g'(x)  | \leq M  \), we know that 
+            \[ | g'(c)  | = \Big| \frac{ g(x)  }{ x  }  \Big| \leq M \iff | g(x)  | \leq Mx.  \]
+        \end{proof}
+    \item[(b)] Let \( h: [0,a] \to \R  \) be twice-differentiable, \( h'(0) = h(0) = 0   \) and \( | h"(x)  | \leq M  \) for all \( x \in [0,a]  \). Show \( | h(x)  | \leq M x^2 / 2  \) for all \( x \in [0,a]  \). 
+        \begin{proof}
+            Let \( h  \) be twice-differentiable with \( h'(0) = h(0) = 0  \) as well as \( | h"(x)  |  \leq M  \) for all \( x \in [0,a] \). Since \( h  \) is twice-differentiable, we can find a \( c \in (a,b)  \) such that 
+            \[  h"(c) =   \frac{ h'(x) - f(0) }{x  - 0  } = \frac{ h'(x) }{ x }. \]
+            Since we are also given \( | h'(x)  | \leq M  \), we know that \( | h(x)  | \leq M x  \). Since \( | h"(x)  | \leq M  \) for all \( x \in [0,a]  \), we have that 
+    \begin{align*}
+        | h"(c)  | \leq M &\iff \Big| \frac{ h'(x)  }{ x  }  \Big| \leq \frac{ M }{ 2 }    \\
+                          &\iff | h'(x)  | \leq \frac{ M }{ 2 }  x \\
+                          &\iff | h(x)  | \leq  \frac{ M  }{ 2 } x^2.
+    \end{align*}
+        \end{proof}
+    \item[(c)] Conjecture and prove an analogous result for a function that is differentiable three times on \( [0,a]  \).
+        \begin{proof} 
+        Let \( h  \) be differentiable three times. Suppose \( h"(0) = h'(0) = h(0) = 0 \). It is a similar process as above.
+        \end{proof}
+\end{enumerate}
+
+% \subsubsection{Exercise 5.3.7} a \textit{fixed point} of a function \( f  \) is a value \( x  \) where \( f(x) = x  \). Show that if \( f  \) is differentiable on an interval with \( f'(x) \neq 1  \), then \( f  \) can have at most one fixed point.
+% \begin{proof}
+
+% \end{proof}
+
+\subsubsection{Exercise 5.3.8} Assume \( f  \) is continuous on an interval containing zero and differentiable for all \( x \neq 0  \). If \( \lim_{ x \to 0  } f'(x) = L \), show \( f'(0)  \) exists and equals \( L  \).
+
+\begin{proof}
+Assume \( f  \) is continuous on an interval containing zero and differentiable for all \( x \neq 0  \). We want to show that \( f'(0)  \) exists and is equal to \( L  \). Define \( h(x) = f(x) - f(0)  \) and \( g(x) = x  \). If we take the following limit 
+\[f'(0) =  \lim_{ x \to 0 } \frac{ f(x) - f(0)  }{ x  } = \lim_{ x \to 0  } \frac{ h(x)  }{ g(x)  }   \]
+we notice that \( f'(0) = 0 / 0 \) which prompts us to use L'Hopital's rule for limits. Hence, if we take differentiate \( h(x)  \) and \( g(x) \) and then take the limit of their quotient \( h'(x) / g'(x)  \), we get that \( h'(x) = f'(x)  \) and \( g'(x) = 1  \). But note that \( h'(x) / g'(x) = f'(x)  \). Since \( \lim_{ x \to 0 } f'(x) = L  \), we know that \( \lim_{ x \to 0 } \frac{ h'(x)  }{ g'(x)  }  \) must also equal to \( L  \). But this means that by L'hopital's rule that 
+\[ f'(0) =  \lim_{ x \to 0 }  \frac{ f(x) - f(0) }{ x  } = L. \]
+\end{proof}
+
+
+
+
 
 
 
