@@ -330,10 +330,12 @@ Since \( f  \) is continuous on \( A  \), we have \( (x_n) \subseteq A  \) such 
         \end{proof}
 \end{enumerate}
 
-% \subsubsection{Exercise 5.3.7} a \textit{fixed point} of a function \( f  \) is a value \( x  \) where \( f(x) = x  \). Show that if \( f  \) is differentiable on an interval with \( f'(x) \neq 1  \), then \( f  \) can have at most one fixed point.
-% \begin{proof}
-
-% \end{proof}
+\subsubsection{Exercise 5.3.7} A \textit{fixed point} of a function \( f  \) is a value \( x  \) where \( f(x) = x  \). Show that if \( f  \) is differentiable on an interval with \( f'(x) \neq 1  \), then \( f  \) can have at most one fixed point.
+\begin{proof}
+Suppose for sake of contradiction that \( f  \) contains more than one fixed point. Let \( a, b \in A  \) be fixed points of \( f  \). Then we have \( f(a) = a  \) and \( f(b) = b  \). Suppose \( f'(x) \neq 1  \) for any \( x \in A  \). Since \( f  \) is differentiable on \( A  \), then there exists \( c \in (a,b)  \) such that 
+\[  f'(c) = \frac{ f(b) - f(a)  }{ b -a  } = \frac{ b - a  }{ b -a  } = 1. \]
+But this tell us that \( f'(c) = 1  \) which contradicts our assumption that \( f'(x) \neq 1   \) on \( A  \). Hence, \( a  \) and \( b  \) must be the same fixed point.
+\end{proof}
 
 \subsubsection{Exercise 5.3.8} Assume \( f  \) is continuous on an interval containing zero and differentiable for all \( x \neq 0  \). If \( \lim_{ x \to 0  } f'(x) = L \), show \( f'(0)  \) exists and equals \( L  \).
 
@@ -345,7 +347,30 @@ we notice that \( f'(0) = 0 / 0 \) which prompts us to use L'Hopital's rule for 
 \end{proof}
 
 
+\subsubsection{Exercise 5.3.9} Assume \( f  \) and \( g  \) are as described in Theorem 5.3.6, but now add the assumption that \( f  \) and \( g  \) are differentiable at \( a  \), and \( f' \) and \( g' \) are continuous at \( a  \) with \( g'(a) \neq 0  \). Find a short proof for the \( 0 / 0  \) case of L'Hopital's Rule under this stronger Hypothesis.
+\begin{proof}
+\end{proof}
 
+\subsubsection{Exercise 5.3.10} Let \( f(x) = x \sin (1/x^4) d^{-1/x^2}  \) and \( g(x) = e^{-1/x^2} \). Using the familiar properties of these functions, compute the limit as \( x  \) approaches zero of \( f(x), g(x), f(x) / g(x),  \) and \( f'(x) / g'(x)  \). Explain why the results are surprising but not in conflict with the content of Theorem 5.3.6.
+\begin{proof}[Solution]
+
+\end{proof}
+
+\subsubsection{Exercise 5.3.11} 
+\begin{enumerate}
+    \item[(a)] Use the Generalized Mean Value Theorem to furnish a proof of the \( 0/0  \) case of L'Hopital's Rule (Theorem 5.3.6).
+        \begin{proof}
+        Assume \( f  \) and \( g  \) continuous on an interval containing \( a  \), and assume \( f  \) and \( g  \) are differentiable on this interval with the possible exception of the point \( a  \). Suppose \( f(a) = g(a) = 0  \), \( g'(x) \neq 0 \) for all \( x \neq a  \), and 
+        \[  \lim_{ x \to a } \frac{ f'(x)  }{ g'(x) } = L. \]
+        Let \( \epsilon > 0  \). Then there exists \( \delta > 0  \) such that \( 0 < | x - a  | < \delta  \). Let \( x \in (a, a + \delta ) \). Since \( f  \) is differentiable on \( A  \), there exists \( c \in (x,a)  \) such that  
+        \[  \frac{ f(x) - f(a)  }{ g(x) - g(a)  } = \frac{ f'(c)  }{ g'(c) }.  \]
+    Since \( \lim_{ x \to a } f'(x) / g'(x) = L  \), we have that
+    \[  \Big|  \frac{ f(x) - f(a)  }{ g(x) - g(a)   } - L \Big| < \epsilon.  \]
+    Since \( g(a) = f(a) = 0 \), we have that 
+    \[ \Big|  \frac{ f(x)  }{ g(x)  } - L \Big|  < \epsilon.  \]
+    Hence, we have that \( \lim_{ x \to a } f(x) / g(x) = L  \).
+        \end{proof}
+\end{enumerate}
 
 
 
