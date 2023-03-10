@@ -213,11 +213,10 @@ Given \( g: A \to \R \) and a limit point \( c  \) of \( A  \), we say that \( \
 \begin{enumerate}
     \item[(a)] Show that if \( f  \) is differentiable on a closed interval \( [a,b]  \) and if \( f'  \) is continuous on \( [a,b]  \), then \( f  \) is Lipschitz on \( [a,b]  \).
         \begin{proof}
-            Let \( f  \) be a differentiable function on a closed interval \( [a,b]  \) and suppose \( f'  \) is continuous on \( [a,b]  \). We want to show that \( f  \) is Lipschitz on \( [a,b]  \). Let \( x \neq y  \) in \( [a,b]   \). Since \( f  \) is continuous on \( [a,b]  \) and \( f  \) is differentiable on \( (x,y)  \), there exists a \( c \in (x,y)  \) such that 
+            Let \( f  \) be differentiable on a closed interval \( [a,b]  \) and \( f'  \) continuous on \( [a,b]  \). Let us define our closed interval as \( A  \). Let \( x \neq y \in [a,b]  \). By the Mean Value Theorem, we can find a \( c \in (x,y)  \) such that 
             \[  f'(c) = \frac{ f(x) - f(y)  }{ x - y  }. \]
-            Since \( f' \) is continuous on \( [a,b]  \) and \( [a,b]  \) is a compact set, we know that \( f'  \) must attain its maximum an minimum. Hence, there exists \( M > 0  \) such that \( | f'(x)  | \leq M  \) for all \( c \in [a,b]  \). Let \( \epsilon = 1  \). Since \( f'  \) is continuous on \( [a,b]  \), we can choose \( \delta  > 0   \) such that whenever \( |  x - c  | < \delta  \), we have  
-            \[  | f'(c)  | = \Big| \frac{ f(x) - f(y)  }{ x - y  }  \Big|  < | f'(x)  | + 1 \leq M + 1.  \]
-            Setting \( M' = M + 1 \), we can see that \( f \) is Lipschitz.
+            Since \( f' \) is continuous on a compact set \( [a,b]  \), the range of \( f'  \) is also bounded. Hence, there exist \( M > 0  \) such that \( | f'(c)  | \leq M  \). Hence, we have that 
+            \[  \Big| \frac{ f(x) - f(y)  }{ x -y  }  \Big| \leq M. \]
         \end{proof}
     \item[(b)] Review the definition of a contractive function in Exercise 4.3.11. If we add the assumption that \( | f'(x)  | < 1  \) on \( [a,b]  \), does it follow that \( f  \) is contractive on this set? 
     \begin{proof}[Solution]
@@ -232,10 +231,10 @@ Given \( g: A \to \R \) and a limit point \( c  \) of \( A  \), we say that \( \
 \subsubsection{Exercise 5.3.2} Let \( f  \) be differentiable on an interval \( A  \). If \( f'(x) \neq 0  \) on \( A  \), show that \( f  \) is injective on \( A  \). Provide an example that the converse statement need not be true.
 
 \begin{proof}
-Let \( x \neq y  \) for any \( x,y \in A  \). Suppose \( f'(x) \neq 0  \) on \( A  \), we know that 
-\[  \lim_{ n \to \infty  } \frac{ f(x_n) - f(y) }{ x_n - y   }. \]
-Since \( f  \) is continuous on \( A  \), we have \( (x_n) \subseteq A  \) such that \( (x_n) \to x  \). Since \( f'(x) \neq 0  \), we have that 
-\[  f'(y) = \frac{ f(x) - f(y)  }{ x - y  } \neq 0   \] implies that \( f(x) \neq f(y) \). Hence, \( f  \) is injective.
+    Let \( f  \) be differentiable on an interval \( A  \). Let \( x \neq y  \in A  \). By the Mean Value Theorem, we can find a \( c \in (x,y) \) such that 
+    \[  f'(c) = \frac{ f(x) - f(y)  }{ x - y  } \tag{1}. \]
+
+    Since \( f'(c) \neq 1  \) on \( A  \) and \( x \neq y  \), (1) implies that \( f(x) \neq f(y)  \). Hence, \( f  \) is an injective function. 
 \end{proof}
 
 \subsubsection{Exercise 5.3.3} Let \( h  \) be differentiable function defined on the interval \( [0,3] \), and assume that \( h(0) = 1  \), \( h(1) = 2  \), and \( h(3) = 2  \).
@@ -349,12 +348,21 @@ we notice that \( f'(0) = 0 / 0 \) which prompts us to use L'Hopital's rule for 
 
 \subsubsection{Exercise 5.3.9} Assume \( f  \) and \( g  \) are as described in Theorem 5.3.6, but now add the assumption that \( f  \) and \( g  \) are differentiable at \( a  \), and \( f' \) and \( g' \) are continuous at \( a  \) with \( g'(a) \neq 0  \). Find a short proof for the \( 0 / 0  \) case of L'Hopital's Rule under this stronger Hypothesis.
 \begin{proof}
+Since \( f'  \) and \( g'  \) are continuous at \( a  \), we know that 
+\[  \lim_{ x \to a } \frac{ f'(x)  }{ g'(x)  } = \frac{ \lim_{ x \to a } f'(x)  }{ \lim_{ x \to a } g'(x)  }  = \frac{ f'(a)  }{ g'(a)  } = L. \]
+But we know \( f  \) and \( g  \) are also differentiable at \( a  \) which means \( f  \) and \( g  \) are also continuous at \( a  \). Since \(x \neq a  \) for all \( x \in A  \) where \( A  \) is an interval, we know that 
+\begin{align*}
+   L  &= \frac{ f'(a)  }{ g'(a)  }  \\
+      &= \frac{ \lim_{ x \to a } f(x) - f(a)  }{ \lim_{ x \to a } g(x) - g(a)  }  \\  
+      &= \lim_{ x \to a } \frac{ f(x)  }{ g(x)  } \tag{\( f(a) = g(a) = 0  \)}
+\end{align*}
+Hence, we have that \( \lim_{ x \to a } \frac{ f(x)  }{ g(x)  }  = L \).
 \end{proof}
 
-\subsubsection{Exercise 5.3.10} Let \( f(x) = x \sin (1/x^4) d^{-1/x^2}  \) and \( g(x) = e^{-1/x^2} \). Using the familiar properties of these functions, compute the limit as \( x  \) approaches zero of \( f(x), g(x), f(x) / g(x),  \) and \( f'(x) / g'(x)  \). Explain why the results are surprising but not in conflict with the content of Theorem 5.3.6.
-\begin{proof}[Solution]
+% \subsubsection{Exercise 5.3.10} Let \( f(x) = x \sin (1/x^4) d^{-1/x^2}  \) and \( g(x) = e^{-1/x^2} \). Using the familiar properties of these functions, compute the limit as \( x  \) approaches zero of \( f(x), g(x), f(x) / g(x),  \) and \( f'(x) / g'(x)  \). Explain why the results are surprising but not in conflict with the content of Theorem 5.3.6.
+% \begin{proof}[Solution]
 
-\end{proof}
+% \end{proof}
 
 \subsubsection{Exercise 5.3.11} 
 \begin{enumerate}
@@ -375,3 +383,18 @@ we notice that \( f'(0) = 0 / 0 \) which prompts us to use L'Hopital's rule for 
 
 
 
+
+\subsubsection{Exercise 5.3.12} If \( f  \) is twice differentiable on an open interval containing \( a  \) and \( f" \) is continuous at \( a  \), show 
+\[  \lim_{ h \to 0 }  \frac{ f(a+h) - 2f(a) + f(a-h)  }{ h^2  } = f"(a). \]
+\begin{proof}
+    Since \( f  \) is twice-differentiable on an open interval \( A  \) where \( a \in A  \), we can write
+\[  f'(a+h) = \lim_{ h \to 0 } \frac{ f(a+h) - f(a)  }{ h  }  \]
+and likewise
+\[  f'(a-h) = \lim_{ h \to 0  } \frac{ f(a) - f(a-h)   }{ h }  \]
+by Exercise 5.2.6. Hence, we can write 
+\begin{align*}
+    f"(a) &= \lim_{ h \to 0  } \frac{ f'(a+h) - f'(a-h)  }{ h  }  \\
+          &= \lim_{ h \to 0  } \frac{ 1 }{ h } \cdot \Big[ \lim_{ h \to 0  }  \frac{ f(a+h) - f(a)  }{ h  } - \frac{ f(a) - f(a-h ) }{ h  }   \Big] \\
+          &= \lim_{ h \to 0  } \frac{ f(a + h) - 2f(a) + f(a+h)  }{ h^2 }. 
+\end{align*}
+\end{proof}
