@@ -1,0 +1,30 @@
+\section{Discussion: Power Series}
+
+\subsection{Geometric Series}
+
+Series that are easily summable are the Geometric series. One example of such a series is the following:
+\[  \sum_{ n=0 }^{ \infty  } x^n = 1 + x + x^2 + x^3 + \dots = \frac{ 1 }{ 1 -x  } \tag{1} \]
+for all \( | x  | < 1  \). A few more examples include the series 
+\[  \sum_{ n=0  }^{ \infty  } \frac{ 1 }{ 2^n }  \] and 
+\[  \sum_{ n=0  }^{ \infty  } \Big( \frac{ -1 }{ 3 }  \Big)^n = \frac{ 3 }{ 4 }. \]
+We can take derivatives of both sides of (1) and get 
+\[  \frac{ 1 }{ (1-x)^2 } = 0 + 1 + 2x + 3x^2 + 4x^3 + \dots. \tag{2} \]
+A question we can ask ourselves is whether or not this formula is valid at least on the open interval \( (-1,1) \)? It turns out that it is true for (2) to hold along \( (-1,1) \) (we will find out later why this is the case).  
+
+
+There is another surprising connection of (1) when we replace \( x  \) term with an \( x^2 \) term and then take the integral of the left side. What we end up getting is a relationship between circles and infinite series; that is, 
+\[ (\arctan(x))' = \frac{ 1 }{ 1 + x^2  } \text{~ and ~} \arctan(0) = 0 \]
+where setting \( x = 1  \) gives us 
+\[ \frac{ \pi  }{ 4  } = 1 - \frac{ 1 }{ 3 } + \frac{ 1 }{ 5 } - \frac{ 1 }{ 7 }  + \frac{ 1 }{ 9 } \- \dots .  \]
+Does treating the infinite series above like a polynomial really a valid way to produce a formula like the one above? It turns out we can treat these series as if we were just adding up an infinite amount of polynomials. Hence, which is why we have a whole section dedicated to \textit{power series}. What are some applications of power series? Well for one, we can express famous functions such as \( e^x  \), \( \sqrt{ 1 + x  }  \), or \( \sin(x)   \) in terms of an infinite series of polynomial terms. 
+A notable example of power series is the generalization of the binomial formula. For any \( n \in \N  \), we have that 
+\[  (1+x)^n  = 1 + nx + \frac{ n(n-1) }{ 2! } x^2 + \frac{ n(n-1) (n-2) }{ 3! } x^3 + \dots + x^n.\]
+Say, we set \( n = -1  \), then our series is written as 
+\[  \frac{ 1 }{ 1+x  } = 1 - x + x^2 - x^3 + x^4 - \dots, \]
+which is equivalent (1). Setting \( n = 1/2 \) then our infinite series becomes
+\[ \sqrt{ 1 + x  } = 1 + \frac{ 1 }{ 2 } x - \frac{ 1 }{ 2^2 2! } x^2 + \frac{ 3 }{ 2^3 3! } x^3 - \frac{ 3 \cdot 5  }{ 2^4 3! } x^4 + \dots ~ .  \] There are many more examples such as this that uses some sophisticated machinery that we do not quite know yet. One very important question we can ask ourselves is what properties of power series allows them to be manipulated in such a way that is so impervious to the infinite? We will explore this more in the upcoming sections.
+
+
+
+
+

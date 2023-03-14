@@ -1,0 +1,88 @@
+\section{Continuous Nowhere-Differentiable Functions}
+
+\subsection{The Sawtooth Function}
+
+In the last few sections, we have seen that continuity does not immediately imply that a function is differentiable. The prime example for this is the absolute value function \( f(x) = | x  |  \) where differentiable at every point except \(  x = 0  \). Can we construct functions that are continuous at every point but non-differentiable everywhere? The answer is yes and it is in the form of 
+\[  f(x) = \sum_{ n = 0 }^{ \infty  } a^n \cos(b^n x) \] where the values of \( a  \) and \( b  \) are carefully chosen. All of us may notice that this is just the Fourier Series. Define a function \( h(x) = | x |  \) that replaces the oscillations provided by \( \cos(x)  \) on the interval \( [-1,1] \) and extend \( h  \) to be defined on all of \( \R  \) such that \( h(x+2) = h(x)   \). Instead of the smooth oscillations that we see with the \( \cos (x)  \) graph, we have a periodic "sawtooth" looking graph provided by \( h(x) = | x |  \).
+
+\subsubsection{Exercise 5.4.1} Sketch a graph of \( (1/2) h(2x)  \) on \( [-2,3]  \). Give a qualitative description of the functions 
+\[  h_n(x) = \frac{ 1 }{ 2^n  } h(2^n x ) \]
+as \( n  \) gets larger.
+\begin{proof}[Solution]
+    The graph of \( h_1(x)  \) is just the Sawtooth function \( h(x)  \) but with a maximum height of \( 1/2  \) and the length of the period is just \( 1  \). Notice that as \(  n \) gets bigger and bigger our height for \( h_n(x)  \) is just \( 1 / 2^n  \) while the period is \( 1 / 2^{n-1}  \). The slopes of all the segments that make up \( h_n(x)  \) is just \( \pm 1  \) for all \( n \in \N  \).
+\end{proof}
+Let's define 
+\[  g(x) = \sum_{ n=0  }^{ \infty  } h_n(x) = \sum_{ n=0  }^{ \infty  } \frac{ 1 }{ 2^n  } h(2^n x ) \]
+which we claim as having the property that it is continuous for all \( x \in \R  \) but non-differentiable for all \( x \in \R  \).
+
+\subsection{Infinite Series of Functions and Continuity}
+As we can see, the way we defined \( g(x)  \) is very different from the way the functions we have been defining thus far where for each \( x \in \R  \), \( g(x)   \) is the value of an infinite series.
+
+\subsubsection{Exercise 5.4.2} Fix \( x \in \R  \). Argue that the series 
+\[  \sum_{ n=0  }^{ \infty  } \frac{ 1 }{ 2^n } h(2^n x) \]
+converges and thus \( g(x)  \) is properly defined. 
+
+\begin{proof}[Solution]
+Since the maximum height of \( h_n(x)  \) is \( 1 / 2^n  \), it follows that for all \( n \in \N  \), the sequence of partial sums is bounded; that is
+\[ 0 \leq \frac{ 1 }{ 2^n  } h_n(2^n x) \leq \frac{ 1 }{ 2^n  }.\]
+Since \( \frac{ 1 }{ 2^n  }  \) produces a geometric series which converges, we know that \( \frac{ 1 }{ 2^n  } h_n (2^n x) \) must also converge by the Comparison Test. This means the series that defines \( g(x)  \) converges and is, therefore, well defined.
+\end{proof}
+
+We can ask a couple of questions about functions that are defined by infinite series. 
+\begin{enumerate}
+    \item[(a)] Certainly, finite sum of a continuous functions is continuous but is the infinite sum of continuous functions necessarily continuous? We will see that this is not always the case in the next chapter. 
+\end{enumerate}
+
+ \subsubsection{Exercise 5.4.4} As the graph in Figure 5.7 suggests, the structure of \( g(x)  \) is quite intricate. Answer the following questions, assuming that \( g(x) \) is indeed continuous. \begin{enumerate}
+    \item[(a)] how do we know \( g  \) attains a maximum value \( M  \) on \( [0,2]  \)?  What is the value? 
+        \begin{proof}[Solution]
+        Since \(  g \) is continuous on a compact set \( [0,2]  \), we know that \( g  \) must attain its maximum and minimum on the interval. Since \( g  \) converges, we can use associativity to redefine \( g \) in the following way:
+        \[  f_n (x) = h_{2n}(x) + h_{2n+1}(x)  \] for all \(  n \in \N  \). A scaling argument is used to show that \( g(x) \leq \sum_{ k=0 }^{ \infty  } \frac{ 1 }{ 4^k } = \frac{ 4 }{ 3 }. \) Hence, the max of \( g(x)  = \frac{ 4 }{ 3 }. \) 
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Nondifferentiability} 
+
+Let us try to prove that \( g  \) is not differentiable for all \( x \in \R  \). Looking at \( x = 0  \), we can see that \( g  \) appears to not be differentiable here. Consider the sequence \( x_m = 1/2^m \), where \( m = 0,1,2, \dots \).
+
+\subsubsection{Exercise 5.4.5} Show that 
+\[  \frac{ g(x_m) - g(0)  }{ x_m - 0  } = m+1,  \]
+and use this to prove that \( g'(0)  \) does not exist.
+\begin{proof}
+For \( g'(0)  \) to exist, the sequential criterion for limits requires that 
+\[ g'(0) = \lim_{ m \to \infty  }  \frac{ g(x_m) - g(0)  }{ x_m - 0  }  \] exist for any sequence \( (x_m) \to 0  \). Let us fix \( m \in \N  \) and consider \( x_m  = 1 / 2^m \). Then plugging this in to \( g  \), we get that
+\[ g(x_m) = \sum_{ n=0 }^{ \infty  } \frac{ 1 }{ 2^n  } h(2^{n-m}).\] Now we have to consider a few cases. Suppose \( n > m  \), then \( h(2^{n-m})  = 0  \) because the sawtooth function is zero for even \( n  \). If \(  n \leq m  \), then we have \( h(x) = x  \) and we get that 
+\[  \frac{ 1 }{ 2^n } h(^{n-m} ) = \frac{ 1 }{ 2^n } 2^{n-m} = \frac{ 1 }{ 2^m } \]
+by the definition of \( h(x)  \). This means we can represent \( g(x_m)  \) as a finite sum
+\[  g(x_n) = \sum_{ n=0 }^{ m } \frac{ 1 }{ 2^m }. \] Using the difference quotient, we can see that 
+\[  \frac{ g(x_m) - g(0)  }{ x_m - 0  } = \frac{ \sum_{ n=0 }^{ m } 1/2^m }{ 1/2^m } = \sum_{ n=0 }^{ m }1 = m + 1. \]
+Notice that the \( g(x_m) = m + 1  \) is a sequence that diverges, we know that \( g  \) is not differentiable at zero and therefore does not exist.
+\end{proof}
+
+Although intuition might lead us astray by telling us that \( g'(0) = \infty  \), we need to remember that for \( x_m = -(1/2^m) \) we can use the same argument above to produce a difference quotient that approaches \( - \infty  \). This is that "cusp" that we see at \( x = 0  \) in the graph of \( g  \). 
+
+Using the same argument above, we can prove \( g' \) does not exists for \( x = 1  \) and \( x = 1 / 2 \). In fact, \( g'(x)  \) does not exist for any \( x \in \Q  \) such that \( x = p/2^k \) where \( p \in \Z  \) and \( k \in \N \cup \{ 0 \}  \). These values of \( x \in \Q  \) are called \textit{dyadic} points. For every \( x  \) that is \textit{dyadic}, \( h_n  \) contains a corner at \( x  \) as long as \( n \geq k  \). 
+
+What if \( x  \) is not \textit{dyadic}? For fixed values of \( m \in \N \cup \{ 0  \}  \), \( x  \) can be between two dyadic points; that is, 
+\[  \frac{ p_m  }{ 2^m } < x < \frac{ p_m + 1  }{ 2^m }. \] Setting \( x_m = p_m / 2^m \) and \( y_m = (p_m) + 1) / 2^m  \), we can repeat this for each \( m  \) that produces two sequences \( (x_m)  \) and \( (y_m)  \) that satisfy the following:
+\begin{enumerate}
+    \item[(a)] \( \lim x_m = \lim y_m = x   \), 
+    \item[(b)] \( x_m < x < y_m \).
+\end{enumerate}
+
+We can prove the following lemma:
+
+\begin{tcolorbox}
+\begin{lem}
+Let \( f  \) be defined on an open interval \( J  \) and assume \( f  \) is differentiable at \( a \in J  \). If \( (a_n)  \) and \( (b_n)  \) are sequences satisfying \( a_n < a < b_n  \) and \( \lim a_n = \lim b_n = a  \), then 
+\[ f'(a) = \lim_{ n \to \infty  } \frac{ f(b_n) - f(a_n)  }{ b_n - a_n  }. \]
+\end{lem}
+\end{tcolorbox}
+\begin{proof}
+
+\end{proof}
+We can use this lemma to show that \( g'(x)  \) does not exist.
+
+
+
+
