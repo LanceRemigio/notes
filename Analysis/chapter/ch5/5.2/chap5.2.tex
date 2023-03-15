@@ -409,10 +409,17 @@ Let \( g  \) be defined on an interval \( A  \), and let \( c \in A  \).
     \item[(b)] Assume \( A  \) is open. If \( g  \) is differentiable at \( c \in A  \), show that 
         \[  g'(c) = \lim_{ h \to 0 } \frac{ g(c+h) - g(c-h)  }{ 2h }. \]
         \begin{proof}
-            Let \( c \in A  \) and let \( \epsilon = h  \). Since \( g  \) is defined on an interval \( A  \) and \( A  \) is open, there exists \( V_{h}(c) \subseteq A  \). Then let \( x \in (c -h, c + h ) \). Hence, our difference quotient can be written as follows
-            \[  d(h) = \frac{ g(c + h) - g(c -h ) }{ c + h - (c -h) } = \frac{ g(c + h) - g(c -h ) }{ 2h }  \]
-            which taking the limit as \( h \to 0  \) will give us \( g'(c) \) since \( g  \) is differentiable at \( c  \). Hence, 
-            \[  g'(c) = \lim_{ h \to 0 } \frac{ g(c+h) - g(c-h) }{ 2h }.\]
+            Let \( g  \) be differentiable at \( c \in A  \). We want to show that 
+            \[  g'(c) = \lim_{ h \to 0 } \frac{ g(c+h) - g(c-h)  }{ 2h } \tag{1}.\]
+            Let \( \epsilon > 0  \). Since \( A  \) is open, there exists \( \delta > 0  \) such that
+            \( V_{h}(c) \subseteq A  \). Let \( h \in V_{h}(c)  \). Through a few algebraic maniupulations, we get that
+            \begin{align*}
+                \Big| \frac{ g(c+h) - g(c-h)  }{ 2h  } - g'(c)  \Big| &= \frac{ 1 }{ 2 } \Big| \frac{ g(c+h) - g(c)  }{ h  } + \frac{ g(c) - g(c-h)  }{ h } - 2 g'(c)  \Big|   \\
+                                                                      &= \frac{ 1 }{ 2 } \Big| \Big( \frac{ g(c+h) - g(c)  }{ h } - g'(c)  \Big) - \Big( \frac{ g(c) - g(c-h)  }{ h } - g'(c) \Big) \Big| \\
+                                                                      &\leq \frac{ 1 }{ 2 } \Big( \Big|  \frac{ g(c+h) - g(c)  }{ h } - g'(c) \Big| + \Big| \frac{ g(c) - g(c - h)  }{ h } - g'(c)   \Big|  \Big) \\
+                                                                      &< \frac{ 1 }{ 2 } ( 2 \epsilon ) = \epsilon.
+            \end{align*}
+            This means that we can write \( g'(c)  \) as (1) above.
         \end{proof}
 \end{enumerate}
 

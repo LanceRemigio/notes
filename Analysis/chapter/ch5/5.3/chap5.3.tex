@@ -208,7 +208,7 @@ Given \( g: A \to \R \) and a limit point \( c  \) of \( A  \), we say that \( \
 \subsection{Exercises}
 
 \subsubsection{Exercise 5.3.1} Recall from Exercise 4.4.9 that a function \( f: A \to \R  \) is Lipschitz on \( A  \) if there exists an \( M > 0  \) such that 
-\[  \Big| \frac{ f(x) - f(y)  }{ x - y  } \leq M  \Big|    \] for all \( x \neq y  \) in \( A  \).
+\[  \Big| \frac{ f(x) - f(y)  }{ x - y  }   \Big| \leq M     \] for all \( x \neq y  \) in \( A  \).
 
 \begin{enumerate}
     \item[(a)] Show that if \( f  \) is differentiable on a closed interval \( [a,b]  \) and if \( f'  \) is continuous on \( [a,b]  \), then \( f  \) is Lipschitz on \( [a,b]  \).
@@ -220,11 +220,11 @@ Given \( g: A \to \R \) and a limit point \( c  \) of \( A  \), we say that \( \
         \end{proof}
     \item[(b)] Review the definition of a contractive function in Exercise 4.3.11. If we add the assumption that \( | f'(x)  | < 1  \) on \( [a,b]  \), does it follow that \( f  \) is contractive on this set? 
     \begin{proof}[Solution]
-        Yes. Suppose \( | f'(x) | < 1  \) on \( [a,b]  \) and let \( x \neq y  \) in \( [a,b] \) as before. By using the fact that \( f'(x)  \) is continuous on \( [a,b]  \), \( f'  \) differentiable on \( [a,b]  \) and the Mean Value Theorem, we get that for some \( c \in (x,y)  \), we have that 
-        \[  | f'(c)  | = \Big| \frac{ f(x) - f(y)   }{ x-y }  \Big| < | f'(x)  | + 1 \iff \Big| \frac{ f(x) - f(y)  }{ x - y  }  \Big| < 2\]
-        which implies that 
-        \[  | f(x) - f(y)  | < 2 | x - y  |. \]
-        Hence, \( f  \) is a contractive function.
+        Since \( f'  \) is continuous on a compact set \( [a,b]  \), then it follows that \( f'  \) attains a maximum and minimum on \( [a,b]  \). Hence, there is some \( x_0 \in [a,b]  \) such that \( | f'(c)  | \leq | f'(x_0) |  \). By assumption, \( | f'(x_0) | < 1  \). Hence, we have that 
+        \[ | f'(c)  | = \Big| \frac{ f(x) - f(y)  }{ x -y  }  \Big| \leq | f'(x_0)  | = s.  \]
+        This means that 
+        \[  | f(x) - f(y)  | \leq s | x - y  | \]
+        and hence, \( f  \) is contractive.
     \end{proof}
 \end{enumerate}
 
@@ -252,7 +252,7 @@ Given \( g: A \to \R \) and a limit point \( c  \) of \( A  \), we say that \( \
         \end{proof}
     \item[(c)] Argue that \( h'(x) = 1/4 \) at some point in the domain.
         \begin{proof}
-        
+            Since there exists \(  c \in (0,3)  \) such that \( h'(c) = 1 / 3  \) and \( h'(d) = 0  \) for some \( d \in(a,b)   \), there exists \( \ell \in (0,3)  \) such that \( h'(\ell) = 1 / 4  \) by Darboux's theorem.
         \end{proof}
 \end{enumerate}
 
@@ -298,7 +298,8 @@ Given \( g: A \to \R \) and a limit point \( c  \) of \( A  \), we say that \( \
         \end{proof}
     \item[(b)] Give a graphical interpretation of the Generalized Mean Value Theorem analogous to the one given for the Mean Value Theorem at the beginning of Section 5.3. (Consider \( f  \) and \( g  \) as parametric equations for a curve).
         \begin{proof}[Solution]
-        Graphically, we can find a tangent through \( (f(a) , g(a))  \) and \( (f(b) , g(b) ) \) such that it, meaning \( g's  \) slope is parallel to the tangent of \(  f   \).
+        Graphically, we can find a tangent through \( (f(a) , g(a))  \) and \( (f(b) , g(b) ) \) such that it, meaning \( g's  \) slope is parallel to the tangent of \(  f   \). Another way to explain this is to set \( f = x  \), \( g = y  \), and \( t = a  \). Then the Mean Value Theorem states that 
+        \[  \frac{ x'(t)  }{ y'(t)  } = \frac{d x }{d y } = \frac{ x(b) - x(a)  }{ y(b) - y(a)  }  \] which is just the familiar Mean Value Theorem for parametric curves.
         \end{proof}
 \end{enumerate}
 
