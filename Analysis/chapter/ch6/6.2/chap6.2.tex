@@ -160,7 +160,39 @@ Hence, \( f  \) is continuous at \( c \in  A  \).
 
 \subsection{Exercises}
 
-
+\subsubsection{Exercise 6.2.1} Let 
+\[  f_n(x) = \frac{ nx }{ 1 + nx^2  }. \]
+\begin{enumerate}
+    \item[(a)] Find the pointwise limit of \( (f_n)  \) for all \( x \in (0, \infty ) \).
+        \begin{proof}[Solution]
+        Let us take the limit of \( (f_n)  \). A well know trick we can use is by dividing by \( (1/n) / (1/n)  \); that is, we have that
+        \begin{align*}
+            \lim_{ n \to \infty  } f_n &= \lim_{ n \to \infty  } \frac{ nx  }{  1 + nx^2  }  \\
+                                       &= \lim_{ n \to \infty  } \frac{ x  }{ \frac{ 1 }{ n } + x^2  } \\
+                                       &= \frac{ 1 }{ x  }.
+        \end{align*}
+        \end{proof}
+    \item[(b)] Is the convergence uniform on \( (0,\infty)  \)?
+        \begin{proof}[Solution]
+        We claim that \( (f_n)  \) is not uniform on \( (0, \infty ) \). Let \( \epsilon > 0  \). Then 
+        \begin{align*}
+            \Big| \frac{ nx }{ 1 + nx^2  } -  \frac{ 1 }{ x }  \Big| = \frac{ 1  }{ x(1+nx^2 ) }.  &\\
+        \end{align*}
+        The right side of this equation implies 
+        \[  \frac{ 1 }{ x(1+nx^2)  } < \epsilon. \]
+        After a few algebraic manipulations, we can choose \( N \in \N  \) such that 
+        \[  N > \Big( \frac{ 1 }{ \epsilon  } - x  \Big) \frac{ 1 }{ x^3  }  \]
+        which is clearly dependent on \( x  \). 
+        \end{proof}
+    \item[(c)] Is the convergence uniform on \( (0,1)  \)? 
+        \begin{proof}[Solution]
+        We claim that \( (f_n) \to f  \) is uniform on \( (0,1)  \). Since \( (f_n)  \) is defined on \( (0,1)  \), we can bound 
+        \end{proof}
+    \item[(d)] Is the convergence uniform on \( (1,\infty ) \)?
+        \begin{proof}[Solution]
+        
+        \end{proof}
+\end{enumerate}
 
 
 
