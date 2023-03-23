@@ -158,6 +158,59 @@ Hence, \( f  \) is continuous at \( c \in  A  \).
 \end{proof}
 
 
+
+
+\subsection{Definitions and Theorems}
+
+
+\begin{tcolorbox}
+\begin{defn}
+For each \( n \in \N  \), let \( f_n \) be a function defined on a set \( A \subseteq \R  \). The sequence \( (f_n)  \) of functions \textit{converges pointwise }  on \( A  \) to a function \( f  \) if, for all \( x \in A  \), the sequence of real numbers \( f_n(x)  \) converges to \( f(x)  \). 
+
+In this case, the following notations are all equivalent to each other
+\begin{enumerate}
+    \item[(i)] \( f_n \to f  \) 
+    \item[(ii)] \( \lim f_n = f  \)
+    \item[(iii)] \( \lim_{ n \to \infty  } f_n(x) = f(x)  \).
+\end{enumerate}
+\end{defn}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+    \begin{defn}[Uniform Convergence]
+    Let \( (f_n)  \) be a sequence of functions defined on a set \( A \subseteq \R  \). Then, \( (f_n)  \) \textit{converges uniformly} on \( A  \) to a limit function \( f  \) defined on \( A  \) if, for every \( \epsilon  > 0 \), there exists an \( N \in \N  \) such that 
+    \[  | f_n(x) - f(x)  | < \epsilon   \]
+    whenever \( n \geq N  \) and \( x \in A  \).
+    \end{defn}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+    \begin{defn}[Pointwise Convergence]
+    Let \( (f_n)  \) be a sequence of functions defined on a set \( A \subseteq \R  \). Then, \( (f_n)  \) \textit{converges pointwise on} A to a limit \( f  \) defined on \( A  \) if, for every \( \epsilon > 0   \) and \( x \in A  \), there exists an \( N \in \N  \) (may depend on x ) such that 
+    \[  | f_n(x) - f(x)  | < \epsilon  \] whenever \( n \geq N  \).
+    \end{defn}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+    \begin{thm}[Cauchy Criterion for Uniform Convergence]
+    A sequence of functions \( (f_n)  \) defined on a set \( A \subseteq \R  \) converges uniformly on \( A  \) if and only if for every \( \epsilon > 0  \), there exists an \( N \in \N  \) such that 
+    \[  | f_n(x) - f_m(x)  | < \epsilon  \]
+    whenever \( m,n \geq N  \) and \( x \in A  \).
+    \end{thm}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+    \begin{thm}[Continuous Limit Theorem]
+    Let \( (f_n)  \) be a sequence of functions defined on \( A \subseteq \R  \) that converges uniformly on \( A  \) to a function \( f  \), If each \( f_n   \) is continuous at \( c \in A  \), then \( f  \) is continuous at \( c  \).
+    \end{thm}
+\end{tcolorbox}
+
+
+
 \subsection{Exercises}
 
 \subsubsection{Exercise 6.2.1} Let 
@@ -186,22 +239,202 @@ Hence, \( f  \) is continuous at \( c \in  A  \).
         \end{proof}
     \item[(c)] Is the convergence uniform on \( (0,1)  \)? 
         \begin{proof}[Solution]
-        We claim that \( (f_n) \to f  \) is uniform on \( (0,1)  \). Since \( (f_n)  \) is defined on \( (0,1)  \), we can bound 
+            We cannot have a lower bound that gets rid of the dependency of our choice of \( N   \) along \( (0,1)  \). Hence, \( (f_n)  \) does not converge uniformly along \( (0,1)  \).
         \end{proof}
     \item[(d)] Is the convergence uniform on \( (1,\infty ) \)?
         \begin{proof}[Solution]
-        
+        We claim that \( (f_n) \to f  \) is uniform on \( (1,\infty )  \). Since \( (f_n)  \) is defined on \( (0,1)  \), we can lower bound 
+        \[   \frac{ 1 }{ x (1 +nx^2 ) } < \frac{ 1 }{ n+ 1 }.  \]
+        along the interval \( (1,\infty )  \) which produces the following 
+        \[  \frac{ 1 }{ \epsilon  }  < n + 1.\]
+        This implies that for some \( N \in \N  \), we have 
+        \[  N > \frac{ 1 }{ \epsilon  }  - 1. \]
+        We can see that our choice of \( N  \) does not depend on \( x  \). Hence, we have that \( (f_n) \to f  \) uniformly along \( (1,\infty ) \).
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 6.2.2} 
+\begin{enumerate}
+    \item[(a)] Define a sequence of functions on \( \R  \) by 
+        \[  f_n(x) = 
+        \begin{cases}
+            1 &\text{~if~} x = 1, \frac{ 1 }{ 2 }, ..., \frac{ 1 }{ n } \\ 
+            0 &\text{~otherwise} 
+        \end{cases} \]
+and let \( f  \) be the pointwise limit of \( f_n \). Is each \( f_n  \) continuous at zero? Does \( f_n \to f  \) uniformly on \( \R  \)? Is \( f  \) continuous at zero? 
+\begin{proof}[Solution]
+Each \( f_n  \) is continuous at \( x = 0  \), but \( f  \) is not continuous at \( x = 0  \) since \( 1/ n \to 0  \) as \( n \to \infty  \). Finally, we have that \( f_n  \) does not converge uniformly on \( \R  \).
+\end{proof}
+
+\item[(b)] Repeat this exercise using the sequence of functions
+    \[  g_n(x) = 
+    \begin{cases}
+        x &\text{~if~} x = 1, \frac{ 1 }{ 2 }, \frac{ 1 }{ 3 }, \dots, \frac{ 1 }{ n } \\
+        0 &\text{~otherwise}
+    \end{cases} \]
+    \begin{proof}[Solution]
+    Each \( g_n  \) as well as its limit \( g  \) are continuous at \( x = 0  \). Furthermore, \( g  \) converges uniformly on \( \R  \).
+    \end{proof}
+\item[(c)] Repeat the exercise once more with the sequence
+    \[  h_n(x) = 
+    \begin{cases}
+        1 &\text{~if~} x = \frac{ 1 }{ n } \\
+        x &\text{~if~} x = 1, \frac{ 1 }{ 2 }, \frac{ 1 }{ 3 }, \dots \frac{ 1 }{ n-1  } \\
+        0 &\text{~otherwise}.
+    \end{cases} \]
+    \begin{proof}[Solution]
+    Each \( h_n  \) continuous at \( x = 0  \) but its limit \( h  \) is not continuous at \( x = 0  \). We have \( h_n   \) does not converge uniformly on \( \R  \).
+    \end{proof} 
+\end{enumerate}
+
+\subsubsection{Exercise 6.2.3} For each \( n \in \N  \) and \( x \in [0,\infty ) \), let 
+\[  g_n(x) = \frac{ x  }{ 1 + x^n } \text{~ and ~} h_n(x) = 
+\begin{cases}
+    1 &\text{~if~} x \geq 1 /n \\
+    nx &\text{~if~} 0 \leq x < 1 / n.
+\end{cases}  \]
+
+\begin{enumerate}
+    \item[(a)] Find the pointwise limit on \( [0,\infty ] \).
+        \begin{proof}[Solution]
+        Let us find the pointwise limit of \( g_n(x)  \). If we take the limit of \( (g_n) \), we have
+        \[  \lim_{ n \to \infty  } \frac{ x  }{ 1 + x^n  } = 0. \] This limit cannot be uniform on \( [0,\infty ) \) since our choice of \( N  \) depends on \( x  \). 
+
+        Now let us find the limit of \( (h_n)  \). If \( x \geq 1 / n  \), we have \( \lim_{  n \to \infty  } h_n(x) = 1  \). If \( 0 \leq x < 1 / n \), then we have 
+        \[  \lim_{ n \to \infty  } h_n(x) = 0. \]
+        Just like \( g_n(x)  \), \( h_n(x)  \) cannot converge on \( [0,\infty )  \) since our choice of \( N  \) depends on \( x  \).
         \end{proof}
 \end{enumerate}
 
 
 
+\subsubsection{Exercise 6.2.5}  Using the Cauchy Criterion for convergent sequences of real numbers, supply a proof for Theorem 6.2.5. (First, define a candidate for \( f(x)  \), and then argue that \( f_n \to f  \) uniformly.)
+
+\begin{proof}
+    (\( \Rightarrow \)) Let \( (f_n)  \) be defined on \( A \subseteq \R   \). Define \( f_n(x) = y_n  \), \( f_m(x) = y_m  \), and \( f(x) = L  \). We want to show that \( (f_n)  \) is Cauchy. Let \( \epsilon > 0  \). Since \( (f_n) \to f  \) uniformly, there exists \( N \in \N  \) such that for any \( n,n \geq N  \), we have 
+\begin{align*}
+    |y_n - L   | &< \epsilon,  \\
+    | y_m - L  | &< \epsilon.
+\end{align*}
+But  since \( (f_n)  \) is just a sequence of real numbers that converges, we have that for any \( m,n \geq N  \), 
+\[ | y_n - y_m  | < \epsilon. \]
+
+(\( \Leftarrow \)) Suppose for any \( \epsilon > 0  \), there exists an \( N \in \N  \) such that whenever \( m,n \geq N  \) and \( x \in A \), we have 
+\[  | f_n(x) - f_m(x)  | < \epsilon. \]
+This means that \( (f_n)  \) is a Cauchy sequence. Since \( (f_n) \) is a sequence of real numbers on \( A  \), we know that \( (f_n)  \) is also convergent. Since \( (f_n) \to f  \) whenever \( n,m \geq N  \) and \( x \in A  \), we have that \( (f_n) \to f  \) uniformly.
+\end{proof}
+
+\subsubsection{Exercise 6.2.6} Assume \( f_n \to f  \) on a set \( A  \). Theorem 6.2.6 is an example of a typical type of question which asks whether a trait possessed by each \( f_n  \) is inherited by the limit function. Provide an example to show that all of the following propositions are false if the convergence is only assumed to be pointwise on \( A  \). Then go back and decide which are true under the stronger hypothesis of uniform convergence.
+\begin{enumerate}
+    \item[(a)] If each \( f_n  \) is uniformly continuous, then \( f  \) is uniformly continuous.
+        \begin{proof}
+        We want to show that this is true when \( f_n \to f   \) uniformly. Let \( \epsilon > 0  \). Suppose \( f_n  \) is uniformly continuous. Then for any \( n \geq N  \) for some \( N \in \N  \), we have that 
+        \[  | f_n(x) - f_n(y)  | < \epsilon. \]we know that Choose \( N = \max \{  N_1, N_2, N_3  \}  \) such that for any \( n \geq N  \) and \( x,y \in A   \), we have that
+        \begin{align*}
+            | f(x) - f(y)  | &= | f(x) - f_n(x) + f_n(x) - f_n(y) + f_n(y) - f(y)  |  \\
+                             &\leq | f(x) - f_n(x)  | + | f_n(x) - f_n(y)  | + | f_n(y) - f(y)  | \\
+                             &< \frac{ \epsilon  }{ 3 } + \frac{ \epsilon  }{ 3 } + \frac{ \epsilon  }{ 3 } = \epsilon.
+        \end{align*}
+    Hence, \( (f_n) \to f  \) uniformly.
+        \end{proof}
+    \item[(b)] If each \( f_n  \) is bounded, then \( f  \) is bounded.
+        \begin{proof}
+        Suppose \( f_n  \) is bounded, then there exists \( M > 0  \) such that \( | f_n(x)  | \leq  M \) for any \( n \in \N  \). Assume \( f_n \to f  \) uniformly. Then let \( \epsilon = 1   \) and let \( x \in A  \) be arbitrary, there exists \( N \in \N  \) such that for any \( n \geq N  \), we have 
+        \[  | f(x) - f_n(x)  | < 1 \iff | f(x) | < 1 + | f_n(x)     | \leq M + 1 = M'.  \]
+        Hence, \( f  \) is bounded.
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 6.2.7} Let \( f  \) be uniformly continuous on all of \( \R  \), and define a sequence of functions \( f_n(x) = f(x+ \frac{ 1 }{ n } ) \). Show that \( f_n \to f  \) uniformly. Give an example to show that this proposition fails if \( f  \) is only assumed to be continuous and not uniformly continuous on \( \R  \).
+
+\begin{proof}
+Let \( f  \) be uniformly continuous on all of \( \R  \), and define a sequence of functions \( f_n(x) = f(x+ \frac{ 1 }{ n } )   \). Let \( (x_n), (y_n) \subseteq K  \). Define \( y_n = x + \frac{ 1 }{ n }  \) and \( x_n = x  \). Since \( f  \) is uniformly continuous, we know that \( | x_n - y_n | \to 0   \) implies that \( | f(x_n) - f(y_n)  | \to 0  \). Let \( \epsilon > 0  \). Choose \( N \in \N  \) such that for any \( n \geq N  \), we have 
+\begin{align*}
+    | f_n(x) - f(x)  | &= | f(x + \frac{ 1 }{ n } ) - f(x) |  \\
+                       &= | f(y_n) - f(x_n)   | \\
+                       &< \epsilon.
+\end{align*}
+Hence, \( (f_n) \to f  \) uniformly.
+\end{proof}
 
 
+\subsubsection{Exercise 6.2.8} Let \( (g_n)  \) be a sequence of continuous functions that converges uniformly to \( g  \) on a compact set \( K  \). If \( g(x) \neq 0  \) on \( K  \), show \( (1/g_n) \) converges uniformly on \( K  \) to \( 1/g \).
 
+\begin{proof}
+Let \( \epsilon > 0  \). We want to show that there exists \( N \in \N  \) such that for any \( n \in \N  \), we have 
+\[  \Big| \frac{ 1 }{ g_n(x)  } - \frac{ 1 }{ g(x)  }  \Big| < \epsilon.  \]
+Since \( (g_n) \to g  \) uniformly on \( K  \), we know that whenever \( n \geq N  \) and \( x \in K  \), for some \( N \in \N  \), we have that 
+\[  | g_n(x) - g(x)  | < \epsilon. \]
+Furthermore, \( (g_n)  \) continuous on compact set \( K  \) for each \( n \in \N  \). This means that for each \( n \in \N  \), we have that \( g_n(x)  \) has a bounded range. Hence, there exists \( M > 0  \) such that \( | g_n(x)  | \geq M   \). Similarly, \( | g(x)  | \geq L  \) for some \( L > 0 \). Then choose \( N = ML \cdot \epsilon   \) such that for any \( n \geq N  \), we have that 
+\begin{align*}
+    \Big| \frac{ 1 }{ g_n(x)  } - \frac{ 1 }{ g(x)  }  \Big| &= \Big| \frac{ g(x) - g_n(x)  }{ g_n(x) \cdot g(x) }  \Big|   \\
+                                                             &= \frac{ | g_n(x) - g(x)  |  }{ | g_n(x)  | | g(x)  |  }  \\
+                                                             &< \frac{ ML \cdot \epsilon  }{ ML  } = \epsilon. \\ 
+\end{align*}
+Hence, \( g_n  \) converges to \( g  \) uniformly on \( K  \).
+\end{proof}
 
+        There is another way to prove this using the Cauchy Criterion.
+        \begin{proof}
+        Let \( \epsilon > 0  \). It suffices to show that \( 1/g_n  \to 1/g \) uniformly by showing \( (1/g_n)  \) satisfies the Cauchy Criterion. Since \( g_n  \) is a bounded sequence of functions, there exists \( M > 0  \) such that \( | g_n | \geq M    \). Choose \( N \in \N  \) such that for any \( n,m \geq N  \), we have 
+        \begin{align*}
+            \Big| \frac{ 1 }{ g_n(x) } - \frac{ 1 }{ g_m(x) }  \Big| &= \Big| \frac{ g_m(x) - g_n(x)  }{ g_n(x) g_m(x) }  \Big|  \\
+                                                               &= \frac{ | g_m(x) - g_n(x)  |  }{ | g_n(x)  | | g_m(x) |  } \\
+                                                               &< \frac{ M^2 \epsilon  }{ M^2  } \\
+                                                               &= \epsilon.
+        \end{align*}
+        Since \( (1/g_n)  \) is a Cauchy sequence of functions, we know that \( (1/g_n)  \) must converge uniformly.
+        \end{proof}
+\subsubsection{Exercise 6.2.9} Assume \( (f_n)  \) and \( (g_n)  \) are uniformly convergent sequences of functions.
+\begin{enumerate}
+    \item[(a)] Show that \( (f_n + g_n)  \) is uniformly convergent sequence of functions.
+        \begin{proof}
+        Let \( \epsilon > 0  \) and let \( x \in \R  \). Since \( (f_n)  \) and \( (g_n)  \) are uniformly convergent sequences of functions, there exists \( N_1, N_2 \in \N  \) such that for any \( n \geq N  \) where \( N = \max \{ N_1, N_2  \}  \), we have that 
+        \begin{align*}
+            | f_n(x) + g_n(x) - (f(x) + g(x))  | &= | f_n(x) - f(x) + g_n(x) - g(x)   |  \\
+                                                 &\leq | f_n(x) - f(x)  | + | g_n(x) + g(x)  | \\
+                                                 &< \frac{ \epsilon  }{ 2 } + \frac{ \epsilon  }{ 2 } = \epsilon.
+        \end{align*}
+        \end{proof}
+    \item[(b)] Give an example to show that the product \( (f_ng_n)  \) may not converge uniformly.
+        \begin{proof}[Solution]
+        Let either \( (g_n)  \) or \( (f_n)  \) be unbounded. Take, for example, \( (f_n)  \) defined as 
+        \[  f_n = x^2 + \frac{ 1 }{ n }  \]
+        on \( \R  \).
+        We can see that \( f_n \to f  \) where \( f  \) is also unbounded. Hence, \( (f_ng_n) \) cannot be uniformly convergent. 
+        \end{proof}
+    \item[(c)] Prove that if there exists an \( M > 0  \) such that \( | f_n  | \leq M  \) and \( | g_n  | \leq M  \) for all \( n \in \N \), then \( (f_ng_n) \) does converge uniformly.
+        \begin{proof}
+        Suppose there exists \( M > 0  \) such that \( | f_n | \leq M  \) and \( | g_n | \leq M  \) for all \( n \in \N  \). Let \( \epsilon > 0  \) and let \( x \in \R  \). It suffices to show that \( (f_ng_n) \) is Cauchy. Since \( (f_n) \to f  \) and \( (g_n) \to g  \) uniformly, choose \( N = \max \{ N_1, N_2  \}   \) such that for any \( n \geq N  \), we have that 
+        \begin{align*}
+           | f_n(x) g_n(x) - f_m(x) g_m(x)  |  &= | f_n(x) g_n(x) -f_m(x)g_n(x) + f_m(x)g_n(x) - f_m(x)g_m(x) |  \\
+                                           &\leq | g_n(x)  | | f_n(x) - f(x)  | + | f_m(x)  | | g_n(x) - g(x)  | \\
+                                           &< M \cdot \frac{ \epsilon  }{ 2 M  }  + M \cdot \frac{ \epsilon  }{ 2M  } = \epsilon. 
+        \end{align*}
+        Hence, \( (f_ng_n)  \) converges uniformly by the Cauchy Criterion.
+        \end{proof}
+\end{enumerate}
 
+\subsubsection{Exercise 6.2.10} This exercise and the next explore the partial converse of the Continuous Limit Theorem. Assume \( f_n \to f  \) pointwise on \( [a,b]  \) and the limit function \( f  \) is continuous on \( [a,b]  \). If each \( f_n  \) is increasing (but not necessarily continuous), show \( f_n \to f  \) uniformly.
 
+\begin{proof}
+    Suppose \( f  \) is continuous on \( [a,b]  \), \( f_n  \) increasing, and \( (f_n) \to f  \) pointwise on \( [a,b]  \). Since \( f  \) continuous on \( [a,b]  \), we will have a mapping from the closed interval \( [a,b]  \) to another closed interval \( [c,d]  \). Our intention is to split \( [c,d]  \) into small intervals so that we may use the fact that \( f_n  \) is increasing to create a bound that is at most a size of \( \epsilon_1 \). By the Order Limit Theorem, we know that \( f_n  \) increasing also implies that \( f  \) is also increasing. 
+
+    Let \( \epsilon > 0  \). Define that for each \( x_i  \), we have \( f(x_i) = y_i   \). Let \( y_1 = c  \) and \( y_n = d  \), where our small intervals our defined as everything in between; that is, for every \( k \in \N  \), we have \( [y_{k_2 }, y_{k+1} ] \) implies \( | y_{k+1} - y_k  | < \epsilon_1 \).  Since \( (f_n) \to f  \), we can find \( M_k  \) such that \( m_k > M_k  \) implies \( | y_k - f_{m_k} (x_k)  | < \epsilon_1 \). Let \( M = \max \{ M_1, M_2, \dots, M_n  \}  \). Let \( m > M  \) be arbitrary. Since \( f_m  \) increasing, we can bound \( f_m(x_{i+1} - f_m(x_i) ) \) by 
+    \begin{align*}
+        | f_m(x_{i+1}) - f_m(x_i)  | &= | f_m(x_{i+1}) - y_{i+1} + y_{i+1} - y_i + y_i - f_m(x_i)  |  \\
+                                     &\leq | f_m(x_{i+1}) - y_{i+1}  | + | y_{i+1} - y_i  | + | y_i - f_m(x_i)  | \\
+                                     &< \epsilon_1.
+    \end{align*}
+    Consider \( | f(x) - f_m(x)  |  \) and let \( x \in [x_i, x_{i+1} ] \) with \( i  \) arbitrary. Since \( f  \) is increasing and \( f  \) is continuous, we know that \( y_i \leq f(x) \leq y_{i+1}  \) and hence \( f(x) -  y_i  < \epsilon_1 / 3 \). Similarly, we have that \( f_m(x) - f_m(x_i)  \leq f_m(x) - f_m(x_{i+1} ) < \epsilon_1 / 3 \). Hence, observe that 
+    \begin{align*}
+        | f(x) - f_m(x)  | &= | f(x) - y_i + y_i - f_m(x_i) + f_m(x) - f_m(x_i) |  \\
+                           &\leq | f(x) - y_i | + | y_i - f_m(x_i)  | + | f_m(x) - f_m(x_i)  | \\
+                           &< \frac{ \epsilon_1 }{ 3 } +  \frac{ \epsilon_1  }{ 3 } + \frac{ \epsilon_1  }{ 3  } \\
+                           &= \epsilon_1.
+    \end{align*}
+    Hence, \( f_n \to f  \) uniformly.
+\end{proof}
 
 
 

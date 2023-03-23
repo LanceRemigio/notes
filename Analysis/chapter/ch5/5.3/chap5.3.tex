@@ -395,7 +395,7 @@ whenever \( | h  | < \delta  \) for some \( \delta > 0  \). We first observe, th
 Since \( f \) is twice differentiable on an interval containing \(  a \) and \( f" \) continuous at \( a \), there exist \( t_1 \in (a, a+h)  \) and \( t_2 \in (a-h, a)  \) such that 
 \[ f'(t_1) = \frac{ f(a+h) - f(a)  }{ h } \text{~ and ~} f'(t_2) = \frac{ f(a) - f(a-h)  }{ h }.  \]
 Likewise, there exists \( x \in (a-h, a+h)  \) such that, 
-\[  f"(x) = \frac{ f'(t_1) - f'(t_2)   }{ h }. \] Since \( f" \) is continuous at \( a  \), we can choose \( \delta = \{ \delta_1, \delta_2  \}  \) such that whenever \( | h  |  < \delta  \), we have that 
+\[  f"(x) = \frac{ f'(t_1) - f'(t_2)   }{ h }. \] Since \( f" \) is continuous at \( a  \), we can choose \( \delta = \min \{ \delta_1, \delta_2  \}  \) such that whenever \( | h  |  < \delta  \), we have that 
 \begin{align*}
     & \\
     \Big| \frac{ f(a+h) - 2 f(a) + f(a-h)  }{ h^2  } - f"(a) \Big| &= \Big| \frac{ f'(t_1) - f'(t_2)  }{ h } - f"(a)  \Big| \\  
