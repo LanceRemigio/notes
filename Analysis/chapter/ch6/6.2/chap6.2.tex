@@ -436,6 +436,29 @@ Hence, \( g_n  \) converges to \( g  \) uniformly on \( K  \).
     Hence, \( f_n \to f  \) uniformly.
 \end{proof}
 
+\subsubsection{Exercise 6.2.11} Assume \( f_n \to f  \) pointwise on a compact set \( K  \) and assume that for each \( x \in K  \), the sequence \( f_n(x)  \) is increasing. Follow these steps to show that if \( f_n  \) and \( f  \) are continuous on \( K  \), then the convergence is uniform.
 
+\begin{enumerate}
+    \item[(a)] Set \( g_n = f - f_n  \) and translate the preceding hypothesis into statements about the sequence \( (g_n)  \).
+        \begin{proof}[Solution]
+        Since \( f  \) and \( f_n  \) are both continuous, we know that \( g_n = f - f_n \) must also continuous by the Algebraic continuity theorem. Since \( f_n \to f  \) pointwise and \( g_n = f - f_n \), we must also have that \( (g_n) \to 0  \). Since \( f_n  \) increasing for all \( n \in \N  \), we have that \( g_n  \) is an decreasing sequence of functions. Hence, we can restate our hypothesis in the following way
+        \begin{enumerate}
+            \item[(i)] \( g_n \) is continuous,
+            \item[(ii)] \( (g_n) \to 0  \) for all \( n \geq N  \) for some \( N \in \N  \),
+            \item[(iii)] \( g_n \) is decreasing for all \(  n \in \N  \).
+        \end{enumerate}
+        \end{proof}
+    \item[(b)] Let \( \epsilon > 0  \) be arbitrary, and define \( K_n \{ x \in K : g_n(x) \geq \epsilon  \}  \). Argue that \( K_1 \supseteq K_2 \supseteq K_3 \supseteq \dots  \), and use this observation to finish the argument.
+        \begin{proof}
+        First, we must show that each \( K_n  \) is also compact. Our intention is to create a nested sequence of compact sets so that we may extract a contradiction that implies that the infinite intersection of \( K_n  \) must be empty and not nonempty. To prove \( K_n  \) is compact, we must prove that \( K_n   \) is closed and bounded.
 
+        To show that \( K_n \) is closed, let us assume that \( (x_m) \subseteq K_n  \) is a convergent sequence in \( K_n \). We need to show that the limit of \( (x_m)  \) is contained in \( K_n \). Since \( g_n \) is a continuous function, we know that \( \lim_{ m \to \infty  } g_n(x_m) = g_n(x)  \). This implies that \( g_n(x) \geq \epsilon  \) for all \( n \in \N \). By definition of \( K_n \), we must have \( x \in K_n \). Hence, \( K_n  \) for all \( n \in \N  \) is closed.
+        To show that \( K_n  \) is bounded is straightforward. Since \( K  \) is a compact set and \( K_n \subseteq K  \) for all \( n \in \N  \), \( K_n  \) must also be bounded. Hence, for each \( n \in \N  \), \(  K_n  \) is compact.
 
+        Since \( g_n  \) is decreasing, we know that for all \( x \in K  \) and \( n \in \N  \) that \( g_n(x) \geq g_{n+1}(x) \). This immediately implies that \( K_n \supseteq K_{n+1} \). By the Nested Compact Interval theorem, we must have that 
+        \[ \bigcap_{ n=1 }^{ \infty  } K_n \neq \emptyset. \tag{1} \]
+        But if we let \( x  \) be arbitrary where this \( x  \) is contained in this intersection, then we have \( g_n(x) \geq \epsilon  \), which contradicts our assumption that \( (g_n) \to 0  \). Hence, the intersection in (1) must be empty for \( (g_n) \to 0  \); that is, there exists \( N \in \N  \) such that  
+        \[  | g_n(x)  | < \epsilon  \]
+        for all \( n \geq N  \) and \( x \in K  \). Hence, \( (g_n) \to g  \) uniformly.
+        \end{proof}
+\end{enumerate}
