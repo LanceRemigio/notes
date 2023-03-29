@@ -1,0 +1,194 @@
+\section{Uniform Convergence and Differentiation}
+
+We shall start this section by asking what is the effect of having a pointwise converging sequence of functions that are differentiable? It turns out that if we require the sequence of derivatives of some function to be uniformly convergent, then the limit of the sequence of derivative is the derivative of the original function.
+
+\begin{tcolorbox}
+    \begin{thm}[Differentiable Limit Theorem]
+        Let \( f_n \to f  \) pointwise on the closed interval \( [a,b] \), and assume that each \( f_n  \) differentiable. If \( (f'_n) \) converges uniformly on \( [a,b] \) to a function \( g  \), then the function \( f  \) is differentiable and \( f' = g  \).
+    \end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    Fix \( c \in [a,b]  \) and let \( \epsilon > 0  \). We want to show that \( f'(c)  \) exists and equals \( g(c)  \); that is, we want to show that for all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that 
+    \[ \Big| \frac{ f(x) - f(c) }{ x - c  } - g(c)  \Big| < \epsilon  \]
+    whenever \( 0 < | x -c  | < \delta  \). We can do this by observing that for all \( n \geq N  \) and \( x \neq c  \), we can use the triangle inequality to say that 
+    \begin{align*}
+        \Big| \frac{ f(x) - f(c)  }{ x - c  } - g(c)  \Big| &\leq \Big| \frac{ f(x) - f(c)  }{  x- c  } - \frac{ f_n(x) - f_(c)  }{ x - c  }  \Big| \\ &+ \Big| \frac{ f_n(x) - f_n(c)  }{ x - c  } - f_n'(c)  \Big|  + | f_n'(c) - g(c)   |. \\
+    \end{align*}
+    We can make the last two terms "small" by having them be both less than \( \epsilon / 3  \). Since \( (f'_n) \to g  \) uniformly, we can choose an \( N_1 \in \N  \) such that for any \( n \geq N  \) that 
+    \[ | f'_n(c) - g(c)  | < \frac{ \epsilon  }{ 3 }. \tag{1} \]
+We can also invoke the uniform convergence of \( f'_n  \) to state that for any \( m,n \geq N_2  \) for some \( N_2 \in \N  \) that 
+\[ | f_n(x) - f_m(x)  | < \frac{ \epsilon  }{ 3 }  \]
+for all \( x \in [a,b] \).
+    Furthermore, for \( x \neq c  \), we can make 
+    \[  \Big| \frac{ f_n(x) - f_n(c)  }{ x -c  } - f_n'(c)    \Big| < \frac{ \epsilon  }{ 3  }. \tag{2}  \]
+    whenever \( 0 < | x - c  | < \delta  \).
+    
+    \[   \]
+    The first term can be made small by using the Mean Value Theorem. Fix an \( x  \) satisfying \( 0 < | x - c  | < \delta  \) and let \( m \geq N  \), and apply the Mean Value Theorem to \( f_m - f_N  \) on the interval \( [c,x] \). Suppose \( x > c  \), then there exists an \( \alpha \in (c,x) \) such that 
+    \[  f'_m(\alpha) - f'_N(\alpha)  = \frac{ (f_m(x) - f_N(x)) - (f_m(c) - f_N(c) ) }{ x - c  }. \]
+    Since we have \( m \geq N  \) for some \( N \in \N  \), we can have 
+    \[  | f'_m(\alpha) - f'_N(\alpha)  | < \frac{ \epsilon  }{ 3 }, \]
+    which means that 
+    \[  \Bigg| \frac{ f_m(x) - f_m(c)  }{ x -c  } - \frac{ f_N(x) - f_N(c)  }{  x- c  }  \Bigg| < \frac{ \epsilon  }{ 3 }. \tag{3} \] 
+    Since \( f_m \to f  \) pointwise, we can use the Order Limit Theorem to imply that 
+    \[  \Big| \frac{ f(x) - f(c)   }{ x- c  } - \frac{ f_n(x) - f_n(c)  }{ x - c  }  \Big| \leq \frac{ \epsilon  }{ 3 }. \]
+    Using (1), (2), and (3), we can now conclude that  
+    \begin{align*}
+        \Big| \frac{ f(x) - f(c)  }{ x - c  } - g(c)  \Big| &\leq \Big| \frac{ f(x) - f(c)  }{  x- c  } - \frac{ f_n(x) - f_(c)  }{ x - c  }  \Big| \\ &+ \Big| \frac{ f_n(x) - f_n(c)  }{ x - c  } - f_n'(c)  \Big|  + | f_n'(c) - g(c)   | \\
+                                                            &< \frac{ \epsilon  }{ 3  }  + \frac{ \epsilon  }{ 3  } + \frac{ \epsilon  }{ 3  } \\
+                                                            &=\epsilon.
+    \end{align*}
+    Hence, \( (f'_n) \to g  \) and \( f' = g  \).
+\end{proof}
+
+As it turns out, we don't really need to assume that \( f_n(x) \to f(x)  \) for the conclusion above to be true. We only need uniform convergence of \( (f'_n)  \) for the theorem above to work. Two functions with the same derivative may differ by a constant, so we must suppose that there is at least one point \( x_0  \) where \( f_n(x_0) \to f(x_0)  \).
+
+\begin{tcolorbox}
+\begin{thm}
+    Let \( (f_n)  \) be a sequence of differentiable functions defined on the closed interval \( [a,b]  \), and assume \( (f'_n)  \) converges uniformly on \( [a,b]  \). If there exists a point \( x_0 \in [a,b]  \) where \( f_n(x_0)  \) is convergent, then \( (f_n)  \) converges uniformly on \( [a,b]  \).
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    Let \( (f_n)  \) be a sequence of differentiable functions defined on the closed interval \( [a,b]  \), and assume \( (f'_n) \) converges uniformly on \( [a,b]  \). Furthermore, assume that there exists a point \( x_0 \in [a,b] \) where \( f_n(x_0)  \) is convergent. Since \( (f'_n)  \) converges uniformly on \( [a,b] \), let \( \epsilon = 1  \) such that  there exists \( N \in \N \) such that for any \( m,n \geq N \) and \( x \in [a,b]  \), we have that 
+    \[  | f_n'(x) - f_m'(x)   | < \epsilon. \tag{1}\] Since \( f_n  \) is differentiable on \( [a,b]  \), we can use the Mean Value Theorem to state that there exists an \( \alpha \in (x_0, x)   \) such that 
+    \[  f'_n(\alpha) = \frac{ f_n(x) - f_n(x_0)  }{ x - x_0  }  \]
+    and 
+    \[  f'_m(\alpha) = \frac{ f_m(x) - f_m(x_0)  }{ x - x_0 }. \]
+   Using the fact that \( (f'_n)  \) converges uniformly, we know that 
+   \[ | f_n'(\alpha) - f_m'(\alpha) | < 1. \] This implies that
+   \[  \Big| \frac{ f_n(x) - f_n(x_0)  }{ x - x_0  } - \frac{ f_m(x) - f_m(x_0) }{ x - x_0 }  \Big| < 1. \] This implies that 
+   \[  | f_n(x) - f_n(x_0) - (f_m(x) - f_m(x_0) ) | < | x - x_0  |  \]
+   for which we can assume \( 0 < | x -x_0 | < \delta  \) since \( f_n  \) is differentiable. Using the reverse triangle inequality, we can take the left side of the above inequality and state that
+   \[   | f_n(x) - f_m(x)  |  - | f_m(x_0) - f_n(x_0) | \leq | f_n(x) - f_m(x) - (f_m(x_0) - f_n(x_0) ) | < | x - x_0  |  \]
+   which manipulating even further implies 
+   \begin{align*}  | f_n(x) - f_m(x)  | &\leq | f_n(x) - f_m(x) - (f_m(x_0) - f_n(x_0) ) |  \\
+       &+ | f_m(x_0) - f_n(x_0)  | \\
+       &< | x - x_0 | + | f_m(x_0) - f_n(x_0) |  \tag{2}. 
+   \end{align*}
+   Using the triangle inequality of the left side of (2), using the fact that \( f_n(x_0) \to f(x_0)  \) and setting \( \delta = \epsilon / 3  \), we can say that for some \( N \in \N  \) where, we have that for any \( m,n \geq N  \) 
+   \begin{align*}  | f_n(x) - f_m(x)  | &\leq | f_n(x) - f_m(x) - (f_m(x_0) - f_n(x_0) ) |  \\
+       &+ | f_m(x_0) - f_n(x_0)  | \\
+       &< | x - x_0 | + | f_m(x_0) - f_n(x_0) |  \\ 
+       &= | x -x_0  | + | f_m(x_0) - f(x_0)  | + | f(x_0) - f_n(x_0) | \\
+       &< \frac{ \epsilon  }{ 3 } + \frac{ \epsilon  }{ 3 } + \frac{ \epsilon  }{ 3  } = \epsilon.
+   \end{align*}
+   Hence, this means that \( (f_n)  \) is uniformly convergent.
+\end{proof}
+
+Now we have a stronger version of the first theorem of this section.
+
+\begin{tcolorbox}
+\begin{thm}
+    Let \( (f_n)  \) be a sequence of differentiable functions defined on the closed interval \( [a,b]  \), and assume \( (f'_n)  \) converges uniformly to a function \( g  \) on \( [a,b]  \). If there exists a point \( x_0 \in [a,b]  \) for which \( f_n(x_0)  \) is convergent, then \( (f_n)  \) converges uniformly. Moreover, the limit function \( f = \lim f_n  \) is differentiable and satisfies \( f' = g  \).
+\end{thm}
+\end{tcolorbox}
+
+\subsection{Exercises}
+
+\subsubsection{Exercise 6.3.1} Consider the sequence of functions defined by
+\[  g_n(x) = \frac{ x^n  }{ n  }. \]
+\begin{enumerate}
+    \item[(a)] Show \( (g_n)  \) converges uniformly on \( [0,1]  \) and find \( g = \lim g_n  \). Show that \( g  \) is differentiable and compute \( g'(x)  \) for all \( x \in [0,1]  \).
+        \begin{proof}[Solution]
+            First, we show that \( (g_n)  \) converges uniformly on \( [0,1] \). We observe that since \( (g_n)  \) is defined on \( [0,1]  \), we know that we must have
+            \[  \frac{ x^n  }{ n  } \leq \frac{ 1 }{ n }. \tag{1} \]
+            Let \( \epsilon > 0  \). Choose \( N = \frac{ 1 }{ \epsilon  }  \) such that for any \( n \geq N  \) and \( x \in [0,1] \), we have that 
+            \[ n > \frac{ 1 }{ \epsilon  } \iff \frac{ 1 }{ n } < \epsilon. \]
+            We know by (1) that the above will become
+            \[   \Big| \frac{ x^n }{ n } - 0  \Big|   = \frac{ x^n  }{ n } \leq \frac{ 1 }{ n } < \epsilon.  \]
+            Since \( x  \) and \( n \in \N  \) were arbitrary, we know that \( (g_n)  \) must converge uniformly and that 
+            \[  \lim g_n(x) = 0. \]
+           
+        Now we want to show that \( g  \) is a differentiable function. Let \( \epsilon > 0  \). Choose \( \delta > 0  \) such that whenever \( 0 < | x - c  | < \delta \), we have that 
+        \begin{align*}
+            \Big| \frac{ g(x) - g(c)  }{ x -c  } - 0  \Big| &= 0 < \epsilon. \\
+        \end{align*}
+        Hence, \( g  \) is differentiable and that \( g'(x) = 0  \) for all \( x \in [0,1] \).
+        \end{proof}
+    \item[(b)] Now, show that \( (g'_n) \) converges on \( [0,1]  \). Is the convergence uniform? Set \( h = \lim g'_n  \) and compare \( h  \) and \( g'  \). Are they the same?
+        \begin{proof}[Solution]
+            We want to show that \( (g'_n) \) converges on \( [0,1] \). Computing the derivative of \( (g'_n) \) leads to the following
+            \[  g'_n(x) = x^{n-1}. \]
+            Let \( x \in [0,1] \). If \( x = 1  \), then \( g'_n \to 1  \). If \( 0 \leq x < 1  \), then \( g'_n \to 0  \). Putting everything together, our limit function \( g'(x)  \) can be written as 
+            \[ g'(x) = 
+            \begin{cases}
+                0 &\text{ if } 0 \leq x < 1 \\
+                1 &\text{ if } x = 1.
+            \end{cases}  \]
+            Since our convergence of \( g'_n(x)  \) depends on our choice of \( x  \) in \( [0,1] \), we must have that \( g_n(x)  \) does not converge uniformly.
+            This means that setting \( h = \lim g_n  \) will produce \( h \neq g' \).
+        \end{proof}
+
+\end{enumerate}
+
+\subsubsection{Exercise 6.3.2} Consider the sequence of functions 
+\[  h_n(x) = \sqrt{ x^2 + \frac{ 1 }{ n }  }. \]
+\begin{enumerate}
+    \item[(a)] Compute the pointwise limit of \( (h_n)  \) and then prove that the convergence is uniform on \( \R  \). 
+        \begin{proof}[Solution]
+        First, define \( f_n(x) = x^2 + \frac{ 1 }{ n }  \) and observe that \( \lim f_n(x) = x^2 \). Since \( h_n(x) = \sqrt{ f_n(x)  }  \), we can compute the pointwise limit of \( h_n(x)  \) as 
+        \begin{align*}
+            \lim h_n(x) &= \lim \sqrt{ f_n(x)  }   \\
+                        &= \sqrt{ x^2  } \\
+                        &= | x  |.
+        \end{align*}
+        Now we want to show that this convergence is uniform. Our goal is to show that \( (h_n)  \) is a Cauchy sequence. Let \( x \in \R  \) arbitrary and \( \epsilon > 0  \). Since \( h_n(x) \to h(x)  \) pointwise where \( h(x) = | x  |    \), choose \( N \in \N  \) such that for any \( m,n \geq N  \), we have that 
+        \begin{align*}
+            | h_n(x) - h_m(x) | &= | h_n(x) - h(x) + h(x) - h_m(x) |  \\
+                                &\leq | h_n(x) - h(x)  | + | h(x) - h_m(x) | \\
+                                &< \frac{ \epsilon  }{ 2 } + \frac{ \epsilon  }{ 2 } = \epsilon. \\
+        \end{align*}
+        Since \( (h_n)  \) is a Cauchy sequence of functions, we must have \( (h_n) \to h  \) uniformly by the Cauchy Criterion.
+        \end{proof}
+    \item[(b)] Note that each \( h_n  \) is differentiable. Show \( g(x) = \lim h'_n(x)  \) exists for all \( x  \), and explain how we can be certain that the convergence is \textit{not} uniform on any neighborhood of zero.
+        \begin{proof}[Solution]
+        Our goal is to show that \( g(x) = \lim h_n'(x)  \) exists. Assume each \( h_n  \) is differentiable. First, we compute \( h_n'  \). Let \( x \in \R  \) be arbitrary. By the Chain Rule, we have
+        \[  h_n'(x) = \frac{ x }{ \sqrt{ x^2 + 1/n }  }. \tag{1}  \]
+        Since \( \lim h_n(x) = | x |   \) pointwise, taking the limit of (1) produces
+        \begin{align*}
+           \lim h_n'(x) &= \lim \frac{ x }{ \sqrt{ x^2 + 1/n }  }  \\
+                        &= \frac{ x }{ | x |  }.
+        \end{align*}
+        We are certain that the convergence of \( h_n'(x)  \) is not uniform because \( g(x) = x / | x  |  \) is defined as 
+        \[  g(x) = 
+        \begin{cases}
+            1 &\text{ if } x > 0 \\
+            -1 &\text{ if } x < 0 
+        \end{cases} \]
+        which means that the convergence of \( h_n'(x)  \) is depend on our choice of \( x \in \R   \).
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 6.3.3} Consider the sequence of functions
+\[  f_n(x) = \frac{ x }{ 1 + nx^2  }. \]
+\begin{enumerate}
+    \item[(a)] Find the points on \( \R  \) where each \( f_n(x)  \) attains its maximum and minimum value. Use this to prove \( (f_n)  \) converges uniformly on \( \R  \). What is the limit function? 
+        \begin{proof}[Solution]
+        To find the points on \( \R  \) where each \( f_n(x)  \) attains its maximum and minimum, we use the Interior Extremum Theorem to find \( x \in \R  \) such that \( f'_n(x) = 0   \). Computing the derivative of \( f_n(x)  \), we use a combination of the chain rule and product rule to get
+        \[  f'_n(x) = \frac{ 1 - nx^2  }{ (1 +nx)^2 }.  \]
+        Setting \( f'_n(x) = 0  \), we find that 
+        \[  1 - nx^2 = 0 \iff x = \pm \frac{ 1 }{ \sqrt{ n }  }  \]
+        for any \( n \in \N  \). Denote these points on \( \R  \) where \( \alpha = 1 / \sqrt{ n }  \) and \( \beta = -  1 / \sqrt{ n }  \). We find that \( f_n(x)  \) attains its maximum when \( \alpha = 1 / \sqrt{ n  }  \) and minimum when \( \beta = \pm 1 / \sqrt{ n }  \). Furthermore, we have 
+        \[  f_n(\alpha) =  \frac{ 1 }{ 2 \sqrt{ n }  }    \]
+        and 
+        \[  f_n(\beta) = \frac{ 1 }{ 2 \sqrt{ n }  }.  \]
+
+        To show that \( (f_n)  \) converges uniformly on \( \R  \), it is enough to show that \( (f_n)  \) satisfies the Cauchy Criterion. First, we observe that the sequence \( \alpha_n = \frac{ 1 }{ \sqrt{2n }  }  \) is a Cauchy sequence. Hence, choose \( N \in \N  \) such that for any \( n,m \geq N  \), we have that 
+        \begin{align*}
+            | f_n(x) - f_m(x)  | &= \Big| \frac{ x }{ 1 + nx^2  } - \frac{ x  }{  1 + mx^2  }  \Big|   \\
+                                 &\leq \frac{ 1 }{ 2 } \Big|  \frac{ 1 }{ \sqrt{ n }  } - \frac{ 1 }{ \sqrt{ m }  }  \Big| \\
+                                 &< \frac{ 1 }{ 2 } \cdot 2 \epsilon = \epsilon. 
+        \end{align*}
+        Since \( (f_n)  \) satisfies the Cauchy Criterion, we must have a uniform convergence of \( (f_n)  \) to \( f  \). Letting \(  n \to \infty   \), we get that the limit function \( f  \) is just \( f = 0  \).
+        \end{proof}
+    \item[(b)] Let \( f = \lim f_n  \). Compute \( f_n'(x)  \) and find all the values of \( x  \) for which \( f'(x) = \lim f_n'(x)  \).
+\end{enumerate}
+
+
+
+
+
+
+
