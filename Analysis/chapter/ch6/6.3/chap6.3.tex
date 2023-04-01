@@ -242,18 +242,63 @@ and set \( g(x) = \lim g_n(x)  \). Show that \( g  \) is differentiable in two w
         \end{align*}
         which holds for all \( n \in \N  \).
 
-        To show that \( (g_n') \) converges uniformly on every interval \( [-M, M ] \), we need to show that \( (g_n')  \) satisfies the Cauchy Criterion. Let \( \epsilon > 0  \). Choose \( N \in \N  \) such that for any \( n,m \geq N  \) and for any \( x \in [-M,M] \), we have 
+        To show that \( (g_n') \) converges uniformly on every interval \( [-M, M ] \), we need to show that \( (g_n')  \) satisfies the Cauchy Criterion. Let \( \epsilon > 0  \). Choose \( N = 1 / \epsilon    \) such that for any \( n \geq N  \) and for any \( x \in [-M,M] \), we have 
         \begin{align*}
-           | g_n'(x) - g_m'(x)  |  &= \Big| \frac{ 1 }{ 2 } + \frac{ x }{ n } - \Big( \frac{ 1 }{ 2 } + \frac{ x }{ m }  \Big) \Big|  \\
-                                   &= \Big| \frac{ x }{ n } - \frac{ x }{ m }  \Big| \\ 
-                                   &\leq M \Big| \frac{ 1  }{ n  } - \frac{ 1  }{ m }  \Big| \\
-                                   &< M \cdot \frac{ \epsilon  }{ M  } = \epsilon.
+            | g_n'(x) - g'(x)  | &= \Big| \frac{ 1 }{ 2 } + \frac{ x }{ n } - \frac{ 1 }{ 2 }  \Big| \\
+                                 &= \Big| \frac{ x }{ n }  \Big| \\
+                                 &\leq \frac{ M  }{ n } \\
+                                 &< M \cdot \frac{ \epsilon  }{ M } = \epsilon.
         \end{align*}
-        Hence, we have 
-        \[  | g_n'(x) - g_m'(x)  | < \epsilon \]
-        which means \( (g'_n)  \) satisfies the Cauchy criterion. Hence, \( (g_n') \to g' \) uniformly.
+        Since our choice of \( N  \) only depends on \( \epsilon  \), we know that \( (g_n') \to g' \) uniformly.
+        \end{proof}
+    \item[(c)] Repeat parts (a) and (b) for the sequence \( f_n(x) = (nx^2+1) / (2n+x) \).
+        \begin{proof}[Solution]
+        First, we compute \( f(x)  \) by taking the limit as \( n \to \infty  \) of \( f_n(x) \). Observe that
+        \begin{align*}
+            \lim_{ n \to \infty  } \frac{ nx^2+1 }{ 2n+x } &= \frac{ x^2 }{ 2 }.  \\
+        \end{align*}
+        Then we compute \( f'(x) \) so we have 
+        \[  f'(x) = x. \]
+        Another way to compute the derivative of \( f(x)  \) is by differentiating \( f_n(x)  \) for each \( n \in \N  \) and then showing that the differentiated sequence of functions is uniformly convergent. By differentiating \( f_n(x)  \) using the product rule and chain rule, we get
+        \begin{align*} 
+            f'_n(x) &= \frac{ 2nx }{ 2n + x  } - \frac{ nx^2 + 1  }{ (2n + x)^2 }  \\
+                    &= \frac{ 2nx(2n+x) - (nx^2+1) }{ (2n+x)^2 } \\ 
+                    &= \frac{  4n^2x + nx^2 + 1  }{ 4n^2 + 4nx + x^2}.
+        \end{align*}
+        Now we want to show that \( f_n'(x)  \) actually converges to its limit uniformly so that we shall show that 
+        \[  \lim_{ n \to \infty  } f_n'(x) = f'(x). \]
+        Let \( \epsilon > 0  \). Choose \( N \in \N  \) such that for any \( n \geq N  \), we have that 
+        \begin{align*}
+            | f'_n(x) - f'(x)| &=  \Big| \frac{ 4n^2x + nx^2 + 1  }{ (2n+x)^2 } - x   \Big|  \\
+                               &= \Big| \frac{ 1 - 3nx^2 - x^3  }{ (2n+x)^2 }  \Big| \\
+                               &= \frac{ 3nx^2 + x^3 - 1  }{ 4n^2 + 4nx + x^2 } \\
+                                &\leq \Big| \frac{ 1 - 3nM^2 - M^3  }{ 4n^2 + 4nM + M^2 }  \Big| \\ 
+                                &< \epsilon.
+        \end{align*}
+        The first inequality holds because \( f_n'(x)  \) is defined on the closed interval \( [-M, M ] \) and the second inequality holds because 
+        \[  \frac{ 1 - 3nM^2 - M^3   }{  4n^2 + 4nM + M^2  } \to 0.\]
+        Since this convergence of \( f_n'(x) \to f'(x)  \) does not depend on \( x  \in [-M, M ] \), we know that the \( f_n' \to f  \) uniformly. Hence, we know that 
+        \[  \lim_{ n \to \infty  } f'_n(x) = f'(x) \]
+        by Theorem 6.3.3.
         \end{proof}
 \end{enumerate}
 
+\subsubsection{Exercise 6.3.6} Provide an example or explain why the request is impossible. Let's take the domain of the functions to be all of \( \R  \).
 
+\begin{enumerate}
+    \item[(a)] A sequence \( (f_n)  \) of differentiable functions such that \( (f_n') \) converges uniformly but the original sequence \( (f_n)  \) does not converge for any \( x \in \R  \).
+        \begin{proof}[Solution]
+        
+        \end{proof}
+    \item[(b)] A sequence \( (f_n) \) of differentiable functions such that both \( (f_n)  \) and \( (f_n') \) converge uniformly but \( f = \lim f_n \) is not differentiable at some point.
+        \begin{proof}[Solution]
+        
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 6.3.7} Use the Mean Value Theorem to supply a proof for Theorem 6.3.2. To get started, observe that the triangle inequality implies that for any \( x \in [a,b]  \) and \( m,n \in \N  \),
+\[ | f_n(x) - f_m(x)  |  \leq | (f_n(x) - f_m(x) - (f_n(x_0) - f_m(x_0)  | + | f_n(x_0) -f_m(x_0) |. \]
+\begin{proof}
+Proof is right under Theorem 6.3.2.
+\end{proof}
 
