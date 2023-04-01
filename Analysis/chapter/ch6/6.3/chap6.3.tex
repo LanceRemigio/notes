@@ -85,6 +85,29 @@ Now we have a stronger version of the first theorem of this section.
 \end{thm}
 \end{tcolorbox}
 
+\subsection{Definitions and Theorems}
+
+
+\begin{tcolorbox}
+    \begin{thm}[Differentiable Limit Theorem]
+        Let \( f_n \to f  \) pointwise on the closed interval \( [a,b] \), and assume that each \( f_n  \) differentiable. If \( (f'_n) \) converges uniformly on \( [a,b] \) to a function \( g  \), then the function \( f  \) is differentiable and \( f' = g  \).
+    \end{thm}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+\begin{thm}
+    Let \( (f_n)  \) be a sequence of differentiable functions defined on the closed interval \( [a,b]  \), and assume \( (f'_n)  \) converges uniformly on \( [a,b]  \). If there exists a point \( x_0 \in [a,b]  \) where \( f_n(x_0)  \) is convergent, then \( (f_n)  \) converges uniformly on \( [a,b]  \).
+\end{thm}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+\begin{thm}
+    Let \( (f_n)  \) be a sequence of differentiable functions defined on the closed interval \( [a,b]  \), and assume \( (f'_n)  \) converges uniformly to a function \( g  \) on \( [a,b]  \). If there exists a point \( x_0 \in [a,b]  \) for which \( f_n(x_0)  \) is convergent, then \( (f_n)  \) converges uniformly. Moreover, the limit function \( f = \lim f_n  \) is differentiable and satisfies \( f' = g  \).
+\end{thm}
+\end{tcolorbox}
+
 \subsection{Exercises}
 
 \subsubsection{Exercise 6.3.1} Consider the sequence of functions defined by
@@ -288,11 +311,17 @@ and set \( g(x) = \lim g_n(x)  \). Show that \( g  \) is differentiable in two w
 \begin{enumerate}
     \item[(a)] A sequence \( (f_n)  \) of differentiable functions such that \( (f_n') \) converges uniformly but the original sequence \( (f_n)  \) does not converge for any \( x \in \R  \).
         \begin{proof}[Solution]
-        
+        Let \( f_n(x)  \) be defined by 
+        \[  f_n(x) = 
+        \begin{cases}
+            1 &\text{ if } n \text{~odd~} \\
+            0 &\text{ if } \text{~even~}.
+        \end{cases} \]
+        If we differentiate \( f_n(x)  \) then we just get a sequence of derivatives \( f_n' \) that converges uniformly to \( 0  \). But \( f_n(x)  \) does not converge anywhere.
         \end{proof}
     \item[(b)] A sequence \( (f_n) \) of differentiable functions such that both \( (f_n)  \) and \( (f_n') \) converge uniformly but \( f = \lim f_n \) is not differentiable at some point.
         \begin{proof}[Solution]
-        
+            This is not possible. The differentiability of \( (f_n)   \) for all \( x \in [a,b]  \) is required for \( f_n' \) to converge uniformly.
         \end{proof}
 \end{enumerate}
 
