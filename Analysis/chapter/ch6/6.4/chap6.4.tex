@@ -11,3 +11,66 @@
     \[  f(x) = \sum_{ n=1 }^{ \infty  } f_n(x)  \] always being explicit about the type of convergence involved.
 \end{defn}
 \end{tcolorbox}
+
+Suppose we have a series \( \sum_{ n=1 }^{ \infty  }f_n  \) where the functions \( f_n  \) are continuous. We can guarantee that the partial sums of this series will be continuous as well by using the Algebraic Continuity Theorem. If the each \( f_n  \) is differentiable, then we can use the same reasoning to prove that the partial sums are also differentiable.
+
+\begin{tcolorbox}
+    \begin{thm}[Term-by-term Continuity Theorem]
+    Let \( f_n  \) be continuous functions defined on a set \( A \subseteq \R  \), and assume \( \sum_{ n=1 }^{ \infty  } f_n  \) converges uniformly on \( A  \) to a function \( f  \). Then, \( f  \) is continuous on \( A  \).
+    \end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+Since \( \sum_{ n=1 }^{ \infty  } f_n  \) converges uniformly on \( A  \) to a function \( f  \), the sequence of partial sums 
+\[  s_k = f_1 + f_2 + \dots + f_k \]
+converge uniformly to some function \( s  \) on \( A  \). Furthermore, \( f_n \) being a sequence of continuous functions also implies that \( s_k  \) is continuous. Since \( s_k \to s  \) uniformly and continuous, we must also have that \( s  \) is continuous by the Continuous Limit Theorem. Hence, \( \sum_{ n=1 }^{ \infty  } f_n = f  \) must be continuous.
+\end{proof}
+
+\begin{tcolorbox}
+    \begin{thm}[Term-by-term Differentiability Theorem]
+        Let \( f_n  \) be differentiable functions defined on an interval \( A  \), and assume \( \sum_{ n=1 }^{ \infty  } f_n'(x)  \) converges uniformly to a limit \( g(x) \). If there exists a point \( x_0 \in [a,b]  \) where \( \sum_{ n=1 }^{ \infty  } f_n(x_0)  \) converges, then the series \( \sum_{ n=1 }^{ \infty  } f_n(x)  \) converges uniformly to a differentiable function \( f(x)  \) satisfying \( f'(x)  = g(x)  \) on \( A  \), In other words, 
+        \[  f(x) = \sum_{ n=1 }^{ \infty  } f_n(x) \text{ ~and~ } f'(x) = \sum_{ n=1 }^{ \infty  } f_n'(x).  \] 
+    \end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+Our goal is to use the stronger version of the Differentiable Limit Theorem to state that the partial sums 
+\[  s_k = f_1 + f_2 + \dots + f_k  \]
+of the series \( \sum_{ n=1 }^{ \infty  } f_n(x)  \) converges uniformly. Since \( (f_n)  \) is a sequence of differentiable functions defined on an interval \( A  \), we know that the partial sums 
+\[  s_k' = f_1'  + f_2' + \dots + f_k' \tag{1}\]
+holds by the Algebraic Differentiability Theorem. Since \( \sum_{ n=1 }^{ \infty  } f'(x) \) converges uniformly to \( g(x)  \) on \( A  \), we know that (1) must converge to some function \( \ell(x)  \) on \( A  \). Furthermore, there exists \(  x_0 \in [a,b] \) such that 
+\[  s_k(x_0)  = f_1(x_0) + f_2(x_0) + \dots + f_k(x_0) \] converges to \( s(x_0)  \).
+Since \( s_k' \to \ell \) uniformly and \( s_k(x_0) \to s(x_0)  \) for some \( x_0 \in [a,b]  \), we know that \( s_k  \) must converge uniformly to the function \( s  \) where \( \lim s_k = s  \) by the stronger version of the Differentiable Limit Theorem and that \( s' = \ell  \). By definition, this means that 
+\[  f(x) = \sum_{ n=1 }^{ \infty  } f_n(x) \text{ ~and~ } f'(x) = \sum_{ n=1 }^{ \infty  } f_n'(x) \]
+and \( f'(x) = g(x)  \) on \( A  \).
+\end{proof}
+
+We can characterize the convergence of series of functions \( f_n \) using the Cauchy Criterion.
+
+\begin{tcolorbox}
+    \begin{thm}[Cauchy Criterion for Uniform Convergence of Series]
+    A series \( \sum_{ n=1 }^{ \infty  } f_n  \) converges uniformly on \( A \subseteq \R  \) if and only if for every \( \epsilon > 0  \) there exists an \( N \in \N  \) such that 
+    \[  | f_{m+1}(x) + f_{m+2} + f_{m+3} + \dots + f_n(x)  | < \epsilon \]
+    whenever \( n > m \geq N  \) and \( x \in A  \).
+    \end{thm}
+\end{tcolorbox}
+
+Uniform convergence allows us to develop a tool to determine when a series converges uniformly.
+
+\begin{tcolorbox}
+    \begin{cor}[Weierstrass M-Test]
+    For each \( n \in \N  \), let \( f_n  \) be a function defined on a set \( A \subseteq \R  \), and let \( M_n > 0  \) be a real number satisfying
+    \[  | f_n(x)  | \leq M_n \] for all \( x \in A  \). If \( \sum_{ n=1 }^{ \infty  } M_n  \) converges, then \( \sum_{ n=1 }^{ \infty  } f_n  \) converges uniformly on \( A  \).
+    \end{cor}
+\end{tcolorbox}
+
+\begin{proof}
+Exercise 6.4.1.
+\end{proof}
+
+\subsection{Exercises}
+
+
+
+
+
