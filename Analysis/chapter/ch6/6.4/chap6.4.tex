@@ -70,6 +70,165 @@ Exercise 6.4.1.
 
 \subsection{Exercises}
 
+\subsubsection{Exercise 6.4.1} Supply the details for the proof of the Weierstrass M-test (Corollary 6.4.5).
+
+This proof will use the Comparison Test and Absolute Convergence to show that \( \sum_{ n=1 }^{ \infty  } f_n  \) converges uniformly.
+\begin{proof}
+Let \( n \in \N  \) be arbitrary such that \( f_n  \) is defined on a set \( A \subseteq \R  \) and let \( M_n > 0  \) be a real number such that 
+\[  | f_n(x)  |  \leq M_n \]
+for all \( x \in A  \). Let \( x \in A  \) be arbitrary. Suppose \( \sum_{ n=1 }^{ \infty  } M_n  \) converges. Our goal is to use to Comparison Test to show that the series 
+\[  \sum_{ n=1 }^{ \infty  } f_n  \] converges absolutely. Since \( | f_n(x)  |  \leq M_n  \) and \( M_n > 0  \), we know that
+\[  \sum_{ n=1 }^{ \infty  } | f_n(x)  | \leq \sum_{ n=1 }^{ \infty  } M_n. \tag{1}\]
+But \( \sum_{ n=1 }^{ \infty  } M_n  \) converges. Thus, we know that the left side of (1) must also converge via the Comparison Test. This means that the series 
+\[  \sum_{ n=1 }^{ \infty  } f_n(x)  \] converges. Since \( x \in A  \) is arbitrary, the series above must converge uniformly on \( A  \).
+\end{proof}
+
+This proof uses the Cauchy Criterion to prove that the series converges uniformly.
+
+\begin{proof}
+Let \( M_n > 0  \) be a real number satisfying \( | f_n(x)  | \leq M_n  \) for all \( x \in A  \).Let \( \epsilon > 0 \). Our goal is to use the Cauchy Criterion for Uniform Convergence of Series to prove that \( \sum_{ n=1 }^{ \infty  } f_n  \) converges uniformly. Suppose \( \sum_{ n=1 }^{ \infty  } M_n  \) converges, then for some \( N \in \N  \), we have for any \( n > m \geq N  \) implies 
+\[ \Big| \sum_{ k=m+1 }^{ n } M_k \Big| < \epsilon.   \]
+Since \( M_n > 0  \), this result can be restated as follows
+\[  \sum_{ k=m+1 }^{ n } M_k < \epsilon. \]
+By letting \( n > m \geq N  \) and \( x \in A  \) arbitrary as before, we can use the triangle inequality to state that 
+\begin{align*}
+    \Big| \sum_{ k=m+1 }^{ n } f_k(x)  \Big| &\leq \sum_{ k=m+1 }^{ n }| f_k(x)  |  \\
+                                             &\leq  \sum_{ k=m+1 }^{ n } M_k \\
+                                             &< \epsilon.
+\end{align*}
+By the Cauchy Criterion for Uniform Convergence, we know that \( \sum_{ n=1 }^{ \infty  } f_m(x)  \) must converge uniformly on \( A  \),
+\end{proof}
+
+\subsubsection{Exercise 6.4.2} Decide whether each proposition is true or false, providing a short justification or counterexample as appropriate.  
+
+\begin{enumerate}
+    \item[(a)] If \( \sum_{ n=1 }^{ \infty  } g_n  \) converges uniformly, then \( (g_n)  \) converges uniformly to zero.
+        \begin{proof}[Solution]
+         Since \( \sum_{ n=1 }^{ \infty  } g_n  \) converges uniformly, we know that 
+        \[  \lim_{ n \to \infty  } \sum_{ k=1 }^{ n } g_k(x)  \]
+        converges uniformly. If we consider the case when \( n = m - 1  \), then we have that 
+        \[  \lim_{ n \to \infty  } \sum_{ k=1 }^{ n } g_k(x) = \lim_{ n \to \infty  } \Big( g_n(x) + \sum_{ k=1 }^{ n - 1  } g_n(x)  \Big)  \tag{1}. \]
+        Furthermore, (1) implies that 
+        \[  \lim_{ n \to \infty  }  \sum_{ k=1 }^{  n } g_k(x) = \lim_{ n \to \infty  }  g_n(x) + \lim_{ n \to \infty  } \sum_{ k=1 }^{ n-1 } g_n(x). \tag{2} \]
+        Since the sequence of partial sums for \( \sum_{ n=1 }^{ \infty  } g_n(x)  \), we know that subtracting the second term on the right side of (2) results in 
+        \[  \lim_{ n \to \infty  }  g_n(x) = 0. \]
+        Hence, \( g_n \to 0  \).
+        \end{proof}
+        
+    \item[(b)] If \( 0 \leq f_n(x) \leq g_n(x)  \) and \( \sum_{ n=1 }^{ \infty  } g_n  \) converges uniformly, then \( \sum_{ n=1 }^{ \infty  } f_n  \) converges uniformly.
+        \begin{proof}
+        Let \( x \in A  \) be arbitrary. Since \( 0 \leq f_n(x) \leq g_n(x)  \) and \( \sum_{ n=1 }^{ \infty  } g_n  \) satisfies the Cauchy Criterion for uniform convergence, we know that for any \( n > m \geq N  \) and \( x \in A  \), we have that
+        \begin{align*}
+            \Big| \sum_{ k=m+1 }^{ n } f_n(x)  \Big|  &\leq \Big| \sum_{ k=m+1 }^{ n } g_n(x) \Big| \\ 
+                                                      &< \epsilon.
+        \end{align*}
+        Hence, \( \sum_{ n=1 }^{ \infty  } f_n(x)  \) converges uniformly.
+        \end{proof}
+    \item[(c)] If \( \sum_{ n=1 }^{ \infty  } f_n(x)  \) converges uniformly on \( A  \), then there exists constants \( M_n  \) such that \( | f_n(x)  | \leq M_n  \) for all \( x \in  A \) and \( \sum_{ n=1 }^{ \infty  } M_n  \) converges.
+        \begin{proof}[Solution]
+        Suppose our series is defined by 
+        \[  \sum_{ n=1 }^{ \infty  } \frac{ (-1)^{n+1}  }{  n } \tag{1}\]
+        where \( f_n(x) = (-1)^{n+1} / n  \). We can see by the Alternating Series test that (1) converges uniformly. But note that \( | f_n(x)  | \leq 1 / n = M_n   \) which produces the harmonic series 
+        \[  \sum_{ n=1 }^{ \infty  } \frac{ 1 }{ n }  \]
+        which diverges.
+        
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 6.4.3} 
+\begin{enumerate}
+    \item[(a)] Show that 
+        \[  g(x) = \sum_{ n=0 }^{ \infty  } \frac{ \cos(2^n x) }{ 2^n }  \]
+        is continuous on all of \( \R  \).
+        \begin{proof}
+            Our goal is to use the Term-by-term Continuity Theorem to show that \( g  \) is continuous on \( \R  \); that is, we want to show that \( g_n  \) is continuous and \( \sum_{ n=0 }^{ \infty  }  g_n  \) converges uniformly. Since \( \cos(x)  \) is a continuous function, we know that for each \( n \in \N  \), \( g_n  \) must be a sequence of continuous functions. All that is left is to show that \( \sum_{ n=0 }^{ \infty  } g_n(x)  \) converges uniformly. We shall do this by using the Weierstrass M-test. Since \( | \cos(2^n x ) | \leq 1  \) for all \( x \in \R  \), we know that \[  \sum_{ n=0 }^{ \infty  } \Big| \frac{ \cos(2^n x ) }{  2^n  }  \Big|  \leq \sum_{ n=0  }^{ \infty  } \Big( \frac{ 1 }{ 2 }  \Big)^n \tag{1}.  \]
+            Since the right side of (1) is a geometric series that converges, we know that the series \( \sum_{ n=0 }^{ \infty  } g_n(x)  \) must converge uniformly to \( g(x)  \). Hence, \( g(x) \) is continuous on all of \( \R  \).
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 6.4.4} Define 
+\[  g(x) = \sum_{ n=0  }^{ \infty  } \frac{ x^{2n} }{ (1+x^{2n}) }. \]
+Find the values of \( x  \) where the series converges and show that we get a continuous function on this set.
+\begin{proof}
+We claim that the series 
+\[  \sum_{ n=0  }^{ \infty  } \frac{ x^{2n} }{  (1 + x^{2n})  } \]
+converges whenever \( x \in [-1,1]  \) and that \( g  \) is continuous on this set. Using the Weierstrass test, we know that 
+\[  \sum_{ n=0 }^{ \infty  } \Big| \frac{ x^{2n}  }{ 1 + x^{2n} }  \Big| \leq \sum_{ n=0  }^{ \infty  } \frac{ 1 }{ 2 } = \frac{ 1 }{ 2 } n \tag{1}.  \]
+Since the right side of (1) converges, we know that the left side of (1) also converges. Hence, 
+\[  \sum_{ n=0 }^{ \infty  } \frac{ x^{2n}  }{ 1 + x^{2n}  }. \]
+If we look at the partial sums of this series, we will see that due to the Algebraic Continuity Theorem and the fact that \( x^{2n}  \) and \( x^{2n} + 1  \) are polynomials, we can see that for each \(  n \in \N  \), the sequence of functions
+\[  g_n(x) = \frac{ x^{2n}  }{ x^{2n} + 1  }  \] is continuous. Since \( g_n  \) is continuous for each \( n \in \N  \) and \(  \sum_{ n=0  }^{  \infty  } g_n(x)  \) converges uniformly to \( g(x ) \), we know that \( g  \) must be a continuous function on \( \R  \) by the Term-by-term continuity theorem.
+\end{proof}
+
+\subsubsection{Exercise 6.4.5} 
+\begin{enumerate}
+    \item[(a)] Prove that 
+        \[  h(x) = \sum_{ n=1 }^{ \infty  } \frac{ x^n  }{ n^2  } = x + \frac{ x^2  }{ 4  } + \frac{ x^3  }{ 9  } + \frac{ x^4  }{ 16 } + \dots\]
+        is continuous on \( [-1,1] \).
+        \begin{proof}
+        Using the Weierstrass M-test, we have that
+        \[  \sum_{ n=1 }^{ \infty  } \Big| \frac{ x^n  }{ n^2  }  \Big|   \leq \sum_{ n=1 }^{ \infty  } \frac{ 1 }{ n^2  } \tag{1}.\]
+        Since the series on the right side of (1) is a P-series, we know that it must converge which means that 
+        \[  \sum_{ n=1 }^{ \infty  } \frac{ x^n  }{ n^2  }   \] must converge. Note the sequence of functions
+        \[  h_n(x) = \frac{ x^n  }{ n^2  }  \] is continuous for each \( n \in \N  \) because for each \( n \in \N  \) \( h_n(x)  \) is just a polynomial which is continuous. Hence, we must have that 
+        \[  h(x) = \sum_{ n=1  }^{ \infty  } \frac{ x^n  }{ n^2  }  \]
+        is continuous on \( [-1,1] \).
+        \end{proof}
+    \item[(b)] The series 
+        \[  f(x) = \sum_{ n=1 }^{ \infty  } \frac{ x^n  }{  n  }  = x + \frac{ x^2  }{ n  }  + \frac{ x^3  }{ 3  }  + \frac{ x^4  }{  4  }  + \dots \]
+        converges for every \( x  \) in the half-open interval \( [-1,1) \) but does not converge when \( x = 1  \). For a fixed \( x_0 \in (-1,1)  \), explain how we can still use the Weierstrass M-test to prove that \( f  \) is continuous at \( x_0  \).
+        \begin{proof}[Solution]
+        
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 6.4.7} Let 
+\[ f(x) = \sum_{ k=1 }^{ \infty  } \frac{ \sin (kx)  }{  k^{3} }.  \]
+\begin{enumerate}
+    \item[(a)] Show that \( f(x)  \) is differentiable and that the derivative \( f'(x)  \) is continuous. 
+        \begin{proof}
+        We will use the term-by-term differentiability theorem to show that 
+        \[  f(x) = \sum_{ k=1 }^{ \infty  } \frac{ \sin(kx) }{ k^3  }  \]
+        is differentiable. We need to show that \( (f_k)  \) is differentiable for every \( k \in \N  \), \( \sum_{ k=1 }^{ \infty  } f'_n(x)  \) converges uniformly to some \( g(x)  \) in \( \R  \), and that for some \( x_0 \in [a,b] \subseteq \R  \) that \( \sum_{ k=1 }^{ \infty  } f_k(x_0)  \) converges to \( f(x_0)  \). 
+
+        Note that for any \(k \in \N  \), we know that \( f_k(x)  \) is differentiable since \( \sin(kx)  \) is a differentiable function for all \( x \in \R  \). Now we compute \( f'_n(x)  \) which results in 
+        \[  f'_n(x) = \frac{ \cos(kx)  }{  k^2  }. \]
+        Since \( | \cos(kx)  |  \leq 1  \), we can state that 
+        \[  \sum_{ k=1 }^{ \infty  } \Big| \frac{ \cos(kx)  }{ k^2  }  \Big|  \leq \sum_{ k=1 }^{ \infty  }  \frac{ 1 }{ k^2  } \tag{1}. \]
+        Since the p-series on the right of (1) converges, we know that 
+        \[ \sum_{ k=1 }^{ \infty  } f'_k(x)  \] 
+        must converge uniformly to some \( g(x)  \) on \( \R  \). By the same reasoning, we can show that \( \sum_{ k=1 }^{ \infty  } f_n(x)  \) converges for all \( x \in \R  \); that is, since \( | \sin(kx)   |  \leq 1  \), we know that
+        \[  \sum_{ k=1 }^{ \infty  } \Big| \frac{ \sin(kx)  }{ k^3  }  \Big|  \leq \sum_{ k=1 }^{ \infty  } \frac{ 1 }{ k^3  }  \]
+        where the p-series on the right converges which implies that \( \sum_{ k=1 }^{ \infty  } f_n(x)  \) converges. By the Term-by-term differentiability theorem, we know that 
+        \[  \sum_{ k=1 }^{ \infty  } \frac{ \sin(kx)  }{ k^3  }   \]
+        must converge uniformly to a differentiable function \( f(x) \). Furthermore, we know that \( f'(x)  \) is continuous since \( f'_n  \) for all \( n \in \N  \) is continuous and 
+        \[  \sum_{ k=1 }^{ \infty  } \frac{ \cos(kx) }{ k^2  }  \]
+        converges uniformly on \( \R  \).
+        \end{proof}
+    \item[(b)] Can we determine if \( f  \) is twice-differentiable?
+        We claim that \( f  \) is not twice-differentiable. If we compute \( f"_n(x)  \) and end up with the series
+        \[  \sum_{ k=1 }^{ \infty  } \frac{ \sin(kx)  }{ k }  \]
+        , then the series above fails the Weierstrass M-test since the constant series 
+        \[ \sum_{ k=1 }^{ \infty  } \frac{ 1 }{ k}  \]
+        diverges (this is a harmonic series). 
+
+\end{enumerate}
+
+\subsubsection{Exercise 6.4.9} Let 
+\[  h(x) = \sum_{ n=1 }^{ \infty  } \frac{ 1 }{ x^2 +n^2  }. \]
+\begin{enumerate}
+    \item[(a)] Show that \( h  \) is a continuous function defined on all of \( \R  \).
+        \begin{proof}
+        Note that \( (h_n)  \) is a sequence of rational functions which are continuous. Our goal is to show that \( \sum_{ n=1 }^{ \infty  } h_n(x)  \) converges uniformly where 
+        \[  h_n(x) = \frac{ 1 }{ x^2 + n^2  }\] differentiable for all \(  n \in \N  \).  Let \( x \in \R  \) be arbitrary. Since \( h_n(x)  \) reaches a maximum at \( x = 0  \), we know that \( h_n(x) \leq 1 / n^2  \). Thus,
+        \[  \sum_{ n=1 }^{ \infty  } \Big| \frac{ 1 }{ x^2 + n^2 } \Big|  \leq \sum_{ n=1 }^{ \infty  } \frac{ 1 }{ n^2  },   \]
+        and the fact that \( \sum_{ n=1 }^{ \infty  } 1 / n^{2} \) is a p-series which converges, we know that \( \sum_{ n=1 }^{ \infty  } h_n(x)   \) must converge uniformly to \( h(x)  \). This means that \( h  \) must be continuous on \( \R  \) by the Term-by-term Continuity Theorem.
+        \end{proof}
+    \item[(b)] Is \( h  \) differentiable? If so, is the derivative function \( h' \) continuous? 
+        \begin{proof}[Solution]
+        
+        \end{proof}
+\end{enumerate}
 
 
 
