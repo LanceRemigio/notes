@@ -214,6 +214,29 @@ If we look at the partial sums of this series, we will see that due to the Algeb
 
 \end{enumerate}
 
+\subsubsection{Exercise 6.4.8} Consider the function 
+\[  f(x) = \sum_{ k=1 }^{  \infty  } \frac{ \sin(x / k) }{ k }.  \]
+Where is \( f  \) defined? Continuous? Differentiable? Twice-differentiable?
+\begin{proof}[Solution]
+The function \( f  \) is defined on every \( x \in \R  \). We first claim that \( f  \) is continuous. We do this by showing that 
+\[  \sum_{ k=1 }^{ \infty  } \frac{ \sin(x/k)  }{ k  }  \] converges uniformly and that each \( f_n  \) is continuous. Since \( | \sin(k/x)  |  \leq | kx  |  \), we know that 
+\[ \sum_{ k=1 }^{ \infty  } \Big| \frac{ \sin(k/x)  }{  k  }   \Big|  \leq \sum_{ k=1 }^{ \infty  } \frac{ | x/k |   }{ k  } \leq \sum_{ k=1 }^{ \infty  } \frac{ 1 }{ k^2 }.    \]
+Since \( \sum_{ k=1 }^{ \infty  } 1 / k^2  \) converges, we know that 
+\[  \sum_{ k=1 }^{ \infty  } f_n(x)  \] must converge uniformly. Since \( \sin(x)  \) is continuous (trig functions are continuous), we know that \( f(x)   \) must be a continuous function. 
+
+We clam that \( f  \) is also differentiable. To do this we show that 
+\[  \sum_{ k=1 }^{ \infty  } f_n(x_0)  \]
+converges to some function \( f(x_0) \) and then show that 
+\[  \sum_{ k=1 }^{ \infty  } \frac{ \cos(x / k ) }{ k^2 }  \] converges uniformly where \( f'_n(x) = \cos(x / k ) / k^2  \). Using the same process to show that \( \sum_{ k=1  }^{  \infty  } f_n \) converges but only for some \( x_0 \in (a,b) \), we know that 
+\[  \sum_{ k=1 }^{ \infty  } f_n(x_0) = f(x_0). \]
+Now to show that \( \sum_{ k=1 }^{ \infty  } f_n'(x)  \) converges uniformly to some \( \ell(x)  \) in \( \R  \), we can see that \( | \cos(x/k)  |  \leq 1  \) such that 
+\[  \sum_{ k=1 }^{ \infty  } \Big| \frac{ \cos(k/x) }{ k^2  }   \Big| \leq \sum_{ k=1 }^{ \infty  } \frac{ 1 }{ k^2  }. \]
+Since the series on the right of the above converges (p-series), we have that 
+\( \sum_{ k=1 }^{ \infty  } f_n'(x)  \) must converge uniformly using the Weierstrass M-test. Since \( (f_n)  \) differentiable and \( \sum_{ k=1 }^{ \infty  } f_n'(x)  \) converges uniformly to some \( \alpha (x)  \) on \( \R  \), we know that \( f(x)  \) must be differentiable. 
+
+We can use the same process above to show that \( f   \) is twice-differentiable.
+\end{proof}
+
 \subsubsection{Exercise 6.4.9} Let 
 \[  h(x) = \sum_{ n=1 }^{ \infty  } \frac{ 1 }{ x^2 +n^2  }. \]
 \begin{enumerate}
@@ -226,6 +249,20 @@ If we look at the partial sums of this series, we will see that due to the Algeb
         \end{proof}
     \item[(b)] Is \( h  \) differentiable? If so, is the derivative function \( h' \) continuous? 
         \begin{proof}[Solution]
+        We claim that \( h  \) is a differentiable function. First we compute \( h_n'(x)  \). Using our differentiation rules, we arrive at
+        \[  h_n'(x) = \frac{ -2x  }{ (x^2 + n^2 )^2 }.  \]
+        Our goal is to show that 
+        \[  \sum_{ n=1 }^{ \infty  } h_n'(x)   \]
+        converges uniformly to some \( \ell(x)  \) in \( \R  \). Since \( h_n(x)  \) is also secondly differentiable, we can use the Interior Extremum Theorem to find the points on \( \R  \) such that \( h"(x) = 0   \) such that \( h'_n(x)  \) is at its maximum. Differentiating \( h_n'(x)  \) again, we arrive arrive at 
+        \[  h_n"(x) = \frac{ 6x^2 - 2n^2  }{ (x^2 + n^2 )^3 }.  \]
+        Setting \( h_n''(x_0) = 0  \) produces the following values where \( h'(x)  \) reaches its extrema:
+        \[  x_0 = \pm \frac{ n }{ \sqrt{ 3 }  }. \] Plugging this point into \( h_n'(x)  \) where
+        \[  h_n'(x_0) = \frac{ 9 }{ 8\sqrt{ 3 }  n^3  }.  \]
+        Hence, we can bound \( h_n'(x)  \) by this value. So we have that 
+        \[ \sum_{ n=1 }^{ \infty  } | h_n"(x) |  \leq \sum_{ n=1 }^{ \infty  } \frac{ 9 }{ 8 \sqrt{ 3 } n^3  }.  \]
+        Since the series on the right side of the above inequality converges, we know that by the  Weierstrass M-test that 
+        \[  \sum_{ n=1 }^{ \infty  } h_n'(x) = \ell(x).  \]
+        Furthermore, since \( \sum_{ n = 1 }^{  \infty } h_n(x)  \) converges uniformly for all \( x \in \R  \), we know that \( h(x)  \) must be twice-differentiable.
         
         \end{proof}
 \end{enumerate}

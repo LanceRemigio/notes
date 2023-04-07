@@ -1,0 +1,66 @@
+
+\section{Power Series}
+
+We can express functions in the form of power series where it takes the form of 
+\[  f(x) = \sum_{ n=0  }^{  \infty  } a_n x^n = a_0 + a_1 x + a_2 x^2 + \dots . \]
+We want to be able to find all possible \( x \in \R \) such that the above series converges. 
+
+\begin{tcolorbox}
+\begin{thm}
+If a power series \( \sum_{ n=0  }^{ \infty  } a_n x^n  \) converges at some point \( x_0 \in \R  \), then it converges absolutely for any \( x  \) satisfying \( | x  |  < | x_0  |  \).
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+Assume the power series \( \sum_{ n=0  }^{ \infty  } a_n x^n  \) converges at some point \( x_0 \in \R  \). Since the sequence of terms \( (a_n x_0^n) \) converges to zero, we know that they must be bounded. Hence, there exists \( M > 0  \) such that \( | a_n x_0^n |  \leq M  \) for all \( n \in \N  \). If \( x \in \R  \) satisfies the property that \( | x  |  < | x_0  |  \), then we have that 
+\[  | a_n x^n  |  = | a_n x_0^n  | \Big| \frac{ x  }{  x_0  }  \Big|^n \leq M \Big| \frac{ x  }{  x_0  }  \Big|^n.\] This tells us that the series 
+\[  \sum_{ n=0  }^{  \infty   } M \Big| \frac{ x  }{  x_0  }  \Big|^n  \] is a geometric series with \( | x / x_0  |  <  1  \) which converges. Hence, we can use the comparison test, to state that the original series \( \sum_{ n = 0  }^{  \infty  } a_n x^n  \) converges absolutely.
+\end{proof}
+
+This theorem tells us a few things:
+\begin{enumerate}
+    \item[(a)] The set of points for which a given power series converges must be either \( \{ 0  \}  \), \( \R  \), or some bounded interval that is centered at \( x = 0  \). 
+    \item[(b)] The strict inequality in the condition tells us that the intervals may come in the following forms; either, \( (-R , R ) \), \( [-R, R ] \), \( (-R, R ] \), or \( [-R , R ] \).
+    \item[(c)] We denote the value \( R  \) in the intervals above as the \textit{radius of convergence} of a power series which can be either \( 0  \) or \( \infty  \) to represent \( \{ 0  \}  \) or \( \R   \) respectively.
+\end{enumerate} 
+
+Below are questions to be answered about the properties of power series:
+\begin{enumerate}
+    \item[(a)] Continuity
+    \item[(b)] Differentiability
+    \item[(c)] Term-by-term differentiability
+    \item[(d)] Behavior of endpoints.
+\end{enumerate}
+\subsection{Establishing Uniform Convergence}
+
+\begin{tcolorbox}
+\begin{thm}
+    If a power series \( \sum_{ n= 0 }^{  \infty   } a_n x^n \) converges absolutely at a point \( x_0  \), then it converges uniformly on the closed interval \( [-c , c ] \), where \( c  = | x_0  |  \).
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    Suppose a power series \( \sum_{ n=0  }^{  \infty   } a_n x^n  \) converges absolutely at a point \( x_0  \). Then the series \(  \sum_{ n=0  }^{  \infty  } | a_n x_0^n |  \) converges. Let \( x \in [-c , c ] \) where \( c = | x_0  |  \). We proceed via the Weierstrass M-test to show that \( \sum_{ n=0  }^{ \infty  } a_n x^n  \) converges uniformly. We observe that 
+    \[  | a_n x^n  |  \leq a_n c^n = a_n | x_0  |^n = a_n | x_0^n | .  \]
+    This tells us that 
+    \[  \sum_{ n=0 }^{  \infty   } | a_n x^n | \leq \sum_{ n=0  }^{ \infty  } a_n | x_0^n  |.   \]
+    Since the right side of the above inequality converges, we know that \( \sum_{ n=0  }^{ \infty  } a_n x^n  \) must converge uniformly on any \( x \in [-c ,c ]  \).
+\end{proof}
+A few remarks about this result:
+\begin{enumerate}
+    \item[(a)] Any \( x \in (-R, R ) \) is contained in the interior of a closed interval \( [-c , c ]  \subseteq (-R ,R )\).
+    \item[(b)] If the interval above was open instead of closed, then the limit of the series above is necessarily continuous on this interval. 
+\end{enumerate}
+
+Some questions we can ask about this result are:
+\begin{enumerate}
+    \item[(a)] Can a power series converge at an endpoint of the interval of convergence? 
+    \item[(b)] Does the behavior of the power series on an open interval necessarily imply that it will be convergent at \( x = R  \)? 
+    \item[(c)] What happens when we \textit{conditionally} convergent power series?
+\end{enumerate}
+
+\subsection{Abel's Theorem}
+
+
+
+
