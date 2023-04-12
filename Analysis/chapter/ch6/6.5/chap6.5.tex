@@ -61,6 +61,42 @@ Some questions we can ask about this result are:
 
 \subsection{Abel's Theorem}
 
+\begin{tcolorbox}
+    \begin{lem}[Abel's Lemma]
+    Let \( b_n  \) satisfy \( b_1 \geq b_2 \geq b_3 \geq \dots \geq 0,  \) and  let \( \sum_{ n=1 }^{ \infty  } a_n  \) be a series for which the partial sums are bounded. In other words, assume there exists \( A > 0  \) such that 
+    \[  | a_1 + a_2 + \dots + a_n  |  \leq A  \] for all \( n \in \N  \). Then, for all \( n \in \N  \), 
+    \[  \Big| \sum_{ n=1 }^{ \infty  } a_n b_n  \Big|  \leq Ab_1. \]
+    \end{lem}
+\end{tcolorbox}
+
+\begin{proof}
+Let \( s_n = \sum_{ k=1 }^{ n  } a_k  \) be a bounded sequence of partial sums for the series 
+\[  \sum_{ n=1  }^{  \infty  } a_n.  \] Hence, there exists some \( A > 0  \) such that \( | x_n  | \leq A  \). Using the Summation-by-parts formula, we have that 
+\begin{align*}
+    \Big| \sum_{ k=1 }^{ n } a_k b_k  \Big| &= \Big| s_n y_{n+1} + \sum_{ k=1 }^{ n } s_k (y_k - y_{k+1}) \Big|  \\
+                                            &\leq | s_n | | y_{n+1} | + \Big| \sum_{ k=1 }^{ n } s_k (y_k - y_{k+1}) \Big| \\
+                                            &\leq Ay_1 + \sum_{ k=1 }^{ n } A (y_k - y_{k+1}) \\
+                                            &= Ay_1 + A(y_1 - y_{n+1}) \\
+                                            &\leq Ay_1.
+\end{align*}
+Hence, for all \( n \in \N  \), we have that 
+\[  \Big| \sum_{ n=1 }^{ \infty  } a_n b_n  \Big|  \leq Ay_1. \]
+\end{proof}
+
+We can use this bound to prove the next theorem about proving convergence at one of the endpoints of an interval.
+
+\begin{tcolorbox}
+    \begin{thm}[Abel's Theorem]
+        Let \( g(x) = \sum_{ n=0  }^{  \infty  } a_n x^n  \) be a power series that converges at the point \( x = R > 0  \). Then the series converges uniformly on the interval \( [0,R] \). A similar result holds if the series converges at \( x = -R  \).
+    \end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+
+\end{proof}
+
+
+
 
 
 

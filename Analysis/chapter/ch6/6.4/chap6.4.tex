@@ -144,20 +144,22 @@ By the Cauchy Criterion for Uniform Convergence, we know that \( \sum_{ n=1 }^{ 
             Our goal is to use the Term-by-term Continuity Theorem to show that \( g  \) is continuous on \( \R  \); that is, we want to show that \( g_n  \) is continuous and \( \sum_{ n=0 }^{ \infty  }  g_n  \) converges uniformly. Since \( \cos(x)  \) is a continuous function, we know that for each \( n \in \N  \), \( g_n  \) must be a sequence of continuous functions. All that is left is to show that \( \sum_{ n=0 }^{ \infty  } g_n(x)  \) converges uniformly. We shall do this by using the Weierstrass M-test. Since \( | \cos(2^n x ) | \leq 1  \) for all \( x \in \R  \), we know that \[  \sum_{ n=0 }^{ \infty  } \Big| \frac{ \cos(2^n x ) }{  2^n  }  \Big|  \leq \sum_{ n=0  }^{ \infty  } \Big( \frac{ 1 }{ 2 }  \Big)^n \tag{1}.  \]
             Since the right side of (1) is a geometric series that converges, we know that the series \( \sum_{ n=0 }^{ \infty  } g_n(x)  \) must converge uniformly to \( g(x)  \). Hence, \( g(x) \) is continuous on all of \( \R  \).
         \end{proof}
+    \item[(b)] The function \( g  \) was cited in Section 5.4 as an example of a nowhere differentiable function. What happens if we try to use Theorem 6.4.3 to explore whether \( g  \) is differentiable?
+    \item[(b)] We can define the series above via the sawtooth function from section 5.4 where 
+        \[  g(x) = \sum_{ n=0 }^{  \infty  } h_n(x) = \sum_{ n=0  }^{  \infty  } 2^n h(2^n x ) \tag{1}.\]
+        If we look at the terms \( h_n(x)  \), we can see that 
+        \[ | h_n(x)  |  \leq \frac{ 1 }{ 2^n  } \tag{2} \] which forms a geometric series on the right side of (2). Hence, we must have (1) converge uniformly via the Weierstrass M-test.
 \end{enumerate}
 
 \subsubsection{Exercise 6.4.4} Define 
 \[  g(x) = \sum_{ n=0  }^{ \infty  } \frac{ x^{2n} }{ (1+x^{2n}) }. \]
 Find the values of \( x  \) where the series converges and show that we get a continuous function on this set.
 \begin{proof}
-We claim that the series 
-\[  \sum_{ n=0  }^{ \infty  } \frac{ x^{2n} }{  (1 + x^{2n})  } \]
-converges whenever \( x \in [-1,1]  \) and that \( g  \) is continuous on this set. Using the Weierstrass test, we know that 
-\[  \sum_{ n=0 }^{ \infty  } \Big| \frac{ x^{2n}  }{ 1 + x^{2n} }  \Big| \leq \sum_{ n=0  }^{ \infty  } \frac{ 1 }{ 2 } = \frac{ 1 }{ 2 } n \tag{1}.  \]
-Since the right side of (1) converges, we know that the left side of (1) also converges. Hence, 
-\[  \sum_{ n=0 }^{ \infty  } \frac{ x^{2n}  }{ 1 + x^{2n}  }. \]
-If we look at the partial sums of this series, we will see that due to the Algebraic Continuity Theorem and the fact that \( x^{2n}  \) and \( x^{2n} + 1  \) are polynomials, we can see that for each \(  n \in \N  \), the sequence of functions
-\[  g_n(x) = \frac{ x^{2n}  }{ x^{2n} + 1  }  \] is continuous. Since \( g_n  \) is continuous for each \( n \in \N  \) and \(  \sum_{ n=0  }^{  \infty  } g_n(x)  \) converges uniformly to \( g(x ) \), we know that \( g  \) must be a continuous function on \( \R  \) by the Term-by-term continuity theorem.
+    Let \( h_n(x) = \frac{ x^{2n} }{ (1 + x^{2n}) }    \) be the terms of the series 
+    \[  \sum_{ n=0  }^{ \infty  } h_n(x).\] When \( | x  |  \geq 1  \), we observe that the terms of \( (h_n)  \) does not converge to \( 0  \) as \(  n \to \infty  \). If \( | x  |  < 1  \), then we have that 
+    \[  | h_n(x)  |  \leq x^{2n}. \]
+    Since \( | x  |  < 1  \), \( x^{2n} \) forms a geometric series that converges. Hence, we must have that the series of \( h_n(x)  \) must be uniformly convergent. Furthermore, for any \( 0 \leq a < 1  \), we will find that the infinite series of \( h_n(x)  \) converges uniformly where 
+    \[  \sum_{ n=0  }^{ \infty  } \frac{ a^{2n} }{  1 + a^{2n} }. \]
 \end{proof}
 
 \subsubsection{Exercise 6.4.5} 
@@ -178,7 +180,9 @@ If we look at the partial sums of this series, we will see that due to the Algeb
         \[  f(x) = \sum_{ n=1 }^{ \infty  } \frac{ x^n  }{  n  }  = x + \frac{ x^2  }{ n  }  + \frac{ x^3  }{ 3  }  + \frac{ x^4  }{  4  }  + \dots \]
         converges for every \( x  \) in the half-open interval \( [-1,1) \) but does not converge when \( x = 1  \). For a fixed \( x_0 \in (-1,1)  \), explain how we can still use the Weierstrass M-test to prove that \( f  \) is continuous at \( x_0  \).
         \begin{proof}[Solution]
-        
+            Fix \( x_0  \), then consider any \( | x_0  |  < 1  \). Using the Weierstrass M-test, we will find that the terms 
+            \[  \Big| \frac{ x_0^n  }{ n }  \Big|   \leq | x_0^2 |^n    \]
+            forms a geometric series for which the right side will converge implying that the series of the left side will converge.
         \end{proof}
 \end{enumerate}
 
