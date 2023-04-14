@@ -79,8 +79,6 @@ Let \( s_n = \sum_{ k=1 }^{ n  } a_k  \) be a bounded sequence of partial sums f
                                             &= Ay_1 + A(y_1 - y_{n+1}) \\
                                             &\leq Ay_1.
 \end{align*}
-Hence, for all \( n \in \N  \), we have that 
-\[  \Big| \sum_{ n=1 }^{ \infty  } a_n b_n  \Big|  \leq Ay_1. \]
 \end{proof}
 
 We can use this bound to prove the next theorem about proving convergence at one of the endpoints of an interval.
@@ -92,11 +90,66 @@ We can use this bound to prove the next theorem about proving convergence at one
 \end{tcolorbox}
 
 \begin{proof}
-
+Let us rewrite \( g(x)  \) into the following form:
+\[  g(x) = \sum_{ n=0  }^{  \infty  } a_n x^n = \sum_{ n=0  }^{ \infty  } (a_n R^n ) \Big( \frac{ x  }{ R  }  \Big)^n. \]
+Let \( \epsilon > 0  \). We can show that the series above converges uniformly by showing that it satisfies the Cauchy Criterion. Since \( \sum_{ n=0  }^{ \infty  } a_n R^n  \) converges where \( R > 0  \), we know that there exists an \( N \in \N  \) such that for any \( n > m \geq N \), we have that
+\[  \Big| \sum_{ k = m+1    }^{ n } a_n R^n  \Big| < \frac{ \epsilon  }{ 2  }. \]
+Using Abel's lemma, we can fix any \( m \in \N  \) and use \( \epsilon / 2  \) as an upper bound. Furthermore, we utilize the fact that \(  (x / R )^{m+j}  \) is a monotone decreasing sequence of functions. Hence, we can write 
+\begin{align*}
+    \Big| \sum_{ k=m+1  }^{ n  } (a_k R^k ) \Big( \frac{ x  }{ R  }  \Big)^k \Big| &\leq \frac{ \epsilon  }{ 2  }  \Big( \frac{ x  }{ R  }  \Big)^{m+1} < \epsilon \\ 
+\end{align*}
+by Abel's Lemma. The same process goes for when \( x = -R  \).
 \end{proof}
 
+\subsection{The Success of Power Series}
 
+We can summarize the two theorems above in the following theorem.
 
+\begin{tcolorbox}
+\begin{thm}
+If a power series converges pointwise on the set \( A \subseteq \R  \), then it converges uniformly on any compact set \( K \subseteq A  \).
+\end{thm}
+\end{tcolorbox}
 
+\begin{proof}
+    A compact set \( K \subseteq A  \) contains both a maximum \( x_1  \) and minimum \( x_0  \). Since \( K \subseteq A  \), we know that \( x_0, x_1 \in A  \). Since \( g(x) = \sum_{ n=0  }^{  \infty  } a_n x^n  \) converges pointwise on \( A  \), we know that the series converges uniformly on \( [x_0, x_1 ] \) and hence also on \( K  \) by Abel's Theorem.
+\end{proof}
+
+We can utilize this fact about a power series converging on a compact set to show that the power series is continuous at every point in the compact set. To show differentiability, however, requires a slightly more complicated set of assumptions. In order to do this, we need to show that 
+\[  \sum_{ n=0  }^{ \infty  } a_n x^n  \] is differentiable, and that we can differentiate each term in the infinite series given we know that 
+\[  \sum_{ n=1  }^{  \infty  } na_n x^{n-1} \] converges uniformly.
+
+\begin{tcolorbox}
+\begin{thm}
+    If \( \sum_{ n=0  }^{  \infty  } a_n x^n  \) converges for all \( x \in (-R , R ) \), then the differentiated series \( \sum_{ n=1  }^{  \infty  } na_n x^{n-1} \) converges at each \( x \in (-R , R ) \) as well. Consequently, the convergence is uniform on compact sets contained in \( (-R , R ) \).
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+Exercise 6.5.5.
+\end{proof}
+
+A couple things to note about this result.
+\begin{enumerate}
+    \item[(i)] It is possible to have a power series converge at \( x =R  \), but its differentiated series to diverge at this point. An example of a power series that satisfies this property is the series 
+        \[  \sum_{ n=1  }^{  \infty  } \frac{ x^n  }{ n } \]
+        at \( x = -1  \). 
+    \item[(ii)] If we happen to have the differentiated series converge at the point \( x = R  \), then we can use Abel's Theorem to imply uniform convergence of the differentiated series on any compact set that contains \( R  \).
+\end{enumerate}
+
+\begin{tcolorbox}
+\begin{thm}
+Assume 
+\[  f(x) = \sum_{ n=0 }^{ \infty  } a_n x^n  \] converges on an interval \( A \subseteq \R  \). The function \( f  \) is continuous on \( A  \) and differentiable on any open interval \( (-R , R ) \subseteq A \). The derivative is given by 
+\[  f'(x) = \sum_{ n=1  }^{  \infty  } n a_n x^{n-1}. \]
+Moreover, \( f  \) is infinitely differentiable on \( (-R ,R ) \), and the successive derivatives can be obtained via term-by-term differentiation of the appropriate series.
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+We can use Theorem 6.5.4 to explain why \( f  \) is continuous. By Theorem 6.5.5, we can use the Term-By-Term Differentiability Theorem to verify the formula \( f' \). Despite not having our differentiated power series diverge at the endpoints of our interval, the radius of convergence is not altered. We can use an induction argument to show that the power series can be differentiated an infinite number of times.
+\end{proof}
+
+\subsection{Exercises}
 
 
