@@ -72,19 +72,6 @@ Exercise 6.4.1.
 
 \subsubsection{Exercise 6.4.1} Supply the details for the proof of the Weierstrass M-test (Corollary 6.4.5).
 
-This proof will use the Comparison Test and Absolute Convergence to show that \( \sum_{ n=1 }^{ \infty  } f_n  \) converges uniformly.
-\begin{proof}
-Let \( n \in \N  \) be arbitrary such that \( f_n  \) is defined on a set \( A \subseteq \R  \) and let \( M_n > 0  \) be a real number such that 
-\[  | f_n(x)  |  \leq M_n \]
-for all \( x \in A  \). Let \( x \in A  \) be arbitrary. Suppose \( \sum_{ n=1 }^{ \infty  } M_n  \) converges. Our goal is to use to Comparison Test to show that the series 
-\[  \sum_{ n=1 }^{ \infty  } f_n  \] converges absolutely. Since \( | f_n(x)  |  \leq M_n  \) and \( M_n > 0  \), we know that
-\[  \sum_{ n=1 }^{ \infty  } | f_n(x)  | \leq \sum_{ n=1 }^{ \infty  } M_n. \tag{1}\]
-But \( \sum_{ n=1 }^{ \infty  } M_n  \) converges. Thus, we know that the left side of (1) must also converge via the Comparison Test. This means that the series 
-\[  \sum_{ n=1 }^{ \infty  } f_n(x)  \] converges. Since \( x \in A  \) is arbitrary, the series above must converge uniformly on \( A  \).
-\end{proof}
-
-This proof uses the Cauchy Criterion to prove that the series converges uniformly.
-
 \begin{proof}
 Let \( M_n > 0  \) be a real number satisfying \( | f_n(x)  | \leq M_n  \) for all \( x \in A  \).Let \( \epsilon > 0 \). Our goal is to use the Cauchy Criterion for Uniform Convergence of Series to prove that \( \sum_{ n=1 }^{ \infty  } f_n  \) converges uniformly. Suppose \( \sum_{ n=1 }^{ \infty  } M_n  \) converges, then for some \( N \in \N  \), we have for any \( n > m \geq N  \) implies 
 \[ \Big| \sum_{ k=m+1 }^{ n } M_k \Big| < \epsilon.   \]
