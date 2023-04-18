@@ -152,4 +152,51 @@ We can use Theorem 6.5.4 to explain why \( f  \) is continuous. By Theorem 6.5.5
 
 \subsection{Exercises}
 
+\subsubsection{Exercise 6.5.1} Consider the function \( g  \) defined by the power series 
+\[  g(x) = x - \frac{ x^2  }{ 2  }  + \frac{ x^3  }{  3  }  - \frac{ x^4  }{ 4  }  + \frac{ x^5  }{  5  }  - \dotsb . \]
+\begin{enumerate}
+    \item[(a)] Is \( g  \) defined on \( (-1,1)?  \) Is it continuous on this set? Is \( g  \) defined on \( (-1,1]  \)? Is it continuous on this set? What happens on \( [-1,1]  \)? Can the power series for \( g(x) \) possibly converge for any other points \( | x  | > 1  \)? Explain.
+        \begin{proof}[Solution]
+        
+        \end{proof}
+    \item[(b)] For what values of \( x \) is \( g'(x)  \) defined? Find a formula for \( g' \).
+        \begin{proof}[Solution]
+        
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 6.5.3} Use the Weierstrass M-test to prove Theorem 6.5.2.
+\begin{proof}
+    Suppose a power series \( \sum_{ n=0  }^{  \infty   } a_n x^n  \) converges absolutely at a point \( x_0  \). Then the series \(  \sum_{ n=0  }^{  \infty  } | a_n x_0^n |  \) converges. Let \( x \in [-c , c ] \) where \( c = | x_0  |  \). We proceed via the Weierstrass M-test to show that \( \sum_{ n=0  }^{ \infty  } a_n x^n  \) converges uniformly. We observe that 
+    \[  | a_n x^n  |  \leq a_n c^n = a_n | x_0  |^n = a_n | x_0^n | .  \]
+    This tells us that 
+    \[  \sum_{ n=0 }^{  \infty   } | a_n x^n | \leq \sum_{ n=0  }^{ \infty  } a_n | x_0^n  |.   \]
+    Since the right side of the above inequality converges, we know that \( \sum_{ n=0  }^{ \infty  } a_n x^n  \) must converge uniformly on any \( x \in [-c ,c ]  \).
+\end{proof}
+
+
+
+\subsubsection{Exercise 6.5.3 (Term-by-term Antidifferentiation).} Assume \( f(x) = \sum_{ n=0  }^{  \infty  } a_n x^n  \) converges on \( (-R,R ) \). 
+\begin{enumerate}
+    \item[(a)] Show 
+        \[  F(x) = \sum_{ n=0  }^{ \infty  } \frac{ a_n  }{  n + 1 } x^{n+1} \]
+        is defined on \( (-R,R ) \), find a power series representation for \( g  \).
+        \begin{proof}
+            First we show that \( F(x)  \) converges uniformly on \( (-R,R ) \). Let \( \epsilon > 0   \). Choose \( N \in \N  \) such that for any \(  n > m \geq N  \), we have that 
+            \begin{align*}
+                \Big| \sum_{ k = m +1  }^{  n } \frac{ a_k  }{  k +1  } x^{k+1} \Big| &= \Big| \sum_{ k= m+1  }^{ n } (a_k x^k) \Big( \frac{ x }{ k+1  }  \Big) \Big|  \\
+                                                                                      &\leq \frac{ \epsilon (m+2) }{  R  } \Big( \frac{ x }{ m+2  }  \Big) \\
+                                                                                      &< \epsilon \tag{\( x < R  \)}.
+            \end{align*}
+            Since the power series \( \sum_{ n=0  }^{ \infty  } \frac{ a_n  }{ n + 1  }  x^{n+1}  \) converges on \( (-R,R ) \), we know that \( F(x)  \) must be continuous on \( (-R ,R ) \) and differentiable by Theorem 6.5.6. Hence, we can differentiate according to the formula in Theorem 6.5.6 to write that \[  F'(x) = \sum_{ n=0  }^{ \infty  } a_n x^n = f(x). \]
+        \end{proof}
+    \item[(b)] Antiderivatives are not unique. If \( g  \) is an arbitrary function satisfying \( g'(x) = f(x)  \) on \( (-R,R ) \), find a power series representation for \( g  \).
+        \begin{proof}[Solution]
+        Suppose \( g  \) is an arbitrary function satisfying \( g'(x) = f(x)  \) on \( (-R ,R ) \); that is, 
+        \[  g'(x) = \sum_{ n=0  }^{ \infty  } a_n x^n. \]
+        Since \( f(x) = F'(x)  \) and the fact that Antiderivatives are not unique, we can write 
+        \[  g(x) = c +  \sum_{ n=0  }^{ \infty  } \frac{ a_n  }{  n+1  } x^{n+1}\]
+        where \( c  \) is some constant.
+        \end{proof}
+\end{enumerate} 
 
