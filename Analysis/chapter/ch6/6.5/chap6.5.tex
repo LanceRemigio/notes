@@ -182,12 +182,14 @@ We can use Theorem 6.5.4 to explain why \( f  \) is continuous. By Theorem 6.5.5
         \[  F(x) = \sum_{ n=0  }^{ \infty  } \frac{ a_n  }{  n + 1 } x^{n+1} \]
         is defined on \( (-R,R ) \), find a power series representation for \( g  \).
         \begin{proof}
-            First we show that \( F(x)  \) converges uniformly on \( (-R,R ) \). Let \( \epsilon > 0   \). Choose \( N \in \N  \) such that for any \(  n > m \geq N  \), we have that 
+            First we show that \( F(x)  \) converges uniformly on \( (-R,R ) \). Since \( \sum_{ n=0  }^{ \infty  } a_n x^n  \) on \( (-R ,R ) \), we know that the sequence of partial sums must be bounded by some \( M > 0  \). Let \( \epsilon > 0   \). Choose \( N \in \N  \) such that for any \(  n > m \geq N  \), we have that  
             \begin{align*}
                 \Big| \sum_{ k = m +1  }^{  n } \frac{ a_k  }{  k +1  } x^{k+1} \Big| &= \Big| \sum_{ k= m+1  }^{ n } (a_k x^k) \Big( \frac{ x }{ k+1  }  \Big) \Big|  \\
-                                                                                      &\leq \frac{ \epsilon (m+2) }{  R  } \Big( \frac{ x }{ m+2  }  \Big) \\
-                                                                                      &< \epsilon \tag{\( x < R  \)}.
+                                                                                      &\leq M \Big( \frac{ x }{ m+2  }  \Big) \\
+                                                                                      &< M \Big( \frac{ R  }{ m+2  }  \Big) \\
+                                                                                      &< \epsilon
             \end{align*}
+            by Abel's Lemma.
             Since the power series \( \sum_{ n=0  }^{ \infty  } \frac{ a_n  }{ n + 1  }  x^{n+1}  \) converges on \( (-R,R ) \), we know that \( F(x)  \) must be continuous on \( (-R ,R ) \) and differentiable by Theorem 6.5.6. Hence, we can differentiate according to the formula in Theorem 6.5.6 to write that \[  F'(x) = \sum_{ n=0  }^{ \infty  } a_n x^n = f(x). \]
         \end{proof}
     \item[(b)] Antiderivatives are not unique. If \( g  \) is an arbitrary function satisfying \( g'(x) = f(x)  \) on \( (-R,R ) \), find a power series representation for \( g  \).
@@ -200,3 +202,36 @@ We can use Theorem 6.5.4 to explain why \( f  \) is continuous. By Theorem 6.5.5
         \end{proof}
 \end{enumerate} 
 
+
+\subsubsection{Exercise 6.5.5} 
+\begin{enumerate}
+    \item[(a)] If \( s  \) satisfies \( 0 < s < 1  \), show \( ns^{n-1} \) is bounded for all \( n \geq 1  \).
+        \begin{proof}
+            Let \( x  \) satisfy \( 0 < s < 1  \). Let us proceed by inducting on \( n  \) where \( P(n) \) is statement that for every \( n \geq 1  \), we have that \( ns^{n-1}  \) is bounded. Let our base case be \( n = 1  \). Then using the fact that \( 0 < s < 1  \), we have that \(  0 < ns^{n-1} < 1 \). Now suppose \( P(n)  \) holds for every \( n \leq k -1  \). We want to show that \( P(n) \) holds for the \( kth \) case. Observe that 
+            \begin{align*}
+                (k-1)s^{k-2} &= \frac{ ks^k - s^k }{ s^2 }    \\
+            \end{align*}
+            which means that for any \( 0 < s < 1  \), we have 
+            \[  ks^k \leq s^2(k -1) + s^k < (k-1) + 1 = k  .  \]
+            Hence, we have that \( ns^{n-1}  \) is bounded for all \( n \geq 1  \).
+            \[   \]
+        \end{proof}
+    \item[(b)] Given an arbitrary \( x \in (-R ,R ) \), pick \( t  \) to satisfy \( | x  |  < t < R  \). Use this start to construct a proof for Theorem 6.5.6.
+        \begin{proof}
+        Let \( x \in (-R ,R ) \) be arbitrary. Pick \( t \in (-R ,R ) \) such that \( | x  |  < t < R  \). By using this bound on \( t  \), we can write the following
+        \[  | na_n x^{n-1}  | = | n x^{n-1} \cdot a_n  | \leq | n t^{n-1}  \cdot a_n |.\]
+        From part (a), we know that \( 0 < s < 1  \) implies that \( n s^{n-1} \) is bounded. Hence, there exists \( M > 0  \) such that
+        \[  n t^{n-1} = n s^{n-1} \Big( \frac{ t  }{ s  }  \Big)^{n-1} \leq M \Big( \frac{ t }{ s }  \Big)^{n-1}.  \]
+        Using the Weierstrass M-test, we can see that the bound above forms the following series
+        \[  \sum_{ n=1  }^{ \infty  } Ma_n \Big( \frac{ t }{ s  }  \Big)^{n-1} \tag{1}.\]
+        Since \( \sum_{ n=0 }^{ \infty  } a_n x^n  \) converges on (-R, R ), we know that (1) must converge and thus 
+        \[  \sum_{ n=0  }^{ \infty  } | na_n x^{n-1}  |  \] must also converge.
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 6.5.6} Previous work on geometric series (Example 2.7.5) justifies the formula 
+\[  \frac{ 1 }{ 1 -x  } = 1 + x + x^2 + x^3 + x^4 + \dotsb, \text{~ for all } |  x  |  < 1. \]
+Use the results about power series in this section to find values for \( \sum_{ n= 1  }^{ \infty  } n/ 2^n  \) and \( \sum_{ n=1  }^{ \infty  } n^2 / 2^n \). The discussion in Section 6.1 may be helpful.
+\begin{proof}[Solution]
+
+\end{proof}
