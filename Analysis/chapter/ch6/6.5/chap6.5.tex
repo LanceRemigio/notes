@@ -320,23 +320,28 @@ Since the series
 \[  \lim_{ x \to 0  } g(x) = 0 = g(0).\]
 But we need to show that \( g(x) = 0  \) for all \( x \in (-R ,R ) \). Since \( g(x)  \) converges on \( (-R ,R ) \), we know that \( g(x) \) must be differentiable and must follow 
 \[  g'(x) = \sum_{ n=1  }^{ \infty  } n b_n x^{n-1}. \]
-Since \( g(x_n) = 0  \) for all \( n \in \N  \), it must also follow that the differentiability of \( g  \) implies that \( g'(x_n) = g(x_n) = 0  \); that is, for every \( i \geq 0  \), we must have 
-\[ g^{i} (x_{n})  = g^{i+1} (x_{n}) = 0  \] where 
-\begin{align*}
-    g^{i}(x_n) &= \sum_{ k = i  }^{ \infty  } (k - i )! b_k (x_n)^{k - i}  \\
-    g^{i+1}(x_n) &= \sum_{ k= i +1  }^{ \infty  } (k - (i +1))! b_k (x_n)^{k - (i+1)} 
-\end{align*} By part (a) of Exercise 6.5.8, we must have 
+Since \( g(x_n) = 0  \) for all \( n \in \N  \), it must also follow that the differentiability of \( g  \) implies that \( g'(x_n) = g(x_n) = 0  \). Let \( i \geq 0  \) be the \( i \)th derivative of \( g \), (we know this holds since \( g \) is infinitely differentiable). Hence, part (a) implies that for every \( i \geq 0  \), we must have 
+\[ g^{i} (x_{n})  = g^{i+1} (x_{n}) = 0  \] From part (a) of exercise 6.5.8, we know that the for all \( i \geq 0   \) and the fact that \( g(x_n) = 0  \) for all \( n \in \N  \), \( b_i = b_{i+1} = 0  \)   
 \[  b_i = b_{i+1} \]  for all \( i \geq 0  \). Hence, for every \( b_n  \) must be zero showing that for any \( x \in (-R ,R ) \) that \( g(x) = 0  \).
 \end{proof}
 
-
-
-
-
-
-
-
-
-
+\subsubsection{Exercise 6.5.11} A series \( \sum_{ n=0  }^{ \infty  } a_n  \) is said to be \textit{Abel-summable}  to \( L  \) if the power series 
+\[  f(x) = \sum_{ n=0  }^{ \infty  } a_n x^n  \] converges for all \( x \in [0,1) \) and \( L = \lim_{ x \to 1^{-} } f(x) \).
+\begin{enumerate}
+    \item[(a)] Show that any series that converges to a limit \( L  \) is also Abel-summable to \( L  \).
+        \begin{proof}
+            Let \( \epsilon > 0  \). To show that \( f(x) = \sum_{ n=0 }^{ \infty  } a_n x^n   \) converges to \( L  \), we will use the Cauchy Criterion and Abel's lemma. Note that since \( x \in [0,1) \), \( x^k   \) forms a monotonically decreasing sequence that contains terms that are greater than or equal to zero. Suppose there exists an \( N \in \N  \) such that for any \( n > n \geq N  \), then by Abel's Lemma 
+        \begin{align*}
+            \Big| \sum_{ k=m+1 }^{ n } a_k x^k  \Big|  &\leq \epsilon x^k  \\
+                                                       &< \epsilon.
+        \end{align*}
+        Hence, we must have 
+        \[  f(x) = \sum_{ n=0 }^{ \infty  } a_n x^n  \] converge to \( L  \) uniformly for all \( x \in [0,1) \). Since each term of \( \sum_{ n=0 }^{ \infty  } a_n x^n  \) is continuous and \( f(x)  \) converges uniformly for all \( [0, 1] \), we know that \( f(x)  \) is continuous on this interval. This means that the functional limit \( \lim_{ x \to 1^{-} } f(x) = L  \) exists and furthermore \( f(1) = L  \).
+        \end{proof}
+    \item[(b)] Show that \( \sum_{ n=0 }^{ \infty  } (-1)^n  \) is Abel-summable and find the sum.
+        \begin{proof}[Solution]
+        
+        \end{proof}
+\end{enumerate}
 
 
