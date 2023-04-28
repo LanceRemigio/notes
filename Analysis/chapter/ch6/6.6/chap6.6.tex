@@ -1,2 +1,105 @@
 \section{Taylor Series}
 
+In this section, our goal is to develop some theory for infinitely differentiable functions such as 
+    \[  \sin(x) = a_0 + a_{0} x  + a_{2} x^{2} + a_{3} x^{3} + a_{4} x^{4} + \dotsb \]
+so that we can find suitable coefficients \( a_{n} \) given some nonzero values of \( x  \).
+
+\subsection{Manipulating Series}
+In section 6.1, we encountered 
+\[  \frac{ 1 }{ 1-x  } = 1 + x + x^{2} + x^{3} + x^{4} + \dotsb, \text{ for all } | x  | < 1. \tag{1} \]
+We can apply Theorem 6.5.7 to arrive at the following series representation
+\[  \frac{ 1 }{ (1-x)^2  } = 1 + 2x + 3 x^{2} + 4 x^{3} + 5 x^{4} + \dotsb, \text{ for all } | x  | < 1.   \]
+
+We can use term-by-term antidifferentiation (proven in Exercise 6.5.4) to arrive at the original function. An example of this is 
+\[  \frac{ 1 }{ 1 + x^2  }  = 1 - x^{2} + x^{4 } - x^{6 } + x^{8 } - \dotsb, \text{ for all } | x  | < 1. \]
+Antidifferentiating each term of the power series above, we arrive at 
+\[  \arctan(x) = x - \frac{ 1 }{ 3 }  x^{3} + \frac{ 1 }{ 5 } x^{5} - \frac{ 1 }{ 7 } x^{7} + \dotsb,  \]
+for all \( x \in (-1,1) \). Note that the power series representation above is also valid when \( x = \pm 1  \). The same methods can be used to find the series representations for functions such as \( \ln ( 1 + x ) \) and \( x  / (1 + x^2 )^2 \).
+
+\subsection{Taylor's Formula for the Coefficients} 
+
+Given an infinitely differentiable function \( f  \) defined on some interval centered at zero, if we assume that a function \( f  \) has a power series expansion, we can be able to find the every coefficient.
+
+\begin{tcolorbox}
+    \begin{thm}[Taylor's Formula]
+    Let 
+    \[  f(x) = a_0 + a_{1}x + a_{2} x^{2} + a_{3} x^{3} + \dotsb \]
+    be defined on some nontrivial interval centered at zero. Then, 
+    \[ a_n = \frac{ f^{(n)}(0) }{ n! }. \]
+    \end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+Exercise 6.6.3
+\end{proof}
+
+We can use our new formula to derive the \textit{Taylor Series} for \( \sin(x)  \). To get \( a_{0} \), all we have to do is let \( x = 0  \) into the formula above so that 
+\[  a_{0} = \sin(0) = 0. \] Then for \( n =1  \), we get 
+\[  a_{1} = \frac{ f^{(1)}(0) }{ 1! } = \cos(0) = 1.  \]
+Then likewise we have \( a_{1} = \cos(0) = 1  \), \( a_{2} = - \sin(0) / 2! = 0  \), and then \( a_{3} = - \cos(0) / 3! = -1/ 3! \) and so on. Hence, we are left with the following series
+\[  x - \frac{ x^{3} }{ 3! }  + \frac{ x^{5} }{ 5! }  - \frac{ x^{7} }{ 7! }  + \dotsb .  \]
+Note that this is the power series representation of \( \sin(x)  \). Generally, if a function \( f(x)  \) can be expressed as a power series
+\[  f(x) = \sum_{ n=0 }^{ \infty  } a_{n} x^{n} \] then we are guaranteed to have 
+\[  a_n = \frac{ f^{(n)}(0) }{ n! } \]
+if the power series is centered at \( x = 0  \). But is the converse true? 
+
+A few questions: 
+     If we have 
+        \[  a_n = \frac{ f^{(n)}(0) }{ n! }  \] for all \( n \geq 0  \) does the series
+        \[  \sum_{ n=0 }^{ \infty  } a_n x^{n} \] converge to \( f(x)  \) on some nontrivial set of points?  Does it even converge at all? The limit different from \( f(x)  \)? Our question as of now is whether or not the following sequence of partial sums
+        \[  S_{N}(x) = a_{0} + a_{1} x  + a_{2} x^{2} + \dotsb + a_{N} x^{N }  \] for the Taylor series expansion of \( f(x)  \) actually converges to \( f(x)  \); that is, 
+        \[ \lim_{ N \to \infty  }  S_{N}(x) = f(x) \]
+        for some values of \( x  \) besides zero.
+
+    \subsection{Lagrange's Remainder Theorem}
+
+The idea of the Remainder theorem is to express the error between the function \( f  \) and partial sum \( S_N  \) in terms 
+\[  E_N (x) = f(x) - S_N(x).\]
+
+\begin{tcolorbox}
+    \begin{thm}[Lagrange's Remainder Theorem]
+    Let \( f  \) be differentiable \( N + 1  \) times on \( (-R ,R ) \), define \( a_n = f^{n}(0) / n!  \) for \( n = 0, 1 , \dots , N  \), and let 
+    \[  S_N(x) = a_0 + a_{1} x + a_{2}x^{2} + \dotsb + a_{N}x^{N}. \]
+    Given \( x \neq 0  \) in \( (-R ,R ) \), there exists a point \( c  \) satisfying \( | c  |  < | x  |  \) where the error function \( E_N(x) = f(x) - S_N(x)  \) satisfies 
+    \[  E_N(x) = \frac{ f^{(N+1)}(c) }{ (N+1)!  } x^{N+1}. \]
+    \end{thm}
+\end{tcolorbox}
+
+Components that make up the theorem:
+\begin{enumerate}
+    \item[(i)] Showing that \( S_N(x) \to  f(x)  \) is equivalent to showing that \( E_N(x) \to 0  \).
+    \item[(ii)] The factorial \( (N+1)! \) on the denominator helps to make the error small as \( N  \) tends to infinity. 
+    \item[(iii)] The \( x^{N+1}  \) term on the numerator has the potential to grow depending on how far \(  x  \) is chosen from the origin.
+    \item[(iv)] The second term on the numerator \( f^{(N+1)} (c)  \) can be handled by introducing some upper bound either from a compact set or based on the behavior of \( f  \).
+\end{enumerate}
+
+\begin{ex}
+Consider the Taylor series for \( \sin (x)  \) from earlier. We can ask how well does our sequence of partial sums approximate \( \sin(x)  \) when \( N=5  \); that is, how well does  
+\[  S_{5}(x) = x - \frac{ 1 }{ 3! } x^{3} + \frac{ 1 }{ 5! } x^{5} \]
+approximate \( \sin(x)  \) on the interval \( [-2, 2 ] \). By using Lagrange's Remainder Theorem we can assert that 
+\[  E_5(x) = \sin(x) - S_5(x) = \frac{ -\sin(c)  }{ 6! } x^{6} \]
+for some \( c \in (-| x |, | x | ) \). Since we don't know the value of \( c  \), we can still use the fact that \( | \sin(c)  | \leq 1 \) to assert 
+\[  | E_5(x) | = \Big| \frac{ - \sin(c)  }{ 6! } x^{6} \Big| \leq \frac{ 2^{6} }{ 6! } \tag{\( x \in [-2,2] \)}.  \]
+We can show that \( S_N(x)  \) converges uniformly to \( \sin(x)  \) on \( [-2,2] \) by observing that \( | f^{(N+1)}(c) | \leq 1  \). Thus, 
+\[  | E_N(x)  | = \Big| \frac{ f^{(N+1)}(c) }{ (N+1)! } x^{N+1} \Big| \leq \frac{ 1 }{ (N+1)! }  2^{N+1} \] for \( x \in [-2,2] \). We know that factorials grow faster than exponentials. Hence, we know that \( E_N(x) \to 0  \) on \( [-2,2] \).
+\end{ex}
+
+\begin{proof}[Proof of Lagrange's Remainder Theorem]
+    Note that the Taylor coefficients are chosen so that the function \( f  \) and the polynomial \( S_N  \) have the same derivatives at \( 0  \), at least up to through the \( N \)th derivative, after which \( S_N  \) becomes the zero function. That is, we have \( f^{(n)}(0) = S_N^{(n)}(0) \) for all \( 0 \leq n \leq N  \), which implies the error function \( E_{N}(x) = f(x) - S_{N}(x)  \) satisfies 
+    \[  E_N^{(n)}(0) = 0  \] for all \( n = 0,1,2, \dots, N .  \)
+    Our goal is to use the Generalized Mean Value Theorem from Chapter 5. To simplify our notation, let us assume \( x > 0  \) and apply the theorem to the error function \( E_{N}(x)  \) and the polynomial \( x^{N+1} \) on the interval \( [0,x] \). Thus, there exists \( x_1 \in (0,x ) \) such that 
+    \[  \frac{ E_{N}(x) }{ x^{N+1}  } = \frac{ E'_N(x_1) }{ (N+1) x_{1}^N  }. \]
+    Now apply the Generalized Mean Value Theorem again to the functions \( E'_{N }(x)  \) and \( (N+1) x^N  \) on the interval \( [0,x_{1}] \) to get that there exists a point \( x_2 \in (0,x_1) \) where
+    \[  \frac{ E_{N}(x) }{ x^{N+1}  } = \frac{ E'_N(x_1) }{ (N+1) x_{1}^N  } = \frac{ E_N"(x_2) }{ (N+1)Nx_2^{N-1} } . \]
+    Continuing in this manner we find 
+    \[  \frac{ E_{N}(x)  }{ x^{N+1} }  =  \frac{ E_{N}^{N+1} (x_{N+1}) }{ (N+1)! x_{N+1}^{N-N} } =  \frac{ E_{N}^{N+1} (x_{N+1}) }{ (N+1)! }  \] 
+    where \( x_{N+1} \in (0, x_{N}) \subseteq \dots \subseteq (0,x) \). Now set \( c = x_{N+1} \). Since \( S_{N}^{N+1}(x) = 0  \), we know that \( E_{N}^{N+1}(x) = f^{(N+1)}(x) \) and it follows that 
+    \[ E_{N}(x) = \frac{ f^{(N+1)}(c) }{ (N+1)! } x^{N+1}  \] as desired.
+\end{proof} 
+
+\subsection{Taylor Series Centered at \( a \neq 0  \).}
+
+
+
+
+
