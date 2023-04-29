@@ -99,6 +99,26 @@ We can show that \( S_N(x)  \) converges uniformly to \( \sin(x)  \) on \( [-2,2
 
 \subsection{Taylor Series Centered at \( a \neq 0  \).}
 
+The series expansion of a function need not be centered only at \( a = 0  \). If the function \( f \) is defined at any other neighborhood of \( a \neq 0  \) and infinitely differentiable at \( a  \), then the Taylor series expansion takes the following form where 
+\[  \sum_{ n=0 }^{ \infty  } c_{n} (x-a)^{n} \text{ where } c_{n} = \frac{ f^{(n)}(a) }{ n! }. \]
+Setting up our Error function \( E_{N}(x) = f(x) - S_{N}(x)  \) as before, we can reformulate Lagrange's Remainder Theorem in the following fashion where there exists some value \( c \in (a, x) \) such that 
+\[  E_N(x) = \frac{ f^{(N+1)}(c) }{ (N+1)! } (x-a)^{N+1}. \]
+
+\subsection{A Counterexample}
+
+The Lagrange's Remainder Theorem is useful in determining how well behaved the sums of the Taylor series \( S_N(x) \) approximate \( f(x) \), but it leaves the to question whether or not the sequence of partial sums actually converges to \( f(x) \). Let 
+\[  g(x) = 
+\begin{cases}
+    e^{-1/x^2} &\text{ for } x \neq 0  \\
+    0 &\text{ for } x = 0. 
+\end{cases} \]
+We can compute the Taylor coefficients for this function. It can be found that \( a_{0 }= g(0) = 0  \). For take the derivative of \( g(x)  \) at \( x = 0  \)  and get 
+\[  a_1 = g'(0) = \lim_{ x \to 0 }  \frac{ g(x) - g(0)  }{ x - 0  } = \lim_{ x \to 0 }  \frac{ e^{-1/x^2} }{ x  } = \lim_{ x \to 0 }  \frac{ 1 /x  }{ e^{1/x^2} }   \] where taking the limit produces an \( \infty / \infty \) situation that calls for L'Hopital's rule to be applied as \( x \to 0  \). Hence, we have that 
+\[  a_{1} = \lim_{ x \to 0 }  \frac{ -1/x^2  }{  e^{1/x^2} } (-2/x^3) = \lim_{ x \to 0  } \frac{ x }{ 2 e^{1/x^2} } = 0.\]
+Since \( a_1 = 0  \), we know that \( g  \) must be flat at the origin. Furthermore, we find that \( g^{(n)}(0) = 0  \) for all \( n \in \N  \).
+However, there is a caveat to this conclusion. We have a function that is infinitely differentiable whose Taylor series expansion converges uniformly to \( 0  \) function but \( g(x) \neq 0  \) everywhere except for \( x = 0  \). This means our convergence does not lead to \( g(x)  \) but leads to something else all together. This unfortunately tells us that not all infinitely differentiable function can be represented in terms of its Taylor series.
+
+\subsection{Exercises}
 
 
 
