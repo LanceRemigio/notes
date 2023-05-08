@@ -235,17 +235,71 @@ introduced at the end of this section.
     \item[(a)] Compute \( g'(x)  \) for \( x \neq 0  \). Then use the definition of the derivative to find \( g"(0) \).
         \begin{proof}[Solution]
         Since \( x \neq 0  \) we can use the Chain Rule to get 
-        \[  g'(x) = \frac{ 2 }{ x^3  } e^{-1/x^2 } \]
+        \[  g'(x) = \frac{ 2 }{ x^3  } e^{-1/x^2 }.\] Next, we compute \( g"(0)  \) using the definition of the derivative. Then we have 
+        \begin{align*}
+            g"(0) &= \lim_{ x \to 0  } \frac{ g'(x) - g'(0)  }{ x - 0  }  \\
+                  &= \lim_{ x \to 0 }  \frac{ 2 / x^{4 } }{  e^{1 / x^{2}} } \\
+        \end{align*}
+        Since we have a limit that produces an \( \infty / \infty  \) situation, we can use L'hopital to get 
+        \begin{align*}
+            \lim_{ x \to 0  } \frac{ 4 }{ x^2 e^{1/x^{2}} } .  \\
+        \end{align*}
+        But this in itself causes another \( \infty / \infty  \) situation as \( x \to 0 \). Hence, we can use L'Hopital's rule again to get 
+        \[  \lim_{ x \to 0 }  \frac{ 4 }{ e^{1/x^2 } } \]
+        which goes to zero as \( x \to 0  \). Hence, we have that \( g"(0) = 0  \).
         \end{proof}
     \item[(b)] Compute \( g"(x)  \) and \( g^{(3)}(x)  \) for \( x \neq 0  \). Use these observations and invent whatever notation is needed to give a general description for the \( n \)th derivative \( g^{(n)}(x)  \) at points different from zero.
         \begin{proof}[Solution]
-        
+        Since we have \( g^{(1)}(x) = 2 e^{-1 /x^2 } / x^{3} \), we can compute \( g^{(2)}(x)  \) for \( x \neq 0  \) using our differentiation rules. Hence, we have
+        \begin{align*}
+            g^{(2)}(x) &= \frac{ 2 e^{-1/x^{2}} }{ x^{6} }  ( 2 - 3x^2  ), \\
+            g^{(3)}(x) &= \frac{ 2 e^{-1/x^{2}} }{ x^{9} } ( 4 - 18 x^{2} + 12x^{4} ).
+        \end{align*}
+        For our \( n \)th derivative, we have that for \( x \neq 0  \)
+        \[  g^{(n)}(x) = 
+        \begin{cases}
+            \frac{ 2 e^{-1/x^{2}} }{ x^{3} } &\text{ if } n=1 \\
+            \frac{ 2 e^{-1/x^2 } }{ x^{3n} }  \sum_{ i=0 }^{ n  } (-1)^{i} a_i x^{2i} &\text{ if } n > 1 
+        \end{cases} \]
+        where \( a_n \in \R  \).
         \end{proof}
     \item[(c)] Construct a general statement argument for why \( g^{(n)}(0) = 0  \) for all \( n \in \N  \).
         \begin{proof}[Solution]
-        
+        We can use induction to prove that \( g^{(n)}(0) = g^{(n+1)}(0) = 0  \) for all \( n \geq 1  \) to show that \( g^{(n)}(0) = 0  \) for all \( n \in \N  \). We can compute the \( n \)th derivative of \( g  \) by using the description outlined in part (b). Then use the definition of the  derivative to produce a \( \infty  / \infty   \) so that we may use L'Hopital to show that \( g^{(n)}(0) = g^{(n+1)}(0) = 0 \). Hence, \( g^{(n)}(0) = 0  \) for all \( n \in \N   \).
         \end{proof}
 \end{enumerate}
+
+\subsubsection{Exercise 6.6.8} Here is a weaker form of Lagrange's Remainder Theorem whose proof is arguably more illuminating than the one for the stronger result.
+\begin{enumerate}
+    \item[(a)] First establish a lemma: If \( g  \) and \( h  \) are differentiable on \( [0,x] \) with \( g(0) = h(0)  \) and \( g'(t) \leq h'(t) \) for all \( t \in [0,x] \), then \( g(t) \leq h(t)  \) for all \( t \in [0,x]  \).
+        \begin{proof}
+            Let \( t \in [0,x] \). Since \( g \) and \( h  \) are differentiable on \( [0,x] \), we can use the Mean Value Theorem so that choosing \( c \in (0,t) \) implies 
+            \begin{align*}
+                g'(c)  &= \frac{ g(t) - g(0) }{ t - 0  },   \\
+                h'(c) &= \frac{ h(t) - h(0)  }{ t - 0 }.
+            \end{align*}
+            Since \( c \in [0,x]  \), we have \( g'(c) \leq h'(c)  \). But we have \( g(0) = h(0) \) so 
+            \[  g'(c) \leq h'(c) \iff \frac{ g(t) - g(0)  }{ t  } \leq \frac{ h(t) - h(0)  }{ t  } . \]
+            Multiplying through by \( t  \) and adding \( g(0)  \) from both sides (keeping in mind that \( g(0) = h(0) \)), we arrive at \( g(t) \leq h(t) \).
+        \end{proof}
+    \item[(b)] Let \( f  \), \( S_N  \), and \( E_N  \) be as Theorem 6.6.3, and take \( x \in (0,R ) \). If \( | f^{(N+1)}(t) | \leq M  \) for all \( t \in [0,x ] \), show 
+        \[  | E_{N}(x) | \leq \frac{ M x^{N+1} }{ (N+1)! }. \]
+        \begin{proof}
+            Let \( f  \), \( S_{N} \), and \( E_{N} \) be as Theorem 6.6.3. Let \( x \in (0,R ) \) and let \( x_{N+1} \in [0,x] \). By part (a), we know that 
+        \[  \frac{ E_N(x) }{ x^{N+1} } \leq \frac{ E_{N}^{(N+1)}(x_{N+1}) }{ (N+1)! }  \]
+        where \( x_{N+1} \in (0, x^{N}) \subseteq \dots \subseteq (0,x)  \) and 
+        \[  E_{N}^{(N+1)}(x_{N+1}) = f^{(N+1)}(x_{N+1}) - S_{N}^{(N+1)}(x_{N+1}). \]
+        Since \( S_{N}^{(N+1)}(x) = 0  \) past the \( n \)th derivative, we know that 
+        \[  E_{N}^{(N+1)}(x_{N+1}) = f^{(N+1)}(x_{N+1}). \] Now set \( x^{N+1} = t  \). Since \( | f^{(N+1)}(t) | \leq M  \) by assumption, we must have
+        \[  | E_N(x)  | \leq \frac{ | f^{(N+1)}(x_{N+1}) | x^{N+1} }{ (N+1)! }  \leq \frac{ M x^{N+1} }{ (N+1)! }.\]
+        \end{proof}
+\end{enumerate}
+
+
+
+
+
+
 
 
 
