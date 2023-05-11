@@ -183,7 +183,15 @@ that also converges for \( x \in (-1 ,1 ) \). Since we have convergence of (2) f
 \subsubsection{Exercise 6.6.4} Explain how Lagrange's Remainder Theorem can be modified to prove 
 \[  1 - \frac{ 1 }{ 2 } + \frac{ 1 }{ 3 } - \frac{ 1 }{ 4 }  + \frac{ 1 }{ 5 } - \frac{ 1 }{ 6 } + \dotsb = \text{log}(2). \]
 \begin{proof}[Solution]
-
+    Let \( f(x) = \text{log}(1+x) \). Since \( f  \) is \( N+1 \) differentiable on \( (0,R )  \), there exists a point \( c  \) satisfying \(  | c |    < 1  \) where the error function \( E_{N}(x) = f(x) - S_{N}(x) \) satisfies 
+    \[  E_{N}(x) = \frac{ f^{(N+1)}(c) }{ (N+1)! } x^{N+1}  \]
+    by Lagrange's Remainder Theorem.
+    Our goal is to show that the error function \( E_{N}(1) \) converges uniformly to \( 0  \) on \( (0,R ) \). Hence, we have 
+    \[ | E_{N}(x) | = \Big| \frac{ f^{(N+1)}(c) }{ (N+1)! }  \Big|  \]
+    where \( f^{(N+1)}(c) =  N! / (1+c)^{N+1}   \) implies 
+    \[  | E_{N}(x) | = \Big| \frac{ f^{(N+1)}(c) }{ (N+1)! }  \Big| =  \frac{ 1 }{ (N+1)(1+c)^{N+1}  }   < \frac{ 1 }{ N+1 } \to 0     \]
+   uniformly on \( (0,R ) \). Hence, we have that 
+   \[ 1 - \frac{ 1 }{ 2 } + \frac{ 1 }{ 3 } - \frac{ 1 }{ 4 } + \frac{ 1 }{ 5 } - \frac{ 1 }{ 6  }  + \dotsb = \text{log}(2).  \]
 \end{proof}
 
 \subsubsection{Exercise 6.6.5} 
@@ -196,7 +204,7 @@ that also converges for \( x \in (-1 ,1 ) \). Since we have convergence of (2) f
         \[  S_N(x) = \sum_{ N=0  }^{ \infty  } \frac{ x^N  }{ N! }. \]
         To show that \( S_n(x) \to f(x)  \) where \( f(x) = e^{x} \), we will use Lagrange's Remainder theorem. Given an \(  x \in (-R ,R ) \) non-zero, suppose there exists a point \( c  \) satisfying \( | c  | < | x  |  \) such that \( E_N(x) = e^{x} - S_{N}(x)   \) satisfies  
         \[  E_{N}(x) =  \frac{ f^{(N+1)}(c) x^{N+1} }{ (N+1)! }  =  \frac{ e^c x^{N+1} }{ (N+1)! } .   \]
-        Since \( x \in (-R ,R ) \), we can produce the following bound 
+        Since \( x \in [-R ,R ] \), we can produce the following bound 
         \[  | E_N(x)  | = \Big| \frac{ e^c x^{N+1}  }{ (N+1)!  }  \Big| \leq \frac{ e^{c} R^{N+1} }{ (N+1)! }.   \]
         Since the term on the right side converges to zero uniformly on \( (-R ,R ) \), we know that \( E_N(x) \to 0  \) which means that \(  S_N(x) \to e^{x} \) uniformly on \( (-R ,R ) \).
         \end{proof}
@@ -295,9 +303,48 @@ introduced at the end of this section.
         \end{proof}
 \end{enumerate}
 
+\subsubsection{Exercise 6.6.9 (Cauchy's Remainder Theorem).} Let \( f  \) be differentiable \( N+1 \) times on \( (-R ,R ) \). For each \( a \in (-R ,R ) \), let \( S_{N}(x,a) \) be the partial sum of the Taylor series for \( f  \) centered at \( a  \); in other words, define 
+\[  S_{N}(x,a) = \sum_{ n=0 }^{ N } c_{n} (x-a)^{n}  \text{  where } c_{n} = \frac{ f^{(n)}(a) }{ n! }.  \] 
+Let \( E_{N}(x,a) = f(x) - S_{N}(x,a) \). Now fix \( x \neq 0  \) in \( (-R ,R ) \) and consider \( E_{N}(x,a)  \) as a function of \( a \).
 
+\begin{enumerate}
+    \item[(a)] Find \( E_{N}(x,x) \).
+        \begin{proof}[Solution]
+        Letting \( a = x  \), we have 
+        \begin{align*}
+            S_{N}(x,x) &= c_{0} \\
+                       &= \frac{ f^{(0)}(x) }{ 0! } \\
+                       &= f^{(0)}(x)
+        \end{align*}
+        which implies that 
+        \[  E_{N}(x,x) = f(x) - f(x) = 0 .\]
+        \end{proof}
+    \item[(b)] Explain why \( E_{N}(x,a)  \) is differentiable with respect to \( a  \), and show 
+        \[  E_{N}'(x,a) = \frac{ -f^{(N+1)}(a)  }{ N! } (x-a)^{N}. \]
+        \begin{proof}[Solution]
+        Since \( E_{N}(x,a) = f(x) - S_{N}(x,a)  \), differentiating with respect to \( a  \) leads to \(  E_{N}'(x,a) = - S_{N}'(x,a) \). Then 
+        \begin{align*}  - S_{N}'(x,a) &=  - \Big[ \sum_{ n=1 }^{ N } \frac{ f^{(n+1)}(a) }{ n! } (x - a)^n - \frac{ f^{(n)}(a) }{ (n-1)! } x^{n-1}     \Big] \\
+            &= \sum_{ n=1 }^{ N } \frac{ f^{(n)}(a) }{ (n-1)! } (x-a)^{n-1} -  \sum_{ n=1 }^{ N } \frac{ f^{(n+1)}(a) }{ n! } (x-a)^n \\
+            &= \sum_{ n=0  }^{ N-1 } \frac{ f^{(n+1)}(a) }{ n! }  (x-a)^{n} - \sum_{ n=1 }^{ N  } \frac{ f^{(n+1)}(a)  }{ n! } (x-a)^{n} \\
+            &= - \frac{ f^{(N+1)}(a)  }{ n! }  (x-a)^{n}.
+        \end{align*} 
+        Hence, we have that 
+        \[ E_{N}'(x,a) = - \frac{ f^{(N+1)}(a) }{ n! } (x-a)^{n}. \]
 
-
+        \end{proof}
+    \item[(c)] Show
+        \[  E_{N}(x) = E_{N}(x,0) = \frac{ f^{(N+1)}(c) }{ N! } (x-c)^{N} x \] for some \( c  \in (0,x) \). This is Cauchy's form of the remainder for Taylor series centered at the origin.
+        \begin{proof}
+        Using the Mean Value Theorem, there exists a \( c \in (0,x)  \) such that 
+        \[  E_{N}'(x,c) = \frac{ E_{N}(x) - E_{N}(x,0)  }{ x - 0  }.  \]
+        But note that \(  E_{N}'(x,c) = 0 \) since \( E_N(x) - E_N(x,0) = 0  \) by part (a). Furthermore, we know that part (b) must also imply that 
+        \[  E_{N}'(x,c) = - \frac{ f^{(N+1)}(c)  }{ N! } (x-c)^{N}. \]
+        So we must have 
+        \[  \frac{ f^{(N+1)}(c)  }{ N! } (x-c)^{N} = \frac{ E_{N}(x) - E_{N}(x,0) }{ x  } = 0  \]
+        which some algebraic manipulation leads us to our desired conclusion
+        \[  E_{N}(x) = E_{N}(x,0) = \frac{ f^{(N+1)}(c)  }{ N! } (x-c)^{N} x. \]
+        \end{proof}
+\end{enumerate}
 
 
 

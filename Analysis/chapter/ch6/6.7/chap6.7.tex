@@ -1,1 +1,134 @@
 \section{The Weierstrass Approximation Theorem}
+
+\begin{tcolorbox}
+    \begin{thm}[Weierstrass Approximation Theorem]
+        Let \( f: [a,b] \to \R  \) be continuous. Given \( \epsilon > 0  \), there exists a polynomial \( p(x) \) satisfying 
+        \[  | f(x) - p(x) | < \epsilon \] for all \( x \in [a,b] \).
+    \end{thm}
+\end{tcolorbox}
+
+This means that every continuous function over a closed interval can be uniformly approximated by a polynomial.
+
+\subsubsection{Exercise 6.7.1} Assuming WAT, show that if \( f \) is continuous on \( [a,b] \), then there exists a sequence \( (p_n) \) of polynomials such that \( p_n \to f  \) uniformly on \( [a,b] \).
+
+\begin{proof}
+    Using the Weierstrass Approximation Theorem, we can let \( \epsilon  = \frac{ 1 }{ n }  \). By choosing an \( N = 1 / \epsilon   \) such that \( n \geq N  \), we can have a sequence of polynomials \( (p_n) \) such that 
+    \[ | p_{n}(x) - f(x)  | < \frac{ 1 }{ n  } \leq \frac{ 1 }{ N } < \epsilon.  \]
+\end{proof}
+
+\subsection{Interpolation}
+
+The purpose of Weiertrass's theorem is to approximate polynomials. We can get try to understand this a little more by looking at the collection of continuous, piecewise-linear functions instead of polynomials.
+
+\begin{tcolorbox}
+\begin{defn}
+    A continuous function \( \phi : [a,b] \to \R  \) is \textit{polygonal} if there is a partition 
+    \[  a = x_{0} < x_{1} < \dotsb < x_{n} = b   \] of \( [a,b] \) such that \( \phi  \) is linear on each subinterval \( [x_{i-1}, x_{i}] \) where \(  i = 1, \dots n. \)
+\end{defn}
+\end{tcolorbox}
+
+The goal of interpolation is to find a function whose graph passes through a given set of points. We can do this by using line segments.
+
+\begin{tcolorbox}
+\begin{thm}
+    Let \( f: [a,b] \to \R  \) be continuous. Given \( \epsilon > 0   \), there exists a polygonal function \( \phi  \) satisfying 
+    \[  | f(x) - \phi(x) | < \epsilon \] for all \( x \in [a,b] \).
+\end{thm}
+\end{tcolorbox}
+
+\subsubsection{Exercise 6.7.2} Prove Theorem 6.7.3.
+\begin{proof}
+    We can partition the closed interval \( [a,b]  \) into 
+    \[  a = x_{0} < x_{1} < \dotsb < x_{n} = b  \] where each subinterval is defined as \( [x_{i-1}, x_{i}] \) where \( i \in \N  \). Since \( f  \) is continuous over \( [a,b]  \) which is a compact set, we know that \( f  \) must be uniformly continuous on \( [a,b] \). Hence, \( f  \) takes on a maximum and a minimum value on \( [a,b] \). We can do this on each subinterval of \( [a,b]  \) where 
+    \[  f(x_{i-1}) \leq f(x) \leq f(x_{i}) \iff f(x) - f(x_{i-1}) \leq f(x_{i}) - f(x_{i-1}) .\] We can define \( \phi(x)  \) at the endpoints of \( [a,b]  \) to be linear as a way of interpolating between the endpoints of each subinterval. Then for any \( x \in (a,b)  \), let \( q  \) be the largest segment endpoint that is less  than \( x  \), and \( r  \) be the following segment endpoint. Using the uniform continuity of \( f \) over \( [a,b]  \), we can choose \( \delta > 0  \) such that whenever 
+    \( | x - q  | <  \delta \), we have 
+    \begin{align*}
+        | f(x) - \phi(q)  | &\leq |  \phi(q) - \phi(r) | < \epsilon. \\
+    \end{align*}
+\end{proof}
+
+This is essentially the same thing as the WAT but with the substitution of polygonal functions being used to approximate a function instead of polynomials.
+
+\subsubsection{Exercise 6.7.3} 
+\begin{enumerate}
+    \item[(a)] Find the second degree polynomial \( p(x) = q_{0} + q_{1} + q_{2}x^{2} \) that interpolates the three points \( (-1,1) \), \( (0,0) \), and \( (1,1) \) on the graph of \( g(x) = | x  |  \). Sketch \( g(x)  \) and \( p(x)  \) over \( [-1,1] \) on the same set of axes.
+        \begin{proof}[Solution]
+        Using the points given to us, we can set up a system of linear equations where 
+        \begin{align*}
+            1 &= q_{0} - q_{1} + q_{2} \\
+            0 &= q_{0} \\
+            1 &= q_{0} + q_{1} + q_{2}.
+        \end{align*}
+        Solving this set of equations gives us the coefficients 
+        \begin{align*}
+            q_{0} &= 0  \\
+            q_{1} &= 0 \\
+            q_{2} &= 1
+        \end{align*}
+        which gives us the following interpolating quadratic polynomial 
+        \[  p(x) = x^2. \]
+        \end{proof}
+\end{enumerate}
+
+It turns out that interpolating with polynomials is not a fruitful approach when it comes to approximating functions as it leads to rapid oscillations.
+
+\subsection{Approximating the Absolute Value Function}
+
+We can use Theorem 6.7.3 which asserts that every continuous function can be uniformly approximated by a polygonal function. The goal is to find a polynomial representation of the Absolute Value Function to prove the Weierstrass Approximation Theorem. This is because unlike polynomials, Absolute Value Functions do not produce rapid oscillations. 
+
+\subsection{Cauchy's Remainder Formula for Taylor Series} 
+
+We can show that the function \( g(x) = | x |  \) is the uniform limit of polynomials is via the Taylor series. This is surprising because we know that \( | x  |   \) is not a differentiable function but we can, however find the Taylor series of the infinitely differentiable function \( \sqrt{ 1 - x  }.  \)
+
+\subsubsection{Exercise 6.7.4} Show that \( f(x) = \sqrt{ 1 - x  }  \) has Taylor series coefficients \( a_{n} \) where \( a_{0} = 1  \) and 
+\[  a_{n} = \frac{  -1 \cdot 3 \cdot 5 \dotsb (2n-3)  }{ 2 \cdot 4 \cdot \dotsb 2n }  \] for \( n \geq 1  \).
+\begin{proof}
+Since \( f(x) = \sqrt{ 1 - x  }    \) is infinitely differentiable we can use Taylor's Formula 
+\[  a_n = \frac{ f^{(n)}(0)  }{ n!  }  \] to produce the coefficients of the Taylor series of \( f(x)  \). Note that \( a_0 = 1  \) because \( f(0) = \sqrt{ 1 - 0  } = 1   \). Taking the first derivative of \( f \), we find that 
+\[  f^{(1)}(x) = \frac{ -(1-x)^{-1/2} }{ 2 } \]
+which produces the Taylor coefficient 
+\[  a_1 = \frac{ -1 }{ 2 }. \] We can take the second derivative (\( n=2 \)) 
+\[  f^{(2)}(x) = \frac{ -1 }{ 2 } (1-x)^{-3/2}  \] which produces the Taylor Coefficient at \( n =2  \) 
+\[  a_2 = \frac{ f^{(2)}(0)  }{ 2!  } = \frac{ -1  }{ 4 }. \]
+For \( n \geq 1  \), we find that 
+\[  f^{(n)}(x) = \frac{ 1 }{ 2^{n} } (1-x)^{-(2n-1)/2 } \prod_{i=1}^{n} 2i-3  \]
+where plugging in \( x = 0  \) yields 
+\[  f^{(n)}(0) = \frac{ 1 }{ 2^{n} } \prod_{i=1}^{n} 2i -3. \]
+Then using Taylor's formula, we have for \( n \geq 1  \) 
+\begin{align*}
+    a_n &= \frac{ f^{(n)}(0) }{ n! }  \\
+        &= \frac{ 1 }{ 2^{n}n! } \prod_{i=1}^{n} (2i-3) \\
+        &= \frac{ \prod_{i=1}^{n} (2i-3)}{ \Big( \prod_{i=1}^{n} 2 \Big) \Big( \prod_{i=1}^{n} i \Big)  }   \\
+        &= \frac{ 1 }{ 2n } \prod_{i=1}^{n} (2i-3).
+\end{align*}
+\end{proof} 
+Our goal now is to show that the error function of \( f(x) = \sqrt{ 1 - x  }  \) for all \( x \in [-1,1] \) where 
+\[ E_{N}(x) = f(x) - \sum_{ n=0  }^{ N  } a_{n} x^{n} \]
+goes to \( 0  \) uniformly as \( N \to \infty  \). Normally, we can use Lagrange's Remainder Theorem to show that this is the case. But this is an unfruitful approach since fixing \( x \in (0,1]  \) produces a situation where the max of \( f(x)  \) is largest at \( x = c  \) where \( (x / 1 - x)^{N + 1 /2 } \) grows exponentially to infinity whenever \( x > 1 / 2  \); that is 
+\begin{align*}
+   E_{N}(x)  &= \frac{ f^{(N+1)}(c)  }{ (N+1)! } x^{N+1}  \\
+             &= \frac{ 1 }{ (N+1)! } \Big( \frac{ -1 \cdot 3 \cdot 5 \dotsb (2N-1) }{ 2^{N+1} (1-c)^{(N+1)/2} }  \Big) \\
+             &= \Big( \frac{ -1 \cdot 3 \cdot 5 \dotsb (2N-1) }{ 2 \cdot 4 \cdot 6 \dotsb (2N+2) }  \Big) \Big( \frac{ x  }{ 1 -c  }  \Big)^{(N+1)/2} x^{1/2}.
+\end{align*}
+
+\subsubsection{Exercise 6.7.5} 
+\begin{enumerate}
+    \item[(a)] Follow the advice in Exercise 6.6.9 to prove the Cauchy form of the remainder:
+        \[ E_{N}(x) = \frac{ f^{(N+1)}(c)  }{ N! } (x-c)^{N}x \]
+        for some \( c  \) between \( 0  \) and \( x  \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Use this result to prove 
+      \[  \sqrt{ 1-x } = \sum_{ n=0 }^{ N } a_{n} x^{n} \] 
+        is valid for all \( x \in (-1,1) \).
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
+
+
+
+
+
