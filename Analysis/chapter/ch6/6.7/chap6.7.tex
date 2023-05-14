@@ -99,7 +99,7 @@ Then using Taylor's formula, we have for \( n \geq 1  \)
     a_n &= \frac{ f^{(n)}(0) }{ n! }  \\
         &= \frac{ 1 }{ 2^{n}n! } \prod_{i=1}^{n} (2i-3) \\
         &= \frac{ \prod_{i=1}^{n} (2i-3)}{ \Big( \prod_{i=1}^{n} 2 \Big) \Big( \prod_{i=1}^{n} i \Big)  }   \\
-        &= \frac{ 1 }{ 2n } \prod_{i=1}^{n} (2i-3).
+        &=  \prod_{i=1}^{n } \frac{ 2i-3 }{ 2i }  .
 \end{align*}
 \end{proof} 
 Our goal now is to show that the error function of \( f(x) = \sqrt{ 1 - x  }  \) for all \( x \in [-1,1] \) where 
@@ -117,15 +117,97 @@ goes to \( 0  \) uniformly as \( N \to \infty  \). Normally, we can use Lagrange
         \[ E_{N}(x) = \frac{ f^{(N+1)}(c)  }{ N! } (x-c)^{N}x \]
         for some \( c  \) between \( 0  \) and \( x  \).
         \begin{proof}
-        
+        See exercise 6.6.9 for the solution.
         \end{proof}
+
     \item[(b)] Use this result to prove 
       \[  \sqrt{ 1-x } = \sum_{ n=0 }^{ N } a_{n} x^{n} \] 
         is valid for all \( x \in (-1,1) \).
         \begin{proof}
+        Let \( x \in (-1,1) \). Using Cauchy's Remainder Theorem, there exists some \( c   \in (0,x) \) such that 
+        \begin{align*}
+           E_{N}(x) &= \frac{ f^{(N+1)}(c) }{ N! } (x-c)^{N} x.\\
+        \end{align*}
+        Our goal is to make our error function \( E_{N}(x) \to 0   \). Note that 
+        \begin{align*}
+            f^{(N+1)}(c) &= \frac{ (1-c)^{-(2N+1)/2} }{ 2^{N+1} } \prod_{n=1}^{N+1} 2n-3. \\
+        \end{align*}
+        Then using Cauchy's Remainder Theorem, we have 
+        \begin{align*}
+            | E_{N}(x) | &= \Big| \frac{ \prod_{n=1}^{N+1} 2n-3 }{ 2^{N+1} N! } (1-c)^{-(2N+1)/2} (x-c)^{N} x \Big|  \\
+                         &= \Big| \frac{ \prod_{n=1}^{N+1} 2n-3 }{ 2 \cdot \prod_{n=1}^{N} 2n } (1-c)^{-(2N+1)/2} (x-c)^{N} x  \Big|  \\
+                         &<  \Big| \frac{ \prod_{n=1}^{N+1} 2n-3 }{  2 \cdot \prod_{n=1}^{N} 2n } (1-c)^{-(2N+1)/2} (1-c)^{N} \Big| \\
+                         &= \frac{ | \prod_{n=1}^{N+1} 2n-3 | }{  2 \cdot \prod_{n=1}^{N} 2n } (1-c)^{-1/2}  \\
+                         &< \frac{ (1-c)^{-1/2} }{ \prod_{n=1}^{N} 2n } \to 0. 
+        \end{align*}
+        Hence, we conclude that \( E_{N}(x) \to 0  \) which implies that 
+        \[  \sqrt{ 1-x } = \sum_{ n=0  }^{ N } a_{n} x^{n} \]
+        is valid for all \( x \in (-1,1) \).
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 6.7.6} 
+\begin{enumerate}
+    \item[(a)] Let 
+        \[  c_{n} = \frac{ 1 \cdot 3 \cdot 5 \dotsb (2n-1) }{ 2 \cdot 4 \cdot 6 \dotsb 2n }  \] for \( n \geq 1  \). Show \( c_{n} < \frac{ 2 }{ \sqrt{ 2n+1 }  }. \)
+        \begin{proof}
+        We proceed by induction to show 
+        \[  c_{n} < \frac{ 2  }{ \sqrt{ 2n+1 }  } \tag{1}  \] for all \( n \geq 1  \). Let our base case be \( n = 1  \), then 
+        \[  c_{1} = \frac{ 1 }{ 2 } < \frac{ 2 }{ \sqrt{ 3 } }. \]
+        Now let us assume that (1) holds for \( n \geq 1  \). Let us show that (1) holds for the \( n+1 \) case. Using the definition of \( c_{n} \), observe that
+        \begin{align*}
+            c_{n+1} &= \frac{ 1 \cdot 3 \cdot 5 \dotsb 2n+1 }{ 2 \cdot 4 \cdot 6 \dotsb 2n+2 }  \\
+                    &= \frac{ 1 \cdot 3 \cdot 5 \dotsb (2n-1)(2n+1) }{ 2 \cdot 4 \cdot 6 \dotsb (2n)(2n+2) } \\
+                    &= c_{n} \cdot \frac{ 2n+1 }{ 2n+2 } \\
+                    &< \frac{ 2 }{ \sqrt{ 2n+1 }  } \cdot \frac{ 2n+1 }{ 2n+2 } \\
+                    &= \frac{ 2n+1 }{ n+1 \sqrt{ 2n+1 }  } \\
+                    &< \frac{ 2 }{ \sqrt{ 2n^2 + 3n + 1  }  } \\
+                    &< \frac{ 2 }{ \sqrt{ 2n+3 }  }.
+        \end{align*}
+        Hence, we conclude that \( c_n  \) satisfies the inequality
+        \[  c_{n} < \frac{ 2 }{ \sqrt{ 2n+1 }  }\]
+        for all \( n \geq 1  \).
+        \end{proof}
+    \item[(b)] Use (a) to show that \( \sum_{ n=0  }^{ \infty  } a_n  \) converges (absolutely, in fact) where \( a_{n} \) is the sequence of Taylor coefficients generated in Exercise 6.7.4.
+        \begin{proof}[Solution]
+        Our goal is to show that \( \sum_{ n=0 }^{ \infty  } a_n  \) converges absolutely where 
+        \[  a_{n}= \prod_{i=1}^{n} \frac{ 2i-3 }{ 2i } \]
+        is the sequence of Taylor coefficients. Then observe that
+        \begin{align*} a_{n} &= \frac{-1 \cdot 3 \cdot 5 \dotsb (2n-3)   }{ 2 \cdot 4 \cdot 6 \dotsb 2n} \cdot \frac{ (2n-1) }{  (2n-1) } \\ 
+        &= \frac{ -1  }{ (2n-1)  }  \cdot \frac{ 1 \cdot 3 \cdot 5 \dotsb (2n-1)  }{ 2 \cdot 4 \cdot 6 \dotsb 2n  } \\     
+        &= -\frac{ c_n }{ 2n-1 }.  
+        \end{align*}
+        Since \( c_n < \frac{ 2 }{ \sqrt{ 2n-1 }  }  \) for \( n \geq 1  \), we can write 
+        \[  | a_n |  = \frac{ c_{n} }{ 2n-1 } < \frac{ 2 }{ (2n-1)\sqrt{ 2n+1 }  }    \]
+        which creates a series 
+        \[  \sum_{ n=1 }^{ \infty  } \frac{ 2 }{ (2n-1) \sqrt{ 2n+1 }  }     \]
+        that converges via the root test. Hence, we have \( \sum_{ n=0 }^{ \infty  } a_n  \) converges absolutely.
+        \end{proof}
+    \item[(c)] Carefully explain how this verifies that equation (1) holds for all \( x \in [-1,1] \).
+        \begin{proof}
+        Since \( \sum_{ n=0 }^{ \infty  } a_n  \) converges absolutely, we can take an upper bound and use Abel's Lemma to show that the power series 
+        \[ \sum_{ n=0  }^{ \infty  } a_n x^{n}  \] satisfies the Cauchy Criterion for power series for all \( x \in [-1,1] \).
+        \end{proof}
+\end{enumerate}
+
+Our goal is to find polynomials that approximate the absolute value function on an interval containing the non-differentiable point at the origin.
+
+\subsubsection{Exercise 6.7.7} 
+\begin{enumerate}
+    \item[(a)] Use the fact that \( | a  |  = \sqrt{ a^{2} }  \) to prove that, given \( \epsilon > 0  \), there exists a polynomial \( q(x)  \) satisfying 
+        \[  | | x  | - q(x)  | < \epsilon \]
+        for all \( x \in [-1,1] \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Generalize this conclusion to an arbitrary interval \( [a,b] \).
+        \begin{proof}
         
         \end{proof}
 \end{enumerate}
+
+
+
 
 
 
