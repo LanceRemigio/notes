@@ -208,7 +208,13 @@ Our goal is to find polynomials that approximate the absolute value function on 
 
     \item[(b)] Generalize this conclusion to an arbitrary interval \( [a,b] \).
         \begin{proof}
-        
+			Let \( c = \max \{ a, b  \}  \) and let \( x \in [-1,1] \). Then let \( \epsilon / c > 0    \) such that there exists a polynomial \( q(x)  \) such that
+			\[ \Big| \Big| \frac{ x }{ c }  \Big| - q \Big( \frac{ x }{ c }  \Big) \Big| < \frac{ \epsilon  }{ c  } \tag{1}. \]
+		Then let \( x \in [a,b]  \) be arbitrary. Then multiplying by \( c  \) on both sides of (1), we get that
+		\[ \Big| \Big| \frac{ x }{ c } \Big| - q \Big( \frac{ x }{ c }  \Big) \Big| < \frac{ \epsilon  }{ c  }  \iff  \Big| | x | - c \cdot q \Big( \frac{ x }{ c } \Big) \Big| < \epsilon   \]
+		where we have found the polynomial \( c \cdot q (x/c) \). Hence, we have 
+		\[  | | x | - q(x)  | < \epsilon  \]
+		for all \( x \in [a,b] \).
         \end{proof}
 \end{enumerate}
 
@@ -223,8 +229,32 @@ Knowing that the absolute value function is integral to the proof of WAT, we can
 \begin{enumerate}
     \item[(a)] Explain why we know \( h_{a}(x)  \) can be uniformly approximated with a polynomial on \( [-1,1] \).
         \begin{proof}[Solution]
-        
+        We know that \( h_{a}(x)  \) can be uniformly approximated with a polynomial \( q(x)  \) since 
+		\[  | x - a  | = \sqrt{ (x-a)^2  } = \sqrt{ 1 - (1 - (x-a)^2) } \tag{1}\]
+		is continuous on \( [-1,1] \) and the fact that (1) contains a Taylor series representation on \( [-1,1] \).
+		Using the same techniques as exercise 6.7.7, we can show that given an \( \epsilon > 0  \)that we can find a polynomial \( p(x)  \) such that 
+		\[  | h_a(x) - q(x)   | < \epsilon. \]
         \end{proof}
+	\item[(b)] Let \( \phi  \) be a polygonal function that is linear on each subinterval of the partition 
+		\[  -1 = a_{0} < a_{1} < a_{2} < \dotsb < a_{n} = 1. \]
+		Show that there exists constants \( b_{0}, b_{1}, \dots, b_{n-1} \) so that 
+		\[  \phi(x) = \phi(-1) + b_{0} h_{a_0 }(x) + b_{1} h_{a_{1}}(x) + \dotsb + b_{n-1}h_{a_{n-1}}(x) \]
+		for all \( x \in [-1,1] \).
+		\begin{proof}
+			Define \( \phi(x)  \) at the endpoints of the interval \( [-1,1] \). Then using polynomial approximation of \( h_{a_n}(x)  \), we can define the series
+			\[  \sum_{ i=1 }^{ n  } b_{i-1} h_{a_{i-1}}(x) \]
+			where the coefficients \( b_{0}  \) and \( b_{n-1}  \) for \( n \geq 1  \) can be found by 
+			\begin{align*}
+				b_{i-1} &= \frac{ \phi(a_i) - \phi(a_{i-1}) }{ a_i - a_{i-1}  }  - b_{n-1}.\\
+				b_{0} &= \frac{ \phi(a_{1}) - \phi(a_{0})  }{ a_{1} - a_{0} }.
+			\end{align*}
+			Putting everything together, we define 
+			\[  \phi(x) = \phi(-1) +  \sum_{ i=1 }^{ n  } b_{i-1} h_{a_{i-1}}(x). \]
+		\end{proof}
+	\item[(c)] Complete the proof of WAT for the interval \( [-1,1]  \), and then generalize to an arbitrary interval \( [a,b]  \).
+		\begin{proof}
+		
+		\end{proof}
 \end{enumerate}
 
 
