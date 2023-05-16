@@ -185,8 +185,9 @@ goes to \( 0  \) uniformly as \( N \to \infty  \). Normally, we can use Lagrange
         \end{proof}
     \item[(c)] Carefully explain how this verifies that equation (1) holds for all \( x \in [-1,1] \).
         \begin{proof}
-        Since \( \sum_{ n=0 }^{ \infty  } a_n  \) converges absolutely, we can take an upper bound and use Abel's Lemma to show that the power series 
-        \[ \sum_{ n=0  }^{ \infty  } a_n x^{n}  \] satisfies the Cauchy Criterion for power series for all \( x \in [-1,1] \).
+        Since \( \sum_{ n=0 }^{ \infty  } a_n  \) converges absolutely, we can use the Weirstrass M-test to show that 
+        \[  \sum_{ n=0 }^{ \infty  } a_n x^{n}  \] converges uniformly on \( [-1,1] \). Observe that for any \( x \in [-1,1]  \), we have 
+        \[  | a_{n} x^{n} | \leq a_{n}.\] Since the right hand side of the above inequality produces a series that converges absolutely (from part(b)), we know that the power series \[  \sum_{ n=0 }^{ \infty  } a_{n} x^{n}  \] must converge uniformly on \( [-1,1] \). 
         \end{proof}
 \end{enumerate}
 
@@ -198,13 +199,34 @@ Our goal is to find polynomials that approximate the absolute value function on 
         \[  | | x  | - q(x)  | < \epsilon \]
         for all \( x \in [-1,1] \).
         \begin{proof}
-        
+            Let \( \epsilon > 0   \). Note that \( | x  |  = \sqrt{ x^{2}  }  = \sqrt{ 1 - (1 - x^2)  }  \) ha a series representation 
+            \[  \sqrt{ 1 - (1-x^2) } = \sum_{ n=0  }^{ \infty  } a_n (1 -x^2)^n \tag{1} \] where 
+            \[  a_n =  \prod_{i=1}^{n} \frac{ 2i - 3  }{ 2i } \]which holds for all \( x \in [-1,1] \). Since the right hand side of (1) is just a polynomial, we can set 
+            \[  q(x) = \sum_{ n=0 }^{ \infty  } a_n (1-x^{2})^{n} \] such that 
+            \[  | | x  | - q(x)   | = | \sqrt{ 1 - (1-x^2) } - q(x) | < \epsilon.  \]
         \end{proof}
+
     \item[(b)] Generalize this conclusion to an arbitrary interval \( [a,b] \).
         \begin{proof}
         
         \end{proof}
 \end{enumerate}
+
+
+
+\subsection{Proving WAT} 
+
+Knowing that the absolute value function is integral to the proof of WAT, we can now fill in the details of the proof. Fix \( a \in [-1,1]  \) and set 
+\[  h_{a}(x) = \frac{ 1 }{ 2 }  ( | x -a  | + (x-a)) \] over \( [-1,1]  \). Note that \( h_{a}  \) is polygonal and satisfies \( h_{a}(x) = 0  \) for all \( x \in [-1,a] \).
+
+\subsubsection{Exercise 6.7.8} 
+\begin{enumerate}
+    \item[(a)] Explain why we know \( h_{a}(x)  \) can be uniformly approximated with a polynomial on \( [-1,1] \).
+        \begin{proof}[Solution]
+        
+        \end{proof}
+\end{enumerate}
+
 
 
 
