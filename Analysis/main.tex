@@ -1,6 +1,32 @@
 \documentclass[12pt]{book}
 
-\input{preamble/preamble.tex}
+% \input{preamble/preamble.tex}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{hyperref,enumitem,tcolorbox}
+\usepackage{fancyhdr, bookmark, parskip}
+\usepackage[hmarginratio=1:1]{geometry}
+\setlength{\headheight}{28pt}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+\usepackage{tcolorbox}
+\usepackage{graphicx}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{cor}{Corollary}[thm]
+\newtheorem{lem}{Lemma}[section]
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem*{rem}{Remark}
+\newtheorem*{ex}{Example}
+\renewcommand\qedsymbol{$\blacksquare$}
+
 
 \title{Understanding Analysis Notes}
 \author{Lance Remigio}
@@ -87,9 +113,9 @@
 
 \chapter{The Riemann Integral}
 
-
-
 \input{chapter/ch7/7.1/chap7.1.tex}
+
+\input{chapter/ch7/7.2/chap7.2.tex}
 
 
 

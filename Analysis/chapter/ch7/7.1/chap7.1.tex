@@ -1,5 +1,25 @@
 \section{Dicussion: How should Integration be Defined?}
 
 
+Recall the Fundamental Theorem of Calculus:
+
+\begin{align*}
+	\int_{ a }^{ b } F'(x) \ dx  &= F(b) - F(a) \text{ and } \\
+	\text{ if } G(x) &= \int_{ a }^{ x } f(t) \ dt, \text{ then } G'(x) = f(x)
+\end{align*}
+ 
+which tells us that there is an inverse relationship between differentiation and integration. Before Analysis, the integral of some function \( f  \) is satisfied \( F' = f  \). But we need to build a rigorous foundation for the statements above. 
+
+Around the time of Cauchy and Riemann, the notion that a theory built around integrals having an inverse relationship to derivatives were thrown out the window in favor of the more intuitive notion of the "area under the curve", the concept we mostly associate integrals to today.
+
+The Riemann integral as it is called today can be explained as taking some function \( f  \) on some closed interval \( [a,b] \), where this interval is partitioned into smaller subintervals, say, \( [ x_{k-1}, x_{k}] \). Picking some point \( c_{k } \in [x_{k-1} , x_{k }] \), we can use the \( y \)-value \( f(c_{k }) \) as an approximation for \( f  \) on \( [x_{k-1}, x_{k }] \). Graphically, this process creates a row of thin rectangles constructed to approximate the area between \( f  \) and the \( x  \)-axis. Since the area of each rectangle is just the base multiplied by its height, we have that \( f(c_{k })(x_{ k } - x_{k - 1 }) \). The total area of all the rectangles in the interval \( [a,b] \) is given by the \textit{Riemann sum} 
+\[  \sum_{ k=1 }^{ n } f(c_{k })( x_{k } - x_{k -1}).\] It should be noted that area in this context can be assigned negative values if we are taking the areas under a curve for which it is below the \( x \)-axis.
+
+Taking this concept further, the accuracy of the Riemann sum approximation gets better as the width of the rectangles tends to zero. If this limit exists, then we just end up with Riemann's definition of \( \int_{ a }^{ b } f \ dx \). 
+
+Bringing forth a rigorous footing for this concept is not very difficult given our extensive study of the theory dealing with limits and infinite series. What is more interesting to us, however, is deciding under what conditions is \( f  \) allowed to be integrated? 
+We will see that the notion of approximating the function \( f  \) using these Riemann sums wherer the quality of the approximation is relate to the difference
+\[  | f(x) - f(c_{k }) | \] is connected to the continuity of \( f  \). But is continuity necessarily sufficient to prove that our Riemann sums converge to a well-defined limit? Can it still integrate discontinuos functions such as the Dirichlet functions on \( [0,1] \)?  
+
 
 

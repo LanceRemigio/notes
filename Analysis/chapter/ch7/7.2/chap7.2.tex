@@ -1,0 +1,13 @@
+\section{The Definition of the Riemann Integral}
+
+Before we have \textit{Riemann sums}, we need to construct \textit{upper sums}  and \textit{lower sums} using the notion of the supremum and infimum. In this section, let us assume that \( f  \) is defined on a closed interval \( [a,b]  \) where \( f  \) is bounded my some \( M > 0  \) on this interval; that is, \( | f(x)  | \leq M  \) for all \( x \in [a,b] \). 
+
+\subsection{Partitions, Upper Sums, and Lower Sums}
+
+\begin{tcolorbox}
+\begin{defn}
+	A \textit{partition} \( P  \) of \( [a,b]  \) is a finite set of points from \( [a,b]  \) that includes both \( a  \) and \( b  \). The notational convention is to always list the points of a partition \( P = \{ x_{0}, x_{1}, x_{2}, \dots, x_{n} \}  \) in increasing order; thus, \[  a = x_{0} < x_{1} < x_{2} < \dotsb < x_{n} = b. \]
+	For each subinterval \( [x_{k-1}, x_{k} ] \) of \( P  \), let 
+	\[  m_{k } = \inf \{ f(x) : x \in [x_{k-1} , x_{k } ] \} \ \text{ and } \  M_{k } = \sup \{ f(x) : x \in [x_{k-1}, x_{k }] \}. \]
+\end{defn}
+\end{tcolorbox}
