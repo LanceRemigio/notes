@@ -253,7 +253,19 @@ Knowing that the absolute value function is integral to the proof of WAT, we can
 		\end{proof}
 	\item[(c)] Complete the proof of WAT for the interval \( [-1,1]  \), and then generalize to an arbitrary interval \( [a,b]  \).
 		\begin{proof}
-		
+			Let \( \epsilon > 0\) and let \( f \) be a continuous function over the compact set \( [-1,1] \). Since \( f  \) is continous over \( [-1,1]  \), we know that \( f  \) must also be a uniformly continuous function over \( [-1,1] \). Our goal is to find some polynomial \( p(x)  \) such that 
+			\[  |  f(x)  - p(x)  | < \epsilon. \]
+			Using the definition of the polygonal function \( \phi(x)  \) from above, we know that \( f \) can be approximated by \( \phi(x)  \). Hence, we have 
+			\[  | f(x) - \phi(x)  | < \frac{ \epsilon  }{ 2 }. \]
+			Furthermore, \( \phi(x)  \) can also be uniformly approximated by \( p(x)  \) to get 
+			\[  | \phi(x) - p(x)   | < \frac{ \epsilon  }{ 2  } .\] Using the triangle inequality, we can write that 
+			\begin{align*}
+			    | f(x) - p(x)  | &= | f(x) - \phi(x) + \phi(x) - p(x)  |  \\
+								 &\leq | f(x) - \phi(x)  | + | \phi(x) - p(x)  | \\
+								 &< \frac{ \epsilon  }{ 2  } + \frac{ \epsilon  }{ 2 } \\
+								 &= \epsilon
+			\end{align*}
+			which holds for all \( x \in [-1,1]  \). To extend this result for all \( x \in [a,b]  \), we can follow a similar approach to part (c) of Exercise 6.6.7. 
 		\end{proof}
 \end{enumerate}
 
