@@ -95,6 +95,28 @@ Why is this not surprising you ask? It is because \( U(f) \) is the exact defini
 
 \subsection{Criteria for Integrability} 
 
+To summarize, we know that it is always the case that for a bounded function  \( f  \) on a closed interval \( [a,b]  \), we have 
+\[  \sup \{ L(f,P) : P \in \mathcal{P} \} = L(f) \leq U(f) = \inf \{ U(f,P) : P \in \mathcal{P} \}.\] For \( f  \) to be integrable, the inequaltity above must be an equality. More rigorously, finding our if a function is integrable is equivalent to the existence of partitions whose upper and lower sums are arbitrarly close together.
+
+\begin{tcolorbox}
+	\begin{thm}[Integrability Criterion]
+		A bounded function \(  f \) is integrable on \( [a,b]  \) if and only if, for every \( \epsilon > 0  \), there exists a partition \( P_{\epsilon } \) of \( [a,b] \) such that 
+		\[  U(f, P_{\epsilon }) - L(f, P_{\epsilon }) < \epsilon. \]
+	\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+	(\( \Leftarrow \))Let \( \epsilon > 0  \). If such a partition \( P_{\epsilon } \) of \( [a,b]  \) exists, then we have
+	\[ U(f) - L(f) \leq U(f, P_{\epsilon }) - L(f, P_{\epsilon }) < \epsilon. \]
+	Since \( \epsilon  \) is arbitrary, we know by Theorem 1.2.6 that \( U(f) = L(f) \).Hence, \( f  \) is integrable.  
+	(\( \Rightarrow \)) The proof for the forwards direction works more like using the triangle inequality but this time with parentheses in place of absolute values. Since \( U(f)  \) is just the greatest lower bound of the upper sums, we know that, given some \( \epsilon > 0  \), there must exists a partition \( P_{1} \) such that 
+	\[  U(f, P_{1}) < U(f) + \frac{ \epsilon  }{ 2 }. \]
+	Likewise, there exists a partition \( P_{2}  \) satisfying 
+	\[  L(f, P_{2}) > L(f) - \frac{ \epsilon  }{ 2 } \iff -L(f, P_{2}  ) < \frac{ \epsilon  }{ 2 } - L(F. \]
+\end{proof}
+
+
+
 
 
 
