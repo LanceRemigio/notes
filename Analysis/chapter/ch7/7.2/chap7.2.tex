@@ -126,7 +126,7 @@ To summarize, we know that it is always the case that for a bounded function  \(
 \end{proof}
 
 At the beginning of this section, it was clear that a function's integrability was tied to its continuity. To make this precise, let us consider the arbitrary partition \( P = \{ x_{0}, x_{1}, x_{2}, \dots, x_{n} \}  \) of \( [a,b]  \), and let us define \( \delta x_{k } = x_{k } - x_{k-1 } \). Then, 
-\[  U(f,P) - L(f,P) = \sum_{ k=1 }^{ n } (M_{k } - m_{k } ) \delta x_{ k }, \]
+\[  U(f,P) - L(f,P) = \sum_{ k=1 }^{ n } (M_{k } - m_{k } ) \Delta x_{ k }, \]
 where \( M _{k }  \) and \( m_{ k }  \) are the supremum and infimum of \( f  \) on the subinterval \( [x_{k -1 } , x_{ k  }] \) (as defined before) respectively. The size of 
 \[  U(f,P) - L(f,P)   \] is dependent upon the size of the differences of our extremums \(  M_{k } - m_{k } \), which can be interpreted as the variation of the range of \( f  \) over the interval \( [x_{k-1 }, x_{k }] \). This variation and its restriction of our function \( f  \) on arbitrarly small intervals on \( [a,b]  \) is \textit{precisely} what it means fopr \( f  \) to be uniformly continuous on \( [a,b] \).
 
@@ -139,10 +139,10 @@ where \( M _{k }  \) and \( m_{ k }  \) are the supremum and infimum of \( f  \)
 \begin{proof}
 	Since \( f  \) is continuous on the compact set \( [a,b]  \), we know that \( f  \) must be uniformly continuous on \( [a,b]  \). Let \( \epsilon > 0  \) and choose \( \delta = \epsilon / b -a  \) where \( b = x_{n}   \) and \( a = x_{1}  \) are the endpoints of the interval \( [a,b ] \). Then whenever \( | x - y  | < \delta  \), we have that 
 	\[  | f(x) - f(y)  | < \frac{ \epsilon  }{  b - a  }. \]
-	Now, let \( P  \) be a partition of \( [a,b]  \) where \( \delta x_{ k } = x_{ k } - x _{ k -1 } \) is less than \( \delta  \) for every subinterval \( [x_{k-1 } , x_{k }] \) of \( P  \). Given a particular subinterval \( [x_{k-1}, x_{ k } ] \subseteq [a,b]   \), we can use the Extreme Value Theorem, to state that the supremum \(  M_{k} = f(z_{k })  \) for some \( z_{k } \in [x_{ k-1 } , x_{k}]  \) as well as the infimum \( m_{k } = f(y_{k }) \) for some \( y_{ k } \in [x_{k -1 } , x_{ k }]  \). But this means that whenever \( | z_{k } - y_{k } | < \delta  \), we have 
+	Now, let \( P  \) be a partition of \( [a,b]  \) where \( \Delta x_{ k } = x_{ k } - x _{ k -1 } \) is less than \( \delta  \) for every subinterval \( [x_{k-1 } , x_{k }] \) of \( P  \). Given a particular subinterval \( [x_{k-1}, x_{ k } ] \subseteq [a,b]   \), we can use the Extreme Value Theorem, to state that the supremum \(  M_{k} = f(z_{k })  \) for some \( z_{k } \in [x_{ k-1 } , x_{k}]  \) as well as the infimum \( m_{k } = f(y_{k }) \) for some \( y_{ k } \in [x_{k -1 } , x_{ k }]  \). But this means that whenever \( | z_{k } - y_{k } | < \delta  \), we have 
 	\[  M_{k } - m_{k } = f(z_{k}) - f(y_{k } ) < \frac{ \epsilon  }{  b -a  }. \]
 	This implies that 
-	\[  U(f, P ) - L(f,P ) = \sum_{ k=1 }^{ n } (M_{k } - m_{ k } ) \delta x_{k} < \frac{ \epsilon  }{ b -a  }  \sum_{ k=1 }^{ n } \delta x_{k} = \epsilon \]
+	\[  U(f, P ) - L(f,P ) = \sum_{ k=1 }^{ n } (M_{k } - m_{ k } ) \Delta x_{k} < \frac{ \epsilon  }{ b -a  }  \sum_{ k=1 }^{ n } \Delta x_{k} = \epsilon \]
 	and \( f  \) is integrable by the criterion provided in Theorem 7.2.8.
 \end{proof}
 
