@@ -232,8 +232,51 @@ If \( P \subseteq Q  \), then \( L(f,P) \leq L(f,Q)  \), and \( U(f,P ) \geq U(f
 
 \subsection{Exercises}
 
+\subsubsection{Exercise 7.2.1} Let \( f  \) be a bounded function on \( [a,b]  \), and let \( P  \) be an arbitrary parititon of \(  [a,b]  \). First, explain why \( U(f) \geq L(f,P)  \). Now, prove Lemma 7.2.6.
+\begin{proof}
+By definition, we know that 
+\[  U(f) = \inf \{ U(f,P) : P \in \mathcal{P} \}  \] and \( U(f,P)   \), for any given partition \( P \in \mathcal{P} \), is an upper bound of the set \( \mathcal {L} = \{ L(f,P) 
+: P \in \mathcal{P}\}  \). Since \( U(f)  \) is any upper bound of \( \mathcal{L} \) and \( L(f)  \) is the \textit{least upper bound} then, we know that \( U(f) \geq L(f,P) \). Then given an arbitrary \( \epsilon > 0  \), we can find some partition \( P_{\epsilon } \in \mathcal{P} \) such that 
+\[  L(f) - \epsilon < L(f, P_{\epsilon }) \leq U(f)  \]
+which implies that 
+\[  L(f) \leq U(f) + \epsilon. \]
+Since \( \epsilon > 0  \) is arbitrary, we know that \( U(f) \geq L(f) \).
+\end{proof}
 
 
+\subsubsection{Exercise 7.2.3 (Sequential Criterion for Integrability)} 
+\begin{enumerate}
+	\item[(a)] Prove that a bounded function \( f  \) is integrable on \( [a,b]  \) if and only if there exists a sequence of partitions \( (P_{n})_{n=1}^{\infty } \) satisfying 
+		\[  \lim_{ n \to \infty  }  [U(f, P_{n}) - L(f, P_{n})] = 0,  \]
+		and in this case \( \int_{ a }^{ b }  f = \lim_{ n \to \infty  }  U(f, P_{n} ) = \lim_{ n \to \infty  }  L(f, P_{n}). \)
+		\begin{proof}
+		First we prove the forwards direction. We can find a \textit{common refinement} where \( Q = P_{1} \cup P_{2} \) such that \( P_{1} \subseteq Q  \) and \( P_{2} \subseteq Q  \). Given that \( f  \) is bounded, let \( \epsilon > 0  \) such that the following statements can be made:
+		\begin{align*}
+			U(f, P_1) &< U(f) + \frac{ \epsilon  }{ 2  }  \iff U(f, P_{1}) - U(f) < \frac{ \epsilon  }{ 2 } \\
+			L(f, P_{2}) &> L(f) - \frac{ \epsilon  }{ 2 } \iff L(f) - L(f, P_{2}) < \frac{ \epsilon  }{ 2 } .
+		\end{align*}
+		Now assume \( L(f) = U(f) \). Then for some \( N \in \N  \), we assume that for any \( n \geq N  \), we have
+		\begin{align*}
+		    | U(f, P_{n}) - L(f, P_{n}) | &\leq | U(f, P_{1}) - L(f, P_{2}) |  \\
+										  &= | U(f, P_{1}) - U(f)  +  U(f) - L(f)   +  L(f) - L(f, P ) | \\
+										  &\leq | U(f, P_{1}) - U(f)  |  + | U(f) - L(f)  | + | L(f) - L(f, P ) | \\
+										  &= | U(f,P_{1}) - U(f)  |  + | L(f) - L(f,P) | \\
+										  &< \frac{ \epsilon  }{ 2  } + \frac{ \epsilon  }{ 2  } = \epsilon.
+		\end{align*}
+
+		Now we shall prove the backwards direction. Choose \( \epsilon = 1/n   \). Assume there exists a partition \( P_{n} \) such that for some \( N \in \N  \), we have that for any \( n \geq N  \)
+		\[  U(f) - L(f) \leq U(f, P_{n})  - L(f, P_{n}) < \frac{ 1 }{ n } \to 0. \]
+		But by Theorem 1.2.6, we have that \( U(f) = L(f) \). Hence, \( f  \) must be integrable.
+		\end{proof}
+	\item[(b)] For each \( n  \), let \( P_{n} \) be the partition of \( [0,1] \) into \( n \) equal subintervals. Find formulas for \( U(f, P_{n}) \) and \( L(f,P_{n}) \) if \( f(x) = x  \). The formula \( 1 + 2 + 3 + \dotsb + n = n(n+1)/2  \) will be useful.
+		\begin{proof}[Solution]
+		
+		\end{proof}
+	\item[(c)] Use the sequential criterion for integrability from (a) to show directly that \( f(x) = x  \) is integrable on \( [0,1]  \) and compute \( \int_{ 0 }^{ 1 } f   \).
+		\begin{proof}[Solution]
+		
+		\end{proof}
+\end{enumerate}
 
 
 
