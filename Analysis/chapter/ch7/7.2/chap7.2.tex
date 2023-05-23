@@ -270,13 +270,57 @@ Since \( \epsilon > 0  \) is arbitrary, we know that \( U(f) \geq L(f) \).
 		\end{proof}
 	\item[(b)] For each \( n  \), let \( P_{n} \) be the partition of \( [0,1] \) into \( n \) equal subintervals. Find formulas for \( U(f, P_{n}) \) and \( L(f,P_{n}) \) if \( f(x) = x  \). The formula \( 1 + 2 + 3 + \dotsb + n = n(n+1)/2  \) will be useful.
 		\begin{proof}[Solution]
-		
+			Let \( f(x) = x  \). Then for each \( n \in \N  \), let \( x_{k } = k / n  \). Then using the formula \( 1 + 2 + 3 + \dotsb + n = n(n+1) / 2 \), we attain the formula for the \textit{Upper Sum}  
+			\begin{align*}
+			   U(f, P_{n}) &= \sum_{ k=1 }^{ n } M_{k } ( x_{k } -  x_{k -1 } ) \\
+						   &= \sum_{ k=1 }^{ n } \frac{ k  }{ n } \Big(  \frac{ k  }{ n } - \frac{ k-1 }{ n } \ \Big) \\
+						   &= \sum_{ k=1 }^{ n } \frac{ k  }{ n^2 } \\
+						   &= \frac{ n(n+1) }{ 2n^2 } \\
+						   &= \frac{ n+1 }{ 2n }. \\ 
+			\end{align*}
+		Similarly, we can let \( x_{k-1} = (k-1)/n \) to attain the formula for the \textit{Lower Sum} 
+		\begin{align*}
+		    L(f, P_{n})&= \sum_{ k=1 }^{ n } m_{k } ( x_{k} - x_{k-1}) \\
+					   &= \sum_{ k=1 }^{ n } \frac{ k-1 }{ n } \Big( \frac{ k-1 }{ n } - \frac{ k-2 }{ n }  \Big) \\
+					   &= \sum_{ k=1 }^{ n } \frac{ k-1 }{ n^2 } \\
+					   &= \frac{ n^{2} + n - 2  }{ 2 n^{2} }. 
+		\end{align*}
+		Hence, we have the following formulas:
+		\begin{align*}
+		    U(f, P_{n}) &= \frac{ n^2 + n  }{ 2n^2 } \\
+			L(f, P_{n}) &=  \frac{ n^{2} + n - 2  }{ 2n^2 } 
+		\end{align*}
 		\end{proof}
 	\item[(c)] Use the sequential criterion for integrability from (a) to show directly that \( f(x) = x  \) is integrable on \( [0,1]  \) and compute \( \int_{ 0 }^{ 1 } f   \).
 		\begin{proof}[Solution]
-		
+			To show that \( f(x)  \) integrable on \( [0,1] \), all we need to show is 
+			\[  \lim_{ n \to \infty  }  [ U(f, P_{n}) - L(f, P_{n })] = 0.  \]
+			Indeed, we have 
+			\begin{align*}
+			    \lim_{ n \to \infty  }  [ U(f, P_{n}) - L(f, P_{n })] &= \lim_{ n \to \infty  } \frac{ 1 }{ n^2 }  \\
+																	  &= 0. 
+			\end{align*}
+			Hence, \( f(x) = x  \) is integrable on \( [0,1] \). For large \( n  \), we know that 
+			\( U(f) \leq 1 /2  \) and \( L(f) \geq 1 / 2  \). Since \( U(f) = L(f)  \), we know that 
+			\[  \int_{ a }^{ b } f  = \frac{ 1 }{ 2 }. \]
 		\end{proof}
 \end{enumerate}
+
+\subsubsection{Exercise 7.2.5} Assume that, for each \( n  \), \( f_{n} \) is an integrable function on \( [a,b]  \). If \( (f_n) \to f  \) uniformly on \( [a,b]   \), prove that \( f  \) is also integrable on this set. (We will see that this conclusion does not necessarily follow if the convergence is pointwise.)
+\begin{proof}
+	To show that \( f  \) is integrable on \( [0,1]  \), it suffices to show that there exists some \( N \in \N  \) such that for any \( n \geq N  \), we have 
+	\[  | U(f, P_{n}) - L(f, P_{n})  | < \epsilon. \]
+	Since \( (f_n) \to f  \) uniformly on \( [a,b]  \), we can find \( y_{k}, z_{k} \in [x_{k-1}, x_{k} ]  \) such that 
+	\begin{align*}
+		M_{k } &= f(y_{k }) = \sup \{ f(x) : x \in [x_{k-1} , x_{k }] \}  \\
+		m_{k } 	   &= f(z_{k })  = \inf \{ f(x) : x \in [ x_{k-1} , x_{k }] \} 
+	\end{align*}
+	where we get 
+	\[  | M_k - m_k  | = | f(y_{ k }) - f( z_{k} )  | < \epsilon. \]
+\end{proof}
+
+
+
 
 
 
