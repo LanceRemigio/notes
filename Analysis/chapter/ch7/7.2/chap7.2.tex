@@ -306,18 +306,58 @@ Since \( \epsilon > 0  \) is arbitrary, we know that \( U(f) \geq L(f) \).
 		\end{proof}
 \end{enumerate}
 
+
+\subsubsection{Exercise 7.2.4} Let \( g  \) be bounded on \( [a,b]  \) and assume there exists a partition \( P  \) with \( L(f, P) = U(g,P)  \). Is \( g  \) necessarily continuous? Is it integrable? If so, what is the value of \( \int_{ a }^{ b }  g \).
+\begin{proof}[Solution]
+	Yes, \( g  \) is continuous since it is just the constant function and constant functions are continuous. Let \( \epsilon > 0  \). It is integrable becuse there exists a partition \( P_{\epsilon } \) such that \( L(g,P_{\epsilon }) = U(g,P_{\epsilon })  \) implies that 
+	\[ U(g,P) - L(g,P) < \epsilon.  \] Furthemore, we have \( \int_{ a }^{ b }  g = g(x_{k }) \Delta x_{k } \).
+\end{proof}
+
+
+
+
+
 \subsubsection{Exercise 7.2.5} Assume that, for each \( n  \), \( f_{n} \) is an integrable function on \( [a,b]  \). If \( (f_n) \to f  \) uniformly on \( [a,b]   \), prove that \( f  \) is also integrable on this set. (We will see that this conclusion does not necessarily follow if the convergence is pointwise.)
 \begin{proof}
-	To show that \( f  \) is integrable on \( [0,1]  \), it suffices to show that there exists some \( N \in \N  \) such that for any \( n \geq N  \), we have 
-	\[  | U(f, P_{n}) - L(f, P_{n})  | < \epsilon. \]
-	Since \( (f_n) \to f  \) uniformly on \( [a,b]  \), we can find \( y_{k}, z_{k} \in [x_{k-1}, x_{k} ]  \) such that 
+	Let \( \epsilon > 0  \). Since \( f_{n} \) is integrable on \( [a,b]  \), there exists a partition \( P_{\epsilon } \) such that 
+	\[ U(f_{n}, P_{\epsilon }) - L(f_{n}, P_{\epsilon }) < \epsilon. \]
+	Since \( (f_{n}) \to f  \) uniformly, we can bound the difference of the upper sums between \( f_{n} \) and \( f  \) by choosing \( N_{1} \in \N  \) such that for any \( n \geq N_{1}  \), we have
+	\[  U(f, P_{\epsilon }) - U(f_{n}, P_{\epsilon }) = (M_{k} - f_{n}(\ell_k)) \sum_{ k=1 }^{ n } \Delta x_{k } < \frac{ \epsilon  }{  3(b -a)  } \sum_{ k=1 }^{ n } \Delta x_{ k }  \] for some \( \ell_{k } \in [x_{k-1}, x_{k }] \) and similarly choosing \( N_{2} \in \N  \) such that for any \( n \geq N_{2} \)
+	\[  L(f_n, P_{\epsilon }) - L(f, P_{\epsilon }) = ( f_{n}(s_{k }) - m_{k}) \sum_{ k=1 }^{ n } \Delta x_{k } < \frac{ \epsilon  }{  3(b -a)  } \sum_{ k=1 }^{ n } \Delta x_{ k }.\] Furthermore, we must also choose \( N_{3} \in \N  \) such that for any \( n \geq N_{3} \) 
+	\[  | U(f_{n}, P_{\epsilon }) - L(f_{n}, P_{\epsilon }) | < \frac{ \epsilon  }{ 3 (b-a) } . \]
+	Then observe that
 	\begin{align*}
-		M_{k } &= f(y_{k }) = \sup \{ f(x) : x \in [x_{k-1} , x_{k }] \}  \\
-		m_{k } 	   &= f(z_{k })  = \inf \{ f(x) : x \in [ x_{k-1} , x_{k }] \} 
+		U(f, P_{\epsilon }) - L(f, P_{\epsilon }) &= U(f, P_{\epsilon }) - U(f_n, P_{\epsilon }) + U(f_{n}, P_{\epsilon }) - L(f_{n}, P_{\epsilon }) \\ 
+												  &+ L(f_{n}, P_{\epsilon }) - L(f, P_{\epsilon }) \\
+												  &< \frac{ \epsilon  }{ b - a  } \sum_{ k=1 }^{ n } \Delta x_{k} = \epsilon.
 	\end{align*}
-	where we get 
-	\[  | M_k - m_k  | = | f(y_{ k }) - f( z_{k} )  | < \epsilon. \]
 \end{proof}
+
+
+\subsubsection{Exercise 7.2.6} A \textit{tagged partition} \( (P, \{ c_{k } \} ) \) is one where in addition to a partition \( P  \) we choose a sampling point \( c_{k } \) in each of the subintervals \( [ x_{k-1} , x_{k }]  \). The corresponding \textit{Riemann Sum}, 
+\[  R(f, P ) = \sum_{ k=1 }^{ n } f(c_{k }) \Delta x_{k },  \] is discussed in Section 7.1, where the following definition is alluded to. 
+\begin{tcolorbox}
+	\begin{defn}[Riemann's Original Definition of the Integral]
+	A bounded function \( f  \) is \textit{integrable} on \( [a,b]  \) with \( \int_{ a }^{ b } f = A  \) if for all \( \epsilon > 0   \) there exists \( \delta > 0  \) such that for any tagged partition \( (P, \{ c_{k } \} ) \) satisfying \( \Delta x_{k } < \delta  \) for all \( k  \), it follows that 
+	\[  | R(f,P) - A  | < \epsilon. \]
+	\end{defn}
+\end{tcolorbox}
+
+Show that if \( f  \) satisfies Riemann's definition above, then \( f  \) is integrable in the sense of Definition 7.2.7.
+
+\begin{proof}
+Let \( \epsilon > 0  \). Choose \( \delta = \min \{ \delta_1  , \delta_2  \}  \). Let \( (P, \{ c_{k} \} ) \) be an arbitrary tagged partition satisfying \( \Delta x_{k } < \delta  \) for all \( k  \). Let 
+\[ R(f, P) = \sum_{ k=1 }^{ n } f(c_{k }) \Delta x_{k }.  \]
+We want to show that \( L(f) = U(f)  \) so observe that 
+\begin{align*}
+    | U(f) - L(f)  | &= | U(f) - R(f,P) + R(f,P) - L(f)   |  \\
+					 &\leq | U(f) - R(f,P)  | + | R(f,P) - L(f)  | \\
+					 &< \frac{ \epsilon  }{ 2 }  + \frac{ \epsilon  }{ 2 } \\
+					 &= \epsilon.
+\end{align*}
+By Theorem 1.2.6, we must have \( U(f) = L(f) \).
+\end{proof}
+
 
 
 
