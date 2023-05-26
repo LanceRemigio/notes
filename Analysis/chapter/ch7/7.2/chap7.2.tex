@@ -325,7 +325,7 @@ Since \( \epsilon > 0  \) is arbitrary, we know that \( U(f) \geq L(f) \).
 	\[  U(f, P_{\epsilon }) - U(f_{n}, P_{\epsilon }) = (M_{k} - f_{n}(\ell_k)) \sum_{ k=1 }^{ n } \Delta x_{k } < \frac{ \epsilon  }{  3(b -a)  } \sum_{ k=1 }^{ n } \Delta x_{ k }  \] for some \( \ell_{k } \in [x_{k-1}, x_{k }] \) and similarly choosing \( N_{2} \in \N  \) such that for any \( n \geq N_{2} \)
 	\[  L(f_n, P_{\epsilon }) - L(f, P_{\epsilon }) = ( f_{n}(s_{k }) - m_{k}) \sum_{ k=1 }^{ n } \Delta x_{k } < \frac{ \epsilon  }{  3(b -a)  } \sum_{ k=1 }^{ n } \Delta x_{ k }.\] Furthermore, we must also choose \( N_{3} \in \N  \) such that for any \( n \geq N_{3} \) 
 	\[  | U(f_{n}, P_{\epsilon }) - L(f_{n}, P_{\epsilon }) | < \frac{ \epsilon  }{ 3 (b-a) } . \]
-	Then observe that
+	Then we can find an \( N = \max \{ N_{1}, N_{2}, N_{3} \}   \) such that for any \( n \geq N  \)
 	\begin{align*}
 		U(f, P_{\epsilon }) - L(f, P_{\epsilon }) &= U(f, P_{\epsilon }) - U(f_n, P_{\epsilon }) + U(f_{n}, P_{\epsilon }) - L(f_{n}, P_{\epsilon }) \\ 
 												  &+ L(f_{n}, P_{\epsilon }) - L(f, P_{\epsilon }) \\
@@ -358,7 +358,10 @@ We want to show that \( L(f) = U(f)  \) so observe that
 By Theorem 1.2.6, we must have \( U(f) = L(f) \).
 \end{proof}
 
+\subsubsection{Exercise 7.2.7}  Let \( f: [a,b] \to \R   \) be increasing on the set \( [a,b]  \) (i.e., \( f(x) \leq f(y) \) whenever \( x < y  \). Show that \( f  \) is integrable on \( [a,b]  \).
+\begin{proof}
 
+\end{proof}
 
 
 
