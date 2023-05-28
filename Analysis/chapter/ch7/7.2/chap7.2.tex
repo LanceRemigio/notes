@@ -346,23 +346,31 @@ Since \( \epsilon > 0  \) is arbitrary, we know that \( U(f) \geq L(f) \).
 Show that if \( f  \) satisfies Riemann's definition above, then \( f  \) is integrable in the sense of Definition 7.2.7.
 
 \begin{proof}
-Let \( \epsilon > 0  \). Choose \( \delta = \min \{ \delta_1  , \delta_2  \}  \). Let \( (P, \{ c_{k} \} ) \) be an arbitrary tagged partition satisfying \( \Delta x_{k } < \delta  \) for all \( k  \). Let 
-\[ R(f, P) = \sum_{ k=1 }^{ n } f(c_{k }) \Delta x_{k }.  \]
-We want to show that \( L(f) = U(f)  \) so observe that 
+Let \( \epsilon > 0  \) and let \( (P_n, \{ c_{k } \} ) \) be a tagged partition satisfying  \( \Delta x_{k} < \delta_1   \) for all  \( k \). It suffices to show that there exists some \( \delta > 0  \) such that our arbitrary tagged partition defined above must imply that
+\[  | U(f, P_{n}) - L(f, P_{n}) | < \epsilon.  \]
+Let \( P_{1} \) and \( P_{2} \) be any two partitions of \( [a,b]  \). We can attain a common refinement by taking \( P_{1} \cup P_{2} = P_{n} \) where \( P_{1} \subseteq P_{n} \) and \( P_{2} \subseteq P_{n} \). Suppose we take tag partitions \( P_{1} \) and \( P_{2} \) so that we may pick sampling points \( \ell_{k } \) and \( d_{ k }  \) in \( [x_{k-1} , x_{k}] \). Since \( f  \) is integrable on \( [a,b]  \), there must exist \( \delta_1, \delta_2  > 0  \) such that for tagged partitions \( (P_{n}, \{ \ell_k  \} )  \) and \( ( P_{1}, \{ d_{k } \} ) \) satisfying \( \Delta x_{k } < \delta_1  \) and \( \Delta x_{k } < \delta_2  \) respectively, we must have
+\[  | U(f, P_{n}) - R(f, P_{1}) | < \frac{ \epsilon  }{ 4 }.\]
+Similarly, pick a sampling point \( z_{k } \) in \( [x_{k-1}, x_{ k }] \) such that for some \( \delta_3 > 0  \), we can choose \( (P_{2}, \{ z_{k} \} ) \) satisfying \( \Delta x_{k } < \delta_3  \)
+\[  | R(f, P_{2}) - L(f, P_{n}) | < \frac{ \epsilon  }{ 4 }.  \]
+Furthermore, the integrability of \( f  \) also implies that 
 \begin{align*}
-    | U(f) - L(f)  | &= | U(f) - R(f,P) + R(f,P) - L(f)   |  \\
-					 &\leq | U(f) - R(f,P)  | + | R(f,P) - L(f)  | \\
-					 &< \frac{ \epsilon  }{ 2 }  + \frac{ \epsilon  }{ 2 } \\
-					 &= \epsilon.
+	| R(f, P_{1}) - R(f,P_{2}) |   &\leq | R(f, P_{1}) - A  | + | A - R(f, P_{2}) | \\ 
+								   &< \frac{ \epsilon }{ 4  } + \frac{ \epsilon  }{ 4  }.   \\
 \end{align*}
-By Theorem 1.2.6, we must have \( U(f) = L(f) \).
+Hence, we can find \( \delta = \min \{ \delta_{1}, \delta_{2}, \delta_{3}  \}  > 0  \) such that for any partition \( (P_{n}, \min \{ z_{k}, \ell_{k }, d_{k } \} ) \) satisfying \( \Delta x_{k } < \delta  \) for all \( k  \), we have
+\begin{align*}
+	| U(f, P_{n}) - L(f, P_{n}) | &\leq | U(f, P_{n}) - R(f, P_{1})   | + | R(f, P_{1}) - R(f, P_{2}) | \\ &+ | R(f,P_{2}) - L(f, P_{n}) |  \\
+								  &\leq | U(f, P_{n}) - R(f, P_{1}) | + | R(f, P_{1}) - A | \\ &+  | A  - R(f, P_{2}) | + | R(f, P_{2}) - L(f, P_{n}) |  \\  
+								  &< \frac{ \epsilon  }{ 4  } + \frac{ \epsilon  }{ 4  }  + \frac{ \epsilon  }{ 4  } + \frac{ \epsilon  }{ 4  } \\
+								  &= \epsilon.
+\end{align*}
+By the Integrability Criterion, \( f  \) is integrable on \( [a,b] \).
 \end{proof}
 
 \subsubsection{Exercise 7.2.7}  Let \( f: [a,b] \to \R   \) be increasing on the set \( [a,b]  \) (i.e., \( f(x) \leq f(y) \) whenever \( x < y  \). Show that \( f  \) is integrable on \( [a,b]  \).
 \begin{proof}
 
 \end{proof}
-
 
 
 
