@@ -1,0 +1,64 @@
+\section{Integrating Functions with Discontinuities}
+
+In the last section, we saw how the integrability of \( f  \) is heavily dependent on the continuity of \( f  \). 
+\begin{ex}
+Consider the function
+\[  f(x) = 
+\begin{cases}
+	1 \ &\text{ for } x \neq 1 \\
+	0 \ &\text{ for } x = 1
+\end{cases} \] on the interval \( [0,2]  \). Let \( P  \) be any partition of \( [0,2] \). Then we see that \( U(f,P) = 2  \). Notice that the lower sum \( L(f,P ) \) will be less than \( 2  \) for any subinterval containing \( x = 1  \). TO show that \( f  \) is integrable, we can construct a partition that minimizes the effect of the discontinuity by embedding \( x = 1  \) into some very small subinterval.
+Let \( \epsilon > 0  \), and consider the partition \( P_{\epsilon } = \{ 0, 1 - \epsilon / 3, 1 + \epsilon / 3, 2  \}. \) Then, 
+\begin{align*}
+    L(f, P_{\epsilon }) &= \sum_{ k=1 }^{ 3 } m_{k} \Delta x_{k} \\
+						&= 1 \Big( 1 - \frac{ \epsilon  }{ 3 }  \Big) + 0(\epsilon ) + 1 \Big( 1 - \frac{ \epsilon  }{ 3 }  \Big) \\
+						&= 2 - \frac{ 2 }{ 3 } \epsilon.
+\end{align*}
+Since \( U(f, P_{\epsilon }) = 2  \), we have 
+\[  U(f, P_{\epsilon }) - L(f, P_{\epsilon }) = 2 - 2 +  \frac{ 2  }{ 3  } \epsilon = \frac{  2 }{ 3  } \epsilon < \epsilon. \] By theorem 7.2.8, we conclude that \( f  \) is integrable.
+\end{ex}
+
+In the last example, we find that integrating simple functions with a discontinuity is as simple as isolating the discontinuity in some particularly small subinterval of the partition. 
+
+\begin{tcolorbox}
+\begin{thm}
+	If \( f: [a,b] \to \R  \) is bounded, and \( f  \) is integrable on \( [c,b] \) for all \( c \in (a,b)  \), then \( f  \) is integrable on \( [a,b]  \). An analogous result holds at the other endpoint. 
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+Let \( \epsilon > 0  \). Our goal is to produce a partition \( P  \) such that \( U(f, P ) - L(f, P ) < \epsilon. \) For any partition, we can write 
+\begin{align*}
+    U(f, P ) - L(f,P ) &= \sum_{ k=1 }^{ n } (M_{k } - m_{k } ) \Delta x_{ k } \\
+					   &- (M_{1} - m_{1})(x_{1} - a) + \sum_{ k=2 }^{ n } (M_{k} - m_{ k }) \Delta x_{k }.
+\end{align*}
+Our goal now is to choose \( x_{1} \) that is close enough to \( a \) such that 
+\[  (M_{1} - m_{1})(x_{1} - a ) < \frac{ \epsilon  }{ 2 }. \] Since \( f  \) is bounded, we know there exists \( M > 0  \) satisfying \( | f(x)  | \leq M  \) for all \( x \in [a,b]  \). Noting that \( M_{1} - m_{1} \leq 2M \), we can pick \( x_{1} \) such that 
+\[  x_{1} - a < \frac{ \epsilon  }{ 4 M  }. \] By hypothesis, \( f  \) is integrable on \( [x_{1}, b ] \), so there exists a partition \( P_{1}  \) of \( [x_{1}, b] \) for which 
+\[  U(f, P_{1}) - L(f, P_{1}) < \frac{ \epsilon  }{ 2 }. \] Finally, let \( P = \{ a \} \cup P_{1} \) be a partition of \(  [a,b]  \) from which it follows that 
+\begin{align*}
+    U(f,P) - L(f,P) &= (M_{1} - m_{1})(x_{1} - a ) + \sum_{ k=1 }^{ n } (M_{k } - m_{k }) \Delta x_{k } \\
+					&\leq 2M ( x_{1} - a ) + (U(f, P_{1}) - L(f,P_{1})) \\
+					&< \frac{ \epsilon  }{ 2 }  + \frac{ \epsilon  }{ 2  } \\
+					&= \epsilon.
+\end{align*}
+The same argument can be applied to the other endpoint.
+\end{proof}
+
+This theorem allows us to integrate bounded functions on some closed interval with a single discontinuity at its endpoint. Later on, we will prove that a function with \textit{finite} number of discotinuities is still integrable. What about infinite? 
+
+\begin{ex}
+Consider Dirichlet's function 
+\[  g(x) = 
+\begin{cases}
+	1 \ &\text{ for } x \in \Q \\
+	0 \ &\text{ for } x \in \mathbb{I}.
+\end{cases}  \]
+Let \( P  \) be some partition of \( [0,1]  \). The density of the rationals in \( \R  \) implies that we can always find an \( x   \) in any subinterval such that \( g(x) = 1  \) which means that \( U(f,P) = 1  \). On the other hand, the irrationals are also dense in \( \R  \) and hence, we can always find an \( x  \) in every subinterval such that \( g(x) = 0  \). Since this holds for every partition \( P  \), we cannot possibly have \( U(f) = L(f)   \). Hence, \( g  \) cannot be an integrable function.
+\end{ex}
+
+Another function that is similar to \( g  \) but is actually integrable is Thomae's function (introduced in 4.1).  
+
+
+
+

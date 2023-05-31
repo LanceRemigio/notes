@@ -369,7 +369,14 @@ By the Integrability Criterion, \( f  \) is integrable on \( [a,b] \).
 
 \subsubsection{Exercise 7.2.7}  Let \( f: [a,b] \to \R   \) be increasing on the set \( [a,b]  \) (i.e., \( f(x) \leq f(y) \) whenever \( x < y  \). Show that \( f  \) is integrable on \( [a,b]  \).
 \begin{proof}
-
+	Let \( P_{n} \) be a partition of \( [a,b]  \) and let \( [x_{k-1}, x_{k }] \) be our subinterval for \( [a,b]  \). Since \( f  \) is an increasing function, we know that whenever \( x \in [ x_{k-1}, x_{ k }] \), we have that \( f(x_{k-1}) \leq f(x) \leq f(x_{k})  \) for all \( k  \). Hence, we have that \( f  \) is a bounded function on \( [a,b]  \). We can construct a sequence \( (z_{k }) \) such that \( z_{k } = f(x_{k }) \). By the Monotone Convergence theorem, we know that \( (z_{k }) \) has to converge. Furthermore, \( f  \) is increasing implies that we can set \( M_{k } = f(x_{k})     \) and \( m_{k } = f(x_{k-1}) \). Since \( (z_{k}) \) satisfies the Cauchy criterion, we can choose \( N \in \N  \) such that for any \( k, k -1 \geq N  \), we have    
+	\[  | M_{k} - m_{k } | = | f(x_{k}) - f(x_{k-1}) | = | z_{k } - z_{k-1}  | < \frac{ \epsilon  }{ |b - a|  }.  \] With the same choice of \( N  \) and letting \( k, k-1 \geq N  \), we have that 
+	\begin{align*}
+	    | U(f, P_{n}) - L(f, P_{n}) | &= | M_{k} - m_{k}  | \Big| \sum_{ k=1 }^{ n } \Delta x_{k}  \Big|  \\
+									  &< \frac{ \epsilon  }{ |b -a|  } \Big| \sum_{ k=1 }^{ n } \Delta x_{k} \Big| \\
+									  &= \epsilon.
+	\end{align*}
+	By the Sequential Criterion for Integrability, we know that \( f  \) is integrable.
 \end{proof}
 
 
