@@ -59,6 +59,82 @@ Let \( P  \) be some partition of \( [0,1]  \). The density of the rationals in 
 
 Another function that is similar to \( g  \) but is actually integrable is Thomae's function (introduced in 4.1).  
 
+\subsection{Exercises} 
+
+\subsubsection{Exercise 7.3.1} Consider the function 
+\[  h(x) = 
+\begin{cases}
+	1 \ &\text{ for } 0 \leq x < 1 \\
+	2 \ &\text{ for } x = 1 
+\end{cases} \]
+over the interval \( [0,1]  \).
+\begin{enumerate}
+	\item[(a)] Show that \( L(f,P) = 1  \) for every partition \( P  \) of \( [0,1] \).
+		\begin{proof}[Solution]
+		By definition of \( h(x)  \), we know that for any \( 0 \leq x < 1  \), we have \( h(x) = 1  \). If \( x = 1  \), then a quick calculation will produce \( U(f, P) = 2  \). Since \( L(f,P) \leq U(f,P)  \), we get that \( L(f,P) = 1  \) for every \( 0 \leq x < 1  \).
+		\end{proof}
+	\item[(b)] Construct a partition \( P  \) for which \( U(f,P) < 1 + 1/ 10 \).
+		\begin{proof}[Solution]
+			Let \( P = \{ 0,  1 - \frac{ 1 }{ 11 }, 1 + \frac{ 1 }{ 11 },  1 \}  \)
+			and let our subintervals be \( [0, 1 - \frac{ 1 }{ 11 } ], [1 - \frac{ 1 }{ 11 }, 1 + \frac{ 1 }{ 11 } ], \) and  \( [1 + \frac{ 1 }{ 10 }, 1] \). Using the definition of \( U(f,P)  \), we write 
+			\begin{align*}
+				U(f,P) &= \sum_{ k=1 }^{ 3 } M_{k } \Delta x_{k }   \\
+					   &= \Big( 1 - \frac{ 1 }{ 11 }  \Big) + 2 \Big( \frac{ 2 }{ 11 }  \Big) - 2 \Big( \frac{ 1 }{ 11 }  \Big) \\
+					   &= 1 + \frac{ 1 }{ 11 } \\
+					   &< 1 + \frac{ 1 }{ 10 }. 
+			\end{align*}
+			Hence, we have 
+			\[  U(f,P) < 1 + \frac{ 1 }{ 10 }. \]
+		\end{proof}
+	\item[(c)] Given \( \epsilon > 0  \), construct partition \( P_{\epsilon } \) for which \( U(f,P_{\epsilon }) < 1 + \epsilon \).
+		\begin{proof}[Solution]
+		Let \( \epsilon > 0  \) and let \( P = \{ 0, 1 - \frac{ \epsilon  }{ 2 } , 1 + \frac{ \epsilon  }{ 2 }, 1  \}  \). Then using the definition of \( U(f,P)  \), we have
+		\begin{align*}
+		    U(f,P) &= \sum_{ k=1 }^{ 3 } M_{k } \Delta x_{ k }  \\
+				   &= \Big( 1 - \frac{ \epsilon  }{ 2 }  \Big) + 2 \epsilon - 2 \cdot \frac{ \epsilon  }{ 2 } \\
+				   &= 1 + \frac{ \epsilon  }{ 2 } \\
+				   &< 1 + \epsilon. 
+		\end{align*}
+		Hence, we have 
+		\[ U(f,P) < 1 + \epsilon. \]
+
+		\end{proof}
+\end{enumerate}
+
+
+\subsubsection{Exercise 7.3.3} Let 
+\[  f(x) = 
+\begin{cases}
+	1 \ &\text{ if } x = 1 / n \ \text{ for some } n \in \N \\
+	0 \ &\text{ otherwise }.
+\end{cases}  \]
+Show that \( f  \) is integrable on \( [0,1]  \) and compute \( \int_{ 0 }^{ 1 }  f . \)
+\begin{proof}
+	Let \( \epsilon > 0  \). To show that \( f  \) is integrable, it suffices to show \( U(f, P_{\epsilon }) - L(f, P_{\epsilon }) < \epsilon  \) for some partition \( P_{\epsilon } \) of \( [0,1] \). Note that \( L(f, P ) = 0  \) for all \( x \in [0,1] \). Let us construct \( P_{\epsilon } \) by taking 
+	\[  P_{\epsilon } = \Big\{ 0 , \frac{ 1 }{ n } - \epsilon , \frac{ 1 }{ n }  + \epsilon , 1  \Big\}. \]
+	Then taking the definition of \( U(f,P_{\epsilon })  \), we have that 
+	\begin{align*}
+	    U(f,P_{\epsilon }) &= \sum_{ k=1 }^{ 3 } M_{k } \Delta x_{k }   \\
+						   &= 0 \Big( \frac{ 1 }{ n }  - \epsilon \Big) + 2 \epsilon  + 0 \Big( 1 - \frac{ 1 }{ n } - \epsilon  \Big) \\
+						   &= 2 \epsilon. \\
+	\end{align*}
+	Since \( L(f, P_{\epsilon }) = 0  \), we have that 
+	\[  U(f, P_{\epsilon }) - L(f, P_{\epsilon }) = 2 \epsilon - 0  < \epsilon.  \]
+	Hence, \( f  \) is integrable on \( [0,1] \). Note that \( U(f) = 0  \) and hence, we must have 
+	\[  \int_{ 0 }^{ 1 } f = 0. \]
+\end{proof}
+
+\subsubsection{Exercise 7.3.4} Let \( f  \) and \( g  \) be functions defined on (possibly different) closed intervals, and assume the range of \( f  \) is contained in the domain of \( g  \) so that the composition \( g \circ f   \) is properly defined.
+\begin{enumerate}
+    \item[(a)] Show, by example, that it is not the case that if \( f  \) and \( g  \) are integrable, then \( g \circ f  \) is integrable.
+		\begin{proof}[Solution]
+		
+		\end{proof}
+
+	\item[(b)] If \( f  \) is increasing and \( g  \) is integrable, then \( g \circ f  \) is integrable.
+		
+	\item[(c)] If \( f  \) is integrable and \( g  \) is increasing, then \( g \circ f  \) is integrable.
+\end{enumerate}
 
 
 
