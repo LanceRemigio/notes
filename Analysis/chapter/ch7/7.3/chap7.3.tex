@@ -200,6 +200,29 @@ Show that \( f  \) is integrable on \( [0,1]  \) and compute \( \int_{ 0 }^{ 1 }
  	\end{align*}
 	Hence, the composition \( g \circ f \) is an integrable function on \( [a,b] \) by Theorem 7.2.8.
 	\end{proof}
+	Here is a correction of the above proof
+	\begin{proof}
+		Suppose \( f  \) is an integrable function on \( [a,b] \) and \( g  \) is an increasing function on \( [a,b]  \). Let \( \epsilon > 0  \). Then we shall show that for an arbitrary partition \( P_{\epsilon } \), we have 
+		\[  U( g \circ f, P_{\epsilon }) - L(g \circ f, P_{\epsilon }) < \epsilon. \] 
+		Let \( P_{\epsilon } \) be an arbitrary partition. Since \( f  \) is an integrable function, we know that
+		\[  U(f, P_{\epsilon }) - L(f, P_{\epsilon }) = \sum_{ k=1 }^{ n } [M_{k} - m_{k }] \Delta x_{k} < \epsilon. \]
+		Note that the range of \( f  \) is contained within the domain of \( g  \). Define \( y_{k} = f(x_{k}) \). Since \( g  \) is an increasing function, we can write 
+		\begin{align*}
+			U(g \circ f, P_{\epsilon }) - L(g \circ f, P_{\epsilon }) &= \sum_{ k=1 }^{ n } [ M'_{k} - m'_{k}] \Delta y_{k} \\ 
+																	  &= \sum_{ k=1 }^{ n } [ g(y_{k } ) - g(y_{k-1})] \Delta y_{k} \cdot \frac{ \Delta x_{k } }{ \Delta x_{k}  } \\
+																	  &= \frac{ g(f(b)) - g(f(a))   }{ b - a  } \sum_{ k=1 }^{ n } \Delta y_{k} \Delta x_{k } \\ 
+		\end{align*}
+		By the properties of upper and lower sum of \( f  \), observe that for every \( k  \)
+		\[ \Delta y_{k} \leq M_{k } - m_{k }.  \]
+		Then we just have 
+		\begin{align*}
+			\frac{ g(f(b)) - g(f(a))  }{ b -a  }  \sum_{ k=1 }^{ n }  \Delta y_{k} \Delta x_{k} &\leq \frac{ g(f(b)) - g(f(a))  }{ b - a  } \sum_{ k=1 }^{ n } [ M_{k} - m_{k }] \Delta x_{k }  \\
+		\end{align*}
+		Using the assumption that \( f  \) is integrable on \( [a,b]  \), we have that the right side of the inequality above leads to 
+		\[  U(g \circ f, P_{\epsilon }) - L(g \circ f, P_{\epsilon }) < \epsilon. \]
+		Using Theorem 7.2.8, we must have \( g \circ f  \) integrable on \( [a,b] \).
+
+	\end{proof}
 \end{enumerate}
 
 
