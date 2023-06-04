@@ -54,6 +54,51 @@ Some more properties of integration is outlined in the next theorem.
 \end{thm}
 \end{tcolorbox}
 
+\begin{proof}[Proof of (i)]
+	Let \( \epsilon > 0 \). Since \( f \) and \( g  \) are integrable on \( [a,b]  \), there exists a partition \( P_{\epsilon } \) such that 
+	\[  U(f, P_{\epsilon }) - L(f, P_{\epsilon }) < \frac{ \epsilon  }{ 2 }   \]
+	and 
+	\[  U(g, P_{\epsilon }) - L(g, P_{\epsilon }) < \frac{ \epsilon  }{ 2 } . \]
+	To show that \( (f+g)  \) is integrable on \( [a,b] \), we must show that there exists a partition \( P_{\epsilon } \)
+	\[  U(f+g, P_{\epsilon }) - L(f +g, P_{\epsilon }) < \epsilon. \]
+	First, observe that by the properties of the supremum and infimum, we have 
+	that 
+	\[  U(f+g, P_{\epsilon }) = U(f, P_{\epsilon }) + U(g, P_{\epsilon }) \]
+	and 
+	\[  L(f+g, P_{\epsilon }) = L(f, P_{\epsilon }) + L(g, P_{\epsilon }). \]
+	Now observe that
+	\begin{align*}
+		U(f+g, P_{\epsilon }) - L(f+g, P_{\epsilon }) &= [U(f,P_{\epsilon }) + U(g, P_{\epsilon })] - [L(f,P_{\epsilon }) + L(g, P_{\epsilon })] \\
+													  &= [U(f,P_{\epsilon }) - L(f,P_{\epsilon })] + [U(g, P_{\epsilon }) - L(g, P_{\epsilon })] \\
+													  &< \frac{ \epsilon  }{ 2 }  + \frac{ \epsilon  }{ 2 } \\
+													  &= \epsilon.
+	\end{align*}
+	Hence, \( (f+g)  \) integrable on \( [a,b]  \) by Theorem 7.2.8.  
+
+	Now to show 
+	\[  \int_{ a }^{ b } (f+g)  = \int_{ a }^{ b } f + \int_{ a }^{ b } g \]
+	we must show 
+	\[  \int_{ a }^{ b } (f+g) \leq \int_{ a }^{ b } f + \int_{ a }^{ b } g \ \text{ and } \int_{ a }^{ b } (f+g) \geq \int_{ a }^{ b } f + \int_{ a }^{ b } g  \]
+	Since \( (f+g)  \) integrable on \( [a,b] \), we know that \( U(f+g) = L(f+g) = \int_{ a }^{ b } (f+g)  \). Then for any partition \( P  \), we can use the properties of the lower and upper sum derived back in section 7.2 to get 
+	\begin{align*}
+	    \int_{ a }^{ b } (f+g)  &\leq U(f+g, P) \\
+								&< L(f+g, P) + \epsilon \\
+								&\leq L(f) + L(g) + \epsilon \\
+								&= \int_{ a }^{ b } f  + \int_{ a }^{ b } g + \epsilon.
+	\end{align*}
+	Since \( \epsilon > 0   \) is arbitrary, we have \( \int_{ a }^{ b } (f+g)  \leq \int_{ a }^{ b } f + \int_{ a }^{ b } g  \). To get the other inequality, we employ a similar process as above. Observe that, 
+	\begin{align*}
+	    \int_{ a }^{ b } f + \int_{ a }^{ b } g &\leq U(f,P) + U(g, P)\\
+												&< L(f,P) + L(g,P) + \epsilon \\
+												&\leq L(f) + L(g) + \epsilon \\
+												&= L(f+g) + \epsilon \\
+												&= \int_{ a }^{ b } (f+g) + \epsilon.
+	\end{align*}
+	Again, \( \epsilon > 0    \) implies \( \int_{ a }^{ b } f + \int_{ a }^{ b }  g \leq \int_{ a }^{ b } (f+g) \). Hence, we conclude
+	\[  \int_{ a }^{ b } (f+g) = \int_{ a }^{ b } f + \int_{ a }^{ b } g. \]
+	
+\end{proof}
+
 
 
 
