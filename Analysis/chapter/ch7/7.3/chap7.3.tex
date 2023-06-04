@@ -128,12 +128,78 @@ Show that \( f  \) is integrable on \( [0,1]  \) and compute \( \int_{ 0 }^{ 1 }
 \begin{enumerate}
     \item[(a)] Show, by example, that it is not the case that if \( f  \) and \( g  \) are integrable, then \( g \circ f  \) is integrable.
 		\begin{proof}[Solution]
-		
+		Let 
+		\[ g(x) = 
+		\begin{cases}
+			1 \ &\text{ for } x \neq 0 \\
+			0 \ &\text{ for } x = 0 
+		\end{cases}  \] and 
+		\[  f(x) = 
+		\begin{cases}
+			1 / q \ &\text{ for } x \in \Q \\
+			0  \ &\text{ for } x \notin \Q 
+		\end{cases}.\] The function \( g(x)  \) is continuous everywhere except at \( 0  \) and \( f  \) is continuous at every \( x \in \mathbb{I} \). But the composition of these functions,
+		\begin{align*}
+			(g \circ f) (x) &= 
+			\begin{cases}
+				1 \ &\text{ for } x \in \Q \\
+				0 \ &\text{ for } x \notin \Q 
+			\end{cases}  \\
+		\end{align*}
+		which is nowhere continuous and hence not integrable on any interval.
 		\end{proof}
 
+		Now decide on the validity of each of the following conjectures, supplying a proof or counterexample as appropriate.
 	\item[(b)] If \( f  \) is increasing and \( g  \) is integrable, then \( g \circ f  \) is integrable.
+		\begin{proof}[Solution]
+		Let \( f(x) = x^{2}  \) and define 
+		\[  g(x) = 
+		\begin{cases}
+			\frac{ 1 }{ \sqrt{ x }  } \ &\text{ for } x \neq 0 \\ 
+			0 \ &\text{ for } x = 0.
+		\end{cases} \]
+		Note that \( f  \) is an increasing function while \( g  \) is an integrable function. But note that 
+		\[  (g \circ f)(x) = 
+		\begin{cases}
+			\frac{ 1 }{ | x |  } \ &\text{ for } x \neq 0 \\
+			0 \ &\text{ for } x = 0
+		\end{cases} \]
+		is non-integrable.
+		\end{proof}
 		
 	\item[(c)] If \( f  \) is integrable and \( g  \) is increasing, then \( g \circ f  \) is integrable.
+		\begin{proof}
+			Let \( \epsilon > 0 \) and \( P_{\epsilon } \) be an arbitrary partition of an arbitrary closed interval \( [a,b] \). Let us first define \( U(g \circ f , P_{\epsilon }) \) and \( L(g \circ f, P_{\epsilon }) \). So we have 
+		\begin{align*}
+		    U(g \circ f, P_{\epsilon }) &= \sum_{ k=1 }^{ n } g(M_{k}) \Delta y_{ k }   \\
+							L(g \circ f, P_{\epsilon })			&= \sum_{ k=1 }^{ n } g(m_{k }) \Delta y_{k }
+		\end{align*}
+ Let \( \epsilon > 0  \).  Our goal is to show, using our partition \( P_{\epsilon } \), 
+		\[ U(g \circ f, P_{\epsilon }) - L(g \circ f, P_{\epsilon }) < \epsilon.  \] Since \( g  \) is an increasing function on \( [a,b] \) and the range of \( f  \) is contained in the domain of \( g  \), we have that \( g  \) is a bounded function. But this means that we can create sequence \( (\sigma_{k } ) \) where \( \sigma_{k } = g(t_{k }) \). Since \( (\sigma_{k }) \) is increasing and bounded, we know it must be convergent and hence it must be Cauchy. So choose \( N \in \N  \) such that for any \( k,k-1 \geq N  \), we 
+		\begin{align*}
+		    | M'_{k} - m'_{k}   | &= | g(t_{k}) - g(t_{k-1}) | \\ 
+								  &= | \sigma_{k} - \sigma_{k-1} | \\ 
+									   &< \epsilon
+		\end{align*}
+		where \( t_{k} \) and \( t_{k-1}  \) are contained in the domain of \( g \).
+	Observe that by our properties of the upper and lower sum of \( f  \), we have 
+	\[ y_{k} - y_{k-1} \leq M_{k} - m_{k } \ \text{ for all } k.  \]
+	Since \( f  \) is integrable, we can choose \( \epsilon = b -a  \) so that
+	\begin{align*}
+	    U(f, P_{\epsilon }) - L(f, P_{\epsilon }) &< b - a . \\
+	\end{align*}
+	Putting everything together, we have 
+	\begin{align*}
+	    U(g \circ f, P_{\epsilon }) - L(g \circ f, P_{\epsilon }) &= \sum_{ k=1 }^{ n } (M'_{k} - m'_{k}) \Delta y_{k} \\
+								&= \sum_{ k=1 }^{ n } (M'_{k} - m'_{k }) \Delta y_{k} \cdot  \frac{ \Delta x_{k }  }{  \Delta x_{k } } \\ 
+								&=  \frac{ 1 }{ b-a } \sum_{ k=1 }^{ n }  (M'_{k} - m'_{k }) \Delta y_{k} \Delta x_{k } \\
+								&\leq \frac{ 1 }{ b-a } \sum_{ k=1 }^{ n } (M'_{k } - m'_{k } )  (M_{k } - m_{k } ) \Delta x_{k } \\
+								&< \frac{ \epsilon  }{ b -a  } \sum_{ k=1 }^{ n } (M_{k } - m_{k }) \Delta x_{k } \\
+								&< \frac{ \epsilon  }{ b -a  } \cdot b -a  \\
+								&= \epsilon.
+ 	\end{align*}
+	Hence, the composition \( g \circ f \) is an integrable function on \( [a,b] \) by Theorem 7.2.8.
+	\end{proof}
 \end{enumerate}
 
 

@@ -1,5 +1,58 @@
 \section{Properties of the Integral}
 
+For our first property of integration, integrating over a closed interval \( [a,b]  \) is equivalent to taking the sum of the closed intervals, say, \( [a,c]  \) and \( [c,b]  \) that make up \( [a,b]  \).
+
+\begin{tcolorbox}
+\begin{thm}
+	Assume \( f: [a,b] \to \R   \) is bounded, and let \( c \in (a,b)  \). Then, \( f  \) is integrable on \( [a,b]  \) if and only if \( f  \) integrable on \( [a,c]  \) and \( [c,b]  \). In this case, we have 
+	\[  \int_{ a }^{ b } f = \int_{ a }^{ c }  f  + \int_{ b }^{ c }  f. \]
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+	Suppose \( f \) is integrable on \( [a,b]  \). Then for every \( \epsilon > 0   \), there exists a partition \( P  \) such that 
+	\[  U(f,P) - L(f,P) < \epsilon. \]
+	Since the refinement of a paritition might cause the upper and lower sums to be closet together, all we need to do is simply add the point \( c  \) to \( P  \) if it does not already exists. Then, letting \( P_{1} = P \cap [a,c]  \) be a partition of \( [a,c]  \), and \( P_{2} = P \cap [c,b]  \) be a partition of \( [c,b]  \), it follows that 
+	\[  U(f,P_{1}) - L(f, P_{1}) < \epsilon \ \text{ and } \ U(f, P_{2}) - L(f, P_{2}) < \epsilon. \] This implies that \( f  \) is integrable on \( [a,c]  \) and \( [c,b]  \).
+
+	Conversely, if we are given that \( f  \) is integrable on the two smaller intervals \( [a,c]  \) and \( [c,b] \), then given an \( \epsilon > 0  \), we can create partitions \( P_{1}   \) and \( P_{2} \) of \( [a,c] \) and \( [c,b] \), respectively, such that 
+	\[  U(f, P_{1}) - L(f, P_{1}) < \frac{ \epsilon  }{ 2  } \ \text{ and } U(f, P_{2}) - L(f,P_{2}) < \frac{ \epsilon  }{ 2 }.  \]
+	Since \( P = P_{1} \cup P_{2}  \) produces a partition of \( [a,b]  \), we must have 
+	\[ U(f, P) - L(f,P) < \epsilon.  \] Hence, \( f  \) is integrable on \( [a,b]  \).
+	Now let \( P = P_{1} \cup P_{2} \) as before, we have 
+	\begin{align*}
+		\int_{ a }^{ b } f  \leq U(f, P) &< L(f, P)  + \epsilon  \\
+										 &= L(f, P_{1}) + L(f, P_{2}) + \epsilon \\
+										 &leq \int_{ a }^{ c } f  + \int_{ c }^{ b } f + \epsilon,
+	\end{align*}
+	This implies that \( \int_{ a }^{ b } f \leq \int_{ a }^{ c }f + \int_{ c }^{ b }  f \). To get the other inequality, observe that 
+	\begin{align*}
+	    \int_{ a }^{ c } f + \int_{ c }^{ b } f   &\leq U(f, P_{1}) + U(f, P_{2})  \\
+												  &< L(f, P_{1}) + L(f, P_{2}) + \epsilon \\
+												  &= L(f, P) + \epsilon \\
+												  &\leq \int_{ a }^{ b } f + \epsilon.
+	\end{align*}
+	Since \( \epsilon > 0  \) is arbitrary, we must have that 
+	\[  \int_{ a }^{ c } f + \int_{ c }^{ b } f \leq \int_{ a }^{ b } f, \]
+	so hence, we have 
+	\[  \int_{ a }^{ c } f  + \int_{ c }^{ b } f = \int_{ a }^{ b } f, \]
+	as desired.
+\end{proof}
+
+Some more properties of integration is outlined in the next theorem.
+
+\begin{tcolorbox}
+\begin{thm}
+	Assume \( f  \) and \( g  \)  are integrable functions on the interval \( [a,b]  \).
+	\begin{enumerate}
+		\item[(i)] The function \( f + g  \) is integrable on \( [a,b]  \) with \( \int_{ a }^{ b } (f + g) = \int_{ a }^{ b }  f + \int_{ a }^{ b } g  \).
+		\item[(ii)] For \( k \in \R  \), the function \( kf  \) is integrable with \( \int_{ a }^{ b } kf  = k \int_{ a }^{ b }  f. \)
+		\item[(iii)] If \( m \leq f(x) \leq M  \) on \( [a,b]  \), then \( m(b-a) \leq \int_{ a }^{ b } f \leq M(b-a) \).
+		\item[(iv)] If \( f(x) \leq g(x)  \) on \( [a,b]  \), then \( \int_{ a }^{ b } f  \leq \int_{ a }^{ b } g  \).
+		\item[(v)] The function \( | f |   \) is integrable and \( | \int_{ a }^{ b }  f | \leq \int_{ a }^{ b } | f |. \) 
+	\end{enumerate}
+\end{thm}
+\end{tcolorbox}
 
 
 
