@@ -99,6 +99,52 @@ Some more properties of integration is outlined in the next theorem.
 	
 \end{proof}
 
+\begin{proof}[Proof of (ii)]
+	Let \( k \in \R  \). By our supremum and infimum properties derived back in chapter 1, we know that 
+	\[  \sup \{ k f(x) : x \in [x_{k-1}, x_{k }]  \} = k \sup \{ f(x) : x \in \{ x_{k-1}, x_{k} \}  \}   \]
+	and likewise, 
+	\[  \inf \{ kf(x) : x \in [x_{k-1}, x_{k}] \} = k \inf \{ f(x) : x  \in [x_{k-1}, x_{k }]  \}.  \]
+	Hence, we have
+	\[  U(kf, P_{n}) = k U(f, P_{n}) \ \text{ and } \ L(kf, P_{n}) = k L(f, P_{n}).  \]
+	Since \( f  \) is integrable on \( [a,b]  \), there exists a partition \( P_{n} \) such that 
+	\begin{align*}
+	    | U(kf, P_{n}) - L(kf, P_{n}) | &= k | U(f, P_{n}) - L(f, P_{n}) | \to 0.  \\
+	\end{align*}
+	Hence, \( kf  \) is integrable on \( [a,b] \).
+
+\end{proof}
+
+\begin{proof}[Proof of (iii)]
+	Suppose \( m \leq f(x) \leq M  \) on \( [a,b]  \). Since \( f  \) is integrable on \( [a,b]  \), we know that \( U(f) = L(f) = \int_{ a }^{ b } f  \). Let \( P  \) be a parition of \( [a,b] \). By using the properties of the upper sums and lower sums derived back in 7.2, we know that 
+	\begin{align*}
+	    \int_{ a }^{ b } f = U(f) &\leq U(f,P) \\
+			 &= \sum_{ k=1 }^{ n } M_{k } \Delta x_{k } \\
+			 &\leq M \sum_{ k=1 }^{ n } \Delta x_{k } \\ 
+			 &= M(b-a).
+	\end{align*}
+	Likewise, we have 
+	\begin{align*}
+	    \int_{ a }^{ b } f = L(f) &\geq L(f, P) \\
+								  &= \sum_{ k=1 }^{ n } m_{k } \Delta x_{k } \\ 
+								  &\geq m \sum_{ k=1 }^{ n } \Delta x_{k } \\
+								  &= m (b-a).
+	\end{align*}
+	We conclude 
+	\[  m(b-a) \leq \int_{ a }^{ b } f \leq M(b-a) \]
+\end{proof}
+
+
+\begin{proof}[Proof of (iv)]
+	Suppose \( f(x) \leq g(x) \) on \( [a,b]  \). Since \( f  \) and \( g \) are integrable, we know that \( U(f) = L(f) = \int_{ a }^{ b } f  \) and \( U(g) = L(g) = \int_{ a }^{ b } g  \). Let \( \epsilon > 0  \) and let \( P  \) be a partition of \( [a,b] \). Then observe that 
+	\begin{align*}
+		\int_{ a }^{ b } f \leq U(f,P) &\leq U(g, P) \\
+									 &\leq L(g,P) + \epsilon \\ 
+									 &\leq \int_{ a }^{ b } g  + \epsilon \\
+	\end{align*}
+	Since \( \epsilon > 0 \) is arbitrary, we can conclude 
+	\[  \int_{ a }^{ b } f \leq \int_{ a }^{ b } g. \]
+\end{proof}
+
 
 
 
