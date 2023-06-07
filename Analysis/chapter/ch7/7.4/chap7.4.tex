@@ -138,15 +138,131 @@ Some more properties of integration is outlined in the next theorem.
 	Suppose \( f(x) \leq g(x) \) on \( [a,b]  \). Since \( f  \) and \( g \) are integrable, we know that \( U(f) = L(f) = \int_{ a }^{ b } f  \) and \( U(g) = L(g) = \int_{ a }^{ b } g  \). Let \( \epsilon > 0  \) and let \( P  \) be a partition of \( [a,b] \). Then observe that 
 	\begin{align*}
 		\int_{ a }^{ b } f \leq U(f,P) &\leq U(g, P) \\
-									 &\leq L(g,P) + \epsilon \\ 
+									 &< L(g,P) + \epsilon \\ 
 									 &\leq \int_{ a }^{ b } g  + \epsilon \\
 	\end{align*}
 	Since \( \epsilon > 0 \) is arbitrary, we can conclude 
 	\[  \int_{ a }^{ b } f \leq \int_{ a }^{ b } g. \]
 \end{proof}
 
+\begin{proof}[Proof of (v)]
+	Suppose \( | f |  \) is integrable on \( [a,b]  \) and let \( P \) be an arbitrary partition of \( [a,b] \). Let \( \epsilon > 0 \). Then using the properties of the upper sums, we have 
+	\begin{align*}
+	    \Big| \int_{ a }^{ b } f  \Big| \leq | U(f,P) |
+										&= \Big| \sum_{ k=1 }^{ n } M_{k } \Delta x_{k }  \Big| \\
+										&\leq \sum_{ k=1 }^{ n } | M_{k } \Delta x_{k } | \\
+										&= U(| f |, P) \\
+										&\leq \int_{ a }^{ b } | f |   + \epsilon \\
+	\end{align*}
+	Since \( \epsilon > 0  \) is arbitrary, we conclude that 
+	\[  \Big| \int_{ a }^{ b } f  \Big| \leq \int_{ a }^{ b } | f |. \]
+\end{proof}
+
+\begin{tcolorbox}
+\begin{defn}
+	If \( f  \) is integrable on the interval \( [a,b]  \), define 
+	\[  \int_{ a }^{ b } f = - \int_{ a }^{b  } f. \]
+	Also, for \( c \in [a,b]  \) define 
+	\[  \int_{ c }^{ c } f = 0. \]
+\end{defn}
+\end{tcolorbox}
+
+\subsection{Uniform Convergence and Integration}
+
+An interesting question we can ask is that when we have a sequence of function \( (f_{n}) \) on \( [a,b]  \) where \( f_{n} \to f  \), then does 
+\[  \int_{ a }^{ b } f_{n} \to \int_{ a }^{ b } f  \]
+hold? Suppose \( f_{n} \to f  \) pointwise, then consider 
+\[  f_{n}(x) = 
+\begin{cases}
+	n \ &\text{ if } 0 < x < \frac{ 1 }{ n } \\
+	0 \ &\text{ if } x = 0 \ \text{ or } x \geq \frac{ 1 }{ n }
+\end{cases} \]
+as a counter-example. Notice that each \( f_{n} \) contains two discontinuities on \( [0,1] \) and is integrable with \( \int_{ 0 }^{ 1 } f_{n} = 1  \). For every \( x \in [0,1] \), note that \( \lim f_{n}(x) = 0  \) pointwise.  Then observe that the limit function \( 0  \) clearly integrates to \( 0 \). But this means that 
+\[  \lim_{ n \to \infty  }  \int_{ a }^{ b } f_{n} \neq 0. \]
+To fix this problem caused by pointwise convergence, we require the assumption of uniform convergence. 
 
 
+\begin{tcolorbox}
+	\begin{thm}[Integrable Limit Theorem]
+	Assume that \( f_{n} \to f  \) uniformly on \( [a,b]  \) and that each \( f_{n}  \) integrable. Then, \( f \) is integrable and 
+	\[  \lim_{ n \to \infty  }  \int_{ a }^{ b } f_{n} = \int_{ a }^{ b } f. \]
+	\end{thm}
+\end{tcolorbox}
+\begin{proof} From exercise 7.2.5, we have proven that \( f  \) is integrable on \( [a,b] \). 
+	Using part (v) of Theorem 7.4.2, we can make the following statement:
+	\[ \Big| \int_{ a }^{ b } f_{n} - \int_{ a }^{ b } f  \Big| = \Big| \int_{ a }^{ b }  (f_{n} - f )  \Big| \leq \int_{ a }^{ b }  | f_{n} -f  |.   \]
+	Since \( f_{n} \to f  \) uniformly on \( [a,b] \), we can let \( \epsilon > 0  \) such that there exists \( N \in \N \) implies 
+	\[  | f_{n}(x) - f(x)  | < \frac{ \epsilon  }{ b -a  }  \ \text{ for all } n \geq N \ \text{and} \ x \in [a,b].\] Then observe that 
+	\begin{align*}
+	    \Big| \int_{ a }^{ b } f_{n} - \int_{ a }^{ b } f  \Big| &\leq \int_{ a }^{ b } | f_{n} - f  |   \\
+																 &< \int_{ a }^{ b }  \frac{ \epsilon  }{ b -a  } \\
+																 &= \epsilon.
+	\end{align*}
+	We conclude that 
+	\[  \lim_{ n \to \infty  }  \int_{ a }^{ b } f_{n} = \int_{ a }^{ b } f. \]
+\end{proof}
+
+\subsection{Exercises}
+
+\subsubsection{Exercise 7.4.1} Let \( f  \) be a bounded function on a set \( A  \), and set 
+\[  M = \sup \{ f(x) : x \in A  \},  \ m = \inf \{ f(x) : x \in A \}, \]
+\[  M' = \sup \{ | f(x)  | : x \in A  \} \ \text{ and } \ m' = \inf \{ | f(x)  | : x \in A \}. \]
+
+\begin{enumerate}
+    \item[(a)] Show that \( M - m \geq M' - m' \).
+		\begin{proof}
+		Observe that \( f(x) \leq M' \leq M \) and likewise \( m \leq m'  \). Then we have  
+		\[  -m \geq -m' \iff M' - m \geq M' - m'. \tag{1}\]
+		Since \( M' \leq M \), (1) implies 
+		\[  M - m \geq M' - m'. \]
+		\end{proof}
+	\item[(b)] Show that if \( f  \) is integrable on the interval \( [a,b]  \), then \( | f |  \) is also integrable on this interval.
+		\begin{proof}
+			Suppose \( f \) is integrable on \( [a,b] \). Let \( \epsilon > 0  \). Then there exists a partition \(  P_{\epsilon } \) such that 
+			\[  U(f,P_{\epsilon } ) - L(f, P_{\epsilon }) = \sum_{ k=1 }^{ n } [M_{k } - m_{k }] \Delta x_{k} < \epsilon. \]
+			By using part (a), we know that 
+			\[  \sum_{ k=1 }^{ n } [M'_{k } - m'_{k }] \Delta x_{k } \leq \sum_{ k=1 }^{ n } [ M_{k } - m_{k } ] \Delta x_{k }. \]
+			Then using the same partition \( P_{\epsilon } \) that we found, we have 
+			\[ U(| f | , P_{\epsilon } ) - L(| f | , P_{\epsilon } ) \leq U(f , P_{\epsilon }) - L( f  , P_{\epsilon }) < \epsilon. \] Hence, we conclude that \( | f |  \) is an integrable function on \( [a,b]  \). 
+		\end{proof}
+	\item[(b)] Provide the details for the argument that in this case we have \( | \int_{ a }^{ b } f  | \leq \int_{ a }^{ b } | f | \).
+		\begin{proof}
+			Since \( | f |  \) integrable, we know that \( U(| f | ) = L(| f | ) = \int_{ a }^{ b } | f |    \). Likewise \( f \) being integrable implies \( U( f ) = L(f) = \int_{ a }^{ b } f   \). Let \( \epsilon > 0 \) and let \( P \) be a partition of \( [a,b]  \). Using the properties of the upper and lower integral, we must have 
+		\begin{align*}
+		    \Big| \int_{ a }^{ b } f  \Big| = | U(f)  |   
+											&\leq | U(f,P)  | \\
+											&< \Big| L(f,P) + \epsilon  \Big| \\  
+											&\leq | L(f,P)  | + \epsilon \\
+											&\leq L(| f | , P) + \epsilon \\
+											&\leq \int_{ a }^{ b } | f | + \epsilon. 
+		\end{align*}
+		Since \( \epsilon > 0  \) is arbitrary, we must have \( | \int_{ a }^{ b } f  |  \leq \int_{ a }^{ b } | f |   \). 
+		\end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 7.4.4} Show that if \( f(x) > 0  \) for all \( x \in [a,b]  \) and \( f  \) is integrable, then \( \int_{ a }^{ b } f > 0 . \)
+\begin{proof}
+	Let \( x \in [a,b]  \). Since \( f \) is integrable on \( [a,b]  \), we have \( U(f) = L(f) = \int_{ a }^{ b } f   \). Let \( P \) be an arbitrary partition of \( [a,b]  \). Since \( f(x) > 0  \), we have
+	\begin{align*}
+		\int_{ a }^{ b } f = L(f) \geq L(f, P)  
+								  = \sum_{ k=1 }^{ n } m_{k } \Delta x_{k }  > 0 \\
+	\end{align*}
+	Hence, \( \int_{ a }^{ b } f > 0  \).
+\end{proof}
+
+\subsubsection{Exercise 7.4.4} Let \( f  \) and \( g  \) be integrable functions on \( [a,b] \). 
+\begin{enumerate}
+	\item[(a)] Show that if \( P  \) is any partition of \( [a,b]  \), then 
+		\[  U(f+g, P ) \leq U(f,P) + U(g,P). \]
+		Provide a specific example where the inequality is strict. What does the corresponding inequality for lower sums look like? 
+		\begin{proof}
+		
+		\end{proof}
+	\item[(b)] Review the proof of Theorem 7.4.2 (ii), and provide an argument for part (i) of this theorem.
+		\begin{proof}
+		
+		\end{proof}
+\end{enumerate}
 
 
 
