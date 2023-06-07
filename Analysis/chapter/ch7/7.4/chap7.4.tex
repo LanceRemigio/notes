@@ -54,7 +54,7 @@ Some more properties of integration is outlined in the next theorem.
 \end{thm}
 \end{tcolorbox}
 
-\begin{proof}[Proof of (i)]
+\begin{proof}\label{proof:theproof}
 	Let \( \epsilon > 0 \). Since \( f \) and \( g  \) are integrable on \( [a,b]  \), there exists a partition \( P_{\epsilon } \) such that 
 	\[  U(f, P_{\epsilon }) - L(f, P_{\epsilon }) < \frac{ \epsilon  }{ 2 }   \]
 	and 
@@ -63,12 +63,12 @@ Some more properties of integration is outlined in the next theorem.
 	\[  U(f+g, P_{\epsilon }) - L(f +g, P_{\epsilon }) < \epsilon. \]
 	First, observe that by the properties of the supremum and infimum, we have 
 	that 
-	\[  U(f+g, P_{\epsilon }) = U(f, P_{\epsilon }) + U(g, P_{\epsilon }) \]
+	\[  U(f+g, P_{\epsilon }) \leq U(f, P_{\epsilon }) + U(g, P_{\epsilon }) \]
 	and 
-	\[  L(f+g, P_{\epsilon }) = L(f, P_{\epsilon }) + L(g, P_{\epsilon }). \]
+	\[  L(f+g, P_{\epsilon }) \geq L(f, P_{\epsilon }) + L(g, P_{\epsilon }). \]
 	Now observe that
 	\begin{align*}
-		U(f+g, P_{\epsilon }) - L(f+g, P_{\epsilon }) &= [U(f,P_{\epsilon }) + U(g, P_{\epsilon })] - [L(f,P_{\epsilon }) + L(g, P_{\epsilon })] \\
+		U(f+g, P_{\epsilon }) - L(f+g, P_{\epsilon }) &\leq [U(f,P_{\epsilon }) + U(g, P_{\epsilon })] - [L(f,P_{\epsilon }) + L(g, P_{\epsilon })] \\
 													  &= [U(f,P_{\epsilon }) - L(f,P_{\epsilon })] + [U(g, P_{\epsilon }) - L(g, P_{\epsilon })] \\
 													  &< \frac{ \epsilon  }{ 2 }  + \frac{ \epsilon  }{ 2 } \\
 													  &= \epsilon.
@@ -240,6 +240,42 @@ To fix this problem caused by pointwise convergence, we require the assumption o
 		\end{proof}
 \end{enumerate}
 
+
+\subsubsection{Exercies 7.4.2}  
+\begin{enumerate}
+    \item[(a)] Let \( g(x) = x^{3}  \), and classify each of the following as positive, negative, or zero.
+		\[  \text{ (i) } \int_{ 0 }^{ -1 } g + \int_{ 0 }^{ 1 } g \ \ \   \text{ (ii) } \int_{ 1 }^{ 0 } g + \int_{ 0 }^{ 1 }  g \ \ \ \text{ (iii) } \int_{ 1 }^{ -2 } g + \int_{ 0 }^{ 1 } g.  \]
+		\begin{proof}[Solution]
+			(i) zero, (ii) zero, (iii) positive 
+		\end{proof}
+	\item[(b)] Show that if \( b \leq a \leq c  \) and \( f  \) is integrable on the interval \( [b,c]  \), then it is still the case that \( \int_{ a }^{ b } f = \int_{ a }^{ c } f + \int_{ b }^{ c } f  \).
+		\begin{proof}
+			Since \( f  \) is integrable on the interval \( [b,c]  \), we have 
+			\[  \int_{ b }^{ c } f   = \int_{ b }^{ a } f  + \int_{ a }^{ c } f. \tag{1} \]
+			Rearranging (1), we have 
+			\[  - \int_{ b }^{ a } f = \int_{ a }^{ c } f  - \int_{ b }^{ c } f.\] By using Definition 7.4.1, we know that 
+			\[  - \int_{ b }^{ a } f = \int_{ a }^{ b } f  \ \text{ and }  -\int_{ b }^{ c } f = \int_{ c }^{ b } f.  \]
+			Hence, we conclude that 
+			\[ \int_{ a }^{ b } f = \int_{ a }^{ c } f + \int_{ b }^{ c } f  \]
+
+		\end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 7.4.3} Decide which of the following conjectures is true and supply a short proof. For those that are not true, give a counter-example.
+\begin{enumerate}
+	\item[(a)] If \( | f |  \) is integrable on \( [a,b]  \), then \( f  \) is also integrable on this set. 
+		\begin{proof}[Solution]
+		
+		\end{proof}
+	\item[(b)] Assume \( g  \) is integrable and \( g(x) \geq 0  \) on \( [a,b]  \). If \( g(x) > 0  \) for an infinite number of points \( x \in [a,b]  \), then \( \int_{ a }^{ b } g > 0  \).
+		\begin{proof}[Solution]
+		
+		\end{proof}
+	\item[(c)] If \( g  \) is continuous on \( [a,b]  \) and \( g(x) \geq 0  \) with \( g(y_{0}) > 0  \) for at least one point \( y_{0} \in [a,b]  \), then \( \int_{ a }^{ b } g > 0. \)
+\end{enumerate}
+
+
+
 \subsubsection{Exercise 7.4.4} Show that if \( f(x) > 0  \) for all \( x \in [a,b]  \) and \( f  \) is integrable, then \( \int_{ a }^{ b } f > 0 . \)
 \begin{proof}
 	Let \( x \in [a,b]  \). Since \( f \) is integrable on \( [a,b]  \), we have \( U(f) = L(f) = \int_{ a }^{ b } f   \). Let \( P \) be an arbitrary partition of \( [a,b]  \). Since \( f(x) > 0  \), we have
@@ -250,19 +286,62 @@ To fix this problem caused by pointwise convergence, we require the assumption o
 	Hence, \( \int_{ a }^{ b } f > 0  \).
 \end{proof}
 
-\subsubsection{Exercise 7.4.4} Let \( f  \) and \( g  \) be integrable functions on \( [a,b] \). 
+\subsubsection{Exercise 7.4.5} Let \( f  \) and \( g  \) be integrable functions on \( [a,b] \). 
 \begin{enumerate}
 	\item[(a)] Show that if \( P  \) is any partition of \( [a,b]  \), then 
-		\[  U(f+g, P ) \leq U(f,P) + U(g,P). \]
+		\[  U(f+g, P ) \leq U(f,P) + U(g,P) \tag{1}. \]
 		Provide a specific example where the inequality is strict. What does the corresponding inequality for lower sums look like? 
+
 		\begin{proof}
-		
+		In exercise 1.3.6, we proved for any two sets \( A,B \neq \emptyset  \), we have 
+		\[  \sup(A + B) \leq \sup A + \sup B. \]
+		In this context, we have 
+		\[ A =  \{ f(x) : x \in [x_{k-1}, x_{k}] \} \ \text{and} \ B =  \{ g(x) : x \in [x_{k-1}, x_{k }] \} \]
+		with 
+		\[  A + B = \{ f(x) + g(x) : x \in [x_{k-1} , x_{k }] \} . \]
+		Let \( P  \) be any partition of \( [a,b]  \). Then observe that 
+		\begin{align*}
+			U(f+g, P) &=\sum_{ k=1 }^{ n } \sup_{x \in [x_{k-1}, x_{k }]}(f+g)(x) \Delta x_{k } \\
+					  &\leq \sum_{ k=1 }^{ n } \sup_{x \in [x_{k-1}, x_{k }]}f(x) \Delta x_{k}  + \sum_{ k=1 }^{ n } \sup_{x \in [x_{k-1}, x_{k}]} g(x) \Delta x_{k } \\  
+					  &= U(f,P) + U(g,P).
+		\end{align*}
+		We have strict inequality whenever \( f(x) > g(x)  \) and the corresponding inequality to (1) is 
+		\[  L(f+g,P) \geq L(f, P) + L(g, P). \]
 		\end{proof}
 	\item[(b)] Review the proof of Theorem 7.4.2 (ii), and provide an argument for part (i) of this theorem.
 		\begin{proof}
-		
+			See part (i) of Theorem 7.4.2 in the section notes.
 		\end{proof}
 \end{enumerate}
-
-
+\subsubsection{Exercise 7.4.6} Although not part of Theorem 7.4.2, it is true that the porduct of integrable functions is integrable. Provide the details for each step in the following proof of this fact:
+\begin{enumerate}
+	\item[(a)] If \( f  \) satisfies \( | f(x)  | \leq M  \) on \( [a,b]  \), show 
+		\[  | (f(x))^{2} + (f(y))^{2} |  \leq 2M | f(x) - f(y) |. \]
+		\begin{proof}
+			Let \( x,y \in [a,b]  \). Since \( f  \) satisfies \( | f(x)  | \leq M  \) and \( | f(y) | \leq M  \), we have 
+			\[  | f(x) + f(y)  | \leq | f(x)  | + | f(y)  | \leq 2M. \]
+	Multiplying the inequality above by \( | f(x) - f(y)  |  \) yields 
+	\[  | (f(x))^{2} - (f(y))^{2} | \leq 2M | f(x) - f(y) |. \]
+		\end{proof}
+	\item[(b)] Prove that if \( f  \) is integrable on \( [a,b]  \), then so is \( f^{2} \). 
+		\begin{proof}
+			Let \( \epsilon > 0 \). Since \( f  \) is integrable on \( [a,b]  \), there exists a partition \( P_{\epsilon } \) of \( [a,b] \) such that 
+			\[ U(f, P_{\epsilon }) - L(f, P_{\epsilon }) < \frac{ \epsilon  }{ 2M }. \]
+			Then using the same partition \( P_{\epsilon } \) and using part (a), we have that  
+			\begin{align*}
+				U(f^{2}, P_{\epsilon }) - L(f^{2}, P_{\epsilon }) &= \sum_{ k=1 }^{ n } [ (M'_{k})^{2} - (m'_{k })^{2}] \Delta x_{k } \\
+																  &\leq 2M \sum_{ k=1 }^{ n } [M'_{k } - m'_{k}] \Delta x_{k } \\
+																  &< 2M \cdot \frac{ \epsilon  }{ 2M } = \epsilon. 
+			\end{align*}
+			Hence, \( f^{2} \) is also integrable on \( [a,b]  \).
+		\end{proof}
+	\item[(c)] Now show that if \( f  \) and \( g \) are integrable, then \( fg \) is integrable. (Consider \( (f+g)^{2} \)).
+		\begin{proof}
+		Observe that 
+		\[  (f+g)^{2} = f^{2} + 2fg + g^{2} \]
+		and solving for \( fg \) yields 
+		\[  fg = \frac{ 1 }{ 2 }  [ (f+g)^{2} - (f^2 + g^{2})]. \]
+		Since \( f  \) and \( g  \) are integrable, we know by part (i) of Theorem 7.4.2 that \( f + g  \) is integrable.  Let \( h = f +g   \). Then by part (b), we have that \( h^{2} \) is integrable as well as \( f^{2} \) and \( g^{2} \). By using part (i) and (ii) of Theorem 7.4.2, we find that \( fg \) is integrable. 
+		\end{proof}
+\end{enumerate}
 
