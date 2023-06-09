@@ -202,7 +202,57 @@ To fix this problem caused by pointwise convergence, we require the assumption o
 	\[  \lim_{ n \to \infty  }  \int_{ a }^{ b } f_{n} = \int_{ a }^{ b } f. \]
 \end{proof}
 
+
+\subsection{Definitions and Theorems}
+
+
+\begin{tcolorbox}
+\begin{thm}
+	Assume \( f: [a,b] \to \R   \) is bounded, and let \( c \in (a,b)  \). Then, \( f  \) is integrable on \( [a,b]  \) if and only if \( f  \) integrable on \( [a,c]  \) and \( [c,b]  \). In this case, we have 
+	\[  \int_{ a }^{ b } f = \int_{ a }^{ c }  f  + \int_{ b }^{ c }  f. \]
+\end{thm}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+\begin{thm}
+	Assume \( f  \) and \( g  \)  are integrable functions on the interval \( [a,b]  \).
+	\begin{enumerate}
+		\item[(i)] The function \( f + g  \) is integrable on \( [a,b]  \) with \( \int_{ a }^{ b } (f + g) = \int_{ a }^{ b }  f + \int_{ a }^{ b } g  \).
+		\item[(ii)] For \( k \in \R  \), the function \( kf  \) is integrable with \( \int_{ a }^{ b } kf  = k \int_{ a }^{ b }  f. \)
+		\item[(iii)] If \( m \leq f(x) \leq M  \) on \( [a,b]  \), then \( m(b-a) \leq \int_{ a }^{ b } f \leq M(b-a) \).
+		\item[(iv)] If \( f(x) \leq g(x)  \) on \( [a,b]  \), then \( \int_{ a }^{ b } f  \leq \int_{ a }^{ b } g  \).
+		\item[(v)] The function \( | f |   \) is integrable and \( | \int_{ a }^{ b }  f | \leq \int_{ a }^{ b } | f |. \) 
+	\end{enumerate}
+\end{thm}
+\end{tcolorbox}
+
+
+
+\begin{tcolorbox}
+\begin{defn}
+	If \( f  \) is integrable on the interval \( [a,b]  \), define 
+	\[  \int_{ a }^{ b } f = - \int_{ a }^{b  } f. \]
+	Also, for \( c \in [a,b]  \) define 
+	\[  \int_{ c }^{ c } f = 0. \]
+\end{defn}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+	\begin{thm}[Integrable Limit Theorem]
+	Assume that \( f_{n} \to f  \) uniformly on \( [a,b]  \) and that each \( f_{n}  \) integrable. Then, \( f \) is integrable and 
+	\[  \lim_{ n \to \infty  }  \int_{ a }^{ b } f_{n} = \int_{ a }^{ b } f. \]
+	\end{thm}
+\end{tcolorbox}
+
+
+
 \subsection{Exercises}
+
+
+
+
 
 \subsubsection{Exercise 7.4.1} Let \( f  \) be a bounded function on a set \( A  \), and set 
 \[  M = \sup \{ f(x) : x \in A  \},  \ m = \inf \{ f(x) : x \in A \}, \]
@@ -265,13 +315,36 @@ To fix this problem caused by pointwise convergence, we require the assumption o
 \begin{enumerate}
 	\item[(a)] If \( | f |  \) is integrable on \( [a,b]  \), then \( f  \) is also integrable on this set. 
 		\begin{proof}[Solution]
-		
+		Define 
+		\[  f(x) = 
+		\begin{cases}
+			1  \ \text{ for } x \in \Q \\
+			-1 \ \text{ for } x \notin \Q.
+		\end{cases} \]
+		Notice that \( | f | \) is integrable, but not \( f \). 
 		\end{proof}
 	\item[(b)] Assume \( g  \) is integrable and \( g(x) \geq 0  \) on \( [a,b]  \). If \( g(x) > 0  \) for an infinite number of points \( x \in [a,b]  \), then \( \int_{ a }^{ b } g > 0  \).
 		\begin{proof}[Solution]
-		
+		We can use Thomae's function in the last section 
+		\[  g(x) = 
+		\begin{cases}
+			1 \ &\text{ if } x = 0 \\ 
+			1 / n \ &\text{ if } x = m/n \in \Q \setminus \{ 0 \} \ \text{ is in lowest terms with } n > 0 \\
+			0 \ &\text{ if } x \notin \Q.
+		\end{cases} \]
+		We see that \( g(x) \geq 0  \)  and \( g(x) > 0  \) for an infinite number of points \( x \in [a,b]  \), but \( \int_{ a }^{ b } g = 0  \). 
 		\end{proof}
 	\item[(c)] If \( g  \) is continuous on \( [a,b]  \) and \( g(x) \geq 0  \) with \( g(y_{0}) > 0  \) for at least one point \( y_{0} \in [a,b]  \), then \( \int_{ a }^{ b } g > 0. \)
+		\begin{proof}
+			Since \( g  \) is continuous on \( [a,b]  \) and \( g(x) \geq 0  \), we know that \( g  \) must be integrable on \( [a,b]  \). Furthermore, \( g  \) reaches its maximum and minimum on \( [a,b]  \) since \( [a,b]  \) is a compact interval. Hence, there exists at least one point \( y_{0} \) such that \( g(y_{0}) \) is the minimum of \( g  \) on \( [a,b] \). Since \( g  \) is integrable on \( [a,b]  \), we have that 
+			\begin{align*}
+				\int_{ a }^{ b } g  = L(g) &\geq L(g,P) \\
+										   &= \sum_{ k=1 }^{ n } m_{k } \Delta x_{k } \\
+											&\geq \sum_{ k=1 }^{ n } g(y_{0}) \Delta x_{k } \\ 
+											&> 0. 
+			\end{align*}
+			Hence, we conclude that \( \int_{ a }^{ b } g > 0 \).
+		\end{proof}
 \end{enumerate}
 
 
@@ -344,4 +417,29 @@ To fix this problem caused by pointwise convergence, we require the assumption o
 		Since \( f  \) and \( g  \) are integrable, we know by part (i) of Theorem 7.4.2 that \( f + g  \) is integrable.  Let \( h = f +g   \). Then by part (b), we have that \( h^{2} \) is integrable as well as \( f^{2} \) and \( g^{2} \). By using part (i) and (ii) of Theorem 7.4.2, we find that \( fg \) is integrable. 
 		\end{proof}
 \end{enumerate}
+
+\subsubsection{Exercise 7.4.8} For each \( n \in \N  \), let 
+\[  h_{n}(x) = 
+\begin{cases}
+	1 / 2^{n} \ &\text{ if } 1/2^{n} < x \leq 1 \\
+	0 \ &\text{ if } 0 \leq x \leq 1 / 2^{n},
+\end{cases} \]
+and set \( H(x) = \sum_{ n=1 }^{ \infty  } h_{n}(x)  \). Show that \( H  \) is integrable and compute \( \int_{ 0 }^{ 1 } H  \).
+\begin{proof}
+	Notice that \( h_{n}  \) is a sequence of continuous functions on the set \( [0,1] \setminus \{  1 / 2^{n}\}  \) and that \( \sum_{ n=1 }^{ \infty  } h_{n} = 0  \) uniformly.  By the Integrability Limit Theorem, we conclude that \( H  \) must be integrale and that \( \int_{ 0 }^{ 1 } H(x) = 0  \). 
+\end{proof}
+
+\subsubsection{Exercise 7.4.9} Let \( g_{n}  \) and \( g  \) be uniformly bounded on \( [0,1]  \), meaning that there exists a single \( M > 0  \) satisfying \( | g(x) | \leq M  \) and \( | g_{n}(x)  | \leq M  \) for all \( n \in \N  \) and \( x \in [0,1] \). Assume \( g_{n} \to g  \) pointwise on \( [0,1]  \) and uniformly on any set of the form \( [0, \alpha]  \), where \( 0 < \alpha < 1  \). 
+
+If all the functions are integrable, show that \( \lim_{ n \to \infty  }  \int_{ 0 }^{ 1 } g_{n} = \int_{ 0 }^{ 1 } g  \).
+\begin{proof}
+
+\end{proof}
+
+
+\subsubsection{Exercise 7.4.10} Assume \( g  \) is integrable on \( [0,1]  \) and continuous at \( 0  \). Show 
+\[  \lim_{ n \to \infty  } \int_{ 0 }^{ 1 }  g(x^{n}) \ dx = g(0). \]
+
+
+
 
