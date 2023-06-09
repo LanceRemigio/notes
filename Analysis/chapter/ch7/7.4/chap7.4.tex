@@ -433,13 +433,50 @@ and set \( H(x) = \sum_{ n=1 }^{ \infty  } h_{n}(x)  \). Show that \( H  \) is i
 
 If all the functions are integrable, show that \( \lim_{ n \to \infty  }  \int_{ 0 }^{ 1 } g_{n} = \int_{ 0 }^{ 1 } g  \).
 \begin{proof}
-
+Let \( \epsilon > 0  \). Our goal is to show  
+\[  \lim_{ n \to \infty  } \int_{ 0 }^{ 1 } g_{n} = \int_{ 0 }^{ 1 }  g \]
+which can be done by finding an \( N \in \N  \) such that for any \(  n \geq N  \), we have 
+\[  \Big| \int_{ 0 }^{ 1 } g_{n} - \int_{ 0 }^{ 1 }  g \Big| < \epsilon. \]
+Suppose \( g_{n} \to g  \) pointwise on \( [0,1]  \) and uniformly on any set of the form \( [0, \alpha] \), where \( 0 < \alpha < 1  \). Looking at \( g  \) on \( [0, \alpha] \), we know there exists an \(  N \in \N  \) such that for any \( n \geq N  \) and \( x \in [0, \alpha ] \), we haThen we can pick \( x_{1} \) such that ve 
+\[  | g_{n} - g  | < \frac{ \epsilon  }{  2 \alpha }.  \] Utilizing the integrability of both \( g_{n} \) and \( g  \) on \( [0,1] \), we can also state that \( g_{n} - g  \) is integrable and hence, \( | g_{n} -g  |  \). We can use the triangle inequality and Theorem 7.4.1, to write the following:
+\begin{align*}
+    \Big| \int_{ 0 }^{ 1 } g_{n} - \int_{ 0 }^{ 1 } g  \Big| &= \Big| \int_{ 0 }^{ 1 } g_{n} - g   \Big|  \\
+															 &\leq \int_{ 0 }^{ 1 } | g_{n} - g  |  \\
+															 &= \int_{ 0 }^{ \alpha } | g_{n} - g |  + \int_{ \alpha  }^{ 1 }  | g_{n} - g  |. \\ 
+\end{align*}
+We can easily make the first term small by finding \( N_{1} \in \N  \) such that for any \( n \geq N_1 \), we have 
+\[  \int_{ 0 }^{ \alpha  } | g_{n} -g  |  < \frac{ \epsilon  }{ 2 \alpha  } \cdot \alpha = \frac{ \epsilon  }{ 2 } . \] To make the second term small, we can utilize the integrability of \( | g_{n} -g  |  \) on \( [0,1] \) to state that for any partition \( P \) of \( [\alpha,1]  \), we have 
+\begin{align*}
+    \int_{ \alpha  }^{ 1 } | g_{n} -g  |  = U(| g_{n} - g  | ) 
+										  &\leq U( | g_{n} -g  |, P) \\
+										  &= \sum_{ k=1 }^{ n } \sup_{x \in [x_{k-1}, x_k]} | g_{n} - g  | \cdot \Delta x_{k }.\\
+\end{align*}
+Since \( g_{n}  \) and \( g  \) are uniformly bounded by a single \( M > 0  \) satisying \( | g(x)  |  \leq M  \) and \( | g_{n}(x) | \leq M  \), we know that 
+\[  \sup_{x \in [x_{k-1}, x_{k }]} | g_{n} - g  | \leq 2M.\] Furthermore, utilizing pointwise convergence of \( g_{n} \to g  \) on \( [\alpha, 1 ] \), we can say there exists \( N_{2} \in \N  \) such that for any \( n \geq N_{2} \)
+\[ \sup_{x \in [\alpha, x_{1}]} | g_{1} - g  | < \frac{ \epsilon  }{ 4 (x_{1} - \alpha) } .  \]
+Then we have 
+\begin{align*}
+	\int_{ \alpha }^{ 1 }  | g_{n} -g  |  &\leq \sup_{x \in [\alpha, x_{1}]} | g_{1} - g  | (x_{1} - \alpha) + \sum_{ k=1 }^{ n } \sup_{x\in [x_{k-1},x_{k }]} | g_{n} -g  | \Delta x_{k }  \\
+										  &< \frac{ \epsilon  }{ 4 ( x_{1} - \alpha) } \cdot (x_{1} - \alpha) + 2M \cdot \frac{ \epsilon  }{ 8M  } \\ 
+										  &= \frac{ \epsilon  }{ 2 }.
+\end{align*}
+Letting \( N = \max \{ N_{1}, N_{2} \}  \), assuming that \( n \geq N   \), we have that 
+\begin{align*}
+    \Big| \int_{ 0 }^{ 1 } g_{n} - \int_{ 0 }^{ 1 } g  \Big| &= \Big| \int_{ 0 }^{ 1 } g_{n} - g   \Big|  \\
+															 &\leq \int_{ 0 }^{ 1 } | g_{n} - g  |  \\
+															 &= \int_{ 0 }^{ \alpha } | g_{n} - g |  + \int_{ \alpha  }^{ 1 }  | g_{n} - g  | \\ 
+															 &< \frac{ \epsilon  }{ 2 \alpha } \cdot \alpha + \frac{ \epsilon  }{ 2  } \\
+															 &= \epsilon.
+\end{align*}
+Hence, we conclude that
+\[  \lim_{ n \to \infty  }  \int_{ 0 }^{ 1 } g  = \int_{ 0 }^{ 1 } g.  \]
 \end{proof}
 
 
 \subsubsection{Exercise 7.4.10} Assume \( g  \) is integrable on \( [0,1]  \) and continuous at \( 0  \). Show 
 \[  \lim_{ n \to \infty  } \int_{ 0 }^{ 1 }  g(x^{n}) \ dx = g(0). \]
-
+\begin{proof}
+\end{proof}
 
 
 
