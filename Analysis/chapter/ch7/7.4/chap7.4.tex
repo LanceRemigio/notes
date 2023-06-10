@@ -437,8 +437,8 @@ Let \( \epsilon > 0  \). Our goal is to show
 \[  \lim_{ n \to \infty  } \int_{ 0 }^{ 1 } g_{n} = \int_{ 0 }^{ 1 }  g \]
 which can be done by finding an \( N \in \N  \) such that for any \(  n \geq N  \), we have 
 \[  \Big| \int_{ 0 }^{ 1 } g_{n} - \int_{ 0 }^{ 1 }  g \Big| < \epsilon. \]
-Suppose \( g_{n} \to g  \) pointwise on \( [0,1]  \) and uniformly on any set of the form \( [0, \alpha] \), where \( 0 < \alpha < 1  \). Looking at \( g  \) on \( [0, \alpha] \), we know there exists an \(  N \in \N  \) such that for any \( n \geq N  \) and \( x \in [0, \alpha ] \), we haThen we can pick \( x_{1} \) such that ve 
-\[  | g_{n} - g  | < \frac{ \epsilon  }{  2 \alpha }.  \] Utilizing the integrability of both \( g_{n} \) and \( g  \) on \( [0,1] \), we can also state that \( g_{n} - g  \) is integrable and hence, \( | g_{n} -g  |  \). We can use the triangle inequality and Theorem 7.4.1, to write the following:
+Suppose \( g_{n} \to g  \) pointwise on \( [0,1]  \) and uniformly on any set of the form \( [0, \alpha] \), where \( 0 < \alpha < 1  \). Looking at \( g  \) on \( [0, \alpha] \), the uniform convergence \( g_{n} \to g  \) imply that there exists an \(  N_{1} \in \N  \) such that for any \( n \geq N_{1}  \) and \( x \in [0, \alpha ] \), we have that 
+\[  | g_{n} - g  | < \frac{ \epsilon  }{  2 \alpha }.  \] Utilizing the integrability of both \( g_{n} \) and \( g  \) on \( [0,1] \), we can also state that \( g_{n} - g  \) is integrable by Exercise 7.4.1 and hence, \( | g_{n} -g  |  \). We can use the triangle inequality and Theorem 7.4.1, to write the following:
 \begin{align*}
     \Big| \int_{ 0 }^{ 1 } g_{n} - \int_{ 0 }^{ 1 } g  \Big| &= \Big| \int_{ 0 }^{ 1 } g_{n} - g   \Big|  \\
 															 &\leq \int_{ 0 }^{ 1 } | g_{n} - g  |  \\
@@ -475,6 +475,16 @@ Hence, we conclude that
 
 \subsubsection{Exercise 7.4.10} Assume \( g  \) is integrable on \( [0,1]  \) and continuous at \( 0  \). Show 
 \[  \lim_{ n \to \infty  } \int_{ 0 }^{ 1 }  g(x^{n}) \ dx = g(0). \]
+\begin{proof}[Proof. (Check later)]
+Let \( \epsilon > 0 \). Since \( g \) is continuous at \( 0 \), we know that \( g  \) is also integrable at \( 0  \) which means that \( \int_{ 0 }^{ 1 } g(0) = g(0). \) Furthermore, the continuity of \( g  \) at \( 0 \) implies that there exists \( \delta > 0  \) and \( N \in \N  \) such that whenever \( | x^{n} | < \delta  \) and \( n \geq N  \), we have 
+\[  | g(x^{n}) - g(0)  | < \epsilon. \] Then observe that 
+\begin{align*}
+    \Big| \int_{ 0 }^{ 1 }  g(x^{n}) - g(0)  \Big| &= \Big| \int_{ 0 }^{ 1 } g(x^{n}) - \int_{ 0 }^{ 1 }  g(0) \Big|  \\
+												   &=\Big| \int_{ 0 }^{ 1 }  g(x^{n}) - g(0) \Big|  \\
+												   &\leq \int_{ 0 }^{ 1 }  | g(x^{n}) - g(0)  | \\
+												   &< \epsilon \int_{ 0 }^{ 1 }  = \epsilon.
+\end{align*}
+\end{proof}
 
 
 
