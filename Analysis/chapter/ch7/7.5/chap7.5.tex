@@ -24,8 +24,47 @@ The Fundamental Theorem of Calculus links these two concepts together via an inv
 	\end{thm}
 \end{tcolorbox}
 \begin{proof}
-
+\begin{enumerate}
+	\item[(i)] Let \( P  \) be a partition of \( [a,b]  \). Since \( f(x) = F'(x)  \), we can apply the Mean Value Theorem. Then there exists a \( t_{k } \in [x_{k-1}, x_{k }] \) such that 
+		\[  F'(t_{k } ) =  \frac{ F(x_{k } ) - F(x_{k-1})}{  x_{k} - x_{k-1} }\] and thus 
+		\begin{align*}
+		    F(x_{k } ) - F(x_{k-1}) &= F'(t_{ k }) ( x_{k } - x_{k-1})  \\
+									&= f(t_{k }) (x_{k} - x_{k-1}). \\
+		\end{align*}
+		Now consider the upper and lower sums \( U(f,P)  \) and \( L(f,P)  \). Since \( m_{k } \leq f(t_{k }) \leq M_{k }   \) (where \( m_{k }  \) is the infimum on \( [ x_{k-1}, x_{k }]  \) and \( M_{k }  \) is the supremum), it follows that 
+		\[  L(f,P) \leq \sum_{ k=1 }^{ n } [F(x_{k }) - F(x_{k-1})] \leq U(f,P).\]
+		Since the term in the middle telescopes, we have that 
+		\[  \sum_{ k=1 }^{ n } [F(x_{k}) - F(x_{k-1})] = F(b) - F(a),  \]
+		which is \textit{independent} of the partition \( P  \), and hence it follows that 
+		\[  L(f) \leq F(b) - F(a) \leq U(f). \]
+		Hence, we have 
+		\[  \int_{ a }^{ b } f = F(b) - F(a). \]
+	\item[(ii)] Let \( \epsilon > 0 \). Then choose \( \delta = \frac{ \epsilon  }{ M  }   \) such that whenever \( | x - c  | < \delta \) By the way \( G  \) is defined above, and the fact that \( g  \) is a Riemann Integrable function,  we know that
+		\begin{align*}
+		    \Big| G(x) - G(c)  \Big| &= \Big| \int_{ x }^{ a } g - \int_{ c }^{ a } g  \Big|  \\
+									 &= \Big| \int_{ c }^{ x } g  \Big| \\
+									 &\leq \int_{ c }^{ x } | g |  \\
+									 &\leq M (x - c )  \\
+									 &< M \cdot \frac{ \epsilon  }{ M  } = \epsilon.
+		\end{align*}
+		Hence, \( G  \) is a continuous function on \( [a,b]  \). Now we would like to show that \( G  \) is a differentiable function and that \( G'(x) = g(x)  \). Since \( g  \) is continuous at some point \( c \in [a,b]  \), we know that 
+		\[  | g(t) - g(c)  | < \epsilon. \] Letting \( \epsilon > 0   \) once again, our goal is to show that there exists a \( \delta > 0   \) such that whenever \(0  < | x  -c  |  < \delta \), we have
+		\[  \Big| \frac{ G(x) - G(c)  }{ x  -c  } - g(c)  \Big| = \Big| \frac{ 1 }{ x - c  } \int_{ c }^{ x } g(t) \ dt - g(c) \Big|  < \epsilon. \]
+	Observe that we can cleverly write \( g(c)  \) as follows	
+	\[  g(c) = \frac{ 1 }{ x -c  } \int_{ c }^{ x } g(t) \  dt. \] Then observe that 
+	\begin{align*}
+	    \Big| \frac{ 1 }{ x -c  } \int_{ c }^{ x } g(t) \  dt - g(c)  \Big| &= \Big| \frac{ 1 }{ x -c  } \int_{ c }^{ x } g(t)  \ dt - \frac{ 1 }{ x -c  } \int_{ c }^{ x } g(c) \   dt \Big|  \\
+																			&= \Big| \frac{ 1 }{ x -c  } \int_{ c }^{ x } [ g(t) - g(c) ] \ dt \Big| \\
+																			&\leq \frac{ 1 }{ x -c  } \int_{ c }^{ x } | g(t) - g(c) | \  dt \\
+																			&< \frac{ \epsilon  }{ x- c  } \cdot \int_{ c }^{ x } dt  \\ 
+																			&= \epsilon.
+	\end{align*}
+	This concludes that, indeed, 
+	\[  \lim_{ x \to c } \frac{ 1 }{x -c  } \int_{ c }^{ x } g(t) \ dt = G'(c) = g(c) \]
+\end{enumerate}
 \end{proof}
+
+\subsection{Exercises}
 
 
 
