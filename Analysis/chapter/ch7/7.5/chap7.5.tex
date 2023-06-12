@@ -51,7 +51,7 @@ The Fundamental Theorem of Calculus links these two concepts together via an inv
 		\[  | g(t) - g(c)  | < \epsilon. \] Letting \( \epsilon > 0   \) once again, our goal is to show that there exists a \( \delta > 0   \) such that whenever \(0  < | x  -c  |  < \delta \), we have
 		\[  \Big| \frac{ G(x) - G(c)  }{ x  -c  } - g(c)  \Big| = \Big| \frac{ 1 }{ x - c  } \int_{ c }^{ x } g(t) \ dt - g(c) \Big|  < \epsilon. \]
 	Observe that we can cleverly write \( g(c)  \) as follows	
-	\[  g(c) = \frac{ 1 }{ x -c  } \int_{ c }^{ x } g(t) \  dt. \] Then observe that 
+	\[  g(c) = \frac{ 1 }{ x -c  } \int_{ c }^{ x } g(c) \  dt. \] Then observe that 
 	\begin{align*}
 	    \Big| \frac{ 1 }{ x -c  } \int_{ c }^{ x } g(t) \  dt - g(c)  \Big| &= \Big| \frac{ 1 }{ x -c  } \int_{ c }^{ x } g(t)  \ dt - \frac{ 1 }{ x -c  } \int_{ c }^{ x } g(c) \   dt \Big|  \\
 																			&= \Big| \frac{ 1 }{ x -c  } \int_{ c }^{ x } [ g(t) - g(c) ] \ dt \Big| \\
