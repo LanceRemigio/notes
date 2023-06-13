@@ -67,4 +67,58 @@ The Fundamental Theorem of Calculus links these two concepts together via an inv
 \subsection{Exercises}
 
 
+\subsubsection{Exercise 7.5.4} Show that if \( f: [a,b] \to \R  \) is continuous and \( \int_{ a }^{ x } f = 0   \) for all \( x \in [a,b]  \), then \( f(x) = 0  \) everywhere on \( [a,b]  \). Provide an example to show that this conclusion does not follow if \( f  \) is not continuous.
+\begin{proof}
+	Suppose for sake of contradiction that \( f(x) > 0  \) (the proof is similar for \( f(x) < 0  \)). Since \( f \) is continuous, we know that \( f  \) must also be integrable. Hence, we know that \( \int_{ a }^{ b } f   > 0  \) by Exercise 7.4.4. But this contradicts our assumption that \( \int_{ a }^{ b } f   = 0  \). Hence, \( f(x) = 0  \) for all \( x \in [a,b] \).
+\end{proof}
+
+
+
+
+\subsubsection{Exercise 7.5.5} The Fundamental Theorem of Calculus can be used to supply a shorter argument for Theorem 6.3.1 under the additional assumption that the sequence of derivatives is continuous.
+
+Assume \( f_{n} \to f  \) pointwise and \( f'_{n} \to g  \) uniformly on \( [a,b]  \). Assuming each \( f'_{n}  \) is continuous, we can apply Theorem 7.5.1 (i) to get 
+\[  \int_{ a }^{ x } f'_{n}   = f_{n}(x) - f_{n}(a)  \]
+for all \( x \in [a,b]  \). Show that \( g(x) = f'(x) \).
+
+
+\begin{proof}
+Our goal is to show that 
+\[  f'(c) = \lim_{ x \to c }  \frac{ f(x) - f(c) }{ x -c  } = g(c). \] Let \( \epsilon > 0  \). Since \( f'_{n} \to g  \) uniformly and each \( f'_{n}  \) continuous, we must have 
+\[  \lim_{ n \to \infty  }  \int_{ x }^{ c } f'_{n}   = \int_{ x }^{ c } g = f(x) - f(c)  \]
+Then by the same setup as in the original proof of Theorem 6.3.1, we have 
+\begin{align*}
+	\Big| \frac{ f(x) - f(c) }{ x - c   } - g(c) \Big| &\leq \Big| \frac{ f(x) - f(c)  }{ x -c  } - \frac{ f_{n}(x) - f_{n}(c)  }{ x - c  }  \Big| \\  &+ \Big|  \frac{ f_{n}(x) - f_{n}(c)  }{ x -c  } - f_n'(c)  \Big| + | f'_{n}(c) - g'(c)  |   \\
+\end{align*}
+\end{proof}
+
+
+
+
+
+\subsubsection{Exercise 7.5.6 (Integration-by-parts).} 
+\begin{enumerate}
+	\item[(a)] Assume \( h(x)  \) and \( k(x)  \) have continuous derivatives on \( [a,b]  \) and derive the familiar integration-by-parts formula 
+		\[  \int_{ a }^{ b } h(t)k'(t) \   dt = h(b)k(b) - h(a)k(a) - \int_{ a }^{ b } h'(t)k(t) \    dt. \tag{1} \]
+		\begin{proof}[Solution]
+		Let us rewrite (1) by adding the second term on the right side of (1) to both sides so that we may show that 
+		\[  \int_{ a }^{ b } [h(t)k'(t) + h'(t)k'(t)] \    dt = h(b)k(b) - h(a)k(a) \tag{2}. \]
+	Since \( h(x)  \) and \( k(x)  \) have continuous derivatives, it follows that \( h'(x)  \) and \( k'(x)  \) are both integrable. Furthermore, the differentiability of both \( h  \) and \( k  \) imply that they are continuous and thus \( h \) and \( k  \) are integrable. Then by exercise 7.4.6, we now that \( h k'  \) and \( h'k  \) are integrable and thus their sum \( hk' + h'k  \) is also integrable. But observe that 
+	\[  (hk)' = hk' + h'k  \]
+	by the product rule which means that \( (hk)' \) is integrable. By part (i) of theorem 7.5.1, we have 
+	\[  \int_{ a }^{ b } (hk)'(t) \ dt = (hk)(b) - (hk)(a) = h(b)k(b) - h(a)k(a) \tag{3}. \]
+	Hence, we can rearrange (3) to 
+	\[  \int_{ a }^{ b } h(t)k'(t) \   dt = h(b)k(b) - h(a)k(a) - \int_{ a }^{ b } h'(t)k(t) \    dt. \]
+		\end{proof}
+	\item[(b)] Explain how the result in Exercise 7.4.6 can be used to slightly weaken the hypothesis in part (a).
+		\begin{proof}[Solution]
+		
+		\end{proof}
+\end{enumerate}
+ 
+\subsubsection{Exercise 7.5.7} Use part (ii) of Theorem 7.5.1 to construct another proof of part (i) of Theorem 7.5.1 under the stronger hypothesis that \( f  \) is continuous. (To get started, set \( G(x) = \int_{ a }^{ x }  f   \).)
+\begin{proof}
+\end{proof}
+
+
 
