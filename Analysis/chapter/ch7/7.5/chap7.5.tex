@@ -64,6 +64,7 @@ The Fundamental Theorem of Calculus links these two concepts together via an inv
 \end{enumerate}
 \end{proof}
 
+
 \subsection{Exercises}
 
 
@@ -170,13 +171,13 @@ where we consider only \( x > 0  \).
 		\end{align*}
 		\end{proof}
 	\item[(d)] Let 
-		\[  \gammma_{n} = \Big( 1 + \frac{ 1 }{ 2 } + \frac{ 1 }{ 3 } + \dotsb + \frac{ 1 }{ n }  \Big) - L(n). \]
+		\[  \gamma_{n} = \Big( 1 + \frac{ 1 }{ 2 } + \frac{ 1 }{ 3 } + \dotsb + \frac{ 1 }{ n }  \Big) - L(n). \]
 		Prove that \( (\gamma_{n}) \) converges. The constant \( \gamma = \lim \gamma_{n} \) is called Euler's constant. 
 		\begin{proof}
 		
 		\end{proof}
 	\item[(e)] Show how consideration of the sequence \( \gamma_{2n} - \gamma_{n}    \) leads to the interesting indentity 
-		\[  L(2) = 1 - \frac{ 1 }{ 2 } + \frac{ 1 }{ 3 } - \frac{ 1 }{ 4 } _ \frac{ 1 }{ 5 } - \frac{ 1 }{ 6 } + \dotsb.  \]
+		\[  L(2) = 1 - \frac{ 1 }{ 2 } + \frac{ 1 }{ 3 } - \frac{ 1 }{ 4 } + \frac{ 1 }{ 5 } - \frac{ 1 }{ 6 } + \dotsb.  \]
 		\begin{proof}
 		
 		\end{proof}
@@ -232,12 +233,20 @@ where the supremum is taken over all partitions \( P  \) of \( [a,b] \).
 \begin{enumerate}
     \item[(a)] Why are we sure \( f  \) is the derivative of some function? How about \( (f \circ g ) g' \)? 
 		\begin{proof}[Solution]
-		
+	    Since \( f: [c,d] \to \R  \) is continuous, part (ii) of FTC implies 
+        \[ \alpha(x) = \int_{ c }^{ x } f(t)  \ dt \] is differentiable and that \( \alpha'(x) = f(x)  \). If we compose \( g;[a,b]  \to \R  \) and \( \alpha  \), the differentiability of \( \alpha  \) and \( g  \) yield \( f(g(x)) g'(x)   \) which means 
+        \[  \alpha(g(x)) = \int_{ a }^{ x } f(g(x)) g'(x). \] 
 		\end{proof}
 	\item[(b)] Prove the Change-of-variable formula
 		\[  \int_{ a }^{ b } f(g(x)) g'(x) \    dx = \int_{ g(a) }^{ g(b) } f(t) \  dt. \]
 		\begin{proof}
-		
+            Since \( f: [c,d] \to \R   \) is continuous, we know by part (ii) of FTC that 
+            \[  \alpha(x) = \int_{ c }^{ x} f(t) \ dt \]
+            is differentiable and that \( \alpha'(x) = f(x)   \) for all \( x \in [c,d] \). Since the range of \( g \) is contained within the domain of \( f  \), we know that on the interval \( [g(a), g(b)] \), we must have 
+            \[  \int_{ g(a)  }^{ g(b)  } f(t) \  dt = \alpha( g(b)) - \alpha( g(a))  \tag{1} \] by exercise 7.5.7. Suppose if compose \( \alpha  \) and \( g \) together and take the derivative using the Chain Rule. Then we get \( f(g(x)) g'(x)  \) which is a continuous function. Then on the interval \( [a,b]  \), we see that
+            \[  \int_{ a }^{ b } f(g(x)) g'(x) \  dx = \alpha(g(b)) - \alpha(g(a)) \tag{2} \]
+            by exercise 7.5.7. By equality of (1) and (2), we conclude that
+            \[  \int_{ a }^{ b } f(g(x)) g'(x) \   dx = \int_{ g(a)  }^{ g(b)  } f(t) \  dt. \]
 		\end{proof}
 \end{enumerate}
 
