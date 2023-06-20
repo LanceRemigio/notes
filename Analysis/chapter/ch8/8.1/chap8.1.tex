@@ -20,7 +20,61 @@ By definition of the upper sum and the lower sum given in section 7.2, it follow
     \end{thm}
 \end{tcolorbox}
 
-The idea is that partitions become finer with the hope that the approximations get closer to the value of the integral. To rephrase the forwards direction of the theorem above, the integrability of some function implies that the approximations converge to the value of the integral independent of the tags chosen. In the backwards direction, the Riemann sum approximations accumulate around some value \( A  \) which implies that a function is integrable and integrates to \( A  \). 
+The idea is that partitions become finer with the effect that the approximations get closer to the value of the integral. To rephrase the forwards direction of the theorem above, the integrability of some function implies that the approximations converge to the value of the integral independent of the tags chosen. In the backwards direction, the Riemann sum approximations accumulate around some value \( A  \) which implies that a function is integrable and integrates to \( A  \). 
+
+\begin{proof}
+    \( (\Rightarrow)  \) Let us assume that \( f  \) is integrable on \( [a,b]  \). Given \( \epsilon > 0  \), we must show that there exists a \( \delta > 0  \) such that if \( ( P, \{ c_{k } \} ) \) is any tagged partition that is \( \delta- \)fine, then 
+    \[  \Big| R(f,P) - \int_{ a }^{ b } f  \Big| < \epsilon. \]
+    Since \( f  \) is integrable, we can find a partition \( P_{\epsilon } \) such that 
+    \[  U(f, P_{\epsilon }) - L(f, P_{\epsilon })  < \epsilon. \] Let \( M > 0  \) be a bound on \( | f |  \), and let \( n  \) be the number of subintervals of \( P_{\epsilon } \) (this so \( P_{\epsilon }\) ) really consists of \( n + 1  \) points in \( [a,b]  \). We claim that choosing 
+    \[  \delta = \frac{ \epsilon  }{ 9nM }  \] has this desired property. 
+
+    Let \( (P, \{ c_{k}    \} ) \) be an arbitrary tagged partition of \( [a,b]  \) that is \( \delta- \)fine, and let \( P' = P \cup P_{\epsilon } \). The key is to establish the string of inequalities 
+    \[  L(f,P') - \frac{ \epsilon  }{ 3 }  < L(f,P ) \leq U(f,P) < U(f,P') + \frac{ \epsilon  }{ 3 }.\]
+\end{proof}
+
+\subsubsection{Exercise 8.1.1} 
+\begin{enumerate}
+    \item[(a)] Explain why both the Riemann sum \( R(f,P)  \) and \( \int_{ a }^{ b } f  \) fall between \( L(f,P)  \) and \( U(f,P)  \). 
+        \begin{proof}[Solution]
+            Let \( (P, \{ c_{k }  \} ) \) be a tagged partition of \( [a,b]  \). Then by definition of by the definition of \( M_{k }  \)  and \( m_{k }   \) (the supremums and infimums  of each subinterval \( [x_{k-1} , x_{k }] \) ), we know that 
+            \[  m_{ k } \leq f(c_{ k }  )  \leq M_{k } \] which imply that 
+            \[ L(f,P) \leq R(f,P) \leq U(f,P). \]
+            If \( f  \) is integrable then \( L(f) = U(f) = \int_{ a }^{ b } f   \). This means 
+            \[ L(f,P) \leq \int_{ a }^{ b } f \leq U(f,P).\] If we take the Riemann characterization for integrability then it follows that 
+            \[  \int_{ a }^{ b }  f = R(f,P)  \] since \( \epsilon > 0   \) is arbitrary.
+        \end{proof}
+        \item[(b)] Explain why \( U(f,P') - L(f, P') < \epsilon / 3.  \)
+            \begin{proof}[Solution]
+           Let \( \epsilon > 0  \). By the properties of the supremum and infimum, we have 
+            \[ U(f,P') < U(f) + \frac{ \epsilon  }{ 6 } \] and 
+            \[  L(f,P') > L(f) - \frac{ \epsilon  }{ 6 }. \] Subtracting these two inequalities and assuming \( f  \) is integrable (\( U(f) = L(f) \)), we end up with 
+            \[  U(f,P') - L(f,P') < (U(f) - L(f)) + \frac{ \epsilon  }{ 3 } = \frac{ \epsilon  }{ 3 }. \]
+            \end{proof}
+\end{enumerate}
+
+If we can show \( U(f,P) < U(f,P') + \epsilon / 3   \) (and similarly \( L(f,P') - \epsilon / 3 > L(f,P)  \)), then it will follow that 
+\[  \Big| R(f,P) - \int_{ a }^{ b } f  \Big| < \epsilon \]
+and the proof will be done. To do this, we can try to estimate the distance between \( U(f,P)  \) and \( U(f, P')  \).
+\subsubsection{Exercise 8.1.2} Explain why \( U(f,P) - U(f,P') \geq 0  \).
+\begin{proof}[Solution]
+If \( P = P' \cup P_{\epsilon }  \), then it follows from lemma 7.2.4 that \( U(f,P) \geq U(f,P')   \) which implies that \( U(f,P) - U(f,P') \geq 0  \). 
+\end{proof}
+
+Observe that for any partition, the upper sum takes on the form 
+\[  U(f,P) = \sum_{ k=1 }^{ n } M_{k } \Delta x_{k } \] which contains a good number of the \( M_{k }  \) terms cancel out.
+\subsubsection{Exercise 8.1.3 } 
+\begin{enumerate}
+    \item[(a)] In terms of n, what is the largest number of terms of the form \( M_{k} ( x_{k } - x_{k-1} ) \) that could appear in one of \( U(f,P)  \) or \( U(f,P') \) but not the other?
+        \begin{proof}[Solution]
+        
+        \end{proof}
+    \item[(b)] Finish the proof in this direction by arguing that 
+        \[  U(f,P) - U(f,P') < \frac{ \epsilon  }{ 3 }. \]
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
 
 
 
