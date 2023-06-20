@@ -41,8 +41,7 @@ The idea is that partitions become finer with the effect that the approximations
             \[  m_{ k } \leq f(c_{ k }  )  \leq M_{k } \] which imply that 
             \[ L(f,P) \leq R(f,P) \leq U(f,P). \]
             If \( f  \) is integrable then \( L(f) = U(f) = \int_{ a }^{ b } f   \). This means 
-            \[ L(f,P) \leq \int_{ a }^{ b } f \leq U(f,P).\] If we take the Riemann characterization for integrability then it follows that 
-            \[  \int_{ a }^{ b }  f = R(f,P)  \] since \( \epsilon > 0   \) is arbitrary.
+            \[ L(f,P) \leq \int_{ a }^{ b } f \leq U(f,P).\]
         \end{proof}
         \item[(b)] Explain why \( U(f,P') - L(f, P') < \epsilon / 3.  \)
             \begin{proof}[Solution]
@@ -67,14 +66,39 @@ Observe that for any partition, the upper sum takes on the form
 \begin{enumerate}
     \item[(a)] In terms of n, what is the largest number of terms of the form \( M_{k} ( x_{k } - x_{k-1} ) \) that could appear in one of \( U(f,P)  \) or \( U(f,P') \) but not the other?
         \begin{proof}[Solution]
-        
+            Since \( P_{\epsilon } \) consists of \( n+1  \) points in \( [a,b]  \) and there are three points, that being the two endpoints and our sampling point \( c_{k }  \), we must have at most \( 3(n+1)  \) points.
         \end{proof}
     \item[(b)] Finish the proof in this direction by arguing that 
         \[  U(f,P) - U(f,P') < \frac{ \epsilon  }{ 3 }. \]
         \begin{proof}
-        
+        Observe that for all \( k \in \N  \) that \( M_{ k } \leq 3(n+1)M   \) for some \( M > 0  \) from part (a). Since \( P  \) is \( \delta- \)fine, we must have \( \Delta x_{k } < \epsilon / 9nM \). Hence, we must have   
+        \begin{align*}
+            U(f,P) - U(f, P') &= \sum_{ k=1  }^{ n  } M_{k } \Delta x_{ k }  \\
+                              &\leq (3n+3)M \sum_{ k=1 }^{ n } \Delta x_{k } \\  
+                              &< (3n+3)M \cdot \frac{ \epsilon  }{ 9nM  } \sum_{ k=1 }^{ n } \\
+                              &= (3n+3) \cdot \frac{ \epsilon  }{ 9  } \\ 
+                              &< \frac{ \epsilon  }{ 3 }.
+        \end{align*}
+        The same argument can be applied to the lower sums \( L(f,P)  \) and \( L(f,P') \). Then observe that 
+        \[   L(f,P') - \frac{ \epsilon  }{ 3 } <  L(f,P) \leq R(f,P) \leq U(f,P) < U(f,P') + \frac{ \epsilon  }{ 3 }  \] now holds which completes our proof that 
+        \[ \Big| R(f,P) - \int_{ a }^{ b } f  \Big| < \epsilon. \]
         \end{proof}
 \end{enumerate}
+
+
+
+
+
+\( (\Leftarrow) \) For the backwards direction, we can assume that \( \epsilon -\delta \)criterion in Theorem 8.1.2 holds and show that \( f  \) is integrable. To show this, we must have the upper sums are close to the lower sums. We now know that it is always the case that 
+\[  L(f,P) \leq R(f,P) \leq U(f,P) \] independent of the tags chosen to compute \( R(f,P)  \). 
+\subsubsection{Exercise 8.1.4} 
+\begin{enumerate}
+    \item[(a)] Show that if \( f  \) is continuous, then it is possible to pick tags \( \{ c_{k } \}_{k=1}^n  \) so that 
+        \[  R(f,P) = U(f,P). \] Similarly, there are tags for which \( R(f,P) = L(f,P)  \) as well.
+        \begin{proof}
+        \end{proof}
+\end{enumerate}
+
 
 
 
