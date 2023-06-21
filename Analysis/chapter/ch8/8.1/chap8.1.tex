@@ -96,6 +96,19 @@ Observe that for any partition, the upper sum takes on the form
     \item[(a)] Show that if \( f  \) is continuous, then it is possible to pick tags \( \{ c_{k } \}_{k=1}^n  \) so that 
         \[  R(f,P) = U(f,P). \] Similarly, there are tags for which \( R(f,P) = L(f,P)  \) as well.
         \begin{proof}
+            Let \( \{ c_{k }  \}_{k=1}^n  \) be an arbitrary tag on a partition \( P \). Since \( f \) is continuous on the compact set \( [a,b] \), we know that \( f  \) must also be uniformly continuous. Denote the supremums of each subinterval \(  [x_{k-1}, x_{k }] \) by \( M_{k } = f(z_{k })  \) for all \( k  \).  Let \( \epsilon >0  \). Then there exists some \( \delta > 0  \) such that whenever \( | c_{k } - z_{k } | < \delta  \), we have 
+            \[   f(c_{k}) - M_{k }     < \frac{ \epsilon  }{ b -a  }. \] Then observe that for any partition \( P  \) of \( [a,b]  \), we have
+        \begin{align*}
+            R(f,P) - U(f, P) &= \sum_{ k=1 }^{ n } [f(c_{k }) - M_{k } ] \Delta x_{k } \\
+                             &< \frac{ \epsilon  }{ b -a  } \sum_{ k=1 }^{ n } \Delta x_{k } \\
+                             &= \frac{ \epsilon  }{ b -a  } \cdot b-a = \epsilon. \\
+        \end{align*}
+        Since \( \epsilon > 0 \) is arbitrary, we must have \( R(f,P) = U(f,P) \). A similar argument can be used to show \( R(f,P) = L(f,P) \).
+        \end{proof}
+    \item[(b)] If \( f  \) is not continuous, it may not be possible to find tags for which \( R(f,P) = U(f,P) \). Show, however, that given an arbitrary \( \epsilon >0  \), it is possible to pick tags for \( P  \) so that 
+        \[  U(f,P) - R(f,P) < \epsilon. \] The analogous statement holds for lower sums.
+        \begin{proof}
+        
         \end{proof}
 \end{enumerate}
 
