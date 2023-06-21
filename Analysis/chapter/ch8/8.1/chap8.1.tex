@@ -108,11 +108,78 @@ Observe that for any partition, the upper sum takes on the form
     \item[(b)] If \( f  \) is not continuous, it may not be possible to find tags for which \( R(f,P) = U(f,P) \). Show, however, that given an arbitrary \( \epsilon >0  \), it is possible to pick tags for \( P  \) so that 
         \[  U(f,P) - R(f,P) < \epsilon. \] The analogous statement holds for lower sums.
         \begin{proof}
-        
+            Let \( \epsilon > 0  \). Let \( \{ c_{k } \}_P{k=1}^{n}  \) be an arbitrary tag for \( P  \). Since \( | f |  \) is bounded by some \( M > 0  \), we know that the distance between the supremums of each subinterval \( M_{k} \) and each tag \( f(c_{k }) \) can be bounded by \( M  \); that is, we have 
+            \[   M_{k } - f(c_{k }) \leq  2Mn. \] Since the partition \( P  \) is \( \delta- \)fine, we know that we can choose \( \delta = \frac{ \epsilon  }{ 2Mn }  \) such that every subinterval \( [x_{k-1}, x_{k}] \) satisfies 
+            \[ \Delta x_{k } < \frac{ \epsilon  }{ 2Mn }. \] Then observe that 
+        \begin{align*}
+            U(f,P) - R(f,P)   &= \sum_{ k=1 }^{ n } [ M_{k } - f(c_{k })]  \Delta x_{k }\\
+                              &\leq 2Mn \sum_{ k=1 }^{ \Delta x_{k } } \\ 
+                              &< 2Mn \cdot \frac{ \epsilon  }{ 2Mn } \sum_{ k=1 }^{ n } \\
+                              &= \epsilon.
+        \end{align*}
+        The same argument can be applied to show 
+        \[  R(f,P) - L(f,P) < \epsilon. \]
         \end{proof}
 \end{enumerate}
 
+\subsubsection{Exercise 8.1.5} Use the results of the previous exercise to finish the proof of Theorem 8.1.2.
 
+\begin{proof}
+Let \( \epsilon > 0  \). Then let \( (P, \{ c_{k } \}) \) be a tagged partition. Let \( P = P_{1} \cup P_{2} \) be a common refinement. By assumption, we can have 
+\begin{align*}
+    R(f,P_{1}) - R(f, P_{2}) &= \big[ R(f, P_{1}) - A  \big] + \big[ A - R(f, P_{2})\big]  \\
+                             &< \frac{ \epsilon  }{ 4 }  + \frac{ \epsilon  }{ 4 }.
+\end{align*} By using the results of part (a) and part(b), we have 
+\begin{align*}
+    U(f,P) - L(f,P) &= \big[ U(f,P) - R(f,P_{1}) \big]  + \big[ R(f,P_{1}) - R(f,P_{2} \big] \\ 
+                    &+ \big[ R(f,P_{2} - L(f,P) \big]  \\
+                    &< \frac{ \epsilon  }{ 4 }  + \frac{ \epsilon  }{ 4 }  + \frac{ \epsilon  }{ 4 }  + \frac{ \epsilon  }{ 4  } \\
+                    &= \epsilon.
+\end{align*}
+Hence, \( f  \) is integrable and \( A = \int_{ a }^{ b } f  \).
+\end{proof}
 
+\subsection{Gauges and \( \delta(x)- \)fine Partitions}
 
+The main component of the generalized Riemann Integral above is to have \( \delta  \) to be a function of \( x  \). 
 
+\begin{tcolorbox}
+\begin{defn}
+    A function \( \delta: [a,b] \to \R  \) is called a \textit{gauge} on \( [a,b]  \) if \( \delta(x) > 0  \) for all \( x \in [a,b]  \).
+\end{defn}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\begin{defn}
+    Given a particular gauge \( \delta (x)  \), a tagged partition \( (P, \{ c_{k }  \}_{k=1}^{n} ) \) is \( \delta(x)- \)fine if every subinterval \( [x_{k-1}, x_{k }] \) satisfies \( x_{k-1} - x_{k } < \delta(c_{k})  \). In other words, each subinterval \( [x_{k-1}, x_{k} ] \) has width less than \( \delta(c_{k }) \). 
+\end{defn}
+\end{tcolorbox}
+
+It's important to note that \( \delta(x)  \) is normally a constant function. The definition above is a more generalized version of what was stated earlier in definition 8.1.4. 
+
+\subsubsection{Exercise 8.1.6} Consider the interval \( [0,1]  \). 
+\begin{enumerate}
+    \item[(a)] If \( \delta(x) = 1/ 9 \), find a \( \delta(x)-\)fine tagged partition of \( [0,1]  \). Does the choice of tags matter in this case? 
+        \begin{proof}[Solution]
+        Since \( \delta(x) \) is just a constant, the choice of tags does not matter in this case.
+        \end{proof}
+    \item[(b)] Let 
+        \[ \delta(x) = 
+        \begin{cases}
+            1/4 \ &\text{ if } x = 0 \\
+            x/3  &\text{ if  } 0  < x \leq 1.
+        \end{cases}  \]
+        Construct a \( \delta(x)- \)fine tagged partition of \( [0,1] \).  
+    \begin{proof}[Solution]
+    To do.
+    \end{proof}
+\end{enumerate}
+
+\begin{tcolorbox}
+\begin{thm}
+    Given a gauge \( \delta(x)  \) on an interval \( [a,b]  \), there exists a tagged partition \( (P, \{ c_{k }  \}_{k=1}^{n}) \) that is \( \delta(x)- \)fine.
+\end{thm}
+\end{tcolorbox}
+\begin{proof}
+
+\end{proof}
