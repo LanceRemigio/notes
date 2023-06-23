@@ -74,9 +74,9 @@ Observe that for any partition, the upper sum takes on the form
         Observe that for all \( k \in \N  \) that \( M_{ k } \leq 3(n+1)M   \) for some \( M > 0  \) from part (a). Since \( P  \) is \( \delta- \)fine, we must have \( \Delta x_{k } < \epsilon / 9nM \). Hence, we must have   
         \begin{align*}
             U(f,P) - U(f, P') &= \sum_{ k=1  }^{ n  } M_{k } \Delta x_{ k }  \\
-                              &\leq (3n+3)M \sum_{ k=1 }^{ n } \Delta x_{k } \\  
-                              &< (3n+3)M \cdot \frac{ \epsilon  }{ 9nM  } \sum_{ k=1 }^{ n } \\
-                              &= (3n+3) \cdot \frac{ \epsilon  }{ 9  } \\ 
+                              &\leq (3n-3)M \sum_{ k=1 }^{ n } \Delta x_{k } \\  
+                              &< (3n-3)M \cdot \frac{ \epsilon  }{ 9nM  } \sum_{ k=1 }^{ n } \\
+                              &= (3n-3) \cdot \frac{ \epsilon  }{ 9  } \\ 
                               &< \frac{ \epsilon  }{ 3 }.
         \end{align*}
         The same argument can be applied to the lower sums \( L(f,P)  \) and \( L(f,P') \). Then observe that 
@@ -285,6 +285,123 @@ is a non-Riemann-integrable function whose discontinuities are at every point of
 \end{enumerate}
 
 \subsection{The Fundamental Theorem of Calculus}
+
+\begin{enumerate}
+    \item[(i)] In the Theorem 7.5.1, we implicitly assumed the derivative of \( F(x) = \int_{ a }^{ b } f  \) was integrable. We do not need that assumption in the upcoming version of FTC.
+    \item[(ii)] While the MVT played a crucial role in the proof of Theorem 7.5.1, it turns out that we won't be needing that either.
+\end{enumerate}
+
+\begin{tcolorbox}
+\begin{thm}
+    Assume \( F: [a,b] \to \R  \) is differentiable at each point in \( [a,b]  \) and set \( f(x) = F'(x)  \). Then, \( f  \) has the generalized Riemann integral
+    \[  \int_{ a }^{ b } f  = F(b) - F(a). \]
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    Let \( P = \{ x_{0}, x_{1}, \dots, x_{n} \}  \) be a partition of \( [a,b]  \). Both this proof of Theorem 7.5.1 make use of the following fact.
+
+
+
+\subsubsection{Exercise 8.1.11} Show that 
+    \[  F(b) - F(a) = \sum_{ k=1 }^{ n } [F(x_{k} ) - F(x_{k-1})].\]
+    \begin{proof}[Solution]
+    Since \( F: [a,b] \to \R  \) is differentiable at each point in \( [a,b]  \), we must also have \( F  \) continuous at each point in \( [a,b]  \). This means that the sum 
+    \[  \sum_{ k=1 }^{ n }[F(x_{k }) - F(x_{k-1})] \] is telescoping and thus we must have 
+    \[  \sum_{ k=1 }^{ n }[F(x_{k }) - F(x_{k-1})] = F(b) - F(a). \] 
+\end{proof} 
+
+
+    If \( \{ c_{k }  \}_{k=1}^{n} \) is a set of tags for \( P  \), then we can estimate the difference between the Riemann sum \( R(f,P)  \) and \( F(b) - F(a)  \) by
+\begin{align*}
+    | F(b) - F(a) - R(f,P)  | &= \Big| \sum_{ k=1 }^{ n } [F(x_{k}) - F(x_{k-1}) - f(c_{k}) (x_{k } - x_{k-1})] \Big|  \\
+                              &\leq \sum_{ k=1 }^{ n } | F(x_{k}) - F(x_{k-1}) - f(c_{k })(x_{k } - x_{k-1}) |.
+\end{align*}
+Let \( \epsilon > 0  \). Our goal is to construct a gauge \( \delta(c)  \) such that 
+\[  | F(b) - F(a) - R(f,P)  | < \epsilon \]
+for all \( (P, \{ c_{k } \} ) \) that are \( \delta(c)- \)fine (Using the variable \( c  \) in the gauge function is more convenient than \( x  \) in this case.)
+
+
+\subsubsection{Exercise 8.1.12} For each \( c \in [a,b]  \), explain why there exists a \( \delta(c) > 0  \) (a \( \delta > 0  \) depending on \( c   \) ) such that 
+\[  \Big| \frac{ F(x) - F(c)  }{ x -c  }  - f(c)  \Big|  < \epsilon \]
+for all \( 0 < | x -c  | < \delta(c)  \).
+\begin{proof}[Solution]
+Since \( F  \) is differentiable, then by we are guaranteed to find a \( \delta(c) > 0  \) such that whenever \( 0 < | x - c  |  < \delta(c)  \) it follows that 
+\[  \Big| \frac{ F(x) - F(c)  }{ x -c  }  - f(c)  \Big| < \epsilon. \]
+
+
+
+\end{proof}
+
+
+\subsubsection{Exercise 8.1.13} 
+
+\begin{enumerate}
+    \item[(a)] For a particular \( c_{k } \in [x_{k-1}, x_{k } ]  \) of \( P  \), show that  
+\[  | F(x_{k }) - F(c_{k}) - f(c_{k })(x_{k } - x_{k-1})  | < \epsilon ( x_{k } - c_{k }) \] and 
+\[  | F(c_{k}) - F(x_{k-1}) - f(c_{k })(c_{k} - x_{k-1})   | <  \epsilon (c_{k } -  x_{k-1}). \]
+\begin{proof}
+Note that the differentiability of \( F \) implies that the right hand limit and left hand limit are the same. Hence, we can state that 
+\[ \lim_{ x_{k}  \to c_{k }  }  \frac{ F(x_{k } ) - F(c_{k })  }{ x_{k } - c_{k}  } = \lim_{ x_{k-1}  \to c_{k }  } \frac{ F(c_{k }) - F(x_{k-1}) }{ c_{k } - x_{k-1} }. \tag{1}  \] Then by definition of the derivative, the right hand side of (1) implies
+\[  \Big| \frac{ F(x_{k } ) - F(c_{k }) }{ x_{k } - c_{k } }  - f(c)  \Big| < \epsilon  \] which leads to 
+\[  | F(x_{k }) - F(c_{k}) - f(c_{k })(x_{k } - x_{k-1})  | < \epsilon ( x_{k } - c_{k }) \] and  likewise the left hand side of (1) implies
+\[  \Big| \frac{ F(c_{k } ) - F(x_{k-1}) }{ c_{k} - x_{k-1} } - f(c) \Big| < \epsilon \] which also implies 
+\[  | F(c_{k}) - F(x_{k-1}) - f(c_{k })(c_{k} - x_{k-1})   | <  \epsilon (c_{k } -  x_{k-1}). \]
+\end{proof}
+    \item[(b)] Now, argue that 
+        \[  | F(c_{k }) - F(x_{k-1}) - f(c_{k } )(c_{k} - x_{k-1}) | < \epsilon (c_{k } - x_{k-1}). \]
+        \begin{proof}
+        Let \( \epsilon > 0  \). Using algebraic manipulations we can write, collecting terms, and using the results from part (a), we have
+        \begin{align*}
+            | F(x_{k}) - F(x_{k-1}) -F(c_{k})(x_{k } - x_{k-1}) | &\leq | F(x_{k}) - F(c_{k } ) - f(c_{k}  ) (x_{k } - c_{k }) | \\&+ | F(c_{k})  - F(x_{k-1}) - f(c_{k }) (c_{k} - x_{k-1}) |   \\
+                                                                  &< \epsilon (x_{k } - c_{k }) + \epsilon(c_{k } - x_{k-1}) \\
+                                                                  &= \epsilon(x_{k } - x_{k-1}).
+        \end{align*}
+        Then 
+        \begin{align*}
+            | F(b) - F(a) - R(f,P)   | &<  \frac{ \epsilon  }{ b -a  }  \sum_{ k=1 }^{ n } ( x_{k } - x_{k-1}) \\
+                                       &= \frac{ \epsilon  }{ b - a   }.
+        \end{align*}
+        \end{proof}
+\end{enumerate}
+\end{proof}
+
+Consider the function 
+\[  F(x) = 
+\begin{cases}
+    x^{3/2} \sin(1/x) \ &\text{ if } x \neq 0 \\
+    0 \ &\text{ if } x = 0
+\end{cases} \]
+that is differentiable everywhere, including \( x = 0  \), with 
+\[  F'(x) = 
+\begin{cases}
+    (3/2)\sqrt{ x }  \sin (1/x) - (1 / \sqrt{ x } ) \cos(1/x) \ &\text{ if } x \neq 0 \\
+    0 \ &\text { if } x = 0.
+\end{cases} \]
+
+An interesting fact about the function above is that it is \textit{unbounded} even though the ordinary Riemann integral only considers bounded functions on closed intervals. This shows that the Generalized Riemann integral does not restrict itself to a certain class of functions. 
+\begin{tcolorbox}
+    \begin{thm}[Change-of-variable Formula] Let \(g: [a,b] \to \R  \) be differentiable at each point of \( [a,b]  \), and assume \( F  \) is differentiable on the set \( g([a,b] ) \). If \( f(x) = F'(x)  \) for all \( x \in g[a,b]  \), then 
+        \[  \int_{ a }^{ b } (f \circ g) \cdot g' = \int_{ g(a) }^{ g(b)  } f. \]
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    The hypothesis of the theorem guarantees that the function \( (F \circ g )(x)  \) is differentiable for all \( x \in [a,b] \).
+\end{proof}
+
+\subsubsection{Exercise 8.1.14} 
+\begin{enumerate}
+    \item[(a)] Why are we sure that \( f  \) and \( (F \circ g)' \) have generalized Riemann integrals? 
+        \begin{proof}[Solution]
+            \textbf{To do.}
+        \end{proof}
+    \item[(b)] Use Theorem 8.1.9 to finish the proof.
+        \begin{proof}
+            \textbf{To do.}
+        \end{proof}
+\end{enumerate}
+
 
 
 
