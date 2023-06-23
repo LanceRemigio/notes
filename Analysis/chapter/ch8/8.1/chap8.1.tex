@@ -254,5 +254,37 @@ is a non-Riemann-integrable function whose discontinuities are at every point of
 \end{thm}
 \end{tcolorbox}
 
+\begin{proof}
+    Let \( \epsilon > 0  \). The goal is to construct a gauge \( \delta(x)  \) on \( [0,1]  \) such that whenever \( (P, \{ c_{k }  \}_{k=1}^{n}  ) \) is a \( \delta(x)- \)fine tagged partition, it follows that 
+    \[  0 \leq \sum_{ k=1 }^{ n } g(c_{k }) \Delta x_{k} < \epsilon. \]
+    In this context, the gauge \( \delta(x)  \) represents the restriction on the size of \( \Delta x_{k } = x_{k } - x_{k-1} \) where \( \Delta x_{k } < \delta(c_{k }) \). Thus, the Riemann sums for the \( g(x) \) consists of products of the form \( g(c_{k }) \Delta x_{k } \). If we take irrational tags, then \( g(c_{k}) = 0  \) by definition of \( g  \). Hence, the only case we need to worry about is when we have rational tags.
+
+    Let \( \{ r_{1}, r_{2},  r_{3}, \dots \}  \) be a countable set of rational numbers that are contained in \( [0,1]  \). Then for each \( r_{k }  \), define \( \delta(r_{k }) = \epsilon / 2^{k+1} \). If \( x \notin \Q  \), then set \( \delta(x) = 1  \).
+\end{proof}
+
+\subsubsection{Exercise 8.1.10} Show that if \( (P, \{ c_{k } \}_{k=1}^n ) \) is a \( \delta(x)- \)fine tagged partition, then \( R(g,P) < \epsilon \).
+\begin{proof}
+    \textbf{Please Check later.} If \( c_{k } \notin \Q  \), it follows that \( g(c_{k}) = 0  \) for all \( k  \). Then it immediately follows that 
+    \[  R(g,P) < \epsilon. \] 
+    Otherwise, Let \( \{ r_{1}, r_{2}, r_{3}, \dots  \}  \) be a countable set of rational numbers that are contained in \( [0,1]  \). Since \( r_{k } \in \Q \) for all \( k  \), we must have \( g(r_{k }) = 1  \). Using the definition of \( \delta(r_{k })  \) and the fact that \( (P, \{ c_{k } \}_{k=1}^n)  \) is a \( \delta(x)-\) fine tagged partition, we must have 
+    \begin{align*}
+       0 \leq R(g, P)  = \sum_{ k=1 }^{n } g(r_{k }) \Delta x_{k }
+                = \sum_{ k=1 }^{ n } \Delta x_{k } 
+                < \sum_{ k=1 }^{ n } \frac{ \epsilon  }{ 2^{k-1} }  
+                < \epsilon.
+    \end{align*}
+    Hence, \( R(g,P) < \epsilon. \)
+\end{proof}
+
+
+\begin{enumerate}
+    \item[(i)] The failure of the Dirichlet's function to be Riemann-integrable is caused by the freedom to choose between \( R(g,P)  = 1  \) and \( R(g,P) = 0  \) based on either rational or irrational tagged partitions.  
+    \item[(ii) ] Nonconstant gauges that depend on the value of \( x  \) on some interval causes us to discriminate based on which tagged partitions qualify as \( \delta(x)- \)fine which makes it easier to achieve
+        \[  | R(f,P) - A  | < \epsilon \]
+        for smaller and more deliberately selected set of tagged partitions.
+\end{enumerate}
+
+\subsection{The Fundamental Theorem of Calculus}
+
 
 
