@@ -198,7 +198,10 @@ It's important to note that \( \delta(x)  \) is normally a constant function. Th
 
 \subsubsection{Exercise 8.1.7} Finish the proof of Theorem 8.1.5.
 \begin{proof}
-    \textbf{To do}.
+    Let each interval \( I_{k } = [x_{k-1}, x_{k }] \) and define the gauge \( \delta(c_{k }) =   \epsilon / 2^{k-1}  \) to be the length of each \( I_{k } \). Then we for any \( \epsilon > 0  \), we can choose \( N \in \N  \) such that for any \(  k \geq N  \) the length 
+    \[  | x_{k} - x_{k-1}  | < \epsilon \] since \( \epsilon / 2^{k-1}  \) converges to \( 0  \) as \( k \to \infty  \). Since this applies for every subinterval, the partition \( (P, \{ c_{k }  \}_{k=1}^{n}) \) is \( \delta(x)- \)fine.
+
+
 \end{proof}
 
 \subsection{Generalized Riemann Integrability} 
@@ -212,16 +215,44 @@ Using gauges now, we can restate Riemann Integrability in a more generalized way
 
 \begin{tcolorbox}
 \begin{thm}
-If a functino has a generalized Riemann integral, then the value of the integral is unique.
+If a function has a generalized Riemann integral, then the value of the integral is unique.
 \end{thm}
 \end{tcolorbox}
 
 \begin{proof}
-
+Assume that a function \( f  \) has generalized Riemann integral \( A_{1} \) and that it also has generalized Riemann integral \( A_{2} \). We must prove \( A_{1} = A_{2} \).
 \end{proof}
 
+\subsubsection{Exercise 8.1.8} Finish the argument.
+\begin{proof}
+Let \( \epsilon > 0  \). Since \( f  \) has generalized Riemann integral \( A_{1} \) and \( A_{2} \), there exists a gauge \( \delta(x) = \min \{ \delta_1(x), \delta_2(x)  \}  \) such that for each tagged partition that is \( \delta(x)- \)fine, we must have
+\begin{align*}
+    | A_{1} - A_{2} | &= \Big| A_{1} - R(f,P) + R(f,P) - A_{2} \Big|   \\
+                      &\leq | A_{1} - R(f,P)  | + | R(f,P) - A_{2} | \\
+                      &< \frac{ \epsilon  }{ 2 }  + \frac{ \epsilon  }{ 2 } \\
+                      &= \epsilon.
+\end{align*}
+Since \( \epsilon > 0  \) is arbitrary, the distance \( | A_{1} - A_{2}  | < \epsilon \) implies \( A_{1} = A_{2} \).
+\end{proof}
 
+\subsubsection{Exercise 8.1.9} Explain why every function that is Riemann-integrable with \( \int_{ a }^{ b } f = A  \) must also have generalized Riemann integral \( A  \).
+\begin{proof}[Solution]
+    If \( f \) is Riemann-integrable, we know that \( f  \) must also be bounded by some \( M > 0  \) which is the same for all the subintervals \( [ x_{k-1}, x_{k }] \). This means every partition \( (P, \{ c_{k } \}_{k=1}^n) \) is \( \delta(x)- \)fine. Hence, \( f  \) also contains a generalized Riemann integral \( A  \). 
+\end{proof}
 
+The converse statement of the above is not true since Dirichel's function 
+\[  g(x) = 
+\begin{cases}
+    1 \ &\text{ if } x \in \Q \\
+    0 \ &\text{ if } x \notin \Q 
+\end{cases} \]
+is a non-Riemann-integrable function whose discontinuities are at every point of \( \R  \).
+
+\begin{tcolorbox}
+\begin{thm}
+    Dirichlet's function \( g(x)  \) is generalized Riemann-integrable on \( [0,1]  \) with \( \int_{ 0 }^{ 1 } g = 0  \).
+\end{thm}
+\end{tcolorbox}
 
 
 
