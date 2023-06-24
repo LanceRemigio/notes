@@ -66,12 +66,12 @@ Observe that for any partition, the upper sum takes on the form
 \begin{enumerate}
     \item[(a)] In terms of n, what is the largest number of terms of the form \( M_{k} ( x_{k } - x_{k-1} ) \) that could appear in one of \( U(f,P)  \) or \( U(f,P') \) but not the other?
         \begin{proof}[Solution]
-            Since \( P_{\epsilon } \) consists of \( n+1  \) points in \( [a,b]  \) and there are three points, that being the two endpoints and our sampling point \( c_{k }  \), we must have at most \( 3(n+1)  \) points.
+            Since \( P_{\epsilon } \) consists of \( n-1  \) points in \( [a,b]  \) and there are three points, that being the two endpoints and our sampling point \( c_{k }  \), we must have at most \( 3(n-1)  \) points.
         \end{proof}
     \item[(b)] Finish the proof in this direction by arguing that 
         \[  U(f,P) - U(f,P') < \frac{ \epsilon  }{ 3 }. \]
         \begin{proof}
-        Observe that for all \( k \in \N  \) that \( M_{ k } \leq 3(n+1)M   \) for some \( M > 0  \) from part (a). Since \( P  \) is \( \delta- \)fine, we must have \( \Delta x_{k } < \epsilon / 9nM \). Hence, we must have   
+        Observe that for all \( k \in \N  \) that \( M_{ k } \leq 3(n-1)M   \) for some \( M > 0  \) from part (a). Since \( P  \) is \( \delta- \)fine, we must have \( \Delta x_{k } < \epsilon / 9nM \). Hence, we must have   
         \begin{align*}
             U(f,P) - U(f, P') &= \sum_{ k=1  }^{ n  } M_{k } \Delta x_{ k }  \\
                               &\leq (3n-3)M \sum_{ k=1 }^{ n } \Delta x_{k } \\  
@@ -108,12 +108,12 @@ Observe that for any partition, the upper sum takes on the form
     \item[(b)] If \( f  \) is not continuous, it may not be possible to find tags for which \( R(f,P) = U(f,P) \). Show, however, that given an arbitrary \( \epsilon >0  \), it is possible to pick tags for \( P  \) so that 
         \[  U(f,P) - R(f,P) < \epsilon. \] The analogous statement holds for lower sums.
         \begin{proof}
-            Let \( \epsilon > 0  \). Let \( \{ c_{k } \}_P{k=1}^{n}  \) be an arbitrary tag for \( P  \). Since \( | f |  \) is bounded by some \( M > 0  \), we know that the distance between the supremums of each subinterval \( M_{k} \) and each tag \( f(c_{k }) \) can be bounded by \( M  \); that is, we have 
+            Let \( \epsilon > 0  \). Let \( \{ c_{k } \}_{k=1}^{n}  \) be an arbitrary tag for \( P  \). Since \( | f |  \) is bounded by some \( M > 0  \), we know that the distance between the supremums of each subinterval \( M_{k} \) and each tag \( f(c_{k }) \) can be bounded by \( M  \); that is, we have 
             \[   M_{k } - f(c_{k }) \leq  2Mn. \] Since the partition \( P  \) is \( \delta- \)fine, we know that we can choose \( \delta = \frac{ \epsilon  }{ 2Mn }  \) such that every subinterval \( [x_{k-1}, x_{k}] \) satisfies 
             \[ \Delta x_{k } < \frac{ \epsilon  }{ 2Mn }. \] Then observe that 
         \begin{align*}
             U(f,P) - R(f,P)   &= \sum_{ k=1 }^{ n } [ M_{k } - f(c_{k })]  \Delta x_{k }\\
-                              &\leq 2Mn \sum_{ k=1 }^{ \Delta x_{k } } \\ 
+                              &\leq 2Mn \sum_{ k=1 }^{n } \Delta x_{k }  \\ 
                               &< 2Mn \cdot \frac{ \epsilon  }{ 2Mn } \sum_{ k=1 }^{ n } \\
                               &= \epsilon.
         \end{align*}
