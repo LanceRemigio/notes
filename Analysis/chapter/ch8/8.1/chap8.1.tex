@@ -394,11 +394,18 @@ An interesting fact about the function above is that it is \textit{unbounded} ev
 \begin{enumerate}
     \item[(a)] Why are we sure that \( f  \) and \( (F \circ g)' \) have generalized Riemann integrals? 
         \begin{proof}[Solution]
-            \textbf{To do.}
+            Since \( F  \) is differentiable and satisfies \( F'(x) = f(x)  \) for all \( x \in g[a,b]  \), we know that \( f  \) must have a Generalized Riemann Integral. Likewise, the differentiability as well as the continuity of \( F \) and \( g  \) guarantee Riemann integrability of their composition which also implies that the \( (F \circ g)  \) to have a Generalized Riemann integral. 
         \end{proof}
     \item[(b)] Use Theorem 8.1.9 to finish the proof.
         \begin{proof}
-            \textbf{To do.}
+            Assume \( g  \) is differentiable and \( F  \) differentiable with \( F'(x) = f(x) \) for all \( x \in g[a,b] \). By part (a), we must have the following 
+        \begin{align*}
+            \int_{ a }^{ b } (f \circ g) \cdot g' &= (F \circ g)(b) - (F \circ g)(a) \\
+                                                  &= F(g(b)) - F(g(a)) \\
+                                                  &= \int_{ g(a) }^{ g(b) } f.
+        \end{align*}
+        Hence, we conclude that 
+        \[ \int_{ a }^{ b } (f \circ g) \circ g'  = \int_{ g(a) }^{ g(b) } f.\]
         \end{proof}
 \end{enumerate}
 
