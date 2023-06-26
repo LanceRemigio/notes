@@ -113,8 +113,8 @@ Observe that for any partition, the upper sum takes on the form
             \[ \Delta x_{k } < \frac{ \epsilon  }{ 2Mn }. \] Then observe that 
         \begin{align*}
             U(f,P) - R(f,P)   &= \sum_{ k=1 }^{ n } [ M_{k } - f(c_{k })]  \Delta x_{k }\\
-                              &\leq 2Mn \sum_{ k=1 }^{n } \Delta x_{k }  \\ 
-                              &< 2Mn \cdot \frac{ \epsilon  }{ 2Mn } \sum_{ k=1 }^{ n } \\
+                              &\leq 2M \sum_{ k=1 }^{n } \Delta x_{k }  \\ 
+                              &< 2M \cdot \frac{ \epsilon  }{ 2Mn } \sum_{ k=1 }^{ n } \\
                               &= \epsilon.
         \end{align*}
         The same argument can be applied to show 
@@ -359,8 +359,8 @@ Note that the differentiability of \( F \) implies that the right hand limit and
         \end{align*}
         Then 
         \begin{align*}
-            | F(b) - F(a) - R(f,P)   | &<  \frac{ \epsilon  }{ b -a  }  \sum_{ k=1 }^{ n } ( x_{k } - x_{k-1}) \\
-                                       &= \frac{ \epsilon  }{ b - a   }.
+            | F(b) - F(a) - R(f,P)   | &<  \epsilon  \sum_{ k=1 }^{ n } ( x_{k } - x_{k-1}) \\
+                                       &=\epsilon (b -a )
         \end{align*}
         \end{proof}
 \end{enumerate}
@@ -409,6 +409,61 @@ An interesting fact about the function above is that it is \textit{unbounded} ev
         \end{proof}
 \end{enumerate}
 
+\subsubsection{Definitions and Theorems}
+
+\begin{tcolorbox}
+\begin{defn}
+    Let \( \delta > 0   \). A partition \( P  \) is \( \delta- \)\textit{fine} if every subinterval \( [x_{k }, x_{k-1} ]  \) satisfies \( x_{k } - x_{k-1} <  \delta  \). In other words, every subinterval has width less than \( \delta  \).
+\end{defn}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+    \begin{thm}[Limit Criterion for Riemann Integrability]
+    A bounded function \( f: [a,b] \to \R  \) is Riemann-integrable with 
+    \[  \int_{ a }^{ b } f  = A  \] if and only if, for every \( \epsilon > 0 \), there exists \( \delta > 0  \) such that, for any tagged partition \( (P, \{ c_{k } \} ) \) that is \( \delta- \)fine, it follow that 
+    \[  | R(f,P) - A  | < \epsilon. \]
+    \end{thm}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\begin{defn}
+    A function \( \delta: [a,b] \to \R  \) is called a \textit{gauge} on \( [a,b]  \) if \( \delta(x) > 0  \) for all \( x \in [a,b]  \).
+\end{defn}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\begin{defn}
+    Given a particular gauge \( \delta (x)  \), a tagged partition \( (P, \{ c_{k }  \}_{k=1}^{n} ) \) is \( \delta(x)- \)fine if every subinterval \( [x_{k-1}, x_{k }] \) satisfies \( x_{k-1} - x_{k } < \delta(c_{k})  \). In other words, each subinterval \( [x_{k-1}, x_{k} ] \) has width less than \( \delta(c_{k }) \). 
+\end{defn}
+\end{tcolorbox}
 
 
+\begin{tcolorbox}
+\begin{defn}
+    A function \( f  \) on \( [a,b]  \) has \textit{generalized Riemann Integral A} if, for every \( \epsilon > 0  \), there exists a gauge \( \delta(x)  \) on \( [a,b]  \) such that for each tagged partition \( (P, \{ c_{k } \}_{k=1}^n) \) that is \( \delta(x)- \)fine, it is true that 
+    \[  | R(f,P) - A  | <\epsilon. \] In this case, we write \( A = \int_{ a }^{ b } f \).
+\end{defn}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+\begin{thm}
+If a function has a generalized Riemann integral, then the value of the integral is unique.
+\end{thm}
+\end{tcolorbox}
+
+
+\begin{tcolorbox}
+\begin{thm}
+    Assume \( F: [a,b] \to \R  \) is differentiable at each point in \( [a,b]  \) and set \( f(x) = F'(x)  \). Then, \( f  \) has the generalized Riemann integral
+    \[  \int_{ a }^{ b } f  = F(b) - F(a). \]
+\end{thm}
+\end{tcolorbox}
+
+
+
+\begin{tcolorbox}
+    \begin{thm}[Change-of-variable Formula] Let \(g: [a,b] \to \R  \) be differentiable at each point of \( [a,b]  \), and assume \( F  \) is differentiable on the set \( g([a,b] ) \). If \( f(x) = F'(x)  \) for all \( x \in g[a,b]  \), then 
+        \[  \int_{ a }^{ b } (f \circ g) \cdot g' = \int_{ g(a) }^{ g(b)  } f. \]
+\end{thm}
+\end{tcolorbox}
 
