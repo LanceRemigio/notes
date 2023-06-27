@@ -112,7 +112,13 @@ Define the \textit{discrete metric} on any set \( X  \) where for any \( x, y \i
 
 \subsubsection{Exercise 8.2.3} Verify that the discrete metric is actually a metric.
 \begin{proof}[Solution]
-    \textbf{To do.}
+Observe that if \( x \neq y  \), then by definition we must have \( \rho(x,y) > 0  \). Otherwise, \( \rho(x,y) = 0  \) by definition. It is clear that \( \rho(x,y) = \rho(y,x) \). To show the triangle inequality, let \( x,y,z \in X  \), then we must have 
+\begin{align*}
+    \rho(x,y) &= 1 + 0   \\
+              &\leq 1 + 1 \\
+              &= \rho(x,z) + \rho(z,y). 
+\end{align*}
+Hence, \( \rho(x,y)  \) is a metric on any arbitrary set \(  X \).
 \end{proof}
 
 \subsection{Basic Definitions}
@@ -132,16 +138,46 @@ A sequence \( (x_{n}) \) in a metric space is a \textit{Cauchy sequence} if for 
 
 \subsubsection{Exercise 8.2.4} Show that a convergent sequence is Cauchy.
 \begin{proof}
-    \textbf{To do.}
+    Since \( (x_{n}) \subseteq \) is a Cauchy sequence, we can pick an \( N \in \N  \) such that for any \( n,m \geq N  \), we must have 
+    \[  d(x_{n}, x ) < \frac{ \epsilon  }{ 2  }  \ \text{ and } \ d(x, x_{m}) < \frac{ \epsilon  }{ 2 } .\] Using the same choice of \( N \in \N  \) so that \( n,m \geq N  \), we must have that
+    \begin{align*}
+        d(x_{n}, x_{m}) &\leq d(x_{n}, x )  + d(x, x_{m})\\ 
+                        &< \frac{ \epsilon  }{ 2 }  + \frac{ \epsilon  }{ 2 }  \\
+                        &= \epsilon.
+    \end{align*}
+    Hence, \( (x_{n}) \) is Cauchy.
 \end{proof}
 
+\begin{itemize}
+    \item Notice that this is only the forwards direction of the Cauchy Criterion we studied under \( \R  \). 
+    \item For metric spaces other than \( \R  \), the converse of the Cauchy Criterion does not necessarily hold.
+    \item We need to develop an ordering of our space similar to how the Axiom of Completeness is used in \( \R  \) ( This is called \textit{completeness}  ). 
+    \item The convergence of Cauchy sequences is taken to be the definition of completeness.
+\end{itemize}
 
 
+\begin{tcolorbox}
+\begin{defn}
+A metric space \( (X, d ) \) is \textit{complete} if every Cauchy sequence in \( X  \) converges to an element of \( X  \).
+\end{defn}
+\end{tcolorbox}
 
 
-
-
-
+\subsubsection{Exercise 8.2.5} 
+\begin{enumerate}
+    \item[(a)] Consider \( \R^{2} \) with the discrete metric \( \rho(x,y)  \) examined in Exercise 8.2.3. What do Cauchy sequences look like in this pace? Is \( \R^{2} \) complete with respect to this metric? 
+        \begin{proof}[Solution]
+        
+        \end{proof}
+    \item[(b)] Show that \( C[0,1]  \) is complete with respect to the metric in Exercise 8.2.2(a).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(c)] Define \( C^1[0,1] \) to be the collection of differentiable functions on \( [0,1]  \) whose derivatives are also continuous. Is \( C^{1}[0,1] \) complete with respect to the metric defined in Exercise 8.2.2(a)?
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
 
 
 
