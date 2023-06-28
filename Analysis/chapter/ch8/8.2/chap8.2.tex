@@ -171,7 +171,17 @@ A metric space \( (X, d ) \) is \textit{complete} if every Cauchy sequence in \(
         \end{proof}
     \item[(b)] Show that \( C[0,1]  \) is complete with respect to the metric in Exercise 8.2.2(a).
         \begin{proof}
-        
+        The metric from Exercise 8.2.2 (a) is 
+        \[  d(f,g) = \sup_{x \in [0,1]} | f(x) - g(x) |.    \]
+        Let \( f_{n}, f_{m} \in C[0,1] \). The Cauchy sequence under sup norm metric will be 
+        \[  d(f_{n}, f_{m}) = \sup_{x \in [0,1]} | f_{n}(x) - f_{m}(x) | \]
+        We want to show that the Cauchy sequence of functions \( (f_{n}) \) converges under \( C[0,1] \). Since \( (f_{n}) \) is a Cauchy sequence under \( \R  \), we know that is satisfies the Cauchy Criterion. Hence, \( (f_{n}) \) must converge. By choosing \( N \in \N  \), we can let \( m, n \geq N  \) such that 
+        \begin{align*}
+            d(f_{n}, f) &= \sup_{x \in [0,1]} | f_{n}(x) - f(x)  |   \\
+                        &\leq \sup_{x \in [0,1] } | f_{n}(x) - f_{m}(x)  | + \sup_{x \in [0,1]} | f_{m}(x) - f(x)  | \\
+                        &< \frac{ \epsilon  }{ 2  }  + \frac{ \epsilon  }{ 2 } = \epsilon.
+        \end{align*}
+        Hence, the sup norm metric is complete under \( C[0,1] \).
         \end{proof}
     \item[(c)] Define \( C^1[0,1] \) to be the collection of differentiable functions on \( [0,1]  \) whose derivatives are also continuous. Is \( C^{1}[0,1] \) complete with respect to the metric defined in Exercise 8.2.2(a)?
         \begin{proof}
@@ -179,8 +189,16 @@ A metric space \( (X, d ) \) is \textit{complete} if every Cauchy sequence in \(
         \end{proof}
 \end{enumerate}
 
+The sup metric is usually written as 
+\[  \lVert f -g  \rVert_{\infty }  = d(f,g) = \sup \{ | f(x) - g(x)  | : x \in [0,1] \}  \] and setting \( g = 0  \) gives us the "sup norm" 
+\[  \lVert f \rVert_{\infty } = d(f,0 ) = \sup \{ | f(x)  | : x \in [0,1] \} . \]
+From now on, we will assume that the space \( C[0,1]  \) is paired with the metric above unless otherwise specified.
 
+\begin{tcolorbox}
+\begin{defn}
+Let \( (X, d_{1}) \) and \( (Y, d_{2}) \) be metric spaces. A function \( f: X \to Y  \) is \textit{continuous} at \( x \in  X  \) if for all \(\epsilon > 0  \), there exists a \( \delta > 0  \) such that \( d_{2}(f(x) , f(y)) < \epsilon  \) whenever \( d_{1} (x,y) < \delta \).  
+\end{defn}
+\end{tcolorbox}
 
-
-
+\subsubsection{Exercise 8.2.6} Which of these functions from \( C[0,1] \) to \( \R  \) (with the usual )
 
