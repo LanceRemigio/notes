@@ -167,7 +167,13 @@ A metric space \( (X, d ) \) is \textit{complete} if every Cauchy sequence in \(
 \begin{enumerate}
     \item[(a)] Consider \( \R^{2} \) with the discrete metric \( \rho(x,y)  \) examined in Exercise 8.2.3. What do Cauchy sequences look like in this pace? Is \( \R^{2} \) complete with respect to this metric? 
         \begin{proof}[Solution]
-        
+        Cauchy sequences under the discrete metric under \( \R^{2} \) would have \( x_{n} = (x_{n_{1}}, x_{n_{2}}) \) and \( x_{m} = (x_{m_{1}}, x_{m_{2}}) \) such that 
+        \[ \rho(x_{n}, x_{m}) = 
+        \begin{cases}
+            0 \ &\text{if } x_{n } = x_{m} \\
+            1 \ &\text{if } x_{n_{i} } \neq  x_{m_{i}} \ \text{where } 1 \leq i \leq 2.
+        \end{cases} \]
+        Yes, \( \rho(x,y)  \) is complete under \( \R^{2} \).
         \end{proof}
     \item[(b)] Show that \( C[0,1]  \) is complete with respect to the metric in Exercise 8.2.2(a).
         \begin{proof}
@@ -175,7 +181,7 @@ A metric space \( (X, d ) \) is \textit{complete} if every Cauchy sequence in \(
         \[  d(f,g) = \sup_{x \in [0,1]} | f(x) - g(x) |.    \]
         Let \( f_{n}, f_{m} \in C[0,1] \). The Cauchy sequence under sup norm metric will be 
         \[  d(f_{n}, f_{m}) = \sup_{x \in [0,1]} | f_{n}(x) - f_{m}(x) | \]
-        We want to show that the Cauchy sequence of functions \( (f_{n}) \) converges under \( C[0,1] \). Since \( (f_{n}) \) is a Cauchy sequence under \( \R  \), we know that is satisfies the Cauchy Criterion. Hence, \( (f_{n}) \) must converge. By choosing \( N \in \N  \), we can let \( m, n \geq N  \) such that 
+        We want to show that the Cauchy sequence of functions \( (f_{n}) \) converges under \( C[0,1] \). Since \( (f_{n}) \) is a Cauchy sequence under \( \R  \), we know that is satisfies the Cauchy Criterion. Hence, \( (f_{n}) \) must converge uniformly. By choosing \( N \in \N  \), we can let \( m, n \geq N  \) and \( x \in [0,1]  \) such that 
         \begin{align*}
             d(f_{n}, f) &= \sup_{x \in [0,1]} | f_{n}(x) - f(x)  |   \\
                         &\leq \sup_{x \in [0,1] } | f_{n}(x) - f_{m}(x)  | + \sup_{x \in [0,1]} | f_{m}(x) - f(x)  | \\
@@ -185,7 +191,9 @@ A metric space \( (X, d ) \) is \textit{complete} if every Cauchy sequence in \(
         \end{proof}
     \item[(c)] Define \( C^1[0,1] \) to be the collection of differentiable functions on \( [0,1]  \) whose derivatives are also continuous. Is \( C^{1}[0,1] \) complete with respect to the metric defined in Exercise 8.2.2(a)?
         \begin{proof}
-        
+            No, \( C^{1}[0,1] \) is not complete under metric defined in Exercise 8.2.2 (a). Define 
+            \[h'_{n} = \frac{ x  }{ \sqrt{ x^{2} + 1/n  }  }. \]
+            Note that the convergence of \( h'n \to h  \) where \( h(x) = x / | x |  \) is not uniform. Hence, we cannot have completeness on \( C^{1}[0,1]  \) when we have pointwise convergence instead of uniform convergence.
         \end{proof}
 \end{enumerate}
 
@@ -200,5 +208,26 @@ Let \( (X, d_{1}) \) and \( (Y, d_{2}) \) be metric spaces. A function \( f: X \
 \end{defn}
 \end{tcolorbox}
 
-\subsubsection{Exercise 8.2.6} Which of these functions from \( C[0,1] \) to \( \R  \) (with the usual )
+\subsubsection{Exercise 8.2.6} Which of these functions from \( C[0,1] \) to \( \R  \) (with the usual metric) are continuous? 
+\begin{enumerate}
+    \item[(a)] \( g(f) = \int_{ 0 }^{ 1 } f k  \) where \( k   \) is some fixed function in \( C[0,1]  \).
+        \begin{proof}[Solution]
+        
+        \end{proof}
+    \item[(b)] \( g(f) = f(1/2) \).
+        \begin{proof}[Solution]
+        
+        \end{proof}
+    \item[(c)] \( g(f) = f(1/2)  \), but this time with respect to the metric on \( C[0,1]  \) from Exercise 8.2.2 (c).
+        \begin{proof}[Solution]
+        
+        \end{proof}
+\end{enumerate}
+
+
+\subsection{Topology on Metric Spaces}
+
+
+
+
 
