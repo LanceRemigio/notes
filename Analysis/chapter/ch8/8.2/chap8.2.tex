@@ -212,11 +212,20 @@ Let \( (X, d_{1}) \) and \( (Y, d_{2}) \) be metric spaces. A function \( f: X \
 \begin{enumerate}
     \item[(a)] \( g(f) = \int_{ 0 }^{ 1 } f k  \) where \( k   \) is some fixed function in \( C[0,1]  \).
         \begin{proof}[Solution]
-        
+            We claim that \( g(f) = \int_{ 0 }^{ 1 }  fk  \) where \(  k  \) is some fixed function in \( C[0,1] \). Let \( \epsilon > 0  \). Under the usual metric under \( \R  \), suppose there exists a \( \delta > 0  \) such that \( | x -c  | < \delta  \). Since \( f \in C[0,1]  \), \( f  \) is also continuous. Hence, we can use the same \( \delta \) such that 
+            \[  | f(x) - f(c)  | < \epsilon. \] Since \( k  \) is a fixed function in \( C[0,1]  \), we must have 
+            \begin{align*}
+                | g(f(x)) - g(f(c))  | &= \Big| k \int_{ 0 }^{ 1 } ( f(x) - f(c))  \ dx   \Big| \\
+                                       &\leq M \int_{ 0 }^{ 1 }  | f(x) - f(c)  | \ dx \tag{\( k  \) is bounded} \\
+                                       &< M \int_{ 0 }^{ 1 }  \frac{ \epsilon  }{ m   }  = \epsilon. \\ 
+            \end{align*}
+            Hence, \( g(f)  \) is continuous in \( C[0,1] \).
         \end{proof}
     \item[(b)] \( g(f) = f(1/2) \).
         \begin{proof}[Solution]
-        
+            Let \( \epsilon > 0   \). Since \( f \in C[0,1] \), we know that \( f  \) must be continuous. Hence, we can choose a \( \delta > 0  \) such that for any \( | x -c  | < \delta  \), we have
+            \[  | g(f(x)) - g(f(c))  | = | f(1/2) - f(1/2)  | = 0 < \epsilon. \]
+            Hence, \( g  \) is continuous on \( C[0,1] \).
         \end{proof}
     \item[(c)] \( g(f) = f(1/2)  \), but this time with respect to the metric on \( C[0,1]  \) from Exercise 8.2.2 (c).
         \begin{proof}[Solution]
@@ -226,6 +235,31 @@ Let \( (X, d_{1}) \) and \( (Y, d_{2}) \) be metric spaces. A function \( f: X \
 
 
 \subsection{Topology on Metric Spaces}
+
+\begin{tcolorbox}
+\begin{defn}
+    Given \( \epsilon > 0  \) and an element \( x  \) in the metric space \( (X,d) \), the \( \epsilon- \)\textit{neighborhood of} \( x  \)  is the set 
+    \[  V_{\epsilon }(x) = \{ y \in X : d(x,y) < \epsilon \}. \]
+\end{defn}
+\end{tcolorbox}
+
+\subsubsection{Exercise 8.2.7} Describe the \( \epsilon - \)neighborhoods in \( \R^{2} \) for each of the different metrics described in Exercise 8.2.1. How about the discrete metric?
+\begin{proof}[Solution]
+
+\end{proof}
+
+Now we are able to define \textit{open sets, limit points,} and \textit{closed sets} like we did before on \( \R  \) but this time with more general spaces and different metrics. 
+Reframing our definitions of these concepts in \( \R  \) in terms of a general space \( X  \), we 
+\begin{itemize}
+    \item call a set \( O \subseteq X  \) \textit{open} if for every \( x \in O  \) we can find a neighborhood \( V_{\epsilon }(x) \subseteq O  \). 
+    \item A point \( x  \) is a \textit{limit point} of a set \( A  \) if every \( V_{\epsilon }(x)  \) intersects \( A  \) in some point other than \( x  \). A set \( C  \) is \textit{closed} if it contains its limit points.
+\end{itemize}
+
+\subsubsection{Exercise 8.2.8} Let \( (X,d) \) be a metric space.
+\begin{enumerate}
+    \item[(a)] Verify that a typical \( \epsilon- \)neighborhood \( V_{\epsilon }(x)  \) is an open set. Is the set 
+        \[  C_{\epsilon }(x) = \{ y \in X : d(x,y) \leq \epsilon \}  \] a closed set? 
+\end{enumerate}
 
 
 
