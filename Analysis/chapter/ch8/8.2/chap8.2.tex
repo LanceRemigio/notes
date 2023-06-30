@@ -268,10 +268,56 @@ Reframing our definitions of these concepts in \( \R  \) in terms of a general s
         \begin{proof}
         \( (\Rightarrow) \) Let \( x  \) be a limit point of \(E^{c} \). Then for all \( \epsilon- \)neighborhoods, the intersection 
         \[  V_{\epsilon }(x) \cap E^{c} \] is nonempty. Since \( E  \) is open, we know that 
-        \( V_{\epsilon }(x) \subseteq E  \) implying that \( E \cap E^{c} \) is empty. If \( x  \in E \) , then we have \( V_{\epsilon }(x) \subseteq E \). But \( x  \) cannot be in the open set so we must have \( x \in E^{c} \) implying that \( E^{c}  \) is a closed set.
+        \( V_{\epsilon }(x) \subseteq E  \). But we have \( E \cap E^{c} \) is empty so we must have \( x \in E^{c}  \) because otherwise, there exists a \( V_{\epsilon }(x)  \) such that \( V_{\epsilon }(x) \subseteq E  \). Hence, \( E^{c} \) must be closed.  
        
-        \( (\Leftarrow )\) Let \( E^{c} \) be a closed set. Let \( x \in E  \). Since \( x   \) is not a limit point of \( E^{c} \), \( x  \) must not be a limit point of \( E^{c} \). This means there exists an intersection \( V_{\epsilon }(x) \cap E^{c}  \)  that is empty. Hence, \( V_{\epsilon }(x) \subseteq E   \) implying that \( E  \) is open.
+        \( (\Leftarrow)\) Let \( E^{c} \) be a closed set. Let \( x \in E  \). Since \( x   \) is not a limit point of \( E^{c} \), \( x  \) must not be a limit point of \( E^{c} \). This means there exists an intersection \( V_{\epsilon }(x) \cap E^{c}  \)  that is empty. Hence, \( V_{\epsilon }(x) \subseteq E   \) implying that \( E  \) is open.
         \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 8.2.9} 
+\begin{enumerate}
+    \item[(a)] Show that the set \( Y = \{ f \in C[0,1] :  \lVert f \rVert_{\infty } \leq 1  \}  \) is closed in \( C[0,1] \).
+        \begin{proof}
+        Suppose \( f  \) is a limit point of \( Y  \). Let \( (f_{n}) \) be a Cauchy sequence that converges uniformly to \( f  \). Choose \( \epsilon  =1  \). Then observe that there exists an \( N \in \N  \) such that for any \( n \geq N  \), we must have 
+        \[ \lVert f_{n} - f  \rVert \leq 1. \] Then observe that 
+        \begin{align*}
+            | f(x) | &\leq | f_{n}(x) - f(x) + f(x)  |  \\
+                  &\leq | f_{n}(x) - f(x)  | + | f(x)  | \\
+                  &\leq \lVert f_{n} - f  \rVert_{\infty } \\
+                  &\leq 1.
+        \end{align*}
+        Since \( f  \) is contained in \( Y  \), we must have \( Y  \) closed.
+        \end{proof}
+    \item[(b)] Is the set \( T = \{ f \in C[0,1] : f(0) = 0  \}  \) open, closed, or neither in \( C[0,1] \)? 
+        \begin{proof}[Solution]
+        
+        \end{proof}
+\end{enumerate}
+
+
+
+\begin{tcolorbox}
+\begin{defn}
+A subset \( K  \) of a metric space \( (X,d)  \) is \textit{compact} if every sequence in \( K  \) has a convergent subsequence that converges to a limit in \( K  \).
+\end{defn}
+\end{tcolorbox}
+
+In \( \R  \), we came across a proposition that a set is compact if and only if it is closed and bounded. For more general metric spaces, however, this proposition only holds true in the forwards direction.
+
+\begin{tcolorbox}
+\begin{defn}
+A subset \( K \) of a metric space \( (X,d)  \) is \textit{bounded} if there exists an \( R > 0  \) such that for all \( x,y \in X  \), we have \( d(x,y) < R  \).
+\end{defn}
+\end{tcolorbox}
+
+
+\subsubsection{Exercise 8.2.10} 
+\begin{enumerate}
+    \item[(a)] Show that if \( K  \) is compact subset of the metric space \( (X,d)  \), then \( K  \) is closed and bounded.       
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Show that \( Y \subseteq C[0,1]  \) from Exercise 8.2.9 (a) is closed and bounded but not compact.
 \end{enumerate}
 
 
