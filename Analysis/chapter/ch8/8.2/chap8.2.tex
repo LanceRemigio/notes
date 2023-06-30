@@ -217,7 +217,7 @@ Let \( (X, d_{1}) \) and \( (Y, d_{2}) \) be metric spaces. A function \( f: X \
             \begin{align*}
                 | g(f(x)) - g(f(c))  | &= \Big| k \int_{ 0 }^{ 1 } ( f(x) - f(c))  \ dx   \Big| \\
                                        &\leq M \int_{ 0 }^{ 1 }  | f(x) - f(c)  | \ dx \tag{\( k  \) is bounded} \\
-                                       &< M \int_{ 0 }^{ 1 }  \frac{ \epsilon  }{ m   }  = \epsilon. \\ 
+                                       &< M \int_{ 0 }^{ 1 }  \frac{ \epsilon  }{ M   }  = \epsilon. \\ 
             \end{align*}
             Hence, \( g(f)  \) is continuous in \( C[0,1] \).
         \end{proof}
@@ -259,6 +259,19 @@ Reframing our definitions of these concepts in \( \R  \) in terms of a general s
 \begin{enumerate}
     \item[(a)] Verify that a typical \( \epsilon- \)neighborhood \( V_{\epsilon }(x)  \) is an open set. Is the set 
         \[  C_{\epsilon }(x) = \{ y \in X : d(x,y) \leq \epsilon \}  \] a closed set? 
+        \begin{proof}[Solution]
+        Observe that \( V_{\epsilon }(x) \subseteq V_{\epsilon }(x)  \). Hence, \( V_{\epsilon }(x)  \) is an open set. 
+        Yes, we have 
+        \[  C_{\epsilon }(x) = \{ y \in X : d(x,y) \leq \epsilon \}  \] is a closed set. To see why, let \( x  \) be a limit point of \( C_{\epsilon }(x)  \). By Theorem 3.2.2, there exists a sequence \( x_{n} \subseteq C_{\epsilon }(x)  \) such that \( \lim x_{n} = x  \) with \( x_{n} \neq x  \) for all \( n \in \N  \). This means that we can choose an \( N \in \N  \) such that for all \( n \geq N  \), we must have \( d(x_{n}, x ) \leq \epsilon  \). Hence, \( x  \in C_{\epsilon }(x)  \) and so \( C_{\epsilon }(x)  \) must be a closed set.
+        \end{proof}
+    \item[(b)] Show that a set \( E \subseteq X  \) is open if and only if its complement is closed.
+        \begin{proof}
+        \( (\Rightarrow) \) Let \( x  \) be a limit point of \(E^{c} \). Then for all \( \epsilon- \)neighborhoods, the intersection 
+        \[  V_{\epsilon }(x) \cap E^{c} \] is nonempty. Since \( E  \) is open, we know that 
+        \( V_{\epsilon }(x) \subseteq E  \) implying that \( E \cap E^{c} \) is empty. If \( x  \in E \) , then we have \( V_{\epsilon }(x) \subseteq E \). But \( x  \) cannot be in the open set so we must have \( x \in E^{c} \) implying that \( E^{c}  \) is a closed set.
+       
+        \( (\Leftarrow )\) Let \( E^{c} \) be a closed set. Let \( x \in E  \). Since \( x   \) is not a limit point of \( E^{c} \), \( x  \) must not be a limit point of \( E^{c} \). This means there exists an intersection \( V_{\epsilon }(x) \cap E^{c}  \)  that is empty. Hence, \( V_{\epsilon }(x) \subseteq E   \) implying that \( E  \) is open.
+        \end{proof}
 \end{enumerate}
 
 
