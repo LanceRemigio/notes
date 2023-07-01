@@ -315,7 +315,13 @@ A subset \( K \) of a metric space \( (X,d)  \) is \textit{bounded} if there exi
 \begin{enumerate}
     \item[(a)] Show that if \( K  \) is compact subset of the metric space \( (X,d)  \), then \( K  \) is closed and bounded.       
         \begin{proof}
-        
+        Since \( K  \) is a compact subset of the metric space \( (X,d) \), every sequence \( (x_{n}) \subseteq K  \) contains a subsequence \( (x_{n_{k }})  \) that converges to a limit \( x  \) that is contained in \( K  \). Let \( (x_{n}) \) be a Cauchy sequence. Choose \( N \in \N  \) such that for any \( n > n_{k } \geq N  \), we must have 
+        \begin{align*}
+            d(x_{n}, x ) &\leq d(x_{n}, x_{n_{k }}) + d(x_{n_{k }}, x)  \\
+                         &< \frac{ \epsilon  }{ 2  } + \frac{ \epsilon  }{ 2 } \\ 
+                         &= \epsilon.\\
+        \end{align*}
+        Since \( x \in K  \) and \( (x_{n}) \to x  \), \( K  \) must be closed. Since every sequence \( (x_{n})   \) converges, we know that every \( (x_{n})  \) is bounded by some \( M > 0  \). Hence, \( K  \) must also be bounded.
         \end{proof}
     \item[(b)] Show that \( Y \subseteq C[0,1]  \) from Exercise 8.2.9 (a) is closed and bounded but not compact.
         \begin{proof}
@@ -323,7 +329,15 @@ A subset \( K \) of a metric space \( (X,d)  \) is \textit{bounded} if there exi
         \end{proof}
 \end{enumerate}
 
+\begin{itemize}
+    \item The concept of \textit{equicontinuity} of functions is key to the solution of part (c) above.
+    \item Look back to the Arzeli-Ascoli Theorem in chapter 6 before solving the exercise above.
+    \item The result found in part (b) can only be made possible if, in addition to our assumptions, \( Y  \) contained a collection of functions that are equicontinuous.
+\end{itemize}
 
-
-
-
+\begin{tcolorbox}
+\begin{defn}
+    Given a subset \( E  \) of a metric space \( (X,d)  \), the \textit{closure} \( \overline{E} \) is the union of \( E  \) together with its limit points. The \textit{interior} of \( E \) is denoted by \( E^{\circ} \) and is defined as 
+    \[  E^{\circ} = \{ x \in E : \text{ there exists } V_{\epsilon }(x) \subseteq E  \}. \]
+\end{defn}
+\end{tcolorbox}
