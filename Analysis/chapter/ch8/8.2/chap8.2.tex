@@ -1,4 +1,4 @@
-\section{Metric Spaces and the Baire Category Theorem}
+\section{Metric Spaces}
 
 In this section, we aim to give a more generalized view of what it means to have a "distance" over sets other than \( \R  \). Do the theorems and properties we have proved about sequences, series, and functions carry over to sets like \( \R^{2} \) or even in higher dimensions like \( \R^n \)? We will be mainly testing our notions that we have developed throughout the book on sets such as \( \R^{2} \) and \( C[0,1] \), the space of continuous functions on \( [0,1] \).
 
@@ -286,11 +286,13 @@ Reframing our definitions of these concepts in \( \R  \) in terms of a general s
                   &\leq \lVert f_{n} - f  \rVert_{\infty } \\
                   &\leq 1.
         \end{align*}
-        Since \( f  \) is contained in \( Y  \), we must have \( Y  \) closed.
+        Since \( | f(x)  |  \leq \lVert  f(x)  \rVert  \), we must also have \( \lVert f(x)  \rVert \leq 1  \).
+        Hence, \( f  \) is contained in \( Y  \) and thus we must have \( Y  \) closed.
         \end{proof}
     \item[(b)] Is the set \( T = \{ f \in C[0,1] : f(0) = 0  \}  \) open, closed, or neither in \( C[0,1] \)? 
         \begin{proof}[Solution]
-        
+            \( T  \) is closed. Let \( \epsilon > 0  \). Let \( f \in C[0,1] \). Then there exists an  \( N \in \N   \) such that for any \( n \geq N  \), we have 
+        \[ \lVert f  \rVert < \epsilon.   \] Hence, \( f(0) = 0  \) which implies \( f \in T \).
         \end{proof}
 \end{enumerate}
 
@@ -325,7 +327,6 @@ A subset \( K \) of a metric space \( (X,d)  \) is \textit{bounded} if there exi
         \end{proof}
     \item[(b)] Show that \( Y \subseteq C[0,1]  \) from Exercise 8.2.9 (a) is closed and bounded but not compact.
         \begin{proof}
-        
         \end{proof}
 \end{enumerate}
 
@@ -341,3 +342,47 @@ A subset \( K \) of a metric space \( (X,d)  \) is \textit{bounded} if there exi
     \[  E^{\circ} = \{ x \in E : \text{ there exists } V_{\epsilon }(x) \subseteq E  \}. \]
 \end{defn}
 \end{tcolorbox}
+
+
+\subsubsection{Exercise 8.2.11} 
+\begin{enumerate}
+    \item[(a)] Show that \( E  \) is closed if and only if \( \overline{E} = E  \). Show that \( E  \) is open if and only if \( E^{\circ} = E  \). 
+        \begin{proof}
+        See the solution in Exercise 3.2.14. 
+        \end{proof}
+    \item[(b)] Show that \( \overline{E}^{c} = (E^{c})^{\circ}  \), and similarly that \( (E^{\circ}c)^{} = \overline{E^{c}} \).
+        \begin{proof}
+        See the solution in Exercise 3.2.14.
+        \end{proof}
+\end{enumerate}
+
+
+\subsubsection{Exercise 8.2.12}
+\begin{enumerate}
+    \item[(a)] show 
+        \[  \overline{V_{\epsilon }(x)}  \subseteq \{ y \in X : d(x,y) \leq \epsilon  \},\]
+        in an arbitrary metric space \( (X,d) \).
+        \begin{proof}
+            Let \( x  \) be a limit point of \( \overline{V_{\epsilon }(x)} \). By definition of \( \overline{V_{\epsilon }(x)}  \), we know that \( x \in \overline{V_{\epsilon }(x)} \). Then, there exist exists a sequence \( (x_{n})  \) such that \( x_{n} \to x  \) with \( x_{n} \neq x  \) for all \( n \in \N  \). Hence, for some \( N \in \N  \) we know that for any \( n \geq N  \), we have \( d(x_{n}, x) \leq \epsilon  \). But this is the definition of \( C_{\epsilon }(x) \). Hence, \( x \in C_{\epsilon }(x) \).
+        \end{proof}
+    \item[(b)] To keep things from sounding too familiar, find an example of a specific metric space where 
+        \[  \overline{V_{\epsilon }(x)} \neq \{ y \in X : d(x,y) \leq \epsilon  \}.\]
+        \begin{proof}[Solution]
+        Take \( (\R, | \cdot | ) \). Then observe that \( \overline{V_{\epsilon }(x)} \neq \{ n \in \N : | 1 / n | \leq \epsilon \}  \) where \( V_{\epsilon }(x) =  \{ 0 \}  \).
+        \end{proof}
+\end{enumerate}
+
+\begin{tcolorbox}
+\begin{defn}
+A set \( A \subseteq X  \) is \textit{dense} in the metric space \( (X,d) \) if \( \overline{A} = X  \). A subset \( E  \) of a metric space \( (X,d) \) is \textit{nowhere-dense} in \( X  \) if \( \overline{E}^{\circ}  \) is empty.
+\end{defn}
+\end{tcolorbox}
+
+\subsubsection{Exercise 8.2.13} If \( E  \) is a subset of a metric space \( (X,d) \), show that \( E  \) is nowhere-dense in \( X  \) if and only if \( \overline{E}^{c}  \) is dense in \( X  \). 
+\begin{proof}
+    \textbf{To do.}
+\end{proof}
+
+
+
+
