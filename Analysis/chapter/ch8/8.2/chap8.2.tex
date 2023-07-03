@@ -229,7 +229,13 @@ Let \( (X, d_{1}) \) and \( (Y, d_{2}) \) be metric spaces. A function \( f: X \
         \end{proof}
     \item[(c)] \( g(f) = f(1/2)  \), but this time with respect to the metric on \( C[0,1]  \) from Exercise 8.2.2 (c).
         \begin{proof}[Solution]
-        
+        Not continuous. Let \( f = 0  \) and let \( \delta >0  \). Now define 
+        \[  h_{\delta}(x) = 
+        \begin{cases}
+            1 /2 \ & x \in V_{\delta}(1/2) \\ 
+            0 \ &\text{ otherwise }.
+        \end{cases} \]
+        Observe that for any \( \delta > 0  \), we have that \( d(h_{\delta}, f ) = \delta \). Using the metric from part (c), we will end up with \( d(h_{\delta}, h)= (h-f) (1/2) = 1/2   \). Thus, we can't satisfy \( \epsilon < 1/2. \)
         \end{proof}
 \end{enumerate}
 
@@ -327,6 +333,7 @@ A subset \( K \) of a metric space \( (X,d)  \) is \textit{bounded} if there exi
         \end{proof}
     \item[(b)] Show that \( Y \subseteq C[0,1]  \) from Exercise 8.2.9 (a) is closed and bounded but not compact.
         \begin{proof}
+            The results from part (a) of Exercise 8.2.9 imply that \( Y  \) is bounded and closed. To see why \( Y  \) is not compact, suppose we have a sequence of continuous functions \( (f_{n}) \) defined by \( f_{n} = x^{n} \). Since \( Y \subseteq C[0,1] \), we know that the \( (f_{n})  \to f \) uniformly. But the pointwise limit of \( \lim  f_{n}(x) \) is \textit{not continuous} and every subsequence of \( (f_{n}) \) will necessarily converge pointwise to \( f  \notin C[0,1] \). Hence, \( Y  \) cannot be compact in \( C[0,1] \). 
         \end{proof}
 \end{enumerate}
 
@@ -380,7 +387,9 @@ A set \( A \subseteq X  \) is \textit{dense} in the metric space \( (X,d) \) if 
 
 \subsubsection{Exercise 8.2.13} If \( E  \) is a subset of a metric space \( (X,d) \), show that \( E  \) is nowhere-dense in \( X  \) if and only if \( \overline{E}^{c}  \) is dense in \( X  \). 
 \begin{proof}
-    \textbf{To do.}
+    \( (\Rightarrow)  \) Suppose \( E  \) is nowhere-dense in \( X  \). Then \( \overline{E}^{\circ}  \) is empty. Let \( \epsilon > 0  \). Then for any \( x \in \overline{E}^{\circ}  \) is contained in \( (\overline{E}^{\circ})^{c} \). By exercise 8.2.11, we know that \( (\overline{E}^{\circ})^{c} = \overline{(\overline{E}^{\circ})^{c}}\). But notice that we must have \( \overline{ (\overline{E}^{\circ})^{c}}  = X   \). Hence, \( \overline{E}^{c} \)  must be dense in \( X  \).
+
+    \( (\Leftarrow) \) Suppose \( \overline{E}^c \) is dense in \( X  \). Let \( x \in \overline{E}^{\circ} \). Let \( \epsilon > 0  \). Since \( x  \) is neither an element of nor a limit point of \( \overline{E}^c \), we know that for every \( V_{\epsilon }(x)   \), we have \( V_{\epsilon }(x) \cap \overline{E} \) is empty. This tells us that \( \overline{E}^{\circ}  \) is empty. Hence, \( E  \) is nowhere dense in \( X  \).
 \end{proof}
 
 
