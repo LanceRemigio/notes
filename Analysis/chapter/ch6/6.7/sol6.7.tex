@@ -1,0 +1,225 @@
+
+\subsubsection{Exercise 6.7.1} Assuming WAT, show that if \( f \) is continuous on \( [a,b] \), then there exists a sequence \( (p_n) \) of polynomials such that \( p_n \to f  \) uniformly on \( [a,b] \).
+
+\begin{proof}
+    Using the Weierstrass Approximation Theorem, we can let \( \epsilon  = \frac{ 1 }{ n }  \). By choosing an \( N = 1 / \epsilon   \) such that \( n \geq N  \), we can have a sequence of polynomials \( (p_n) \) such that 
+    \[ | p_{n}(x) - f(x)  | < \frac{ 1 }{ n  } \leq \frac{ 1 }{ N } < \epsilon.  \]
+\end{proof}
+
+\subsubsection{Exercise 6.7.2} Prove Theorem 6.7.3.
+\begin{proof}
+    We can partition the closed interval \( [a,b]  \) into 
+    \[  a = x_{0} < x_{1} < \dotsb < x_{n} = b  \] where each subinterval is defined as \( [x_{i-1}, x_{i}] \) where \( i \in \N  \). Since \( f  \) is continuous over \( [a,b]  \) which is a compact set, we know that \( f  \) must be uniformly continuous on \( [a,b] \). Hence, \( f  \) takes on a maximum and a minimum value on \( [a,b] \). We can do this on each subinterval of \( [a,b]  \) where 
+    \[  f(x_{i-1}) \leq f(x) \leq f(x_{i}) \iff f(x) - f(x_{i-1}) \leq f(x_{i}) - f(x_{i-1}) .\] We can define \( \phi(x)  \) at the endpoints of \( [a,b]  \) to be linear as a way of interpolating between the endpoints of each subinterval. Then for any \( x \in (a,b)  \), let \( q  \) be the largest segment endpoint that is less  than \( x  \), and \( r  \) be the following segment endpoint. Using the uniform continuity of \( f \) over \( [a,b]  \), we can choose \( \delta > 0  \) such that whenever 
+    \( | x - q  | <  \delta \), we have 
+    \begin{align*}
+        | f(x) - \phi(q)  | &\leq |  \phi(q) - \phi(r) | < \epsilon. \\
+    \end{align*}
+\end{proof}
+
+\subsubsection{Exercise 6.7.3} 
+\begin{enumerate}
+    \item[(a)] Find the second degree polynomial \( p(x) = q_{0} + q_{1} + q_{2}x^{2} \) that interpolates the three points \( (-1,1) \), \( (0,0) \), and \( (1,1) \) on the graph of \( g(x) = | x  |  \). Sketch \( g(x)  \) and \( p(x)  \) over \( [-1,1] \) on the same set of axes.
+        \begin{proof}[Solution]
+        Using the points given to us, we can set up a system of linear equations where 
+        \begin{align*}
+            1 &= q_{0} - q_{1} + q_{2} \\
+            0 &= q_{0} \\
+            1 &= q_{0} + q_{1} + q_{2}.
+        \end{align*}
+        Solving this set of equations gives us the coefficients 
+        \begin{align*}
+            q_{0} &= 0  \\
+            q_{1} &= 0 \\
+            q_{2} &= 1
+        \end{align*}
+        which gives us the following interpolating quadratic polynomial 
+        \[  p(x) = x^2. \]
+        \end{proof}
+\end{enumerate}
+
+
+
+
+\subsubsection{Exercise 6.7.4} Show that \( f(x) = \sqrt{ 1 - x  }  \) has Taylor series coefficients \( a_{n} \) where \( a_{0} = 1  \) and 
+\[  a_{n} = \frac{  -1 \cdot 3 \cdot 5 \dotsb (2n-3)  }{ 2 \cdot 4 \cdot \dotsb 2n }  \] for \( n \geq 1  \).
+\begin{proof}
+Since \( f(x) = \sqrt{ 1 - x  }    \) is infinitely differentiable we can use Taylor's Formula 
+\[  a_n = \frac{ f^{(n)}(0)  }{ n!  }  \] to produce the coefficients of the Taylor series of \( f(x)  \). Note that \( a_0 = 1  \) because \( f(0) = \sqrt{ 1 - 0  } = 1   \). Taking the first derivative of \( f \), we find that 
+\[  f^{(1)}(x) = \frac{ -(1-x)^{-1/2} }{ 2 } \]
+which produces the Taylor coefficient 
+\[  a_1 = \frac{ -1 }{ 2 }. \] We can take the second derivative (\( n=2 \)) 
+\[  f^{(2)}(x) = \frac{ -1 }{ 2 } (1-x)^{-3/2}  \] which produces the Taylor Coefficient at \( n =2  \) 
+\[  a_2 = \frac{ f^{(2)}(0)  }{ 2!  } = \frac{ -1  }{ 4 }. \]
+For \( n \geq 1  \), we find that 
+\[  f^{(n)}(x) = \frac{ 1 }{ 2^{n} } (1-x)^{-(2n-1)/2 } \prod_{i=1}^{n} 2i-3  \]
+where plugging in \( x = 0  \) yields 
+\[  f^{(n)}(0) = \frac{ 1 }{ 2^{n} } \prod_{i=1}^{n} 2i -3. \]
+Then using Taylor's formula, we have for \( n \geq 1  \) 
+\begin{align*}
+    a_n &= \frac{ f^{(n)}(0) }{ n! }  \\
+        &= \frac{ 1 }{ 2^{n}n! } \prod_{i=1}^{n} (2i-3) \\
+        &= \frac{ \prod_{i=1}^{n} (2i-3)}{ \Big( \prod_{i=1}^{n} 2 \Big) \Big( \prod_{i=1}^{n} i \Big)  }   \\
+        &=  \prod_{i=1}^{n } \frac{ 2i-3 }{ 2i }  .
+\end{align*}
+\end{proof} 
+Our goal now is to show that the error function of \( f(x) = \sqrt{ 1 - x  }  \) for all \( x \in [-1,1] \) where 
+\[ E_{N}(x) = f(x) - \sum_{ n=0  }^{ N  } a_{n} x^{n} \]
+goes to \( 0  \) uniformly as \( N \to \infty  \). Normally, we can use Lagrange's Remainder Theorem to show that this is the case. But this is an unfruitful approach since fixing \( x \in (0,1]  \) produces a situation where the max of \( f(x)  \) is largest at \( x = c  \) where \( (x / 1 - x)^{N + 1 /2 } \) grows exponentially to infinity whenever \( x > 1 / 2  \); that is 
+\begin{align*}
+   E_{N}(x)  &= \frac{ f^{(N+1)}(c)  }{ (N+1)! } x^{N+1}  \\
+             &= \frac{ 1 }{ (N+1)! } \Big( \frac{ -1 \cdot 3 \cdot 5 \dotsb (2N-1) }{ 2^{N+1} (1-c)^{(N+1)/2} }  \Big) \\
+             &= \Big( \frac{ -1 \cdot 3 \cdot 5 \dotsb (2N-1) }{ 2 \cdot 4 \cdot 6 \dotsb (2N+2) }  \Big) \Big( \frac{ x  }{ 1 -c  }  \Big)^{(N+1)/2} x^{1/2}.
+\end{align*}
+
+\subsubsection{Exercise 6.7.5} 
+\begin{enumerate}
+    \item[(a)] Follow the advice in Exercise 6.6.9 to prove the Cauchy form of the remainder:
+        \[ E_{N}(x) = \frac{ f^{(N+1)}(c)  }{ N! } (x-c)^{N}x \]
+        for some \( c  \) between \( 0  \) and \( x  \).
+        \begin{proof}
+        See exercise 6.6.9 for the solution.
+        \end{proof}
+
+    \item[(b)] Use this result to prove 
+      \[  \sqrt{ 1-x } = \sum_{ n=0 }^{ N } a_{n} x^{n} \] 
+        is valid for all \( x \in (-1,1) \).
+        \begin{proof}
+        Let \( x \in (-1,1) \). Using Cauchy's Remainder Theorem, there exists some \( c   \in (0,x) \) such that 
+        \begin{align*}
+           E_{N}(x) &= \frac{ f^{(N+1)}(c) }{ N! } (x-c)^{N} x.\\
+        \end{align*}
+        Our goal is to make our error function \( E_{N}(x) \to 0   \). Note that 
+        \begin{align*}
+            f^{(N+1)}(c) &= \frac{ (1-c)^{-(2N+1)/2} }{ 2^{N+1} } \prod_{n=1}^{N+1} 2n-3. \\
+        \end{align*}
+        Then using Cauchy's Remainder Theorem, we have 
+        \begin{align*}
+            | E_{N}(x) | &= \Big| \frac{ \prod_{n=1}^{N+1} 2n-3 }{ 2^{N+1} N! } (1-c)^{-(2N+1)/2} (x-c)^{N} x \Big|  \\
+                         &= \Big| \frac{ \prod_{n=1}^{N+1} 2n-3 }{ 2 \cdot \prod_{n=1}^{N} 2n } (1-c)^{-(2N+1)/2} (x-c)^{N} x  \Big|  \\
+                         &<  \Big| \frac{ \prod_{n=1}^{N+1} 2n-3 }{  2 \cdot \prod_{n=1}^{N} 2n } (1-c)^{-(2N+1)/2} (1-c)^{N} \Big| \\
+                         &= \frac{ | \prod_{n=1}^{N+1} 2n-3 | }{  2 \cdot \prod_{n=1}^{N} 2n } (1-c)^{-1/2}  \\
+                         &< \frac{ (1-c)^{-1/2} }{ \prod_{n=1}^{N} 2n } \to 0. 
+        \end{align*}
+        Hence, we conclude that \( E_{N}(x) \to 0  \) which implies that 
+        \[  \sqrt{ 1-x } = \sum_{ n=0  }^{ N } a_{n} x^{n} \]
+        is valid for all \( x \in (-1,1) \).
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 6.7.6} 
+\begin{enumerate}
+    \item[(a)] Let 
+        \[  c_{n} = \frac{ 1 \cdot 3 \cdot 5 \dotsb (2n-1) }{ 2 \cdot 4 \cdot 6 \dotsb 2n }  \] for \( n \geq 1  \). Show \( c_{n} < \frac{ 2 }{ \sqrt{ 2n+1 }  }. \)
+        \begin{proof}
+        We proceed by induction to show 
+        \[  c_{n} < \frac{ 2  }{ \sqrt{ 2n+1 }  } \tag{1}  \] for all \( n \geq 1  \). Let our base case be \( n = 1  \), then 
+        \[  c_{1} = \frac{ 1 }{ 2 } < \frac{ 2 }{ \sqrt{ 3 } }. \]
+        Now let us assume that (1) holds for \( n \geq 1  \). Let us show that (1) holds for the \( n+1 \) case. Using the definition of \( c_{n} \), observe that
+        \begin{align*}
+            c_{n+1} &= \frac{ 1 \cdot 3 \cdot 5 \dotsb 2n+1 }{ 2 \cdot 4 \cdot 6 \dotsb 2n+2 }  \\
+                    &= \frac{ 1 \cdot 3 \cdot 5 \dotsb (2n-1)(2n+1) }{ 2 \cdot 4 \cdot 6 \dotsb (2n)(2n+2) } \\
+                    &= c_{n} \cdot \frac{ 2n+1 }{ 2n+2 } \\
+                    &< \frac{ 2 }{ \sqrt{ 2n+1 }  } \cdot \frac{ 2n+1 }{ 2n+2 } \\
+                    &= \frac{ 2n+1 }{ n+1 \sqrt{ 2n+1 }  } \\
+                    &< \frac{ 2 }{ \sqrt{ 2n^2 + 3n + 1  }  } \\
+                    &< \frac{ 2 }{ \sqrt{ 2n+3 }  }.
+        \end{align*}
+        Hence, we conclude that \( c_n  \) satisfies the inequality
+        \[  c_{n} < \frac{ 2 }{ \sqrt{ 2n+1 }  }\]
+        for all \( n \geq 1  \).
+        \end{proof}
+    \item[(b)] Use (a) to show that \( \sum_{ n=0  }^{ \infty  } a_n  \) converges (absolutely, in fact) where \( a_{n} \) is the sequence of Taylor coefficients generated in Exercise 6.7.4.
+        \begin{proof}[Solution]
+        Our goal is to show that \( \sum_{ n=0 }^{ \infty  } a_n  \) converges absolutely where 
+        \[  a_{n}= \prod_{i=1}^{n} \frac{ 2i-3 }{ 2i } \]
+        is the sequence of Taylor coefficients. Then observe that
+        \begin{align*} a_{n} &= \frac{-1 \cdot 3 \cdot 5 \dotsb (2n-3)   }{ 2 \cdot 4 \cdot 6 \dotsb 2n} \cdot \frac{ (2n-1) }{  (2n-1) } \\ 
+        &= \frac{ -1  }{ (2n-1)  }  \cdot \frac{ 1 \cdot 3 \cdot 5 \dotsb (2n-1)  }{ 2 \cdot 4 \cdot 6 \dotsb 2n  } \\     
+        &= -\frac{ c_n }{ 2n-1 }.  
+        \end{align*}
+        Since \( c_n < \frac{ 2 }{ \sqrt{ 2n-1 }  }  \) for \( n \geq 1  \), we can write 
+        \[  | a_n |  = \frac{ c_{n} }{ 2n-1 } < \frac{ 2 }{ (2n-1)\sqrt{ 2n+1 }  }    \]
+        which creates a series 
+        \[  \sum_{ n=1 }^{ \infty  } \frac{ 2 }{ (2n-1) \sqrt{ 2n+1 }  }     \]
+        that converges via the root test. Hence, we have \( \sum_{ n=0 }^{ \infty  } a_n  \) converges absolutely.
+        \end{proof}
+    \item[(c)] Carefully explain how this verifies that equation (1) holds for all \( x \in [-1,1] \).
+        \begin{proof}
+        Since \( \sum_{ n=0 }^{ \infty  } a_n  \) converges absolutely, we can use the Weirstrass M-test to show that 
+        \[  \sum_{ n=0 }^{ \infty  } a_n x^{n}  \] converges uniformly on \( [-1,1] \). Observe that for any \( x \in [-1,1]  \), we have 
+        \[  | a_{n} x^{n} | \leq a_{n}.\] Since the right hand side of the above inequality produces a series that converges absolutely (from part(b)), we know that the power series \[  \sum_{ n=0 }^{ \infty  } a_{n} x^{n}  \] must converge uniformly on \( [-1,1] \). 
+        \end{proof}
+\end{enumerate}
+
+Our goal is to find polynomials that approximate the absolute value function on an interval containing the non-differentiable point at the origin.
+
+\subsubsection{Exercise 6.7.7} 
+\begin{enumerate}
+    \item[(a)] Use the fact that \( | a  |  = \sqrt{ a^{2} }  \) to prove that, given \( \epsilon > 0  \), there exists a polynomial \( q(x)  \) satisfying 
+        \[  | | x  | - q(x)  | < \epsilon \]
+        for all \( x \in [-1,1] \).
+        \begin{proof}
+            Let \( \epsilon > 0   \). Note that \( | x  |  = \sqrt{ x^{2}  }  = \sqrt{ 1 - (1 - x^2)  }  \) ha a series representation 
+            \[  \sqrt{ 1 - (1-x^2) } = \sum_{ n=0  }^{ \infty  } a_n (1 -x^2)^n \tag{1} \] where 
+            \[  a_n =  \prod_{i=1}^{n} \frac{ 2i - 3  }{ 2i } \]which holds for all \( x \in [-1,1] \). Since the right hand side of (1) is just a polynomial, we can set 
+            \[  q(x) = \sum_{ n=0 }^{ \infty  } a_n (1-x^{2})^{n} \] such that 
+            \[  | | x  | - q(x)   | = | \sqrt{ 1 - (1-x^2) } - q(x) | < \epsilon.  \]
+        \end{proof}
+
+    \item[(b)] Generalize this conclusion to an arbitrary interval \( [a,b] \).
+        \begin{proof}
+			Let \( c = \max \{ a, b  \}  \) and let \( x \in [-1,1] \). Then let \( \epsilon / c > 0    \) such that there exists a polynomial \( q(x)  \) such that
+			\[ \Big| \Big| \frac{ x }{ c }  \Big| - q \Big( \frac{ x }{ c }  \Big) \Big| < \frac{ \epsilon  }{ c  } \tag{1}. \]
+		Then let \( x \in [a,b]  \) be arbitrary. Then multiplying by \( c  \) on both sides of (1), we get that
+		\[ \Big| \Big| \frac{ x }{ c } \Big| - q \Big( \frac{ x }{ c }  \Big) \Big| < \frac{ \epsilon  }{ c  }  \iff  \Big| | x | - c \cdot q \Big( \frac{ x }{ c } \Big) \Big| < \epsilon   \]
+		where we have found the polynomial \( c \cdot q (x/c) \). Hence, we have 
+		\[  | | x | - q(x)  | < \epsilon  \]
+		for all \( x \in [a,b] \).
+        \end{proof}
+\end{enumerate}
+
+
+\subsubsection{Exercise 6.7.8} 
+\begin{enumerate}
+    \item[(a)] Explain why we know \( h_{a}(x)  \) can be uniformly approximated with a polynomial on \( [-1,1] \).
+        \begin{proof}[Solution]
+        We know that \( h_{a}(x)  \) can be uniformly approximated with a polynomial \( q(x)  \) since 
+		\[  | x - a  | = \sqrt{ (x-a)^2  } = \sqrt{ 1 - (1 - (x-a)^2) } \tag{1}\]
+		is continuous on \( [-1,1] \) and the fact that (1) contains a Taylor series representation on \( [-1,1] \).
+		Using the same techniques as exercise 6.7.7, we can show that given an \( \epsilon > 0  \)that we can find a polynomial \( p(x)  \) such that 
+		\[  | h_a(x) - q(x)   | < \epsilon. \]
+        \end{proof}
+	\item[(b)] Let \( \phi  \) be a polygonal function that is linear on each subinterval of the partition 
+		\[  -1 = a_{0} < a_{1} < a_{2} < \dotsb < a_{n} = 1. \]
+		Show that there exists constants \( b_{0}, b_{1}, \dots, b_{n-1} \) so that 
+		\[  \phi(x) = \phi(-1) + b_{0} h_{a_0 }(x) + b_{1} h_{a_{1}}(x) + \dotsb + b_{n-1}h_{a_{n-1}}(x) \]
+		for all \( x \in [-1,1] \).
+		\begin{proof}
+			Define \( \phi(x)  \) at the endpoints of the interval \( [-1,1] \). Then using polynomial approximation of \( h_{a_n}(x)  \), we can define the series
+			\[  \sum_{ i=1 }^{ n  } b_{i-1} h_{a_{i-1}}(x) \]
+			where the coefficients \( b_{0}  \) and \( b_{n-1}  \) for \( n \geq 1  \) can be found by 
+			\begin{align*}
+				b_{i-1} &= \frac{ \phi(a_i) - \phi(a_{i-1}) }{ a_i - a_{i-1}  }  - b_{n-1}.\\
+				b_{0} &= \frac{ \phi(a_{1}) - \phi(a_{0})  }{ a_{1} - a_{0} }.
+			\end{align*}
+			Putting everything together, we define 
+			\[  \phi(x) = \phi(-1) +  \sum_{ i=1 }^{ n  } b_{i-1} h_{a_{i-1}}(x). \]
+		\end{proof}
+	\item[(c)] Complete the proof of WAT for the interval \( [-1,1]  \), and then generalize to an arbitrary interval \( [a,b]  \).
+		\begin{proof}
+			Let \( \epsilon > 0\) and let \( f \) be a continuous function over the compact set \( [-1,1] \). Since \( f  \) is continous over \( [-1,1]  \), we know that \( f  \) must also be a uniformly continuous function over \( [-1,1] \). Our goal is to find some polynomial \( p(x)  \) such that 
+			\[  |  f(x)  - p(x)  | < \epsilon. \]
+			Using the definition of the polygonal function \( \phi(x)  \) from above, we know that \( f \) can be approximated by \( \phi(x)  \). Hence, we have 
+			\[  | f(x) - \phi(x)  | < \frac{ \epsilon  }{ 2 }. \]
+			Furthermore, \( \phi(x)  \) can also be uniformly approximated by \( p(x)  \) to get 
+			\[  | \phi(x) - p(x)   | < \frac{ \epsilon  }{ 2  } .\] Using the triangle inequality, we can write that 
+			\begin{align*}
+			    | f(x) - p(x)  | &= | f(x) - \phi(x) + \phi(x) - p(x)  |  \\
+								 &\leq | f(x) - \phi(x)  | + | \phi(x) - p(x)  | \\
+								 &< \frac{ \epsilon  }{ 2  } + \frac{ \epsilon  }{ 2 } \\
+								 &= \epsilon
+			\end{align*}
+			which holds for all \( x \in [-1,1]  \). To extend this result for all \( x \in [a,b]  \), we can follow a similar approach to part (c) of Exercise 6.6.7. 
+		\end{proof}
+\end{enumerate}

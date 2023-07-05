@@ -1,0 +1,186 @@
+\section{The Fundamental Theorem of Calculus}
+
+
+\subsubsection{Exercise 7.5.4} Show that if \( f: [a,b] \to \R  \) is continuous and \( \int_{ a }^{ x } f = 0   \) for all \( x \in [a,b]  \), then \( f(x) = 0  \) everywhere on \( [a,b]  \). Provide an example to show that this conclusion does not follow if \( f  \) is not continuous.
+\begin{proof}
+	Suppose for sake of contradiction that \( f(x) > 0  \) (the proof is similar for \( f(x) < 0  \)). Since \( f \) is continuous, we know that \( f  \) must also be integrable. Hence, we know that \( \int_{ a }^{ b } f   > 0  \) by Exercise 7.4.4. But this contradicts our assumption that \( \int_{ a }^{ b } f   = 0  \). Hence, \( f(x) = 0  \) for all \( x \in [a,b] \).
+\end{proof}
+
+
+
+
+\subsubsection{Exercise 7.5.5} The Fundamental Theorem of Calculus can be used to supply a shorter argument for Theorem 6.3.1 under the additional assumption that the sequence of derivatives is continuous.
+
+Assume \( f_{n} \to f  \) pointwise and \( f'_{n} \to g  \) uniformly on \( [a,b]  \). Assuming each \( f'_{n}  \) is continuous, we can apply Theorem 7.5.1 (i) to get 
+\[  \int_{ a }^{ x } f'_{n}   = f_{n}(x) - f_{n}(a)  \]
+for all \( x \in [a,b]  \). Show that \( g(x) = f'(x) \).
+
+
+\begin{proof}
+Our goal is to show that 
+\[  f'(c) = \lim_{ x \to c }  \frac{ f(x) - f(c) }{ x -c  } = g(c). \] Let \( \epsilon > 0  \). Since \( f'_{n} \to g  \) uniformly and each \( f'_{n}  \) continuous, we must have 
+\[  \lim_{ n \to \infty  }  \int_{ c }^{ x } f'_{n}   = \int_{ c }^{ x } g.  \]
+But notice that \( (f_{n}) \to f  \), so we must have 
+\[  \lim_{ n \to \infty  } \int_{ c }^{ x } f'_n = \lim_{ n \to \infty  } [f_{n}(x) - f_{n}(c)] = f(x) - f(c). \] Hence, we have 
+\[  \int_{ c }^{ x } g  = f(x) - f(c).\]  Since \( (f_{n}') \to g  \) uniformly, there must exists an \( N \in \N  \) such that whenever \( n \geq N  \) and \( 0 <  | x -c  | < \delta  \) for some \( \delta > 0  \), we have
+\begin{align*}
+	\Big| \frac{ f(x) - f(c)  }{ x -c  } - \frac{ f_{n}(x) - f_{n}(c)  }{ x -c  }  \Big| &= \Big| \frac{ 1 }{ x -c  } \int_{ c }^{ x } [ g - f'_n]   \Big|  \\
+																						 &\leq \frac{ 1 }{ x -c  } \int_{ c }^{ x } | g - f_{n}' |  \\
+																						 &< \frac{ \epsilon  }{ x -c  } \cdot ( x -c ) \\
+																						 &= \epsilon.
+\end{align*}
+Then by the same choice of \( N \in \N  \) as in the original proof of Theorem 6.3.1, we have that for any \( n \geq N  \)
+\begin{align*}
+	\Big| \frac{ f(x) - f(c) }{ x - c   } - g(c) \Big| &\leq \Big| \frac{ f(x) - f(c)  }{ x -c  } - \frac{ f_{n}(x) - f_{n}(c)  }{ x - c  }  \Big| \\  &+ \Big|  \frac{ f_{n}(x) - f_{n}(c)  }{ x -c  } - f_n'(c)  \Big| + | f'_{n}(c) - g'(c)  |   \\
+													   &< \frac{ \epsilon  }{ 3  }  + \frac{ \epsilon  }{ 3  } + \frac{ \epsilon  }{ 3  }  \\
+													   &= \epsilon.
+\end{align*}
+\end{proof}
+
+
+
+
+
+\subsubsection{Exercise 7.5.6 (Integration-by-parts).} 
+\begin{enumerate}
+	\item[(a)] Assume \( h(x)  \) and \( k(x)  \) have continuous derivatives on \( [a,b]  \) and derive the familiar integration-by-parts formula 
+		\[  \int_{ a }^{ b } h(t)k'(t) \   dt = h(b)k(b) - h(a)k(a) - \int_{ a }^{ b } h'(t)k(t) \    dt. \tag{1} \]
+		\begin{proof}[Solution]
+		Let us rewrite (1) by adding the second term on the right side of (1) to both sides so that we may show that 
+		\[  \int_{ a }^{ b } [h(t)k'(t) + h'(t)k'(t)] \    dt = h(b)k(b) - h(a)k(a) \tag{2}. \]
+	Since \( h(x)  \) and \( k(x)  \) have continuous derivatives, it follows that \( h'(x)  \) and \( k'(x)  \) are both integrable. Furthermore, the differentiability of both \( h  \) and \( k  \) imply that they are continuous and thus \( h \) and \( k  \) are integrable. Then by exercise 7.4.6, we now that \( h k'  \) and \( h'k  \) are integrable and thus their sum \( hk' + h'k  \) is also integrable. But observe that 
+	\[  (hk)' = hk' + h'k  \]
+	by the product rule which means that \( (hk)' \) is integrable. By part (i) of theorem 7.5.1, we have 
+	\[  \int_{ a }^{ b } (hk)'(t) \ dt = (hk)(b) - (hk)(a) = h(b)k(b) - h(a)k(a) \tag{3}. \]
+	Hence, we can rearrange (3) to 
+	\[  \int_{ a }^{ b } h(t)k'(t) \   dt = h(b)k(b) - h(a)k(a) - \int_{ a }^{ b } h'(t)k(t) \    dt. \]
+		\end{proof}
+	\item[(b)] Explain how the result in Exercise 7.4.6 can be used to slightly weaken the hypothesis in part (a).
+		\begin{proof}[Solution]
+		
+		\end{proof}
+\end{enumerate}
+ 
+\subsubsection{Exercise 7.5.7} Use part (ii) of Theorem 7.5.1 to construct another proof of part (i) of Theorem 7.5.1 under the stronger hypothesis that \( f  \) is continuous. (To get started, set \( G(x) = \int_{ a }^{ x }  f   \).)
+\begin{proof}
+	Define \( G(x) = \int_{ a }^{ x  } f   \) and assume \( f  \) is integrable and \( G  \) continuous. Since \( f  \) is continuous, we must have differentiability of \( G  \). Using the Mean Value Theorem, we can find a \(c \in (a,b)  \) such that 
+	\[  G'(c) = \frac{ G(b) - G(a)  }{ b -a  } = \frac{ 1 }{ b-a  } \Bigg[ \int_{ a }^{ b } f  - \int_{ a }^{ a } f \Bigg]   =  \frac{ 1 }{ b-a  } \int_{ a }^{ b } f.  \]
+	By assumption of part(i) and part(ii) of the Fundamental Theorem, we also know that \( f(x) = F'(x) = G'(x)  \) for all \( x \in [a,b]  \). Thus, we can apply the Mean Value Theorem again to use the same \( c \in (a,b)  \) to get 
+	\[  F'(c) =  \frac{ F(b) - F(a)  }{ b -a  }. \] Since \( F'(c) = G'(c)   \), we must have 
+	\[  \int_{ a }^{ b } f = F(b) - F(a). \]
+\end{proof}
+
+
+\subsubsection{Exercise 7.5.8 (Natural Logarithm and Euler's Constant).} Let 
+\[  L(x) = \int_{ 1 }^{ x } \frac{ 1 }{ t }  \  dt, \]
+where we consider only \( x > 0  \).
+\begin{enumerate}
+    \item[(a)] What is \( L(1)  \)? Explain why \( L  \) is differentiable and find \( L'(x)  \).
+		\begin{proof}[Solution]
+		By definition, we have 
+		\[  L(1) = \int_{ 1 }^{ 1 } \frac{ 1 }{ t } \   dt = 0. \] Since \( x > 0  \), we know that \( g(x) = \frac{ 1 }{ x  }  \) is continuous (uniformly continuous for closed intervals). Hence, \( L  \) is differentiable by part (ii) of the Fundamental Theorem of Calculus.
+		\end{proof}
+	\item[(b)] Show that \( L(xy) = L(x) + L(y)  \). (Think of \( y  \) as a constant and differentiate \( g(x) = L(xy)  \).) 
+		\begin{proof}
+		Using the Chain Rule, we can differentiate to \( g(t) = L(ty)  \) to get 
+		\[  g'(t) = L'(ty) = \frac{ 1 }{ ty } \cdot y = \frac{ 1 }{ t }.  \]
+		This tells us that 
+		\[  L'(ty) = \frac{ 1 }{ t } \]
+		which integrating both sides on the interval \( [1,x]  \), we have 
+		\[  \int_{ 1 }^{ x } L'(ty)   \ dt = \int_{ 1 }^{ x } \frac{ 1 }{ t } \    dt \iff L(xy) - L(y) = L(x) - L(1)   .   \]
+	Then, solving for \( L(xy)  \) by subtracting \( L(y)  \) on both sides and the fact that \( L(1) = 0  \) leads us to our result
+	\[  L(xy) = L(x) + L(y). \]
+		\end{proof}
+	\item[(c)] Show \( L(x/y) = L(x) - L(y)  \).
+		\begin{proof}
+			Using the Chain Rule, observe that
+		\[  L'(1/x) = x \cdot \Big( - \frac{ 1 }{ x^2 }  \Big) = -\frac{ 1 }{ x }.    \]
+		Then we have 
+		\[ L(1/x) = \int_{ 1 }^{ x } L'(1/t) \ dt = \int_{ 1 }^{ x } - \frac{ 1 }{ t } \    dt  = - \int_{ 1 }^{ x } \frac{ 1 }{ t } \    dt = - L(x). \]
+		Using part (a) then gives us our result  
+		\begin{align*}
+		    L(x/y) &= L(x) + L(1/y) \\
+				   &= L(x) - L(y).
+		\end{align*}
+		\end{proof}
+	\item[(d)] Let 
+		\[  \gamma_{n} = \Big( 1 + \frac{ 1 }{ 2 } + \frac{ 1 }{ 3 } + \dotsb + \frac{ 1 }{ n }  \Big) - L(n). \]
+		Prove that \( (\gamma_{n}) \) converges. The constant \( \gamma = \lim \gamma_{n} \) is called Euler's constant. 
+		\begin{proof}
+	    	Todo.
+		\end{proof}
+	\item[(e)] Show how consideration of the sequence \( \gamma_{2n} - \gamma_{n}    \) leads to the interesting indentity 
+		\[  L(2) = 1 - \frac{ 1 }{ 2 } + \frac{ 1 }{ 3 } - \frac{ 1 }{ 4 } + \frac{ 1 }{ 5 } - \frac{ 1 }{ 6 } + \dotsb.  \]
+		\begin{proof}
+		    Todo.
+		\end{proof}
+\end{enumerate}
+
+
+
+\subsubsection{Exercise 7.5.9} Given a function \( f  \) on \( [a,b]  \), define the \textit{total variation} of \( f  \) to be 
+\[  Vf = \sup \Bigg\{ \sum_{ k=1 }^{ n } | f(x_{k}) - f(x_{k-1}) |  \Bigg\},  \]
+where the supremum is taken over all partitions \( P  \) of \( [a,b] \).
+\begin{enumerate}
+    \item[(a)] If \( f  \) is continously differentiable (\( f' \) exists as a continuous function), use the Fundamental Theorem of Calculus to show \( Vf \leq \int_{ a }^{ b } | f' |  \).
+		\begin{proof}
+			Suppose \( f' \) is continuous differentiable. Then consider a partition \( P  \) of \( [a,b]  \) where \( [x_{k-1}, x_{k }] \) is a pariticular subinterval. Since \( f'  \) is continuous, we can use the Fundamental Theorem of Calculus to write 
+			\[  \int_{ x_{k-1} }^{ x_{k } }  f'   = f(x_{k}) - f(x_{k-1}). \]
+			Then observe that 
+			\begin{align*}
+				\sum_{ k=1 }^{ n } | f(x_{k}) - f(x_{k -1})  | &= \sum_{ k=1 }^{ n } \Bigg|  \int_{ x_{k-1} }^{ x_{k }  }  f' \Bigg|     \\
+															   &\leq \sum_{ k=1 }^{ n }\int_{ x_{k-1} }^{x_{k } } | f' |   \\
+															   &= \int_{ a }^{ b } | f' |.
+			\end{align*}
+			If we take the supremum over all the partitions of \( P  \) of \( [a,b]  \), then we will see that \( Vf \leq \int_{ a }^{ b } | f' |. \)
+		\end{proof}
+	\item[(b)] Use the Mean Value Theorem to establish the reverse inequality and conclude that \( Vf = \int_{ a }^{ b } | f' |. \)
+		\begin{proof}
+		Our objective is to show that \( Vf \geq \int_{ a }^{ b } | f' | \). Using the Mean Value Theorem, we can find a \( c \in (a,b)  \) such that
+		\[  f'(c) = \frac{ f(b) - f(a) }{ b -a  }   \]
+		since \( f'  \) is continuous. Let \( P  \) be a partition of \( [a,b]  \). Then observe that  
+		\[  f'(c) (b-a ) = f(b) - f(a) = \sum_{ k=1 }^{ n } f(x_{ k }) - f(x_{k-1}) . \]
+		Then observe that 
+		\begin{align*}
+		    | f'(c) (b-a) |  &= \Big| f'(c) \sum_{ k=1 }^{ n } \Delta x_{k } \Big|  \\
+							 &= | f(b) - f(a) |  \\
+							 &= \Big| \sum_{ k=1 }^{ n } f(x_{k}) - f(x_{k-1})  \Big| \\
+							 &\leq \sum_{ k=1 }^{ n } | f(x_{k}) - f(x_{k-1}) | \\ 
+		\end{align*}
+		Since the \( | f'(c)  | | b -a  |  \) is independent of our partition \( P  \), we know that 
+		\[  L(| f' | ) \leq \Big| \sum_{ k=1 }^{ n } f(x_{k}) - f(x_{k-1}) \Big| \leq U(|f' | ). \]
+		Since \( | f' |  \) is continuous and hence integrable, we must have
+		\begin{align*}
+		    \int_{ a }^{ b } | f' | &\leq \Big| \sum_{ k=1 }^{n } f(x_{k}) - f(x_{k-1}) \Big|  \\
+									&\leq \sum_{ k=1 }^{ n }| f(x_{k }) - f(x_{k-1})  | \\
+									&\leq \sup \Big\{ \sum_{ k=1 }^{ n }| f(x_{k }) - f(x_{k-1})  | \Big\}  \\
+									&= Vf.
+		\end{align*}
+		Hence, \( \int_{ a }^{ b } | f' | \leq Vf \). Hence, we have 
+		\[  \int_{ a }^{ b } | f' | = Vf  . \]
+		\end{proof}
+\end{enumerate}
+
+
+\subsubsection{Exercise 7.5.10 (Change-of-variable Formula)} Let \( g: [a,b] \to \R  \) be differentiable and assume \( g' \) is continuous. Let \( f: [c,d] \to \R  \) be continuous, and assume that the range of \( g  \) is contained in \( [c,d]  \) so that the composition \( f \circ g  \) is properly defined.
+\begin{enumerate}
+    \item[(a)] Why are we sure \( f  \) is the derivative of some function? How about \( (f \circ g ) g' \)? 
+		\begin{proof}[Solution]
+	    Since \( f: [c,d] \to \R  \) is continuous, part (ii) of FTC implies 
+        \[ \alpha(x) = \int_{ c }^{ x } f(t)  \ dt \] is differentiable and that \( \alpha'(x) = f(x)  \). If we compose \( g;[a,b]  \to \R  \) and \( \alpha  \), the differentiability of \( \alpha  \) and \( g  \) yield \( f(g(x)) g'(x)   \) which means 
+        \[  \alpha(g(x)) = \int_{ a }^{ x } f(g(x)) g'(x). \] 
+		\end{proof}
+	\item[(b)] Prove the Change-of-variable formula
+		\[  \int_{ a }^{ b } f(g(x)) g'(x) \    dx = \int_{ g(a) }^{ g(b) } f(t) \  dt. \]
+		\begin{proof}
+            Since \( f: [c,d] \to \R   \) is continuous, we know by part (ii) of FTC that 
+            \[  \alpha(x) = \int_{ c }^{ x} f(t) \ dt \]
+            is differentiable and that \( \alpha'(x) = f(x)   \) for all \( x \in [c,d] \). Since the range of \( g \) is contained within the domain of \( f  \), we know that on the interval \( [g(a), g(b)] \), we must have 
+            \[  \int_{ g(a)  }^{ g(b)  } f(t) \  dt = \alpha( g(b)) - \alpha( g(a))  \tag{1} \] by exercise 7.5.7. Suppose if compose \( \alpha  \) and \( g \) together and take the derivative using the Chain Rule. Then we get \( f(g(x)) g'(x)  \) which is a continuous function. Then on the interval \( [a,b]  \), we see that
+            \[  \int_{ a }^{ b } f(g(x)) g'(x) \  dx = \alpha(g(b)) - \alpha(g(a)) \tag{2} \]
+            by exercise 7.5.7. By equality of (1) and (2), we conclude that
+            \[  \int_{ a }^{ b } f(g(x)) g'(x) \   dx = \int_{ g(a)  }^{ g(b)  } f(t) \  dt. \]
+		\end{proof}
+\end{enumerate}
+
+

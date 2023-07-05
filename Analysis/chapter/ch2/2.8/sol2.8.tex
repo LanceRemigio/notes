@@ -1,0 +1,186 @@
+
+\section{Double Summations and Products of Infinite Series}
+
+
+\subsubsection{Exercise 2.8.1} Using the particular array \( (a_{ij})\) from Section 2.1, compute \( \lim_{n \to \infty} s_{mn}\). How does this value compare to the two iterated values for the sum already computed?  
+
+The double summation from section 2.1 is \( a_{ij} = \frac{1}{2^{j-i}}\) where \( \{ a_{ij} : i, j \in \N  \}\) if \( j > i \), \( a_{ij} = -1 \) if \( j = i \), and \( a_{ij} = 0 \) if \( j < i \). 
+\begin{proof}
+    To find \( \sum_{i,j = 1}^{\infty} a_{ij} = \lim_{n \to \infty} s_{mn}\), we first need to define the sequence of partial sums. We can fix \( j \) (the rows of the matrix) and define the sequence of partial sums for the series \( \sum_{i,j = 1 }^{\infty} a_{ij}\) as 
+    \[ s_n = \sum_{k=1}^{n} \Big( \frac{1}{2^{n-1}}\Big) = -2 + \frac{1}{2^{n-1}} \]
+    which taking the limit leads to 
+    \[ \lim_{n \to \infty} \Big( -2 + \frac{1}{2^{n-1}} \Big) = -2.\]
+
+\end{proof}
+
+
+
+
+\subsubsection{Exercise 2.8.2}
+
+Show that if the iterated series 
+\[ \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} |a_{ij}|\]
+converges (meaning that for each fixed \( i \in \N \) the series \( \sum_{j=1}^{\infty} |a_{ij}|\) converges to some \( b_i \in \R \), and the series \( \sum_{i=1}^{\infty} b_i \) converges as well), then the iterated series 
+\[ \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} a_{ij}\]
+converges.
+
+\begin{proof}
+Suppose the iterated series 
+\[ \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} |a_{ij}|  \tag{1}\]
+converges. This means that the (1) meets the \textit{Cauchy Criterion}. Let \(\epsilon > 0 \). This implies that there exists \( N \in \N \) such that for every \( n > m  \geq N \), we have that 
+\[ \sum_{i= 1}^{m} \sum_{j= 1}^{n} |a_{ij}| < \epsilon.\]
+Consider \( \Big| \sum_{(i,j) \in A(m,n)} a_{ij} \Big|\) where 
+\[  A(m,n) = \{ (i,j) : 1 \leq i \leq j \leq n \}.  \] Using the \textit{Triangle Inequality}, we find that  
+j\begin{align*}
+    \Big| s_{m m} - s_{nn} \Big| &= \Big| \sum_{ (i,j) \in A(m,n)} a_{ij} \Big| \\ 
+                                 &\leq \sum_{(i,j) \in A(m,n)} | a_{ij} | \tag{2}\\                          &< \epsilon.
+\end{align*}
+Since (2) meets the \textit{Cauchy Criterion} for series, we know that \( \sum_{ m,n }^{ \infty  } a_{ij} \) must be \textit{Cauchy} and thus must converge as well. 
+\end{proof}
+
+Another proof using the Comparison Test goes something like this
+
+\begin{proof}
+    Suppose the iterated series 
+    \[ \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} |a_{ij}| \]
+    converges. This means that for each \( i \in \N \) the infinite series 
+    \[ \sum_{j=1}^{\infty} a_{ij} = r_i \] for some \( r_i \in \R \). Hence, we have the infinite series 
+    \[ \sum_{i=1}^{\infty} r_i. \tag{1} \]
+    Our goal is to show that (1) converges. Suppose we look at the terms 
+    \[ |r_i| = \Big| \sum_{j=1}^{\infty} a_{ij}\Big|.\]
+    Note by the \textit{Triangle Inequality} that 
+    \[ \sum_{i=1}^{\infty} |r_i| \leq \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} |a_{ij}|.  \]
+    by assumption the infinite series to the right converges. Hence, the series to the left must also converge by the \textit{Comparison Test}. Since \( \sum |r_i|\) converges, then the series 
+    \( \sum r_i \) converges by the \textit{ Absolute Convergence Test }. 
+\end{proof}
+
+\begin{tcolorbox}
+\begin{thm}
+    Let \( \{ a_{ij} : i,j \in \N  \}\) be a doubly indexed array of real numbers. If 
+    \[ \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} |a_{ij}|\]
+    converges, then both \( \sum_{i=1}^{\infty} \sum_{ j=1 }^{ \infty  }  a_{ij}\) and \( \sum_{j=1}^{\infty} \sum_{i=1}^{\infty} a_{ij} \) converge to the same value. Moreover, we have that 
+    \[ \lim_{n \to \infty} s_{nn} = \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} a_{ij} = \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} a_{ij},\]
+    where \( s_{nn} = \sum_{i=1}^{n} \sum_{j=1}^{n} a_{ij}\). 
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    In the same way that we defined the rectangular partial sums \( s_{mn}\) above in equation (1)
+    , define 
+    \[ t_{mn} =  \sum_{ i=1 }^{ m } \sum_{ j=1 }^{ n }  | a_{ij} |.\] 
+
+\end{proof}
+
+
+
+\subsubsection{Exercise 2.8.3}
+
+\begin{enumerate}
+    \item[(a)] Prove that \( (t_{nn})\) converges. 
+        \begin{proof}
+            From our definition of \( t_{nn}\) above we have 
+            \[ t_{nn} = \sum_{ i=1 }^{ n } \sum_{ j=1 }^{ n } | a_{ij} |.\] 
+            We want to show for all \(\epsilon > 0 \), there exists \( N \in \N \) such that for all \( n \geq  N \), we have that  \( |t_{nn} - L  | < \epsilon \). By assumption, we know that 
+            \[  \sum_{ i=1 }^{ \infty  } \sum_{ j=1 }^{ \infty  } | a_{ij} |  \tag{1}\] 
+            converges absolutely which implies that 
+            \[  \sum_{ i=1 }^{ \infty  } \sum_{ j=1 }^{ \infty   } a_{ij} \] 
+            converges. Note that \( t_{nn} = \sum_{ i=1 }^{ \infty   } \sum_{ j=1 }^{ \infty  } a_{ij}  \to s_n = \sum_{ i=1 }^{ \infty  } r_i \) for some \( r_i \in \R  \). Furthermore, we have \( s_n \to L  \) since (1) converges. Let \( \epsilon  > 0  \). Then there exists \(  N \in \N  \) such that for any \(  n \geq N  \), we have that 
+            \begin{align*}
+                | t_{nn} - L  | &= | t_{nn} -s_n + s_n - L |  \\
+                                &\leq  | t_{nn} - s_n  | + | s_n - L  | \\
+                                &< \frac{ \epsilon  }{ 2 } + \frac{ \epsilon  }{ 2 } \\
+                                &= \epsilon.
+            \end{align*}
+            Hence, the sequence of partial sums \(  (t_{nn}) \) converges. 
+        \end{proof}
+
+        Another way we can prove this is to use the Monotone Convergence Theorem. 
+
+        \begin{proof}
+            Our goal is to show that \( (t_{nn}) \) is converges to \( L \). That is, our goal is to show that \( (t_{nn}) \) is bounded and monotone. We know that \( (t_{nn}) \) is monotone since all \( t_{nn} \) are non-negative terms and that \( \sum_{ n,m }^{ \infty  } | a_{ij} |  = L  \) where \( L \geq 0 \). To show that \( (t_{nn}) \) is bounded note that 
+            \[ t_{mn} = \sum_{ i=1 }^{ m } \sum_{ j=1 }^{ n } | a_{ij} | \leq \sum_{ i=1 }^{ m } \sum_{ j=1 }^{ \infty  } | a_{ij} | \leq \sum_{ i=1 }^{ m } b_i \leq L. \]
+            Hence, \( (t_{nn}) \) is a bounded sequence. By the Monotone Convergence Theorem, \( (t_{nn}) \) converges.
+        \end{proof}
+    \item[(b)] Now, use the fact that \( (t_{nn})\) is a Cauchy sequence to argue that \( (s_{nn})\) converges. In order to prove the theorem, we must show that the two iterated sums converge to this same limit. We will first show that 
+        \[ S = \sum_{ i=1 }^{ \infty  } \sum_{ j=1 }^{ \infty  } a_{ij}, \] 
+        Because \( \{ t_{mn} : m,n \in \N  \} \) is bounded above, we can let 
+        \[ B = \sup \{ t_{mn}: m,n \in \N  \}.\] 
+        \begin{proof}
+        Suppose \( (t_{nn}) \) is a Cauchy Sequence. Then for some \( N \in \N \) we have that for any \( n \geq m > N  \)
+        \[  | t_{nn} - t_{mm} | < \epsilon.  \]
+        We can rewrite this in the following way to say that 
+        \[  | \sum_{ n,m } t_{ij} | < \epsilon.    \]
+        Our goal is to show that 
+        \[  | s_{nn} - s_{mm} | < \epsilon.   \]
+        Hence, for any \( n \geq  m > N  \), we have that 
+        \begin{align*}
+            | s_{nn} - s_{mm } | &\leq | t_{nn} - t_{m m }|  \\
+                                 &= \Big| \sum_{ n,m } t_{ij} \Big|  \\
+                                 &< \epsilon.
+        \end{align*}
+        Hence, \( (s_{nn}) \) converges.
+
+        \end{proof}
+
+    Now, use the fact that \( (t_{nn})\) is a Cauchy sequence to argue that \( (s_{nn})\) converges. In order to prove the theorem, we must show that the two iterated sums converge to this same limit. We will first show that 
+        \[ S = \sum_{ i=1 }^{ \infty  } \sum_{ j=1 }^{ \infty  } a_{ij}, \] 
+        Because \( \{ t_{mn} : m,n \in \N  \} \) is bounded above, we can let 
+        \[ B = \sup \{ t_{mn}: m,n \in \N  \}.\] 
+    \end{enumerate}
+
+
+        \subsubsection{Exercise 2.8.4}     
+        \begin{enumerate}
+            \item[(a)] Let \( \epsilon > 0  \) be arbitrary and argue that there exists an \(  N_1 \in \N  \) such that \( m,n \geq  N_1 \) implies \( B - \frac{ \epsilon  }{ 2 } < t_{mn} \leq  B.\)
+                \begin{proof}
+                    Since \( (t_{mn}) \) bounded, we can say that \( t_{mn} \leq B \). Since the set 
+                    \[  \{ t_{mn} : m,n \in \N \}  \]
+                    is bounded above and non-empty, we also have that 
+                    \( B = \sup \{ t_{mn}: m,n \in \N  \}  \) exists. Hence, for any \( \epsilon > 0  \), we have that \( B - \frac{ \epsilon  }{ 2 }  \) is not an upper bound. Hence, there exists some \( t_{n_0 m_0} \) such that \( B - \frac{ \epsilon  }{ 2 } < t_{m_0 n_0} \leq t_{mn}\). Furthermore, there exists \( N_1 \in \N  \) such that for any \(  n \geq m > N_1  \) since \( (t_{mn}) \) converges. Hence,  we must have that 
+                    \( B - \frac{ \epsilon  }{ 2 } < t_{mn} \leq B \)
+                \end{proof}
+            \item[(b)] Now, show that there exists an \( N  \) such that 
+            \[ | s_{mn} - S  | < \epsilon \]
+            for all \( m,n \geq N \).
+            \begin{proof}
+                Consider \(  | s_{mn} - S  | < \epsilon \). Since \(  (s_{nn}) \to S  \), let \( \epsilon > 0  \) such that for some \( N_2 \in \N  \) we have \( n \geq m > N_2  \), we have
+                \[ | s_{nn} - S  | < \frac{ \epsilon  }{ 2 } . \]
+                Since \( (s_{nn}) \) meets the Cauchy Criterion, we have that there exists \( N_2 \in \N  \) such that for any \( n \geq m > N  \), we have 
+                \[ | s_{nn} - s_{mn} | < \frac{ \epsilon  }{ 2 }.   \]
+                Hence, observe that for any \( n \geq m > N = \max \{ N_1, N_2 \}  \), we have
+                \begin{align*}
+                    | s_{mn} - S  | &= | s_{mn} - s_{nn} + s_{nn} - S  |  \\
+                                    &\leq  | s_{mn} - s_{nn} | + | s_{nn} - S  | \\ 
+                                    &< \frac{ \epsilon  }{ 2 } + \frac{ \epsilon  }{ 2 } \\
+                                    &= \epsilon.
+                \end{align*}
+                Hence, we have that \( (s_{mn} ) \to S \). 
+            \end{proof}
+        \end{enumerate}
+
+        Our hypothesis guarantees that for each fixed row \( i \), the series \( \sum_{ j=1 }^{ \infty  } a_{ij} \) converges absolutely to some real number \( r_i  \). 
+
+
+        \subsubsection{Exercise 2.8.5}
+        \begin{enumerate}
+            \item[(a)] Show that for all \( m \geq N \) 
+                \[ | (r_1 + r_2 + ... + r_m) - S  | \leq \epsilon. \]
+                Conclude that the iterated sum \( \sum_{ i=1 }^{ \infty  } \sum_{ j=1 }^{ \infty  } a_{ij} \) converges to \( S \). 
+                \begin{proof}
+                    By exercise 2.8.4, we know that \( s_{mn} \to S  \). Note that 
+                    \[  \sum_{ i=1 }^{ \infty   } \sum_{ j=1 }^{ \infty   } a_{ij} = \sum_{ i=1 }^{ \infty   } r_i \text{ for each } i.\]
+                    Hence, we have 
+                    \[ \lim_{ m,n \to \infty  } s_{mn} = \lim_{ m \to \infty  } \sum_{ i=1 }^{ m }r_i = S  \]
+                    which is equivalent to saying that for all \( m > N  \) for some \( N \in \N  \) we have that 
+                    \[  \Big| \Big( \sum_{ i=1 }^{ m } r_i \Big) - S \Big| \leq \epsilon.    \]
+                \end{proof}
+            \item[(b)] Finish the proof by showing that the other iterated sum, \( \sum_{ j=1 }^{ \infty  } a_{ij} \) converges to \( S \) as well. Notice that the same argument can be used once it is established that, for each fixed column \( j \), the sum \( \sum_{ i=1 }^{ \infty  } a_{ij} \) converges to some real number \( c_j \). 
+                \begin{proof}
+                    Using the same process above for summing up the columns of \( \sum_{ j=1 }^{ \infty  } \sum_{ i =1  }^{ \infty  } a_{ij} \) leads to 
+                    \[ \Big| \Big( \sum_{ j=1 }^{ n  } c_j \Big) - S \Big| \leq  \epsilon.  \]
+                    Hence, we must have that 
+                    \[  \lim_{ n \to \infty  } \sum_{ i=1 }^{ \infty  } a_{ij} = \sum_{ j=1 }^{ \infty  } \sum_{ i =1 }^{ \infty  } a_{ij}. \]
+                \end{proof}
+        \end{enumerate}
+
+

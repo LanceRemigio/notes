@@ -1,0 +1,230 @@
+
+\section{Open and Closed sets}
+
+
+\subsubsection{Exercise 3.2.2} Let 
+\[ A = \Big\{ (-1)^n + \frac{ 2 }{ n } : n = 1,2,3,... \Big\}   \]
+and
+\[ B = \{ x \in \Q : 0 < x < 1 \}.  \]
+Answer the following questions for each set:
+\begin{enumerate}
+    \item[(a)] What are the limit points? 
+        \begin{proof}[Solution]
+        The limit points of \( A \) is \( L = \{ -1, 1  \}  \) and the limit points of \( B \) is \( L = \{ 0,1 \}  \).
+        \end{proof}
+    \item[(b)] Is the set open? Closed? 
+        \begin{proof}[Solution]
+            The sets \( A  \) and \( B \) are not closed since their limit points are not contained and open since we can create \( V_{\epsilon }(x) \subseteq A \) while \( B \) is not open since \( V_{\epsilon }(x) \not \subseteq B \) for every \( x \in \Q \) however small \( \epsilon  \) is.  
+        \end{proof}
+    \item[(c)] Does the set contain any isolated points? 
+        \begin{proof}[Solution]
+        From part (b), since we cannot find any points near each \( x \in \Q  \) in \( B \), we have that all the points of \( B  \) are isolated points. 
+        \end{proof}
+    \item[(d)] Find the closure of the set.
+        \begin{proof}[Solution]
+            The closure of sets \( A \) and \( B \) are \( \overline{A} = A \cup \{-1,1\}   \) and \( \overline{B} = B \cup \{ 0,1 \}  \). 
+        \end{proof}
+\end{enumerate}
+
+
+
+
+\subsubsection{Exercise 1.2.13}
+Show De Morgan's Laws where \( \{ A_i : 1 \leq i \leq n \}  \) is a collection of sets such that
+\begin{align*}
+    \Big( \bigcup_{i = 1}^{n} A_i \Big)^c &= \bigcap_{ i=1 }^{ n } A_i^{c} \tag{1} \\
+    \Big( \bigcap_{i = 1}^{n} A_i \Big)^c &= \bigcup_{ i=1 }^{ n } A_i^{c} \tag{2} \\
+\end{align*}
+for any finite \( n \in \N \). 
+\begin{proof}
+Our goal is to show that both inclusions hold for (1) and (2). Our first step is to induct on \( n\in \N \) to show that 
+\[ \Big( \bigcup_{i=1}^{n} A_i \Big)^c \subseteq \bigcap_{i=1}^{n} A_i^c. \tag{1}\]
+Let \( n = 1 \) be the base case. It follows immediately that \( A_1^c \subseteq A_1^c \). Let \( n = 2 \), then it follows that \( (A_1 \cup A_2)^c \subseteq A_1^c \cap A_2^c \) by exercise 1.2.5. For the other inclusion, we also have \( A_1^c \cap A_2^c \subseteq (A_1 \cup A_2)^c \). Now suppose (1) holds for \( 1 \leq n \leq k-1 \). We want to show that (1) holds for \( k \). Let 
+\[ A' = \bigcup_{ n=1 }^{ k-1 } A_n  \]
+then consider the following 
+\[  \Big( \bigcup_{ n=1 }^{ k } A_n \Big)^c = \Big( A_k \cup \Big[ \bigcup_{ n=1 }^{ k-1 } A_n \Big] \Big)^c = ( A_k \cup A')^c \]
+Let \( x \in (A_{k} \cup A')^c \), then we know that \( x \notin (A_k \cup A') \). This means that \( x \notin A_k  \) and \( x \notin A'\). Hence, we have \( x \in A_k^c \) and \( x \in (A')^c \); that is, 
+\begin{align*}
+    (A_k \cup A')^c &\subseteq A_k^c \cap (A')^c  \\
+                    &= A_k^c \cap \Big( \bigcup_{n=1}^{k-1} A_n  \Big)^c. \\
+                    &\subseteq A_k^c \cap \Big( \bigcap_{n=1}^{k-1} A_n^c \Big) \\
+                    &= A_k \cap (A_{k-1} \cap ... \cap A_1) \\
+                    &= \bigcap_{n=1}^{k} A_n^c.
+\end{align*}
+Hence, we have 
+\[ \Big( \bigcup_{i=1}^{n} A_i \Big)^c \subseteq \bigcap_{i=1}^{n} A_i^c.\]
+For the other inclusion, suppose the containment 
+\[ \bigcap_{n=1}^{k-1}A_k^c \subseteq \Big( \bigcup_{n=1}^{k-1} A_k \Big)^c \tag{2} \]
+holds for \( 1 \leq n \leq k -1  \). We want to show that (2) holds for \( k  \). Consider the finite intersection
+\[ \bigcap_{ n=1 }^{ k } A_n^c = A_k^c \cap \Big( \bigcap_{ n=1 }^{ k-1 } A_{n}^c \Big).  \]
+If we know that \( x \notin \bigcap_{ n=1 }^{ k-1 } A_{n} \) and \( x \notin A_k \) then \( x \notin \Big( A_k \cup \Big( \bigcap_{ n=1 }^{ k-1 } A_n \Big) \Big) \). Hence, using our inductive hypothesis, we have
+\begin{align*}
+    \bigcap_{ n=1 }^{ k } A_n^c &= A_k^c \cap \Big( \bigcap_{ n=1 }^{ k-1 } A_{n}^c \Big)  \\
+                                &\subseteq A_k^c \cup \Big( \bigcap_{ n=1 }^{ k-1 } A_n \Big)^c \\ 
+                                &\subseteq A_k^c \cup \Big( \bigcup_{ n=1 }^{ k-1 } A_n^c \Big) \\
+                                &= \Big( \bigcup_{ n=1 }^{ k } A_n \Big)^c
+\end{align*}
+Since both containments hold, we must have 
+\[ \Big( \bigcup_{ n=1 }^{ k }A_n  \Big)^c = \bigcap_{ n=1 }^{ k } A_n^c.  \]
+The proof to the other equation is similar. 
+\end{proof}
+
+
+
+
+
+
+
+\subsubsection{Exercise 3.2.4} Let \( A  \) be nonempty and bounded above so that \( s = \sup A \) exists. 
+\begin{enumerate}
+    \item[(a)] Show that \( s \in \overline{A} \).
+        \begin{proof}
+            Let \( A \neq \emptyset \) and bounded above. Since \( s = \sup A  \) exists we can let \( \epsilon > 0  \) such that for some \( \alpha \in A  \), we have \( s - \epsilon < \alpha \). Our goal is to show that \( s \in \overline{A} \). Let \( (a_n) \) be a sequence in \( A \) such that \( a_n \neq s \) for all \( n \in \N \). Let \( \epsilon = 1/n \) such that 
+            \[ s - \frac{ 1 }{ n } < \alpha \leq a_n \leq s. \]
+            By the Squeeze Theorem, we have \( \lim a_n = s = \sup A \). This means \( s = \sup A \) is a limit point where \( L = \{ s \}  \) such that \( \overline{A} = A \cup L  \). Hence, \( s \in \overline{A} \).
+
+        \end{proof}
+    \item[(b)] Can an open set contain its supremum? 
+        \begin{proof}[Solution]
+        An open set \( A \) cannot contain its supremum, which is a limit point in part (a), since otherwise \( A \) would be a closed set.  
+        \end{proof}
+\end{enumerate}
+
+
+
+
+\subsubsection{Exercise 3.2.5} Prove Theorem 3.2.8:
+Show that a set \( F \subseteq \R  \) is closed if and only if if every Cauchy sequence contained in \( F \) has a limit that is also an element of \( F \). 
+\begin{proof}
+\( (\Rightarrow) \) Let \( F \subseteq \R  \) be a closed set. Let \( x  \) be a limit point and let \( (x_n) \) be a Cauchy sequence be arbitrary. Since \( F \) is a closed set, the limit point \( x \in F \); that is, \( \lim x_n = x \in F  \) where \( x_n \neq x  \) for all \( n \in \N \). 
+
+\( (\Leftarrow) \) Let \( F \subseteq \R  \). We want to show that \( F  \) is closed. Let \( (x_n) \) be a Cauchy sequence contained in \( F \) such that \( \lim x_n = x \in F \). Note that \( x_n \neq x  \) for all \( n \in \N \). Since all the limit points of \( F \) are contained in \( F \), then \( F \) must be a closed set. 
+\end{proof}
+
+\subsubsection{Exercise 3.2.7} Given \( A \subseteq \R  \), let \( L  \) be the set of all limit points of \( A \). 
+\begin{enumerate}
+    \item[(a)] Show that the set \( L  \) is closed. 
+        \begin{proof}
+            Let \( L \) be the set of limit points of \( A \), and suppose that \( x  \) is a limit point of \( L \). Our goal is to show that \( x  \) is a limit point of \( A \). Let \( V_{\epsilon }(x) \) be arbitrary. Let \( \epsilon > 0  \), then we know that \( V_{\epsilon }(x) \) intersects \( L \) at a point \( \ell \in L \) where \( \ell \neq x  \). Choose \( \epsilon' > 0  \) small enough so that \( V_{\epsilon'}(\ell) \subseteq V_{\epsilon }(x)\) and \( x \notin V_{\epsilon '}(\ell) \). Since \( \ell \in L \), we know that \( \ell  \) is a limit point of \( A \)m and therefore \( x \) is a limit point of \( A \) and thus an element of \( L \). 
+        \end{proof}
+    \item[(b)] Argue that if \( x  \) is a limit point \( A \cup L  \), then \( x  \) is a limit point of \( A \). Use this observation to furnish a proof for Theorem 3.2.12. 
+        \begin{proof}
+            Suppose \( x  \) is a limit point of \( \overline{A} = A \cup L  \). By definition, we can construct \( V_{\epsilon}(x) \) such that \( V_{\epsilon }(x) \) intersects \( a \in \overline{A} \) where \( a \neq x  \). This means \( x \in A \) or \( x \in L \). If \( x \in A \), then \( V_{\epsilon }(x) \) intersects every point \( a \in A \) where \( x \neq a \). Hence, \( x  \) is a limit point of \( A \). If \( x \in L \), then we can use the same argument from above to construct an \( \epsilon' > 0  \) small enough so that \( V_{\epsilon'}(\ell) \subseteq V_{\epsilon }(x) \) where \( x \notin V_{\epsilon'}(\ell) \). Since \( \ell \in L  \) is a limit point, this means that that \( V_{\epsilon'}(\ell) \) intersects \( A \). But since \( x \notin V_{\epsilon'}(\ell) \) this means that \( V_{\epsilon }(x) \) intersects \( A \) at every point of \( A \) that is not \( x \). Hence, \( x \) is a limit point of \( A \). 
+        \end{proof}
+\end{enumerate}
+
+
+\subsubsection{Exercise 3.2.9}
+
+A proof for De Morgan's Laws in the case of two sets is outlined in Exercise 1.2.5. The general argument is similar. 
+
+\begin{enumerate}
+    \item[(a)] Given a collection of sets \( \{ E_{\lambda} : \lambda \in \Lambda\}  \), show that \[ \Big( \bigcup_{ \lambda \in \Lambda } E_{\lambda}  \Big)^c = \bigcap_{ \lambda \in \Lambda } E_{\lambda}^c  ~~ \text{and} ~~ \Big( \bigcap_{ \lambda \in \Lambda } E_{\lambda}  \Big)^c = \bigcup_{ \lambda \in \Lambda } E_{\lambda}^c \]
+        \begin{proof}
+            Suppose we show the first equation. Let \( x \in \Big( \bigcup_{ \lambda \in \Lambda } E_{\lambda}  \Big)^c \) then for all \( E_{\lambda} \) where \( \lambda \in \Lambda \), we must have \( x \notin E_{\lambda} \). But this is equivalent to saying that \( x \in E_{\lambda}^c \) for all \( \lambda \in \Lambda \) where \( E_{\lambda}^c \subseteq \bigcap_{ \lambda \in \Lambda } E_{\lambda}^c  \). Hence, we have
+            \[  x \in \bigcap_{ \lambda \in \Lambda } E_{\lambda}^c.\]
+            Now let \( x \in \bigcap_{ \lambda \in \Lambda } E_{\lambda}^c  \). Then for all \( \lambda \in \Lambda \), we have \( x \in E_{\lambda}^c \). This is true if and only if \( x \notin E_{\lambda} \) for all \( \lambda \in \Lambda \). Since \( E_{\lambda} \subseteq \bigcup_{ \lambda \in \Lambda } E_{\lambda} \), we also have that \( x \notin \bigcup_{ \lambda \in \Lambda } E_{\lambda}  \). Hence, we have 
+            \[  x \in \Big( \bigcup_{ \lambda \in \Lambda } E_{\lambda}  \Big)^c. \]
+            Hence, 
+            \[ \Big( \bigcup_{ \lambda \in \Lambda } E_{\lambda}  \Big)^c = \bigcap_{ \lambda \in \Lambda } E_{\lambda}^c.\]
+            The other equation can be shown through a similar process above.
+        \end{proof}
+    \item[(b)] Now, provide the details for the proof of Theorem 3.2.14.
+        \begin{proof} 
+    To prove part (i), suppose we have a finite collection of open sets where 
+    \[ \{ E_{i} : 1 \leq  i \leq N \}.   \]
+    Since \( E_i  \) closed, their complements \( E_i^c \) is open. Since the finite intersection of open sets is open, we have that 
+    \[\Big(  \bigcup_{ i=1 }^{ N } E_{i} \Big)^c = \bigcap_{ i=1 }^{ N  } E_{i}^c  \]
+    is open. But this means that 
+    \[ \bigcup_{i=1}^{N} E_{i} \]
+    is closed. 
+
+    To prove part (ii), suppose we have an arbitrary collection of closed sets 
+    \[ \{ E_\lambda : \lambda \in \Lambda \}.  \]
+    Since \(E_{\lambda}\) is closed, we have that their complement \( E_{\lambda}^c \) is open. But this means that the union 
+    \[ \bigcup_{\lambda \in \Lambda} E_{\lambda}^c = \Big( \bigcap_{ \lambda \in \Lambda } E_{\lambda}  \Big)^c \tag{1} \]
+    is also open. But since the complement of the intersection of (1) is open, we have 
+    \[ \bigcap_{ \lambda \in \Lambda } E_{\lambda}  \]
+    is closed. 
+        \end{proof}
+\end{enumerate}
+
+
+
+\subsubsection{Exercise 3.2.11} 
+\begin{enumerate}
+    \item[(a)] Prove that \( \overline{A \cup  B} = \overline{A} \cup \overline{B} \)
+        \begin{proof}
+        We want to show the following containments 
+        \begin{align*}
+            \overline{A \cup B} &\subseteq \overline{A} \cup \overline{B}, \\
+            \overline{A \cup B } &\supseteq \overline{A} \cup \overline{B}
+        \end{align*}
+        Suppose \( x \in \overline{A \cup B} \). Then \( x \) is a limit point of \( A \cup B \). Hence, either \( x  \in A \) or \( x \in B \). But \( x  \) is a limit point so there exists \( V_{\epsilon}(x) \) that either intersects \(a \neq x \in A \) or \( b \neq x \in B \). But this means that \( x  \) is a limit point of \( A \) or \( B \). Hence, \( x \in \overline{A} \cup \overline{B} \). 
+        Suppose \( x \in \overline{A} \cup \overline{B} \). Then either \( x \in \overline{A} \) or \( x \in \overline{B} \). But this means that \( x  \) is a limit point of \( A  \) or \( B \) which imply that \( V_{\epsilon}(x) \) intersects elements of both \( A  \) or \( B \) that is not \( x \). Hence, \( x  \) must be a limit point of either \( A  \) or \( B \). Hence, \( x \in \overline{A \cup B} \).
+        Since both containments are true, we have that \( \overline{A \cup B} = \overline{A} \cup \overline{B} \). 
+        \end{proof}
+    \item[(b)] Does this result about closures extend to infinite unions of sets? 
+        \begin{proof}[Solution]
+            No this result does not extend to infinite unions. Consider the counter-example where we have a closed set \( H_n = [1/n, 1] \subseteq \R  \) where 
+            \begin{align*}
+                \bigcup_{ i=1 }^{ \infty  } \overline{H_n} &= (0, 1] \tag{1} \\
+                \overline{\bigcup_{ i=1 }^{ \infty  } H_n}  &= [0,1] \tag{2}
+            \end{align*}
+            It is clear that (1) and (2) are not the same sets. 
+        \end{proof}
+        
+\end{enumerate}
+
+
+\subsubsection{Exercise 3.2.14} A dual notion to the closure of a set is the interior of a set. The \textit{interior} of \( E \) is denoted \( E^{\circ} \) and is defined as 
+\[ E^{\circ} = \{ x \in E: \exists V_{\epsilon}(x) \subseteq E  \}.  \]
+Results about closures and interiors posses a useful symmetry. 
+\begin{enumerate}
+    \item[(a)] Show that \( E \) is closed if and only if \( \overline{E} = E  \). Show that \( E \) is open if and only if \( E^{\circ} = E  \).
+        First we show that first statement.
+        \begin{proof}
+            \( (\Rightarrow) \) Suppose \( E \) is closed. We want to show that \( \overline{E} = E \); that is, we want to show that \( \overline{E} \subseteq E  \) and \( \overline{E} \supseteq E  \). Note that the first containment follows immediately since \( \overline{E} \) is the smallest set containing \( E \). 
+            Now we want to show that \( \overline{E} \supseteq E \). Let \( x \in E \) be  a limit point. Since \( x \) is a limit point and \( E \) is a closed set, we know that \( x \) must be contained in \( E \). This means that set of limit points \( L \) of \( E \) must where \( x \in L \) implies that \( x \in \overline{E} \). Hence, \( \overline{E} = E \).
+
+            \( (\Leftarrow) \) It follows that \( E \) is closed since \( \overline{E} \) contains its limit points and that \( \overline{E} = E \). 
+        \end{proof}
+        Now we show the second statement
+        \begin{proof}
+           \( (\Rightarrow) \) Suppose \( E \) is an open set. We must show the following two containments: 
+            \( E^{\circ} \subseteq E  \) and \( E^{\circ} \supseteq E \). We show the first containment. Let \( x \in E^{\circ} \) be arbitrary. Then there exists \( V_{\epsilon }(x) \) such that \( V_{\epsilon } (x) \subseteq E \). Hence, \( x \in E  \) so we have \( E^{\circ} \subseteq E  \). Now we show that second containment. Since \( E \) is an open set, let \( x \in E \) be arbitrary such that there exists \( V_{\epsilon }(x) \subseteq E \). But this is by definition the interior of \( E \) so we must have \( x \in E^{\circ} \). 
+           
+            \( (\Leftarrow) \) Suppose \( E = E^{\circ} \). We want to show that \( E \) is an open set. Let \( x \in E  \) be arbitrary. Since \( E = E ^{\circ} \), there exists \( V_{\epsilon }(x) \) such that \( V_{\epsilon }(x) \subseteq E \). But this means \( E \) is an open set by definition.  
+        \end{proof}
+    \item[(b)] Show that \( \overline{E}^c = (E^c)^{\circ} \), and similarly that \( (E^{\circ})^c = \overline{E^c} \). 
+
+        Show that \( \overline{E}^c = (E^c)^{\circ} \)
+        \begin{proof}
+            We want to show that first equation; that is, we want to show the following two containments \( \overline{E}^c \subseteq (E^c)^{\circ} \) and \( \overline{E}^c \supseteq (E^c)^{\circ} \). 
+            First we show the former containment. Let \( x \in \overline{E}^c \) be arbitrary. If \( x \notin \overline{E} \), then \( x  \) is not a limit point of \( E \) and \( x \notin E \).  But this means that \( x \in (E^c)^{\circ} \) and hence, \( \overline{E}^c \subseteq (E^c)^{\circ} \). 
+            Now we show the second containment. Let \( x \in (E^c)^{\circ} \) be arbitrary. There exists \( V_{\epsilon }(x) \subseteq E^c \). We can be sure that \( x\) is not a limit point of \( \overline{E} \) since \( \overline{E} \) contains all its limit points. Hence, we must have \( x \in \overline{E}^c \). Hence, we have \( \overline{E}^c = (E^c)^{\circ} \).   
+        \end{proof}
+        Now we show \( (E^{\circ})^c = \overline{E^c}\)
+        \begin{proof}
+            We want to show the following two containments; namely, \( (E^{\circ})^c \subseteq \overline{E^c} \) and \( \overline{E^c} \subseteq (E^{\circ})^c \).
+
+            We start with the first containment. Let \( x \in (E^{\circ})^c \) be arbitrary. This means \( x \notin E^{\circ} \) and hence for all \( \epsilon - \)neighborhoods of \( x \), we have \( V_{\epsilon }(x) \not\subseteq E \). Our goal is to show that \( x \in \overline{E^c} \). If \( x  \) is not a limit point of \( E^c \), then we just have \( x \in E^c \) and hence \( x \in \overline{E^c} \). Otherwise, we can prove \( x  \) is a limit point of \( E^c \). Suppose \( L \) is the set of limit points of \( E^c \). Let \( \epsilon' > 0   \) be as small as possible and \( \ell \in L  \) such that \( V_{\epsilon '}(\ell) \subseteq V_{\epsilon }(x) \) where \( x \notin V_{\epsilon'}(\ell) \). Since \( \ell \) is a limit point of \( E^c \), \( V_{\epsilon '}(\ell) \) intersects \( E^c \). But this also means \( V_{\epsilon }(x) \) intersects points of \( E^c \) that is not \( x  \). Hence, \( x  \) is a limit point of \( E^c \) and thus \( x \in \overline{E^c} \).
+
+
+            Now let \( x \in \overline{E^c} \) be arbitrary. Then either \( x \in E^c \) or \( x \in L  \) where \( L \) denotes the set of limit points of \( E^c \). If \( x \in E^c \), then surely \( x \notin E^{\circ} \). Hence, \( x \in (E^{\circ})^c \). If \( x \in L \) and \( \overline{E} \) is a closed set, then \( x  \) cannot be in \( E^{\circ} \). Hence, \( x \) must be in \( (E^{\circ})^c \). Hence \( \overline{E^c} \subseteq (E^{\circ})^c \)
+
+        \end{proof}
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+

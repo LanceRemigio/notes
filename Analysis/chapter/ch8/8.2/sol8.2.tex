@@ -1,0 +1,351 @@
+
+\subsubsection{Exercise 8.2.1} Decide which of the following are metrics on \( X = \R^2  \). For each, we let \( x = (x_{1}, x_{2}) \) and \( y = (y_{1}, y_{2}) \) be points in the plane.
+\begin{enumerate}
+    \item[(a)] \( d(x,y) = \sqrt{ (x_{1}- y_{1})^2 + (x_{2} - y_{2})^{2} }. \)
+    \item[(b)] \( d(x,y) = \max \{ | x_{1} - y_{1} |, | x_{2} - y_{2} |  \}. \)
+    \item[(c)] \( d(x,y) = | x_{1} x_{2} + y_{1} y_{2} |  \).
+\end{enumerate}
+
+\begin{proof}[Solution]
+    \begin{enumerate}
+        \item[(a)]  We claim that \( d(x,y)  \) is a metric on \( X = \R^{2} \). Let \( x', y' \in \R^{2} \) where \( x = (x_{1}, x_{2}) \) and \( y = (y_{1}, y_{2}) \). For part (i), suppose \( x' \neq y' \). Then observe that by property of the square root, we know that \( d(x,y) >  0  \). Otherwise, \( d(x,y) = 0  \). 
+
+            For part (ii), observe that 
+            \begin{align*}
+                d(x,y) &= \sqrt{ (x_{1} - y_{1})^2 + (x_{2} - y_{2})^{2} }  \\
+                       &= \sqrt{ (y_{1} - x_{1})^2 + (y_{2} - x_{2})^{2} } \\
+                       &= d(y,x).
+            \end{align*} 
+        For part(iii), let \( x,y, z \in \R^2  \). Then observe that 
+        \begin{align*}
+            d(x,y) &= \sqrt{ (x_{1} - y_{1})^2 + (x_{2} - y_{2})^2  }  \\
+                   &= \sqrt{ (x_{1} - z_{1})^2 + (x_{2} - z_{2})^{2} + (z_{1} - y_{1})^{2} + (z_{2} - y_{2})^{2}  } \\ 
+                   &\leq \sqrt{ (x_{1} - z_{1})^2 + (x_{2}  - z_{2})^2   }  + \sqrt{ (z_{1} - y_{1})^2 + (z_{2} - y_{2})^{2} } \\
+                   &= d(x,z) + d(z,y).
+        \end{align*}
+        Hence, we conclude that \( d(x,y)  \) is a metric on \( \R^{2}  \).
+    \item[(b)] We have \( d(x,y) = \max \{ | x_{1} - y_{1}  |, | x_{2} - y_{2} |  \}  \) is a metric on \( \R^2  \). 
+        For property (i), observe that \( d(x,y) > 0  \) if either \( x \geq y  \) or \( x < y  \). This holds because \( |  \cdot | > 0  \). If \( x = y  \), then it follows immediately that \( d(x,y) = 0   \). To show the triangle inequality, we will use the formula 
+        \[ \max \{ a,b \}  = a + b + | | a | - | b |  |.  \]
+        Then observe that for any \( x,y,z \in \R^2 \), we have 
+        \begin{align*}
+            d(x,y) &= \max \{ | x_{1} - y_{1} | , | x_{2} - y_{2} |  \}  \\
+                   &= \frac{ 1 }{ 2 } \Big[ | x_{1} - y_{1} |  + | x_{2} - y_{2} |  + | | x_{1} -  x_{1}  | + | x_{2} - y_{2} |   |  \Big] \\
+                   &\leq \frac{ 1 }{ 2 } \Big[ | x_{1} - z_{1} | + | z_{1} - y_{1}   |   + | x_{2} - z_{2} | + | z_{2} - y_{2} |  \\ 
+                   &+ \Big| | x_{1} -  z_{1}  | + | z_{1} - y_{1} |  - | x_{2} - z_{2} | + | z_{2} - y_{2} |    \Big|  \Big] \\
+                   &= \frac{ 1 }{ 2 }  \Big[  | x_{1} - z_{1}  |  + | x_{2} - z_{2} | + \Big| | x_{1} - z_{1} |  - | x_{2} - z_{2} |  \Big|  \Big] \\ 
+                   &+ \frac{ 1 }{ 2 }  \Big[ | z_{1} - y_{1} | + | z_{2} - y_{2} | + \Big| | z_{1} - y_{1}  |  - | z_{2} - y_{2} |  \Big|   \Big] \\
+                   &= \max \{ | x_{1} -  z_{1} |, | x_{2} - z_{2} |  \} + \max \{ | z_{1} - y_{1} |, | z_{2} - y_{2} |  \} \\ 
+                   &= d(x,z) +  d(z,y). 
+        \end{align*}
+    \item[(c)] \( d(x,y) = | x_{1}x_{2} + y_{1}y_{2} |  \) cannot be a metric since \( d(x,y) \neq 0  \) for all \( x,y \in \R^{2} \).
+    \end{enumerate}
+\end{proof}
+
+\begin{itemize}
+    \item The metric in part (a) is the Euclidean distance between two points in a plane.
+    \item \( d(x,y) = |   x - y  |   \) is a metric over \( \R  \) (the main metric we have been working with throughout the book).
+\end{itemize}
+
+\subsubsection{Exercise 8.2.2} Let \( C[0,1]  \) be the collection of continuous functions on the closed interval \( [0,1]  \). Decide which of the following are metrics on \( C[0,1] \).
+\begin{enumerate}
+    \item[(a)] \( d(f,g) = \sup \{ | f(x) - g(x)  | : x \in [0,1] \}  \).
+    \item[(b)] \( d(f,g) = | f(1) - g(1) |  \).
+    \item[(c)] \( d(f,g) = \int_{ 0 }^{ 1 }  | f - g |   \).
+\end{enumerate}
+
+\begin{proof}[Solution]
+\begin{enumerate}
+    \item[(a)] Observe that for any two functions \( f, g \in C[0,1] \) that are distinct, we know that 
+        \[  d(f,g) = \sup \{ | f(x) - g(x)  |: x \in [0,1]  \} \geq | f(x) - f(x)  | > 0. \]
+        If \( f = g  \), then it immediately follows that \( d(f,g) = 0  \). Hence, property (i) is satisfied.  
+
+        Observe that part (ii) is satisfied by taking 
+        \begin{align*}  d(f,g) &= \sup \{ | f(x) - g(x)  | : x \in [0,1] \} \\ &= \sup \{ | g(x) - f(x)  | : x \in [0,1] \} \\  &= d(g,f). \end{align*}
+
+        For part (iii), let \( f,g,h \in C[0,1] \), then we must have 
+        \begin{align*}
+            d(f,g) &= \sup | f(x) - g(x) |  \\
+                   &= \sup | f(x) - h(x) + h(x) - g(x) | \\
+                   &\leq \sup | f(x) - h(x)  | + \sup | h(x) - g(x) | \\
+                   &= d(f,h) + d(h,g).
+        \end{align*}
+    \item[(b)] The first property fails (take \( f(1) = 1  \) and \( g(x) = x  \)).
+    \item[(c)] We claim that \( d(f,g) = \int_{ 0 }^{ 1 } | f - g  |     \) is a metric on \( \R^{2} \).    Note that for any two distinct functions \( f,g \in C[0,1]  \), we must have \( | f -g  | > 0  \). By exercise 7.4.4, we must have \( \int_{ 0 }^{ 1 }  | f - g  |   > 0  \). Otherwise, \( f = g  \) implies \( \int_{ 0 }^{ 1 }  | f - g  |  = 0  \). If \( \int_{ 0 }^{ 1 }  | f -g  |  =0  \), then we must have \( | f -g  | = 0  \) and hence, \( f = g  \). To show the triangle inequality, let \( f,g,h \in C[0,1] \) be integrable (since they are part of a set of continuous functions that are bounded). Hence, observe that 
+        \begin{align*}
+            d(f,g) &= \int_{ 0 }^{ 1 } | f -g  |    \\
+                   &\leq \int_{ 0 }^{ 1 }  | f- h  |  + | h - g  |  \\
+                   &= \int_{ 0 }^{ 1 } | f -h  | + \int_{ 0 }^{ 1 } | h - g  |  \\
+                   &= d(f,h)  + d(h,g).
+        \end{align*}
+\end{enumerate}
+\end{proof}
+
+Define the \textit{discrete metric} on any set \( X  \) where for any \( x, y \in X  \), let 
+\[  \rho (x,y) = 
+\begin{cases}
+    1 \  &\text{ if } x \neq y \\
+    0 \ &\text{ if } x = y.
+\end{cases}  \]
+
+\subsubsection{Exercise 8.2.3} Verify that the discrete metric is actually a metric.
+\begin{proof}[Solution]
+Observe that if \( x \neq y  \), then by definition we must have \( \rho(x,y) > 0  \). Otherwise, \( \rho(x,y) = 0  \) by definition. It is clear that \( \rho(x,y) = \rho(y,x) \). To show the triangle inequality, let \( x,y,z \in X  \), then we must have 
+\begin{align*}
+    \rho(x,y) &= 1 + 0   \\
+              &\leq 1 + 1 \\
+              &= \rho(x,z) + \rho(z,y). 
+\end{align*}
+Hence, \( \rho(x,y)  \) is a metric on any arbitrary set \(  X \).
+\end{proof}
+
+\subsubsection{Exercise 8.2.4} Show that a convergent sequence is Cauchy.
+\begin{proof}
+    Since \( (x_{n}) \subseteq \) is a Cauchy sequence, we can pick an \( N \in \N  \) such that for any \( n,m \geq N  \), we must have 
+    \[  d(x_{n}, x ) < \frac{ \epsilon  }{ 2  }  \ \text{ and } \ d(x, x_{m}) < \frac{ \epsilon  }{ 2 } .\] Using the same choice of \( N \in \N  \) so that \( n,m \geq N  \), we must have that
+    \begin{align*}
+        d(x_{n}, x_{m}) &\leq d(x_{n}, x )  + d(x, x_{m})\\ 
+                        &< \frac{ \epsilon  }{ 2 }  + \frac{ \epsilon  }{ 2 }  \\
+                        &= \epsilon.
+    \end{align*}
+    Hence, \( (x_{n}) \) is Cauchy.
+\end{proof}
+
+\begin{itemize}
+    \item Notice that this is only the forwards direction of the Cauchy Criterion we studied under \( \R  \). 
+    \item For metric spaces other than \( \R  \), the converse of the Cauchy Criterion does not necessarily hold.
+    \item We need to develop an ordering of our space similar to how the Axiom of Completeness is used in \( \R  \) ( This is called \textit{completeness}  ). 
+    \item The convergence of Cauchy sequences is taken to be the definition of completeness.
+\end{itemize}
+
+
+\begin{tcolorbox}
+\begin{defn}
+A metric space \( (X, d ) \) is \textit{complete} if every Cauchy sequence in \( X  \) converges to an element of \( X  \).
+\end{defn}
+\end{tcolorbox}
+
+
+\subsubsection{Exercise 8.2.5} 
+\begin{enumerate}
+    \item[(a)] Consider \( \R^{2} \) with the discrete metric \( \rho(x,y)  \) examined in Exercise 8.2.3. What do Cauchy sequences look like in this pace? Is \( \R^{2} \) complete with respect to this metric? 
+        \begin{proof}[Solution]
+        Cauchy sequences under the discrete metric under \( \R^{2} \) would have \( x_{n} = (x_{n_{1}}, x_{n_{2}}) \) and \( x_{m} = (x_{m_{1}}, x_{m_{2}}) \) such that 
+        \[ \rho(x_{n}, x_{m}) = 
+        \begin{cases}
+            0 \ &\text{if } x_{n } = x_{m} \\
+            1 \ &\text{if } x_{n_{i} } \neq  x_{m_{i}} \ \text{where } 1 \leq i \leq 2.
+        \end{cases} \]
+        Yes, \( \rho(x,y)  \) is complete under \( \R^{2} \).
+        \end{proof}
+    \item[(b)] Show that \( C[0,1]  \) is complete with respect to the metric in Exercise 8.2.2(a).
+        \begin{proof}
+        The metric from Exercise 8.2.2 (a) is 
+        \[  d(f,g) = \sup_{x \in [0,1]} | f(x) - g(x) |.    \]
+        Let \( f_{n}, f_{m} \in C[0,1] \). The Cauchy sequence under sup norm metric will be 
+        \[  d(f_{n}, f_{m}) = \sup_{x \in [0,1]} | f_{n}(x) - f_{m}(x) | \]
+        We want to show that the Cauchy sequence of functions \( (f_{n}) \) converges under \( C[0,1] \). Since \( (f_{n}) \) is a Cauchy sequence under \( \R  \), we know that is satisfies the Cauchy Criterion. Hence, \( (f_{n}) \) must converge uniformly. By choosing \( N \in \N  \), we can let \( m, n \geq N  \) and \( x \in [0,1]  \) such that 
+        \begin{align*}
+            d(f_{n}, f) &= \sup_{x \in [0,1]} | f_{n}(x) - f(x)  |   \\
+                        &\leq \sup_{x \in [0,1] } | f_{n}(x) - f_{m}(x)  | + \sup_{x \in [0,1]} | f_{m}(x) - f(x)  | \\
+                        &< \frac{ \epsilon  }{ 2  }  + \frac{ \epsilon  }{ 2 } = \epsilon.
+        \end{align*}
+        Hence, the sup norm metric is complete under \( C[0,1] \).
+        \end{proof}
+    \item[(c)] Define \( C^1[0,1] \) to be the collection of differentiable functions on \( [0,1]  \) whose derivatives are also continuous. Is \( C^{1}[0,1] \) complete with respect to the metric defined in Exercise 8.2.2(a)?
+        \begin{proof}
+            No, \( C^{1}[0,1] \) is not complete under metric defined in Exercise 8.2.2 (a). Define 
+            \[h'_{n} = \frac{ x  }{ \sqrt{ x^{2} + 1/n  }  }. \]
+            Note that the convergence of \( h'n \to h  \) where \( h(x) = x / | x |  \) is not uniform. Hence, we cannot have completeness on \( C^{1}[0,1]  \) when we have pointwise convergence instead of uniform convergence.
+        \end{proof}
+\end{enumerate}
+
+The sup metric is usually written as 
+\[  \lVert f -g  \rVert_{\infty }  = d(f,g) = \sup \{ | f(x) - g(x)  | : x \in [0,1] \}  \] and setting \( g = 0  \) gives us the "sup norm" 
+\[  \lVert f \rVert_{\infty } = d(f,0 ) = \sup \{ | f(x)  | : x \in [0,1] \} . \]
+From now on, we will assume that the space \( C[0,1]  \) is paired with the metric above unless otherwise specified.
+
+\begin{tcolorbox}
+\begin{defn}
+Let \( (X, d_{1}) \) and \( (Y, d_{2}) \) be metric spaces. A function \( f: X \to Y  \) is \textit{continuous} at \( x \in  X  \) if for all \(\epsilon > 0  \), there exists a \( \delta > 0  \) such that \( d_{2}(f(x) , f(y)) < \epsilon  \) whenever \( d_{1} (x,y) < \delta \).  
+\end{defn}
+\end{tcolorbox}
+
+\subsubsection{Exercise 8.2.6} Which of these functions from \( C[0,1] \) to \( \R  \) (with the usual metric) are continuous? 
+\begin{enumerate}
+    \item[(a)] \( g(f) = \int_{ 0 }^{ 1 } f k  \) where \( k   \) is some fixed function in \( C[0,1]  \).
+        \begin{proof}[Solution]
+            We claim that \( g(f) = \int_{ 0 }^{ 1 }  fk  \) where \(  k  \) is some fixed function in \( C[0,1] \). Let \( \epsilon > 0  \). Under the usual metric under \( \R  \), suppose there exists a \( \delta > 0  \) such that \( | x -c  | < \delta  \). Since \( f \in C[0,1]  \), \( f  \) is also continuous. Hence, we can use the same \( \delta \) such that 
+            \[  | f(x) - f(c)  | < \epsilon. \] Since \( k  \) is a fixed function in \( C[0,1]  \), we must have 
+            \begin{align*}
+                | g(f(x)) - g(f(c))  | &= \Big| k \int_{ 0 }^{ 1 } ( f(x) - f(c))  \ dx   \Big| \\
+                                       &\leq M \int_{ 0 }^{ 1 }  | f(x) - f(c)  | \ dx \tag{\( k  \) is bounded} \\
+                                       &< M \int_{ 0 }^{ 1 }  \frac{ \epsilon  }{ M   }  = \epsilon. \\ 
+            \end{align*}
+            Hence, \( g(f)  \) is continuous in \( C[0,1] \).
+        \end{proof}
+    \item[(b)] \( g(f) = f(1/2) \).
+        \begin{proof}[Solution]
+            Let \( \epsilon > 0   \). Since \( f \in C[0,1] \), we know that \( f  \) must be continuous. Hence, we can choose a \( \delta > 0  \) such that for any \( | x -c  | < \delta  \), we have
+            \[  | g(f(x)) - g(f(c))  | = | f(1/2) - f(1/2)  | = 0 < \epsilon. \]
+            Hence, \( g  \) is continuous on \( C[0,1] \).
+        \end{proof}
+    \item[(c)] \( g(f) = f(1/2)  \), but this time with respect to the metric on \( C[0,1]  \) from Exercise 8.2.2 (c).
+        \begin{proof}[Solution]
+        Not continuous. Let \( f = 0  \) and let \( \delta >0  \). Now define 
+        \[  h_{\delta}(x) = 
+        \begin{cases}
+            1 /2 \ & x \in V_{\delta}(1/2) \\ 
+            0 \ &\text{ otherwise }.
+        \end{cases} \]
+        Observe that for any \( \delta > 0  \), we have that \( d(h_{\delta}, f ) = \delta \). Using the metric from part (c), we will end up with \( d(h_{\delta}, h)= (h-f) (1/2) = 1/2   \). Thus, we can't satisfy \( \epsilon < 1/2. \)
+        \end{proof}
+\end{enumerate}
+
+
+\subsubsection{Exercise 8.2.7} Describe the \( \epsilon - \)neighborhoods in \( \R^{2} \) for each of the different metrics described in Exercise 8.2.1. How about the discrete metric?
+\begin{proof}[Solution]
+
+\end{proof}
+
+Now we are able to define \textit{open sets, limit points,} and \textit{closed sets} like we did before on \( \R  \) but this time with more general spaces and different metrics. 
+Reframing our definitions of these concepts in \( \R  \) in terms of a general space \( X  \), we 
+\begin{itemize}
+    \item call a set \( O \subseteq X  \) \textit{open} if for every \( x \in O  \) we can find a neighborhood \( V_{\epsilon }(x) \subseteq O  \). 
+    \item A point \( x  \) is a \textit{limit point} of a set \( A  \) if every \( V_{\epsilon }(x)  \) intersects \( A  \) in some point other than \( x  \). A set \( C  \) is \textit{closed} if it contains its limit points.
+\end{itemize}
+
+\subsubsection{Exercise 8.2.8} Let \( (X,d) \) be a metric space.
+\begin{enumerate}
+    \item[(a)] Verify that a typical \( \epsilon- \)neighborhood \( V_{\epsilon }(x)  \) is an open set. Is the set 
+        \[  C_{\epsilon }(x) = \{ y \in X : d(x,y) \leq \epsilon \}  \] a closed set? 
+        \begin{proof}[Solution]
+        Observe that \( V_{\epsilon }(x) \subseteq V_{\epsilon }(x)  \). Hence, \( V_{\epsilon }(x)  \) is an open set. 
+        Yes, we have 
+        \[  C_{\epsilon }(x) = \{ y \in X : d(x,y) \leq \epsilon \}  \] is a closed set. To see why, let \( x  \) be a limit point of \( C_{\epsilon }(x)  \). By Theorem 3.2.2, there exists a sequence \( x_{n} \subseteq C_{\epsilon }(x)  \) such that \( \lim x_{n} = x  \) with \( x_{n} \neq x  \) for all \( n \in \N  \). This means that we can choose an \( N \in \N  \) such that for all \( n \geq N  \), we must have \( d(x_{n}, x ) \leq \epsilon  \). Hence, \( x  \in C_{\epsilon }(x)  \) and so \( C_{\epsilon }(x)  \) must be a closed set.
+        \end{proof}
+    \item[(b)] Show that a set \( E \subseteq X  \) is open if and only if its complement is closed.
+        \begin{proof}
+        \( (\Rightarrow) \) Let \( x  \) be a limit point of \(E^{c} \). Then for all \( \epsilon- \)neighborhoods, the intersection 
+        \[  V_{\epsilon }(x) \cap E^{c} \] is nonempty. Since \( E  \) is open, we know that 
+        \( V_{\epsilon }(x) \subseteq E  \). But we have \( E \cap E^{c} \) is empty so we must have \( x \in E^{c}  \) because otherwise, there exists a \( V_{\epsilon }(x)  \) such that \( V_{\epsilon }(x) \subseteq E  \). Hence, \( E^{c} \) must be closed.  
+       
+        \( (\Leftarrow)\) Let \( E^{c} \) be a closed set. Let \( x \in E  \). Since \( x   \) is not a limit point of \( E^{c} \), \( x  \) must not be a limit point of \( E^{c} \). This means there exists an intersection \( V_{\epsilon }(x) \cap E^{c}  \)  that is empty. Hence, \( V_{\epsilon }(x) \subseteq E   \) implying that \( E  \) is open.
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 8.2.9} 
+\begin{enumerate}
+    \item[(a)] Show that the set \( Y = \{ f \in C[0,1] :  \lVert f \rVert_{\infty } \leq 1  \}  \) is closed in \( C[0,1] \).
+        \begin{proof}
+        Suppose \( f  \) is a limit point of \( Y  \). Let \( (f_{n}) \) be a Cauchy sequence that converges uniformly to \( f  \). Choose \( \epsilon  =1  \). Then observe that there exists an \( N \in \N  \) such that for any \( n \geq N  \), we must have 
+        \[ \lVert f_{n} - f  \rVert \leq 1. \] Then observe that 
+        \begin{align*}
+            | f(x) | &\leq | f_{n}(x) - f(x) + f(x)  |  \\
+                  &\leq | f_{n}(x) - f(x)  | + | f(x)  | \\
+                  &\leq \lVert f_{n} - f  \rVert_{\infty } \\
+                  &\leq 1.
+        \end{align*}
+        Since \( | f(x)  |  \leq \lVert  f(x)  \rVert  \), we must also have \( \lVert f(x)  \rVert \leq 1  \).
+        Hence, \( f  \) is contained in \( Y  \) and thus we must have \( Y  \) closed.
+        \end{proof}
+    \item[(b)] Is the set \( T = \{ f \in C[0,1] : f(0) = 0  \}  \) open, closed, or neither in \( C[0,1] \)? 
+        \begin{proof}[Solution]
+            \( T  \) is closed. Let \( \epsilon > 0  \). Let \( f \in C[0,1] \). Then there exists an  \( N \in \N   \) such that for any \( n \geq N  \), we have 
+        \[ \lVert f  \rVert < \epsilon.   \] Hence, \( f(0) = 0  \) which implies \( f \in T \).
+        \end{proof}
+\end{enumerate}
+
+
+
+\begin{tcolorbox}
+\begin{defn}
+A subset \( K  \) of a metric space \( (X,d)  \) is \textit{compact} if every sequence in \( K  \) has a convergent subsequence that converges to a limit in \( K  \).
+\end{defn}
+\end{tcolorbox}
+
+In \( \R  \), we came across a proposition that a set is compact if and only if it is closed and bounded. For more general metric spaces, however, this proposition only holds true in the forwards direction.
+
+\begin{tcolorbox}
+\begin{defn}
+A subset \( K \) of a metric space \( (X,d)  \) is \textit{bounded} if there exists an \( R > 0  \) such that for all \( x,y \in X  \), we have \( d(x,y) < R  \).
+\end{defn}
+\end{tcolorbox}
+
+
+\subsubsection{Exercise 8.2.10} 
+\begin{enumerate}
+    \item[(a)] Show that if \( K  \) is compact subset of the metric space \( (X,d)  \), then \( K  \) is closed and bounded.       
+        \begin{proof}
+        Since \( K  \) is a compact subset of the metric space \( (X,d) \), every sequence \( (x_{n}) \subseteq K  \) contains a subsequence \( (x_{n_{k }})  \) that converges to a limit \( x  \) that is contained in \( K  \). Let \( (x_{n}) \) be a Cauchy sequence. Choose \( N \in \N  \) such that for any \( n > n_{k } \geq N  \), we must have 
+        \begin{align*}
+            d(x_{n}, x ) &\leq d(x_{n}, x_{n_{k }}) + d(x_{n_{k }}, x)  \\
+                         &< \frac{ \epsilon  }{ 2  } + \frac{ \epsilon  }{ 2 } \\ 
+                         &= \epsilon.\\
+        \end{align*}
+        Since \( x \in K  \) and \( (x_{n}) \to x  \), \( K  \) must be closed. Since every sequence \( (x_{n})   \) converges, we know that every \( (x_{n})  \) is bounded by some \( M > 0  \). Hence, \( K  \) must also be bounded.
+        \end{proof}
+    \item[(b)] Show that \( Y \subseteq C[0,1]  \) from Exercise 8.2.9 (a) is closed and bounded but not compact.
+        \begin{proof}
+            The results from part (a) of Exercise 8.2.9 imply that \( Y  \) is bounded and closed. To see why \( Y  \) is not compact, suppose we have a sequence of continuous functions \( (f_{n}) \) defined by \( f_{n} = x^{n} \). Since \( Y \subseteq C[0,1] \), we know that the \( (f_{n})  \to f \) uniformly. But the pointwise limit of \( \lim  f_{n}(x) \) is \textit{not continuous} and every subsequence of \( (f_{n}) \) will necessarily converge pointwise to \( f  \notin C[0,1] \). Hence, \( Y  \) cannot be compact in \( C[0,1] \). 
+        \end{proof}
+\end{enumerate}
+
+\begin{itemize}
+    \item The concept of \textit{equicontinuity} of functions is key to the solution of part (c) above.
+    \item Look back to the Arzeli-Ascoli Theorem in chapter 6 before solving the exercise above.
+    \item The result found in part (b) can only be made possible if, in addition to our assumptions, \( Y  \) contained a collection of functions that are equicontinuous.
+\end{itemize}
+
+\begin{tcolorbox}
+\begin{defn}
+    Given a subset \( E  \) of a metric space \( (X,d)  \), the \textit{closure} \( \overline{E} \) is the union of \( E  \) together with its limit points. The \textit{interior} of \( E \) is denoted by \( E^{\circ} \) and is defined as 
+    \[  E^{\circ} = \{ x \in E : \text{ there exists } V_{\epsilon }(x) \subseteq E  \}. \]
+\end{defn}
+\end{tcolorbox}
+
+
+\subsubsection{Exercise 8.2.11} 
+\begin{enumerate}
+    \item[(a)] Show that \( E  \) is closed if and only if \( \overline{E} = E  \). Show that \( E  \) is open if and only if \( E^{\circ} = E  \). 
+        \begin{proof}
+        See the solution in Exercise 3.2.14. 
+        \end{proof}
+    \item[(b)] Show that \( \overline{E}^{c} = (E^{c})^{\circ}  \), and similarly that \( (E^{\circ}c)^{} = \overline{E^{c}} \).
+        \begin{proof}
+        See the solution in Exercise 3.2.14.
+        \end{proof}
+\end{enumerate}
+
+
+\subsubsection{Exercise 8.2.12}
+\begin{enumerate}
+    \item[(a)] show 
+        \[  \overline{V_{\epsilon }(x)}  \subseteq \{ y \in X : d(x,y) \leq \epsilon  \},\]
+        in an arbitrary metric space \( (X,d) \).
+        \begin{proof}
+            Let \( x  \) be a limit point of \( \overline{V_{\epsilon }(x)} \). By definition of \( \overline{V_{\epsilon }(x)}  \), we know that \( x \in \overline{V_{\epsilon }(x)} \). Then, there exist exists a sequence \( (x_{n})  \) such that \( x_{n} \to x  \) with \( x_{n} \neq x  \) for all \( n \in \N  \). Hence, for some \( N \in \N  \) we know that for any \( n \geq N  \), we have \( d(x_{n}, x) \leq \epsilon  \). But this is the definition of \( C_{\epsilon }(x) \). Hence, \( x \in C_{\epsilon }(x) \).
+        \end{proof}
+    \item[(b)] To keep things from sounding too familiar, find an example of a specific metric space where 
+        \[  \overline{V_{\epsilon }(x)} \neq \{ y \in X : d(x,y) \leq \epsilon  \}.\]
+        \begin{proof}[Solution]
+        Take \( (\R, | \cdot | ) \). Then observe that \( \overline{V_{\epsilon }(x)} \neq \{ n \in \N : | 1 / n | \leq \epsilon \}  \) where \( V_{\epsilon }(x) =  \{ 0 \}  \).
+        \end{proof}
+\end{enumerate}
+
+\begin{tcolorbox}
+\begin{defn}
+A set \( A \subseteq X  \) is \textit{dense} in the metric space \( (X,d) \) if \( \overline{A} = X  \). A subset \( E  \) of a metric space \( (X,d) \) is \textit{nowhere-dense} in \( X  \) if \( \overline{E}^{\circ}  \) is empty.
+\end{defn}
+\end{tcolorbox}
+
+\subsubsection{Exercise 8.2.13} If \( E  \) is a subset of a metric space \( (X,d) \), show that \( E  \) is nowhere-dense in \( X  \) if and only if \( \overline{E}^{c}  \) is dense in \( X  \). 
+\begin{proof}
+    \( (\Rightarrow)  \) Suppose \( E  \) is nowhere-dense in \( X  \). Then \( \overline{E}^{\circ}  \) is empty. Let \( \epsilon > 0  \). Then for any \( x \in \overline{E}^{\circ}  \) is contained in \( (\overline{E}^{\circ})^{c} \). By exercise 8.2.11, we know that \( (\overline{E}^{\circ})^{c} = \overline{(\overline{E}^{\circ})^{c}}\). But notice that we must have \( \overline{ (\overline{E}^{\circ})^{c}}  = X   \). Hence, \( \overline{E}^{c} \)  must be dense in \( X  \).
+
+    \( (\Leftarrow) \) Suppose \( \overline{E}^c \) is dense in \( X  \). Let \( x \in \overline{E}^{\circ} \). Let \( \epsilon > 0  \). Since \( x  \) is neither an element of nor a limit point of \( \overline{E}^c \), we know that for every \( V_{\epsilon }(x)   \), we have \( V_{\epsilon }(x) \cap \overline{E} \) is empty. This tells us that \( \overline{E}^{\circ}  \) is empty. Hence, \( E  \) is nowhere dense in \( X  \).
+\end{proof}
+
+
+
+

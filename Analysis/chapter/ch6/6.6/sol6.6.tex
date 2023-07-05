@@ -1,0 +1,233 @@
+\section{Taylor Series}
+\subsubsection{Exercise 6.6.1} The derivation in Example 6.6.1 shows the Taylor series for \( \arctan(x)  \) is valid for all \(  x \in (-1,1) \). Notice, however, that the series also converges when \( x =1  \). Assuming that \( \arctan(x)  \) is continuous, explain why the value of the series at \( x = 1  \) must necessarily be \( \arctan(1)  \). What interesting identity do we get in this case?
+\begin{proof}[Solution]
+We know the series equals the value of \( \arctan(1) \) at \( x = 1  \) because we know that the term-by-term antidifferentiation of the series
+\[  \frac{ 1 }{ 1 + x^2  } = 1 - x^{2} + x^{4} - x^{6} + x^{8} - \dotsb  \tag{1}\]
+that converges for all \( x \in (-1,1)  \) produces the series 
+\[  \arctan(x) = x - \frac{ x^{3} }{ 3  } + \frac{ x^{5} }{ 5 } - \frac{ x^{7} }{ 7 } + \dotsb .  \tag{2}\]
+that also converges for \( x \in (-1 ,1 ) \). Since we have convergence of (2) for all \( x \in (-1,1) \) and the fact that each term in the series representation of (2) is continuous shows that at \( x = 1  \), we must have equality of the series representation to \( \arctan(1)  \). This leads us to the interesting identity that 
+\[  \arctan(1) = \frac{ \pi  }{ 4 }  = 1 - \frac{ 1 }{ 3 } + \frac{ 1 }{ 5 }  - \frac{ 1 }{ 7 }  + \frac{ 1 }{ 9 } - \dotsb . \]
+\end{proof}
+
+\subsubsection{Exercise 6.6.2} Starting from one of the previously generated series in this section, use manipulations similar to those in Example 6.6.1 to find Taylor series representations for each of the following functions. For precisely what values of \( x \) is each series representation valid? 
+\begin{enumerate}
+    \item[(a)] \( x \cos(x^2)  \)
+        \begin{proof}[Solution]
+        For this problem, we will use the \( \frac{ d }{ dx }  \) notation to compute our derivatives. We know that 
+        \[  \sin (x) = \sum_{ n=0 }^{ \infty  } \frac{ (-1)^n x^{2n+1} }{ (2n+1)! }.\]
+        Since \( \sin(x)  \) is an infinitely differentiable function, we can take the derivative of its Taylor expansion. Hence, we have 
+        \begin{align*}
+            \frac{d  }{d x } [ \sin(x) ] &= \frac{d  }{d x } \Big[ \sum_{ n=0 }^{ \infty  } \frac{ (-1)^{n}  }{ (2n+1)! } x^{2n+1} \Big] \\
+                                         &= \sum_{ n=0  }^{ \infty  } \frac{d  }{d x }  \Big[  \frac{ (-1)^{n}  }{ (2n+1)! } x^{2n+1}\Big] \\
+                                         &= \sum_{ n=0  }^{ \infty  } \frac{ (-1)^n }{ (2n)! }  x^{2n}.
+        \end{align*}
+        This means that 
+        \[  \cos(x) = \sum_{ n=0  }^{ \infty  } \frac{ (-1)^n  }{ (2n)! } x^{2n}. \] Substituting \( x = x^2  \) and multiplying by \( x  \) gives us 
+        \[  x \cos(x^2) = \sum_{ n=0  }^{ \infty  } \frac{ (-1)^{n} }{ (2n)! } x^{4n+1} \]
+        which holds for any \( x \in (-R ,R ) \) where \( R > 0  \).
+        \end{proof}
+    \item[(b)] \( x / (1+ 4x^2)^2 \)
+        \begin{proof}[Solution]
+        Take the function \( f(x) = \frac{ 1 }{ 1 - x  }  \) which has the following Taylor Expansion 
+        \[  \frac{ 1 }{ 1 - x  } = \sum_{ n=0  }^{ \infty  } x^n  \] which is defined for all \( | x  |  < 1  \). Taking the derivative of \( f(x)  \) we get 
+        \[  \frac{\text{d}  }{\text{d} x }  \Big[ \frac{ 1 }{ 1 - x  }    \Big] =  \frac{ 1   }{ (1 - x )^2  }   \]
+        which has a Taylor series expansion of 
+        \[  \frac{ 1 }{ (1-x)^2 } = \sum_{ n=1 }^{ \infty  } n x^{n-1} .  \]
+        Letting \( x = -4x^2  \) and multiplying by \( x  \), we arrive at the following Taylor series expansion 
+        \[  \frac{ x  }{ (1 + 4x^2 )^2  } = \sum_{ n=1  }^{ \infty  } (-4)^{n-1} n  x^{2n - 1 }  \]
+        which holds for all \( x \in (-R ,R ) \).
+        \end{proof}
+    \item[(c)] \( \text{log}(1+x^2) \)
+        \begin{proof}[Solution]
+            Our goal is to use the Term-by-term Anti-differentiation to write a Taylor series expansion for  \(  \text{log}(1+x^2) \). Set \( F(x) = \text{log}(1-x) \) and \( f(x) = \frac{ 1 }{ 1 - x  }  \). Since the series expansion for \( f(x)  \); that is, 
+            \[  f(x) =\sum_{ n = 0  }^{ \infty  } x^n \] is defined for any \( | x  | < 1  \), we have that 
+            \[  F(x) = \sum_{ n=0 }^{ \infty  } \frac{ 1 }{ n+1  } x^{n+1} \]
+            which satisfies  \( F'(x) = f(x)  \). Letting \( x = - x^2  \) we get that 
+            \[  \text{log}(1 + x^2 ) =  \sum_{ n=0  }^{ \infty  } \frac{ (-1)^{n+1}  }{ n+1  } x^{2n+2}.\]
+        \end{proof}
+\end{enumerate}
+
+
+
+
+
+
+\subsubsection{Exercise 6.6.3} Derive the formula for the Taylor Coefficients given in Theorem 6.6.2.
+\begin{proof}
+    Suppose \( f(x) = \sum_{ n=0 }^{ \infty  } a_n x^n  \) converges for all \( x \in (-R ,R ) \) Since \( f  \) is infinitely differentiable by Theorem 6.5.7, we can take derivatives of \( f  \) where \( f^{n}(0)= n! a_n    \) implies that 
+    \[  a_n = \frac{ f^{(n)}(0) }{ n! }. \]
+    \[   \]
+\end{proof}
+
+\subsubsection{Exercise 6.6.4} Explain how Lagrange's Remainder Theorem can be modified to prove 
+\[  1 - \frac{ 1 }{ 2 } + \frac{ 1 }{ 3 } - \frac{ 1 }{ 4 }  + \frac{ 1 }{ 5 } - \frac{ 1 }{ 6 } + \dotsb = \text{log}(2). \]
+\begin{proof}[Solution]
+    Let \( f(x) = \text{log}(1+x) \). Since \( f  \) is \( N+1 \) differentiable on \( (0,R )  \), there exists a point \( c  \) satisfying \(  | c |    < 1  \) where the error function \( E_{N}(x) = f(x) - S_{N}(x) \) satisfies 
+    \[  E_{N}(x) = \frac{ f^{(N+1)}(c) }{ (N+1)! } x^{N+1}  \]
+    by Lagrange's Remainder Theorem.
+    Our goal is to show that the error function \( E_{N}(1) \) converges uniformly to \( 0  \) on \( (0,R ) \). Hence, we have 
+    \[ | E_{N}(x) | = \Big| \frac{ f^{(N+1)}(c) }{ (N+1)! }  \Big|  \]
+    where \( f^{(N+1)}(c) =  N! / (1+c)^{N+1}   \) implies 
+    \[  | E_{N}(x) | = \Big| \frac{ f^{(N+1)}(c) }{ (N+1)! }  \Big| =  \frac{ 1 }{ (N+1)(1+c)^{N+1}  }   < \frac{ 1 }{ N+1 } \to 0     \]
+   uniformly on \( (0,R ) \). Hence, we have that 
+   \[ 1 - \frac{ 1 }{ 2 } + \frac{ 1 }{ 3 } - \frac{ 1 }{ 4 } + \frac{ 1 }{ 5 } - \frac{ 1 }{ 6  }  + \dotsb = \text{log}(2).  \]
+\end{proof}
+
+\subsubsection{Exercise 6.6.5} 
+\begin{enumerate}
+    \item[(a)] Generate the Taylor coefficients for the exponential function \( f(x) = e^{x} \), and then prove that the corresponding Taylor series converges uniformly to \( e^{x} \) on any interval of the form \( [-R,R] \).
+        \begin{proof}
+        To generate the Taylor coefficients for \( f(x) = e^{x} \) we can just use the formula given to us via Theorem 6.6.2 and the fact that \( f^{(n)}(0) = f^{(n+1)}(0) \) for all \( n \geq 0  \) where \( f^{(n)}(0) = e^{0}= 1  \), to write 
+        \[  a_n = \frac{ f(0)  }{ n! } = \frac{ 1 }{ n! }. \]
+        Hence, we can define the following power series 
+        \[  S_N(x) = \sum_{ N=0  }^{ \infty  } \frac{ x^N  }{ N! }. \]
+        To show that \( S_n(x) \to f(x)  \) where \( f(x) = e^{x} \), we will use Lagrange's Remainder theorem. Given an \(  x \in (-R ,R ) \) non-zero, suppose there exists a point \( c  \) satisfying \( | c  | < | x  |  \) such that \( E_N(x) = e^{x} - S_{N}(x)   \) satisfies  
+        \[  E_{N}(x) =  \frac{ f^{(N+1)}(c) x^{N+1} }{ (N+1)! }  =  \frac{ e^c x^{N+1} }{ (N+1)! } .   \]
+        Since \( x \in [-R ,R ] \), we can produce the following bound 
+        \[  | E_N(x)  | = \Big| \frac{ e^c x^{N+1}  }{ (N+1)!  }  \Big| \leq \frac{ e^{c} R^{N+1} }{ (N+1)! }.   \]
+        Since the term on the right side converges to zero uniformly on \( (-R ,R ) \), we know that \( E_N(x) \to 0  \) which means that \(  S_N(x) \to e^{x} \) uniformly on \( (-R ,R ) \).
+        \end{proof}
+    \item[(b)] Verify the formula \( f'(x) = e^{x} \).
+        \begin{proof}[Solution]
+            If we take the Taylor Expansion of \( e^{x} \) which is defined for all \( x \in [-R ,R ] \), we differentiate 
+            \[  e^{x} = \sum_{ n=0  }^{ \infty  } \frac{ x^{n} }{ n! }  \] via Theorem 6.5.7 to get the following series representation 
+            \[  f'(x) = \sum_{ n=1 }^{ \infty  } \frac{ n x^{n-1} }{ n! } =   \sum_{ n=1 }^{ \infty  } \frac{ x^{n-1} }{ (n-1)! }. \]
+            We can reorder our indices to get 
+            \[  f'(x) = \sum_{ n=0  }^{ \infty  } \frac{ x^{n} }{ n! } = e^{x}. \]
+        \end{proof}
+    \item[(c)] Use a substitution to generate the series for \( e^{-x} \), and then informally calculate \( e^{x} \cdot e^{-x} \) by multiplying together the two series and collecting common powers of \( x \).
+        \begin{proof}[Solution]
+        To generate the series for \( e^{-x} \), let \( x = -x  \). Then 
+        \[  f(-x) = e^{-x} = \sum_{ n=0  }^{ \infty  } \frac{ (-1)^{n}  }{ n! } x^{n} \]
+        To attain the Taylor expansion of \( e^{x} \cdot e^{-x } \) we can multiply the two series together. Since we are just collecting powers of \( x  \), we can try and form a formula for the summation of the coefficients of the Taylor expansions of \( e^{x} \) and \( e^{-x } \). By using the formula from section 2.7 where 
+        \[  \sum_{ i=0 }^{ n } d_k \]
+        with 
+        \[  d_n = \sum_{ i=0 }^{ n } a_{i} b_{i -n}. \]
+        Then we have 
+        \begin{align*}
+            e^{x} \cdot e^{-x} &=  \Big( \sum_{ n=0 }^{ \infty  } \frac{ x^{n} }{ n! }  \Big) \Big( \sum_{ m=0 }^{ \infty  } \frac{ (-1)^{m} x^{m} }{ m! }  \Big)  \\
+                               &= \sum_{ n=0 }^{ \infty  } \Big( \sum_{ i=0 }^{ n } \frac{ (-1)^{n-i } }{ i! (n-i)! }  \Big) x^n.
+        \end{align*}
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 6.6.6} Review the proof that \( g'(0) = 0 \) for the function 
+\[  g(x) = 
+\begin{cases}
+     e^{-1/x^2} &\text{ for } x \neq 0 \\
+    0 &\text{ for } x = 0
+\end{cases} \]
+introduced at the end of this section.
+\begin{enumerate}
+    \item[(a)] Compute \( g'(x)  \) for \( x \neq 0  \). Then use the definition of the derivative to find \( g"(0) \).
+        \begin{proof}[Solution]
+        Since \( x \neq 0  \) we can use the Chain Rule to get 
+        \[  g'(x) = \frac{ 2 }{ x^3  } e^{-1/x^2 }.\] Next, we compute \( g"(0)  \) using the definition of the derivative. Then we have 
+        \begin{align*}
+            g"(0) &= \lim_{ x \to 0  } \frac{ g'(x) - g'(0)  }{ x - 0  }  \\
+                  &= \lim_{ x \to 0 }  \frac{ 2 / x^{4 } }{  e^{1 / x^{2}} } \\
+        \end{align*}
+        Since we have a limit that produces an \( \infty / \infty  \) situation, we can use L'hopital to get 
+        \begin{align*}
+            \lim_{ x \to 0  } \frac{ 4 }{ x^2 e^{1/x^{2}} } .  \\
+        \end{align*}
+        But this in itself causes another \( \infty / \infty  \) situation as \( x \to 0 \). Hence, we can use L'Hopital's rule again to get 
+        \[  \lim_{ x \to 0 }  \frac{ 4 }{ e^{1/x^2 } } \]
+        which goes to zero as \( x \to 0  \). Hence, we have that \( g"(0) = 0  \).
+        \end{proof}
+    \item[(b)] Compute \( g"(x)  \) and \( g^{(3)}(x)  \) for \( x \neq 0  \). Use these observations and invent whatever notation is needed to give a general description for the \( n \)th derivative \( g^{(n)}(x)  \) at points different from zero.
+        \begin{proof}[Solution]
+        Since we have \( g^{(1)}(x) = 2 e^{-1 /x^2 } / x^{3} \), we can compute \( g^{(2)}(x)  \) for \( x \neq 0  \) using our differentiation rules. Hence, we have
+        \begin{align*}
+            g^{(2)}(x) &= \frac{ 2 e^{-1/x^{2}} }{ x^{6} }  ( 2 - 3x^2  ), \\
+            g^{(3)}(x) &= \frac{ 2 e^{-1/x^{2}} }{ x^{9} } ( 4 - 18 x^{2} + 12x^{4} ).
+        \end{align*}
+        For our \( n \)th derivative, we have that for \( x \neq 0  \)
+        \[  g^{(n)}(x) = 
+        \begin{cases}
+            \frac{ 2 e^{-1/x^{2}} }{ x^{3} } &\text{ if } n=1 \\
+            \frac{ 2 e^{-1/x^2 } }{ x^{3n} }  \sum_{ i=0 }^{ n  } (-1)^{i} a_i x^{2i} &\text{ if } n > 1 
+        \end{cases} \]
+        where \( a_n \in \R  \).
+        \end{proof}
+    \item[(c)] Construct a general statement argument for why \( g^{(n)}(0) = 0  \) for all \( n \in \N  \).
+        \begin{proof}[Solution]
+        We can use induction to prove that \( g^{(n)}(0) = g^{(n+1)}(0) = 0  \) for all \( n \geq 1  \) to show that \( g^{(n)}(0) = 0  \) for all \( n \in \N  \). We can compute the \( n \)th derivative of \( g  \) by using the description outlined in part (b). Then use the definition of the  derivative to produce a \( \infty  / \infty   \) so that we may use L'Hopital to show that \( g^{(n)}(0) = g^{(n+1)}(0) = 0 \). Hence, \( g^{(n)}(0) = 0  \) for all \( n \in \N   \).
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 6.6.8} Here is a weaker form of Lagrange's Remainder Theorem whose proof is arguably more illuminating than the one for the stronger result.
+\begin{enumerate}
+    \item[(a)] First establish a lemma: If \( g  \) and \( h  \) are differentiable on \( [0,x] \) with \( g(0) = h(0)  \) and \( g'(t) \leq h'(t) \) for all \( t \in [0,x] \), then \( g(t) \leq h(t)  \) for all \( t \in [0,x]  \).
+        \begin{proof}
+            Let \( t \in [0,x] \). Since \( g \) and \( h  \) are differentiable on \( [0,x] \), we can use the Mean Value Theorem so that choosing \( c \in (0,t) \) implies 
+            \begin{align*}
+                g'(c)  &= \frac{ g(t) - g(0) }{ t - 0  },   \\
+                h'(c) &= \frac{ h(t) - h(0)  }{ t - 0 }.
+            \end{align*}
+            Since \( c \in [0,x]  \), we have \( g'(c) \leq h'(c)  \). But we have \( g(0) = h(0) \) so 
+            \[  g'(c) \leq h'(c) \iff \frac{ g(t) - g(0)  }{ t  } \leq \frac{ h(t) - h(0)  }{ t  } . \]
+            Multiplying through by \( t  \) and adding \( g(0)  \) from both sides (keeping in mind that \( g(0) = h(0) \)), we arrive at \( g(t) \leq h(t) \).
+        \end{proof}
+    \item[(b)] Let \( f  \), \( S_N  \), and \( E_N  \) be as Theorem 6.6.3, and take \( x \in (0,R ) \). If \( | f^{(N+1)}(t) | \leq M  \) for all \( t \in [0,x ] \), show 
+        \[  | E_{N}(x) | \leq \frac{ M x^{N+1} }{ (N+1)! }. \]
+        \begin{proof}
+            Let \( f  \), \( S_{N} \), and \( E_{N} \) be as Theorem 6.6.3. Let \( x \in (0,R ) \) and let \( x_{N+1} \in [0,x] \). By part (a), we know that 
+        \[  \frac{ E_N(x) }{ x^{N+1} } \leq \frac{ E_{N}^{(N+1)}(x_{N+1}) }{ (N+1)! }  \]
+        where \( x_{N+1} \in (0, x^{N}) \subseteq \dots \subseteq (0,x)  \) and 
+        \[  E_{N}^{(N+1)}(x_{N+1}) = f^{(N+1)}(x_{N+1}) - S_{N}^{(N+1)}(x_{N+1}). \]
+        Since \( S_{N}^{(N+1)}(x) = 0  \) past the \( n \)th derivative, we know that 
+        \[  E_{N}^{(N+1)}(x_{N+1}) = f^{(N+1)}(x_{N+1}). \] Now set \( x^{N+1} = t  \). Since \( | f^{(N+1)}(t) | \leq M  \) by assumption, we must have
+        \[  | E_N(x)  | \leq \frac{ | f^{(N+1)}(x_{N+1}) | x^{N+1} }{ (N+1)! }  \leq \frac{ M x^{N+1} }{ (N+1)! }.\]
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 6.6.9 (Cauchy's Remainder Theorem).} Let \( f  \) be differentiable \( N+1 \) times on \( (-R ,R ) \). For each \( a \in (-R ,R ) \), let \( S_{N}(x,a) \) be the partial sum of the Taylor series for \( f  \) centered at \( a  \); in other words, define 
+\[  S_{N}(x,a) = \sum_{ n=0 }^{ N } c_{n} (x-a)^{n}  \text{  where } c_{n} = \frac{ f^{(n)}(a) }{ n! }.  \] 
+Let \( E_{N}(x,a) = f(x) - S_{N}(x,a) \). Now fix \( x \neq 0  \) in \( (-R ,R ) \) and consider \( E_{N}(x,a)  \) as a function of \( a \).
+
+\begin{enumerate}
+    \item[(a)] Find \( E_{N}(x,x) \).
+        \begin{proof}[Solution]
+        Letting \( a = x  \), we have 
+        \begin{align*}
+            S_{N}(x,x) &= c_{0} \\
+                       &= \frac{ f^{(0)}(x) }{ 0! } \\
+                       &= f^{(0)}(x)
+        \end{align*}
+        which implies that 
+        \[  E_{N}(x,x) = f(x) - f(x) = 0 .\]
+        \end{proof}
+    \item[(b)] Explain why \( E_{N}(x,a)  \) is differentiable with respect to \( a  \), and show 
+        \[  E_{N}'(x,a) = \frac{ -f^{(N+1)}(a)  }{ N! } (x-a)^{N}. \]
+        \begin{proof}[Solution]
+        Since \( E_{N}(x,a) = f(x) - S_{N}(x,a)  \), differentiating with respect to \( a  \) leads to \(  E_{N}'(x,a) = - S_{N}'(x,a) \). Then 
+        \begin{align*}  - S_{N}'(x,a) &=  - \Big[ \sum_{ n=1 }^{ N } \frac{ f^{(n+1)}(a) }{ n! } (x - a)^n - \frac{ f^{(n)}(a) }{ (n-1)! } x^{n-1}     \Big] \\
+            &= \sum_{ n=1 }^{ N } \frac{ f^{(n)}(a) }{ (n-1)! } (x-a)^{n-1} -  \sum_{ n=1 }^{ N } \frac{ f^{(n+1)}(a) }{ n! } (x-a)^n \\
+            &= \sum_{ n=0  }^{ N-1 } \frac{ f^{(n+1)}(a) }{ n! }  (x-a)^{n} - \sum_{ n=1 }^{ N  } \frac{ f^{(n+1)}(a)  }{ n! } (x-a)^{n} \\
+            &= - \frac{ f^{(N+1)}(a)  }{ n! }  (x-a)^{n}.
+        \end{align*} 
+        Hence, we have that 
+        \[ E_{N}'(x,a) = - \frac{ f^{(N+1)}(a) }{ n! } (x-a)^{n}. \]
+
+        \end{proof}
+    \item[(c)] Show
+        \[  E_{N}(x) = E_{N}(x,0) = \frac{ f^{(N+1)}(c) }{ N! } (x-c)^{N} x \] for some \( c  \in (0,x) \). This is Cauchy's form of the remainder for Taylor series centered at the origin.
+        \begin{proof}
+        Using the Mean Value Theorem, there exists a \( c \in (0,x)  \) such that 
+        \[  E_{N}'(x,c) = \frac{ E_{N}(x) - E_{N}(x,0)  }{ x - 0  }.  \]
+        But note that \(  E_{N}'(x,c) = 0 \) since \( E_N(x) - E_N(x,0) = 0  \) by part (a). Furthermore, we know that part (b) must also imply that 
+        \[  E_{N}'(x,c) = - \frac{ f^{(N+1)}(c)  }{ N! } (x-c)^{N}. \]
+        So we must have 
+        \[  \frac{ f^{(N+1)}(c)  }{ N! } (x-c)^{N} = \frac{ E_{N}(x) - E_{N}(x,0) }{ x  } = 0  \]
+        which some algebraic manipulation leads us to our desired conclusion
+        \[  E_{N}(x) = E_{N}(x,0) = \frac{ f^{(N+1)}(c)  }{ N! } (x-c)^{N} x. \]
+        \end{proof}
+\end{enumerate}
+
+
+
+
+
+
+

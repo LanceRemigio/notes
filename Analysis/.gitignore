@@ -7,3 +7,9 @@ main.log
 main.synctex(busy)
 main.synctex.gz
 main.toc
+solutions.aux
+solutions.fls
+solutions.fdb_latexmk
+solutions.log
+solutions.synctex.gz
+solutions.toc

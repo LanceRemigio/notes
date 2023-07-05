@@ -1,0 +1,131 @@
+\section{Subsequences and the Bolzano-Weierstrass}
+
+
+\subsubsection{Exercise 2.5.1} Give an example of each of the following, or argue that such a request is impossible. 
+
+\begin{enumerate}
+    \item[(a)] A sequence that has a subsequence that is bounded but contains no subsequence that converges.
+        \begin{proof}[Solution]
+        The subsubsequence of the bounded subsequence must converge by the \textit{Bolzano-Weierstrass} theorem.
+        \end{proof}
+    \item[(b)] A sequence that does not contain \( 0 \) or \( 1\) as a term but contains subsequences converging to each of these values.
+        \begin{proof}[Solution]
+        Let \( (a_n)\) be a sequence defined by 
+        \[ 
+           a_n =  
+            \begin{cases}
+                \frac{1}{2n} \text{ if } n = 2k \\ 
+                \frac{1}{2n} + 1 \text{ if } n = 2k + 1.
+            \end{cases}
+        \]
+        Note that \( 1,0 \notin (a_n)\) but if we take the subsequences \( (a_{2k}) = 1 / 4k\) and \( (a_{2k+1}) = 1/(4k+2) + 1\), and take their limit, then we end up with the former converging to \( 0 \) and the latter converging to \( 1 \).
+
+        \end{proof} 
+    \item[(c)] A sequence that contains subsequences converging to every point in the infinite set 
+        \[ \Big\{ 1 , \frac{1}{2} , \frac{1}{3}, \frac{1}{4}, \frac{1}{5},...\Big\}\]
+        \begin{proof}[Solution]
+         Let's define the infinite set  
+         \[ A_n = \Big\{ 1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \frac{1}{5},... \Big\}\]
+         and define a subsequence such that we can make a subsequence for each \( n \in \N \) where \( (a_n)\) hits every value of \( A_n\).
+        \end{proof}
+    \item[(d)] A sequence that contains subsequences converging to every point in the infinite set 
+        \[ \Big\{1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \frac{1}{5},...\Big\},\]
+        and no subsequences converging to points outside of this set.
+        \begin{proof}[Solution]
+          This is not possible. There exists such a subsequence that does go to \( 0 \) but it is not within the infinite set.
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 2.5.2}
+Decide whether the following propositions are true or false, providing a short justification for each conclusion.
+\begin{enumerate}
+    \item[(a)] If every proper subsequence of \( (x_n)\) converges, then \((x_n)\) converges as well.
+        \begin{proof}[Solution]
+            If every proper subsequence of \((x_n)\) converges to \(x\), then \((x_2, x_3, x_4, ...)\) also converges to \(x\). Hence, \((x_n) \to x\) by the \textit{uniqueness of limits}.
+        \end{proof}
+    \item[(b)] If \( (x_n)\) contains a divergent subsequence, then \( (x_n)\) diverges.
+        \begin{proof}[Solution]
+        This is just the contrapositve of the statement: 
+        \begin{center}
+            "If \( (x_n)\) converges then every subsequence of \( (x_n)\) converges as well."
+        \end{center}
+        \end{proof}
+    \item[(c)] If \( (x_n)\) contains a divergent subsequence, then there exists two subsequences of \( (x_n)\) that converge to different limits. 
+        \begin{proof}[Solution]
+        This is false. we can find an \((x_n)\) that is not bounded such that we cannot find a subsequence that converges to a limit. 
+        \end{proof}
+    \item[(d)] If \((x_n)\) is \textit{monotone} and contains a convergent subsequence, then \((x_n)\) converges.
+        \begin{proof}
+            Assume \( (x_n)\) is \textit{monotone} and contains a convergent \textit{subsequence} \((x_{n_k})\). It suffices to show that \( (x_n)\) is \textit{bounded}. Since \((x_{n_k})\) is convergent, it is also \textit{bounded}. Hence, there exists \(M > 0 \) such that for all \(n_k \in \N \), we have \(|x_{n_k}| \leq M \). Since \((x_n)\) \textit{monotone} then either \(n \leq n_k \) or \( n \geq n_k\) for all \( n \in \N \). Hence, we can write either \(-M \leq x_n \) or \(x_{n_k} \leq M \). But this means that \((x_n)\) is also \textit{bounded}. Since \((x_n)\) both \textit{bounded} and \textit{monotone}, \((x_n)\) is convergent by the \textit{Monotone Convergence Theorem}. Also, \((x_n)\) and \((x_{n_k})\) converge to the same limit by the \textit{Uniqueness of Limits}.
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 2.5.3}
+\begin{enumerate}
+    \item[(a)] Prove that if an infinite series converges, then the associative propeprty holds. Assume \(a_1 + a_2 + a_3 + a_4 + a_5 + ...\) converges to a limit \(L \) (i.e., the sequence of partial sums \((s_n) \to L \)). Show that any regrouping of the terms 
+        \[ (a_1 + a_2 + ... + a_{n_1}) + (a_1 + a_2 + ... + a_{n_2}) + (a_1 + a_2 + ... + a_{n_3}) + ...\]
+        leads to a series that also converges to \(L\).
+\begin{proof}
+Our goal is to show that the associative property for a converging infinite series holds. Let us define the terms of the subsequence 
+\begin{align*}
+    b_1 &= a_1 + a_2 + a_3 + ... + a_{n_1} \\
+    b_2 &= a_{n_1 + 1}  + a_{n_1 + 2} + a_{n_1 + 3} + \dots + a_{n_2} \\
+        &\vdots  \\
+    b_m &= a_{n_{m-1}+1} + \dots + a_{n_m}.
+\end{align*}
+Our goal is to show that the subsequence \((b_m)\) converges to \(L \) as well. Suppose \( \lim s_n = L \). Let the partial sums \( (t_m)\) be regrouped in terms of the subsequence above
+\begin{align*}
+    t_m&= b_1 + b_2 + \dots + b_m \\
+       &= (a_1 + a_2 + a_3 + ... + a_{n_1}) + (a_{n_1 + 1} + \dots + a_{n_2}) + \dots \\
+       &+ ( a_{n_{m-1}+1} + \dots + a_{n_m}).
+\end{align*}
+Since \( \lim s_n = L \), its sequence of partial sums also converge to \(L\). But this means every subsequence of \( (t_k)\) also converges to \(L \). Hence, \((b_m)\) converges to \(L \) as well.
+\end{proof}
+\item[(b)] Compare this result to the example discussed at the end of Section 2.1 where infinite addition was shown not to associative. Why doesn't our proof in (a) apply to this example?
+    \begin{proof}[Solution]
+    We cannot have infinite series be associative if the sequence of partial sums diverges. This means we cannot regroup the terms of our partial sums into a subsequence that converges, since there are divergent subsequences. 
+    \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 2.5.5} Assume \((a_n)\) is \textit{bounded} sequence with the property that every convergent subsequence of \((a_n)\) converges to the same limit \(a \in \R\). Show that \((a_n)\) must converge to \(a\).
+\begin{proof}
+    Suppose for sake of contradiction that \((a_n) \not\to a\). Then there exists \(\epsilon_0 > 0\) such that \(|a_n - a| \geq \epsilon_0\) for all \(N \in \N \). Since \((a_n)\) is \textit{bounded}, we can find a subsequence \((a_{n_k})\) that converges to some \( \ell \in \R \). Since \((a_n) \not\to a\), then \( (a_{n_k}) \to \ell \) where \( \ell \neq a\). Yet we assumed every convergent subsequence of \((a_n)\) converges to the same limit \( a \) but \( a \neq \ell \) which is a contradiction. Hence, it must be the case that \( \lim a_n = a \).
+\end{proof}
+\subsubsection{Exercise 2.5.6}
+Use a similar strategy to the one in Example 2.5.3 to show \(\lim b^{1/n} \) exists for all \( b \geq 0\) and find the value of the limit. (The results in Exercise 2.3.1 may be assumed)
+\begin{proof}
+    Let \(b \geq 0 \). Our goal is to show that \( \lim b^{1/n}\) exists. We observe that 
+    \[b > b^{1/2} > b^{1/3} > b^{1/4} > ... >  b^{1/n} \geq 0\]
+    and conclude by induction that \(b^{1/n}\) is a \textit{decreasing}
+    sequence. Since \( 0 \leq b^{1/n} < b\), we can also conclude that \( (b^{1/n})\) is a \textit{bounded} sequence. Hence, \((b^{1/n})\) is a convergent sequence. But note that \((b^{1/n}) \to 0\) for all \(b^{1/n} \geq 0\) by exercise 2.3.1. Hence, \(\lim b^{1/n} = 0\).
+\end{proof}
+
+\subsubsection{Exercise 2.5.7}
+Extend the result proved in Example 2.5.3 to the case \(|b|<1\); that is, show \(\lim(b^n) = 0\) if and only if \(-1 < b < 1\). 
+\begin{proof}
+Suppose \(\lim b^n = 0 \). Let \( \epsilon = 1\), then there exists \( N \in \N \) such that for any \( n \geq N \), we have \( -1 < b^n < 1 \). Then we have \( -1 < b < 1 \). Hence, \( |b| < 1\). 
+
+Now let us show the converse. Assume \( |b | < 1\); that is, \( -1 < b < 1 \). Since \( 0 \leq b < 1 \) holds by Example 2.5.3, we can write \( \lim b^n = 0  \). Suppose \( -1 < b < 0\). We observe that 
+\[ b < b^2 < b^3 < b^4 < ... <  0\]
+impying that \(b^n\) is an \textit{increasing} sequence for all \( n \in \N \) for \(b^n \in (-1, 0)\). Furthermore, \((b^n)\) is \textit{bounded} since \(1 < b^n < 0 \). Hence, \((b^n)\) is a convergent sequence by the \textit{Monotone Convergence Theorem}. Hence, \( (b^{2n}) \to \ell \) satisfying \( b < \ell \leq 0 \). Suppose \( \lim (b^n) = \ell\). Let \((b^{2n})\) be a subsequence, then \( (b^{2n})\) also converges to the same limit \(b \). Hence, we have 
+\begin{align*}
+    \ell = \lim b^n &= \lim b^{2n} \\
+                 &= \lim (b^{n} \cdot b^{n}) \\
+                 &= \lim b^n \cdot \lim b^n \\ 
+                 &= \ell^2
+\end{align*}
+Then by the same process in Example 2.5.3, we have \( \lim (b^n) = 0 \).
+
+\end{proof}
+
+\subsubsection{Exercise 2.5.6}
+Let \((a_n)\) be a \textit{bounded} sequence, and define the set 
+\[ S = \{ x \in \R : x < a_n \text{ for infinitely many terms } a_n \}.\]
+Show that there exists a subsequence \((a_{n_k})\) converging to \( s = \sup S\). (This is a direct proof of the Bolzano-Weierstrass Theorem using the Axiom of Completeness.) 
+
+\begin{proof}
+    Let \((a_n)\) be a \textit{bounded} sequence. We observe that \( S \neq \emptyset \) and \(S \) \textit{bounded above} since there exists \( M > 0\) such that \(|a_n| \leq M \) where \( x < a_n \leq M \). By the \textit{Axiom of Completeness}, \( s = \sup S \) exists. Then by lemma 1.3.8, let \( \epsilon = 1 / n_k \) such that for some \( a_{n_k} \in S \), we have 
+    \[ s - \frac{1}{n_k} \leq a_{n_k} \leq s  \]
+    Note that we can write \( \lim (s - 1 / n_k) = s \) by the \textit{Algebraic Limit Theorem}. By the \textit{Squeeze Theorem}, it follows that \( a_{n_k} \to s = \sup S\). 
+\end{proof}
+

@@ -1,0 +1,168 @@
+\section{Integrating Functions with Discontinuities}
+
+\subsubsection{Exercise 7.3.1} Consider the function 
+\[  h(x) = 
+\begin{cases}
+	1 \ &\text{ for } 0 \leq x < 1 \\
+	2 \ &\text{ for } x = 1 
+\end{cases} \]
+over the interval \( [0,1]  \).
+\begin{enumerate}
+	\item[(a)] Show that \( L(f,P) = 1  \) for every partition \( P  \) of \( [0,1] \).
+		\begin{proof}[Solution]
+		By definition of \( h(x)  \), we know that for any \( 0 \leq x < 1  \), we have \( h(x) = 1  \). If \( x = 1  \), then a quick calculation will produce \( U(f, P) = 2  \). Since \( L(f,P) \leq U(f,P)  \), we get that \( L(f,P) = 1  \) for every \( 0 \leq x < 1  \).
+		\end{proof}
+	\item[(b)] Construct a partition \( P  \) for which \( U(f,P) < 1 + 1/ 10 \).
+		\begin{proof}[Solution]
+			Let \( P = \{ 0,  1 - \frac{ 1 }{ 11 }, 1 + \frac{ 1 }{ 11 },  1 \}  \)
+			and let our subintervals be \( [0, 1 - \frac{ 1 }{ 11 } ], [1 - \frac{ 1 }{ 11 }, 1 + \frac{ 1 }{ 11 } ], \) and  \( [1 + \frac{ 1 }{ 10 }, 1] \). Using the definition of \( U(f,P)  \), we write 
+			\begin{align*}
+				U(f,P) &= \sum_{ k=1 }^{ 3 } M_{k } \Delta x_{k }   \\
+					   &= \Big( 1 - \frac{ 1 }{ 11 }  \Big) + 2 \Big( \frac{ 2 }{ 11 }  \Big) - 2 \Big( \frac{ 1 }{ 11 }  \Big) \\
+					   &= 1 + \frac{ 1 }{ 11 } \\
+					   &< 1 + \frac{ 1 }{ 10 }. 
+			\end{align*}
+			Hence, we have 
+			\[  U(f,P) < 1 + \frac{ 1 }{ 10 }. \]
+		\end{proof}
+	\item[(c)] Given \( \epsilon > 0  \), construct partition \( P_{\epsilon } \) for which \( U(f,P_{\epsilon }) < 1 + \epsilon \).
+		\begin{proof}[Solution]
+		Let \( \epsilon > 0  \) and let \( P = \{ 0, 1 - \frac{ \epsilon  }{ 2 } , 1 + \frac{ \epsilon  }{ 2 }, 1  \}  \). Then using the definition of \( U(f,P)  \), we have
+		\begin{align*}
+		    U(f,P) &= \sum_{ k=1 }^{ 3 } M_{k } \Delta x_{ k }  \\
+				   &= \Big( 1 - \frac{ \epsilon  }{ 2 }  \Big) + 2 \epsilon - 2 \cdot \frac{ \epsilon  }{ 2 } \\
+				   &= 1 + \frac{ \epsilon  }{ 2 } \\
+				   &< 1 + \epsilon. 
+		\end{align*}
+		Hence, we have 
+		\[ U(f,P) < 1 + \epsilon. \]
+
+		\end{proof}
+\end{enumerate}
+
+
+\subsubsection{Exercise 7.3.3} Let 
+\[  f(x) = 
+\begin{cases}
+	1 \ &\text{ if } x = 1 / n \ \text{ for some } n \in \N \\
+	0 \ &\text{ otherwise }.
+\end{cases}  \]
+Show that \( f  \) is integrable on \( [0,1]  \) and compute \( \int_{ 0 }^{ 1 }  f . \)
+\begin{proof}
+	Let \( \epsilon > 0  \). To show that \( f  \) is integrable, it suffices to show \( U(f, P_{\epsilon }) - L(f, P_{\epsilon }) < \epsilon  \) for some partition \( P_{\epsilon } \) of \( [0,1] \). Note that \( L(f, P ) = 0  \) for all \( x \in [0,1] \). Let us construct \( P_{\epsilon } \) by taking 
+	\[  P_{\epsilon } = \Big\{ 0 , \frac{ 1 }{ n } - \epsilon , \frac{ 1 }{ n }  + \epsilon , 1  \Big\}. \]
+	Then taking the definition of \( U(f,P_{\epsilon })  \), we have that 
+	\begin{align*}
+	    U(f,P_{\epsilon }) &= \sum_{ k=1 }^{ 3 } M_{k } \Delta x_{k }   \\
+						   &= 0 \Big( \frac{ 1 }{ n }  - \epsilon \Big) + 2 \epsilon  + 0 \Big( 1 - \frac{ 1 }{ n } - \epsilon  \Big) \\
+						   &= 2 \epsilon. \\
+	\end{align*}
+	Since \( L(f, P_{\epsilon }) = 0  \), we have that 
+	\[  U(f, P_{\epsilon }) - L(f, P_{\epsilon }) = 2 \epsilon - 0  < \epsilon.  \]
+	Hence, \( f  \) is integrable on \( [0,1] \). Note that \( U(f) = 0  \) and hence, we must have 
+	\[  \int_{ 0 }^{ 1 } f = 0. \]
+\end{proof}
+
+\subsubsection{Exercise 7.3.4} Let \( f  \) and \( g  \) be functions defined on (possibly different) closed intervals, and assume the range of \( f  \) is contained in the domain of \( g  \) so that the composition \( g \circ f   \) is properly defined.
+\begin{enumerate}
+    \item[(a)] Show, by example, that it is not the case that if \( f  \) and \( g  \) are integrable, then \( g \circ f  \) is integrable.
+		\begin{proof}[Solution]
+		Let 
+		\[ g(x) = 
+		\begin{cases}
+			1 \ &\text{ for } x \neq 0 \\
+			0 \ &\text{ for } x = 0 
+		\end{cases}  \] and 
+		\[  f(x) = 
+		\begin{cases}
+			1 / q \ &\text{ for } x \in \Q \\
+			0  \ &\text{ for } x \notin \Q 
+		\end{cases}.\] The function \( g(x)  \) is continuous everywhere except at \( 0  \) and \( f  \) is continuous at every \( x \in \mathbb{I} \). But the composition of these functions,
+		\begin{align*}
+			(g \circ f) (x) &= 
+			\begin{cases}
+				1 \ &\text{ for } x \in \Q \\
+				0 \ &\text{ for } x \notin \Q 
+			\end{cases}  \\
+		\end{align*}
+		which is nowhere continuous and hence not integrable on any interval.
+		\end{proof}
+
+		Now decide on the validity of each of the following conjectures, supplying a proof or counterexample as appropriate.
+	\item[(b)] If \( f  \) is increasing and \( g  \) is integrable, then \( g \circ f  \) is integrable.
+		\begin{proof}[Solution]
+		Let \( f(x) = x^{2}  \) and define 
+		\[  g(x) = 
+		\begin{cases}
+			\frac{ 1 }{ \sqrt{ x }  } \ &\text{ for } x \neq 0 \\ 
+			0 \ &\text{ for } x = 0.
+		\end{cases} \]
+		Note that \( f  \) is an increasing function while \( g  \) is an integrable function. But note that 
+		\[  (g \circ f)(x) = 
+		\begin{cases}
+			\frac{ 1 }{ | x |  } \ &\text{ for } x \neq 0 \\
+			0 \ &\text{ for } x = 0
+		\end{cases} \]
+		is non-integrable.
+		\end{proof}
+		
+	\item[(c)] If \( f  \) is integrable and \( g  \) is increasing, then \( g \circ f  \) is integrable.
+		\begin{proof}
+			Let \( \epsilon > 0 \) and \( P_{\epsilon } \) be an arbitrary partition of an arbitrary closed interval \( [a,b] \). Let us first define \( U(g \circ f , P_{\epsilon }) \) and \( L(g \circ f, P_{\epsilon }) \). So we have 
+		\begin{align*}
+		    U(g \circ f, P_{\epsilon }) &= \sum_{ k=1 }^{ n } g(M_{k}) \Delta y_{ k }   \\
+							L(g \circ f, P_{\epsilon })			&= \sum_{ k=1 }^{ n } g(m_{k }) \Delta y_{k }
+		\end{align*}
+ Let \( \epsilon > 0  \).  Our goal is to show, using our partition \( P_{\epsilon } \), 
+		\[ U(g \circ f, P_{\epsilon }) - L(g \circ f, P_{\epsilon }) < \epsilon.  \] Since \( g  \) is an increasing function on \( [a,b] \) and the range of \( f  \) is contained in the domain of \( g  \), we have that \( g  \) is a bounded function. But this means that we can create sequence \( (\sigma_{k } ) \) where \( \sigma_{k } = g(t_{k }) \). Since \( (\sigma_{k }) \) is increasing and bounded, we know it must be convergent and hence it must be Cauchy. So choose \( N \in \N  \) such that for any \( k,k-1 \geq N  \), we 
+		\begin{align*}
+		    | M'_{k} - m'_{k}   | &= | g(t_{k}) - g(t_{k-1}) | \\ 
+								  &= | \sigma_{k} - \sigma_{k-1} | \\ 
+									   &< \epsilon
+		\end{align*}
+		where \( t_{k} \) and \( t_{k-1}  \) are contained in the domain of \( g \).
+	Observe that by our properties of the upper and lower sum of \( f  \), we have 
+	\[ y_{k} - y_{k-1} \leq M_{k} - m_{k } \ \text{ for all } k.  \]
+	Since \( f  \) is integrable, we can choose \( \epsilon = b -a  \) so that
+	\begin{align*}
+	    U(f, P_{\epsilon }) - L(f, P_{\epsilon }) &< b - a . \\
+	\end{align*}
+	Putting everything together, we have 
+	\begin{align*}
+	    U(g \circ f, P_{\epsilon }) - L(g \circ f, P_{\epsilon }) &= \sum_{ k=1 }^{ n } (M'_{k} - m'_{k}) \Delta y_{k} \\
+								&= \sum_{ k=1 }^{ n } (M'_{k} - m'_{k }) \Delta y_{k} \cdot  \frac{ \Delta x_{k }  }{  \Delta x_{k } } \\ 
+								&=  \frac{ 1 }{ b-a } \sum_{ k=1 }^{ n }  (M'_{k} - m'_{k }) \Delta y_{k} \Delta x_{k } \\
+								&\leq \frac{ 1 }{ b-a } \sum_{ k=1 }^{ n } (M'_{k } - m'_{k } )  (M_{k } - m_{k } ) \Delta x_{k } \\
+								&< \frac{ \epsilon  }{ b -a  } \sum_{ k=1 }^{ n } (M_{k } - m_{k }) \Delta x_{k } \\
+								&< \frac{ \epsilon  }{ b -a  } \cdot b -a  \\
+								&= \epsilon.
+ 	\end{align*}
+	Hence, the composition \( g \circ f \) is an integrable function on \( [a,b] \) by Theorem 7.2.8.
+	\end{proof}
+	Here is a correction of the above proof
+	\begin{proof}
+		Suppose \( f  \) is an integrable function on \( [a,b] \) and \( g  \) is an increasing function on \( [a,b]  \). Let \( \epsilon > 0  \). Then we shall show that for an arbitrary partition \( P_{\epsilon } \), we have 
+		\[  U( g \circ f, P_{\epsilon }) - L(g \circ f, P_{\epsilon }) < \epsilon. \] 
+		Let \( P_{\epsilon } \) be an arbitrary partition. Since \( f  \) is an integrable function, we know that
+		\[  U(f, P_{\epsilon }) - L(f, P_{\epsilon }) = \sum_{ k=1 }^{ n } [M_{k} - m_{k }] \Delta x_{k} < \epsilon. \]
+		Note that the range of \( f  \) is contained within the domain of \( g  \). Define \( y_{k} = f(x_{k}) \). Since \( g  \) is an increasing function, we can write 
+		\begin{align*}
+			U(g \circ f, P_{\epsilon }) - L(g \circ f, P_{\epsilon }) &= \sum_{ k=1 }^{ n } [ M'_{k} - m'_{k}] \Delta y_{k} \\ 
+																	  &= \sum_{ k=1 }^{ n } [ g(y_{k } ) - g(y_{k-1})] \Delta y_{k} \cdot \frac{ \Delta x_{k } }{ \Delta x_{k}  } \\
+																	  &= \frac{ g(f(b)) - g(f(a))   }{ b - a  } \sum_{ k=1 }^{ n } \Delta y_{k} \Delta x_{k } \\ 
+		\end{align*}
+		By the properties of upper and lower sum of \( f  \), observe that for every \( k  \)
+		\[ \Delta y_{k} \leq M_{k } - m_{k }.  \]
+		Then we just have 
+		\begin{align*}
+			\frac{ g(f(b)) - g(f(a))  }{ b -a  }  \sum_{ k=1 }^{ n }  \Delta y_{k} \Delta x_{k} &\leq \frac{ g(f(b)) - g(f(a))  }{ b - a  } \sum_{ k=1 }^{ n } [ M_{k} - m_{k }] \Delta x_{k }  \\
+		\end{align*}
+		Using the assumption that \( f  \) is integrable on \( [a,b]  \), we have that the right side of the inequality above leads to 
+		\[  U(g \circ f, P_{\epsilon }) - L(g \circ f, P_{\epsilon }) < \epsilon. \]
+		Using Theorem 7.2.8, we must have \( g \circ f  \) integrable on \( [a,b] \).
+
+	\end{proof}
+\end{enumerate}
+
+
+

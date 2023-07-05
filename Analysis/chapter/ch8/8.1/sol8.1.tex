@@ -1,0 +1,302 @@
+
+\subsubsection{Exercise 8.1.1} 
+\begin{enumerate}
+    \item[(a)] Explain why both the Riemann sum \( R(f,P)  \) and \( \int_{ a }^{ b } f  \) fall between \( L(f,P)  \) and \( U(f,P)  \). 
+        \begin{proof}[Solution]
+            Let \( (P, \{ c_{k }  \} ) \) be a tagged partition of \( [a,b]  \). Then by definition of by the definition of \( M_{k }  \)  and \( m_{k }   \) (the supremums and infimums  of each subinterval \( [x_{k-1} , x_{k }] \) ), we know that 
+            \[  m_{ k } \leq f(c_{ k }  )  \leq M_{k } \] which imply that 
+            \[ L(f,P) \leq R(f,P) \leq U(f,P). \]
+            If \( f  \) is integrable then \( L(f) = U(f) = \int_{ a }^{ b } f   \). This means 
+            \[ L(f,P) \leq \int_{ a }^{ b } f \leq U(f,P).\]
+        \end{proof}
+        \item[(b)] Explain why \( U(f,P') - L(f, P') < \epsilon / 3.  \)
+            \begin{proof}[Solution]
+           Let \( \epsilon > 0  \). By the properties of the supremum and infimum, we have 
+            \[ U(f,P') < U(f) + \frac{ \epsilon  }{ 6 } \] and 
+            \[  L(f,P') > L(f) - \frac{ \epsilon  }{ 6 }. \] Subtracting these two inequalities and assuming \( f  \) is integrable (\( U(f) = L(f) \)), we end up with 
+            \[  U(f,P') - L(f,P') < (U(f) - L(f)) + \frac{ \epsilon  }{ 3 } = \frac{ \epsilon  }{ 3 }. \]
+            \end{proof}
+\end{enumerate}
+
+If we can show \( U(f,P) < U(f,P') + \epsilon / 3   \) (and similarly \( L(f,P') - \epsilon / 3 > L(f,P)  \)), then it will follow that 
+\[  \Big| R(f,P) - \int_{ a }^{ b } f  \Big| < \epsilon \]
+and the proof will be done. To do this, we can try to estimate the distance between \( U(f,P)  \) and \( U(f, P')  \).
+\subsubsection{Exercise 8.1.2} Explain why \( U(f,P) - U(f,P') \geq 0  \).
+\begin{proof}[Solution]
+If \( P = P' \cup P_{\epsilon }  \), then it follows from lemma 7.2.4 that \( U(f,P) \geq U(f,P')   \) which implies that \( U(f,P) - U(f,P') \geq 0  \). 
+\end{proof}
+
+Observe that for any partition, the upper sum takes on the form 
+\[  U(f,P) = \sum_{ k=1 }^{ n } M_{k } \Delta x_{k } \] which contains a good number of the \( M_{k }  \) terms cancel out.
+\subsubsection{Exercise 8.1.3 } 
+\begin{enumerate}
+    \item[(a)] In terms of n, what is the largest number of terms of the form \( M_{k} ( x_{k } - x_{k-1} ) \) that could appear in one of \( U(f,P)  \) or \( U(f,P') \) but not the other?
+        \begin{proof}[Solution]
+            Since \( P_{\epsilon } \) consists of \( n-1  \) points in \( [a,b]  \) and there are three points, that being the two endpoints and our sampling point \( c_{k }  \), we must have at most \( 3(n-1)  \) points.
+        \end{proof}
+    \item[(b)] Finish the proof in this direction by arguing that 
+        \[  U(f,P) - U(f,P') < \frac{ \epsilon  }{ 3 }. \]
+        \begin{proof}
+        Observe that for all \( k \in \N  \) that \( M_{ k } \leq 3(n-1)M   \) for some \( M > 0  \) from part (a). Since \( P  \) is \( \delta- \)fine, we must have \( \Delta x_{k } < \epsilon / 9nM \). Hence, we must have   
+        \begin{align*}
+            U(f,P) - U(f, P') &= \sum_{ k=1  }^{ n  } M_{k } \Delta x_{ k }  \\
+                              &\leq (3n-3)M \sum_{ k=1 }^{ n } \Delta x_{k } \\  
+                              &< (3n-3)M \cdot \frac{ \epsilon  }{ 9nM  } \sum_{ k=1 }^{ n } \\
+                              &= (3n-3) \cdot \frac{ \epsilon  }{ 9  } \\ 
+                              &< \frac{ \epsilon  }{ 3 }.
+        \end{align*}
+        The same argument can be applied to the lower sums \( L(f,P)  \) and \( L(f,P') \). Then observe that 
+        \[   L(f,P') - \frac{ \epsilon  }{ 3 } <  L(f,P) \leq R(f,P) \leq U(f,P) < U(f,P') + \frac{ \epsilon  }{ 3 }  \] now holds which completes our proof that 
+        \[ \Big| R(f,P) - \int_{ a }^{ b } f  \Big| < \epsilon. \]
+        \end{proof}
+\end{enumerate}
+
+
+
+
+
+\( (\Leftarrow) \) For the backwards direction, we can assume that \( \epsilon -\delta \)criterion in Theorem 8.1.2 holds and show that \( f  \) is integrable. To show this, we must have the upper sums are close to the lower sums. We now know that it is always the case that 
+\[  L(f,P) \leq R(f,P) \leq U(f,P) \] independent of the tags chosen to compute \( R(f,P)  \). 
+\subsubsection{Exercise 8.1.4} 
+\begin{enumerate}
+    \item[(a)] Show that if \( f  \) is continuous, then it is possible to pick tags \( \{ c_{k } \}_{k=1}^n  \) so that 
+        \[  R(f,P) = U(f,P). \] Similarly, there are tags for which \( R(f,P) = L(f,P)  \) as well.
+        \begin{proof}
+            Let \( \{ c_{k }  \}_{k=1}^n  \) be an arbitrary tag on a partition \( P \). Since \( f \) is continuous on the compact set \( [a,b] \), we know that \( f  \) must also be uniformly continuous. Denote the supremums of each subinterval \(  [x_{k-1}, x_{k }] \) by \( M_{k } = f(z_{k })  \) for all \( k  \).  Let \( \epsilon >0  \). Then there exists some \( \delta > 0  \) such that whenever \( | c_{k } - z_{k } | < \delta  \), we have 
+            \[   f(c_{k}) - M_{k }     < \frac{ \epsilon  }{ b -a  }. \] Then observe that for any partition \( P  \) of \( [a,b]  \), we have
+        \begin{align*}
+            R(f,P) - U(f, P) &= \sum_{ k=1 }^{ n } [f(c_{k }) - M_{k } ] \Delta x_{k } \\
+                             &< \frac{ \epsilon  }{ b -a  } \sum_{ k=1 }^{ n } \Delta x_{k } \\
+                             &= \frac{ \epsilon  }{ b -a  } \cdot b-a = \epsilon. \\
+        \end{align*}
+        Since \( \epsilon > 0 \) is arbitrary, we must have \( R(f,P) = U(f,P) \). A similar argument can be used to show \( R(f,P) = L(f,P) \).
+        \end{proof}
+    \item[(b)] If \( f  \) is not continuous, it may not be possible to find tags for which \( R(f,P) = U(f,P) \). Show, however, that given an arbitrary \( \epsilon >0  \), it is possible to pick tags for \( P  \) so that 
+        \[  U(f,P) - R(f,P) < \epsilon. \] The analogous statement holds for lower sums.
+        \begin{proof}
+            Let \( \epsilon > 0  \). Let \( \{ c_{k } \}_{k=1}^{n}  \) be an arbitrary tag for \( P  \). Since \( | f |  \) is bounded by some \( M > 0  \), we know that the distance between the supremums of each subinterval \( M_{k} \) and each tag \( f(c_{k }) \) can be bounded by \( M  \); that is, we have 
+            \[   M_{k } - f(c_{k }) \leq  2Mn. \] Since the partition \( P  \) is \( \delta- \)fine, we know that we can choose \( \delta = \frac{ \epsilon  }{ 2Mn }  \) such that every subinterval \( [x_{k-1}, x_{k}] \) satisfies 
+            \[ \Delta x_{k } < \frac{ \epsilon  }{ 2Mn }. \] Then observe that 
+        \begin{align*}
+            U(f,P) - R(f,P)   &= \sum_{ k=1 }^{ n } [ M_{k } - f(c_{k })]  \Delta x_{k }\\
+                              &\leq 2M \sum_{ k=1 }^{n } \Delta x_{k }  \\ 
+                              &< 2M \cdot \frac{ \epsilon  }{ 2Mn } \sum_{ k=1 }^{ n } \\
+                              &= \epsilon.
+        \end{align*}
+        The same argument can be applied to show 
+        \[  R(f,P) - L(f,P) < \epsilon. \]
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 8.1.5} Use the results of the previous exercise to finish the proof of Theorem 8.1.2.
+
+\begin{proof}
+Let \( \epsilon > 0  \). Then let \( (P, \{ c_{k } \}) \) be a tagged partition. Let \( P = P_{1} \cup P_{2} \) be a common refinement. By assumption, we can have 
+\begin{align*}
+    R(f,P_{1}) - R(f, P_{2}) &= \big[ R(f, P_{1}) - A  \big] + \big[ A - R(f, P_{2})\big]  \\
+                             &< \frac{ \epsilon  }{ 4 }  + \frac{ \epsilon  }{ 4 }.
+\end{align*} By using the results of part (a) and part(b), we have 
+\begin{align*}
+    U(f,P) - L(f,P) &= \big[ U(f,P) - R(f,P_{1}) \big]  + \big[ R(f,P_{1}) - R(f,P_{2} \big] \\ 
+                    &+ \big[ R(f,P_{2} - L(f,P) \big]  \\
+                    &< \frac{ \epsilon  }{ 4 }  + \frac{ \epsilon  }{ 4 }  + \frac{ \epsilon  }{ 4 }  + \frac{ \epsilon  }{ 4  } \\
+                    &= \epsilon.
+\end{align*}
+Hence, \( f  \) is integrable and \( A = \int_{ a }^{ b } f  \).
+\end{proof}
+
+
+\subsubsection{Exercise 8.1.6} Consider the interval \( [0,1]  \). 
+\begin{enumerate}
+    \item[(a)] If \( \delta(x) = 1/ 9 \), find a \( \delta(x)-\)fine tagged partition of \( [0,1]  \). Does the choice of tags matter in this case? 
+        \begin{proof}[Solution]
+        Since \( \delta(x) \) is just a constant, the choice of tags does not matter in this case.
+        \end{proof}
+    \item[(b)] Let 
+        \[ \delta(x) = 
+        \begin{cases}
+            1/4 \ &\text{ if } x = 0 \\
+            x/3  &\text{ if  } 0  < x \leq 1.
+        \end{cases}  \]
+        Construct a \( \delta(x)- \)fine tagged partition of \( [0,1] \).  
+    \begin{proof}[Solution]
+        Let \( P = \{ ([0, 1/7], 1/2), (\{ 1/2, 2/3 \}, 0 ) \}, (\{ 2/3, 1 \}, 1) \) is a \( \delta(x)- \)fine partition, then observe that 
+        \begin{align*}
+            x_{1} - x_{0} &< \delta(c_{1}) \implies \frac{ 1 }{ 7 } < \frac{ 1 }{ 6 }. \\
+        \end{align*}
+        and 
+        \begin{align*}
+            x_{2} - x_{1} < \delta(c_{2}) \implies \frac{ 11 }{ 21 } < \frac{ 1 }{ 4 } \\
+        \end{align*}
+        and then finally, 
+        \begin{align*}
+            x_{3} - x_{2} &< \delta(c_{3}) \implies \frac{ 1 }{ 3 } < \frac{ 1 }{ 2 }. \\
+        \end{align*}
+
+    \end{proof}
+\end{enumerate}
+
+\begin{tcolorbox}
+\begin{thm}
+    Given a gauge \( \delta(x)  \) on an interval \( [a,b]  \), there exists a tagged partition \( (P, \{ c_{k }  \}_{k=1}^{n}) \) that is \( \delta(x)- \)fine.
+\end{thm}
+\end{tcolorbox}
+\begin{proof}
+    Let \( I_{0} = [a,b]  \). It may be possible to find a tag that the trivial partition \( P = \{ a,b  \}  \) works. Specifically, if \( b-a < \delta(x)  \) for some \( x \in [a,b]  \), then we can set \( c_{1} \) equal to such an \( x  \) and notice that \( (P, \{ c_{1} \} ) \) is \( \delta(x)-\)fine. If no such \( x  \) exists, then bisect \( [a,b] \) into two equal halves.
+\end{proof}
+
+\subsubsection{Exercise 8.1.7} Finish the proof of Theorem 8.1.5.
+\begin{proof}
+    Let each interval \( I_{k } = [x_{k-1}, x_{k }] \) and define the gauge \( \delta(c_{k }) =   \epsilon / 2^{k-1}  \) to be the length of each \( I_{k } \). Then we for any \( \epsilon > 0  \), we can choose \( N \in \N  \) such that for any \(  k \geq N  \) the length 
+    \[  | x_{k} - x_{k-1}  | < \epsilon \] since \( \epsilon / 2^{k-1}  \) converges to \( 0  \) as \( k \to \infty  \). Since this applies for every subinterval, the partition \( (P, \{ c_{k }  \}_{k=1}^{n}) \) is \( \delta(x)- \)fine.
+
+
+\end{proof}
+
+
+\subsubsection{Exercise 8.1.8} Finish the argument.
+\begin{proof}
+Let \( \epsilon > 0  \). Since \( f  \) has generalized Riemann integral \( A_{1} \) and \( A_{2} \), there exists a gauge \( \delta(x) = \min \{ \delta_1(x), \delta_2(x)  \}  \) such that for each tagged partition that is \( \delta(x)- \)fine, we must have
+\begin{align*}
+    | A_{1} - A_{2} | &= \Big| A_{1} - R(f,P) + R(f,P) - A_{2} \Big|   \\
+                      &\leq | A_{1} - R(f,P)  | + | R(f,P) - A_{2} | \\
+                      &< \frac{ \epsilon  }{ 2 }  + \frac{ \epsilon  }{ 2 } \\
+                      &= \epsilon.
+\end{align*}
+Since \( \epsilon > 0  \) is arbitrary, the distance \( | A_{1} - A_{2}  | < \epsilon \) implies \( A_{1} = A_{2} \).
+\end{proof}
+
+\subsubsection{Exercise 8.1.9} Explain why every function that is Riemann-integrable with \( \int_{ a }^{ b } f = A  \) must also have generalized Riemann integral \( A  \).
+\begin{proof}[Solution]
+    If \( f \) is Riemann-integrable, we know that \( f  \) must also be bounded by some \( M > 0  \) which is the same for all the subintervals \( [ x_{k-1}, x_{k }] \). This means every partition \( (P, \{ c_{k } \}_{k=1}^n) \) is \( \delta(x)- \)fine. Hence, \( f  \) also contains a generalized Riemann integral \( A  \). 
+\end{proof}
+
+The converse statement of the above is not true since Dirichel's function 
+\[  g(x) = 
+\begin{cases}
+    1 \ &\text{ if } x \in \Q \\
+    0 \ &\text{ if } x \notin \Q 
+\end{cases} \]
+is a non-Riemann-integrable function whose discontinuities are at every point of \( \R  \).
+
+\begin{tcolorbox}
+\begin{thm}
+    Dirichlet's function \( g(x)  \) is generalized Riemann-integrable on \( [0,1]  \) with \( \int_{ 0 }^{ 1 } g = 0  \).
+\end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+    Let \( \epsilon > 0  \). The goal is to construct a gauge \( \delta(x)  \) on \( [0,1]  \) such that whenever \( (P, \{ c_{k }  \}_{k=1}^{n}  ) \) is a \( \delta(x)- \)fine tagged partition, it follows that 
+    \[  0 \leq \sum_{ k=1 }^{ n } g(c_{k }) \Delta x_{k} < \epsilon. \]
+    In this context, the gauge \( \delta(x)  \) represents the restriction on the size of \( \Delta x_{k } = x_{k } - x_{k-1} \) where \( \Delta x_{k } < \delta(c_{k }) \). Thus, the Riemann sums for the \( g(x) \) consists of products of the form \( g(c_{k }) \Delta x_{k } \). If we take irrational tags, then \( g(c_{k}) = 0  \) by definition of \( g  \). Hence, the only case we need to worry about is when we have rational tags.
+
+    Let \( \{ r_{1}, r_{2},  r_{3}, \dots \}  \) be a countable set of rational numbers that are contained in \( [0,1]  \). Then for each \( r_{k }  \), define \( \delta(r_{k }) = \epsilon / 2^{k+1} \). If \( x \notin \Q  \), then set \( \delta(x) = 1  \).
+\end{proof}
+
+\subsubsection{Exercise 8.1.10} Show that if \( (P, \{ c_{k } \}_{k=1}^n ) \) is a \( \delta(x)- \)fine tagged partition, then \( R(g,P) < \epsilon \).
+\begin{proof}
+    \textbf{Please Check later.} If \( c_{k } \notin \Q  \), it follows that \( g(c_{k}) = 0  \) for all \( k  \). Then it immediately follows that 
+    \[  R(g,P) < \epsilon. \] 
+    Otherwise, Let \( \{ r_{1}, r_{2}, r_{3}, \dots  \}  \) be a countable set of rational numbers that are contained in \( [0,1]  \). Since \( r_{k } \in \Q \) for all \( k  \), we must have \( g(r_{k }) = 1  \). Using the definition of \( \delta(r_{k })  \) and the fact that \( (P, \{ c_{k } \}_{k=1}^n)  \) is a \( \delta(x)-\) fine tagged partition, we must have 
+    \begin{align*}
+       0 \leq R(g, P)  = \sum_{ k=1 }^{n } g(r_{k }) \Delta x_{k }
+                = \sum_{ k=1 }^{ n } \Delta x_{k } 
+                < \sum_{ k=1 }^{ n } \frac{ \epsilon  }{ 2^{k-1} }  
+                < \epsilon.
+    \end{align*}
+    Hence, \( R(g,P) < \epsilon. \)
+\end{proof}
+
+
+\begin{enumerate}
+    \item[(i)] The failure of the Dirichlet's function to be Riemann-integrable is caused by the freedom to choose between \( R(g,P)  = 1  \) and \( R(g,P) = 0  \) based on either rational or irrational tagged partitions.  
+    \item[(ii) ] Nonconstant gauges that depend on the value of \( x  \) on some interval causes us to discriminate based on which tagged partitions qualify as \( \delta(x)- \)fine which makes it easier to achieve
+        \[  | R(f,P) - A  | < \epsilon \]
+        for smaller and more deliberately selected set of tagged partitions.
+\end{enumerate}
+
+
+
+\subsubsection{Exercise 8.1.11} Show that 
+    \[  F(b) - F(a) = \sum_{ k=1 }^{ n } [F(x_{k} ) - F(x_{k-1})].\]
+    \begin{proof}[Solution]
+    Since \( F: [a,b] \to \R  \) is differentiable at each point in \( [a,b]  \), we must also have \( F  \) continuous at each point in \( [a,b]  \). This means that the sum 
+    \[  \sum_{ k=1 }^{ n }[F(x_{k }) - F(x_{k-1})] \] is telescoping and thus we must have 
+    \[  \sum_{ k=1 }^{ n }[F(x_{k }) - F(x_{k-1})] = F(b) - F(a). \] 
+\end{proof} 
+
+
+    If \( \{ c_{k }  \}_{k=1}^{n} \) is a set of tags for \( P  \), then we can estimate the difference between the Riemann sum \( R(f,P)  \) and \( F(b) - F(a)  \) by
+\begin{align*}
+    | F(b) - F(a) - R(f,P)  | &= \Big| \sum_{ k=1 }^{ n } [F(x_{k}) - F(x_{k-1}) - f(c_{k}) (x_{k } - x_{k-1})] \Big|  \\
+                              &\leq \sum_{ k=1 }^{ n } | F(x_{k}) - F(x_{k-1}) - f(c_{k })(x_{k } - x_{k-1}) |.
+\end{align*}
+Let \( \epsilon > 0  \). Our goal is to construct a gauge \( \delta(c)  \) such that 
+\[  | F(b) - F(a) - R(f,P)  | < \epsilon \]
+for all \( (P, \{ c_{k } \} ) \) that are \( \delta(c)- \)fine (Using the variable \( c  \) in the gauge function is more convenient than \( x  \) in this case.)
+
+
+\subsubsection{Exercise 8.1.12} For each \( c \in [a,b]  \), explain why there exists a \( \delta(c) > 0  \) (a \( \delta > 0  \) depending on \( c   \) ) such that 
+\[  \Big| \frac{ F(x) - F(c)  }{ x -c  }  - f(c)  \Big|  < \epsilon \]
+for all \( 0 < | x -c  | < \delta(c)  \).
+\begin{proof}[Solution]
+Since \( F  \) is differentiable, then by we are guaranteed to find a \( \delta(c) > 0  \) such that whenever \( 0 < | x - c  |  < \delta(c)  \) it follows that 
+\[  \Big| \frac{ F(x) - F(c)  }{ x -c  }  - f(c)  \Big| < \epsilon. \]
+
+
+
+\end{proof}
+
+
+\subsubsection{Exercise 8.1.13} 
+
+\begin{enumerate}
+    \item[(a)] For a particular \( c_{k } \in [x_{k-1}, x_{k } ]  \) of \( P  \), show that  
+\[  | F(x_{k }) - F(c_{k}) - f(c_{k })(x_{k } - x_{k-1})  | < \epsilon ( x_{k } - c_{k }) \] and 
+\[  | F(c_{k}) - F(x_{k-1}) - f(c_{k })(c_{k} - x_{k-1})   | <  \epsilon (c_{k } -  x_{k-1}). \]
+\begin{proof}
+Note that the differentiability of \( F \) implies that the right hand limit and left hand limit are the same. Hence, we can state that 
+\[ \lim_{ x_{k}  \to c_{k }  }  \frac{ F(x_{k } ) - F(c_{k })  }{ x_{k } - c_{k}  } = \lim_{ x_{k-1}  \to c_{k }  } \frac{ F(c_{k }) - F(x_{k-1}) }{ c_{k } - x_{k-1} }. \tag{1}  \] Then by definition of the derivative, the right hand side of (1) implies
+\[  \Big| \frac{ F(x_{k } ) - F(c_{k }) }{ x_{k } - c_{k } }  - f(c)  \Big| < \epsilon  \] which leads to 
+\[  | F(x_{k }) - F(c_{k}) - f(c_{k })(x_{k } - x_{k-1})  | < \epsilon ( x_{k } - c_{k }) \] and  likewise the left hand side of (1) implies
+\[  \Big| \frac{ F(c_{k } ) - F(x_{k-1}) }{ c_{k} - x_{k-1} } - f(c) \Big| < \epsilon \] which also implies 
+\[  | F(c_{k}) - F(x_{k-1}) - f(c_{k })(c_{k} - x_{k-1})   | <  \epsilon (c_{k } -  x_{k-1}). \]
+\end{proof}
+    \item[(b)] Now, argue that 
+        \[  | F(c_{k }) - F(x_{k-1}) - f(c_{k } )(c_{k} - x_{k-1}) | < \epsilon (c_{k } - x_{k-1}). \]
+        \begin{proof}
+        Let \( \epsilon > 0  \). Using algebraic manipulations we can write, collecting terms, and using the results from part (a), we have
+        \begin{align*}
+            | F(x_{k}) - F(x_{k-1}) -F(c_{k})(x_{k } - x_{k-1}) | &\leq | F(x_{k}) - F(c_{k } ) - f(c_{k}  ) (x_{k } - c_{k }) | \\&+ | F(c_{k})  - F(x_{k-1}) - f(c_{k }) (c_{k} - x_{k-1}) |   \\
+                                                                  &< \epsilon (x_{k } - c_{k }) + \epsilon(c_{k } - x_{k-1}) \\
+                                                                  &= \epsilon(x_{k } - x_{k-1}).
+        \end{align*}
+        Then 
+        \begin{align*}
+            | F(b) - F(a) - R(f,P)   | &<  \epsilon  \sum_{ k=1 }^{ n } ( x_{k } - x_{k-1}) \\
+                                       &=\epsilon (b -a )
+        \end{align*}
+        \end{proof}
+\end{enumerate}
+
+
+\subsubsection{Exercise 8.1.14} 
+\begin{enumerate}
+    \item[(a)] Why are we sure that \( f  \) and \( (F \circ g)' \) have generalized Riemann integrals? 
+        \begin{proof}[Solution]
+            Since \( F  \) is differentiable and satisfies \( F'(x) = f(x)  \) for all \( x \in g[a,b]  \), we know that \( f  \) must have a Generalized Riemann Integral. Likewise, the differentiability as well as the continuity of \( F \) and \( g  \) guarantee Riemann integrability of their composition which also implies that the \( (F \circ g)  \) to have a Generalized Riemann integral. 
+        \end{proof}
+    \item[(b)] Use Theorem 8.1.9 to finish the proof.
+        \begin{proof}
+            Assume \( g  \) is differentiable and \( F  \) differentiable with \( F'(x) = f(x) \) for all \( x \in g[a,b] \). By part (a), we must have the following 
+        \begin{align*}
+            \int_{ a }^{ b } (f \circ g) \cdot g' &= (F \circ g)(b) - (F \circ g)(a) \\
+                                                  &= F(g(b)) - F(g(a)) \\
+                                                  &= \int_{ g(a) }^{ g(b) } f.
+        \end{align*}
+        Hence, we conclude that 
+        \[ \int_{ a }^{ b } (f \circ g) \circ g'  = \int_{ g(a) }^{ g(b) } f.\]
+        \end{proof}
+\end{enumerate}
+
+

@@ -1,0 +1,309 @@
+\section{Functional Limits}
+
+
+\subsubsection{Exercise 4.2.1}
+
+\begin{enumerate}
+    \item[(a)] Supply the details for how Corollary 4.1.1.1 follows from the Sequential Criterion for Functional Limits in Theorem 4.1.1 and the Algebraic Limit Theorem for sequences proved in Chapter 2.
+
+    \begin{proof}
+    Let \( f \) and \( g \) be functions defined on a domain \( A \subseteq \R  \). Assume \( \lim_{ x \to c } f(x) = L  \) and \( \lim_{ x \to c } g(x) = M  \) for some limit point \( c  \) of \( A  \). By the Sequential Criterion for functional limits, let \( (x_n), (y_n) \subseteq A  \) such that \( (x_n) \to c  \) and \( (y_n) \to c  \) where \( x_n, y_n \neq c  \) implying that \(f(x_n) \to L   \) and \( g(y_n) \to M  \). By the Algebraic Limit Theorem, we can state that 
+    \[  \lim [f(x_n) + g(y_n)]\lim f(x_n) + \lim g(y_n) = L  + M.\]
+    Hence, we have that 
+    \[  \lim_{ x \to c } [f(x) + g(x)] = L + M  \]
+    by the Sequential Criterion for Functional Limits.
+    \end{proof}
+    \item[(b)] Now, write another proof of Corollary 4.1.1.1 part (ii) directly from Definition for functional limits without using the sequential criterion in Theorem 4.1.1.
+    \begin{proof}
+    We can also prove the addition rule for Functional Limits directly from the definition. Suppose \( \lim_{ x \to c } f(x) = L  \) and \( \lim_{ x \to c } g(x) = M  \). Then for some \( \delta > 0  \), suppose \( c  \) is a limit point of \( A  \) such that \( 0 < | x -c  | < \delta \). We want to show that for any arbitrary \( \epsilon > 0  \) that 
+    \[  | (f(x) + g(x)) - (L + M) | < \epsilon.  \]
+    Hence, choose \( \delta = \min \{ \delta_1, \delta_2  \}  \)
+    \begin{align*}
+        |(f(x) + g(x)) - (L + M)   | &= | (f(x) - L ) + (g(x) - M ) |  \\
+       &\leq  | f(x) - L  |  + | g(x) - M  | \\ 
+       &< \frac{ \epsilon  }{ 2  }  + \frac{ \epsilon  }{ 2 } \\
+       &= \epsilon.
+    \end{align*}
+    Hence, we have 
+    \[  \lim_{ x \to c } [f(x) + g(x)] = L + M.  \]
+    \end{proof}
+    \item[(c)] Repeat (a) and (b) for Corollary 4.1.1.1 part (iii).
+    \begin{proof}
+    Let \( (x_n), (y_n) \subseteq A  \) such that \( (x_n) \to c  \) and \( (y_n) \to c  \) for some limit point \( c  \) of \( A  \) where  we have 
+    \( \lim f(x_n) = L   \) and \( \lim  g(y_n) = M  \). By the Algebraic Limit Theorem, we have that 
+    \[ \lim [f(x_n)g(y_n)] = \lim f(x_n) \cdot \lim g(y_n) = L \cdot M. \]
+   By the Sequential Criterion, this also means that 
+   \[  \lim_{ x \to c } [f(x)g(x)] = L \cdot M. \]
+
+    Now we can prove the same fact but this time we use only the Definition of functional limit.
+    Let \( f: A \to \R  \). Suppose there exists \( \delta > 0  \) such that \( 0 < | x - c  | < \delta  \) where \( c  \) is a limit point of \( A  \). Let \( \epsilon > 0  \). Our goal is to show that 
+    \[ | f(x)g(x) - LM  | < \epsilon. \]
+    Since \( \lim_{ x \to c } f(x) = L  \) and \( \lim_{ x  \to c } g(x) = M  \), choose \( \delta = \min \{  \delta_1, \delta_2, \delta_3  \}  \) 
+    \begin{align*}
+        | f(x)g(x) - LM  | &= | f(x)g(x) - g(x)L + g(x)L - LM |  \\
+                           &= | g(x)(f(x) - L ) + L (g(x) - M)  | \\ 
+                           &\leq | g(x) | | f(x) - L  | + L | g(x) - M  |   \\
+                           &< M + 1 \cdot \frac{ \epsilon  }{ 2(M + 1)  } + L \cdot \frac{ \epsilon  }{ 2L  } \\
+                           &= \epsilon.
+    \end{align*}
+    Hence, we have that 
+    \[  \lim_{ x \to c } f(x)g(x) = L M. \]
+    \end{proof}
+\end{enumerate}
+
+
+\subsubsection{Exercise 4.2.2} For each stated limit, find the largest possible \( \delta- \)neighborhood that is a proper response to the given \( \epsilon  \) challenge.
+
+\begin{enumerate}
+    \item[(a)] \( \lim_{ x \to 3 } (5x - 6 ) = 9  \).
+        \begin{proof}[Solution]
+        Since \( \epsilon = 1  \), we know that 
+        \[ | (5x-6) - 9  | < 1.\]
+        To solve for \( \delta \), we do the following
+        \begin{align*}
+            | (5x - 6) - 9  | &= | 5 (x - 3 ) | < 1    \\
+                              &= 5 | x - 3  | < 1 
+        \end{align*}
+        which implies that 
+        \[  | x - 3  | < \frac{ 1 }{ 5 } = \delta. \]
+        Hence, the largest possible \( \delta- \)neighborhood that is a proper response to the given \( \epsilon   \) challenge. 
+        \end{proof}
+    \item[(b)] \( \lim_{ x \to 4 } \sqrt{ x } = 2  \), where \( \epsilon = 1  \).
+        \begin{proof}[Solution]
+        Since \( \epsilon = 1  \), we know that 
+        \[  | \sqrt{ x }  - 2  | < 1. \]
+        To get our \( \delta \), we just do the following manipulations
+        \begin{align*}
+            \sqrt{ x } - 2   &< 1  \\
+            \sqrt{ x } &< 3 \\
+            x &< 9 \\
+            | x - 4  | &< 5 = \delta. \\
+        \end{align*}
+        Hence, our \( \epsilon  \) response is \( \delta =  5  \).
+        \end{proof}
+    \item[(c)] \( \lim_{ x  \to \pi } [[x]] = 3 \), where \( \epsilon = 1  \). (The function \( [[x]] \) returns the greatest integer less than or equal to \( x  \).)
+        \begin{proof}[Solution]
+            Let \( \epsilon = 1  \). We want to generate a \( \delta > 0  \) that satisfies the \( \epsilon  \) challenge. Since \( [[\pi]] = 3  \), our max \( \delta- \)neighborhood can only have \( \delta = \pi - 3  \)
+        \end{proof}
+    \item[(d)] We have (c) but this time with \( \epsilon = .01 \).  
+        \begin{proof}[Solution]
+        It would still remain as \( \delta = \pi - 3  \).
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 4.2.5} Use Definition 4.1.1 to supply a proper proof for the following limit statements. 
+\begin{enumerate}
+    \item[(a)] \( \lim_{ x \to 2 } (3x + 4 ) = 10 \).
+        \begin{proof}
+        Suppose there exists a \( \delta > 0  \) such that \( 0 < | x - 2  | < \delta \). Let \( \epsilon > 0  \). Then observe that by using definition 4.1.1 that 
+        \begin{align*}
+            | f(x) - 10 | &= | (3x+4) - 10 |  \\
+                          &= 3 | x - 2  | \\
+                          &< 3 \delta \\
+                          &= 3 \cdot \frac{ \epsilon  }{ 3 }\\
+                          &= \epsilon.
+        \end{align*}
+        \end{proof}
+    \item[(b)] \( \lim_{ x \to 0 } x^3 = 0  \).
+        \begin{proof}
+            Suppose there exists \( \delta > 0  \) such that \( 0 < | x  | < \delta \). By applying the definition of functional limits, choose \( \delta = (\epsilon )^{1/3} \)
+        \begin{align*}
+            | f(x) - 0  | &= | x^3  |  \\
+                          &< \delta^3 \\
+                          &= \epsilon.
+        \end{align*}
+        Hence, we have \( | f(x) - 0  | < \epsilon  \) which implies that 
+        \[  \lim_{ x \to 0 } x^3 = 0. \]
+        \end{proof}
+    \item[(c)] \( \lim_{ x \to 2 } (x^2 + x - 1 ) = 5.  \)
+        \begin{proof}
+        Let \( \epsilon > 0  \). Choose \( \delta = \min \{ \delta_1, \delta_2  \}  \) such that 
+        \begin{align*}
+            | f(x)  - 5 | &= | (x^2 + x - 1 ) - 5  |  \\
+                          &= | x^2 + x - 6  | \\
+                          &= | x + 3  | | x - 2  | \\
+                          &< | x+3  | \delta \\
+                          &< 3 \cdot \frac{ \epsilon  }{ 3 } .
+                          &= \epsilon.
+        \end{align*}
+        \end{proof}
+    \item[(d)] \( \lim_{ x \to 3 } 1/x = 1/3.\)
+        \begin{proof}
+        Let \( \epsilon > 0  \). Choose \( \delta = \min \{ \delta_1, \delta_2 \}  \) such that 
+        \begin{align*}
+            | f(x) - \frac{ 1 }{ 3 }  | &= | \frac{ 1 }{ x }  - \frac{ 1 }{ 3 }  |  \\
+                                        &= \Big| \frac{ x - 3  }{ 3x }  \Big| \\
+    &= \frac{ | x - 3  |  }{ 3| x |  } \\ 
+    &< 12 \epsilon \cdot \frac{ 1 }{ 12 } \\
+    &= \epsilon.
+        \end{align*}
+        \end{proof}
+\end{enumerate}
+
+
+
+
+\subsubsection{Exercise 4.2.6} Decide if the following claims are true or false, and give short justifications for each conclusion.
+
+\begin{enumerate}
+    \item[(a)] If a particular \( \delta \) has been constructed as a suitable response to a particular \( \epsilon  \) challenge, then any smaller positive \( \delta \) will also suffice.
+        \begin{proof}[Solution]
+        This is true since \( \delta \) that has been constructed is the largest possible neighborhood that one can produce as a response to the \( \epsilon  \) challenge. 
+        \end{proof}
+    \item[(b)] If \( \lim_{ x \to a } f(x) = L  \) and \( a \) happens to be in the domain of \( f \), then \( f(a) = L  \).
+        \begin{proof}[Solution]
+        This is false. I have trouble thinking of an example. Will get back to this one soon. 
+        \end{proof}
+    \item[(c)] If \( \lim_{ x \to a } f(x) = L  \), then \( \lim_{ x \to a } 3[f(x) - 2 ]^2 = 3(L-2)^2 \).
+        \begin{proof}[Solution]
+        This is true based on the Algebraic Functional Limit Theorem.
+        \end{proof}
+    \item[(d)] If \( \lim_{ x \to a } f(x) = 0  \), then \( \lim_{ x\to a } f(x)g(x) = 0   \) for any function \( g \) (with domain equal to the domain of \( f \)).
+        \begin{proof}[Solution]
+        This is not true in general since we can easily produce \( g(x)  \) that is unbounded. For this to work, we would need \( g(x) \) to be bounded.
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 4.2.7} Let \( g: A \to \R  \) and assume that \( f \) is a bounded function on \( A \) in the sense that there exists \( M > 0  \) satisfying \( | f(x) | \leq  M  \) for all \( x \in A  \). Show that if \( \lim_{ x \to c } g(x) = 0  \), then \( \lim_{ x \to c } g(x)f(x) = 0  \) as well.
+\begin{proof}
+Let \( g: A \to \R  \). Suppose \( \lim_{ x \to c } g(x) = 0   \) and suppose \( f(x) \) is bounded; that is, there exists \( M > 0  \) such that \( | f(x) | \leq M  \) for all \( x \in A  \). Using the Functional Limit Definition, suppose there exists \( \delta > 0  \) such that \( 0 < | x - c  | < \delta \). Hence, we have 
+\begin{align*}
+    | f(x)g(x) - 0  | &= | f(x) g(x) |  \\
+                      &= | f(x) | | g(x) | \\
+                      &\leq M | g(x) | \\
+                      &< M \cdot \frac{ \epsilon  }{ M } \\
+                      &= \epsilon.
+\end{align*}
+It follows from this that \( \lim_{ x \to c } f(x)g(x) = 0  \).
+\end{proof}
+
+\subsubsection{Exercise 4.2.9 (Infinite Limits).} The statement \( \lim_{ x \to 0 } 1/x^2 = \infty  \) certainly makes intuitive sense. To construct a rigorous definition in the challenge response style of Definition 4.1.1 for an infinite limit statement of this form, we replace the (arbitrarily small) \( \epsilon > 0  \) challenge with an (arbitrarily large) \( M > 0  \) challenge: 
+
+\begin{tcolorbox}
+\begin{defn}
+We say \( \lim_{ x \to c } f(x) = \infty  \) to mean that for all \( M > 0  \), we can find a \( \delta > 0  \) such that whenever \( 0 < | x - c  | < \delta \), it follows that \( f(x) > M  \).
+\end{defn}
+\end{tcolorbox}
+\begin{enumerate}
+    \item[(a)] Show \( \lim_{ x \to 0 } 1/x^2 = \infty  \) in the sense described in the previous definition.
+        \begin{proof}
+        Let \( M > 0  \) and \( f(x) = 1/x^2 \). Choose \( \delta = 1 / \sqrt{ M }  \). Since \( 0 < | x  | < \delta \), we have 
+        \[ x^2 < \delta^2 \iff \frac{ 1 }{ x^2 } > \frac{ 1 }{ \delta^2  }. \]
+        But this means that 
+        \[ f(x) = \frac{ 1 }{ x^2 } > \frac{ 1 }{ \delta^2 } = \frac{ 1 }{ 1/ M } = M. \]
+        Hence, we have 
+        \[  \lim_{ x \to 0 } f(x) = \infty. \]
+        \end{proof} \item[(b)] Now, construct a definition for the statement \( \lim_{ x \to \infty  } f(x) = L  \). Show that \( \lim_{ x \to \infty  } 1/x = 0  \).
+       \begin{tcolorbox}
+       \begin{defn}
+      Let \( f: A \to \R  \). We say \( \lim_{ x \to \infty  } f(x) = L  \) to mean for any \( \epsilon > 0  \), there exists \( x_0 \in A  \) where \( A \subseteq \R  \) such that for any \( x \geq x_0  \), we have 
+      \[  | f(x) - L  | < \epsilon. \]
+       \end{defn}
+       \end{tcolorbox} 
+
+       \begin{proof}[Solution]
+        We start with some sketch work for what \( x_0  \) might be. Observe that 
+        \begin{align*}
+            | f(x) - L  | &= | \frac{ 1 }{ x } - 0  |  \\
+                          &= \frac{ 1 }{ x } \\ 
+                          &< \epsilon.
+        \end{align*}
+        Solving for \( x \), we get that 
+        \[  x > \frac{ 1 }{ \epsilon  }.  \] Hence, \( x_0 = 1 / \epsilon   \).
+
+        Let \( \epsilon > 0  \) and let \( f(x) = 1 / x  \). Choose \( x_0 = 1 / \epsilon  \). Suppose \( x > x_0 = 1 / \epsilon  \). Then we have that 
+        \[ x > \frac{ 1 }{ \epsilon  } \iff \frac{ 1 }{ x } < \epsilon. \]
+        Hence, we have that 
+        \[  | f(x) - 0  | < \epsilon. \]
+        This means \( \lim_{ x \to \infty  } f(x) = 0  \).
+        \end{proof}
+\end{enumerate}
+
+
+\subsubsection{Exercise 4.2.10}
+
+Introductory calculus courses typically refer to the \textit{right-hand limit} of a function as the limit obtained by "letting \( x \) approach \( a \) from the right-hand side"
+
+\begin{enumerate}
+    \item[(a)] Give a proper definition in the style of Definition 4.1.1 for the right-hand and left-hand limit statements: 
+
+        \begin{center}
+            \( \lim_{ x \to a^{+} } f(x) = L  \) and \( \lim_{ x \to a^{-} } f(x) = M. \) 
+        \end{center}
+        \begin{tcolorbox}
+        \begin{defn}
+        We say that
+        \[ \lim_{ x \to a^{+}  } f(x) = L  \text{~and~} \lim_{ x \to a^{-} } f(x) = M  \]  
+        if for all \( \epsilon > 0  \), there exists a \(  \delta > 0 \) such that whenever \( 0 < | x - c  | < \delta \)  and \( 0 < | c - x  | < \delta  \) we have 
+        \begin{align*}
+            | f(x) - L  | &< \epsilon, \\
+            | f(x) - M  | &< \epsilon
+        \end{align*}
+        respectively.
+        \end{defn}
+        \end{tcolorbox}
+    \item[(b)] Prove that \( \lim_{ x \to a } f(x) = L  \) if and only if both the right and left-hand limits equal to \( L  \).
+        \begin{proof}
+        Suppose \( \lim_{ x \to a } f(x) = L  \). Let \( \epsilon > 0  \). Then there exists \( \delta > 0  \) such that whenever \( 0 < | x - a  | < \delta  \), we have 
+        \[ | f(x) - L  | < \epsilon. \tag{1} \]
+        This denotes our right-hand limit. Note that this also works if we flip the order of our \( \delta \) assumption. Hence, we have \( 0 < | a - x  | < \delta \) such that (1) holds. 
+        \end{proof}
+        But this means our right-hand and left-hand limits are equal to each other.
+
+        Now we show the converse. Suppose the right-hand and left-hand limits are equal to each other; that is, 
+        \[ \lim_{ x \to a^{+}  } f(x) = \lim_{ x \to a^{-}  } f(x).\]
+        We want to show that \( \lim_{ x \to a } f(x) = L  \). Since both \( | x - a  | < \delta \) and \( | a - x   | < \delta  \) hold for both limits, we immediately have that 
+        \[  | f(x) - L  | < \epsilon. \]
+        Hence, we have \( \lim_{ x \to a } f(x) = L  \).
+\end{enumerate}
+
+
+
+
+\subsubsection{Exercise 4.2.11(Squeeze Theorem).} Let \( f,g, \) and \( h \) satisfy \( f(x) \leq g(x) \leq h(x) \) for all \( x  \) in some common domain \( A  \). Suppose \( f(x) \leq g(x) \leq h(x) \ \). If \( \lim_{ x \to c  } f(x) = L  \) and \( \lim_{ x \to c } h(x) = L  \) at some limit point \( c \) of \( A  \), show 
+\[  \lim_{ x \to c } g(x) = L  \] as well.
+\begin{proof}
+Let \( (x_n), (y_n), (z_n) \subseteq A   \). Suppose \( \lim_{ x \to c } f(x) = L  \) and \( \lim_{ x \to c } h(x) = L  \) at some limit point \( c \) of \( A  \). Using the Sequential Criterion for Functional Limits, let \( f(x_n) \to L  \) and \( h(z_n) \to L  \). There exists \( N \in \N  \) such that for any \( n \geq N  \), we have 
+\[ f(x_n) \leq g(y_n) \leq h(z_n) \iff L \leq g(y_n) \leq L. \]
+Hence, we have \( g(y_n) \to L  \) by the Squeeze Theorem for Sequences. By the Sequential Criterion, we must have \( \lim_{ x \to c } g(x) = L  \) as well.
+\end{proof}
+
+Another proof using the definition of Functional Limits directly.
+
+\begin{proof}
+Let \( f, g, h \) satisfy \( f(x) \leq g(x) \leq h(x) \) for all \( x  \) in some common domain \( A  \). Since \( \lim_{ x \to c } f(x) = L  \) and \( \lim_{ x \to c } h(x) = L  \), we know that 
+\[ \lim_{ x \to c } [h(x) - f(x)] = 0.  \]
+Suppose there exists \( \delta > 0  \) such that \(  0 < | x - c  | < \delta  \). Choose \( \delta = \min \{ \delta_1, \delta_2  \}  \). Since \( f(x) \leq g(x) \leq h(x) \), we have 
+\begin{align*}
+    | g(x) - L  | &\leq | h(x) - L  |  \\
+                  &= | h(x) - f(x) + f(x) - L  | \\
+                  &\leq | h(x) - f(x)  | + |  f(x) - L  | \\
+                  &< \frac{ \epsilon  }{ 2 } + \frac{ \epsilon  }{ 2 } \\
+                  &= \epsilon.
+\end{align*}
+But, this means that \( \lim_{ x \to a } g(x) = L.  \)
+\end{proof}
+
+Another proof 
+
+\begin{proof}
+Let \( f, g, h \) satisfy \( f(x) \leq g(x) \leq h(x) \) for all \( x  \) in some common domain \( A  \). 
+Suppose there exists \( \delta > 0  \) such that \(  0 < | x - c  | < \delta  \). Choose \( \delta = \min \{ \delta_1, \delta_2, \delta_3, \delta_4  \}  \). Since \( f(x) \leq g(x) \leq h(x) \), we have 
+\begin{align*}
+    | g(x) - L  | &= | g(x) - h(x) + h(x) - L  |  \\
+                  &\leq | g(x) - f(x) + f(x) - h(x)  | + | h(x) - L  | \\ 
+                  &\leq | g(x) - f(x) | + | f(x) - h(x)  | + | h(x) - L  | \\
+                  &\leq | h(x) - f(x)  | + | f(x) - L  | + | L - h(x) | + | h(x) - L  | \\
+                  &\leq | h(x) - L| + | L - f(x) | + 2| h(x) - L  | \\
+                  &< \frac{ \epsilon  }{ 4 } + \frac{ \epsilon  }{ 4 } + \frac{ 2 \epsilon  }{ 4 } \\
+                  &= \epsilon.
+\end{align*}
+Hence, it follows that 
+\[  \lim_{ x \to a } g(x) = L. \]
+\end{proof}
+
+
+
+
+
+

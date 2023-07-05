@@ -1,0 +1,102 @@
+
+\section{The Intermediate Value Theorem}
+
+\subsubsection{Exercise 4.5.3} 
+\begin{tcolorbox}
+\begin{defn}
+A function \( f  \) is \textit{increasing} on \( A  \) if \( f(x) \leq f(y) \) for all \( x < y  \) in \( A  \).
+\end{defn}
+\end{tcolorbox}
+Show that if \( f  \) is increasing on \( [a,b]  \) and satisfies the intermediate value property, then \( f  \) is continuous on \( [a,b] \).
+\begin{proof}
+    Let \( f  \) be an increasing function on \( [a,b] \). Since \( f  \) satisfies the intermediate value property, we know that \( f(a) \leq f(c) \leq f(b) \) for some \( c \in (x,y)  \). Since we know that \( f(a) \leq f(c)  \), let us suppose two cases; that is, let us suppose either \( f(c) - \epsilon  / 2 < f(a)  \) or \( f(a) \leq f(c) - \epsilon / 2  \). Then the former implies that we can set \( x_1 = a  \) and the latter implies that we can set \( f(c) - \epsilon / 2 = f(x_1) \). Taking the latter case, we can set \( f(x_1) = f(c) - \epsilon  / 2   \) and let \( x \in (x_1, c] \) because \( f  \) satisfies the intermediate value property. Hence, we have that 
+    \[  f(c) - \epsilon / 2 \leq f(x) \leq f(c) \tag{1}. \]
+    Likewise, we know that \( f(c) \leq f(b)  \). Let us suppose two cases again; either \( f(b) < f(c) + \epsilon  / 2  \) or \( f(b) \geq f(c) + \epsilon / 2  \). The former we can set \( b = x_2  \) and the latter we can set \( f(x_2) = f(c) + \epsilon  / 2  \) because \( f  \) satisfies the intermediate value theorem. If we let \( x \in [c, x_2) \), then we have that 
+    \[  f(c) \leq f(x) \leq f(c) + \epsilon / 2 = f(x_2) \tag{2}. \]
+    Taking (1) and (2) together then choose \( \delta = \min \{ x_1 - c, x_2 - c  \}  \), we have that 
+    \[   \epsilon / 2 \leq f(x) - f(c) \leq \epsilon / 2 \]
+    which is equivalent to 
+    \[  | f(x) - f(c)  | \leq \epsilon / 2. \]
+\end{proof}
+
+
+
+\subsubsection{Exercise 4.5.5} 
+\begin{enumerate}
+    \item[(a)] Finish the proof of the Intermediate Value Theorem using the Axiom of Completeness started previously.
+        \begin{proof}
+        Considering the special case where \( f  \) is a continuous function satisfying the property that \( f(a) < 0 < f(b) \). Our goal is to show that \( f(c) \) for some \( c \in (a,b) \). Define the set 
+        \[ K = \{ x \in [a,b] : f(x) \leq 0  \}. \] 
+Note that \( f(b)  \) is an upper bound for \(  K \) and we know \( a \in K  \) since \( f(a) < 0  \). Hence, we have that \( \sup K  \) exists by the Axiom of Completeness. Our goal is to show that \( \sup  K = f(c) = 0  \). Consider the cases where \( f(c) > 0 , f(c) < 0,  \) and \( f(c) = 0  \). We will show that the first two cases contradict our notion that \( \sup K  \) is the least upper bound. Assume \( f(c) < 0  \) for some \( c \in (a,b) \). But this means that \( f(c)  \) would not be an upper bound of \(  K \) since there exists some \( \alpha  \) such that \( \sup K < \alpha  \)where \( \alpha  \) is not an upper bound of \( K  \). Assume \( f(c) > 0  \) for some \( c \in (a,b)  \). This implies that \( f(c) > 0  \) is an upper bound of \( K  \) but is not the least upper bound of \( K  \) which is a contradiction. Hence, it must be that \( f(c) = 0  \). 
+        \end{proof}
+    \item[(b)] Finish the proof of the Intermediate Value Theorem using the Nested Interval Property started previously.
+        \begin{proof}
+            Consider the special case where \( L = 0  \) and \( f(a) < 0 < f(b)  \). Let \( I_0 = [a,b] \) and consider the midpoint \( z = (a+b) / 2  \). If \( f(z) \geq 0  \), then set \( a_1 = z  \) and \( b_1 = b  \). In either case, the interval \( I_1 = [a_1, b_1 ] \) has the property that \( f  \) is negative at the left endpoint and positive at the right. We can extend this inductively to produce a sequence of closed intervals \( I_n = [a_n, b_n] \) with the property described above to make a nested sequence 
+            \[  I_0 \supseteq I_2 \supseteq I_3 \supseteq I_4 \supseteq \dots ~ . \]
+            Since the intersection of these nested intervals \( I_n  \) for all \( n \) is nonempty, we can find a \( c \in \bigcup_{n = 0 }^{\infty} I_n \) such that \( f(c) = 0  \) since \( f(x)  \) is a continuous function.
+        \end{proof}
+\end{enumerate}
+
+
+\subsubsection{Exercise 4.5.6} Let \( f: [0,1] \to \R  \) be continuous with \( f(0) = f(1)  \).
+\begin{enumerate}
+    \item[(a)] Show that there must exist \( x,y \in [0,1]  \) satisfying \( | x - y  | = 1 / 2  \) and \( f(x) = f(y)  \).
+        \begin{proof}
+            Define \( g(x) = f(x) - f(x + 1/2)   \). Note that \( g  \) is continuous over \( [0,1/2 ] \). Hence, we have 
+            \begin{align*}
+                g(0) &= f(0) - f(1/2) \tag{1} \\
+                g(1/2) &= f(1/2) - f(1) \\
+                       &= -g(0) \tag{2}
+            \end{align*}
+            By the Intermediate Value Theorem, we can see that there must exists \( c \in [0,1/2]  \) such that \( g(c) = 0  \). Hence, we must have \(g(c) =  f(c) - f(c + 1/2) = 0  \) which implies \(  f(c) = f(c + 1/2) \). 
+        \end{proof}
+    \item[(b)] Show that for each \( n \in \N  \) there exists \( x_n ,y_n \in [0,1]  \) with \( | x_n - y_n  | = 1/n  \) and \( f(x_n) = f(y_n)  \).
+
+        \begin{proof}[Initial Attempt at Solution]
+            Define \( g(x_n) = f(x_n) - f(x_n + 1/n) \). Note that \( g(x_n)  \) is a continuous function over \( [0, 1] \). Since \( g  \) is continuous, let \( (x_n) \to 0  \) and observe that \( g(0) = f(0) - f(0) = 0  \) and let \( (x_n) \to 1  \) such that \( g(1) = f(1) - f(1) = 0  \). Hence, we can see that \( f(0) = f(1) = 0  \). Hence, we can use the Intermediate Value Theorem to state that there exists \( c \in [0,1]  \) such that \( g(c) = 0  \). Hence, we have 
+            \[  g(c) = 0 \iff f(x_n) = f(x_n + 1/n).\]
+        \end{proof}
+
+        \begin{proof}[Corrected Solution]
+            For fixed \( n \in \N  \), define \( g(x_n) = f(x_n) - f(x_n + 1/n) \) such that \( | x_n - y_n  | = 1/n  \) where \( y_n = x_n + 1 / n  \). Note that \( g  \) is continuous over \( [0, (n - 1) / n ] \). We want to show that there exists a root in the interval \( [0, (n-1) / n ] \). Consider the following
+             \begin{align*}
+                \sum_{ k=0  }^{ n-1 } g \Big( \frac{ k  }{ n }  \Big)  
+                                      &= \sum_{ k=0  }^{ n-1 } f \Big( \frac{ k+1  }{ n  }  \Big) - f \Big( \frac{ k  }{ n }  \Big) \\
+                                      &= f(1) - f(0) \\
+                                      &= 0 
+            \end{align*}
+            and note that if there exists \(  0 \leq k \leq n - 1  \) such that \( g(k/n) = 0 \) then we are done. Otherwise, if \( g(k/n) \neq 0  \) for \( 0 \leq k \leq n -1  \), then there must exist \( 0 \leq k_1 \leq n-1  \) and \( 0 \leq k_2 \leq n - 1  \) such that \( g(k_1 / n ) \) and \( g(k_2 / n ) \) have opposite  sign. Hence, we can use the intermediate value theorem to posit the existence of \( c \in [0, (n-1)/n] \) such that \( g(c) = 0  \). Hence, we have 
+            \[  f(x_n) = f\Big(x_n + \frac{ 1 }{ n }  \Big).\]
+
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 4.5.7} Let \( f  \) be a continuous function on the closed interval \( [0,1] \) with range also contained in \( [0,1]  \). Prove that \( f  \) must have a fixed point; that is, show \( f(x) = x  \) for at least one value of \( x \in [0,1]  \). 
+\begin{proof}
+    Let \( g \) be defined by \( g(x) = x - f(x)\). We can see that \( g  \) is continuous over \( [0,1] \) since \( f(x)  \) is continuous over \( [0,1]  \). Now observe that 
+    \begin{align*}
+        g(0) &= -f(x), \tag{1}\\
+        g(1) &= 1 - f(x). \tag{2}
+    \end{align*}
+    Since \( g(1) = 1  + g(0)  \), we have that \( g(1) \geq g(0)  \). Since \( g  \) is continuous over \( [0,1] \), we can use the Intermediate Value Theorem to find a \( c \in [0,1] \) such that \( g(c) = 0  \). Hence, we must have 
+    \[  g(c) = c - f(c) = 0  \iff f(c) = c.  \]
+\end{proof}
+
+\subsubsection{Exercise 4.5.8 (Inverse Functions).} If a function \( f: A \to \R  \) is one-to-one, then we can define the inverse function \( f^{-1}  \) on the range of \( f  \) in the natural way: \( f^{-1}(y) = x  \) where \( y = f(x)  \).
+
+Show that if \( f  \) is continuous on an interval \( [a,b]  \) and injective, then \( f^{-1}  \) is also continuous.
+\begin{proof}
+    Assume \( f  \) is continuous on an interval \( [a,b] \) and injective. Let \( \epsilon > 0  \). Assume \( f  \) is monotone so that we can use the intermediate value theorem to posit the existence of an \( y_0  \) such that it is between \( f(x)  \) and \( f(y) \). Choose \( f  \) to be an increasing function such that there exists some \( x_1 \in [a,b] \) such that \( f(x_1) < f(c)  \). Hence, there exists \(  y_1  \) in the image of \( f  \) such that \( x_1 = f^{-1}(y_1) =  c - \epsilon  \) where \( x_1 = c - \epsilon  < c  \). Let \( x \in (x_1,c] \) such that 
+    \begin{align}
+        x_1 = c - \epsilon < x \leq c. 
+    \end{align}
+    Likewise, there exists some \( x_2 \in [a,b]  \) such that \( f(x_2) > f(c) \). Define \( x_2 = c + \epsilon  \) such that \( x_2 > c  \). Let \( x \in [c, x_2) \), we have that 
+    \begin{align}
+        c \leq x < x_2 = c + \epsilon. 
+    \end{align}
+    Since \( f  \) is injective, we have \( f^{-1}(x') = x \) for all \( x' \in \text{im}(f) \) and \( f^{-1}(c') = c  \) for some \( c' \in \text{im}(f) \). Hence, we have that 
+    \[ | f^{-1}(x') - f^{-1}(c')  | < \epsilon  \]
+    whenever \( | f(x) - f(c) | < \delta \).
+\end{proof}
+
+

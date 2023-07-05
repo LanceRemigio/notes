@@ -1,1 +1,17 @@
 \section{Euler's Sum}
+
+Recall Euler's famous series derivation
+\[  1 + \frac{ 1 }{ 4 }  + \frac{ 1 }{ 9  }  + \frac{ 1 }{ 16 } + \frac{ 1 }{ 25 } + \dotsb = \frac{ \pi^{2} }{ 6 } \] which used the Taylor series representation 
+\[  \sin(x) = x - \frac{ x^{3} }{ 3! } + \frac{ x^{5} }{ 5! } - \frac{ x^{7} }{ 7! } + \dotsb. \tag{1} \] There is also the infinite product representation 
+\[  \sin(x) = x \Big( 1 - \frac{ x }{ \pi }  \Big) \Big( 1 + \frac{ x }{ \pi }  \Big) \Big(  1 - \frac{ x }{ 2 \pi }  \Big) \Big( 1 + \frac{ x  }{ 2 \pi }  \Big) \dotsb. \tag{2} \] We have developed the sufficient theory to show why (1) is true, but not (2). There have been many derivations for (2) using multi-variable calculus, Fourier series, and even complex integration. However, we will try to show (2) by using the properties of uniformly convergent series and Taylor series expansions.
+
+\subsection{Walli's Product}
+
+We currently don't have enough machinery at our disposal to be able to prove the infinite product representation of \( \sin(x)  \) in (2), but we can prove the special case when 
+\[  \frac{ \pi }{ 2 }  = \lim_{ n \to \infty  }  \prod_{n=1}^{n} \Big(  \frac{ 2n \cdot 2n  }{ (2n-1)(2n+1) }  \Big) \tag{3} \] where (3) is the partial products of (2) but with \( x = \pi / 2  \).
+
+\subsubsection{Exercise 8.3.1} Supply the details to show (3) above.
+\begin{proof}
+
+\end{proof}
+

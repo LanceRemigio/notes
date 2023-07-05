@@ -1,0 +1,223 @@
+\section{Uniform Convergence and Differentiation}
+
+\subsubsection{Exercise 6.3.1} Consider the sequence of functions defined by
+\[  g_n(x) = \frac{ x^n  }{ n  }. \]
+\begin{enumerate}
+    \item[(a)] Show \( (g_n)  \) converges uniformly on \( [0,1]  \) and find \( g = \lim g_n  \). Show that \( g  \) is differentiable and compute \( g'(x)  \) for all \( x \in [0,1]  \).
+        \begin{proof}[Solution]
+            First, we show that \( (g_n)  \) converges uniformly on \( [0,1] \). We observe that since \( (g_n)  \) is defined on \( [0,1]  \), we know that we must have
+            \[  \frac{ x^n  }{ n  } \leq \frac{ 1 }{ n }. \tag{1} \]
+            Let \( \epsilon > 0  \). Choose \( N = \frac{ 1 }{ \epsilon  }  \) such that for any \( n \geq N  \) and \( x \in [0,1] \), we have that 
+            \[ n > \frac{ 1 }{ \epsilon  } \iff \frac{ 1 }{ n } < \epsilon. \]
+            We know by (1) that the above will become
+            \[   \Big| \frac{ x^n }{ n } - 0  \Big|   = \frac{ x^n  }{ n } \leq \frac{ 1 }{ n } < \epsilon.  \]
+            Since \( x  \) and \( n \in \N  \) were arbitrary, we know that \( (g_n)  \) must converge uniformly and that 
+            \[  \lim g_n(x) = 0. \]
+           
+        Now we want to show that \( g  \) is a differentiable function. Let \( \epsilon > 0  \). Choose \( \delta > 0  \) such that whenever \( 0 < | x - c  | < \delta \), we have that 
+        \begin{align*}
+            \Big| \frac{ g(x) - g(c)  }{ x -c  } - 0  \Big| &= 0 < \epsilon. \\
+        \end{align*}
+        Hence, \( g  \) is differentiable and that \( g'(x) = 0  \) for all \( x \in [0,1] \).
+        \end{proof}
+    \item[(b)] Now, show that \( (g'_n) \) converges on \( [0,1]  \). Is the convergence uniform? Set \( h = \lim g'_n  \) and compare \( h  \) and \( g'  \). Are they the same?
+        \begin{proof}[Solution]
+            We want to show that \( (g'_n) \) converges on \( [0,1] \). Computing the derivative of \( (g'_n) \) leads to the following
+            \[  g'_n(x) = x^{n-1}. \]
+            Let \( x \in [0,1] \). If \( x = 1  \), then \( g'_n \to 1  \). If \( 0 \leq x < 1  \), then \( g'_n \to 0  \). Putting everything together, our limit function \( g'(x)  \) can be written as 
+            \[ g'(x) = 
+            \begin{cases}
+                0 &\text{ if } 0 \leq x < 1 \\
+                1 &\text{ if } x = 1.
+            \end{cases}  \]
+            Since our convergence of \( g'_n(x)  \) depends on our choice of \( x  \) in \( [0,1] \), we must have that \( g_n(x)  \) does not converge uniformly.
+            This means that setting \( h = \lim g_n  \) will produce \( h \neq g' \).
+        \end{proof}
+
+\end{enumerate}
+
+\subsubsection{Exercise 6.3.2} Consider the sequence of functions 
+\[  h_n(x) = \sqrt{ x^2 + \frac{ 1 }{ n }  }. \]
+\begin{enumerate}
+    \item[(a)] Compute the pointwise limit of \( (h_n)  \) and then prove that the convergence is uniform on \( \R  \). 
+        \begin{proof}[Solution]
+        First, define \( f_n(x) = x^2 + \frac{ 1 }{ n }  \) and observe that \( \lim f_n(x) = x^2 \). Since \( h_n(x) = \sqrt{ f_n(x)  }  \), we can compute the pointwise limit of \( h_n(x)  \) as 
+        \begin{align*}
+            \lim h_n(x) &= \lim \sqrt{ f_n(x)  }   \\
+                        &= \sqrt{ x^2  } \\
+                        &= | x  |.
+        \end{align*}
+        Now we want to show that this convergence is uniform. Our goal is to show that \( (h_n)  \) is a Cauchy sequence. Let \( x \in \R  \) arbitrary and \( \epsilon > 0  \). Since \( h_n(x) \to h(x)  \) pointwise where \( h(x) = | x  |    \), choose \( N \in \N  \) such that for any \( m,n \geq N  \), we have that 
+        \begin{align*}
+            | h_n(x) - h_m(x) | &= | h_n(x) - h(x) + h(x) - h_m(x) |  \\
+                                &\leq | h_n(x) - h(x)  | + | h(x) - h_m(x) | \\
+                                &< \frac{ \epsilon  }{ 2 } + \frac{ \epsilon  }{ 2 } = \epsilon. \\
+        \end{align*}
+        Since \( (h_n)  \) is a Cauchy sequence of functions, we must have \( (h_n) \to h  \) uniformly by the Cauchy Criterion.
+        \end{proof}
+    \item[(b)] Note that each \( h_n  \) is differentiable. Show \( g(x) = \lim h'_n(x)  \) exists for all \( x  \), and explain how we can be certain that the convergence is \textit{not} uniform on any neighborhood of zero.
+        \begin{proof}[Solution]
+        Our goal is to show that \( g(x) = \lim h_n'(x)  \) exists. Assume each \( h_n  \) is differentiable. First, we compute \( h_n'  \). Let \( x \in \R  \) be arbitrary. By the Chain Rule, we have
+        \[  h_n'(x) = \frac{ x }{ \sqrt{ x^2 + 1/n }  }. \tag{1}  \]
+        Since \( \lim h_n(x) = | x |   \) pointwise, taking the limit of (1) produces
+        \begin{align*}
+           \lim h_n'(x) &= \lim \frac{ x }{ \sqrt{ x^2 + 1/n }  }  \\
+                        &= \frac{ x }{ | x |  }.
+        \end{align*}
+        We are certain that the convergence of \( h_n'(x)  \) is not uniform because \( g(x) = x / | x  |  \) is defined as 
+        \[  g(x) = 
+        \begin{cases}
+            1 &\text{ if } x > 0 \\
+            -1 &\text{ if } x < 0 
+        \end{cases} \]
+        which means that the convergence of \( h_n'(x)  \) is depend on our choice of \( x \in \R   \).
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 6.3.3} Consider the sequence of functions
+\[  f_n(x) = \frac{ x }{ 1 + nx^2  }. \]
+\begin{enumerate}
+    \item[(a)] Find the points on \( \R  \) where each \( f_n(x)  \) attains its maximum and minimum value. Use this to prove \( (f_n)  \) converges uniformly on \( \R  \). What is the limit function? 
+        \begin{proof}[Solution]
+        To find the points on \( \R  \) where each \( f_n(x)  \) attains its maximum and minimum, we use the Interior Extremum Theorem to find \( x \in \R  \) such that \( f'_n(x) = 0   \). Computing the derivative of \( f_n(x)  \), we use a combination of the chain rule and product rule to get
+        \[  f'_n(x) = \frac{ 1 - nx^2  }{ (1 +nx)^2 }.  \]
+        Setting \( f'_n(x) = 0  \), we find that 
+        \[  1 - nx^2 = 0 \iff x = \pm \frac{ 1 }{ \sqrt{ n }  }  \]
+        for any \( n \in \N  \). Denote these points on \( \R  \) where \( \alpha = 1 / \sqrt{ n }  \) and \( \beta = -  1 / \sqrt{ n }  \). We find that \( f_n(x)  \) attains its maximum when \( \alpha = 1 / \sqrt{ n  }  \) and minimum when \( \beta = \pm 1 / \sqrt{ n }  \). Furthermore, we have 
+        \[  f_n(\alpha) =  \frac{ 1 }{ 2 \sqrt{ n }  }    \]
+        and 
+        \[  f_n(\beta) = \frac{ 1 }{ 2 \sqrt{ n }  }.  \]
+
+        To show that \( (f_n)  \) converges uniformly on \( \R  \), it is enough to show that \( (f_n)  \) satisfies the Cauchy Criterion. First, we observe that the sequence \( \alpha_n = \frac{ 1 }{ \sqrt{2n }  }  \) is a Cauchy sequence. Hence, choose \( N \in \N  \) such that for any \( n,m \geq N  \), we have that 
+        \begin{align*}
+            | f_n(x) - f_m(x)  | &= \Big| \frac{ x }{ 1 + nx^2  } - \frac{ x  }{  1 + mx^2  }  \Big|   \\
+                                 &\leq \frac{ 1 }{ 2 } \Big|  \frac{ 1 }{ \sqrt{ n }  } - \frac{ 1 }{ \sqrt{ m }  }  \Big| \\
+                                 &< \frac{ 1 }{ 2 } \cdot 2 \epsilon = \epsilon. 
+        \end{align*}
+        Since \( (f_n)  \) satisfies the Cauchy Criterion, we must have a uniform convergence of \( (f_n)  \) to \( f  \). Letting \(  n \to \infty   \), we get that the limit function \( f  \) is just \( f = 0  \).
+        \end{proof}
+    \item[(b)] Let \( f = \lim f_n  \). Compute \( f_n'(x)  \) and find all the values of \( x  \) for which \( f'(x) = \lim f_n'(x)  \).
+        \begin{proof}[Solution]
+        Let \( f = \lim f_n  \). By last part, we get that 
+        \[  f'_n(x) = \frac{ 1 - nx^2  }{ (1 +nx^2)^2 }.  \]
+        Taking the limit of \( f_n'(x)  \) produces an \( \infty / \infty   \) case that can be remedied by using L'Hopital's rule. Let \( \alpha_n (x) = 1 - nx^2  \) and \( \beta_ (x) =  (1+nx^2)^2\). Then taking the derivative of both of these functions produces 
+        \begin{center}
+            \( \alpha_n'(x) = -2nx  \) and \( \beta_n'(x) = 4nx(1+nx^2 )  \).
+        \end{center}
+        This implies that 
+        \[  \lim_{n \to \infty } \frac{ \alpha_n'(x) }{ \beta_n'(x)  } = \lim_{ n \to \infty  } \frac{ -1 }{ 2(1+nx^2) } = 0 = f'(x)  \]
+        which holds for all \( x \in \R  \).
+        \end{proof}
+
+\end{enumerate}
+
+\subsubsection{Exercise 6.3.4} Let 
+\[  h_n(x) = \frac{ \sin(nx)  }{ \sqrt{ n }  }.\]
+Show that \( h_n \to 0  \) uniformly on \( \R  \) but that the sequence of derivatives \( (h_n') \) diverges for every \( x \in \R  \).
+
+\begin{proof}
+Our first goal is to show that \( h_n \to 0  \). Let \( \epsilon > 0  \). We observe that \( | \sin(nx)  | \leq 1   \). Choose \( N = 1 / \epsilon^2    \) such that for any \( n \geq N  \), we have that 
+\begin{align*}
+    \Big| \frac{ \sin(nx)  }{ \sqrt{ n }  } - 0  \Big| &= \Big| \frac{ \sin(nx)  }{ \sqrt{ n }  }  \Big|  \\
+                                                       &= \frac{ | \sin (nx)  |  }{ \sqrt{ n }  } \\ 
+                                                       &\leq \frac{ 1 }{ \sqrt{ n }  } \\
+                                                       &< \epsilon.
+\end{align*}
+Since our choice of \( N \in \N  \) does not depend on \( x \in \R  \), we know that the convergence of \( h_n(x)  \) must be uniform. 
+
+Now let us show that the sequence of derivatives \( (h_n') \) diverges for every \( x \in \R  \). First, we compute \( h_n'(x)  \) which results in
+\[  h_n'(x) = \sqrt{ n } \cos(nx).  \]
+Let \( x \in \R  \) be arbitrary. Since \( x_n = \sqrt{ n  }   \) an unbounded sequence in \( \R  \), we know that \( h_n'(x)  \) is also unbounded despite \( | \cos(nx)  | \leq 1  \) for any \( x \in \R  \) and \( n \in \N  \). This means that \( h_n'(x)  \) is  unbounded which implies that it diverges for all \( x \in \R  \) and \( n \in \N  \).
+\end{proof}
+
+\subsubsection{Exercise 6.3.5} Let 
+\[  g_n(x) = \frac{ nx + x^2  }{ 2n } , \]
+and set \( g(x) = \lim g_n(x)  \). Show that \( g  \) is differentiable in two ways:
+
+\begin{enumerate}
+    \item[(a)] Compute \( g(x)  \) by algebraically taking the limit as \( n \to \infty  \) and then find \( g'(x)  \).
+        \begin{proof}[Solution]
+        First we compute \( g(x)  \). Set \( g(x) = \lim g_n(x)  \). Then taking the limit as \( n \to \infty  \) produces 
+        \begin{align*}
+            \lim g_n(x) &= \lim \frac{ nx + x^2 }{ 2n }  \\
+                        &= \lim \Big( \frac{ x }{ 2 } + \frac{ x^2 }{ 2n }  \Big)\\
+                        &= \lim \Big( \frac{ x  }{ 2 }  \Big) + \lim \Big( \frac{ x^2 }{ 2n }  \Big) \\
+                        &= \frac{ x }{ 2 }.
+        \end{align*}
+        This means \( g(x) = x / 2  \) and hence \( g'(x) = 1 / 2  \).
+        \end{proof}
+    \item[(b)] Compute \( g'_n(x)  \) for each \( n \in \N  \) and show that the sequence of derivatives \( (g_n')  \) converges uniformly on every interval \( [-M,M ] \). Use Theorem 6.3.3 to conclude \( g'(x) = \lim g'_n(x)  \).
+        \begin{proof}[Solution]
+        First we compute \( g_n'(x) \). Using our derivative rules, we get 
+        \begin{align*}
+            g_n'(x) &= \frac{ 1 }{ 2n } \Big( n + 2x \Big) \\
+                    &= \frac{ 1 }{ 2 } + \frac{ x }{ n }
+        \end{align*}
+        which holds for all \( n \in \N  \).
+
+        To show that \( (g_n') \) converges uniformly on every interval \( [-M, M ] \), we need to show that \( (g_n')  \) satisfies the Cauchy Criterion. Let \( \epsilon > 0  \). Choose \( N = 1 / \epsilon    \) such that for any \( n \geq N  \) and for any \( x \in [-M,M] \), we have 
+        \begin{align*}
+            | g_n'(x) - g'(x)  | &= \Big| \frac{ 1 }{ 2 } + \frac{ x }{ n } - \frac{ 1 }{ 2 }  \Big| \\
+                                 &= \Big| \frac{ x }{ n }  \Big| \\
+                                 &\leq \frac{ M  }{ n } \\
+                                 &< M \cdot \frac{ \epsilon  }{ M } = \epsilon.
+        \end{align*}
+        Since our choice of \( N  \) only depends on \( \epsilon  \), we know that \( (g_n') \to g' \) uniformly.
+        \end{proof}
+    \item[(c)] Repeat parts (a) and (b) for the sequence \( f_n(x) = (nx^2+1) / (2n+x) \).
+        \begin{proof}[Solution]
+        First, we compute \( f(x)  \) by taking the limit as \( n \to \infty  \) of \( f_n(x) \). Observe that
+        \begin{align*}
+            \lim_{ n \to \infty  } \frac{ nx^2+1 }{ 2n+x } &= \frac{ x^2 }{ 2 }.  \\
+        \end{align*}
+        Then we compute \( f'(x) \) so we have 
+        \[  f'(x) = x. \]
+        Another way to compute the derivative of \( f(x)  \) is by differentiating \( f_n(x)  \) for each \( n \in \N  \) and then showing that the differentiated sequence of functions is uniformly convergent. By differentiating \( f_n(x)  \) using the product rule and chain rule, we get
+        \begin{align*} 
+            f'_n(x) &= \frac{ 2nx }{ 2n + x  } - \frac{ nx^2 + 1  }{ (2n + x)^2 }  \\
+                    &= \frac{ 2nx(2n+x) - (nx^2+1) }{ (2n+x)^2 } \\ 
+                    &= \frac{  4n^2x + nx^2 + 1  }{ 4n^2 + 4nx + x^2}.
+        \end{align*}
+        Now we want to show that \( f_n'(x)  \) actually converges to its limit uniformly so that we shall show that 
+        \[  \lim_{ n \to \infty  } f_n'(x) = f'(x). \]
+        Let \( \epsilon > 0  \). Choose \( N \in \N  \) such that for any \( n \geq N  \), we have that 
+        \begin{align*}
+            | f'_n(x) - f'(x)| &=  \Big| \frac{ 4n^2x + nx^2 + 1  }{ (2n+x)^2 } - x   \Big|  \\
+                               &= \Big| \frac{ 1 - 3nx^2 - x^3  }{ (2n+x)^2 }  \Big| \\
+                               &= \frac{ 3nx^2 + x^3 - 1  }{ 4n^2 + 4nx + x^2 } \\
+                                &\leq \Big| \frac{ 1 - 3nM^2 - M^3  }{ 4n^2 + 4nM + M^2 }  \Big| \\ 
+                                &< \epsilon.
+        \end{align*}
+        The first inequality holds because \( f_n'(x)  \) is defined on the closed interval \( [-M, M ] \) and the second inequality holds because 
+        \[  \frac{ 1 - 3nM^2 - M^3   }{  4n^2 + 4nM + M^2  } \to 0.\]
+        Since this convergence of \( f_n'(x) \to f'(x)  \) does not depend on \( x  \in [-M, M ] \), we know that the \( f_n' \to f  \) uniformly. Hence, we know that 
+        \[  \lim_{ n \to \infty  } f'_n(x) = f'(x) \]
+        by Theorem 6.3.3.
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 6.3.6} Provide an example or explain why the request is impossible. Let's take the domain of the functions to be all of \( \R  \).
+
+\begin{enumerate}
+    \item[(a)] A sequence \( (f_n)  \) of differentiable functions such that \( (f_n') \) converges uniformly but the original sequence \( (f_n)  \) does not converge for any \( x \in \R  \).
+        \begin{proof}[Solution]
+        Let \( f_n(x)  \) be defined by 
+        \[  f_n(x) = 
+        \begin{cases}
+            1 &\text{ if } n \text{~odd~} \\
+            0 &\text{ if } \text{~even~}.
+        \end{cases} \]
+        If we differentiate \( f_n(x)  \) then we just get a sequence of derivatives \( f_n' \) that converges uniformly to \( 0  \). But \( f_n(x)  \) does not converge anywhere.
+        \end{proof}
+    \item[(b)] A sequence \( (f_n) \) of differentiable functions such that both \( (f_n)  \) and \( (f_n') \) converge uniformly but \( f = \lim f_n \) is not differentiable at some point.
+        \begin{proof}[Solution]
+            This is not possible. The differentiability of \( (f_n)   \) for all \( x \in [a,b]  \) is required for \( f_n' \) to converge uniformly.
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 6.3.7} Use the Mean Value Theorem to supply a proof for Theorem 6.3.2. To get started, observe that the triangle inequality implies that for any \( x \in [a,b]  \) and \( m,n \in \N  \),
+\[ | f_n(x) - f_m(x)  |  \leq | (f_n(x) - f_m(x) - (f_n(x_0) - f_m(x_0)  | + | f_n(x_0) -f_m(x_0) |. \]
+\begin{proof}
+Proof is right under Theorem 6.3.2.
+\end{proof}
+

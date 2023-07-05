@@ -1,0 +1,44 @@
+\section{Perfect Sets and Connected Sets}
+
+
+\subsubsection{Exercise 3.4.1} If \( P \) is a perfect set and \( K \) is compact, is the intersection \( P \cap K  \) always compact? Always perfect? 
+\begin{proof}[Solution]
+\( P \cap K \) always compact but not always perfect. This is because \( P \cap K  \) is always a closed and bounded set.
+\end{proof}
+
+\subsubsection{Exercise 3.4.5} 
+Let \( A  \) and \( B  \) be nonempty subsets of \( \R  \). Show that if there exists disjoint open sets \( U  \) and \( V  \) with \( A \subseteq U  \) and \( B \subseteq V  \), then \( A  \) and \( B  \) are separated.
+
+\begin{proof}
+    Let \( A  \) and \( B  \) be nonempty subsets of \( \R  \). Suppose there exists sets \( U \) and \( V  \) such that \( U \cap V = \emptyset \). Let \( x  \in U \). Since \( U \) is an open set, let \( x \in U^{\circ} \). Hence,  there exists \( V_{\epsilon }(x) \) such that \( V_{\epsilon }(x) \subseteq U  \). Let \( x  \) be a limit point of \( A  \) such that there exists \( (x_n) \to x  \) where \( x_n \neq x  \) for all \( n \in \N  \). Doing the same process for the set \( V \) suppose there exists \( (y_n)  \) is a sequence contained in \( B  \) such that \( (y_n) \to y  \) where \( y \in V  \) is an interior point such that there exist \( V_{\epsilon }(y) \subseteq V  \).
+
+    Since \( U \cap V = \emptyset \) and \( x  \) and \( y \) are interior points of \( U \) and \( V  \) respectively, it follows that \( V_{\epsilon }(x) \cap V_{\epsilon }(y) = \emptyset \). But this means neither limit point of \(A \) nor \( B \) is contained in the other. Hence, \( A  \) and \( B  \) must be separated sets.
+\end{proof}
+
+
+
+
+
+\subsubsection{Exercise 3.4.6} Prove Theorem 3.4.6.
+\begin{proof}
+    \( (\Rightarrow) \) Suppose \( E \subseteq \R  \) is connected and suppose \( A  \) and \( B \) are disjoint. Since \( E  \) is connected, we have \( \overline{A} \cap B \neq \emptyset \) and \( \overline{B} \cap A \neq \emptyset \). Without loss of generality, let \( x \in \overline{A}  \cap B  \). Since \( A  \) and \( B  \) are disjoint, we must not have \( x \in A   \). Hence, \( x \in B  \) else \( A  \) and \( B  \) would not be disjoint. Hence, \( x  \) is a limit point of \( A  \). Hence, there exists \( (x_n) \subseteq A  \) such that \( (x_n) \to x  \) where \( x \neq x_n \) for all \( n \in \N \).  
+
+\( (\Leftarrow) \) Our goal now is to show the converse; that is, show that \( A  \) and \( B \) are not separated i.e \( \overline{A} \cap B \neq \emptyset \) and \( \overline{B} \cap A \neq \emptyset \). Suppose there exists \( (x_n) \subseteq A \). By assumption \( (x_n) \to x  \) such that \( x \in B  \). Since \( \overline{A}  \) is a closed set, we have that \( x \in \overline{A} \). But this means that \( \overline{A} \cap B \neq \emptyset\). The argument is similar when \( (x_n) \subseteq B  \). Hence, \( \overline{B} \cap A \neq \emptyset \). But this means that \( E = A \cup B  \) is connected.
+\end{proof}
+
+\subsubsection{Exercise 3.4.7} A set \( E \) is \textit{totally disconnected} if, given any two distinct points \( x, y \in E  \), there exists separated sets \( A  \) and \( B  \) with \( x \in A  \), \( y \in B  \), and \( E = A \cup B  \).
+
+\begin{enumerate}
+    \item[(a)] Show that \( \Q  \) is totally disconnected.
+        \begin{proof}
+            Since the rational numbers are dense in \( \mathbb{I} \), we can construct the following interval \( x < c < y  \) where \( c \in \mathbb{I}  \). We can set \( A  \) and \( B \) such that 
+            \[  A = (-\infty, c ) \cap \Q \text{ ~ and ~ } B = \Q \cap (c, +\infty )   \]
+            Let \( x \in A  \) and \( y \in B  \), then neither set is empty and neither set contains a limit  point of the other. Since \( A \cap B = \Q  \), we must have \( \Q  \) as a totally disconnected set unless \( c \in \Q  \) which is not. 
+        \end{proof}
+    \item[(b)] Is the set of irrational numbers totally disconnected? 
+        \begin{proof}
+            The set of irrational numbers is totally disconnected because we can always find \( x \in \Q  \) such that for every \( z,y \in \mathbb{I} \), we have \( z < x < y  \). Thus, we can follow the same argument above to produce two sets that are separated.
+        \end{proof}
+\end{enumerate}
+
+
