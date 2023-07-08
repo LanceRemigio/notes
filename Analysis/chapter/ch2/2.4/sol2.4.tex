@@ -338,7 +338,20 @@ Consider the special class of infinite products of the form
 \[ \prod_{n=1}^{ \infty} (1 + a_n) = (1+a_1)(1+a_2)(1+a_3) \dots ~ \text{where } a_n \geq 0 \]
 \begin{enumerate}
     \item[(a)] Find an explicit formula for the sequence of partial products in the case where \( a_n = 1 / n \) and decide whether the sequence converges. Write out the first few terms in the sequence of partial products in the case where \( a_n = 1 / n^2\) and make a conjecture about the convergence of this sequence.
+        \begin{proof}
+        Let \( a_{n} = 1 / n  \). Then observe that 
+        \[  \prod_{k=1}^{n} \Big(  1 + \frac{ 1 }{ k }  \Big) = \prod_{k=1}^{n} \frac{ k+ 1  }{ k }. \tag{1} \] As we write out the first few terms of the finite product above, we find that the \(  n \)th term of the denominators of each term is cancelled out. Hence, the explicit formula for (1) above must be 
+        \[  \prod_{k=1}^{n} \frac{ k+1  }{ k }  = n + 1\] which clearly diverges as \( n \to \infty  \). If \( a_{n} = 1/ n^{2} \), then we find that 
+        \[ \gamma_n = \prod_{k=1}^{n} \Big( 1 + \frac{ 1 }{ k^{2} }   \Big) = \prod_{k=1}^{n} \frac{ k^{2} + 1  }{ k^{2}  } = \frac{ 2 }{ 1 } \cdot \frac{ 5 }{ 4 } \cdot \frac{ 10 }{ 9 } \cdot \dotsb \cdot \frac{ n^{2} + 1  }{ n^{2} }. \] I postulate that \( \gamma_n  \) converges similarly to how the sequence of partial sums \( \sum_{ k=1 }^{ n } 1 / k^{2} \) also converges.
+        \end{proof}
     \item[(b)] Show, in general, that the sequence of partial products converges if and only if \( \sum_{n=1}^{ \infty} a_n \) converges. (The inequality \( 1 + x \leq 3^x\)) for positive \( x \) will be useful in one direction.)
+        \begin{proof}
+        \( (\Rightarrow)  \) Suppose the sequence of partial products 
+        \[  \gamma_n = \prod_{k=1}^{n} ( 1 + a_{n} )\] converges. Then we must have \( (\gamma_{n}) \) is bounded by some \( M > 0  \). Furthermore, expanding \( (\gamma_{n}) \), we find that \(  \gamma_{n} > \sum_{ k=1 }^{ n } a_{k}    \) for all \(  n \in \N  \). This means \( \sum_{ k=1 }^{ n } a_{k }  \) is bounded. Since \( a_{n} \geq 0  \) for all \( n  \), we also have that \( \sum_{ k=1 }^{ n } a_{n}   \) is a monotone sequence. By the Monotone Convergence Theorem, \( \sum_{ k=1 }^{ n } a_{k } \) converges.
+
+        \( (\Leftarrow)  \) Now suppose the converse. Using the inequality \( 1 + x \leq 3^{x} \) and the fact that \( \sum_{ k=1 }^{ n  } a_{k}  \) is a bounded by some \( M > 0  \), observe that 
+        \[  \gamma_{n} = \prod_{k=1}^{n} ( 1 + a_{n}) \leq \prod_{k=1}^{n} 3^{a_{n}} = 3^{\sum_{ k=1 }^{ n } a_{k}} \leq 3^{M}.  \] Hence, \( (\gamma_{n})   \) is a bounded sequence. Now observe that \( a_{n} \geq 0  \) implies \( (\gamma_{n})  \) is increasing. By the Monotone Convergence Theorem, \( \gamma_{n} \) converges.
+        \end{proof}
 \end{enumerate}
 
 
