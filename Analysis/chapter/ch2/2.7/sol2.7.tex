@@ -223,6 +223,30 @@ then the series converges absolutely.
         \end{proof}
 \end{enumerate}
 
+\subsubsection{Exercise 2.7.10} Review Exercise 2.4.10 about infinite products and then answer the following questions: 
+\begin{enumerate}
+    \item[(a)] Does \( \frac{ 2 }{ 1 }  \cdot \frac{ 3 }{ 2 }  \cdot \frac{ 5 }{ 4 } \cdot \frac{ 9 }{ 8 }  \cdot \frac{ 17 }{ 16 }  \dotsb \) converge? 
+        \begin{proof}[Solution]
+        No, this does not converge. Look at part (a) of Exercise 2.4.10.
+        \end{proof}
+    \item[(b)] The infinite product \( \frac{ 1 }{ 2 }  \cdot \frac{ 3 }{ 4 }  \cdot \frac{ 5 }{ 6 } \cdot \frac{ 7 }{ 8  }  \cdot \frac{ 9 }{ 10 }  \) certainly converges. Why? Does it converge to zero? 
+        \begin{proof}[Solution]
+        Suppose we define 
+        \[  \gamma_{n} = \prod_{k=1}^{n} \frac{ 2k -1  }{ 2k  }  = \frac{ 1 }{ 2 }  \cdot \frac{ 3 }{ 4 }  \cdot \frac{ 5 }{ 6 } \cdot \frac{ 7 }{ 8 }  \cdot \frac{ 9 }{ 10 } \dotsb \frac{ 2n-1 }{ 2n }. \]
+        Observe that \( \gamma_{n}  \) is a decreasing sequence as well as bounded by \( 1/2  \). Using MCT, we know that the sequence of partial products above is a convergent sequence.
+        \end{proof}
+    \item[(c)] In 1655, John Wallis famously derived the formula 
+        \[  \Big( \frac{ 2 \cdot 2  }{  1 \cdot 3  } \Big) \Big( \frac{ 4 \cdot 4  }{ 3 \cdot 5  }  \Big) \Big( \frac{ 6 \cdot 6  }{  5 \cdot 7  }  \Big) \Big( \frac{ 8 \cdot 8  }{ 7 \cdot 9  }  \Big) \dotsb = \frac{ \pi  }{ 2  }.  \]
+        Show that the left side of this identity at least converges to something. (A complete proof of this result is taken up in Section 8.3).
+        \begin{proof}
+        Define the sequence of partial products \( (\gamma_{n}) \) as 
+        \[  \gamma_{n} = \prod_{k=1}^{n} \frac{ 4 k^{2}  }{ (2k-1)(2k+1)  } = \Big( \frac{ 2 \cdot 2  }{  1 \cdot 3  } \Big) \Big( \frac{ 4 \cdot 4  }{ 3 \cdot 5  }  \Big) \Big( \frac{ 6 \cdot 6  }{  5 \cdot 7  }  \Big) \Big( \frac{ 8 \cdot 8  }{ 7 \cdot 9  }  \Big) \dotsb \frac{ 4 n^{2}  }{  (2n-1)(2n+1) }.     \]
+     Observe that \( \gamma_n   \) is bounded by \( \gamma_{1} = 4 / 3  \). Hence, we have \( 0 \leq \gamma_{n} \leq 4/3 \) We can induct on \( n \in \N  \) to show that \( \gamma_{n}  \) is decreasing. Hence, we must have \( \gamma_{n}  \) convergent by MCT.
+        \end{proof}
+\end{enumerate}
+
+
+
 \subsubsection{Exercise 2.7.12 (Summation-by-parts)} Let \( (x_n)  \) and \( (y_n)  \) be sequences, let \( s_n = \sum_{ k=1  }^{  n  } x_k \) and set \( x_0 = 0  \). Use the observation that \( x_j = s_j - s_{j-1}  \) to verify the formula
 \[  \sum_{ j=m  }^{  n  } x_j y_j = s_n y_{n+1 } - s_{m-1}y_m + \sum_{ j=m  }^{  n  } s_j (y_j - y_{j+1} ). \]
 \begin{proof}

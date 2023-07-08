@@ -12,6 +12,35 @@ We currently don't have enough machinery at our disposal to be able to prove the
 
 \subsubsection{Exercise 8.3.1} Supply the details to show (3) above.
 \begin{proof}
-
+Plugging in \( x = \pi / 2  \) into (2), we get that 
+\[  1 = \frac{ \pi }{ 2 }  \prod_{n=1}^{\infty } \Big( 1 - \frac{ 1 }{ 2n }  \Big)\Big( 1 + \frac{ 1 }{ 2n }  \Big) =  \frac{ \pi }{ 2 }  \prod_{n=1}^{\infty } \frac{ (2n-1)(2n+1) }{ (2n)^{2} }.  \]
+Taking the reciprocal of the infinite product above, we end up with
+\[  \prod_{n=1}^{\infty } \frac{ (2n)^{2} }{  (2n-1) (2n+1) } = \frac{ \pi }{ 2 }.  \]
 \end{proof}
+
+Now we will prove why (3) holds. Set 
+\[  b_{n} = \int_{ 0 }^{ \frac{ \pi }{ 2 }  } \sin^{n}(x)  \ dx , \text{ for } n = 0,1,2, \ \dots \] If we look at the \( n=0  \) and \( n = 1  \) case, we can easily obtain the following equations 
+\[  b_{0 } = \int_{ 0 }^{ \frac{ \pi }{ 2 }  }  dx = \frac{ \pi }{ 2 } \ \text{and} \ b_{1} = \int_{ 0 }^{ \frac{ \pi }{ 2 }  } \sin(x)  \ dx = 1. \]
+\subsubsection{Exercise 8.3.2} Assume \( h(x)  \) and \( k(x)  \) have continuous derivatives on \( [a,b]  \), and derive the integration-by-parts formula
+\[  \int_{ a }^{ b } h(t) k'(t) \  dt = h(b)k(b) - h(a)k(a) - \int_{ a }^{ b } h'(t) k(t)  \  dt. \]
+\begin{proof}[Solution]
+Refer to the solution in part (a) of Exercise 7.5.6.
+\end{proof}
+
+\subsubsection{Exercise 8.3.3} \begin{enumerate}
+    \item[(a)] Using the simple identity \( \sin^{n}(x) = \sin^{n-1}(x) \sin(x)  \) and the previous exercise, derive the recurrence relation 
+        \[  b_{n} = \frac{ n-1 }{ n }  b_{n-2} \ \text{for all } n \geq 2. \]
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Use this relation to generate the first three even terms and the first three odd terms of the sequence \( (b_{n}) \).
+        \begin{proof}[Solution]
+        
+        \end{proof}
+    \item[(c)] Write a general expression for \( b_{2n} \) and \( b_{2n+1}  \).
+        \begin{proof}[Solution]
+        
+        \end{proof}
+\end{enumerate}
+
 
