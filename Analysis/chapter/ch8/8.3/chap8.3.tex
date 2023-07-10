@@ -31,7 +31,25 @@ Refer to the solution in part (a) of Exercise 7.5.6.
     \item[(a)] Using the simple identity \( \sin^{n}(x) = \sin^{n-1}(x) \sin(x)  \) and the previous exercise, derive the recurrence relation 
         \[  b_{n} = \frac{ n-1 }{ n }  b_{n-2} \ \text{for all } n \geq 2. \]
         \begin{proof}
-        
+            Let \( h(x) = \sin^{n}(x)  \) and \( k'(x) = \sin(x)  \). Let \( n \geq 2  \). Then by the integration-by-parts formula and using the trigonometric identity \( \sin^{2}(x) + \cos^{2}(x) = 1  \), we must have 
+            \begin{align*}
+                \int_{ 0 }^{ \frac{ \pi  }{ 2  }   }  \sin^{n}(x) \ dx &= \int_{ 0 }^{ \frac{ \pi }{ 2 }  } \sin^{n}(x) \cdot \sin(x) \  dx  \\
+                                                                       &= \Big[ - \sin^{n-1}(x) \cdot \cos(x)  \Big]_{0}^{\frac{ \pi }{ 2 }} + \int_{ 0 }^{ \frac{ \pi }{ 2 }  } (n-1)\sin^{n-2}(x) \cdot \cos^{2}(x)  \  dx \\
+                                                                       &=  \Big[ - \sin^{n-1}(x) \cdot \cos(x)  \Big]_{0}^{\frac{ \pi }{ 2 }} +  \int_{ 0 }^{ \frac{ \pi }{ 2 }  } (n-1)\sin^{n-2}(x) \cdot  [ 1 - \sin^{2}(x)  ]  \  dx
+            \end{align*}
+        The first term on the last equality cancels out and the second term can be expanded into 
+        \begin{align*}
+            \int_{ 0 }^{ \frac{ \pi }{ 2 }  }  (n-1 ) \sin^{n-2}(x) \cdot [ 1 - \sin^{2}(x) ] \  dx 
+                                                                                                    &= \int_{ 0 }^{ \frac{ \pi }{ 2 }   } (n-1) \sin^{n-2}(x)  \   dx \\ &+ \int_{ 0 }^{ \frac{ \pi }{ 2 }  } (n-1) \sin^{n}(x) \  dx. \\
+        \end{align*}
+        Hence, we end up with 
+        \begin{align*}  \int_{ 0 }^{ \frac{ \pi }{ 2 }  }  \sin^{n}(x) \  dx &=  \int_{ 0 }^{ \frac{ \pi }{ 2 }   } (n-1) \sin^{n-2}(x)  \   dx + \int_{ 0 }^{ \frac{ \pi }{ 2 }  } (n-1) \sin^{n}(x) \  dx. \tag{1}  \\
+        \end{align*}
+        Finally, subtracting the second term on the right side of (1), simplifying, and dividing by \( n  \) on both sides gives us our desired result
+        \begin{align*}
+            b_{n}  &= \int_{ 0 }^{ \frac{ \pi }{ 2 }  }  \sin^{n}(x) \ dx \\ &= \frac{ n-1 }{ n } \int_{ 0 }^{ \frac{ \pi }{ 2 }  } \sin^{n-2}(x) \ dx \\
+                                                                &= \frac{ n-1 }{ n } b_{n-2}.
+        \end{align*}
         \end{proof}
     \item[(b)] Use this relation to generate the first three even terms and the first three odd terms of the sequence \( (b_{n}) \).
         \begin{proof}[Solution]
@@ -50,8 +68,37 @@ Refer to the solution in part (a) of Exercise 7.5.6.
         \end{proof}
     \item[(c)] Write a general expression for \( b_{2n} \) and \( b_{2n+1}  \).
         \begin{proof}[Solution]
-        
+        Using the formula we derived in part (a), plugging in the desired cases gives us
+        \[  b_{2n} = \frac{ 2n -1  }{ 2n  }  b_{2(n-1)} \ \text{ and } \  b_{2n+1} = \frac{ 2n }{ 2n+1 } b_{2n-1}.  \]
+
         \end{proof}
 \end{enumerate}
+
+For the \( (n+1) \)th term, we have the following bound \(  0 \leq \sin^{n+1}(x) \leq \sin^{n}(x)  \) on \( [0, \pi / 2]  \). But this tells us that \( (b_{n})  \) is a decreasing sequence of functions.  Since \( (b_{n}) \) is bounded and decreasing, we know that it must converge. It turns out that \( (b_{n}) \to 0  \) but this isn't the limit that we want to concern ourselves at the moment. 
+
+\subsubsection{Exercise 8.3.4} Show 
+\[  \lim_{ n \to \infty  }  \frac{ b_{2n} }{  b_{2n+1} }  = 1,  \] and use this fact to finish the proof of Walli's product formula in (3).
+\begin{proof}
+For \( k \geq 1  \), observe that
+\begin{align*}
+  \frac{ b_{2n} }{  b_{2n+1} }   &= \frac{ (2n-1) (2n+1)  }{ (2n)(2n) } \cdot \frac{ b_{2n-2}  }{ b_{2n-1} }   \\
+                                 &= \frac{ (2n-1) (2n+1)  }{ (2n)(2n)  } \cdot \frac{ (2n-3) (2n-1)  }{ (2n-2) (2n-2)  } \cdot  \dotsb \frac{ (2n - (2k-3)) (2n - (3k-2))  }{ (2n-2k)^2 }. \\ 
+\end{align*}
+When expanding the terms on the numerator and the denominator of \( b_{2n} / b_{2n+1} \), we end up with the same coefficient. Hence, the limit of \( b_{2n} / b_{2n+1} \) gives us our result that 
+\[  \lim_{ n \to \infty  }  \frac{ b_{2n}  }{  b_{2n+1} } = 1. \]
+\end{proof}
+
+Some techniques to dealing with the notation in (3) is to use the following equations 
+\[  2 \cdot 4 \cdot 6 \dotsb (2n) = 2^{n} n! \] and
+\[  1 \cdot 3 \cdot 5 \cdot \dotsb (2n+1) = \frac{ (2n+1)! }{  2 \cdot 4 \cdot 6 \dotsb (2n)  } = \frac{ (2n+1)! }{ 2^{n} n! }. \]
+
+
+\subsubsection{Exercise 8.3.5} Derive the following alternative form of Walli's product formula: 
+\[  \sqrt{ \pi }  = \lim_{ n \to \infty    }  \frac{ 2^{2n} (n!)^2  }{ (2n)! \sqrt{ n }  }. \]
+\begin{proof}
+\end{proof}
+
+
+
 
 
