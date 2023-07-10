@@ -82,9 +82,9 @@ For the \( (n+1) \)th term, we have the following bound \(  0 \leq \sin^{n+1}(x)
 For \( k \geq 1  \), observe that
 \begin{align*}
   \frac{ b_{2n} }{  b_{2n+1} }   &= \frac{ (2n-1) (2n+1)  }{ (2n)(2n) } \cdot \frac{ b_{2n-2}  }{ b_{2n-1} }   \\
-                                 &= \frac{ (2n-1) (2n+1)  }{ (2n)(2n)  } \cdot \frac{ (2n-3) (2n-1)  }{ (2n-2) (2n-2)  } \cdot  \dotsb \frac{ (2n - (2k-3)) (2n - (3k-2))  }{ (2n-2k)^2 }. \\ 
+                                 &= \frac{ (2n-1) (2n+1)  }{ (2n)(2n)  } \cdot \frac{ (2n-3) (2n-1)  }{ (2n-2) (2n-2)  } \cdot \frac{ b_{2n-4}  }{ b_{2n-3} } . \\ 
 \end{align*}
-When expanding the terms on the numerator and the denominator of \( b_{2n} / b_{2n+1} \), we end up with the same coefficient. Hence, the limit of \( b_{2n} / b_{2n+1} \) gives us our result that 
+Notice when expanding the terms on the numerator and the denominator of \( b_{2n} / b_{2n+1} \), we will always have the same coefficient. Hence, the limit of \( b_{2n} / b_{2n+1} \) gives us our result that 
 \[  \lim_{ n \to \infty  }  \frac{ b_{2n}  }{  b_{2n+1} } = 1. \]
 \end{proof}
 
