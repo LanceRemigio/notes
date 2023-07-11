@@ -106,12 +106,26 @@ To prove (2), we need to somehow generate the Taylor series for \( \arcsin(x)  \
 \subsubsection{Exercise 8.3.6} Show that \( 1 / \sqrt{ 1 - x  }  \) has Taylor expansion \( \sum_{ n=0 }^{ \infty  } c_{n} x^{n}  \), where \( c_{0} = 1  \) and 
 \[  c_{n} = \frac{ (2n)!  }{  2^{2n} (n!)^{2}  } = \frac{ 1 \cdot 3 \cdot 5 \dotsb (2n-1) }{ 2 \cdot 4 \cdot 6 \dotsb 2n }  \] for \( n \geq 1  \).
 \begin{proof}
-% Notes: Use the Lagrange's Remainder Theorem to show that the function has a taylor expansion. Then use the taylor's coefficient formula to find c_n. 
+Let \( f(x) = 1 / \sqrt{ 1 - x  }  \). Using Taylor's coefficient formula, we have the first three derivatives of \( f  \)
+\begin{align*}
+    f^{(1)}(x) &= \frac{ 1 }{ 2 } \cdot (1 - x )^{-3/2}, \\
+    f^{(2)}(x) &= \frac{ 1  }{ 2 }  \cdot \frac{ 3 }{ 2 } \cdot  (1-x)^{-5/2}, \\
+    f^{(3)}(x) &= \frac{ 1 }{ 2 }  \cdot \frac{ 3 }{ 2 }  \cdot \frac{ 5 }{ 2 } \cdot (1- x)^{-5/2}.
+\end{align*}
+For \( n  \geq 1 \), we can use induction to show  
+\[  f^{(n)}(x) =  \Big[ \prod_{k=1}^{n} \frac{ 2k-1 }{ 2k }   \Big] (1 -x )^{-(2n-1)/2}. \] Plugging in \( x = 0  \) gives us the desired formula
+\[  c_{n} = \prod_{k=1}^{n} \frac{ 2k-1 }{ 2k }.  \] Since \( f  \) is differentiable \( N+1 \) times on \( (-R ,R ) \) for \( x \neq 0  \), there exists a point \( c  \) satisfying \( | c  | < | x |  \) where the error function \( E_{N} \) satisfies 
+\[  E_{N}(x) = \Big[ \prod_{k=1}^{N+1} \frac{ 2k-1 }{ 2k  } \Big] \frac{ (1-c)^{-(2n-1)/2} }{ (N+1)!  } x^{n} \leq \Big[ \prod_{k=1}^{N+1} \frac{ 2k-1 }{ 2k  } \Big] \frac{ (1-c)^{-(2n-1)/2} }{ (N+1)!  } R^{n} .  \] By Exercise 2.7.10, we know that the product 
+\[  \prod_{k=1}^{N+1} \frac{ 2k-1 }{ 2k  }  \to 0.\] Furthermore, the second term 
+\[  \frac{ (1-c)^{-(2n-1)/2 } R^{n}   }{ (N+1)!  }  \to 0. \] This tells us our error function \(  E_{N}(x) \to 0  \). Hence, \( f  \) contains a Taylor expansion where 
+\[  \frac{ 1 }{ \sqrt{ 1-x  }    } =  \sum_{ k=1 }^{ \infty  } \Big[  \prod_{k=1}^{n}  \frac{ 2k-1 }{ 2k  }   \Big] x^{n}.  \]
 \end{proof}
 
 Observe that the coefficients above should look familiar to the formulas produced from Walli's product.
 
 \subsubsection{Exercise 8.3.7} Show that \( \lim c_{n} =  0  \) but \( \sum_{ n=0  }^{ \infty  } c_{n}  \) diverges.
+\begin{proof}
 
+\end{proof}
 
 
