@@ -98,7 +98,20 @@ Some techniques to dealing with the notation in (3) is to use the following equa
 \begin{proof}
 \end{proof}
 
+\subsection{Taylor Series} 
 
+To prove (2), we need to somehow generate the Taylor series for \( \arcsin(x)  \). This can't be done directly from Taylor's Formula for the coefficients. We need to first find the expansion for \( 1 / \sqrt{ 1 - x  }  \) by dealing with  
+
+\[  (\arcsin(x))' = \frac{ 1 }{ \sqrt{ 1 - x^{2} }  } \] first. 
+\subsubsection{Exercise 8.3.6} Show that \( 1 / \sqrt{ 1 - x  }  \) has Taylor expansion \( \sum_{ n=0 }^{ \infty  } c_{n} x^{n}  \), where \( c_{0} = 1  \) and 
+\[  c_{n} = \frac{ (2n)!  }{  2^{2n} (n!)^{2}  } = \frac{ 1 \cdot 3 \cdot 5 \dotsb (2n-1) }{ 2 \cdot 4 \cdot 6 \dotsb 2n }  \] for \( n \geq 1  \).
+\begin{proof}
+% Notes: Use the Lagrange's Remainder Theorem to show that the function has a taylor expansion. Then use the taylor's coefficient formula to find c_n. 
+\end{proof}
+
+Observe that the coefficients above should look familiar to the formulas produced from Walli's product.
+
+\subsubsection{Exercise 8.3.7} Show that \( \lim c_{n} =  0  \) but \( \sum_{ n=0  }^{ \infty  } c_{n}  \) diverges.
 
 
 
