@@ -139,3 +139,16 @@ Now our goal is to establish at which particular points in the domain of \( f  \
 
 \subsection{The Integral Form of the Remainder}
 
+The goal of the previous exercise is to recognize a different method is needed to estimate the error function \( E_{N}(x)   \). The following theorem is one such way to do this.
+
+\begin{tcolorbox}
+    \begin{thm}[Integral Remainder Theorem]
+    Let \( f  \) be differentiable \( N+1  \) times on \( (-R,R ) \) and assume \( f^{(N+1)}  \) is continuous. Define \( a_{n} = f^{(n)} (0) / n !   \) for \( n = 0,1 , \dots , N  \), and let 
+    \[  S_{N}(x) = \sum_{ k=0 }^{ N   } a_{k } x^{k }.  \] For all \( x \in (-R ,R ) \), the error function \( E_{N}(x) = f(x) - S_{N}(x)   \) satisfies 
+    \[  E_{N}(x) = \frac{ 1 }{ N! } \int_{ 0 }^{ x  }  f^{(N+1) }(t) (x-t)^{N} \  dt.  \]
+    \end{thm}
+\end{tcolorbox}
+
+\begin{proof}
+
+\end{proof}
