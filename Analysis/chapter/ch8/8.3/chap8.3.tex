@@ -113,12 +113,11 @@ Let \( f(x) = 1 / \sqrt{ 1 - x  }  \). Using Taylor's coefficient formula, we ha
     f^{(3)}(x) &= \frac{ 1 }{ 2 }  \cdot \frac{ 3 }{ 2 }  \cdot \frac{ 5 }{ 2 } \cdot (1- x)^{-5/2}.
 \end{align*}
 For \( n  \geq 1 \), we can use induction to show  
-\[  f^{(n)}(x) =  \Big[ \prod_{k=1}^{n} \frac{ 2k-1 }{ 2k }   \Big] (1 -x )^{-(2n-1)/2}. \] Plugging in \( x = 0  \) gives us the desired formula
-\[  c_{n} = \prod_{k=1}^{n} \frac{ 2k-1 }{ 2k }.  \] Since \( f  \) is differentiable \( N+1 \) times on \( (-R ,R ) \) for \( x \neq 1  \), there exists a point \( c  \) satisfying \( | c  | < | x |  \) where the error function \( E_{N} \) satisfies 
-\[  E_{N}(x) = \Big[ \prod_{k=1}^{N+1} \frac{ 2k-1 }{ 2k  } \Big] \frac{ (1-c)^{-(2n-1)/2} }{ (N+1)!  } x^{n} \leq \Big[ \prod_{k=1}^{N+1} \frac{ 2k-1 }{ 2k  } \Big] \frac{ (1-c)^{-(2n-1)/2} }{ (N+1)!  } R^{n} .  \] By Exercise 2.7.10, we know that the product 
-\[  \prod_{k=1}^{N+1} \frac{ 2k-1 }{ 2k  }  \to 0.\] Furthermore, the second term 
-\[  \frac{ (1-c)^{-(2n-1)/2 } R^{n}   }{ (N+1)!  }  \to 0. \] This tells us our error function \(  E_{N}(x) \to 0  \). Hence, \( f  \) contains a Taylor expansion where 
-\[  \frac{ 1 }{ \sqrt{ 1-x  }    } =  \sum_{ k=1 }^{ \infty  } \Big[  \prod_{k=1}^{n}  \frac{ 2k-1 }{ 2k  }   \Big] x^{n}.  \]
+\[  f^{(n)}(x) =  \Big[ \prod_{k=1}^{n} \frac{ 2k-1 }{ 2k }   \Big] (1 -x )^{-(2n+1)/2}. \] Plugging in \( x = 0  \) and using the techniques given to us above, we now have the desired formula
+\[  c_{n} = \prod_{k=1}^{n} \frac{ 2k-1 }{ 2k } = \frac{ (2n)!  }{ 2^{2n}  (n!)^2   }  \] 
+where 
+\[  \frac{ 1 }{ \sqrt{ 1-x  }  }  = \sum_{ n=0 }^{ \infty  } c_{n} x^{n}. \]
+
 \end{proof}
 
 Observe that the coefficients above should look familiar to the formulas produced from Walli's product.
@@ -126,15 +125,28 @@ Observe that the coefficients above should look familiar to the formulas produce
 \subsubsection{Exercise 8.3.7} Show that \( \lim c_{n} =  0  \) but \( \sum_{ n=0  }^{ \infty  } c_{n}  \) diverges.
 \begin{proof}
 The first statement is shown in Exercise 2.7.10. Observe that 
-\[  c_{n} \leq \frac{ 1 }{ 2^{2n} } \geq \frac{ 1 }{ n }. \] Since \( \sum 1 / n  \) diverges, we must also have \( \sum c_{n}   \) diverge by the Comparison test. 
+\[  c_{n} \geq \frac{ 1 }{ 2^{2n} } \geq \frac{ 1 }{ n }. \] Since \( \sum 1 / n  \) diverges, we must also have \( \sum c_{n}   \) diverge by the Comparison test. 
 \end{proof}
 
 Now our goal is to establish at which particular points in the domain of \( f  \) where 
 \[  \frac{ 1 }{ \sqrt{ 1- x  }  }  = \sum_{ n=0 }^{ \infty  } c_{n} x^{n}  \] is valid. This can be done by using Lagrange's Remainder Theorem. 
 
+To properly show that 
+\[  \frac{ 1 }{ \sqrt{ 1-x  }  }  = \sum_{ n=0  }^{ \infty  } c_{n} x^{n}  \]
+holds for all \( x \in (-1,1)  \), we need to show that the error function 
+\[  E_{N}(x) = \frac{ 1 }{ \sqrt{ 1- x  }  }  - \sum_{ n=0  }^{ N  } c_{n } x^{ n} \]
+approaches zero as \( N \to \infty  \). This can be done using Lagrange's Remainder Theorem (Theorem 6.6.3).
+
+
 \subsubsection{Exercise 8.3.8} Using the expression for \( E_{N}(x)  \) from Lagrange's Remainder Theorem, show that equation (4) is valid for all \( | x  |  < 1 / 2  \). What goes wrong when we try try to use this method to prove (4) for \( x \in (1/2, 1 ) \)?
 \begin{proof}
-
+Since \( f  \) is \( N+1  \) times differentiable on \( (-1/2 , 1/ 2 ) \), there exists a \( c  \) such that \( |  c  |  < | x  |  \) where the error function \( E_{N}(x)  \) satisfies 
+\[  E_{N}(x) = \frac{ f^{(N+1)}(c)  x^{n }  }{ (N+1)! } \] by Lagrange's Remainder Theorem. 
+Observe that 
+\[  f^{(N+1)}(c) = (1 -c )^{-(2N+3)/2} < \Big( \frac{ 2 }{ 3 }  \Big)^{ (2N+3)/ 2}.\]
+Since \( | x  |  < 1/ 2  \) and \( |  c  | < | x  |  \), we can now write
+\[ E_{N}(x) < \frac{  2^{3/2}}{  3^{(2N+3)/2} (N+1)! } \xrightarrow{N\rightarrow\infty} 0.   \]
+Hence, (4) holds for all \( x \in (-1,1) \).
 \end{proof}
 
 \subsection{The Integral Form of the Remainder}
