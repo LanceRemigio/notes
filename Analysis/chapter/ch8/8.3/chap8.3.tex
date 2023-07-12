@@ -143,12 +143,11 @@ approaches zero as \( N \to \infty  \). This can be done using Lagrange's Remain
 Since \( f  \) is \( N+1  \) times differentiable on \( (-1/2 , 1/ 2 ) \), there exists a \( c  \) such that \( |  c  |  < | x  |  \) where the error function \( E_{N}(x)  \) satisfies 
 \[  E_{N}(x) = \frac{ f^{(N+1)}(c)  x^{n }  }{ (N+1)! } \] by Lagrange's Remainder Theorem. 
 Observe that 
-\[  f^{(N+1)}(c) = (1 -c )^{-(2N+3)/2} < \Big( \frac{ 2 }{ 3 }  \Big)^{ (2N+3)/ 2}.\]
+\[  f^{(N+1)}(c) = \Big[ \prod_{k=1}^{N+1} \frac{ 2k-1  }{ 2k }  \Big]   (1 -c )^{-(2N+3)/2} < \Big[ \prod_{k=1}^{N+1} \frac{ 2k-1  }{ 2k }  \Big]\Big( \frac{ 2 }{ 3 }  \Big)^{ (2N+3)/ 2}.\]
 Since \( | x  |  < 1/ 2  \) and \( |  c  | < | x  |  \), we can now write
-\[ E_{N}(x) < \frac{  2^{3/2}}{  3^{(2N+3)/2} (N+1)! } \xrightarrow{N\rightarrow\infty} 0.   \]
+\[ E_{N}(x) < \Big[ \prod_{k=1}^{N+1} \frac{ 2k-1  }{ 2k }  \Big]\frac{  2^{3/2}}{  3^{(2N+3)/2} (N+1)! } \xrightarrow{N\rightarrow\infty} 0.   \]
 Hence, (4) holds for all \( x \in (-1,1) \).
 \end{proof}
-
 \subsection{The Integral Form of the Remainder}
 
 The goal of the previous exercise is to recognize a different method is needed to estimate the error function \( E_{N}(x)   \). The following theorem is one such way to do this.
@@ -162,5 +161,28 @@ The goal of the previous exercise is to recognize a different method is needed t
 \end{tcolorbox}
 
 \begin{proof}
+The case \( x = 0  \) is easy to check, so let's take \( x \neq 0  \) in \( (-R ,R ) \) and keep in mind that \( x  \) is a fixed constant in what follows. To avoid a few technical distractions, let's just consider the case \( x > 0  \).
+
+\subsubsection{Exercise 8.3.9} 
+\begin{enumerate}
+    \item[(a)] Show 
+        \[  f(x) = f(0) + \int_{ 0 }^{ x }  f'(t) \  dt. \]
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Now use a previous result from this section to show 
+        \[  f(x) = f(0) + f'(0) x + \int_{ 0 }^{ x }  f"(t)(x-t) \  dt. \]
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Continue in this fashion to complete the proof of the theorem.
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
 
 \end{proof}
+
+
+
+
