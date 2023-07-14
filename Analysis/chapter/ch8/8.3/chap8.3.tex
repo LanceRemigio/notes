@@ -96,11 +96,19 @@ Some techniques to dealing with the notation in (3) is to use the following equa
 \subsubsection{Exercise 8.3.5} Derive the following alternative form of Walli's product formula: 
 \[  \sqrt{ \pi }  = \lim_{ n \to \infty    }  \frac{ 2^{2n} (n!)^2  }{ (2n)! \sqrt{ n }  }. \]
 \begin{proof}
+
+
+
+
 \end{proof}
 
 \subsection{Taylor Series} 
 
 To prove (2), we need to somehow generate the Taylor series for \( \arcsin(x)  \). This can't be done directly from Taylor's Formula for the coefficients. We need to first find the expansion for \( 1 / \sqrt{ 1 - x  }  \) by dealing with  
+
+
+
+
 
 \[  (\arcsin(x))' = \frac{ 1 }{ \sqrt{ 1 - x^{2} }  } \] first. 
 \subsubsection{Exercise 8.3.6} Show that \( 1 / \sqrt{ 1 - x  }  \) has Taylor expansion \( \sum_{ n=0 }^{ \infty  } c_{n} x^{n}  \), where \( c_{0} = 1  \) and 
@@ -110,7 +118,7 @@ Let \( f(x) = 1 / \sqrt{ 1 - x  }  \). Using Taylor's coefficient formula, we ha
 \begin{align*}
     f^{(1)}(x) &= \frac{ 1 }{ 2 } \cdot (1 - x )^{-3/2}, \\
     f^{(2)}(x) &= \frac{ 1  }{ 2 }  \cdot \frac{ 3 }{ 2 } \cdot  (1-x)^{-5/2}, \\
-    f^{(3)}(x) &= \frac{ 1 }{ 2 }  \cdot \frac{ 3 }{ 2 }  \cdot \frac{ 5 }{ 2 } \cdot (1- x)^{-5/2}.
+    f^{(3)}(x) &= \frac{ 1 }{ 2 }  \cdot \frac{ 3 }{ 2 }  \cdot \frac{ 5 }{ 2 } \cdot (1- x)^{-7/2}.
 \end{align*}
 For \( n  \geq 1 \), we can use induction to show  
 \[  f^{(n)}(x) =  \Big[ \prod_{k=1}^{n} \frac{ 2k-1 }{ 2k }   \Big] (1 -x )^{-(2n+1)/2}. \] Plugging in \( x = 0  \) and using the techniques given to us above, we now have the desired formula
@@ -185,7 +193,7 @@ The case \( x = 0  \) is easy to check, so let's take \( x \neq 0  \) in \( (-R 
     \item[(b)] Continue in this fashion to complete the proof of the theorem.
         \begin{proof}
         Continuing the process in parts (a) and (b) and using the fact that \( f  \) is \( N+1  \) times differentiable for all \( x \in (-R ,R ) \), we have that
-        \begin{align*}  f(x) &= \int_{ 0 }^{ x  } f^{(N+1)}(t) (x -t )^{N} \  dt + \sum_{ k=0  }^{ N  } \frac{ f^{(k)}(0) }{ k! } x_{k } \\  
+        \begin{align*}  f(x) &= \frac{ 1 }{ N! }  \int_{ 0 }^{ x  } f^{(N+1)}(t) (x -t )^{N} \  dt + \sum_{ k=0  }^{ N  } \frac{ f^{(k)}(0) }{ k! } x_{k } \\  
             &= \frac{ 1 }{ N! } \int_{ 0 }^{ x }  f^{(N+1)}(t) (x-t)^{N} \   dt + S_{N}(x).
         \end{align*}
         Subtracting \( S_{N}(x)  \) from both sides above and using the fact that \( E_{N}(x) = f(x) - S_{N}(x)  \) gives us our desired result 
@@ -205,7 +213,13 @@ We will use this fact to now show that (4) holds.
     \item[(b)] For a general \( x  \) satisfying \(  |  x  |  < 1  \), show 
         \[  E_{2}(x) = \frac{ 15 }{ 16  }  \int_{ 0 }^{ x  }  \Big( \frac{ x - t  }{ 1 - t  }  \Big)^{2} \frac{ 1 }{ (1-t)^{3/2 } }  \ dt. \]
         \begin{proof}[Solution]
-        
+        Let \( |  x  |  < 1  \). Let \( N = 2  \). Observe that 
+        \[  f^{(3)}(t) = \frac{ 15 }{ 8  }  (1- t )^{-7/2}.\] Using the Integral Remainder Theorem, we have that 
+        \begin{align*}
+            E_{2}(x) &= \frac{ 1 }{ 2 } \int_{ 0 }^{ x }  f^{(3)}(t) (x-t)^{2} \  dt   \\
+                     &= \frac{ 15 }{ 16 } \int_{ 0 }^{ x }  (1-t)^{-7/2} (x - t )^{2} \  dt \\
+                     &= \frac{ 15 }{ 16 }  \int_{ 0 }^{ x  }  \Big( \frac{ x - t  }{ 1 - t  }  \Big)^{2} \frac{ 1 }{ (1-t)^{3/2 } }  \  dt.
+        \end{align*}
         \end{proof}
     \item[(c)] Explain why the inequality 
         \[  \Big| \frac{ x - t  }{ 1 -t  }  \Big|  \leq | x  |  \]
