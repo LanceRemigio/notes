@@ -129,7 +129,7 @@ The first statement is shown in Exercise 2.7.10. Observe that
 \end{proof}
 
 Now our goal is to establish at which particular points in the domain of \( f  \) where 
-\[  \frac{ 1 }{ \sqrt{ 1- x  }  }  = \sum_{ n=0 }^{ \infty  } c_{n} x^{n}  \] is valid. This can be done by using Lagrange's Remainder Theorem. 
+\[  \frac{ 1 }{ \sqrt{ 1- x  }  }  = \sum_{ n=0 }^{ \infty  } c_{n} x^{n} \tag{4}  \] is valid. This can be done by using Lagrange's Remainder Theorem. 
 
 To properly show that 
 \[  \frac{ 1 }{ \sqrt{ 1-x  }  }  = \sum_{ n=0  }^{ \infty  } c_{n} x^{n}  \]
@@ -184,12 +184,36 @@ The case \( x = 0  \) is easy to check, so let's take \( x \neq 0  \) in \( (-R 
         \end{proof}
     \item[(b)] Continue in this fashion to complete the proof of the theorem.
         \begin{proof}
-        
+        Continuing the process in parts (a) and (b) and using the fact that \( f  \) is \( N+1  \) times differentiable for all \( x \in (-R ,R ) \), we have that
+        \begin{align*}  f(x) &= \int_{ 0 }^{ x  } f^{(N+1)}(t) (x -t )^{N} \  dt + \sum_{ k=0  }^{ N  } \frac{ f^{(k)}(0) }{ k! } x_{k } \\  
+            &= \frac{ 1 }{ N! } \int_{ 0 }^{ x }  f^{(N+1)}(t) (x-t)^{N} \   dt + S_{N}(x).
+        \end{align*}
+        Subtracting \( S_{N}(x)  \) from both sides above and using the fact that \( E_{N}(x) = f(x) - S_{N}(x)  \) gives us our desired result 
+    \[  E_{N}(x) = \frac{ 1 }{ N! } \int_{ 0 }^{ x  }  f^{(N+1) }(t) (x-t)^{N} \  dt.  \]
         \end{proof}
 \end{enumerate}
-
 \end{proof}
 
+We will use this fact to now show that (4) holds.
 
+\subsubsection{Exercise 8.3.10} 
+\begin{enumerate}
+    \item[(a)] Make a rough sketch of \( 1 / \sqrt{ 1 -x  }  \) and \( S_{2}(x)  \) over the interval \( (-1,1)  \), and compute \( E_{2}(x)  \) for \( x = 1/2 , 3/4 ,  \) and \( 8/9  \).
+        \begin{proof}[Solution]
+        
+        \end{proof}
+    \item[(b)] For a general \( x  \) satisfying \(  |  x  |  < 1  \), show 
+        \[  E_{2}(x) = \frac{ 15 }{ 16  }  \int_{ 0 }^{ x  }  \Big( \frac{ x - t  }{ 1 - t  }  \Big)^{2} \frac{ 1 }{ (1-t)^{3/2 } }  \ dt. \]
+        \begin{proof}[Solution]
+        
+        \end{proof}
+    \item[(c)] Explain why the inequality 
+        \[  \Big| \frac{ x - t  }{ 1 -t  }  \Big|  \leq | x  |  \]
+        is valid, and use this to find an overestimate for \( | E_{2}(x)  |   \) that no longer involves an integral. Note that this estimate will necessarily depend on \( x  \). Confirm that things are going well by checking that this overestimate is in fact larger than \( | E_{2}(x)  |  \) at three computed values from part (a).
+        \begin{proof}[Solution]
+        
+        \end{proof}
+    \item[(d)] Finally, show \( E_{N}(x) \to 0  \) as \( N \to \infty  \) for an arbitrary \( x \in (-1 , 1) \).
+\end{enumerate}
 
 
