@@ -167,13 +167,20 @@ The case \( x = 0  \) is easy to check, so let's take \( x \neq 0  \) in \( (-R 
 \begin{enumerate}
     \item[(a)] Show 
         \[  f(x) = f(0) + \int_{ 0 }^{ x }  f'(t) \  dt. \]
-        \begin{proof}
-        
+        \begin{proof} 
+            Since \( f  \) is continuous differentiable for all  \( t \in (0,x) \), we can use part (i) of FTC to write 
+        \[  \int_{ 0 }^{ x } f'(t)  \ dt =  f(x) - f(0). \] Solving for \( f(x)  \) gives us our desired result 
+        \[ f(x) = f(0) + \int_{ 0 }^{ x }  f'(t) \ dt. \]
         \end{proof}
     \item[(b)] Now use a previous result from this section to show 
         \[  f(x) = f(0) + f'(0) x + \int_{ 0 }^{ x }  f"(t)(x-t) \  dt. \]
         \begin{proof}
-        
+            Taking advantage of \( f  \) being continuously differentiable \( N+1  \) times for all \(  t \in (0,x) \) and using the integration-by-parts formula found in Exercise 8.3.2, we have 
+            \begin{align*}  \int_{ 0 }^{ x }  f"(t) (x -t ) \  dt &= \Big[ f'(t) (x-t) \Big]_{0}^{x} + \int_{ 0 }^{ x }  f'(t) \  dt \\
+            &= -x f'(0) + [ f(x) - f(0)].  
+            \end{align*}
+            Solving for \( f(x)  \) once again, we get our desired result
+        \[  f(x) = f(0) + f'(0) x + \int_{ 0 }^{ x }  f"(t)(x-t) \  dt. \]
         \end{proof}
     \item[(b)] Continue in this fashion to complete the proof of the theorem.
         \begin{proof}
