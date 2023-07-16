@@ -2,17 +2,12 @@
 
 As we have seen in the last section, convergent sequences are bounded while the converse is not true. But if a sequence is monotone then surely it is convergent. 
 
-\begin{tcolorbox}
-\begin{defn}
+\begin{definition}{Monotone Sequences}{}
     A sequence \( (a_n) \) is \textit{increasing } if \( a_n \leq a_{n+1}\) for all \( n \in \N \) and \textit{decreasing} if \( a_n \geq a_{n+1}\) for all \( n \in \N \). A sequence is \textit{monotone} if it is either increasing or decreasing.
-\end{defn}
-\end{tcolorbox}
-
-\begin{tcolorbox}
-    \begin{thm}[Monotone Convergence Theorem]
+\end{definition}%
+\begin{theorem}{Monotone Convergence Theorem}{}
         If a sequence is monotone and bounded, then it converges.
-    \end{thm}
-\end{tcolorbox}
+    \end{theorem}%
 
 \begin{proof}
 Let \( (a_n)\) be \textit{monotone} and \textit{bounded}. We need to show that \( (a_n)\) converges to some value \( s \). Let our set of points \( a_n\) be defined as 
@@ -35,18 +30,15 @@ Hence, it follows that any \textit{monotone} and \textit{bounded} sequence conve
 
 The key takeaway from this theorem is that we don't actually need to specify a value for a limit in order to show that it converges. As long as we have a monotone sequence and that we know it is bounded then we know for sure that the sequence converges.
 
-\begin{tcolorbox}
-    \begin{defn}[Convergence of a Series]
+\begin{definition}{Infinite Series}{}
         Let \( (b_n)\) be a sequence. An \textit{infinite series} is a formal expression of the form 
         \[ \sum_{n=1}^{ \infty} b_n = b_1 + b_2 + b_3 + \dots { }. \]
         We define the corresponding \textit{sequence of partial sums} \( (s_m)\) by 
         \[ s_m = b_1 + b_2 + b_3 + ... + b_m = \sum_{i=1}^{m} s_i,\]
         and say that the series \( \sum_{n=1}^{ \infty} b_n \) \textit{converges} to \( B \) if the sequence \( (s_m)\) converges to \( B \). In this case, we write 
         \[ \sum_{n=1}^{ \infty} b_n = B.\]
-\end{defn}
-\end{tcolorbox} 
-
-\begin{ex}
+\end{definition}
+\begin{example}{}{}
 Consider 
 \[ \sum_{n=1}^{ \infty} \frac{1}{n^2}.\]
 Because the terms in the sum are all positive, the sequence of partial sums are given by 
@@ -63,9 +55,8 @@ The third second equality is found by taking the partial fractions of the line b
 Thus, we find that \( 2 \) is an upper bound for the sequence of partial sums, so we can conclude that the infinite series 
 \[ \sum_{n=1}^{ \infty} \frac{1}{n^2} \]
 is convergent.
-\end{ex}
-
-\begin{ex}[Harmonic Series]
+\end{example}
+\begin{example}{The Harmonic Series Diverges}{}
     Let's consider the Harmonic Series 
     \[ \sum_{n=1}^{ \infty} \frac{1}{n}. \]
     The sequence of partial sums is defined as follows
@@ -81,19 +72,15 @@ is convergent.
                &= 1 + k\frac{1}{2}.
     \end{align*}
     This shows that our sequence is unbounded because we found \( M = 1 + k \Big( \frac{1}{2}\Big) > 0\) such that \( s_k > M \). Despite how slow the sequence of partial of sums may be at reaching this point, it does end up surpassing every number on the postive real line. Since we have an unbounded sequence of partial sums, we conclude that the Harmonic series as divergent.
+\end{example}
 
-\end{ex}
 
 
-\begin{tcolorbox}
-    \begin{thm}[Cauchy Condensation Test]
-    Suppose \( (b_n)\) is decreasing and satisfies \( b_n \geq 0  \) for all \( n \in \N \). Then, the series 
-    \[ \sum_{n=0}^{ \infty} b_n \]
-    converges if and only if 
-    \[ \sum_{n=0}^{ \infty} 2^n b_{2^n}\]
+\begin{theorem}{Cauchy Condensation Test}{}
+    Suppose \( (b_n)\) is decreasing and satisfies \( b_n \geq 0  \) for all \( n \in \N \). Then, the series \( \sum_{n=0}^{ \infty} b_n \)
+    converges if and only if \( \sum_{n=0}^{ \infty} 2^n b_{2^n}\)
 converges.
-\end{thm}
-\end{tcolorbox} 
+\end{theorem}
 
 \begin{proof}
     For the forwards direction, assume that \( \sum_{n=0}^{ \infty} 2^n b_{2^n}\) converges. This means that the sequence of partial sums 

@@ -1,20 +1,16 @@
 \section{The Cauchy Criterion}
 
 
-\begin{tcolorbox}
-\begin{defn}
+\begin{definition}{Cauchy Sequence}{}
 A sequence \((a_n)\) is called a \textit{Cauchy Sequence} if, for every \( \epsilon > 0 \), there exists an \( N \in \N \) such that whenever \( m,n \geq N \) it follows that 
 \[ | a_n - a_m | < \epsilon.\]
-\end{defn}
-\end{tcolorbox}
+\end{definition}
 
-In the regular convergence defintion, we are given any \( \epsilon > 0 \) where there is a point in the sequence \(N \in \N \) such that past this point, all of our terms fall within an \(\epsilon\) range around some limit point. In the Cauchy Criterion defintion, we begin with the same conditions but this time, all the terms of the sequence are all tightly packed together wthin the \(\epsilon > 0 \) range we were given. It turns out, that these two definitions are equivalent: that is, \textit{Cauchy sequences} are convergent sequences and convergent sequences are \textit{Cauchy sequences}. 
+In the regular convergence definition, we are given any \( \epsilon > 0 \) where there is a point in the sequence \(N \in \N \) such that past this point, all of our terms fall within an \(\epsilon\) range around some limit point. In the Cauchy Criterion defintion, we begin with the same conditions but this time, all the terms of the sequence are all tightly packed together wthin the \(\epsilon > 0 \) range we were given. It turns out, that these two definitions are equivalent: that is, \textit{Cauchy sequences} are convergent sequences and convergent sequences are \textit{Cauchy sequences}. 
 
-\begin{tcolorbox}
-\begin{thm}
+\begin{theorem}{}{}
 Every convergent sequence is a Cauchy sequence. 
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 
 \begin{proof}
 Assume \((x_n)\) converges to \(x\). To show that \((x_n)\) is \textit{Cauchy}, there must existsa point \( N \in \N \) after which we can conclude that 
@@ -35,11 +31,9 @@ Hence, \((x_n)\) is a \textit{Cauchy Sequence}.
 \end{proof}
 
 We can prove the other direction, by using either the \textit{Bolzano Weierstrass Theorem} or the \textit{Monotone Convergence Theorem}. This is a little bit more difficult since we need to have a proposed limit for the sequence to converge to.  
-\begin{tcolorbox}
-\begin{lem}
+\begin{lemma}{}{}
 Cauchy sequences are bounded.
-\end{lem}
-\end{tcolorbox}
+\end{lemma}
 
 \begin{proof}
     Given \( \epsilon = 1\), there exists an \( N \in \N \) such that \( |x_m - x_n | < 1 \) for amm \( m,n \geq N \). Thus, we must have \( |x_n| < |x_{N}| + 1 \) for all \( n \geq N \) (just substituted \(m = N \) here). Hence, define 
@@ -47,18 +41,15 @@ Cauchy sequences are bounded.
    Therefore, \( |x_n| < M \) for all \( n \in \N \) Hence, the \textit{Cauchy sequence} \((x_n)\) is \textit{bounded}.
 \end{proof}
 
-\begin{tcolorbox}
-\begin{thm}
+\begin{theorem}{Cauchy Criterion in \( \R  \)}{}
 A sequence converges if and only if it is a Cauchy sequence.
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 
 \begin{proof}
     (\(\Rightarrow\)) This direction is just Theorem 2.6.2 which we have proved above. 
 
     (\( \Leftarrow\)) Suppose \((x_n)\) is a \textit{Cauchy sequence}. Let \( \epsilon > 0 \). Since \( (x_n)\) is a \textit{bounded} sequence, there exists a subsequence \((x_{n_k})\) such that \((x_{n_k}) \to x \) by the \textit{Bolzano Weierstrass Theorem}. Let \( \epsilon > 0 \). Then for some \( N \in \N \), every \( n_k \geq N \) has the property
     \[ |x_{n_k} - x| < \epsilon.\]
-\end{proof}
 Our goal now is to show that \( (x_n) \to x\). Hence, consider \( |x_n - x| \). Then for every \(n, n_{k} \geq N \), we have 
 \begin{align*}
     |x_n - x | &= |x_n - x_{n_k} + x_{n_k} - x | \\
@@ -67,6 +58,7 @@ Our goal now is to show that \( (x_n) \to x\). Hence, consider \( |x_n - x| \). 
      &= \epsilon.
 \end{align*}
 Hence, \((x_n) \to x \).  
+\end{proof}
 
 \subsection{Completeness Revisited}
 

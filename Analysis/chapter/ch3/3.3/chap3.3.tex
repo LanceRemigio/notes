@@ -2,31 +2,23 @@
 \section{Compact Sets}
 
 \subsection{Compactness}
-\begin{tcolorbox}
-\begin{defn}
+\begin{definition}{}{}
 A set \( K \subseteq \R \) is compact if every sequence in \( K \) has a subsequence that converges to a limit that is also in \( K \).
-\end{defn}
-\end{tcolorbox}
+\end{definition}
 
-\begin{ex}
-\begin{enumerate}
-    \item[(i)] Closed intervals are compact since all \( (a_n) \) in \( K \) are bounded and so we can always find a subsequence in \( K \) (By Bolzano-Weierstrass) that converges to a limit that is contained within the closed interval. We know the limit is contained in \( K \) since closed intervals are closed sets. 
-\end{enumerate}
-\end{ex}
+\begin{example}{}{}
+    Closed intervals are compact since all \( (a_n) \) in \( K \) are bounded and so we can always find a subsequence in \( K \) (By Bolzano-Weierstrass) that converges to a limit that is contained within the closed interval. We know the limit is contained in \( K \) since closed intervals are closed sets. 
+\end{example}
 
 In the example above, we used the fact that bounded sequences contain subsequences that converge and the fact that their limits are contained since closed intervals are closed sets. 
 
-\begin{tcolorbox}
-\begin{defn}
+\begin{definition}{Bounded Sets}{}
 A set \( A \subseteq \R \) is \textit{bounded} if there exists \( M > 0  \) such that \( | a | \leq M  \) for all \( a \in A \).
-\end{defn}
-\end{tcolorbox}
+\end{definition}
 
-\begin{tcolorbox}
-    \begin{thm}[Characterization of Compactness in \( \R \)]
+\begin{theorem}{Characterization of Compactness in \( \R \)}{}
     A set \( K \subseteq \R \) is compact if and only if it is closed and bounded.
-    \end{thm}
-\end{tcolorbox}
+    \end{theorem}
 
 \begin{proof}
     Assume \( K \) is a compact set. Suppose for sake of contradiction that \( K \) is not a bounded set. Our goal is to construct a sequence \( (a_n) \) that diverges. Since \( K \) is not bounded, for all \( M > 0  \), there exists \( a_n \in A \) such that \( | a_n | > M  \). But by assumption, \( K \) is compact so \( (a_n) \) must contain a subsequence \( (a_{n_k}) \) that converges to a limit in \( K \). But since \( (a_{n_k}) \) is unbounded, we have a contradiction. Hence, \( K \) must be a bounded set. 
@@ -39,13 +31,11 @@ A set \( A \subseteq \R \) is \textit{bounded} if there exists \( M > 0  \) such
 It is important remember that closed intervals are not all that is when considering compact sets. The structure is much more intricate and interesting. For example, we can say that the Cantor Set is compact. We can experiment with this new idea of compact sets with the Nested Interval Property from chapter 1.
 
 
-\begin{tcolorbox}
-    \begin{thm}[Nested Compact Set Property]
+\begin{theorem}{Nested Compact Set Property}{}
     If 
     \[ K_1 \supseteq K_2 \supseteq K_3 \supseteq K_4 \supseteq \dots \]
     is a nested sequence of nonempty compact sets, then the intersection \( \bigcap_{ n=1 }^{ \infty  } K_n  \) is not empty.
-    \end{thm}
-\end{tcolorbox}
+    \end{theorem}
 
 \begin{proof}
     Assume \( K_n \neq \emptyset  \) compact for each \( n \in \N \). Then for each \(  n \in \N \), choose \( x_n \in K_n \) where \( x_n \) is a sequence of points. Since we have a nested sequence of nonempty sets, it follows that \( x_n \in K_1 \). By definition of compactness, \( (x_n) \) contains a convergent subsequence \( (x_{n_k}) \) such that \( \lim x_{n_k} = x  \) where \( x \in K_n \) for every \( n \in \N \) and thus \( x \in K_1 \). Given \( n_0 \in \N \), we have that the terms of the sequence \( x_n  \) are contained within \( K_{n_0} \) given all \( n \geq n_0 \). We can ignore the finite number of terms for which \( n_k < n_0  \) so that \( (x_{n_k}) \) can be contained in \( K_{n_0} \). Hence, we have that \( x = \lim x_{n_k} \) is an element of \( K_{n_0} \). Because \( n_0  \) was arbitrary, we have that \( x \in \bigcap_{ n=1 }^{ \infty  } K_n \neq \emptyset\).
@@ -54,17 +44,15 @@ It is important remember that closed intervals are not all that is when consider
 \subsection{Open Covers}
 In the last section, we proved that compact sets to be bounded and closed and vice versa. In other cases, we could also have defined compacts in this way and then proved that for every sequences that is bounded, there exists subsequences that converge to limits contained within the set. We can prove compactness in terms of open covers and finite subcovers. 
 
-\begin{tcolorbox}
-\begin{defn}
+\begin{definition}{}{}
     Let \( A \subseteq \R \). An \textit{open cover} for \( A \) is a (possibly infinite) collection of open sets \( \{ O_{\lambda} : \lambda \in \Lambda \}  \) whose union contains the set \( A \); that is 
     \[ A \subseteq \bigcup_{ \lambda \in \Lambda } O_{\lambda}.  \]
     Given an open cover for \( A \), a \textit{finite subcover} is a finite subcollection of open sets from the original open cover whose union still manages to completely contain \( A \).
-\end{defn}
-\end{tcolorbox}
+\end{definition}
 
 Subcollection in this context is just a collection of sets that are subsets of the original collection of open sets.
 
-\begin{ex}
+\begin{example}{}{}
 Consider the open interval \( (0,1) \). For each point \( x \in (0,1) \), let \( O_x \) be the open interval \( (x/2, 1) \). Let the infinite collection of \( O_x \) be defined as 
 \[ \{ O_{x} : x \in (0,1) \}  \]
 forms an open cover for the open interval \( (0,1) \); that is, 
@@ -72,22 +60,20 @@ forms an open cover for the open interval \( (0,1) \); that is,
 Note that it is impossible to find a finite subcover for the open set \( (0,1) \). Given any proposed finite subcollection 
 \[ \{ O_{x_1}, O_{x_2}, ..., O_{x_n} \}, \]
 let \( x' = \min \{ x_1, x_2, \dots, x_n \}  \) and observe that for any \( y \in \R  \) satisfying \( 0 < y \leq x' /2  \) is not contained in the union \( \bigcup_{ i=1 }^{ n } O_{x_i} \). 
-\end{ex}
+\end{example}
 
 Now consider a similar cover for the closed interval \( [0,1] \). For \( x \in (0,1) \), the sets \( O_x = (x/2, 1) \) do relatively well to cover \( (0,1) \), but in order to have an open cover for the closed interval \( [0,1] \), we could let \( \epsilon > 0   \) so that we can have epsilon neighborhoods covering both endpoints. That is, we have \( O_o = (-\epsilon , \epsilon ) \) and \( O_1 = (1 - \epsilon, 1 + \epsilon ) \). Then the collection 
 \[ \{ O_0, O_1, O_x : x \in (0,1) \}  \]
 is an open cover for \( [0,1] \) is a finite subcover for the closed interval \( [0,1] \).
 
-\begin{tcolorbox}
-    \begin{thm}[Heine-Borel Theorem]
+\begin{theorem}{Heine-Borel Theorem}
 Let \( K \) be a subset of \( \R \). All of the following statements are equivalent in the sense that any one of them implies the two others. 
 \begin{enumerate}
     \item[(i)] \( K \) is compact.
     \item[(ii)] \( K \) is closed and bounded.
     \item[(iii)] Every open cover for \( K \) has a finite subcover.
 \end{enumerate}
-\end{thm}
-\end{tcolorbox}
+\end{theorem}%
 
 \begin{proof}
 Notice that the proof of the equivalence of (i) and (ii) has already been proven in Theorem 3.3.1. All we need to show now is that (iii) implies (ii) and (iii) implies (i). 
@@ -101,10 +87,6 @@ Since \( (y_n) \) is a Cauchy sequence, so it must converge. Hence, for some \( 
 But note that since \( y \notin K  \), not all of the terms from the sequence \( (y_n) \) for every \( n \geq N \) that is contained in \( K \) are not included in the finite subcover
 \[ \bigcup_{ i=1 }^{ n } O_{x_i}. \]
 Hence, our finite subcover does not actually cover all of \( K \) which is a contradiction and thus we must have \( y \in K \).
-
-
-
-
 \end{proof}
 
 

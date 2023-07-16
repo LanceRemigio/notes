@@ -1,5 +1,4 @@
 
-% !TEX root =  ../../../main.tex 
 
 \section{Continuous Functions on Compact Sets}
 
@@ -13,11 +12,9 @@ Suppose \( f(x) =x^2  \) and \( B = (-1,1) \) is an open interval, then we have 
 \[  g(x) = \frac{ 1 }{ 1 + x^2  }   \]
 and the closed set \( B = [0, \infty ) = \{ x : x \geq 0  \}  \). Because we have that \( g(B) = (0,1] \) is not closed, we must conclude that continuous functions do not generally map from closed sets to closed sets. However, if \( B  \) is compact, then \( B  \) gets mapped to closed and bounded subsets by continuous functions.
 
-\begin{tcolorbox}
-    \begin{thm}[Preservation of Compact Sets]
+    \begin{theorem}{Preservation of Compact Sets}{}
     Let \( f: A \to \R  \) be continuous on \( A  \). If \( K \subseteq A  \) is compact, then \( f(K)  \) is compact as well.
-    \end{thm}
-\end{tcolorbox}
+    \end{theorem}
 
 \begin{proof}
     Let \(  f: A \to \R  \) and \( K \subseteq A  \) be a compact set. Let \( (x_n) \subseteq K \) and \( (y_n) \subseteq f(K) \). Since \( K  \) is a compact set, there exists \( (x_{n_k}) \to x  \) such that \( x  \) is contained in \( K  \). Suppose \( f  \) is a continuous function. Define \( f(x_n) = y_n \). Since \( (x_{n_k}) \) converges to \( x  \) and \( f  \) is a continuous function, we have that 
@@ -30,11 +27,9 @@ An extremely important result from this theorem deals with how compact sets are 
 
 
 
-\begin{tcolorbox}
-    \begin{thm}[Extreme Value Theorem]
+\begin{theorem}{Extreme Value Theorem}{}
     If \( f: K \to \R  \) is continuous on a compact set \( K \subseteq \R  \), then \( f  \) attains a maximum and minimum value. In other words, there exists \( x_0, x_1 \in K  \) such that \( f(x_0) \leq f(x) \leq f(x_1) \) for all \( x \in K  \).
-    \end{thm}
-\end{tcolorbox}
+    \end{theorem}
 
 \begin{proof}
     Since \( f(K) \) is a compact set, we can set \( \alpha = \sup f(K) \) and know that \( \alpha \in f(K) \) from Exercise 3.3.1. It immediately follows that for some \( x_1 \in K  \), this element gets mapped to \( \alpha = f(x_1) \) since \( f  \) is a continuous function. Likewise, we have \( \beta \in f(K) \) such that for some \( x_0 \in K  \), \( x_0  \) gets mapped to \( \beta = f(x_0 ) \) by the same reasoning above. Hence, we have that for any \( x \in K  \), 
@@ -45,7 +40,7 @@ An extremely important result from this theorem deals with how compact sets are 
 
 We learned in the last section that polynomials are always continuous on \( \R  \). In this section, we show that these functions are actually uniform continuous on \( \R  \); that is, they are everywhere continuous.
 
-\begin{ex}
+\begin{example}{}{}
 \begin{enumerate}
     \item[(i)] Let \( f: \R \to \R  \) such that \( f(x) = 3x + 1  \). We want to show that this is continuous for any point \( c \in \R  \). Let \( \epsilon  > 0  \). Then choose \( \delta = \epsilon  / 3  \) such that whenever \( | x - c  | < \delta  \), we have that 
 \begin{align*}
@@ -66,27 +61,23 @@ Notice how our choice of \( \delta \) depended on our choice of \( c \in \R  \) 
 \[  \delta = \frac{ \epsilon  }{ 2 | c  | + 1  }. \]
 This means that as our choice of \( c \in \R  \) gets bigger and bigger, our \( \delta - \)neighborhood must get smaller and smaller.
 \end{enumerate}
-\end{ex}
+\end{example}
 
 
 This leads us to our rigorous definition of what it means for a function to be uniform continuous.
 
-\begin{tcolorbox}
-\begin{defn}
+\begin{definition}{Uniformly Continuous Functions}{}
 A function \( f: A \to \R  \) is \textit{uniformly continuous} on \( A  \) if for every \( \epsilon > 0  \) there exists a \( \delta > 0  \) such that for all \( x,y \in A  \), \( | x - y  | < \delta  \) implies \( | f(x) - f(y) | < \epsilon. \)
-\end{defn}
-\end{tcolorbox}
+\end{definition}
 
 The difference between regular continuity and uniform continuity is that regular implies continuity of a function at any point \( c \in \R  \) granted that our choice of \( \delta  \) is dependent on our choice of \( c \in \R  \) while uniform continuity implies that our choice of \( \delta  \) stays the same regardless of our choice of \( c \in \R  \).
 
 On the other hand, saying that a function is not uniform continuous is to say that given some \( \epsilon > 0  \), there is not suitable choice of \( \delta > 0  \) that will be a valid response to our \( \epsilon  \) challenge. That is, every point \( c \in \R  \) has a unique \( \delta > 0   \).   
 
-\begin{tcolorbox}
-    \begin{thm}[Sequential Criterion for Absence of Uniform Continuity]
+\begin{theorem}{Sequential Criterion for Absence of Uniform Continuity}{}
     A function \( f: A \to \R  \) fails to be uniformly continuous on \( A  \) if and only if there exists a particular \( \epsilon_0 > 0  \) and two sequences \( (x_n) \) and \( (y_n) \) in \( A  \) satisfying 
     \[ | x_n - y_n  | \to 0 \text{~but~} | f(x_n) - f(y_n) | \geq \epsilon_0. \]
-    \end{thm}
-\end{tcolorbox}
+    \end{theorem}
 
 \begin{proof}
     (\( \Rightarrow \)) We can negate the definition of uniform continuity to help us prove this direction. Hence, for some \( \epsilon_0 > 0  \), choose \( \delta_n = 1/n  \) such that whenever we have  sequences \( (x_n) \) and \( (y_n) \) that satisfy
@@ -99,10 +90,10 @@ Clearly, we have \( | x_n - y_n | \to 0  \) by the Squeeze Theorem for sequences
 \end{proof}
 
 
-\begin{ex}
+\begin{example}{}{}
     Consider the function \( h(x) = \sin (1/x) \). We can see that \( h(x) \) is continuous at every point in the open interval \( (0,1) \) but is not uniformly continuous on this interval. We can prove this by defining the following sequence \( (x_n) \) and \( (y_n) \) to be 
     \[  x_n = \frac{ 1 }{ \pi / 2 + 2n \pi } \text{~and~} y_n = \frac{ 1 }{ 3\pi / 2 + 2n \pi }. \]
-\end{ex}
+\end{example}
 Since both sequences tend to zero, we have that \( | x_n - y_n | \to 0  \) such that letting \( \epsilon_0 = 2  \) leads to 
 \begin{align*}
     | h(x_n) - h(y_n) | &= | \sin(\pi / 2 + 2n \pi ) - \sin( 3 \pi / 2 + 2n \pi)|  \\
@@ -111,11 +102,7 @@ Since both sequences tend to zero, we have that \( | x_n - y_n | \to 0  \) such 
                         &= 2.
 \end{align*}
 
-\begin{tcolorbox}
-    \begin{thm}[Uniform Continuity on Compact Sets]
-    A function that is continuous on a compact set \( K  \) is uniformly continuous on \( K \).
-    \end{thm}
-\end{tcolorbox}
+
 
 \begin{proof}
 Assume \( f: K \to \R  \) is continuous at every point of a compact set \( K \subseteq \R  \). Suppose for sake of contradiction that \( f \) is not uniformly continuous on \( K \). Then by the Sequential Criterion for Absence of Uniform Continuity, we have that for some \( \epsilon_0 > 0  \), we have two sequences \( (x_n) \) and \( (y_n) \) that satisfy the following property 
@@ -134,37 +121,3 @@ for all \( n \in \N  \). Hence, \( f \) must be uniformly continuous on \( K \).
 
 
 
-\subsection{Definitions}
-
-
-\begin{tcolorbox}
-    \begin{thm}[Preservation of Compact Sets]
-    Let \( f: A \to \R  \) be continuous on \( A  \). If \( K \subseteq A  \) is compact, then \( f(K)  \) is compact as well.
-    \end{thm}
-\end{tcolorbox}
-
-
-\begin{tcolorbox}
-    \begin{thm}[Extreme Value Theorem]
-    If \( f: K \to \R  \) is continuous on a compact set \( K \subseteq \R  \), then \( f  \) attains a maximum and minimum value. In other words, there exists \( x_0, x_1 \in K  \) such that \( f(x_0) \leq f(x) \leq f(x_1) \) for all \( x \in K  \).
-    \end{thm}
-\end{tcolorbox}
-
-\begin{tcolorbox}
-\begin{defn}
-A function \( f: A \to \R  \) is \textit{uniformly continuous} on \( A  \) if for every \( \epsilon > 0  \) there exists a \( \delta > 0  \) such that for all \( x,y \in A  \), \( | x - y  | < \delta  \) implies \( | f(x) - f(y) | < \epsilon. \)
-\end{defn}
-\end{tcolorbox}
-
-\begin{tcolorbox}
-    \begin{thm}[Sequential Criterion for Absence of Uniform Continuity]
-    A function \( f: A \to \R  \) fails to be uniformly continuous on \( A  \) if and only if there exists a particular \( \epsilon_0 > 0  \) and two sequences \( (x_n) \) and \( (y_n) \) in \( A  \) satisfying 
-    \[ | x_n - y_n  | \to 0 \text{~but~} | f(x_n) - f(y_n) | \geq \epsilon_0. \]
-    \end{thm}
-\end{tcolorbox}
-
-\begin{tcolorbox}
-    \begin{thm}[Uniform Continuity on Compact Sets]
-    A function that is continuous on a compact set \( K  \) is uniformly continuous on \( K \).
-    \end{thm}
-\end{tcolorbox}

@@ -1,24 +1,17 @@
-
-% !TEX root =  ../../../main.tex 
-
 \section{The Algebraic and Order Limit Theorems}
 
 The goal of having a rigorous definition of convergence in Analysis is to prove statements about sequences in general like the notion of "boundedness" which we will define below.
 
-\begin{tcolorbox}
-\begin{defn}
+\begin{definition}{}{}
 A sequence \( (x_n) \) is \textit{bounded} if there exists a number \( M > 0 \) such that \( | x_n | \leq M \) for all \( n \in \N \).
-\end{defn}
-\end{tcolorbox}
+\end{definition}
 
 Geometrically, this means that we can find an interval \( [-M, M]\) that contains every term in the sequence \( (x_n)\).
 This naturally leads us to the point that all convergent sequences are bounded i.e 
 
-\begin{tcolorbox}
-\begin{thm}
+\begin{theorem}{}{}
 Every convergent sequence is bounded.
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 
 \begin{proof}
 Assume \( (x_n) \) converges to a limit \( \ell\). This means that given \( \epsilon =  1\), we can find an 
@@ -35,8 +28,7 @@ for all \( n \geq N \) where
 Hence, it follows that \( | x_n  | \leq M \) for all \( n \in \N \) as desired.
 \end{proof}
 
-\begin{tcolorbox}
-    \begin{thm}[Algebraic Limit Theorem]
+\begin{theorem}{Algebraic Limit Theorem}{}
         Let \( \lim a_n = a \), and \( \lim b_n = b \). Then, 
         \begin{enumerate}
             \item[(i)] \( \lim(ca_n) = ca \) for all \( c \in \R \);
@@ -44,8 +36,7 @@ Hence, it follows that \( | x_n  | \leq M \) for all \( n \in \N \) as desired.
             \item[(iii)] \( \lim (a_nb_n) = ab\);
             \item[(iv)] \( \lim (a_n / b_n) = a / b \) provided that \( a \neq 0\).
         \end{enumerate}
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 
 \begin{proof}[Proof of (i)]
 We begin by proving part \( (i)\). Suppose \( a_n \to a \). Then for every \( \epsilon  > 0 \), there exists 
@@ -55,42 +46,42 @@ In order to show \( (i)\), we need to show that
 \[ | ca_n - ca | < \epsilon.\]
 Hence, observe that 
 \begin{align*}
-| ca_n - ca |&< | c(a_n - a) | \\
-&< | c | | a_n - a  | \\  
+| ca_n - ca | &= | c(a_n - a) | \\
+&= | c | | a_n - a  | \\  
 &< | c | \frac{ \epsilon  }{ | c |} \\ 
 &= \epsilon.   
 \end{align*}
 If \( c = 0 \), then our sequence \( (ca_n)\) reduces to the sequence \( \{0,0,0,...,0 \}\) which is clearly converging to \( ca = 0 \).
 Hence, we have attained our desired property that \( \lim (ca_n) = ca\).
 The parts are left to you to prove.
-\end{proof}
+\end{proof}%
 \begin{proof}[Proof of (ii)]
     To show part \( (ii)\), it suffices to show that for every \( \epsilon> 0 \), there exists \( N \in \N \) such that for every \( n \geq N \), we have 
     \[ | a_n + b_n - (a+b) | < \epsilon.\] Hence, we start with the left side of (ii). Since \( a_n \to a \) and \( b_n \to b\), there exists \( N_1, N_2 \in \N \). We can choose \( N = \max \{ N_1, N_2 \}\) such that for every \( n \geq N \), we can say that 
     \begin{align*}
-     | a_n + b_n - (a + b) | &< | (a_n-a) + (b_n - b) |  \\
-                             &< | a_n - a  |  + | b_n - b | \\ 
+     | a_n + b_n - (a + b) | &= | (a_n-a) + (b_n - b) |  \\
+                             &\leq | a_n - a  |  + | b_n - b | \\ 
                              &< \frac{ \epsilon }{2} + \frac{ \epsilon }{ 2} \\  
                              &= \epsilon. 
     \end{align*}
 Hence, it follows that \( \lim (a_n + b_n) = a + b \) as required.
 
-\end{proof}
+\end{proof}%
 
 \begin{proof}[proof of (iii)]
     To show part \( (iii)\), it suffices to show for every \( \epsilon  > 0 \), there exists \( N \in \N \) such that for every \( n \geq N \), we have 
     \[ | a_nb_n - ab | < \epsilon.\]
 Since \( a_n \to a \) and \( b_n \to b\), there exists \( N_1 , N_2 \in \N \). We can choose \( N = \max \{ N_1, N_2  \}\) such that for every \( n \geq N \), we can say that 
 \begin{align*}
- | a_nb_n - ab |&< | a_nb_n -a_nb + a_nb - ab |  \\
-                &< | a_n (b_n - b ) + b (a_n - a)| \\ 
-                &< | a_n (b_n - b) |  + | b (a_n - a) | \\ 
-                &< | a_n | | b_n - b  |  + | b | | a_n - a |  \\
+ | a_nb_n - ab |&= | a_nb_n -a_nb + a_nb - ab |  \\
+                &= | a_n (b_n - b ) + b (a_n - a)| \\ 
+                &\leq | a_n (b_n - b) |  + | b (a_n - a) | \\ 
+                &= | a_n | | b_n - b  |  + | b | | a_n - a |  \\
                 &< M \frac{ \epsilon }{2 M }  + | b | \frac{ \epsilon }{2 | b |} \tag{ \( a_n \) is bounded } \\ 
                 &< \epsilon  
 \end{align*}
 Hence, it follows that \( \lim (a_nb_n) = ab\).
-\end{proof}
+\end{proof}[]%
 
 \begin{proof}[Proof of (iv)]
 To show part (iv), it suffices to show for every \( \epsilon  > 0 \), there exists an \( N \in \N\) such that for every \( n \geq N \), we have 
@@ -109,7 +100,7 @@ we can choose \( N = \max \{ N_1, N_2 \}\) so that
                                      &=  \Big| \frac{a_nb - b_n a}{b_nb} \Big| \\
                                      &= \Big| \frac{a_nb - ab + ab- b_n a}{b_nb} \Big| \\
                                      &=  \Big| \frac{b(a_n - a) + (b- b_n)a}{b_nb} \Big| \\
-                                     &<  \frac{|a_n - a|}{|b_n|} + \frac{ | a |}{ | b |} \cdot \frac{|b_n - b|}{|b_n|} \\
+                                     &\leq  \frac{|a_n - a|}{|b_n|} + \frac{ | a |}{ | b |} \cdot \frac{|b_n - b|}{|b_n|} \\
                                      &< \frac{ M \epsilon }{ 2M} + \frac{ | a |}{ | b |} \cdot \frac{ | b | M  \epsilon}{  | a | 2 M} \tag{ \( b_n\) bounded} \\
                                      &= \epsilon. 
 \end{align*}
@@ -117,10 +108,9 @@ Hence, it follows that \( \lim ( \frac{a_n}{b_n} ) = \frac{a}{b} \) provided tha
 
 
 
-\end{proof}
+\end{proof}%
 
-\begin{tcolorbox}
-    \begin{thm}[Order Limit Theorem] 
+\begin{theorem}{Order Limit Theorem} 
     Assume \( \lim a_n  = a\) and \( \lim b_n =  b\).
     \begin{enumerate}
         \item[(i)] If \( a_n \geq 0 \) for all \( n \in \N \), then \( a \geq 0\).
@@ -128,26 +118,19 @@ Hence, it follows that \( \lim ( \frac{a_n}{b_n} ) = \frac{a}{b} \) provided tha
         \item[(iv)] If there exists \( c \in \R \) for which \( c \leq b_n\), for all \( n \in \N \), then 
         \( c \leq b \). Similarly, if \( a_n \leq c \) for all \( n \in \N \), then \( a \leq c\).
     \end{enumerate}
-    \end{thm}
-\end{tcolorbox}
-
+    \end{theorem}%
+\begin{proof}
 \begin{enumerate}
-
-
-    \item[(i)] \begin{proof}
+    \item[(i)] 
 We proceed by contradiction by assuming that \( a < 0 \). Suppose \( a_n \geq 0 \) and \( a_n \to a \). Let \( \epsilon  = | a |\) and suppose \( n \geq N \). Then
 \[ | a_n - a | < | a | = -a.\]
 But this means that \( a_N < 0\) which is a contradiction since \( a_N \geq 0\).
-\end{proof}
     \item[(ii)]
-        \begin{proof}
         We can ensure that the sequence \( b_n - a_n\) converges to \( b - a\) by the Algebraic Limit Theorem. Since \( b_n - a_n \geq 0\), we can use (i) to write \( b - a \geq 0\). Hence, \( a \leq b\).
-        \end{proof}
     \item[(iii)]
-        \begin{proof}
             Suppose there exists \( c \in \R  \) for which \( c \leq b_n\) for all \( n \in \N \). Suppose \( a_n  = c \) then using (ii) yields \( c \leq b\). Suppose \( a_n \leq c\) for all \( n \in \N \) then setting \( b_n = c \) and using (ii) again yields \( a \leq c\).
-        \end{proof}
 \end{enumerate}
+\end{proof}%
 
 
 

@@ -4,13 +4,11 @@
 
 The first application of the Axiom of Completeness is a result that says that the real line contains no gaps. 
 
-\begin{tcolorbox}
-    \begin{thm}
+\begin{theorem}{}{}
         For each \( n \in \N \), assume we are given a closed interval \( I_n = [a_n, b_n ] = \{ x \in \R : a_n \leq x \leq b_n \} \). Assume also that each \( I_n \) contains \( I_{n+1}\). Then, the resulting nested sequence of closed intervals 
         \[ I_1 \supseteq I_2 \supseteq I_3 \supseteq I_4 \supseteq ... \]
         has a nonempty intersection; that is, \( \cap_{n=1}^{\infty} I_n \neq \emptyset \).
-    \end{thm}
-\end{tcolorbox}
+    \end{theorem}
 
 \begin{proof}
     Our goal is to produce a real number \( x \) such that this element is in every closed interval \( I_n \) for every \( n \in \N \). Using the Axiom of Completeness, we can denote the following sets 
@@ -22,8 +20,7 @@ The first application of the Axiom of Completeness is a result that says that th
 
 \subsection{The Density of the Rationals }
 
-\begin{tcolorbox}
-\begin{thm}(Archimedean Property)
+\begin{theorem}{Archimedean Property}{}
     \begin{itemize}
         
         \item Given any number \( x \in \R \), there exists an \( n \in \N \) satisfying an \( n \in \N \) satisfying \( n > x \)
@@ -31,8 +28,7 @@ The first application of the Axiom of Completeness is a result that says that th
 
     \end{itemize}
     
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 
 Before we head on to the proof, it is important to notice that \( \N \) is not bounded above and we shall not prove this fact since we are taking this property of the set to be a given just like all the properties that are contained in \( \N, \Z,\)  and \( \Q \). 
 
@@ -46,11 +42,9 @@ Before we head on to the proof, it is important to notice that \( \N \) is not b
     The second part of this theorem follows immediately by setting \( x = 1/y \).
 \end{proof}
 
-\begin{tcolorbox}
-    \begin{thm}(Density of \( \Q \) in \( \R \))
+\begin{theorem}{Density of \( \Q \) in \( \R \)}{}
         For every two \( a,b \in \R \) with \( a < b \), there exists \( r \in \Q \) such that \( a < r < b \).
-    \end{thm}
-\end{tcolorbox}
+    \end{theorem}
 
 
 \begin{proof}
@@ -76,12 +70,9 @@ Before we head on to the proof, it is important to notice that \( \N \) is not b
 
 
 \section{The Existence of Square Roots}
-\begin{tcolorbox}
-    \begin{thm}
-        There exists \( \alpha \in \R  \) satisfying \( \alpha^2 = 2 \).
-    \end{thm}
-\end{tcolorbox}
-
+\begin{theorem}{The Existence of \( \sqrt{ 2 }  \)}{}
+    There exists \( \alpha \in \R  \) satisfying \( \alpha^2 = 2 \).
+\end{theorem}
 \begin{proof}
     Consider the set 
     \[ T = \{ t \in \R : t^2 < 2 \} \]

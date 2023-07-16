@@ -10,28 +10,23 @@ If \( c  \) is a limit point of our domain \( A  \), then, we can state that
 The structure of the definition of functional limits is as follows:
 Given a sequence \( (a_n) \), the assertion that \( \lim a_n = L   \) implies that for every \( \epsilon - \)neighborhood \( V_{\epsilon }(L) \) centered at \( L \), we can find a point in a sequence say \( a_N \) after which all the terms of \( a_n \) fall in \( V_{\epsilon }(L) \). This is in response to an arbitrary choice of \( x \) in the domain where we have a \( \delta- \)neighborhood
 
-\begin{tcolorbox}
-    \begin{defn}[Functional Limit]
+\begin{definition}{Functional Limit}{}
         Let \( f: A \to \R  \), and let \( c \) be a limit point of the domain \( A  \). We say that \( \lim_{ x \to c } f(x) = L   \) provided that, for all \( \epsilon > 0  \), there exists a \( \delta > 0  \) such that whenever 
         \[ 0 <  | x - c  | < \delta  \] (and \( x \in A  \)) it follows that 
         \[ | f(x) - L  | < \epsilon.  \]
-    \end{defn}
-\end{tcolorbox}
+    \end{definition}
 
 This is often referred to as the epsilon-delta definition of a functional limit. The statement
 \[ | f(x) - L  | < \epsilon  \]
 is equivalent to saying that \( f(x) \in V_{\epsilon }(L) \). Likewise, the statement 
 \[  | x - c  | < \delta \] is true if and only if \( x \in V_{\delta}(c) \). Note that we imposed an additional restriction that \( | x - c  | > 0  \). This is because we don't want \( x = c  \). We can recast the definition above in terms of \( \epsilon- \)neighborhoods to help get a more geometric view of what is happening with these functional limits.
 
-\begin{tcolorbox}
-\begin{defn}
+\begin{definition}{Functional Limit In Terms of Neighborhoods}{}
     Let \( c  \) be a limit point of the domain \( f: A \to \R  \). We say \( \lim_{ x \to c } f(x) = L  \) provided that for every \( \epsilon - \)neighborhood \( V_{\epsilon }(L)  \) of \( L \), there exists a \( \delta- \)neighborhood \( V_{\epsilon }(c) \) around \( c \) with the property that for all \( x \in V_{\delta}(c) \) different from \( c  \) (with \( x \in A  \)) it follows that \( f(x) \in V_{\epsilon }(L) \).
-\end{defn}
-\end{tcolorbox}
+\end{definition}
 
 The reminder that we must have \( x \in A   \) ensures that every possible \( x \in A  \) must be a valid input for the function in question. Note that the appearance of \( f(x) \) in our definitions carries an implicit assumption that \( x  \) is always part of the domain of \( f \). There is no use for considering isolated points outside of \( A  \). Hence, we can always expect that functional limits will have \( x \in A  \) that approach the limit point of \( A  \) or \( \text{dom}(f) \).
 
-\begin{ex}
 \begin{enumerate}
     \item[(i)] Suppose we want to show that for \( f(x) = 3x + 1  \), we have 
         \[ \lim_{ x \to 2 } f(x) = 7. \]
@@ -68,19 +63,16 @@ The reminder that we must have \( x \in A   \) ensures that every possible \( x 
         \end{align*}
         \end{proof}
 \end{enumerate}
-\end{ex}
 
 \subsection{Sequential Criterion for Functional Limits}
 
-\begin{tcolorbox}
-    \begin{thm}[Sequential Criterion for Functional Limits]
+\begin{theorem}{Sequential Criterion for Function Limits}{}
     Given a function \( f: A \to \R  \) and a limit point \( c \) of \( A \), the following two statements are equivalent: 
     \begin{enumerate}
         \item[(i)] \( \lim_{ x \to c } f(x) = L. \)
         \item[(ii)] For all sequences \( (x_n) \subseteq A  \) satisfying \( x_n \neq c  \) and \( (x_n) \to c  \), it follows that \( f(x_n) \to L  \).
     \end{enumerate}
-    \end{thm}
-\end{tcolorbox}
+    \end{theorem}
 
 \begin{proof}
     (i) \( \implies \) (ii) Suppose \( \lim_{ x  \to c } f(x) = L  \). Let \( \epsilon > 0  \). By assumption, we have a sequence \( (x_n) \to c  \). It immediately follows that for some \( N \in \N  \) such that for all \( n \geq N  \) that \( x_n \in V_{\delta}(c) \). Hence, \( f(x_n) \in V_{\epsilon }(L) \) by the Topological Definition of functional limits.
@@ -88,8 +80,7 @@ The reminder that we must have \( x \in A   \) ensures that every possible \( x 
     (ii) \( \implies \) (i) Let \( (x_n) \subseteq A  \) satisfying \( x_n \neq c  \) and \( (x_n) \to  c \) such that \( f(x_n) \to L  \). Suppose for sake of contradiction that \( \lim_{ x \to c } f(x) \neq L  \). Hence, there exists \( \epsilon_0 \) such that for any \( \delta > 0  \) where \( | x_n -c  | < \delta \) that \( | f(x_n) - L  | \geq \epsilon_0 \). Let \( \delta = 1/n \) and suppose we pick \( x_n \in V_{\delta}(c) \) such that \( f(x_n) \notin V_{\epsilon }(L) \). But this implies that \( f(x_n) \not \to L  \) which contradicts our assumption that it is. Hence, it must be the case that (i) holds.
 \end{proof}
 
-\begin{tcolorbox}
-    \begin{cor}[Algebraic Limit Theorem for Function Limits]
+\begin{cor}{Algebraic Limit Theorem for Function Limits}{}
     Let \( f \) and \( g \) be functions defined on a domain \( A \subseteq \R  \), and assume \( \lim_{ x \to c } f(x) = L  \) and \( \lim_{ x \to c } g(x) = M  \) for some limit point \( c \) of \( A  \). Then, 
     \begin{enumerate}
         \item[(i)] \( \lim_{ x \to c } kf(x) = kL  \) for all \( k \in \R  \),
@@ -98,86 +89,23 @@ The reminder that we must have \( x \in A   \) ensures that every possible \( x 
         \item[(iv)] \( \lim_{ x \to c } \frac{ f(x) }{ g(x)  } = \frac{ L }{ M }  \) provided that \( M \neq  0 \).
     \end{enumerate}
     \end{cor}
-\end{tcolorbox}
 
 \begin{proof}
 Exercise 4.2.1.
 \end{proof}
 
 
-\begin{tcolorbox}
-    \begin{cor}[Divergence Criterion for Functional Limits]
+\begin{cor}{Divergence Criterion for Functional Limits}{}
     Let \( f \) be a function defined on \( A  \) and let \( c  \) be a limit point of \( A  \). If there exists two sequences \( (x_n) \) and \( (y_n) \) in \( A  \) with \( x_n \neq  c \) and \( y_n \neq c  \) 
     \[  \lim x_n = \lim y_n = c \text{~but~} \lim f(x_n) \neq \lim f(y_n),  \]
     then we conclude that the functional limit \( \lim_{x \to c } f(x)  \) does not exist.
     \end{cor}
-\end{tcolorbox}
 
-\begin{ex}
-Suppose we wanted to show that \( \lim_{ x \to 0 } \sin(1/x) \) does not exist. Set \( x_n = 1/2n\pi \) and \( y_n = 1 / (2n\pi + \pi/2 ) \), then 
-\[  \lim x_n = \lim y_n = 0  \] but
-\( \sin(1/x_n) = 0  \) for all \( n \in \N  \) while \( \sin(1/y_n) = 1  \). Thus, we have 
-\[  \lim \sin(1/x_n) \neq \lim  \sin (1/y_n), \]
-and thus we know that \( \lim_{x \to  0 } \sin(1/x)  \) does not exist.
-\end{ex}
+    \begin{example}{}{}
+        Suppose we wanted to show that \( \lim_{ x \to 0 } \sin(1/x) \) does not exist. Set \( x_n = 1/2n\pi \) and \( y_n = 1 / (2n\pi + \pi/2 ) \), then 
+        \[  \lim x_n = \lim y_n = 0  \] but
+        \( \sin(1/x_n) = 0  \) for all \( n \in \N  \) while \( \sin(1/y_n) = 1  \). Thus, we have 
+        \[  \lim \sin(1/x_n) \neq \lim  \sin (1/y_n), \]
+        and thus we know that \( \lim_{x \to  0 } \sin(1/x)  \) does not exist.
+    \end{example}
 
-\subsection{Definitions}
-
-
-\begin{tcolorbox}
-    \begin{defn}[Functional Limit]
-        Let \( f: A \to \R  \), and let \( c \) be a limit point of the domain \( A  \). We say that \( \lim_{ x \to c } f(x) = L   \) provided that, for all \( \epsilon > 0  \), there exists a \( \delta > 0  \) such that whenever 
-        \[ 0 <  | x - c  | < \delta  \] (and \( x \in A  \)) it follows that 
-        \[ | f(x) - L  | < \epsilon.  \]
-    \end{defn}
-\end{tcolorbox}
-
-\begin{tcolorbox}
-\begin{defn}
-    Let \( c  \) be a limit point of the domain \( f: A \to \R  \). We say \( \lim_{ x \to c } f(x) = L  \) provided that for every \( \epsilon - \)neighborhood \( V_{\epsilon }(L)  \) of \( L \), there exists a \( \delta- \)neighborhood \( V_{\epsilon }(c) \) around \( c \) with the property that for all \( x \in V_{\delta}(c) \) different from \( c  \) (with \( x \in A  \)) it follows that \( f(x) \in V_{\epsilon }(L) \).
-\end{defn}
-\end{tcolorbox}
-
-
-\begin{tcolorbox}
-    \begin{thm}[Sequential Criterion for Functional Limits]
-    Given a function \( f: A \to \R  \) and a limit point \( c \) of \( A \), the following two statements are equivalent: 
-    \begin{enumerate}
-        \item[(i)] \( \lim_{ x \to c } f(x) = L. \)
-        \item[(ii)] For all sequences \( (x_n) \subseteq A  \) satisfying \( x_n \neq c  \) and \( (x_n) \to c  \), it follows that \( f(x_n) \to L  \).
-    \end{enumerate}
-    \end{thm}
-\end{tcolorbox}
-
-
-\begin{tcolorbox}
-    \begin{thm}[Sequential Criterion for Functional Limits]
-    Given a function \( f: A \to \R  \) and a limit point \( c \) of \( A \), the following two statements are equivalent: 
-    \begin{enumerate}
-        \item[(i)] \( \lim_{ x \to c } f(x) = L. \)
-        \item[(ii)] For all sequences \( (x_n) \subseteq A  \) satisfying \( x_n \neq c  \) and \( (x_n) \to c  \), it follows that \( f(x_n) \to L  \).
-    \end{enumerate}
-    \end{thm}
-\end{tcolorbox}
-
-
-\begin{tcolorbox}
-    \begin{cor}[Algebraic Limit Theorem for Function Limits]
-    Let \( f \) and \( g \) be functions defined on a domain \( A \subseteq \R  \), and assume \( \lim_{ x \to c } f(x) = L  \) and \( \lim_{ x \to c } g(x) = M  \) for some limit point \( c \) of \( A  \). Then, 
-    \begin{enumerate}
-        \item[(i)] \( \lim_{ x \to c } kf(x) = kL  \) for all \( k \in \R  \),
-        \item[(ii)] \( \lim_{ x \to c } [f(x) + g(x)] = L + M, \)
-        \item[(iii)] \( \lim_{ x \to c } [f(x)g(x)] = L \cdot M  \), and 
-        \item[(iv)] \( \lim_{ x \to c } \frac{ f(x) }{ g(x)  } = \frac{ L }{ M }  \) provided that \( M \neq  0 \).
-    \end{enumerate}
-    \end{cor}
-\end{tcolorbox}
-
-
-\begin{tcolorbox}
-    \begin{cor}[Divergence Criterion for Functional Limits]
-    Let \( f \) be a function defined on \( A  \) and let \( c  \) be a limit point of \( A  \). If there exists two sequences \( (x_n) \) and \( (y_n) \) in \( A  \) with \( x_n \neq  c \) and \( y_n \neq c  \) 
-    \[  \lim x_n = \lim y_n = c \text{~but~} \lim f(x_n) \neq \lim f(y_n),  \]
-    then we conclude that the functional limit \( \lim_{x \to c } f(x)  \) does not exist.
-    \end{cor}
-\end{tcolorbox}

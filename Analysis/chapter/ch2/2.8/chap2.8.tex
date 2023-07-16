@@ -1,5 +1,4 @@
 
-% !TEX root =  ../../../main.tex 
 
 
 \section{Double Summations and Products}
@@ -44,7 +43,7 @@ j\begin{align*}
                                  &\leq \sum_{(i,j) \in A(m,n)} | a_{ij} | \tag{2}\\                          &< \epsilon.
 \end{align*}
 Since (2) meets the \textit{Cauchy Criterion} for series, we know that \( \sum_{ m,n }^{ \infty  } a_{ij} \) must be \textit{Cauchy} and thus must converge as well. 
-\end{proof}
+\end{proof}%
 
 Another proof using the Comparison Test goes something like this
 
@@ -62,15 +61,13 @@ Another proof using the Comparison Test goes something like this
     \( \sum r_i \) converges by the \textit{ Absolute Convergence Test }. 
 \end{proof}
 
-\begin{tcolorbox}
-\begin{thm}
+\begin{theorem}{}{}
     Let \( \{ a_{ij} : i,j \in \N  \}\) be a doubly indexed array of real numbers. If 
     \[ \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} |a_{ij}|\]
     converges, then both \( \sum_{i=1}^{\infty} \sum_{ j=1 }^{ \infty  }  a_{ij}\) and \( \sum_{j=1}^{\infty} \sum_{i=1}^{\infty} a_{ij} \) converge to the same value. Moreover, we have that 
     \[ \lim_{n \to \infty} s_{nn} = \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} a_{ij} = \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} a_{ij},\]
     where \( s_{nn} = \sum_{i=1}^{n} \sum_{j=1}^{n} a_{ij}\). 
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 
 \begin{proof}
     In the same way that we defined the rectangular partial sums \( s_{mn}\) above in equation (1)

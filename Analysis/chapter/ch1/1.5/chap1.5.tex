@@ -5,33 +5,27 @@
 
 \subsection{Correspondence}
 
-\begin{tcolorbox}
-\begin{defn}
+\begin{definition}{}{}
     A function \( f: A \to B \) is \textit{one-to-one} if \( a_1 \neq a_2 \) in \( A \) implies that 
     \( f(a_1) \neq f(a_2) \) in \( B \). The function \( f \) is \textit{onto} if, given any \( b \in B \), there exists an element \( a \in A \) for which \( f(a) = b\).
-\end{defn}
-\end{tcolorbox}
+\end{definition}
 
 An equivalent defintion for a function to be one-to-one is the following:
 
-\begin{tcolorbox}
-\begin{defn}
+\begin{definition}{}{}
     A function \( f: A \to B \) is \textit{one-to-one} if \( f(a_1) \neq f(a_2) \) implies that \( a_1 = a_2 \).
-\end{defn}
-\end{tcolorbox}
+\end{definition}
     
 A function that is both one-to-one and onto is said to be bijective. Meaning that we have a one-to-one correspodence between the sets \( A \) and \( B \). Another way to explain a function being injective is to say that no two elements from \( A \) can map to the same element in \( B \) ( think of the function \( x^2\)). And a function being onto can be explained as every element in \( A \) has to be mapped to an element in \( B \).
 
 From an algebraic perspective, we can denote a function being bijective to mean the same thing as two sets having the same cardinality i.e we can say that 
 
-\begin{tcolorbox}
-\begin{defn}
+\begin{definition}{}{}
 Two sets \( A \) and \( B \) have the same cardinality if there exists \( f: A \to B \) that is both one-to-one and onto. We can denote this symbolically as \( A \sim B\)
-\end{defn}
-\end{tcolorbox}
+\end{definition}
 
-\begin{ex}
 Some examples of bijective maps are
+\begin{example}{}{}
 \begin{enumerate}
     \item Let the following map \(f: \N \to \mathbf{E} \) be defined as \( f(n) = 2n \). We can see that \( \N \sim \mathbf{E}\). It's true that \( \mathbf{E}\) is indeed a subset of \( \N \), but do not conclude that it is a smaller set than \( \N \) since they have the same cardinality or isomorphic to each other.
     \item We can show this again. This time let us have a map \( f: \N \to \Z \) such that 
@@ -40,29 +34,24 @@ Some examples of bijective maps are
                                                 \end{cases}\]
 We have that \( \N \sim \Z \) indeed.
 \end{enumerate}
-\end{ex}
+\end{example}
 
 
 \subsection{Countable Sets}
 
-\begin{tcolorbox}
-\begin{defn}
+\begin{definition}{}{}
 A set \( A \) is \textit{countable} if \( \N \sim A \). An infinite set that is not countable is called an \textit{uncountable set}.
-\end{defn}
-\end{tcolorbox}
+\end{definition}
 
-\begin{tcolorbox}
-\begin{thm}
+\begin{theorem}{}{}
 Let \( \Q, \R \). Then 
-
 \begin{itemize}
     \item The set \( \Q \) is countable. 
     \item The set \( \R \) is uncountable.
 \end{itemize}
 
 
-\end{thm} 
-\end{tcolorbox}
+\end{theorem} 
 
 
 \begin{proof}
@@ -92,21 +81,17 @@ We can create \( \R \) by taking the union of \( \Q \) and \( \mathbb{I} \). Sin
 We can summarize these results in the follow two theorems: 
 
 
-\begin{tcolorbox}
-\begin{thm}
+\begin{theorem}{}{}
     If \( A \subseteq B \) and \( B \) is \textit{countable}, then \( A \) is either countable or finite. 
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 
-\begin{tcolorbox}
-\begin{thm}
+\begin{theorem}{}{}
 \begin{enumerate}
     \item If \( A_1, A_2,... A_n\) are each countable sets, then the union of 
         \[ A_1 \cup A_2 \cup ... \cup A_m \] is countable.
     \item If \( A_n \) is a countable set for each \( n \in \N \), the \( \bigcup_{n=1}^{\infty}A_n \) is countable. 
 \end{enumerate}
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 
 
 

@@ -1,29 +1,109 @@
 
-\usepackage{amsmath}
-\usepackage{amsthm}
-\usepackage{amssymb}
-\usepackage{hyperref,enumitem,tcolorbox}
-\usepackage{fancyhdr, bookmark, parskip}
-\usepackage{framed}
-\usepackage[hmarginratio=1:1]{geometry}
-\setlength{\headheight}{28pt}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\F}{\mathbb{F}}
 \newcommand{\N}{\mathbb{N}}
-\usepackage{tcolorbox}
-\usepackage{graphicx}
-\newtheorem{thm}{Theorem}[section]
-\newtheorem{prop}{Proposition}[section]
-\newtheorem{cor}{Corollary}[thm]
-\newtheorem{lem}{Lemma}[section]
-\theoremstyle{definition}
-\newtheorem{defn}{Definition}[section]
-\newtheorem*{rem}{Remark}
-\newtheorem*{ex}{Example}
+
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amssymb, amsthm }
+\usepackage[many]{tcolorbox}
+\tcbuselibrary{breakable}
+\tcbuselibrary{theorems}
+\usepackage[T1]{fontenc}
+\usepackage{mathtools}
+\usepackage{ragged2e}
+\usepackage[framemethod=TikZ]{mdframed}
+\tcbuselibrary{most}
 \renewcommand\qedsymbol{$\blacksquare$}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+
+
+
+\newtcbtheorem
+  []% init options
+  {axiom}% name
+  {Axiom}% title
+  {%
+    colback=red!5,
+    colframe=red!35!black,
+    fonttitle=\bfseries,
+  }% options
+  {ax}% prefix
+
+
+
+\newtcbtheorem
+  [number within = section]% init options
+  {definition}% name
+  {Definition}% title
+  {%
+    colback=green!5,
+    colframe=green!35!black,
+    fonttitle=\bfseries,
+  }% options
+  {def}% prefix
+
+
+\newtcbtheorem
+  [number within = section]% init options
+  {example}% name
+  {Example}% title
+  {%
+    colback=orange!5,
+    colframe=orange!35!black,
+    fonttitle=\bfseries,
+  }% options
+  {def}% prefix
+
+
+
+\newtcbtheorem
+  [number within = section]% init options
+  {theorem}% name
+  {Theorem}% title
+  {%
+    colback=blue!5,
+    colframe=blue!90!black,
+    fonttitle=\bfseries,
+  }% options
+  {th}% prefix
+
+
+\tcolorboxenvironment{proof}{
+  fonttitle=\bfseries,
+  enhanced,
+  top=0mm,
+  boxrule=0pt,frame empty,
+  borderline west={4pt}{0pt}{orange!30},
+  coltitle=orange!20,
+  colback=orange!10,
+}
+
+\newtcbtheorem
+  [number within = section]% init options
+  {lemma}% name
+  {Lemma}% title
+  {%
+    colback=brown!5,
+    colframe=brown!35!,
+    fonttitle=\bfseries,
+  }% options
+  {lem}% prefix
+
+
+\newtcbtheorem
+  [number within = section]% init options
+  {cor}% name
+  {Corollary}% title
+  {%
+    colback=gray!5,
+    colframe=gray!35!black,
+    fonttitle=\bfseries,
+  }% options
+  {cr}% prefix
 
 
 

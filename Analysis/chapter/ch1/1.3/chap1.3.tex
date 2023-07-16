@@ -1,23 +1,25 @@
 
 \section{The Axiom of Completeness}
 
-\begin{tcolorbox}
-    \begin{thm}[Axiom of Completeness]
-        Every nonempty set of real numbers that is bounded above has a least upper bound.
-    \end{thm}
-\end{tcolorbox}
 
-\begin{tcolorbox}
-    \begin{defn}
+
+\begin{axiom}{Axiom of Completeness}{}
+Every nonempty set of real numbers that is bounded above has a least upper bound.
+\end{axiom}
+
+
+
+
+\begin{definition}{Bounded sets}{}
         We call a set \( A \subseteq \R \) is \textit{bounded above} if there exists a number \( b \in \R \) such that \( a \leq b \) for all \( a \in A \).
         Otherwise, a set is \textit{bounded below} if there exists a \( \ell \in \R \) satisfying \( \ell \leq a \) for every \( a \in A \) .
-    \end{defn}
+\end{definition}
 
-\end{tcolorbox}
 
-\begin{tcolorbox}
 
-    \begin{defn}
+
+
+
         A real number \( s \) is the \textit{least upper bound} for a set \( A \subseteq \R \) if it satisfies the following criteria:
 
         \begin{enumerate}
@@ -27,10 +29,8 @@
 
 
         
-    \end{defn}
 
 
-\end{tcolorbox}
 
 We denote the least upper bound of a set \( A \) by calling it the \textit{supremum} of \( A \) i.e \( \sup(A) \). Similarly, we denote the greatest upper bound of set \( A \) by calling it the \textit{infimum} of \( A \) i.e \( \inf(A) \).
 
@@ -42,11 +42,9 @@ Consider the following set
 This set is bounded above and below. In addition, we can see that \( \sup(A) = 1 \) and \( \inf(A) = 0 \) (this is because each subsequent number in the sequence gets smaller and smaller). 
 
 
-\begin{tcolorbox}
-    \begin{defn}
+\begin{definition}{Maximum and Minimum of sets}{label}
         We say that \( a_0 \in \R \) is a \textit{maximum} of the set \( A \) if \( a_0 \in A \) and \( a \leq a_0 \) for all \( a \in A \). Likewise, we say that \(a_1 \in \R \) is a \textit{minimum} of \( A \) if \( a_1 \in A \) and \( a \geq a_1 \) for every \( a \in A \).  
-    \end{defn}
-\end{tcolorbox}
+    \end{definition}
 
 If we have an open set \( (0,2) \) then the end points of this set are the infimum and supremum of the set respectively. Note that the maximum and the minimum do not exists because the infimum and the supremum are not in the set. If this set were to be closed, then the supremum and infimum would be in the set which implies that the max and min exists. 
 
@@ -57,7 +55,6 @@ Now consider the Example
 Notice that when we try and search for the supremum for this set, we cannot find one since we can always find a smaller number for an upper bound. One might say that \( r = \sqrt{2} \) is the supremum of \( S \) but this is false since \( r \not\in \Q \) and is irrational. 
 
 
-\begin{ex}
     Let \( A \subseteq \R \) such that \( A \neq \emptyset \) and is bounded above. Let \( c \in \R \). Define the set 
     \( c + A \) by 
     \[ c + A = \{ c + a: a \in A  \}  \] 
@@ -72,14 +69,12 @@ Notice that when we try and search for the supremum for this set, we cannot find
         \( s \leq b - c \). Hence, we have 
         \[ c+s \leq b \implies \sup(c+A) = c + \sup(A). \]
     \end{proof}
-\end{ex}
 
 There is another way to restate part (ii) of defintion 0.2 i.e 
-\begin{tcolorbox}
-\begin{lem}
+
+\begin{lemma}{Alternative definition of least upper bound}{}
 Assume \( s \in \R \) is an upper bound for a set \( A \subseteq \R \). Then, \( s = \sup A \) if and only if for every \( \epsilon > 0 \), there exists \( a \in A \) such that \( s - \epsilon < a \).
-\end{lem}
-\end{tcolorbox}
+\end{lemma}
 
 \begin{proof}
 For the forward direction, suppose that \( s = \sup A \) and consider \( s - \epsilon \). Since \( s \) is an upper bound, we have that \( s -\epsilon < s \). This means that \( s - \epsilon \) is not an upper bound. Hence, we can find an element \( a \in A \) such that \( s - \epsilon < a \) because otherwise \( s - \epsilon \) would be an upper bound. This concludes the forward direction.

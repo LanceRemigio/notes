@@ -2,19 +2,17 @@
 
 In the last section, we observed that the convergence of partial sums of a particular series can be determined by the behavior of a subsequence of the partial sums. 
 
-\begin{tcolorbox}
-\begin{defn}
+\begin{definition}{Subsequences}{}
 Let \( (a_n) \subseteq \R \), and let \( n_1 < n_2 < n_3 < n_4 < \dots\) be an increasing sequence of natural numbers. Then the sequence 
 \[ (a_{n_1}, a_{n_2}, a_{n_3}, a_{n_4}, a_{n_5} \dots)\]
 is called a \textit{subsequence} of \( (a_n)\) and is denoted by \( (a_{n_k})\), where \( k \in \N \) indexes the subsequence.
-\end{defn}
-\end{tcolorbox} 
+\end{definition}%
 
 A few remarks about subsequences: 
 
+\begin{example}{}{}
 \begin{enumerate}
     \item[(a)] The order of the subsequence is the same as in the original sequence.
-        \begin{ex}
         If we have the sequence  
         \[ (a_n) = \Big( 1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, ...\Big)\]
         then the subsequences 
@@ -22,25 +20,22 @@ A few remarks about subsequences:
         and 
         \[ \Big( \frac{1}{10}, \frac{1}{100}, \frac{1}{1000}, \frac{1}{10000}, ...\Big)\]
         are permitted.
-        \end{ex}
         
     \item[(b)] Repetitions and swapping are not allowed.
-        \begin{ex}
         Like 
         \[ \Big( \frac{1}{10}, \frac{1}{5}, \frac{1}{100}, \frac{1}{50}, \frac{1}{1000}, \frac{1}{500},...\Big)\] 
         and 
         \[ \Big( 1,1, \frac{1}{3}, \frac{1}{5}, \frac{1}{5}, ...\Big)\]
-        \end{ex}
         
 \end{enumerate}
+\end{example}
+
 
 Since subsequences have the same ordering as the original sequence, one can conjecture about them converging to the same limit. 
 
-\begin{tcolorbox}
-\begin{thm}
+\begin{theorem}{}{}
 Subsequences of a convergent sequence converge to the same limit as the original sequence.
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 
 \begin{proof}
     Let \( (a_n) \to a \) and let \( (a_{n_k})\) be a subsequence for \( (a_n)\). We want to show \( (a_{n_k})\) converges to \( a \) as well. Since \( (a_n) \to a\), there exists an \( N \) such that for any \( n \geq N \), we have \( |a_n - a| < \epsilon \). 
@@ -52,11 +47,12 @@ Subsequences of a convergent sequence converge to the same limit as the original
 which is what we desired.
 \end{proof}
 
-\begin{ex}
+\begin{example}{}{}
 Let \(0 < b < 1\). Because 
 \[ b > b^2 > b^3 > b^4 > ... > 0,\]
 the sequence \((b^n)\) is \textit{decreasing} and \textit{bounded} below. The Monotone Convergence Theorem allows us to conclude that \((b^n)\) converges to some \(\ell\) satisfying \( 0 \leq \ell < b\). To compute \(\ell\), notice that \((b^{2n})\) is a subsequence, so \(b^{2n} \to \ell\) by Theorem 2.5.2. But \( b^{2n} = b^n \cdot b^n\), so by the Algebraic Limit Theorem, \(b^{2n} \to \ell \cdot \ell = \ell^2 \). Because limits are unique (Theorem 2.2.7), \( \ell^2 = \ell\), and thus \( \ell = 0\). 
-\end{ex}
+
+\end{example}
 
 
 
@@ -67,7 +63,7 @@ the sequence \((b^n)\) is \textit{decreasing} and \textit{bounded} below. The Mo
 
 
 
-\begin{ex}
+\begin{example}{}{}
 Suppose we have an oscillating sequence of numbers 
 \[ \Big( 1, -\frac{1}{2}, \frac{1}{3}, - \frac{1}{4}, \frac{1}{5}, -\frac{1}{5}, \frac{1}{5}, -\frac{1}{5},... \Big)\]
 Note that this sequence does not converge to any proposed limit yet if we take a subsequence of it, weget a sequence that converges! Observe, that the subsequence 
@@ -75,15 +71,13 @@ Note that this sequence does not converge to any proposed limit yet if we take a
 and
 \[ \Big(-\frac{1}{5}, -\frac{1}{5}, -\frac{1}{5}, -\frac{1}{5},... \Big)\]
 converge to \( 1 / 5 \) and \(- 1 / 5\) respectively. Since we have two subsequences that converge to two different limits, we immediately conclude that the original sequence diverges.
-\end{ex}
+\end{example}
 
 This leads us to our next theorem that states that
 % add definitions at the end of each chapter or put references to them
-\begin{tcolorbox}
-    \begin{thm}[Bolzano-Weierstrass Theorem]
+\begin{theorem}{Bolzano-Weierstrass}{}
         Every bounded sequence contains a convergent subsequence.
-\end{thm}
-\end{tcolorbox}
+\end{theorem}%
 
 \begin{proof}
     Let \( (a_n)\) be a \textit{bounded} sequence. Then there exists \( M > 0 \) such that \( a_n \in [-M,M ]\). Suppose we divide this interval in half for \( k \) times: that is, let the length of the intervals be defined by the sequence \( M (1/2)^{k-1}\). We claim that a subsequence \( (a_{n_k})\) lies in either one of these intervals: that is, let \( n_{k} > n_{k-1}\) for all \( k \in \N \) such that \( a_{n_k} \in I_k\). 
@@ -95,32 +89,8 @@ form a nested sequence of closed intervals.
     By the \textit{Nested Interval Property}, we can conclude that there exists an \( x \in I_k\) for all \( k \in \N \)  such that \( \bigcup_{k=1}^{ \infty} I_k \neq \emptyset\). Let \( \epsilon > 0  \). Since \( a_{n_k}, x \in I_k \) for all \( k \in \N \) and \( M (1/2)^{k-1} \to 0\) by the Algebraic Limit Theorem, we can choose an \( N \in \N \) such that for any \( k \geq n_k \geq N \), we have
     \[ |a_{n_k} - x | < \epsilon.\] 
     Hence, \( (a_{n_k}) \to x \).
-\end{proof}
+\end{proof}%
 
 
 
-\subsubsection{Definitions}
-
-
-\begin{tcolorbox}
-\begin{defn}
-Let \( (a_n) \subseteq \R \), and let \( n_1 < n_2 < n_3 < n_4 < \dots\) be an increasing sequence of natural numbers. Then the sequence 
-\[ (a_{n_1}, a_{n_2}, a_{n_3}, a_{n_4}, a_{n_5} \dots)\]
-is called a \textit{subsequence} of \( (a_n)\) and is denoted by \( (a_{n_k})\), where \( k \in \N \) indexes the subsequence.
-\end{defn}
-\end{tcolorbox} 
-
-
-\begin{tcolorbox}
-\begin{thm}
-Subsequences of a convergent sequence converge to the same limit as the original sequence.
-\end{thm}
-\end{tcolorbox}
-
-
-\begin{tcolorbox}
-    \begin{thm}[Bolzano-Weierstrass Theorem]
-        Every bounded sequence contains a convergent subsequence.
-\end{thm}
-\end{tcolorbox}
 
