@@ -2,39 +2,35 @@
 
 \subsection{Definition of the Derivative}
 
-\begin{tcolorbox}
-    \begin{defn}[Differentiability]
+\begin{definition}{Differentiability}{}
     Let \( g : A \to \R  \) be a function defined on an interval \( A  \). Given \( c \in A  \), the \textit{derivative} of \( g  \) at \( c  \) is defined by 
     \[ g'(c) = \lim_{ x \to c } \frac{ g(x) - g(c)  }{ x - c  }, \]
     provided this limit exists. In this case, we say that \( g  \) is \textit{differentiable} at \( c  \). If \( g'  \) exists for all points \( c \in A  \), we say that \( g  \) is \textit{differentible} on \( A  \).
-    \end{defn}
-\end{tcolorbox}
+    \end{definition}
 
 
-\begin{ex}
-\begin{enumerate}
-    \item[(i)] Consider the function \( f(x) = x^n  \), where \( n \in \N  \), and let \( c  \) be any arbitrary point in \( \R  \). Using the following identity, 
-        \[  x^n - c^n = (x -c )(x^{n-1} + cx^{n-2} + c^2 x^{n-3} + \dots + c^{n-1}) \]
-        we can take the limit 
-        \begin{align*}
-            f'(c) &= \lim_{ x \to c  } \frac{ x^n - c^n  }{ x - c  }  \\
-                  &= \lim_{ x \to c } (x^{n-1} + cx^{n-2} + c^2 x^{n-3} + \dots + c^{n-1}) \\
-                  &= c^{n-1} + c^{n-1} + c^{n-1} + \dots + c^{n-1} \\
-                  &= nc^{n-1}\\
-        \end{align*}
-    \item[(ii)] If \( g(x) = | x  |  \), then if we want to take the derivative at \( c =0  \) produces the following limit
-        \[  g'(0) = \lim_{ x \to 0 } \frac{ | x |  }{ x }  \]
-        which is \( 1 \) if we approach from the right and \( -1 \) if we approach from the left. Hence, we have that \(g'(c) =  0  \) does not exist.
-\end{enumerate}
-\end{ex}
+    \begin{example}{}{}
+        \begin{enumerate}
+            \item[(i)] Consider the function \( f(x) = x^n  \), where \( n \in \N  \), and let \( c  \) be any arbitrary point in \( \R  \). Using the following identity, 
+                \[  x^n - c^n = (x -c )(x^{n-1} + cx^{n-2} + c^2 x^{n-3} + \dots + c^{n-1}) \]
+                we can take the limit 
+                \begin{align*}
+                    f'(c) &= \lim_{ x \to c  } \frac{ x^n - c^n  }{ x - c  }  \\
+                          &= \lim_{ x \to c } (x^{n-1} + cx^{n-2} + c^2 x^{n-3} + \dots + c^{n-1}) \\
+                          &= c^{n-1} + c^{n-1} + c^{n-1} + \dots + c^{n-1} \\
+                          &= nc^{n-1}\\
+                \end{align*}
+            \item[(ii)] If \( g(x) = | x  |  \), then if we want to take the derivative at \( c =0  \) produces the following limit
+                \[  g'(0) = \lim_{ x \to 0 } \frac{ | x |  }{ x }  \]
+                which is \( 1 \) if we approach from the right and \( -1 \) if we approach from the left. Hence, we have that \(g'(c) =  0  \) does not exist.
+        \end{enumerate}
+    \end{example}
 
 This last example should remind us that continuity of a function does not necessarily imply that a function is differentiable. On the other hand, we can say that if \( g \) is differentiable at a point then \( g  \) is continuous at that point. 
 
-\begin{tcolorbox}
-\begin{thm}
+\begin{theorem}{Differentiability Implies Continuity}{}
 If \( g: A \to \R  \) is differentiable at a point \( c \in A  \), then \( g  \) is continuous at \( c  \) as well.
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 
 \begin{proof}
 Assume \( g: A \to \R  \) is differentiable at a point \( c \in A  \). Hence, we have that the following limit exists
@@ -63,13 +59,11 @@ Using the triangle inequality and choosing \( \delta = \min \{ 1 , \epsilon / (1
 \end{align*}
 Hence, \( g  \) is continuous at \( c \in A  \).
 \end{proof}
-
 \subsection{Combinations of Differentiable Functions}
 
 We can use the Algebraic Limit Theorem for functional limits to prove some basic algebraic combinations of differentiable functions.
 
-\begin{tcolorbox}
-    \begin{thm}[Algebraic Differentiability Theorem]
+\begin{theorem}{Algebraic Differentiability Theorem}
     Let \( f  \) and \( g  \) be functions defined on an interval \( A  \), and assume both are differentiable at some point \( c \in A \). Then, 
     \begin{enumerate}
         \item[(i)] \( (f+g)'(c) = f'(c) + g'(c), \)
@@ -77,8 +71,7 @@ We can use the Algebraic Limit Theorem for functional limits to prove some basic
         \item[(iii)] \( (fg)'(c) = f'(c)g(c) + f(c)g'(c),  \) and 
         \item[(iv)] \( (f/g)'(c) = \frac{ g(c)f'(c) - f(c)g'(c)  }{ [g(c)]^2 }  \) provided that \( g(c) \neq  0 \).
     \end{enumerate}
-    \end{thm}
-\end{tcolorbox}
+    \end{theorem}
 
 \begin{enumerate}
     \item[(i)] \( (f+g)'(c) = f'(c) + g'(c)  \).
@@ -141,11 +134,9 @@ We can also compose two differentiable functions together and still get a differ
 \end{align*}
 But an issue with this proof is that the expression \( f(x) - f(c)  \) might be zero in the denominator for arbitrarily small neighborhoods of \( c  \).
 
-\begin{tcolorbox}
-    \begin{thm}[Chain Rule]
+\begin{theorem}{Chain Rule}
     Let \( f: A \to \R  \) and \( g: B \to \R  \) satisfy \( f(A) \subseteq B  \) so that the composition \(  g  \circ f \) is defined. If \( f  \) is differentiable at \( c \in A  \) and if \( g  \) is differentiable at \( f(c) \in B   \), then \( g \circ f  \) is differentiable at \( c  \) with \( (g \circ f)'(c) = g'(f(c)) \cdot f'(c)\).
-    \end{thm}
-\end{tcolorbox}
+    \end{theorem}
 
 \begin{proof}
 Assume \( g  \) is differentiable at \( f(c)  \). Then we have that 
@@ -168,11 +159,9 @@ Hence, we have that
 
 A takeaway from our introduction to Derivatives is that differentiable functions need always be continuous and that our main example for this is for \( n = 2  \) with the function \( g_2(x) = x^2 \sin( 1 / x) \) where \( g_2(0)  \). However, differentiable functions do posses the intermediate value property. This leads us to next theorem that says that functions attain their max and mins at points where the derivative is zero. 
 
-\begin{tcolorbox}
-    \begin{thm}[Interior Extremum Theorem] Let \( f  \) be differentiable on an open interval \( (a,b)  \). If \( f  \) attains a maximum value at some point \( c \in (a,b)  \); that is, \( f(c) \geq f(x)  \) for all \( x \in (a,b)  \), then \( f'(c) = 0  \). The same is true if \( f(c)  \) is a minimum value.
+\begin{theorem}{Interior Extremum Theorem}{} Let \( f  \) be differentiable on an open interval \( (a,b)  \). If \( f  \) attains a maximum value at some point \( c \in (a,b)  \); that is, \( f(c) \geq f(x)  \) for all \( x \in (a,b)  \), then \( f'(c) = 0  \). The same is true if \( f(c)  \) is a minimum value.
 
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 
 \begin{proof}
     Since \( c  \) is in an open interval \( (a,b) \), we can construct two sequences \( (x_n), (y_n) \subseteq (a,b)  \) such that both sequences converge to \( c \in (a,b)  \) and satisfy \( x_n < c < y_n  \) for all \( n \in \N  \). Since \( f  \) attains its maximum value at some point \( c \in (a,b)  \), we have that for all \( n \in \N  \), \( f(y_n) \leq f(c)  \). Hence, we can say that 
@@ -186,60 +175,11 @@ A takeaway from our introduction to Derivatives is that differentiable functions
 
 This theorem leads to a very important result about differntiable functions containing the intermediate value property.
 
-\begin{tcolorbox}
-    \begin{thm}[Darboux's Theorem]
+\begin{theorem}{Darboux's Theorem}{}
     If \( f  \) is differentiable on an interval \( [a,b]  \), and if \( \alpha  \) satisfies \( f'(a) < \alpha < f'(b)  \) (or \( f'(a) > \alpha > f'(b)  \) ), then there exists a point \( c \in (a,b)  \) where \( f'(c) = \alpha \).
-    \end{thm}
-\end{tcolorbox}
+    \end{theorem}
 
 \begin{proof}
     We can define a new function \( g(x) = f(x) - \alpha x  \) on \( [a,b]  \). Since \( g  \) is differentiable on \( [a,b]  \) with \( g'(x)  = f'(x) - \alpha  \) and that \( g'(a) < 0 < g'(b)  \), we want to show that \( g'(c) = 0  \) for some \( c \in (a,b)  \).
 \end{proof}
 
-\subsection{Definitions and Theorems}
-
-\begin{tcolorbox}
-    \begin{defn}[Differentiability]
-    Let \( g : A \to \R  \) be a function defined on an interval \( A  \). Given \( c \in A  \), the \textit{derivative} of \( g  \) at \( c  \) is defined by 
-    \[ g'(c) = \lim_{ x \to c } \frac{ g(x) - g(c)  }{ x - c  }, \]
-    provided this limit exists. In this case, we say that \( g  \) is \textit{differentiable} at \( c  \). If \( g'  \) exists for all points \( c \in A  \), we say that \( g  \) is \textit{differentible} on \( A  \).
-    \end{defn}
-\end{tcolorbox}
-
-
-\begin{tcolorbox}
-\begin{thm}
-If \( g: A \to \R  \) is differentiable at a point \( c \in A  \), then \( g  \) is continuous at \( c  \) as well.
-\end{thm}
-\end{tcolorbox}
-
-
-\begin{tcolorbox}
-    \begin{thm}[Algebraic Differentiability Theorem]
-    Let \( f  \) and \( g  \) be functions defined on an interval \( A  \), and assume both are differentiable at some point \( c \in A \). Then, 
-    \begin{enumerate}
-        \item[(i)] \( (f+g)'(c) = f'(c) + g'(c), \)
-        \item[(ii)] \( (kf)'(c) = kf'(c), \) for all \( k \in \R  \),
-        \item[(iii)] \( (fg)'(c) = f'(c)g(c) + f(c)g'(c),  \) and 
-        \item[(iv)] \( (f/g)'(c) = \frac{ g(c)f'(c) - f(c)g'(c)  }{ [g(c)]^2 }  \) provided that \( g(c) \neq  0 \).
-    \end{enumerate}
-    \end{thm}
-\end{tcolorbox}
-
-\begin{tcolorbox}
-    \begin{thm}[Chain Rule]
-    Let \( f: A \to \R  \) and \( g: B \to \R  \) satisfy \( f(A) \subseteq B  \) so that the composition \(  g  \circ f \) is defined. If \( f  \) is differentiable at \( c \in A  \) and if \( g  \) is differentiable at \( f(c) \in B   \), then \( g \circ f  \) is differentiable at \( c  \) with \( (g \circ f)'(c) = g'(f(c)) \cdot f'(c)\).
-    \end{thm}
-\end{tcolorbox}
-
-\begin{tcolorbox}
-    \begin{thm}[Interior Extremum Theorem] Let \( f  \) be differentiable on an open interval \( (a,b)  \). If \( f  \) attains a maximum value at some point \( c \in (a,b)  \); that is, \( f(c) \geq f(x)  \) for all \( x \in (a,b)  \), then \( f'(c) = 0  \). The same is true if \( f(c)  \) is a minimum value.
-
-\end{thm}
-\end{tcolorbox}
-
-\begin{tcolorbox}
-    \begin{thm}[Darboux's Theorem]
-    If \( f  \) is differentiable on an interval \( [a,b]  \), and if \( \alpha  \) satisfies \( f'(a) < \alpha < f'(b)  \) (or \( f'(a) > \alpha > f'(b)  \) ), then there exists a point \( c \in (a,b)  \) where \( f'(c) = \alpha \).
-    \end{thm}
-\end{tcolorbox}

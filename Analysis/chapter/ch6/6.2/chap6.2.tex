@@ -5,8 +5,7 @@ Just like our studies demonstrated in Chapter 2, we will first study the behavio
 
 \subsection{Pointwise Convergence} 
 
-\begin{tcolorbox}
-\begin{defn}
+\begin{definition}{Pointwise Convergence}{}
 For each \( n \in \N  \), let \( f_n \) be a function defined on a set \( A \subseteq \R  \). The sequence \( (f_n)  \) of functions \textit{converges pointwise }  on \( A  \) to a function \( f  \) if, for all \( x \in A  \), the sequence of real numbers \( f_n(x)  \) converges to \( f(x)  \). 
 
 In this case, the following notations are all equivalent to each other
@@ -15,12 +14,11 @@ In this case, the following notations are all equivalent to each other
     \item[(ii)] \( \lim f_n = f  \)
     \item[(iii)] \( \lim_{ n \to \infty  } f_n(x) = f(x)  \).
 \end{enumerate}
-\end{defn}
-\end{tcolorbox}
+\end{definition}
 
 (iii) of the definition above is especially useful if there are any confusions the may arise as to whether or not \( x  \) or \( n  \) is the limiting variable.
 
-\begin{ex}
+\begin{example}{}{}
 \begin{enumerate}
     \item[(i)] Consider the sequence of functions \( f_n  \) defined by 
         \[  f_n(x) = \frac{ x^2 + nx  }{ n } \]
@@ -37,7 +35,7 @@ In this case, the following notations are all equivalent to each other
         \[  \lim_{ n \to \infty  } h_n(x) = x \lim_{ n \to \infty  } x^{\frac{ 1 }{ 2n-1 } }  = | x  |.\]
         Note that this function is not differentiable at \( x = 0  \).
 \end{enumerate}
-\end{ex}
+\end{example}
 
 \subsection{Continuity of the Limit Function}
 
@@ -70,22 +68,18 @@ is true only after \( n \geq 11 \).
 
 To solve our the problems of pointwise convergence of functions, we introduce a stronger notion for convergence of functions.
 
-\begin{tcolorbox}
-    \begin{defn}[Uniform Convergence]
+\begin{definition}{Uniform Convergence}{}
     Let \( (f_n)  \) be a sequence of functions defined on a set \( A \subseteq \R  \). Then, \( (f_n)  \) \textit{converges uniformly} on \( A  \) to a limit function \( f  \) defined on \( A  \) if, for every \( \epsilon  > 0 \), there exists an \( N \in \N  \) such that 
     \[  | f_n(x) - f(x)  | < \epsilon   \]
     whenever \( n \geq N  \) and \( x \in A  \).
-    \end{defn}
-\end{tcolorbox}
+    \end{definition}
 
 Let us restate the definition of Pointwise convergence so that we are able to distinguish the key differences between the two.
 
-\begin{tcolorbox}
-    \begin{defn}[Pointwise Convergence]
+\begin{definition}{Pointwise Convergence}
     Let \( (f_n)  \) be a sequence of functions defined on a set \( A \subseteq \R  \). Then, \( (f_n)  \) \textit{converges pointwise on} A to a limit \( f  \) defined on \( A  \) if, for every \( \epsilon > 0   \) and \( x \in A  \), there exists an \( N \in \N  \) (may depend on x ) such that 
     \[  | f_n(x) - f(x)  | < \epsilon  \] whenever \( n \geq N  \).
-    \end{defn}
-\end{tcolorbox}
+    \end{definition}
 
 Key Differences:
 \begin{enumerate}
@@ -94,7 +88,7 @@ Key Differences:
     \item[(ii)] In pointwise convergence, not only do we need convergence to hold for all \( \epsilon > 0   \), we also need it to hold for all \( x  \).
 \end{enumerate}
 
-\begin{ex}
+\begin{example}{}{}
 \begin{enumerate}
     \item[(i)] Let 
         \[  g_n(x) = \frac{ 1 }{ n(1 + x^2 ) }.  \]
@@ -113,7 +107,7 @@ for all \( x \in \R  \). Hence, \( g_n \to 0 \) uniformly on \( \R  \).
     \[  \frac{ x^2  }{ n }  \leq \frac{ b^2  }{ n  }. \]
     Given any \( \epsilon > 0  \), we can choose \( N > b^2 / \epsilon  \) that is not dependent on any \( x \in [-b,b]  \).
 \end{enumerate}
-\end{ex}
+\end{example}
 
 Graphically speaking, the uniform convergence of \( f_n  \) to a limit \( f  \) on a set \( A  \) can be visualized by constructing an \( \epsilon -  \)neighborhood around the limit \( f  \) for which all of \( f_n  \) is completely contained within the neighborhood for all \(  n \geq N  \) for some point \( N \in \N  \).
 
@@ -121,13 +115,11 @@ Graphically speaking, the uniform convergence of \( f_n  \) to a limit \( f  \) 
 
 Recall that the Cauchy Criterion states an equivalence between convergent sequences and Cauchy sequences without stating the limit of the sequence. The usefulness of such a theorem creates an opportunity for an analogous  characterization of uniformly convergent sequences of functions.
 
-\begin{tcolorbox}
-    \begin{thm}[Cauchy Criterion for Uniform Convergence]
+\begin{theorem}{Cauchy Criterion for Uniform Convergence}{}
     A sequence of functions \( (f_n)  \) defined on a set \( A \subseteq \R  \) converges uniformly on \( A  \) if and only if for every \( \epsilon > 0  \), there exists an \( N \in \N  \) such that 
     \[  | f_n(x) - f_m(x)  | < \epsilon  \]
     whenever \( m,n \geq N  \) and \( x \in A  \).
-    \end{thm}
-\end{tcolorbox}
+    \end{theorem}
 \begin{proof}
 Exercise 6.2.5.
 \end{proof}
@@ -136,11 +128,9 @@ Exercise 6.2.5.
 
 Let us now prove that the limit function of a sequence of continuous functions is continuous.
 
-\begin{tcolorbox}
-    \begin{thm}[Continuous Limit Theorem]
+\begin{theorem}{Continuous Limit Theorem}{}
     Let \( (f_n)  \) be a sequence of functions defined on \( A \subseteq \R  \) that converges uniformly on \( A  \) to a function \( f  \), If each \( f_n   \) is continuous at \( c \in A  \), then \( f  \) is continuous at \( c  \).
-    \end{thm}
-\end{tcolorbox}
+    \end{theorem}
 
 \begin{proof}
 Fix \( c \in A  \) and let \( \epsilon > 0  \). Since \( (f_n) \to f   \) is uniformly convergent on \( \R  \), we can choose an \( N \in \N   \) (that does not depend on \( x  \)) such that 
@@ -157,57 +147,6 @@ is true whenever \( | x - c  | < \delta  \). Just like our argument at the begin
 Hence, \( f  \) is continuous at \( c \in  A  \).
 \end{proof}
 
-
-
-
-\subsection{Definitions and Theorems}
-
-
-\begin{tcolorbox}
-\begin{defn}
-For each \( n \in \N  \), let \( f_n \) be a function defined on a set \( A \subseteq \R  \). The sequence \( (f_n)  \) of functions \textit{converges pointwise }  on \( A  \) to a function \( f  \) if, for all \( x \in A  \), the sequence of real numbers \( f_n(x)  \) converges to \( f(x)  \). 
-
-In this case, the following notations are all equivalent to each other
-\begin{enumerate}
-    \item[(i)] \( f_n \to f  \) 
-    \item[(ii)] \( \lim f_n = f  \)
-    \item[(iii)] \( \lim_{ n \to \infty  } f_n(x) = f(x)  \).
-\end{enumerate}
-\end{defn}
-\end{tcolorbox}
-
-
-\begin{tcolorbox}
-    \begin{defn}[Uniform Convergence]
-    Let \( (f_n)  \) be a sequence of functions defined on a set \( A \subseteq \R  \). Then, \( (f_n)  \) \textit{converges uniformly} on \( A  \) to a limit function \( f  \) defined on \( A  \) if, for every \( \epsilon  > 0 \), there exists an \( N \in \N  \) such that 
-    \[  | f_n(x) - f(x)  | < \epsilon   \]
-    whenever \( n \geq N  \) and \( x \in A  \).
-    \end{defn}
-\end{tcolorbox}
-
-
-\begin{tcolorbox}
-    \begin{defn}[Pointwise Convergence]
-    Let \( (f_n)  \) be a sequence of functions defined on a set \( A \subseteq \R  \). Then, \( (f_n)  \) \textit{converges pointwise on} A to a limit \( f  \) defined on \( A  \) if, for every \( \epsilon > 0   \) and \( x \in A  \), there exists an \( N \in \N  \) (may depend on x ) such that 
-    \[  | f_n(x) - f(x)  | < \epsilon  \] whenever \( n \geq N  \).
-    \end{defn}
-\end{tcolorbox}
-
-
-\begin{tcolorbox}
-    \begin{thm}[Cauchy Criterion for Uniform Convergence]
-    A sequence of functions \( (f_n)  \) defined on a set \( A \subseteq \R  \) converges uniformly on \( A  \) if and only if for every \( \epsilon > 0  \), there exists an \( N \in \N  \) such that 
-    \[  | f_n(x) - f_m(x)  | < \epsilon  \]
-    whenever \( m,n \geq N  \) and \( x \in A  \).
-    \end{thm}
-\end{tcolorbox}
-
-
-\begin{tcolorbox}
-    \begin{thm}[Continuous Limit Theorem]
-    Let \( (f_n)  \) be a sequence of functions defined on \( A \subseteq \R  \) that converges uniformly on \( A  \) to a function \( f  \), If each \( f_n   \) is continuous at \( c \in A  \), then \( f  \) is continuous at \( c  \).
-    \end{thm}
-\end{tcolorbox}
 
 
 
