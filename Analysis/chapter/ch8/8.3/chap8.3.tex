@@ -237,5 +237,50 @@ We will use this fact to now show that (4) holds.
         Hence, \( E_{N}(x) \to 0  \).
         \end{proof}
 \end{enumerate}
+Now that we have established that 
+\[  \frac{ 1 }{ \sqrt{ 1 - x  }  }  = \sum_{ n=0 }^{ \infty  } c_{n} x^{n} \tag{4}  \] holds for all \( x \in (-1,1 ) \), we are now in the position to conclude 
+\[  \arcsin(x) = \sum_{ n=0  }^{ \infty  } \frac{ c_{n} }{  n+1  } x^{2n+1}  \] for all \( |  x  |  < 1  \) using term-by-term anti-differentiation of (4).
+
+\subsubsection{Exercise 8.3.11} Assuming that the derivative of \( \arcsin(x)  \) is indeed \( 1 / \sqrt{ 1 - x^{2} }  \), supply the justification that allows us to conclude 
+\[  \arcsin(x) = \sum_{ n=0 }^{ \infty  } \frac{ c_{n}  }{  2n+1  } x^{2n+1} \ \text{for all }  | x  | < 1. \tag{5} \]
+\begin{proof}
+From our result in part (d) of Exercise 8.3.10, we know that substituting \( x  = x^{2} \) into 
+\[  \frac{ 1 }{ \sqrt{ 1 - x  }  }  = \sum_{ n=0 }^{ \infty  } c_{n} x^{n}   \] give us 
+\[  \frac{ 1  }{ \sqrt{ 1 -x^{2} }  } = \sum_{ n=0  }^{ \infty  } c_{n} x^{2n} \] which holds for all \( x \in (-1,1)\). By assumption, we know that the derivative of \( \arcsin(x)  \) is \( 1 / \sqrt{ 1 - x  }  \). Using Term-by-term Antidifferentiation, we get that 
+\[  \arcsin(x) = \sum_{ n=0 }^{ \infty  } \frac{ c_{n}  }{ 2n+1  } x^{2n+1} \ \text{for all } |  x  | < 1.\]
+\end{proof}
+
+\subsubsection{Exercise 8.3.12} Our work thus far shows that the Taylor series in (5) is valid  for all \( |  x  |  < 1  \), but note that \( \arcsin(x)  \) is continuous for all \( |  x  | \leq 1   \). Carefully, explain why the series in (5) converges uniformly to \( \arcsin(x)  \) on the closed interval \( [-1,1] \).
+\begin{proof}
+
+\end{proof}
+
+
+\subsection{Summing \( \sum_{ n=1 }^{ \infty  } 1 / n^{2} \)}
+
+Suppose we let \( x = \sin( \theta ) \) in (5) where we restrict our domain to \( - \pi / 2 \leq \theta \leq \pi /2   \). Then we have
+\[  \theta = \arcsin( \sin(\theta)) = \sum_{ n=0  }^{ \infty  } \frac{ c_{n}  }{ 2n+1 } \sin^{2n+1}(\theta) \] which converges uniformly on \( [-\pi/2 , \pi/2 ] \).
+
+\subsubsection{Exercise 8.3.13} 
+\begin{enumerate}
+    \item[(a)] Show 
+        \[  \int_{ 0 }^{ \pi /2    }  \theta  \  d \theta = \sum_{ n=0 }^{ \infty  } \frac{ c_{n}  }{  2n+1  }  b_{2n+1},   \] being careful to justify each step in the argument. The term \( b_{2n+1} \) refers back to our earlier work on Walli's product.
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Deduce 
+        \[  \frac{ \pi^{2}  }{  8  } = \sum_{ n=0  }^{ \infty  } \frac{ 1 }{ (2n+1)^{2} },  \] and use this to finish the proof that \( \pi^{2} / 6  = \sum_{ n=1 }^{ \infty  } 1 / n^{2} \).
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
+\subsection{Riemann-Zeta Function}
+
+
+
+
+
+
 
 
