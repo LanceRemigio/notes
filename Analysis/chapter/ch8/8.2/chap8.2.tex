@@ -194,7 +194,7 @@ The sup metric is usually written as
 \[  \lVert f \rVert_{\infty } = d(f,0 ) = \sup \{ | f(x)  | : x \in [0,1] \} . \]
 From now on, we will assume that the space \( C[0,1]  \) is paired with the metric above unless otherwise specified.
 
-\begin{definition}
+\begin{definition}{Continuity}{}
 Let \( (X, d_{1}) \) and \( (Y, d_{2}) \) be metric spaces. A function \( f: X \to Y  \) is \textit{continuous} at \( x \in  X  \) if for all \(\epsilon > 0  \), there exists a \( \delta > 0  \) such that \( d_{2}(f(x) , f(y)) < \epsilon  \) whenever \( d_{1} (x,y) < \delta \).  
 \end{definition}
 
@@ -371,6 +371,10 @@ A set \( A \subseteq X  \) is \textit{dense} in the metric space \( (X,d) \) if 
 
     \( (\Leftarrow) \) Suppose \( \overline{E}^c \) is dense in \( X  \). Let \( x \in \overline{E}^{\circ} \). Let \( \epsilon > 0  \). Since \( x  \) is neither an element of nor a limit point of \( \overline{E}^c \), we know that for every \( V_{\epsilon }(x)   \), we have \( V_{\epsilon }(x) \cap \overline{E} \) is empty. This tells us that \( \overline{E}^{\circ}  \) is empty. Hence, \( E  \) is nowhere dense in \( X  \).
 \end{proof}
+
+
+
+
 
 
 
