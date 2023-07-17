@@ -12,8 +12,7 @@ The Fundamental Theorem of Calculus links these two concepts together via an inv
 	\item[(ii)] A continuous function is the derivative of its indefinite integral.
 \end{enumerate}
 
-\begin{tcolorbox}
-	\begin{thm}[Fundamental Theorem of Calculus]
+\begin{theorem}{Fundamental Theorem of Calculus}{}
 	\begin{enumerate}
 		\item[(i)] If \( f: [a,b] \to \R  \) is integrable, and \( F : [a,b] \to \R  \) satisfies \( F'(x) = f(x)  \) for all \( x \in [a,b]  \), then 
 			\[  \int_{ a }^{ b } f = F(b) - F(a). \]
@@ -21,8 +20,7 @@ The Fundamental Theorem of Calculus links these two concepts together via an inv
 			\[  G(x) = \int_{ a }^{ x } g. \]
 			Then \( G  \) is continuous on \( [a,b]  \). If \( g  \) is continuous at some point \( c \in [a,b]  \), then \( G  \) is differentiable at \( c  \) and \( G'(c) = g(c)  \).
 	\end{enumerate}
-	\end{thm}
-\end{tcolorbox}
+	\end{theorem}
 \begin{proof}
 \begin{enumerate}
 	\item[(i)] Let \( P  \) be a partition of \( [a,b]  \). Since \( f(x) = F'(x)  \), we can apply the Mean Value Theorem. Then there exists a \( t_{k } \in [x_{k-1}, x_{k }] \) such that 

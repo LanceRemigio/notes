@@ -2,11 +2,9 @@
 
 We shall start this section by asking what is the effect of having a pointwise converging sequence of functions that are differentiable? It turns out that if we require the sequence of derivatives of some function to be uniformly convergent, then the limit of the sequence of derivative is the derivative of the original function.
 
-\begin{tcolorbox}
-    \begin{thm}[Differentiable Limit Theorem]
+\begin{theorem}{Differentiable Limit Theorem}{}
         Let \( f_n \to f  \) pointwise on the closed interval \( [a,b] \), and assume that each \( f_n  \) differentiable. If \( (f'_n) \) converges uniformly on \( [a,b] \) to a function \( g  \), then the function \( f  \) is differentiable and \( f' = g  \).
-    \end{thm}
-\end{tcolorbox}
+    \end{theorem}%
 
 \begin{proof}
     Fix \( c \in [a,b]  \) and let \( \epsilon > 0  \). We want to show that \( f'(c)  \) exists and equals \( g(c)  \); that is, we want to show that for all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that 
@@ -44,11 +42,9 @@ for all \( x \in [a,b] \).
 
 As it turns out, we don't really need to assume that \( f_n(x) \to f(x)  \) for the conclusion above to be true. We only need uniform convergence of \( (f'_n)  \) for the theorem above to work. Two functions with the same derivative may differ by a constant, so we must suppose that there is at least one point \( x_0  \) where \( f_n(x_0) \to f(x_0)  \).
 
-\begin{tcolorbox}
-\begin{thm}
+\begin{theorem}{}{}
     Let \( (f_n)  \) be a sequence of differentiable functions defined on the closed interval \( [a,b]  \), and assume \( (f'_n)  \) converges uniformly on \( [a,b]  \). If there exists a point \( x_0 \in [a,b]  \) where \( f_n(x_0)  \) is convergent, then \( (f_n)  \) converges uniformly on \( [a,b]  \).
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 
 \begin{proof}
     Let \( (f_n)  \) be a sequence of differentiable functions defined on the closed interval \( [a,b]  \), and assume \( (f'_n) \) converges uniformly on \( [a,b]  \). Furthermore, assume that there exists a point \( x_0 \in [a,b] \) where \( f_n(x_0)  \) is convergent. Since \( (f'_n)  \) converges uniformly on \( [a,b] \), let \( \epsilon = 1  \) such that  there exists \( N \in \N \) such that for any \( m,n \geq N \) and \( x \in [a,b]  \), we have that 
@@ -75,36 +71,11 @@ As it turns out, we don't really need to assume that \( f_n(x) \to f(x)  \) for 
        &< \frac{ \epsilon  }{ 3 } + \frac{ \epsilon  }{ 3 } + \frac{ \epsilon  }{ 3  } = \epsilon.
    \end{align*}
    Hence, this means that \( (f_n)  \) is uniformly convergent.
-\end{proof}
+\end{proof}%
 
 Now we have a stronger version of the first theorem of this section.
 
-\begin{tcolorbox}
-\begin{thm}
+\begin{theorem}{}{}
     Let \( (f_n)  \) be a sequence of differentiable functions defined on the closed interval \( [a,b]  \), and assume \( (f'_n)  \) converges uniformly to a function \( g  \) on \( [a,b]  \). If there exists a point \( x_0 \in [a,b]  \) for which \( f_n(x_0)  \) is convergent, then \( (f_n)  \) converges uniformly. Moreover, the limit function \( f = \lim f_n  \) is differentiable and satisfies \( f' = g  \).
-\end{thm}
-\end{tcolorbox}
-
-\subsection{Definitions and Theorems}
-
-
-\begin{tcolorbox}
-    \begin{thm}[Differentiable Limit Theorem]
-        Let \( f_n \to f  \) pointwise on the closed interval \( [a,b] \), and assume that each \( f_n  \) differentiable. If \( (f'_n) \) converges uniformly on \( [a,b] \) to a function \( g  \), then the function \( f  \) is differentiable and \( f' = g  \).
-    \end{thm}
-\end{tcolorbox}
-
-
-\begin{tcolorbox}
-\begin{thm}
-    Let \( (f_n)  \) be a sequence of differentiable functions defined on the closed interval \( [a,b]  \), and assume \( (f'_n)  \) converges uniformly on \( [a,b]  \). If there exists a point \( x_0 \in [a,b]  \) where \( f_n(x_0)  \) is convergent, then \( (f_n)  \) converges uniformly on \( [a,b]  \).
-\end{thm}
-\end{tcolorbox}
-
-
-\begin{tcolorbox}
-\begin{thm}
-    Let \( (f_n)  \) be a sequence of differentiable functions defined on the closed interval \( [a,b]  \), and assume \( (f'_n)  \) converges uniformly to a function \( g  \) on \( [a,b]  \). If there exists a point \( x_0 \in [a,b]  \) for which \( f_n(x_0)  \) is convergent, then \( (f_n)  \) converges uniformly. Moreover, the limit function \( f = \lim f_n  \) is differentiable and satisfies \( f' = g  \).
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 

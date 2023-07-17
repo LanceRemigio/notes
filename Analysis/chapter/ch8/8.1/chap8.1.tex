@@ -6,19 +6,15 @@ Let \( P = \{ x_{0}, x_{1}, x_{2}, \dots, x_{n} \}  \) be a partition of \( [a,b
 \[  R(f,P ) = \sum_{ k=1 }^{ n } f(c_{k }) (x_{k } - x_{k-1}). \]
 By definition of the upper sum and the lower sum given in section 7.2, it follows immediately that 
 \[  L(f,P) \leq R(f,P) \leq U(f,P)   \] for any bounded function \( f  \). From section 7.2.7, integrability is guaranteed when the supremum of the lower sums and infimum of the upper sums go to the same value. By the inequality above, it is quite clear that we expect \( R(f,P ) \) to also have the same value. We can characterize this by using an \( \epsilon - \delta   \) definition applied to \( R(f,P)  \).
-\begin{tcolorbox}
-\begin{defn}
+\begin{definition}{}{}
     Let \( \delta > 0   \). A partition \( P  \) is \( \delta- \)\textit{fine} if every subinterval \( [x_{k }, x_{k-1} ]  \) satisfies \( x_{k } - x_{k-1} <  \delta  \). In other words, every subinterval has width less than \( \delta  \).
-\end{defn}
-\end{tcolorbox}
+\end{definition}
 
-\begin{tcolorbox}
-    \begin{thm}[Limit Criterion for Riemann Integrability]
+\begin{theorem}{Limit Criterion for Riemann Integrability}{}
     A bounded function \( f: [a,b] \to \R  \) is Riemann-integrable with 
     \[  \int_{ a }^{ b } f  = A  \] if and only if, for every \( \epsilon > 0 \), there exists \( \delta > 0  \) such that, for any tagged partition \( (P, \{ c_{k } \} ) \) that is \( \delta- \)fine, it follow that 
     \[  | R(f,P) - A  | < \epsilon. \]
-    \end{thm}
-\end{tcolorbox}
+    \end{theorem}
 
 The idea is that partitions become finer with the effect that the approximations get closer to the value of the integral. To rephrase the forwards direction of the theorem above, the integrability of some function implies that the approximations converge to the value of the integral independent of the tags chosen. In the backwards direction, the Riemann sum approximations accumulate around some value \( A  \) which implies that a function is integrable and integrates to \( A  \). 
 
@@ -143,17 +139,13 @@ Hence, \( f  \) is integrable and \( A = \int_{ a }^{ b } f  \).
 
 The main component of the generalized Riemann Integral above is to have \( \delta  \) to be a function of \( x  \). 
 
-\begin{tcolorbox}
-\begin{defn}
+\begin{definition}{Gauges}{}
     A function \( \delta: [a,b] \to \R  \) is called a \textit{gauge} on \( [a,b]  \) if \( \delta(x) > 0  \) for all \( x \in [a,b]  \).
-\end{defn}
-\end{tcolorbox}
+\end{definition}
 
-\begin{tcolorbox}
-\begin{defn}
+\begin{definition}{}{}
     Given a particular gauge \( \delta (x)  \), a tagged partition \( (P, \{ c_{k }  \}_{k=1}^{n} ) \) is \( \delta(x)- \)fine if every subinterval \( [x_{k-1}, x_{k }] \) satisfies \( x_{k-1} - x_{k } < \delta(c_{k})  \). In other words, each subinterval \( [x_{k-1}, x_{k} ] \) has width less than \( \delta(c_{k }) \). 
-\end{defn}
-\end{tcolorbox}
+\end{definition}
 
 It's important to note that \( \delta(x)  \) is normally a constant function. The definition above is a more generalized version of what was stated earlier in definition 8.1.4. 
 
@@ -187,11 +179,9 @@ It's important to note that \( \delta(x)  \) is normally a constant function. Th
     \end{proof}
 \end{enumerate}
 
-\begin{tcolorbox}
-\begin{thm}
+\begin{theorem}{\( \delta(x)-fine Partitions \)}{}
     Given a gauge \( \delta(x)  \) on an interval \( [a,b]  \), there exists a tagged partition \( (P, \{ c_{k }  \}_{k=1}^{n}) \) that is \( \delta(x)- \)fine.
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 \begin{proof}
     Let \( I_{0} = [a,b]  \). It may be possible to find a tag that the trivial partition \( P = \{ a,b  \}  \) works. Specifically, if \( b-a < \delta(x)  \) for some \( x \in [a,b]  \), then we can set \( c_{1} \) equal to such an \( x  \) and notice that \( (P, \{ c_{1} \} ) \) is \( \delta(x)-\)fine. If no such \( x  \) exists, then bisect \( [a,b] \) into two equal halves.
 \end{proof}
@@ -206,18 +196,14 @@ It's important to note that \( \delta(x)  \) is normally a constant function. Th
 
 \subsection{Generalized Riemann Integrability} 
 Using gauges now, we can restate Riemann Integrability in a more generalized way.
-\begin{tcolorbox}
-\begin{defn}
+\begin{definition}{Generalized Riemann Integral}{}
     A function \( f  \) on \( [a,b]  \) has \textit{generalized Riemann Integral A} if, for every \( \epsilon > 0  \), there exists a gauge \( \delta(x)  \) on \( [a,b]  \) such that for each tagged partition \( (P, \{ c_{k } \}_{k=1}^n) \) that is \( \delta(x)- \)fine, it is true that 
     \[  | R(f,P) - A  | <\epsilon. \] In this case, we write \( A = \int_{ a }^{ b } f \).
-\end{defn}
-\end{tcolorbox}
+\end{definition}
 
-\begin{tcolorbox}
-\begin{thm}
+\begin{theorem}{}{}
 If a function has a generalized Riemann integral, then the value of the integral is unique.
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 
 \begin{proof}
 Assume that a function \( f  \) has generalized Riemann integral \( A_{1} \) and that it also has generalized Riemann integral \( A_{2} \). We must prove \( A_{1} = A_{2} \).
@@ -248,11 +234,9 @@ The converse statement of the above is not true since Dirichel's function
 \end{cases} \]
 is a non-Riemann-integrable function whose discontinuities are at every point of \( \R  \).
 
-\begin{tcolorbox}
-\begin{thm}
+\begin{theorem}{}{}
     Dirichlet's function \( g(x)  \) is generalized Riemann-integrable on \( [0,1]  \) with \( \int_{ 0 }^{ 1 } g = 0  \).
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 
 \begin{proof}
     Let \( \epsilon > 0  \). The goal is to construct a gauge \( \delta(x)  \) on \( [0,1]  \) such that whenever \( (P, \{ c_{k }  \}_{k=1}^{n}  ) \) is a \( \delta(x)- \)fine tagged partition, it follows that 
@@ -291,12 +275,10 @@ is a non-Riemann-integrable function whose discontinuities are at every point of
     \item[(ii)] While the MVT played a crucial role in the proof of Theorem 7.5.1, it turns out that we won't be needing that either.
 \end{enumerate}
 
-\begin{tcolorbox}
-\begin{thm}
+\begin{theorem}{}{}
     Assume \( F: [a,b] \to \R  \) is differentiable at each point in \( [a,b]  \) and set \( f(x) = F'(x)  \). Then, \( f  \) has the generalized Riemann integral
     \[  \int_{ a }^{ b } f  = F(b) - F(a). \]
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 
 \begin{proof}
     Let \( P = \{ x_{0}, x_{1}, \dots, x_{n} \}  \) be a partition of \( [a,b]  \). Both this proof of Theorem 7.5.1 make use of the following fact.
@@ -380,11 +362,9 @@ that is differentiable everywhere, including \( x = 0  \), with
 \end{cases} \]
 
 An interesting fact about the function above is that it is \textit{unbounded} even though the ordinary Riemann integral only considers bounded functions on closed intervals. This shows that the Generalized Riemann integral does not restrict itself to a certain class of functions. 
-\begin{tcolorbox}
-    \begin{thm}[Change-of-variable Formula] Let \(g: [a,b] \to \R  \) be differentiable at each point of \( [a,b]  \), and assume \( F  \) is differentiable on the set \( g([a,b] ) \). If \( f(x) = F'(x)  \) for all \( x \in g[a,b]  \), then 
+\begin{theorem}{Change-of-variable Formula}{} Let \(g: [a,b] \to \R  \) be differentiable at each point of \( [a,b]  \), and assume \( F  \) is differentiable on the set \( g([a,b] ) \). If \( f(x) = F'(x)  \) for all \( x \in g[a,b]  \), then 
         \[  \int_{ a }^{ b } (f \circ g) \cdot g' = \int_{ g(a) }^{ g(b)  } f. \]
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 
 \begin{proof}
     The hypothesis of the theorem guarantees that the function \( (F \circ g )(x)  \) is differentiable for all \( x \in [a,b] \).
@@ -409,61 +389,4 @@ An interesting fact about the function above is that it is \textit{unbounded} ev
         \end{proof}
 \end{enumerate}
 
-\subsubsection{Definitions and Theorems}
-
-\begin{tcolorbox}
-\begin{defn}
-    Let \( \delta > 0   \). A partition \( P  \) is \( \delta- \)\textit{fine} if every subinterval \( [x_{k }, x_{k-1} ]  \) satisfies \( x_{k } - x_{k-1} <  \delta  \). In other words, every subinterval has width less than \( \delta  \).
-\end{defn}
-\end{tcolorbox}
-
-\begin{tcolorbox}
-    \begin{thm}[Limit Criterion for Riemann Integrability]
-    A bounded function \( f: [a,b] \to \R  \) is Riemann-integrable with 
-    \[  \int_{ a }^{ b } f  = A  \] if and only if, for every \( \epsilon > 0 \), there exists \( \delta > 0  \) such that, for any tagged partition \( (P, \{ c_{k } \} ) \) that is \( \delta- \)fine, it follow that 
-    \[  | R(f,P) - A  | < \epsilon. \]
-    \end{thm}
-\end{tcolorbox}
-
-\begin{tcolorbox}
-\begin{defn}
-    A function \( \delta: [a,b] \to \R  \) is called a \textit{gauge} on \( [a,b]  \) if \( \delta(x) > 0  \) for all \( x \in [a,b]  \).
-\end{defn}
-\end{tcolorbox}
-
-\begin{tcolorbox}
-\begin{defn}
-    Given a particular gauge \( \delta (x)  \), a tagged partition \( (P, \{ c_{k }  \}_{k=1}^{n} ) \) is \( \delta(x)- \)fine if every subinterval \( [x_{k-1}, x_{k }] \) satisfies \( x_{k-1} - x_{k } < \delta(c_{k})  \). In other words, each subinterval \( [x_{k-1}, x_{k} ] \) has width less than \( \delta(c_{k }) \). 
-\end{defn}
-\end{tcolorbox}
-
-
-\begin{tcolorbox}
-\begin{defn}
-    A function \( f  \) on \( [a,b]  \) has \textit{generalized Riemann Integral A} if, for every \( \epsilon > 0  \), there exists a gauge \( \delta(x)  \) on \( [a,b]  \) such that for each tagged partition \( (P, \{ c_{k } \}_{k=1}^n) \) that is \( \delta(x)- \)fine, it is true that 
-    \[  | R(f,P) - A  | <\epsilon. \] In this case, we write \( A = \int_{ a }^{ b } f \).
-\end{defn}
-\end{tcolorbox}
-
-\begin{tcolorbox}
-\begin{thm}
-If a function has a generalized Riemann integral, then the value of the integral is unique.
-\end{thm}
-\end{tcolorbox}
-
-
-\begin{tcolorbox}
-\begin{thm}
-    Assume \( F: [a,b] \to \R  \) is differentiable at each point in \( [a,b]  \) and set \( f(x) = F'(x)  \). Then, \( f  \) has the generalized Riemann integral
-    \[  \int_{ a }^{ b } f  = F(b) - F(a). \]
-\end{thm}
-\end{tcolorbox}
-
-
-
-\begin{tcolorbox}
-    \begin{thm}[Change-of-variable Formula] Let \(g: [a,b] \to \R  \) be differentiable at each point of \( [a,b]  \), and assume \( F  \) is differentiable on the set \( g([a,b] ) \). If \( f(x) = F'(x)  \) for all \( x \in g[a,b]  \), then 
-        \[  \int_{ a }^{ b } (f \circ g) \cdot g' = \int_{ g(a) }^{ g(b)  } f. \]
-\end{thm}
-\end{tcolorbox}
 

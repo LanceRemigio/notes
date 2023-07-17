@@ -2,12 +2,10 @@
 
 For our first property of integration, integrating over a closed interval \( [a,b]  \) is equivalent to taking the sum of the closed intervals, say, \( [a,c]  \) and \( [c,b]  \) that make up \( [a,b]  \).
 
-\begin{tcolorbox}
-\begin{thm}
+\begin{theorem}{}{}
 	Assume \( f: [a,b] \to \R   \) is bounded, and let \( c \in (a,b)  \). Then, \( f  \) is integrable on \( [a,b]  \) if and only if \( f  \) integrable on \( [a,c]  \) and \( [c,b]  \). In this case, we have 
 	\[  \int_{ a }^{ b } f = \int_{ a }^{ c }  f  + \int_{ b }^{ c }  f. \]
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 
 \begin{proof}
 	Suppose \( f \) is integrable on \( [a,b]  \). Then for every \( \epsilon > 0   \), there exists a partition \( P  \) such that 
@@ -41,8 +39,7 @@ For our first property of integration, integrating over a closed interval \( [a,
 
 Some more properties of integration is outlined in the next theorem.
 
-\begin{tcolorbox}
-\begin{thm}
+\begin{theorem}{Basic Integral Properties}{}
 	Assume \( f  \) and \( g  \)  are integrable functions on the interval \( [a,b]  \).
 	\begin{enumerate}
 		\item[(i)] The function \( f + g  \) is integrable on \( [a,b]  \) with \( \int_{ a }^{ b } (f + g) = \int_{ a }^{ b }  f + \int_{ a }^{ b } g  \).
@@ -51,8 +48,7 @@ Some more properties of integration is outlined in the next theorem.
 		\item[(iv)] If \( f(x) \leq g(x)  \) on \( [a,b]  \), then \( \int_{ a }^{ b } f  \leq \int_{ a }^{ b } g  \).
 		\item[(v)] The function \( | f |   \) is integrable and \( | \int_{ a }^{ b }  f | \leq \int_{ a }^{ b } | f |. \) 
 	\end{enumerate}
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 
 \begin{proof}\label{proof:theproof}
 	Let \( \epsilon > 0 \). Since \( f \) and \( g  \) are integrable on \( [a,b]  \), there exists a partition \( P_{\epsilon } \) such that 
@@ -158,14 +154,12 @@ Some more properties of integration is outlined in the next theorem.
 	\[  \Big| \int_{ a }^{ b } f  \Big| \leq \int_{ a }^{ b } | f |. \]
 \end{proof}
 
-\begin{tcolorbox}
-\begin{defn}
+\begin{definition}
 	If \( f  \) is integrable on the interval \( [a,b]  \), define 
 	\[  \int_{ a }^{ b } f = - \int_{ a }^{b  } f. \]
 	Also, for \( c \in [a,b]  \) define 
 	\[  \int_{ c }^{ c } f = 0. \]
-\end{defn}
-\end{tcolorbox}
+\end{definition}
 
 \subsection{Uniform Convergence and Integration}
 
@@ -182,12 +176,10 @@ as a counter-example. Notice that each \( f_{n} \) contains two discontinuities 
 To fix this problem caused by pointwise convergence, we require the assumption of uniform convergence. 
 
 
-\begin{tcolorbox}
-	\begin{thm}[Integrable Limit Theorem]
+\begin{theorem}{Integrable Limit Theorem}{}
 	Assume that \( f_{n} \to f  \) uniformly on \( [a,b]  \) and that each \( f_{n}  \) integrable. Then, \( f \) is integrable and 
 	\[  \lim_{ n \to \infty  }  \int_{ a }^{ b } f_{n} = \int_{ a }^{ b } f. \]
-	\end{thm}
-\end{tcolorbox}
+	\end{theorem}
 \begin{proof} From exercise 7.2.5, we have proven that \( f  \) is integrable on \( [a,b] \). 
 	Using part (v) of Theorem 7.4.2, we can make the following statement:
 	\[ \Big| \int_{ a }^{ b } f_{n} - \int_{ a }^{ b } f  \Big| = \Big| \int_{ a }^{ b }  (f_{n} - f )  \Big| \leq \int_{ a }^{ b }  | f_{n} -f  |.   \]
@@ -201,50 +193,5 @@ To fix this problem caused by pointwise convergence, we require the assumption o
 	We conclude that 
 	\[  \lim_{ n \to \infty  }  \int_{ a }^{ b } f_{n} = \int_{ a }^{ b } f. \]
 \end{proof}
-
-
-\subsection{Definitions and Theorems}
-
-
-\begin{tcolorbox}
-\begin{thm}
-	Assume \( f: [a,b] \to \R   \) is bounded, and let \( c \in (a,b)  \). Then, \( f  \) is integrable on \( [a,b]  \) if and only if \( f  \) integrable on \( [a,c]  \) and \( [c,b]  \). In this case, we have 
-	\[  \int_{ a }^{ b } f = \int_{ a }^{ c }  f  + \int_{ b }^{ c }  f. \]
-\end{thm}
-\end{tcolorbox}
-
-
-\begin{tcolorbox}
-\begin{thm}
-	Assume \( f  \) and \( g  \)  are integrable functions on the interval \( [a,b]  \).
-	\begin{enumerate}
-		\item[(i)] The function \( f + g  \) is integrable on \( [a,b]  \) with \( \int_{ a }^{ b } (f + g) = \int_{ a }^{ b }  f + \int_{ a }^{ b } g  \).
-		\item[(ii)] For \( k \in \R  \), the function \( kf  \) is integrable with \( \int_{ a }^{ b } kf  = k \int_{ a }^{ b }  f. \)
-		\item[(iii)] If \( m \leq f(x) \leq M  \) on \( [a,b]  \), then \( m(b-a) \leq \int_{ a }^{ b } f \leq M(b-a) \).
-		\item[(iv)] If \( f(x) \leq g(x)  \) on \( [a,b]  \), then \( \int_{ a }^{ b } f  \leq \int_{ a }^{ b } g  \).
-		\item[(v)] The function \( | f |   \) is integrable and \( | \int_{ a }^{ b }  f | \leq \int_{ a }^{ b } | f |. \) 
-	\end{enumerate}
-\end{thm}
-\end{tcolorbox}
-
-
-
-\begin{tcolorbox}
-\begin{defn}
-	If \( f  \) is integrable on the interval \( [a,b]  \), define 
-	\[  \int_{ a }^{ b } f = - \int_{ a }^{b  } f. \]
-	Also, for \( c \in [a,b]  \) define 
-	\[  \int_{ c }^{ c } f = 0. \]
-\end{defn}
-\end{tcolorbox}
-
-
-\begin{tcolorbox}
-	\begin{thm}[Integrable Limit Theorem]
-	Assume that \( f_{n} \to f  \) uniformly on \( [a,b]  \) and that each \( f_{n}  \) integrable. Then, \( f \) is integrable and 
-	\[  \lim_{ n \to \infty  }  \int_{ a }^{ b } f_{n} = \int_{ a }^{ b } f. \]
-	\end{thm}
-\end{tcolorbox}
-
 
 

@@ -5,11 +5,9 @@ We can express functions in the form of power series where it takes the form of
 \[  f(x) = \sum_{ n=0  }^{  \infty  } a_n x^n = a_0 + a_1 x + a_2 x^2 + \dots . \]
 We want to be able to find all possible \( x \in \R \) such that the above series converges. 
 
-\begin{tcolorbox}
-\begin{thm}
+\begin{theorem}
 If a power series \( \sum_{ n=0  }^{ \infty  } a_n x^n  \) converges at some point \( x_0 \in \R  \), then it converges absolutely for any \( x  \) satisfying \( | x  |  < | x_0  |  \).
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 
 \begin{proof}
 Assume the power series \( \sum_{ n=0  }^{ \infty  } a_n x^n  \) converges at some point \( x_0 \in \R  \). Since the sequence of terms \( (a_n x_0^n) \) converges to zero, we know that they must be bounded. Hence, there exists \( M > 0  \) such that \( | a_n x_0^n |  \leq M  \) for all \( n \in \N  \). If \( x \in \R  \) satisfies the property that \( | x  |  < | x_0  |  \), then we have that 
@@ -33,11 +31,9 @@ Below are questions to be answered about the properties of power series:
 \end{enumerate}
 \subsection{Establishing Uniform Convergence}
 
-\begin{tcolorbox}
-\begin{thm}
+\begin{theorem}
     If a power series \( \sum_{ n= 0 }^{  \infty   } a_n x^n \) converges absolutely at a point \( x_0  \), then it converges uniformly on the closed interval \( [-c , c ] \), where \( c  = | x_0  |  \).
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 
 \begin{proof}
     Suppose a power series \( \sum_{ n=0  }^{  \infty   } a_n x^n  \) converges absolutely at a point \( x_0  \). Then the series \(  \sum_{ n=0  }^{  \infty  } | a_n x_0^n |  \) converges. Let \( x \in [-c , c ] \) where \( c = | x_0  |  \). We proceed via the Weierstrass M-test to show that \( \sum_{ n=0  }^{ \infty  } a_n x^n  \) converges uniformly. We observe that 
@@ -61,13 +57,11 @@ Some questions we can ask about this result are:
 
 \subsection{Abel's Theorem}
 
-\begin{tcolorbox}
-    \begin{lem}[Abel's Lemma]
+\begin{lemma}{Abel's Lemma}{}
     Let \( b_n  \) satisfy \( b_1 \geq b_2 \geq b_3 \geq \dots \geq 0,  \) and  let \( \sum_{ n=1 }^{ \infty  } a_n  \) be a series for which the partial sums are bounded. In other words, assume there exists \( A > 0  \) such that 
     \[  | a_1 + a_2 + \dots + a_n  |  \leq A  \] for all \( n \in \N  \). Then, for all \( n \in \N  \), 
     \[  \Big| \sum_{ n=1 }^{ \infty  } a_n b_n  \Big|  \leq Ab_1. \]
-    \end{lem}
-\end{tcolorbox}
+    \end{lemma}
 
 \begin{proof}
 Let \( s_n = \sum_{ k=1 }^{ n  } a_k  \) be a bounded sequence of partial sums for the series 
@@ -83,11 +77,9 @@ Let \( s_n = \sum_{ k=1 }^{ n  } a_k  \) be a bounded sequence of partial sums f
 
 We can use this bound to prove the next theorem about proving convergence at one of the endpoints of an interval.
 
-\begin{tcolorbox}
-    \begin{thm}[Abel's Theorem]
+\begin{theorem}{Abel's Theorem}{}
         Let \( g(x) = \sum_{ n=0  }^{  \infty  } a_n x^n  \) be a power series that converges at the point \( x = R > 0  \). Then the series converges uniformly on the interval \( [0,R] \). A similar result holds if the series converges at \( x = -R  \).
-    \end{thm}
-\end{tcolorbox}
+    \end{theorem}
 
 \begin{proof}
 Let us rewrite \( g(x)  \) into the following form:
@@ -105,11 +97,9 @@ by Abel's Lemma. The same process goes for when \( x = -R  \).
 
 We can summarize the two theorems above in the following theorem.
 
-\begin{tcolorbox}
-\begin{thm}
+\begin{theorem}{}{}
 If a power series converges pointwise on the set \( A \subseteq \R  \), then it converges uniformly on any compact set \( K \subseteq A  \).
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 
 \begin{proof}
     A compact set \( K \subseteq A  \) contains both a maximum \( x_1  \) and minimum \( x_0  \). Since \( K \subseteq A  \), we know that \( x_0, x_1 \in A  \). Since \( g(x) = \sum_{ n=0  }^{  \infty  } a_n x^n  \) converges pointwise on \( A  \), we know that the series converges uniformly on \( [x_0, x_1 ] \) and hence also on \( K  \) by Abel's Theorem.
@@ -119,11 +109,9 @@ We can utilize this fact about a power series converging on a compact set to sho
 \[  \sum_{ n=0  }^{ \infty  } a_n x^n  \] is differentiable, and that we can differentiate each term in the infinite series given we know that 
 \[  \sum_{ n=1  }^{  \infty  } na_n x^{n-1} \] converges uniformly.
 
-\begin{tcolorbox}
-\begin{thm}
+\begin{theorem}{Convergence of Differentiated Series}{}
     If \( \sum_{ n=0  }^{  \infty  } a_n x^n  \) converges for all \( x \in (-R , R ) \), then the differentiated series \( \sum_{ n=1  }^{  \infty  } na_n x^{n-1} \) converges at each \( x \in (-R , R ) \) as well. Consequently, the convergence is uniform on compact sets contained in \( (-R , R ) \).
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 
 \begin{proof}
 Exercise 6.5.5.
@@ -137,14 +125,12 @@ A couple things to note about this result.
     \item[(ii)] If we happen to have the differentiated series converge at the point \( x = R  \), then we can use Abel's Theorem to imply uniform convergence of the differentiated series on any compact set that contains \( R  \).
 \end{enumerate}
 
-\begin{tcolorbox}
-\begin{thm}
+\begin{theorem}{Term-by-term Differentiation}{}
 Assume 
 \[  f(x) = \sum_{ n=0 }^{ \infty  } a_n x^n  \] converges on an interval \( A \subseteq \R  \). The function \( f  \) is continuous on \( A  \) and differentiable on any open interval \( (-R , R ) \subseteq A \). The derivative is given by 
 \[  f'(x) = \sum_{ n=1  }^{  \infty  } n a_n x^{n-1}. \]
 Moreover, \( f  \) is infinitely differentiable on \( (-R ,R ) \), and the successive derivatives can be obtained via term-by-term differentiation of the appropriate series.
-\end{thm}
-\end{tcolorbox}
+\end{theorem}
 
 \begin{proof}
 We can use Theorem 6.5.4 to explain why \( f  \) is continuous. By Theorem 6.5.5, we can use the Term-By-Term Differentiability Theorem to verify the formula \( f' \). Despite not having our differentiated power series diverge at the endpoints of our interval, the radius of convergence is not altered. We can use an induction argument to show that the power series can be differentiated an infinite number of times.
