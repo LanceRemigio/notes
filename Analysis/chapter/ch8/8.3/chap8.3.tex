@@ -252,7 +252,6 @@ From our result in part (d) of Exercise 8.3.10, we know that substituting \( x  
 
 \subsubsection{Exercise 8.3.12} Our work thus far shows that the Taylor series in (5) is valid  for all \( |  x  |  < 1  \), but note that \( \arcsin(x)  \) is continuous for all \( |  x  | \leq 1   \). Carefully, explain why the series in (5) converges uniformly to \( \arcsin(x)  \) on the closed interval \( [-1,1] \).
 \begin{proof}
-
 \end{proof}
 
 
@@ -266,7 +265,13 @@ Suppose we let \( x = \sin( \theta ) \) in (5) where we restrict our domain to \
     \item[(a)] Show 
         \[  \int_{ 0 }^{ \pi /2    }  \theta  \  d \theta = \sum_{ n=0 }^{ \infty  } \frac{ c_{n}  }{  2n+1  }  b_{2n+1},   \] being careful to justify each step in the argument. The term \( b_{2n+1} \) refers back to our earlier work on Walli's product.
         \begin{proof}
-        
+        Observe that the series
+        \[  \theta = \sum_{ n=0  }^{ \infty  } \frac{ c_{n}  }{ 2n+1  }  \sin^{2n+1} (\theta)  \] converges uniformly to \( \theta  \) for all \( - \pi /2 \leq \theta \leq \pi /2  \). Hence, we are able to move integration from outside the summation to inside the summation. Using this fact, we write 
+        \begin{align*}
+            \int_{ 0 }^{ \pi / 2  } \theta \ d\theta &= \int_{ 0  }^{ \pi /2  } \sum_{ n=0 }^{ \infty  }  \frac{ c_{n}  }{  2n + 1 } \sin^{2n+1}(\theta) \  d\theta   \\
+                                                     &= \sum_{ n=0 }^{ \infty  } \frac{ c_{n}  }{  2n+1  }  \Big[ \int_{ 0 }^{ \pi /2  } \sin^{2n+1}(\theta)  \ d \theta  \Big] \\
+                                                     &= \sum_{ n=0  }^{ \infty   } \frac{ c_{n}  }{  2n + 1  }  b_{2n+1}. \tag{Walli's Formula}
+        \end{align*}
         \end{proof}
     \item[(b)] Deduce 
         \[  \frac{ \pi^{2}  }{  8  } = \sum_{ n=0  }^{ \infty  } \frac{ 1 }{ (2n+1)^{2} },  \] and use this to finish the proof that \( \pi^{2} / 6  = \sum_{ n=1 }^{ \infty  } 1 / n^{2} \).
