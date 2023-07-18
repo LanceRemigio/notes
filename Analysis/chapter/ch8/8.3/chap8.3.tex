@@ -133,7 +133,7 @@ Observe that the coefficients above should look familiar to the formulas produce
 \subsubsection{Exercise 8.3.7} Show that \( \lim c_{n} =  0  \) but \( \sum_{ n=0  }^{ \infty  } c_{n}  \) diverges.
 \begin{proof}
 The first statement is shown in Exercise 2.7.10. Observe that 
-\[  c_{n} \geq \frac{ 1 }{ 2^{2n} } \geq \frac{ 1 }{ n }. \] Since \( \sum 1 / n  \) diverges, we must also have \( \sum c_{n}   \) diverge by the Comparison test. 
+\[  c_{n} \leq  \frac{ 1 }{ 2^{2n} } \leq \frac{ 1 }{ n }. \] Since \( \sum 1 / n  \) diverges, we must also have \( \sum c_{n}   \) diverge by the Comparison test. 
 \end{proof}
 
 Now our goal is to establish at which particular points in the domain of \( f  \) where 
@@ -217,7 +217,14 @@ We will use this fact to now show that (4) holds.
         \[  \Big| \frac{ x - t  }{ 1 -t  }  \Big|  \leq | x  |  \]
         is valid, and use this to find an overestimate for \( | E_{2}(x)  |   \) that no longer involves an integral. Note that this estimate will necessarily depend on \( x  \). Confirm that things are going well by checking that this overestimate is in fact larger than \( | E_{2}(x)  |  \) at three computed values from part (a).
         \begin{proof}[Solution]
-        
+        The inequality above is valid since 
+        \begin{align*}
+            \Big| \frac{ x - t  }{  1 - t  }  \Big|  &= \sqrt{  \Big( \frac{ x - t  }{ 1 - t  }  \Big)^{2}  }  \\
+                                                     &\leq \sqrt{ (x - t )^{2} }  \\
+                                                     &= |  x -t  | \\
+                                                     &\leq |  x  |
+        \end{align*}
+        which holds for \(  t \in \Z  \).
         \end{proof}
     \item[(d)] Finally, show \( E_{N}(x) \to 0  \) as \( N \to \infty  \) for an arbitrary \( x \in (-1 , 1) \).
         \begin{proof}
@@ -252,6 +259,17 @@ From our result in part (d) of Exercise 8.3.10, we know that substituting \( x  
 
 \subsubsection{Exercise 8.3.12} Our work thus far shows that the Taylor series in (5) is valid  for all \( |  x  |  < 1  \), but note that \( \arcsin(x)  \) is continuous for all \( |  x  | \leq 1   \). Carefully, explain why the series in (5) converges uniformly to \( \arcsin(x)  \) on the closed interval \( [-1,1] \).
 \begin{proof}
+Since (5) is valid for all \( |  x  | < 1   \), it suffices to show that (5) holds for \( x = 1  \) and likewise \( x = -1  \) so that we may show that (5) holds for \( |  x  | \leq 1  \) using Theorem 6.5.2. Plugging in \( x = 1  \) gives us 
+\[  \sum_{ n=0 }^{ \infty  } \frac{ c_{n}  }{  2n+1  }. \] Let's define 
+\[  \gamma_{n} = \frac{ c_{n}  }{  2n+1  }. \]Using the Cauchy Condensation Test, we can prove that  \( \sum 2^{n} \gamma_{2^n }  \) so that \( \sum \gamma_{n}   \) converges. Observe that 
+\[  \sum_{ n=0 }^{ \infty  } \frac{ c_{2^n} }{ 2^{2n+1} + 1 } \leq \frac{ 1 }{ 2 } \sum_{ n=0 }^{ \infty  } c_{2^{n}}. \]
+Now our goal is to use the Comparison Test to show that the right side of the inequality above converges which will immediately imply that the left side converges. Hence, observe that we have the following bound
+\begin{align*}
+    \frac{ 1 }{ 2 }  c_{2^{n}} &= \frac{ 1 }{ 2 }  \cdot \frac{ (2^{n+1})! }{ (2^{n}!)^{2} \cdot 2^{2^{2n+1}}  }  \\
+                               &\leq \frac{ 2^{n+1} - 1  }{ 2 \cdot (2^{n})!  } \\  
+                               &\leq \frac{ 2^{n+1} }{ 2 \cdot (n)! }.  
+\end{align*}
+Observe that the last inequality forms a series that converges via the ratio test. Hence, we must have \( \frac{ 1 }{  2 } \sum c_{2^{n}}  \) converge via the Comparison test. Hence, we must have  \(  \sum  c_{n} / (2n+1)  \) converges via the Cauchy Condensation Test. Hence, by Theorem 6.5.2 we must have (5) converge at \( x = |  1  |  \) for all \(  x \in [-1 , 1 ]  \).
 \end{proof}
 
 
