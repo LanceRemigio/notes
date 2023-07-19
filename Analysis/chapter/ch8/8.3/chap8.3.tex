@@ -231,16 +231,16 @@ We will use this fact to now show that (4) holds.
         Let \( f  \) be differentiable \( N + 1  \) times. Using the inequality found in part (c),we can write 
         \begin{align*}
             E_{N}(x) &= \frac{ 1 }{ N! }  \Big[ \prod_{k=1}^{N+1}  \frac{ 2k - 1  }{ 2k  } \Big] \int_{ 0 }^{ x  }  \Big( \frac{ x -t  }{ 1 - t  }  \Big)^{N } \cdot \frac{ 1 }{ (1-t)^{3/2} } \  dt   \\
-                     &< \frac{ 1 }{ N! } \Big[ \prod_{k=1}^{N} \frac{ 2k - 1  }{ 2k  } \Big]  \int_{ 0 }^{ x }  \frac{ x^{N} }{  (1-t)^{3/2} } \  dt \\
-                     &< \frac{ x^{N} }{ N! }  \Big[ \prod_{k=1}^{N} \frac{ 2k - 1  }{ 2k  }\Big] \int_{ 0 }^{ x  }  \frac{ 1 }{ (1-t)^{3/2} } \  dt \\
-                     &< \frac{ 1 }{ N! }  \Big[ \prod_{k=1}^{N} \frac{ 2k - 1  }{ 2k  }\Big] \int_{ 0 }^{ x }  \frac{ 1 }{ (1-t)^{3/2} } \  dt.
+                     &< \frac{ 1 }{ N! } \Big[ \prod_{k=1}^{N+1} \frac{ 2k - 1  }{ 2k  } \Big]  \int_{ 0 }^{ x }  \frac{ x^{N} }{  (1-t)^{3/2} } \  dt \\
+                     &< \frac{ x^{N} }{ N! }  \Big[ \prod_{k=1}^{N+1} \frac{ 2k - 1  }{ 2k  }\Big] \int_{ 0 }^{ x  }  \frac{ 1 }{ (1-t)^{3/2} } \  dt \\
+                     &< \frac{ 1 }{ N! }  \Big[ \prod_{k=1}^{N+1} \frac{ 2k - 1  }{ 2k  }\Big] \int_{ 0 }^{ x }  \frac{ 1 }{ (1-t)^{3/2} } \  dt.
         \end{align*}
         Using the Change of Variable formula found in Exercise 7.5.10, we have that 
         \[  \int_{ 0 }^{ x }  \frac{ 1 }{ (1-t)^{3/2} } \  dt = \frac{ 2 }{ (1-x)^{1/2} } - 2.  \]
         Since \( | x  | < 1  \), we can bound the result above. Hence, we must have 
-        \[  \int_{ 0 }^{ x }  \frac{ 1 }{ (1-t)^{3/2}  } \ dt < \frac{ 2 }{ \sqrt{ 2 }  } - 2.  \]
+        \[  \int_{ 0 }^{ x }  \frac{ 1 }{ (1-t)^{3/2}  } \ dt < \sqrt{ 2 }  - 2.  \]
         Since \( c_{N} = \prod_{k=1}^{N} \frac{ 2k-2 }{ 2k } \to 0  \) from Exercise 8.2.7, we can write
-        \[  E_{N}(x) < \frac{ 1 }{ N! } \Big[ \prod_{k=1}^{N} \frac{ 2k-1 }{ 2k }  \Big] \Big( \frac{ 2 }{ \sqrt{ 2 }  }  - 2  \Big) \xrightarrow{N\rightarrow\infty} 0.  \]
+        \[  E_{N}(x) < \frac{ 1 }{ N! } \Big[ \prod_{k=1}^{N} \frac{ 2k-1 }{ 2k }  \Big] \Big( \sqrt{ 2 }  - 2  \Big) \xrightarrow{N\rightarrow\infty} 0.  \]
         Hence, \( E_{N}(x) \to 0  \).
         \end{proof}
 \end{enumerate}
@@ -267,7 +267,7 @@ Now our goal is to use the Comparison Test to show that the right side of the in
 \begin{align*}
     \frac{ 1 }{ 2 }  c_{2^{n}} &= \frac{ 1 }{ 2 }  \cdot \frac{ (2^{n+1})! }{ (2^{n}!)^{2} \cdot 2^{2^{2n+1}}  }  \\
                                &\leq \frac{ 2^{n+1} - 1  }{ 2 \cdot (2^{n})!  } \\  
-                               &\leq \frac{ 2^{n+1} }{ 2 \cdot (n)! }.  
+                               &\leq \frac{ 2^{n+1} }{ 2 \cdot n! }.  
 \end{align*}
 Observe that the last inequality forms a series that converges via the ratio test. Hence, we must have \( \frac{ 1 }{  2 } \sum c_{2^{n}}  \) converge via the Comparison test. Hence, we must have  \(  \sum  c_{n} / (2n+1)  \) converges via the Cauchy Condensation Test. Hence, by Theorem 6.5.2 we must have (5) converge at \( x = |  1  |  \) for all \(  x \in [-1 , 1 ]  \).
 \end{proof}
