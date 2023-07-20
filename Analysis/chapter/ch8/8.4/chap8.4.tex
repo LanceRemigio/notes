@@ -1,5 +1,30 @@
 \section{Inventing the Factorial Function}
+The goal of this section is construct a function \( f(x)  \), defined on all of \( \R  \) with the property that \( f(n) = n!  \) for all \( n \in \N  \). This can be done easily by defining a piecewise function such that  
+\[ f(x) = 
+\begin{cases}
+    n! \ &\text{if } n \leq x < n+1, n \in \N \\ 
+    1 \ &\text{if } x < 1.
+\end{cases}  \] Some questions we can explore is its continuity, differentiability (if differentiable then how many times?). Our goal now is to define a function that extends the definition of the factorial \( n!  \) in a meaningful way to non-natural \(  n \). 
+\subsubsection{Exercise 8.4.1} For each \( n \in \N  \), let 
+\[  n \# = n + (n -1 ) + (n-2) + \dots + 2 + 1. \]
+\begin{enumerate}
+    \item[(a)] Without looking ahead, decide if there is a natural way to define \( 0 \#  \). How about \( (-2) \#  \)? Conjecture a reasonable value for \(  \frac{ 7 }{ 2 }  \# \).
+        \begin{proof}[Solution]
+        
+        \end{proof}
+    \item[(b)] Now prove \( n \# = \frac{ 1 }{ 2 }  n (n+1) \) for all \( n \in \N  \), and revisit part (a).
+        \begin{proof}
+        The statement above is clearly true for \( n =1  \). Now assume \(  n \#   = \frac{ 1 }{ 2 }  n (n+1) \) holds for \(  1 \leq n \leq k -1  \). We want to show that \( n \#  \) holds for the \( k  \)th case. By using the definition of \( n \#  \), we can write 
+        \begin{align*}
+            k \# &= k + (k-1)\#  \\
+                 &= k + \frac{ 1 }{ 2 }  k (k-1) \\
+                 &= \frac{ 1 }{ 2 }  (k^{2} + k) \\
+                 &= \frac{ 1 }{ 2 } k (k+1).
+        \end{align*}
+        Since \( n \# = \frac{ 1 }{ 2 }  n (n+1)  \) holds for the \( k  \)th case, we know that it holds for any \( n \in \N  \).
+        \end{proof}
+\end{enumerate}
 
-
+\subsection{The Exponential Function} 
 
 
