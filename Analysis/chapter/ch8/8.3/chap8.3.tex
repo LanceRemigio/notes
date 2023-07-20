@@ -154,7 +154,7 @@ Observe that
 \[  f^{(N+1)}(c) = \Big[ \prod_{k=1}^{N+1} \frac{ 2k-1  }{ 2k }  \Big]   (1 -c )^{-(2N+3)/2} < \Big[ \prod_{k=1}^{N+1} \frac{ 2k-1  }{ 2k }  \Big]\Big( \frac{ 2 }{ 3 }  \Big)^{ (2N+3)/ 2}.\]
 Since \( | x  |  < 1/ 2  \) and \( |  c  | < | x  |  \), we can now write
 \[ E_{N}(x) < \Big[ \prod_{k=1}^{N+1} \frac{ 2k-1  }{ 2k }  \Big]\frac{  2^{3/2}}{  3^{(2N+3)/2} (N+1)! } \xrightarrow{N\rightarrow\infty} 0.   \]
-Hence, (4) holds for all \( x \in (-1,1) \).
+Hence, (4) holds for all \( x \in (-1,1) \). If we try to prove \( E_{N} \to 0  \) on \( (-1/2 , 1 ) \), then we produce a sequence that diverges.
 \end{proof}
 \subsection{The Integral Form of the Remainder}
 
@@ -185,6 +185,7 @@ The case \( x = 0  \) is easy to check, so let's take \( x \neq 0  \) in \( (-R 
             Solving for \( f(x)  \) once again, we get our desired result
         \[  f(x) = f(0) + f'(0) x + \int_{ 0 }^{ x }  f"(t)(x-t) \  dt. \]
     \item[(b)] Continue in this fashion to complete the proof of the theorem.
+ 
         Continuing the process in parts (a) and (b) and using the fact that \( f  \) is \( N+1  \) times differentiable for all \( x \in (-R ,R ) \), we have that
         \begin{align*}  f(x) &= \frac{ 1 }{ N! }  \int_{ 0 }^{ x  } f^{(N+1)}(t) (x -t )^{N} \  dt + \sum_{ k=0  }^{ N  } \frac{ f^{(k)}(0) }{ k! } x_{k } \\  
             &= \frac{ 1 }{ N! } \int_{ 0 }^{ x }  f^{(N+1)}(t) (x-t)^{N} \   dt + S_{N}(x).
@@ -224,24 +225,21 @@ We will use this fact to now show that (4) holds.
                                                      &= |  x -t  | \\
                                                      &\leq |  x  |
         \end{align*}
-        which holds for \(  t \in \Z  \).
+        which holds for \(  t   \).
         \end{proof}
     \item[(d)] Finally, show \( E_{N}(x) \to 0  \) as \( N \to \infty  \) for an arbitrary \( x \in (-1 , 1) \).
         \begin{proof}
-        Let \( f  \) be differentiable \( N + 1  \) times. Using the inequality found in part (c),we can write 
+        Let \( f  \) be differentiable \( N + 1  \) times. Using the inequality found in part (c) and \( |  x  |  < 1  \),we can write 
         \begin{align*}
-            E_{N}(x) &= \frac{ 1 }{ N! }  \Big[ \prod_{k=1}^{N+1}  \frac{ 2k - 1  }{ 2k  } \Big] \int_{ 0 }^{ x  }  \Big( \frac{ x -t  }{ 1 - t  }  \Big)^{N } \cdot \frac{ 1 }{ (1-t)^{3/2} } \  dt   \\
-                     &< \frac{ 1 }{ N! } \Big[ \prod_{k=1}^{N+1} \frac{ 2k - 1  }{ 2k  } \Big]  \int_{ 0 }^{ x }  \frac{ x^{N} }{  (1-t)^{3/2} } \  dt \\
-                     &< \frac{ x^{N} }{ N! }  \Big[ \prod_{k=1}^{N+1} \frac{ 2k - 1  }{ 2k  }\Big] \int_{ 0 }^{ x  }  \frac{ 1 }{ (1-t)^{3/2} } \  dt \\
+            |E_{N}(x)| &= \frac{ 1 }{ N! }  \Big[ \prod_{k=1}^{N+1}  \frac{ 2k - 1  }{ 2k  } \Big] \int_{ 0 }^{ x  } \Big|  \frac{ x -t  }{ 1 - t  } \Big|^{N}      \cdot \Big|  \frac{ 1 }{ (1-t)^{3/2} } \Big| \  dt   \\
+                     &\leq \frac{ 1 }{ N! } \Big[ \prod_{k=1}^{N+1} \frac{ 2k - 1  }{ 2k  } \Big]  \int_{ 0 }^{ x }  \frac{ |x|^{N} }{  (1-t)^{3/2} } \  dt \\
                      &< \frac{ 1 }{ N! }  \Big[ \prod_{k=1}^{N+1} \frac{ 2k - 1  }{ 2k  }\Big] \int_{ 0 }^{ x }  \frac{ 1 }{ (1-t)^{3/2} } \  dt.
         \end{align*}
-        Using the Change of Variable formula found in Exercise 7.5.10, we have that 
-        \[  \int_{ 0 }^{ x }  \frac{ 1 }{ (1-t)^{3/2} } \  dt = \frac{ 2 }{ (1-x)^{1/2} } - 2.  \]
-        Since \( | x  | < 1  \), we can bound the result above. Hence, we must have 
-        \[  \int_{ 0 }^{ x }  \frac{ 1 }{ (1-t)^{3/2}  } \ dt < \sqrt{ 2 }  - 2.  \]
+        Using the Change of Variable formula found in Exercise 7.5.10 and the fact that \( |  x  |  < 1  \), we have  
+        \[  \int_{ 0 }^{ x }  \frac{ 1 }{ (1-t)^{3/2} } \  dt = 2 \Big(  1 - \frac{ 1 }{ \sqrt{ 1 - x  }  }  \Big) < 2 - \sqrt{ 2 }.  \]
         Since \( c_{N} = \prod_{k=1}^{N} \frac{ 2k-2 }{ 2k } \to 0  \) from Exercise 8.2.7, we can write
-        \[  E_{N}(x) < \frac{ 1 }{ N! } \Big[ \prod_{k=1}^{N} \frac{ 2k-1 }{ 2k }  \Big] \Big( \sqrt{ 2 }  - 2  \Big) \xrightarrow{N\rightarrow\infty} 0.  \]
-        Hence, \( E_{N}(x) \to 0  \).
+        \[  |E_{N}(x)| < \frac{ 1 }{ N! } \Big[ \prod_{k=1}^{N} \frac{ 2k-1 }{ 2k }  \Big] \Big( 2 - \sqrt{ 2 }   \Big) \xrightarrow{N\rightarrow\infty} 0.  \]
+        Hence, \( |E_{N}(x)| \to 0  \) which tells us that \( E_{N} \to f(x)  \) uniformly.
         \end{proof}
 \end{enumerate}
 Now that we have established that 
@@ -294,7 +292,35 @@ Suppose we let \( x = \sin( \theta ) \) in (5) where we restrict our domain to \
     \item[(b)] Deduce 
         \[  \frac{ \pi^{2}  }{  8  } = \sum_{ n=0  }^{ \infty  } \frac{ 1 }{ (2n+1)^{2} },  \] and use this to finish the proof that \( \pi^{2} / 6  = \sum_{ n=1 }^{ \infty  } 1 / n^{2} \).
         \begin{proof}
-        
+        Looking at the left side of part (a), we can integrate to get 
+        \[  \int_{ 0 }^{ \pi /2  }  \theta \  d \theta = \Big[ \frac{ 1 }{ 2 }  \theta^{2} \Big]_{0}^{\pi/ 2 } = \frac{ \pi^{2}  }{ 8  }. \]  Focusing our attention to the right side of (a), we see that \( b_{2n+1}  \) can be expanded to
+        \begin{align*}
+            b_{2n+1}  &= \frac{ 2n }{ (2n+1)  } \cdot \frac{ (2n-2)  }{ (2n-1) } \cdot \frac{ (2n - 4)  }{ (2n - 3)  } \cdot \frac{ (2n-6)  }{ (2n-5) } \cdot  \dots \ .    \\
+        \end{align*}
+        Likewise, \( c_{n}  \) can be expanded into 
+        \begin{align*}
+            c_{n} &= \frac{ (2n)!  }{ 2^{2n } (n!)^{2}  } \\  
+                  &= \frac{ (2n) \cdot  (2n-1) \cdot (2n-2) \cdot (2n-3) \cdot (2n-4) \cdot \dots  }{  2^{2n} (n!)^{2}  } 
+        \end{align*}
+        Notice that when we multiply \( b_{2n+1}  \) and \( c_{n}  \) together as seen in part (a), we see that the \( (2n - k)  \) terms for \( k  \) odd cancel, leaving the \( (2n - \ell)   \) terms for \( \ell  \) even on the top. Hence, we have 
+        \begin{align*}
+            c_{n} b_{2n+1} &= \frac{ (2n)^{2} \cdot (2n-2)^{2} \cdot (2n-4)^{2} \cdot (2n-4)^{2} \cdot \dots   }{ 4^{n} (n!)^{2} (2n+1)  }  \\
+                           &= \frac{  (2n)^{2}  \cdot (2 (n-1))^{2} \cdot (2(n - 2 ))^{2} \cdot \dots   }{ 4^{n} (n!)^{2} (2n+1) } \\
+                           &= \frac{ 4^{n} \cdot n^{2} \cdot (n-1)^{2} \cdot (n-2)^{2}  \cdot \dots }{ 4^{n} (n!)^{2} (2n+1) } \\
+                           &= \frac{ 4^{n} (n!)^{2}   }{  4^{n} (n!)^{2}  } \cdot \frac{ 1 }{ 2n+1 }.  \\
+                           &= \frac{ 1 }{ 2n+1 } .
+        \end{align*}
+        Hence, part (a) leads to 
+        \[  \frac{ \pi^{2}  }{  8  }  = \sum_{ n=0  }^{ \infty  } \frac{ c_{n}  }{ 2n+1  } b_{2n+1} =  \sum_{ n=0  }^{ \infty  } \frac{ 1 }{ (2n+1)^{2}  }. \]
+            Since the infinite sum in part (a) converges uniformly for all \(  - \pi /2 \leq \theta \leq \pi /2  \), we are free to rearrange the sum however we like. Observe that
+        \begin{align*}
+            \sum_{ n=1  }^{ \infty  } \frac{ 1 }{ n^{2} }  &= \frac{ 1 }{ 1^{2} }  + \frac{ 1 }{ 2^{2} }  + \frac{ 1 }{ 3^{2}  }  + \frac{ 1 }{ 4^{2} }  + \frac{ 1 }{ 5^{2} } + \dotsb \\
+                                                           &= \Big( \frac{ 1 }{ 1^{2} } + \frac{ 1 }{ 3^{2} } + \frac{ 1 }{ 5^{2} }  + \dotsb \Big) + \Big( \frac{ 1 }{ 2^{2} } + \frac{ 1 }{ 4^{2} }  + \frac{ 1 }{ 6^{2} } + \dotsb  \Big) \\
+                                                           &= \sum_{ n= 0  }^{ \infty  } \frac{ 1 }{ (2n+1)^{2} }  + \sum_{ n=1 }^{ \infty  } \frac{ 1 }{ 4n^2 } \\
+                                                           &= \frac{ \pi^{2} }{  8  }  + \sum_{ n=1  }^{ \infty  } \frac{ 1 }{ 4 n^{2} }.
+        \end{align*}
+        Subtracting the second term on the right hand side to both sides above and collecting terms and dividing, we get
+        \[  \sum_{ n=1  }^{ \infty  } \frac{ 1 }{ n^{2} }  = \frac{ \pi^{2}  }{  6  }.  \]
         \end{proof}
 \end{enumerate}
 
