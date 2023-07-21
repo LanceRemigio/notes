@@ -231,14 +231,17 @@ We will use this fact to now show that (4) holds.
         \begin{proof}
         Let \( f  \) be differentiable \( N + 1  \) times. Using the inequality found in part (c) and \( |  x  |  < 1  \),we can write 
         \begin{align*}
-            |E_{N}(x)| &= \frac{ 1 }{ N! }  \Big[ \prod_{k=1}^{N+1}  \frac{ 2k - 1  }{ 2k  } \Big] \int_{ 0 }^{ x  } \Big|  \frac{ x -t  }{ 1 - t  } \Big|^{N}      \cdot \Big|  \frac{ 1 }{ (1-t)^{3/2} } \Big| \  dt   \\
-                     &\leq \frac{ 1 }{ N! } \Big[ \prod_{k=1}^{N+1} \frac{ 2k - 1  }{ 2k  } \Big]  \int_{ 0 }^{ x }  \frac{ |x|^{N} }{  (1-t)^{3/2} } \  dt \\
-                     &< \frac{ 1 }{ N! }  \Big[ \prod_{k=1}^{N+1} \frac{ 2k - 1  }{ 2k  }\Big] \int_{ 0 }^{ x }  \frac{ 1 }{ (1-t)^{3/2} } \  dt.
+            |E_{N}(x)| &= \frac{ 1 }{ N! } \Big[ \prod_{k=1}^{N+1}   \frac{ 2k-1 }{ 2k }  \Big] \Big| \int_{ 0 }^{ x }  \Big( \frac{ x- t  }{ 1 -t  }  \Big)^{N} \cdot \frac{ 1  }{ (1 -t)^{3/2} }  \ dt \Big|  \\
+            &\leq \frac{ c_{N+1} }{ N! }  \int_{ 0 }^{ x  } \Big|  \frac{ x -t  }{ 1 - t  } \Big|^{N}      \cdot \Big|  \frac{ 1 }{ (1-t)^{3/2} } \Big| \  dt   \\
+            &\leq \frac{ c_{N+1} }{ N! }  \int_{ 0 }^{ x }  \frac{ |x|^{N} }{  (1-t)^{3/2} } \  dt \\
+                     &< \frac{ c_{N+1} }{ N! }   \int_{ 0 }^{ x }  \frac{ 1 }{ (1-t)^{3/2} } \  dt \\
+                     &< \frac{ c_{N+1} }{ 2\sqrt{ 2 } \cdot N!  }  \int_{ 0 }^{ x }  \ dt  \\
+                     &= \frac{ c_{N+1} x  }{ 2 \sqrt{ 2 }  \cdot N!  }   \\
+                     &< \frac{ c_{N+1} }{ 2 \sqrt{ 2 }  \cdot N!  }.
         \end{align*}
-        Using the Change of Variable formula found in Exercise 7.5.10 and the fact that \( |  x  |  < 1  \), we have  
-        \[  \int_{ 0 }^{ x }  \frac{ 1 }{ (1-t)^{3/2} } \  dt = 2 \Big(  1 - \frac{ 1 }{ \sqrt{ 1 - x  }  }  \Big) < 2 - \sqrt{ 2 }.  \]
-        Since \( c_{N} = \prod_{k=1}^{N} \frac{ 2k-2 }{ 2k } \to 0  \) from Exercise 8.2.7, we can write
-        \[  |E_{N}(x)| < \frac{ 1 }{ N! } \Big[ \prod_{k=1}^{N} \frac{ 2k-1 }{ 2k }  \Big] \Big( 2 - \sqrt{ 2 }   \Big) \xrightarrow{N\rightarrow\infty} 0.  \]
+        Since \( c_{N+1} = \prod_{k=1}^{N+1} \frac{ 2k-2 }{ 2k } \to 0  \) from Exercise 8.2.7, we can write
+        \[ | E_{N}(x) | < \frac{ c_{N+1} }{ 2 \sqrt{ 2 }  \cdot N!  }  \to 0  \]
+        as \( N \to \infty  \). 
         Hence, \( |E_{N}(x)| \to 0  \) which tells us that \( E_{N} \to f(x)  \) uniformly.
         \end{proof}
 \end{enumerate}
