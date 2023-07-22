@@ -24,7 +24,52 @@ The goal of this section is construct a function \( f(x)  \), defined on all of 
         Since \( n \# = \frac{ 1 }{ 2 }  n (n+1)  \) holds for the \( k  \)th case, we know that it holds for any \( n \in \N  \).
         \end{proof}
 \end{enumerate}
+We can replace the discrete variable \( n \in \N   \) for values of \( x \in \R  \) and the resulting formula 
+\[  x \# = \frac{ 1 }{ 2 }  x (x+1)  \] will still make sense.
 
 \subsection{The Exponential Function} 
+
+How is the exponential function like \( 2^{x}  \) defined on \( \R  \)? Typically, \( 2^{x} \) is defined through a series of domain expansions. Starting with the function defined on \( \N  \), we can expand its domain by using reciprocals, then to \(  \Q  \) using roots, and then \( \R  \) using continuity. Our goal in this section is to expand the domain of \( 2^{x }   \) using a different method. 
+
+Our first step is to properly define the natural exponential function \( e^{x}  \). Recall in chapter 6, we constructed a series expansion for \( e^{x}  \). This time, we do the opposite direction; that is, create a proper definition of \( e^{x}  \). We can do this by using the results we have found in our studies of power series expansions. 
+
+Define 
+\[  E(x) = \sum_{ n=0  }^{ \infty  } \frac{ x^{n}  }{  n!  } = 1 + x + \frac{ x^{2}  }{ 2!  } + \frac{ x^{3} }{ 3!  } + \dotsb . \]
+
+\subsubsection{Exercise 8.4.2} Verify that the series converges absolutely for all \( x \in \R  \), that \( E(x)  \) is differentiable on \( \R  \), and \( E'(x) = E(x)  \).
+\begin{proof}[Solution]
+First we prove that the series above converges absolutely for all \( x \in \R  \). Let \( x \in \R  \). Observe that 
+\[  \Big| \sum_{ n=0  }^{ \infty  } \frac{ x^{n}  }{  n!  }  \Big| \leq \sum_{ n=0  }^{ \infty  } \Big| \frac{ x^{n}  }{ n!  }  \Big|.    \] By using the ratio test for power series found in section 6.5, we have
+\begin{align*}
+    \Big| \frac{ a_{n+1} }{ a_{n} }  \Big| &= \Big| \frac{ x^{n+1} }{ (n+1)!  } \cdot \frac{ n!  }{ x^{n} }  \Big|  \\
+                                           &= \frac{ | x  |  }{ n+1  } \xrightarrow{n\rightarrow\infty} 0. \\
+\end{align*}
+Since the limit above is \(  0  \), we know that the series 
+\[  \sum_{ n=0  }^{ \infty  } \frac{ x^{n}  }{  n!  } \tag{1} \] converges absolutely for all \( x \in \R  \). Given any compact set in \( \R  \), we know that the convergence of (1) to \( E(x)  \) is uniform. Hence, it must be continuous on any \( A \subseteq \R  \) and differentiable \( n  \) times. Differentiating 
+\[  E(x) = \sum_{ n= 0 }^{ \infty  } \frac{ x^{n}  }{ n!  }  \] and reordering indices we find that \( E'(x) = E(x)  \).
+\end{proof}
+
+\subsubsection{Exercise 8.4.3} 
+\begin{enumerate}
+    \item[(a)] Use the results of Exercise 2.8.7 and the binomial formula to show that \( E(x+y) = E(x)E(y)  \) for all \( x , y \in \R  \).
+    \begin{proof}
+    
+    \end{proof}
+    \item[(b)] Show that \( E(0) = 1, E(-x) = 1 / E(x)  \), and \( E(x) > 0  \) for all \( x \in \R  \).
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
 
 

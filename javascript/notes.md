@@ -137,7 +137,48 @@ while (i < 5) {
 }
 ````
 
-Since the index i = 5, the code in the while loop will not execute, leaving our initialized array empty.
+Since the index i = 5, the code in the while loop will not execute, leaving our initialized array empty. Now let's take a look at the __Dowhile__ loop
+
+````
+const ourArray = [];
+let i = 5;
+
+do { 
+    ourArray.push(i);
+    i++;
+} while (i<5);
+````
+
+The code above intializes our index i with 5 and initializes an empty array named __ourArray__. Then notice that our code executes the contents within the do statement (no condition check needed) and incrementsour index by 1. Since i is incremented to 6, our code then tries to execute the condition within the while statement but fails because the index is now greater than 5. Hence, we exit the loop and get a single element within the array. 
+
+# Replace Loops using Recursion
+
+Recursion is defined as a function that can be expressed in terms of itself. We can look at an example regarding the product of the first n elements of an array.
+
+````
+  function multiply(arr, n) {
+    let product = 1;
+    for (let i = 0; i < n; i++) {
+      product *= arr[i];
+    }
+    return product;
+  }
+````
+Notice how __multiply(arr, n) == multiply(arr, n-1) * arr[n-1]__ . Hence, we can rewrite the function above as follows 
+````
+  function multiply(arr, n) {
+    if (n <= 0) {
+      return 1;
+    } else {
+      return multiply(arr, n - 1) * arr[n - 1];
+    }
+  }
+````
+
+
+
+
+
 
 
 
