@@ -53,21 +53,43 @@ Since the limit above is \(  0  \), we know that the series
 \begin{enumerate}
     \item[(a)] Use the results of Exercise 2.8.7 and the binomial formula to show that \( E(x+y) = E(x)E(y)  \) for all \( x , y \in \R  \).
     \begin{proof}
-    
+    Let \( x, y \in \R  \). By definition of \( E(x+y)  \), using the binomial formula, we can write 
+    \begin{align*}
+        E(x+y)    &= \sum_{ n=0  }^{ \infty  } \frac{ (x+y)^{n}  }{  n!  }  \\
+                  &= \sum_{ n=0 }^{ \infty  } \sum_{ k=0 }^{ \infty  } \frac{ y^{k } \cdot x^{n-k} }{  k! (n-k)!  }  \\
+                  &= \sum_{ n=0  }^{ \infty  } \sum_{ k=0  }^{ \infty  } \frac{ y^{k }  }{  k!  }  \cdot \frac{ x^{n-k} }{ (n-k)!  } \\
+                  &=  \Big[ \sum_{ m=0 }^{ \infty  } \frac{ x^{m} }{ m! }  \Big] \Big[ \sum_{ k = 0  }^{ \infty  } \frac{ y^{ k }  }{ k!  }  \Big] \tag{\( n-k = m \)}. \\
+    \end{align*}
+    Since 
+    \begin{align*}
+        E(x) &= \sum_{ m=0  }^{ \infty  } \frac{ x^{m}  }{ m!  },  \\
+        E(y) &= \sum_{ k=0  }^{ \infty  } \frac{ y^{ k }  }{  k!  } \\
+    \end{align*}
+    both converge absolutely (by Exercise 2.8.7), we can write 
+    \[  E(x+y) = E(x)E(y). \]
     \end{proof}
     \item[(b)] Show that \( E(0) = 1, E(-x) = 1 / E(x)  \), and \( E(x) > 0  \) for all \( x \in \R  \).
         \begin{proof}
-        
+        Let \( x \in \R  \). The first fact immediately follows when \( x = 0  \). Now let us show the second fact. Using the first fact and part(a), we can write 
+        \[   1 = E(0) = E(x - x ) = E(x) E(-x) \iff E(x)E(-x) = 1.   \] 
+        Dividing through by \( E(x)  \) on both sides leads us to our result 
+        \[  E(-x) = \frac{ 1 }{ E(x)  }. \]  For the last fact, observe that \( E(x) > 0  \) follows immediately when we consider any \( x \geq 0  \). Suppose we let \( x  \) be negative, then using the fact that 
+        \[  E(-x) = \frac{ 1 }{ E(x)  }   \] where \( E(x) > 0  \) for any \( x > 0  \) implies that \( E(-x) = \sum_{ n=0 }^{ \infty  } \frac{ (-1)^{n} x^{n}  }{  n!  } > 0    \).
         \end{proof}
 \end{enumerate}
 
+The takeaway here is that the power series \( E(x)  \) contains all the "normal" properties that is associated with the exponential function \( e^{x} \). 
 
+\subsubsection{Exercise 8.4.4} Define \( e = E(1)  \). Show \( E(n) = e^{n}  \) and \( E(m/n) = e^{m/n} \) for all \( m,n \in \Z  \).
+\begin{proof}
 
+\end{proof}
 
+To complete our list of properties of \( e^{x}  \), all we need is its behavior as \( x \to \pm \infty  \).
 
-
-
-
+\begin{definition}{}{}
+    Given \( f : [a,\infty ]  \to \R \), we say that \( \lim_{ x \to \infty  }  f(x) = L  \) if, for all \( \epsilon > 0  \), there exists \( M > a  \) such that whenever \( x \geq M  \) it follows that \( |  f(x) - L  | < \epsilon  \).
+\end{definition}
 
 
 
