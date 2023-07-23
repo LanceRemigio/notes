@@ -175,6 +175,52 @@ Notice how __multiply(arr, n) == multiply(arr, n-1) * arr[n-1]__ . Hence, we can
   }
 ````
 
+# Writing a function that looks up contacts 
+Suppose we have the following object that stores contacts and their associated properties
+````
+
+````
+````
+function lookUpProfile(name, prop) {
+    for (let i = 0  ; i < contacts.length ; i++) { 
+        if (contacts[i].firstName === name  ) { 
+               if (contacts[i].hasOwnProperty(prop) === true)  { 
+                    return contacts[i][prop];
+               } else { 
+                    return "No such property";
+               }  
+        }  
+    }
+    return "No such contact";
+     
+}
+````
+
+Uses a for loop that 
+
+# Generate Random Fractions with Javascript
+
+We can use random numbers to simulate random behavior. Javascript contains a function __Math.random()__ that generates a random decimal between 0 (inclusive) and 1 (exclusive). This means that the function can return a 0 but never a 1. 
+
+__Note__: Like storing values with the assingment operator, all function calls are resolved before the return statement is executed. Hence, we can return the value of the __Math.random()__ function. Hence, we have
+````
+function randomFraction() { 
+    return Math.random();
+}
+````
+
+# Generate Random Whole Numbers with Javascript
+
+We can use the __Math.random()__ in addition to the __Math.floor()__ function to generate random whole numbers within a certain range.
+````
+
+function randomWholeNum () { 
+    return Math.floor(Math.random() * 10)
+}
+````
+The function above returns a random whole number in between 0 and 9 (can't reach 10 because number is always rounded down to the nearest whole number).
+
+
 
 
 

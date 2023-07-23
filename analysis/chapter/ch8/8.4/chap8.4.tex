@@ -80,9 +80,30 @@ Since the limit above is \(  0  \), we know that the series
 
 The takeaway here is that the power series \( E(x)  \) contains all the "normal" properties that is associated with the exponential function \( e^{x} \). 
 
-\subsubsection{Exercise 8.4.4} Define \( e = E(1)  \). Show \( E(n) = e^{n}  \) and \( E(m/n) = e^{m/n} \) for all \( m,n \in \Z  \).
+\subsubsection{Exercise 8.4.4} Define \( e = E(1)  \). Show \( E(n) = e^{n}  \) and \( E(m/n) = (\sqrt[n]{e})^{m} \) for all \( m,n \in \Z  \).
 \begin{proof}
-
+Let \( P(n)  \) be the statement that \( E(n) = e^{n} \) for all \(  n \in \Z  \). Let our base case be \( n = 1  \). Then by definition, we must have \( E(1) = e  \). Now assume \( E(n) = e^{n}   \) holds for all \( n \in \Z^{+} \). We want to show that \( E(n+1) = e^{n+1 } \) holds. Observe that by part (a) of Exercise 4.4.3, we have 
+\begin{align*}
+    E(n+1) &= E(n) \cdot E(1)  \\
+           &= e^{n} \cdot e \\
+           &= e^{n+1}.
+\end{align*}
+Hence, \( E(n) = e^{n}  \) for all \( n \in \Z^{+} \). To show that the statement also holds for all \( n \in \Z^{-} \), we can just multiply \( n  \) by a negative to get 
+\begin{align*}
+    E(-n) &= \frac{ 1 }{ E(n) }  \\
+          &= \frac{ 1  }{ e^{n}  } \\
+          &= e^{-n}.
+\end{align*}
+Lastly, we show \( E(m/n) = (\sqrt[n]{e} )^{m } \) for all \( n,m \in \Z  \). Let \( n,m \in \Z  \). Observe that 
+\[  E(1)  = E \Big( \frac{ n }{ n }  \Big) = ( \sqrt[n]{e})^{n} \implies E(1/n) = \sqrt[n]{e}.  \] Furthermore, we can rewrite \( m / n  \) in the following way where 
+\[  \frac{ m }{ n }  = \sum_{ i=0 }^{ m  } \frac{ 1 }{ n }. \]
+Then we see that 
+\begin{align*}
+    E \Big( \frac{ m }{ n }  \Big) &= E \Big( \sum_{ i=0 }^{ m  } \frac{ 1 }{ n }  \Big) \\
+                                   &= E \Big( \frac{ 1 }{ n }  \Big) \cdot E \Big( \frac{ 1 }{ n }  \Big) \cdot E \Big( \frac{ 1 }{ n }  \Big) \cdot \ \dotsb \  m \text{ times} \\ 
+                                   &= \sqrt[n]{e} \cdot \sqrt[n ]{e } \cdot \sqrt[n]{e} \cdot \ \dotsb \ m \text{ times} \\
+                                   &= (\sqrt[n]{e})^{m}.
+\end{align*}
 \end{proof}
 
 To complete our list of properties of \( e^{x}  \), all we need is its behavior as \( x \to \pm \infty  \).
@@ -91,6 +112,35 @@ To complete our list of properties of \( e^{x}  \), all we need is its behavior 
     Given \( f : [a,\infty ]  \to \R \), we say that \( \lim_{ x \to \infty  }  f(x) = L  \) if, for all \( \epsilon > 0  \), there exists \( M > a  \) such that whenever \( x \geq M  \) it follows that \( |  f(x) - L  | < \epsilon  \).
 \end{definition}
 
+\subsubsection{Exercise 8.4.5} Show \( \lim_{ x \to \infty  }  x^{n} e^{-x} = 0  \) for all \( n = 0,1,2, \dots \ \). To get started notice that when \( x \geq 0   \), all the terms in (1) are positive.
+\begin{proof}
+
+\end{proof}
+
+\subsection{Other Bases}
+
+Having established a rigorous foundation for \( e^{x}  \), we can now do the same for \( t^{x}  \) for any real number \( t > 0   \). 
+
+\subsubsection{Exercise 8.4.6} 
+\begin{enumerate}
+    \item[(a)] Explain why we know \( e^{x}  \) has an inverse function; that is, let's call it \( \log(x)  \) defined for any real \(  x > 0  \) and satisfying
+        \begin{enumerate}
+            \item[(i)] \( \log(e^{y}) = y  \) for all \(  y\in \R  \) and 
+            \item[(ii)] \( e^{\log(x)} = x  \), for all \( x > 0  \).
+        \end{enumerate}
+        \begin{proof}[Solution]
+    
+    \end{proof}
+    \item[(b)] Prove \( (\log x )' = 1 / x   \). (See Exercise 5.2.12.)
+        \begin{proof}
+        
+        \end{proof}
+    \item[(c)] Fix \( y > 0  \) and differentiate \( \log(xy)  \) with respect to \( x  \). Conclude that 
+        \[  \log(xy) = \log(x) + \log(y) \ \text{for all } x,y > 0. \]
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
 
 
 
