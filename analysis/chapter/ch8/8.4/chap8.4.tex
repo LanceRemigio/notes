@@ -129,19 +129,68 @@ Having established a rigorous foundation for \( e^{x}  \), we can now do the sam
             \item[(ii)] \( e^{\log(x)} = x  \), for all \( x > 0  \).
         \end{enumerate}
         \begin{proof}[Solution]
-    
-    \end{proof}
+        If we are considering \( f(x) = e^{x} \) defined on \( (0,\infty ) \), then we get that \( f(x)  \) is a bijective function for all \( x \in (0, \infty ) \). To see why, suppose we let \( x, y \in (0,\infty )  \). Since \( \log(x)  \) is defined for all \(  x \in (0,\infty ) \), we can say that 
+        \begin{align*}
+            E(x) &= E(y) \\
+             e^{x}    &= e^{y} \\
+             \log(e^{x}) &= \log(e^{y}) \\
+             x &= y. 
+        \end{align*}
+        Hence, \( E(x) = e^{x} \) is an injective function. Now let's show surjectivity. Then letting \( x = \log(y)  \), observe that 
+        \[  E(x) = e^{x} = e^{\log(y)} = y. \] Hence, \( E(x)  \) is a surjective function. Since \( E(x)  \) is both injective and surjective, we know that \( E(x)  \) must be bijective and thus must have an inverse function.
+        \end{proof}
     \item[(b)] Prove \( (\log x )' = 1 / x   \). (See Exercise 5.2.12.)
         \begin{proof}
-        
+        Let \( y = f(x) = e^{x} \). Using the result from Exercise 5.2.12, the fact that \( f'(x) = e^{x} \), and \( e^{\log(x)}  \), we get that 
+        \begin{align*}
+            (\log x)' &= \frac{ 1 }{ f'(x)  }  \\
+                      &= \frac{ 1 }{ e^{\log(x)} } \\
+                      &= \frac{ 1 }{ x }.
+        \end{align*}
         \end{proof}
     \item[(c)] Fix \( y > 0  \) and differentiate \( \log(xy)  \) with respect to \( x  \). Conclude that 
         \[  \log(xy) = \log(x) + \log(y) \ \text{for all } x,y > 0. \]
+        \begin{proof}
+        Let \( x, y \in (0,\infty )  \) with \( x = e^{y}   \) and \( y = e^{x} \). Our logarithm properties, we then have \( \log(x) = y  \) and \( \log(y) = x  \). Then by using the properties of \( e^{x}  \) and \( \log(x)   \), observe that  
+        \begin{align*}
+            \log(xy) &= \log(e^{y} \cdot e^{x} ) \\
+                     &= \log(e^{y+x}) \\
+                     &= y + x \\
+                     &= \log(x) + \log(y).
+        \end{align*} 
+        Hence, we have 
+        \[  \log(xy) = \log(x) + \log(y). \]
+
+        \end{proof}
+    \item[(d)] For \( t > 0  \) and \( n \in \N  \), \( t^{n} \) has the usual interpretation as \( t \cdot t \dotsb t  \) ( \( n \) times).
+        Show that 
+        \[  t^{n} = e^{n \log t } \ \text{for all } n \in \N.   \]
         \begin{proof}
         
         \end{proof}
 \end{enumerate}
 
+\begin{definition}{}{}
+   Given \( t > 0  \), define the exponential function \( t^{x} \) to be 
+   \[  t^{x} = e^{x \log t } \ \text{for all } x \in \R. \]
+\end{definition}
 
+\subsubsection{Exercise 8.4.7}  
+\begin{enumerate}
+    \item[(a)] Show \( t^{m/n} = (\sqrt[n]{t})^{m}  \) for all \( m,n \in \N  \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Show \( \log(t^{x}) = x \log t \), for all \( t > 0  \) and \( x \in \R \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(c)] Show \( t^{x} \) is differentiable on \( \R  \) and find the derivative.
+        \begin{proof}
+        
+        \end{proof} 
+\end{enumerate}
 
+The strategy we have been partaking in so far is a similar to how we would define what \( n!  \) would mean if it was replaced by \( x  \in \R  \) instead of \( n \in \N  \). 
 
+\subsection{The Functional Equation}
