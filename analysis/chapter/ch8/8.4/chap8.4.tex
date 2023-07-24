@@ -114,7 +114,12 @@ To complete our list of properties of \( e^{x}  \), all we need is its behavior 
 
 \subsubsection{Exercise 8.4.5} Show \( \lim_{ x \to \infty  }  x^{n} e^{-x} = 0  \) for all \( n = 0,1,2, \dots \ \). To get started notice that when \( x \geq 0   \), all the terms in (1) are positive.
 \begin{proof}
-
+Let \( \epsilon > 0  \). Choose \( M =  1 / \sqrt{ \epsilon  } \). Assume for any \( x \geq 1 /\sqrt{ \epsilon  }  \), we have 
+\begin{align*}
+    \Big| \frac{ x^{n}  }{  e^{x} } - 0  \Big| &= \frac{ x^{n}  }{ e^{x} }   \\
+                                               &< \frac{ x^{n}  }{  x^{2n} } \\
+                                               &= \frac{ 1 }{ x^{n} } \\
+\end{align*}
 \end{proof}
 
 \subsection{Other Bases}
@@ -166,7 +171,8 @@ Having established a rigorous foundation for \( e^{x}  \), we can now do the sam
         Show that 
         \[  t^{n} = e^{n \log t } \ \text{for all } n \in \N.   \]
         \begin{proof}
-        
+            Let \( t>0  \) and \( n \in \N  \). Observe that \( t = e^{\log(t)} \) and then 
+            \[  t^{n} = \Big( e^{\log(t)}  \Big)^{n} = e^{n \log (t)}. \]
         \end{proof}
 \end{enumerate}
 
