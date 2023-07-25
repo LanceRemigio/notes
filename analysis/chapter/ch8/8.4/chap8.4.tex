@@ -114,12 +114,14 @@ To complete our list of properties of \( e^{x}  \), all we need is its behavior 
 
 \subsubsection{Exercise 8.4.5} Show \( \lim_{ x \to \infty  }  x^{n} e^{-x} = 0  \) for all \( n = 0,1,2, \dots \ \). To get started notice that when \( x \geq 0   \), all the terms in (1) are positive.
 \begin{proof}
-Let \( \epsilon > 0  \). Choose \( M =  1 / \sqrt{ \epsilon  } \). Assume for any \( x \geq 1 /\sqrt{ \epsilon  }  \), we have 
-\begin{align*}
-    \Big| \frac{ x^{n}  }{  e^{x} } - 0  \Big| &= \frac{ x^{n}  }{ e^{x} }   \\
-                                               &< \frac{ x^{n}  }{  x^{2n} } \\
-                                               &= \frac{ 1 }{ x^{n} } \\
-\end{align*}
+    Let \( \epsilon > 0  \) and \( n \in \N  \). Choose \( M = 1 / \epsilon  > a   \). Then observe that for any \( x \geq M  \), we have
+    \begin{align*}
+        \Big| \frac{ x^{n} }{  e^{x} }  - 0  \Big| &= \frac{ x^{n}  }{  e^{x} }  
+                                                   <  \frac{ x^{n}  }{  x^{n+1} } 
+                                                   = \frac{ 1 }{ x } 
+                                                   < \epsilon.
+    \end{align*}
+    Hence, \( \lim_{ x \to \infty  }  x^{n} e^{-x} = 0. \)
 \end{proof}
 
 \subsection{Other Bases}
@@ -185,15 +187,26 @@ Having established a rigorous foundation for \( e^{x}  \), we can now do the sam
 \begin{enumerate}
     \item[(a)] Show \( t^{m/n} = (\sqrt[n]{t})^{m}  \) for all \( m,n \in \N  \).
         \begin{proof}
-        
+        Let \( m, n \in \N  \). Then 
+        \[  t^{m/n} = (t^{1/n})^{m} = (\sqrt[n]{t})^{m}. \]
         \end{proof}
     \item[(b)] Show \( \log(t^{x}) = x \log t \), for all \( t > 0  \) and \( x \in \R \).
         \begin{proof}
-        
+        Let \( t > 0  \) and \( x \in \R  \). Then observe that 
+        \begin{align*}  
+            t^{x} = e^{x \log t } &\implies \log(t^{x}) = \log(e^{x\log t }) \\ 
+                                  &\implies \log (t^{x} ) = x \log t.
+        \end{align*}
         \end{proof}
     \item[(c)] Show \( t^{x} \) is differentiable on \( \R  \) and find the derivative.
         \begin{proof}
-        
+        Let \( x,t \in \R  \). To show that \( f(x) = t^{x}  \) is differentiable, we can use the definition of differentiability. Using the fact that \( t^{x} = e^{x \log t }  \), we have    
+        \begin{align*}
+            f'(c) &= \lim_{ x \to c } \frac{ t^{x} - t^{c} }{  x -c  }  \\
+                  &= \lim_{ x \to c }  \frac{ e^{x \log t } - e^{c \log t }  }{ x -c  }.  \\
+        \end{align*}
+        Observe that \( g(x) = e^{x \log t}  \) is differentiable. Hence, the limit in the last equality exists and therefore \( f'(c)  \) exists. Using the Chain Rule, we get
+        \[  f'(x) = (t^{x} )' = (e^{x \log t })' = \log(t) e^{x \log t } = \log (t) t^{x}.\]
         \end{proof} 
 \end{enumerate}
 

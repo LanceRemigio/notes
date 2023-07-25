@@ -221,8 +221,78 @@ function randomWholeNum () {
 The function above returns a random whole number in between 0 and 9 (can't reach 10 because number is always rounded down to the nearest whole number).
 
 
+# Generate Random Whole Numbers within a Range
+
+We can generate a random whole number from zero to any given number. We don't always have to have zero. We can specify the lower endpoint. The following formula gives us a random whole number between a __min__ and a __max__.
+
+````
+Math.floor(Math.random() * (max - min + 1 ) + min)
+````
+
+# Use the parseInt Function
+
+The __parseInt()__ function parses a string and returns an integer.
+
+__Example:__
+
+````
+const a = parseInt("007"); \\ This converts the string "007" => integer 7
+````
+If the first character in the string can't be converted into a number then it returns NaN.
 
 
+# Use the Conditional (Ternary) Operator
+
+Instead of using our normal if-else expressions, we can use the ternary operator to shorten our code into one line. The syntax is as follows with 
+````
+a ? b : c \\ a is the condition, b is the code to run, c is the else statement
+````
+
+We can shorten the following code 
+
+````
+function findGreater(a,b) { 
+    if (a > b) { 
+        return "a is greater";
+    } else { 
+        return "b is greater or equal";
+    }
+}
+````
+to 
+````
+function findGreater(a,b) { 
+    return a > b ? "a is greater" : "b is greater or equal";
+}
+````
+using the Ternary operator
+
+
+# Use Multiple Conditional (Ternary) Operators
+
+We can nest multiple Ternary Operators together to shorten 
+
+````
+function findGreaterOrEqual(a, b) {
+  if (a === b) {
+    return "a and b are equal";
+  }
+  else if (a > b) {
+    return "a is greater";
+  }
+  else {
+    return "b is greater";
+  }
+}
+````
+to 
+````
+function findGreaterOrEqual(a,b) { 
+    return (a === b) ? "a and b are equal"
+        : (a > b) ? "a is greater" 
+        : "b is greater";
+}
+````
 
 
 
