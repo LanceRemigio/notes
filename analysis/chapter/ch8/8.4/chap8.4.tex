@@ -213,3 +213,77 @@ Having established a rigorous foundation for \( e^{x}  \), we can now do the sam
 The strategy we have been partaking in so far is a similar to how we would define what \( n!  \) would mean if it was replaced by \( x  \in \R  \) instead of \( n \in \N  \). 
 
 \subsection{The Functional Equation}
+
+Our goal now is to somehow extend the domain of the factorial from the set of natural number; that is, 
+\[  n! = n (n-1)! \ \text{for all }  n \in \N   \] 
+all the way to the set of real numbers with 
+\[  x! = x(x-1)! \ \text {for all } x \in \R. \]
+Of course, we cannot forget about \(  n = 1   \) implying that \( 0! = 1  \).
+
+\subsubsection{Exercise 8.4.8} Inspired by the fact that \( 0! = 1  \) and \( 1! = 1  \), let \( h(x)  \) satisfy 
+\begin{enumerate}
+    \item[(i)] \( h(x) = 1  \) for all \( 0 \leq x \leq 1  \), and 
+    \item[(ii)] \( h(x) = x h(x-1)  \) for all \( x \in \R  \).
+\end{enumerate}
+\begin{enumerate}
+    \item[(a)] Find a formula for \( h(x)  \) on \( [1,2]  \), \( [2,3]  \), and \( [n, n +1 ] \) for arbitrary \( n \in \N  \).
+        \begin{proof}[Solution]
+            On \( [1,2]  \), notice that \( h(x)  \) can be defined recursively; that is, 
+            \[  h(2) = 2 \cdot h(1) = 2 \cdot 1 \cdot h(0) = 2! \cdot h(0). \]
+            Likewise, \( h(x)  \) defined on \( [2,3]  \) will be 
+            \[  h(3) = 3 \cdot h(2) = 3 \cdot 2 \cdot h(1) = 3! \cdot h(0). \]
+            Finally on \( [n, n+ 1]  \), we have 
+            \begin{align*}
+                h(n+1) &= (n+1) \cdot h(n)  \\
+                       &= (n+1) \cdot n \cdot h(n-1) \\
+                       &= (n+1) \cdot n \cdot (n-1) \cdot h(n-2) \\
+                       &= n! \cdot h(0).
+            \end{align*}
+        \end{proof}
+    \item[(b)] Now do the same for \( [-1,0], [-2,-1] , \) and \( [-n, -n+1]  \).
+        \begin{proof}[Solution] 
+        
+        \end{proof}
+    \item[(c)] Sketch \( h  \) over the domain \( [-4,4]  \).
+        \begin{proof}[Solution]
+            \textbf{To do.}
+        \end{proof}
+\end{enumerate}
+
+Our function above \( h(x)  \) satisfies \( h(n) = n!   \) and it is at least continuous for \( x \geq 0  \). However, we still run into the problem where our piecewise function contains non-differentiable corners. We conclude that from the exercise above that \( x!  \) will have the same asymptotic behavior as \( h  \) at negative integers \( x  \). Hence, it won't be defined on \( x \in \Z^{-} \).
+
+\subsection{Improper Riemann Integrals} 
+
+Our goal in this section is to provide a rigorous foundation for the formula
+\[  \int_{ 0 }^{ \infty  }  e^{-t} \ dt. \] 
+This is know in our regular Calculus classes as the \textit{improper Riemann integral} which is defined by taking the limit of "proper" integrals over unbounded regions such as \( [0,\infty ] \). 
+
+\begin{definition}{}{}
+    Assume \( f  \) is defined on \( [a,\infty ] \) on \( [a, \infty  ) \) and integrable on every interval of the form \( [a,b]  \). Then define \( \int_{ a }^{ \infty  }  f  \) to be  
+    \[  \lim_{ b \to \infty  }  \int_{ a }^{ b } f,  \] provided the limit exists. In this case, we say the improper integral \( \int_{ a }^{ \infty  }  f  \) \textit{converges}. 
+\end{definition}
+
+\subsubsection{Exercise 8.4.9} 
+\begin{enumerate}
+    \item[(a)] Show that the improper integral \( \int_{ a }^{ \infty  } f  \) converges if and only if, for all \( \epsilon > 0 \), there exists \( M > a  \) such that whenever \( d > c \geq M  \) it follows that 
+        \[  \Big| \int_{ a }^{ b } f  \Big|  < \epsilon. \]
+        (In one direction it will be useful to consider the sequence \( a_{n} = \int_{ a }^{ a+ n  } f  \).)
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Show that if \( 0 \leq f \leq g  \) and \( \int_{ a }^{ \infty  } g   \) converges then \( \int_{ a }^{ \infty  } f   \) converges.
+        \begin{proof}
+        
+        \end{proof}
+    \item[(c)] Part (a) is a Cauchy criterion, and part (b) is a comparison test. State and prove an absolute convergence test for improper integral State and prove an absolute convergence test for improper integrals. 
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
+
+
+
+
+
+

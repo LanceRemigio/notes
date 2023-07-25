@@ -12,3 +12,4 @@ function convertToInteger (str) {
 }
 
 console.log(convertToInteger("10011"));
+

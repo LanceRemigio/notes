@@ -4,3 +4,4 @@ function convertToInteger(str) {
 }
 console.log(convertToInteger("56"));
 
+
