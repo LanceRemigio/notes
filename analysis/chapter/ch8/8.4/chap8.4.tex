@@ -227,18 +227,20 @@ Of course, we cannot forget about \(  n = 1   \) implying that \( 0! = 1  \).
 \end{enumerate}
 \begin{enumerate}
     \item[(a)] Find a formula for \( h(x)  \) on \( [1,2]  \), \( [2,3]  \), and \( [n, n +1 ] \) for arbitrary \( n \in \N  \).
-        \begin{proof}[Solution]
-            On \( [1,2]  \), notice that \( h(x)  \) can be defined recursively; that is, 
-            \[  h(2) = 2 \cdot h(1) = 2 \cdot 1 \cdot h(0) = 2! \cdot h(0). \]
-            Likewise, \( h(x)  \) defined on \( [2,3]  \) will be 
-            \[  h(3) = 3 \cdot h(2) = 3 \cdot 2 \cdot h(1) = 3! \cdot h(0). \]
-            Finally on \( [n, n+ 1]  \), we have 
-            \begin{align*}
-                h(n+1) &= (n+1) \cdot h(n)  \\
-                       &= (n+1) \cdot n \cdot h(n-1) \\
-                       &= (n+1) \cdot n \cdot (n-1) \cdot h(n-2) \\
-                       &= n! \cdot h(0).
-            \end{align*}
+        \begin{proof}[Solution] 
+        On \( [1,2]  \), observe that 
+        \[  h(2) = 2 \cdot h(1) = 2 \cdot 1 \cdot h(0) = 2 \]
+        and likewise 
+        \[  h(1) = 1. \] This tells us that \( h(x)  \) on \( [1,2]  \) must be defined as \( h(x) =x  \). Whereas on \( [2,3]  \), we have 
+        \[  h(3) = 3 \cdot h(2) = 3 \cdot 2 \cdot h(1) = 3! = 3 \]
+        and 
+        \[  h(2) = 2 \cdot h(1) = 2 \cdot 1 \cdot h(0) = 2! = 2. \]
+        which tells us that \( h(x)  \) on \( [2,3]  \) must be defined as \( h(x) = x (x-1)  \). On \( [n,n+1] \), observe that 
+        \[  h(n) = n \cdot h(n-1) = n \cdot (n-1) \cdot h(n-2) = n!  \]
+        and  
+        \[  h(n+1) = (n+1) \cdot n \cdot (n-1) \cdot (n-2) = (n+1)!. \]
+        This tells us that \( h(x)  \) on \( [n,n+1]  \) will be defined as 
+        \[  h(x) = \prod_{i=1}^{n-1} x - i\] which can be proven using induction. 
         \end{proof}
     \item[(b)] Now do the same for \( [-1,0], [-2,-1] , \) and \( [-n, -n+1]  \).
         \begin{proof}[Solution] 
@@ -249,7 +251,6 @@ Of course, we cannot forget about \(  n = 1   \) implying that \( 0! = 1  \).
             \textbf{To do.}
         \end{proof}
 \end{enumerate}
-
 Our function above \( h(x)  \) satisfies \( h(n) = n!   \) and it is at least continuous for \( x \geq 0  \). However, we still run into the problem where our piecewise function contains non-differentiable corners. We conclude that from the exercise above that \( x!  \) will have the same asymptotic behavior as \( h  \) at negative integers \( x  \). Hence, it won't be defined on \( x \in \Z^{-} \).
 
 \subsection{Improper Riemann Integrals} 
@@ -266,10 +267,24 @@ This is know in our regular Calculus classes as the \textit{improper Riemann int
 \subsubsection{Exercise 8.4.9} 
 \begin{enumerate}
     \item[(a)] Show that the improper integral \( \int_{ a }^{ \infty  } f  \) converges if and only if, for all \( \epsilon > 0 \), there exists \( M > a  \) such that whenever \( d > c \geq M  \) it follows that 
-        \[  \Big| \int_{ a }^{ b } f  \Big|  < \epsilon. \]
+        \[  \Big| \int_{ c }^{ d } f  \Big|  < \epsilon. \]
         (In one direction it will be useful to consider the sequence \( a_{n} = \int_{ a }^{ a+ n  } f  \).)
         \begin{proof}
+        For the forwards direction, suppose that the improper integral \( \int_{ a }^{ \infty  } f  \) converges. Let \( \epsilon > 0  \). By assumption, we can find an \( M > a  \) such that whenever \(  d >  c \geq M  \), it follows that  
+        \begin{align*}
+            \Big| \int_{ a }^{ d } f  - L  \Big| &< \frac{ \epsilon  }{ 2  } \ \ \text{whenever } d \geq M > a,  \\
+            \Big| \int_{ a }^{ c } f - L  \Big| &< \frac{ \epsilon  }{ 2  }  \ \ \text{whenever } c \geq M > a.
+        \end{align*}
+        Observe that 
+        \[  \int_{ c }^{ d } f = \int_{ c }^{ a } f + \int_{ a }^{ d } f = \int_{ a }^{ d } f  - \int_{ a }^{ c } f.   \]
+        Then we have 
+        \begin{align*}
+            \Big| \int_{ c }^{ d } f  \Big| &= \Big| \int_{ a }^{ d } f  - \int_{ a }^{ c } f  \Big|  \\
+                                            &\leq \Big| \int_{ a }^{ d } f - L  \Big| + \Big| L - \int_{ a }^{ c } f  \Big| \\
+                                            &< \frac{ \epsilon  }{ 2  }  + \frac{ \epsilon  }{ 2 } = \epsilon. \\
+        \end{align*}
         
+        Now assume the converse. Let \( \epsilon > 0 \).  
         \end{proof}
     \item[(b)] Show that if \( 0 \leq f \leq g  \) and \( \int_{ a }^{ \infty  } g   \) converges then \( \int_{ a }^{ \infty  } f   \) converges.
         \begin{proof}
@@ -280,6 +295,37 @@ This is know in our regular Calculus classes as the \textit{improper Riemann int
         
         \end{proof}
 \end{enumerate}
+
+\subsubsection{Exercise 8.4.10} 
+\begin{enumerate}
+    \item[(a)] Use the properties of \( e^{t} \) previously discussed to show 
+        \[  \int_{ 0 }^{ \infty  }  e^{-t} \  dt = 1 . \]
+        \begin{proof}[Solution]
+        Using part (i) of FTC implies
+        \begin{align*}
+            \int_{ 0 }^{ \infty  }  e^{-t} \ dt &= \lim_{ b \to \infty  } \int_{ 0 }^{ b }  e^{-t} \ dt \\
+                                                &= \lim_{ b \to \infty  }  \Big[ - e^{-b} + e^{0} \Big] \\
+                                                &= 0 + 1 \\
+                                                &= 1.
+        \end{align*}
+        \end{proof}
+    \item[(b)] Show
+        \[  \int_{ 0  }^{ \infty  }  e^{-t} \  dt, \ \text{for all } \alpha > 0. \]
+        \begin{proof}
+        Let \( \alpha > 0  \). Using part (i) of FTC, we have
+        \begin{align*}
+            \int_{ 0 }^{ \infty  }  e^{- \alpha t} \ dt &= \lim_{ b \to \infty  }  \int_{ 0 }^{ b }  e^{-\alpha t } \  dt \\
+                                                        &= \lim_{ b \to \infty  }  \Big[ \frac{ -e^{- b t } }{ b } + \frac{ e^{0} }{ \alpha }    \Big] \\
+                                                        &= 0 + \frac{ 1 }{ \alpha } \\
+                                                        &= \frac{ 1 }{\alpha }.
+        \end{align*}
+        \end{proof}
+\end{enumerate}
+
+
+
+
+
 
 
 

@@ -18,6 +18,21 @@ function sum(arr,n) {
     }
 }
 
-console.log(sum([1], 0));
-console.log(sum([2,3,4], 2 ));
-console.log(sum([2,3,4,5], 3));
+// console.log(sum([1], 0));
+// console.log(sum([2,3,4], 2 ));
+// console.log(sum([2,3,4,5], 3));
+
+// Print out an array of numbers using recursion
+
+function rangeOfNumbers (startNum, endNum) { 
+    if (startNum == endNum) { 
+        return [startNum];
+    } else { 
+        return [].push(rangeOfNumbers(startNum + 1 , endNum));
+    }
+}
+
+console.log(rangeOfNumbers(2,3))
+
+
+ 
