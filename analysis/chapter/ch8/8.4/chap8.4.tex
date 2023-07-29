@@ -257,7 +257,7 @@ Our function above \( h(x)  \) satisfies \( h(n) = n!   \) and it is at least co
 
 Our goal in this section is to provide a rigorous foundation for the formula
 \[  \int_{ 0 }^{ \infty  }  e^{-t} \ dt. \] 
-This is know in our regular Calculus classes as the \textit{improper Riemann integral} which is defined by taking the limit of "proper" integrals over unbounded regions such as \( [0,\infty ] \). 
+This is know in our regular Calculus classes as the \textit{improper Riemann integral} which is defined by taking the limit of "proper" integrals over unbounded regions such as \( [0,\infty ) \). 
 
 \begin{definition}{}{}
     Assume \( f  \) is defined on \( [a,\infty ) \) and integrable on every interval of the form \( [a,b]  \). Then define \( \int_{ a }^{ \infty  }  f  \) to be  
@@ -306,11 +306,14 @@ This is know in our regular Calculus classes as the \textit{improper Riemann int
         Hence, we must have that \( \int_{ 0 }^{ \infty  } f  \) converges as well.
         \end{proof}
     \item[(c)] Part (a) is a Cauchy criterion, and part (b) is a comparison test. State and prove an absolute convergence test for improper integrals.  
+        \begin{definition}{Absolute Convergence Test For Improper Integrals}{}
+        If \( \int_{ 0 }^{ \infty  } | f |   \) converges, then  \( \int_{ 0 }^{ \infty  }  f   \) converges as well.
+        \end{definition}
         \begin{proof}
-        
+        Suppose \( \int_{ 0 }^{ \infty  } | f |   \) converges. Then observe that 
+        \[  \Big| \int_{ 0 }^{ \infty  } f  \Big| \leq \int_{ 0 }^{ \infty  }  | f | . \] Since the right-hand side converges, we know that the left-hand side of the inequality also converges via the Comparison test. Hence, \( \int_{ 0 }^{ \infty  } f    \) converges.
         \end{proof}
 \end{enumerate}
-
 \subsubsection{Exercise 8.4.10} 
 \begin{enumerate}
     \item[(a)] Use the properties of \( e^{t} \) previously discussed to show 
@@ -376,5 +379,14 @@ Let's say that we have \( f  \) continuous at some point \( (x_{0}, t_{0}) \) in
    \[  | f(x,t) - f(x_{0}, t_{0})  | < \epsilon. \]
 \end{definition}
 
+\subsubsection{Exercise 8.4.12} Assume the function \( f(x,t)  \) is continuous on the rectangle \( D = \{ (x,t) : a \leq x \leq b , c \leq t \leq d  \}. \) Explain why the function
+\[  F(x) = \int_{ c }^{ d } f(x,t) \ dt \] is properly defined for all \( x \in [a,b]  \).
+\begin{proof}[Solution]
 
+\end{proof}
 
+\begin{theorem}{}{}
+    If \( f(x,t)  \) is continuous on \( D  \), then \( F(x) = \int_{ c }^{ d } f(x,t) \ dt \) is uniformly continuous on \( [a,b]  \).
+\end{theorem}
+
+\subsubsection{Exercise 8.4.13} Prove Theorem 8.4.5. 
