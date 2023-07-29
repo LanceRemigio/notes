@@ -70,11 +70,9 @@ Using only Definition 2.2.3, prove that if \( (x_n) \to 2\), then
 
 \subsubsection{Exercise 2.3.3}
 Let \( (x_n)  \) and \( (y_n) \) be given, and define \( (z_n) \) to be the "shuffled" sequence \( (x_1, y_1, x_2, y_2, x_3, y_3, \dots x_n, y_n, \dots ). \) Prove that \( (z_n) \) is convergent if and only if \( (x_n) \) and \( (y_n) \) are both convergent with \( \lim x_n = \lim y_n \).
-\begin{tcolorbox}
-    \begin{thm}[Squeeze Theorem]
+\begin{theorem}{Squeeze Theorem}{}
         If \( x_n \leq y_n \leq z_n\) for all \( n \in \N \), and if \( \lim x_n = \lim z_n = \ell\), then \( \lim y_n = \ell\).
-    \end{thm}
-\end{tcolorbox}
+    \end{theorem}
 \begin{proof}
     Suppose \( x_n \leq y_n \leq z_n\) for all \( n \in \N \) and suppose \( \lim x_n = \lim z_n = \ell\). We want to show that \( \lim y_n = \ell\). By the Order Limit Theorem, we have \( x_n \leq y_n \leq z_n \) for all \( n \in \N \) implies that \( \ell \leq y_n \leq \ell\) for all \( n \in \N \). But this means that \( y_n = \ell\) for all \( n \in \N \). Hence, for every \( \epsilon  > 0\), there exists an \( N \in \N\) such that for every \( n \geq N\) 
     \[ | y_n - \ell | = | \ell - \ell | = 0 < \epsilon.\]

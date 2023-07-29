@@ -109,17 +109,17 @@ Then we see that
 To complete our list of properties of \( e^{x}  \), all we need is its behavior as \( x \to \pm \infty  \).
 
 \begin{definition}{}{}
-    Given \( f : [a,\infty ]  \to \R \), we say that \( \lim_{ x \to \infty  }  f(x) = L  \) if, for all \( \epsilon > 0  \), there exists \( M > a  \) such that whenever \( x \geq M  \) it follows that \( |  f(x) - L  | < \epsilon  \).
+    Given \( f : [a,\infty )  \to \R \), we say that \( \lim_{ x \to \infty  }  f(x) = L  \) if, for all \( \varepsilon > 0  \), there exists \( M > a  \) such that whenever \( x \geq M  \) it follows that \( |  f(x) - L  | < \varepsilon  \).
 \end{definition}
 
 \subsubsection{Exercise 8.4.5} Show \( \lim_{ x \to \infty  }  x^{n} e^{-x} = 0  \) for all \( n = 0,1,2, \dots \ \). To get started notice that when \( x \geq 0   \), all the terms in (1) are positive.
 \begin{proof}
-    Let \( \epsilon > 0  \) and \( n \in \N  \). Choose \( M = 1 / \epsilon  > a   \). Then observe that for any \( x \geq M  \), we have
+    Let \( \varepsilon > 0  \) and \( n \in \N  \). Choose \( M = 1 / \varepsilon  > a   \). Then observe that for any \( x \geq M  \), we have
     \begin{align*}
         \Big| \frac{ x^{n} }{  e^{x} }  - 0  \Big| &= \frac{ x^{n}  }{  e^{x} }  
                                                    <  \frac{ x^{n}  }{  x^{n+1} } 
                                                    = \frac{ 1 }{ x } 
-                                                   < \epsilon.
+                                                   < \varepsilon.
     \end{align*}
     Hence, \( \lim_{ x \to \infty  }  x^{n} e^{-x} = 0. \)
 \end{proof}
@@ -260,20 +260,20 @@ Our goal in this section is to provide a rigorous foundation for the formula
 This is know in our regular Calculus classes as the \textit{improper Riemann integral} which is defined by taking the limit of "proper" integrals over unbounded regions such as \( [0,\infty ] \). 
 
 \begin{definition}{}{}
-    Assume \( f  \) is defined on \( [a,\infty ] \) on \( [a, \infty  ) \) and integrable on every interval of the form \( [a,b]  \). Then define \( \int_{ a }^{ \infty  }  f  \) to be  
+    Assume \( f  \) is defined on \( [a,\infty ) \) and integrable on every interval of the form \( [a,b]  \). Then define \( \int_{ a }^{ \infty  }  f  \) to be  
     \[  \lim_{ b \to \infty  }  \int_{ a }^{ b } f,  \] provided the limit exists. In this case, we say the improper integral \( \int_{ a }^{ \infty  }  f  \) \textit{converges}. 
 \end{definition}
 
 \subsubsection{Exercise 8.4.9} 
 \begin{enumerate}
-    \item[(a)] Show that the improper integral \( \int_{ a }^{ \infty  } f  \) converges if and only if, for all \( \epsilon > 0 \), there exists \( M > a  \) such that whenever \( d > c \geq M  \) it follows that 
-        \[  \Big| \int_{ c }^{ d } f  \Big|  < \epsilon. \]
+    \item[(a)] Show that the improper integral \( \int_{ a }^{ \infty  } f  \) converges if and only if, for all \( \varepsilon > 0 \), there exists \( M > a  \) such that whenever \( d > c \geq M  \) it follows that 
+        \[  \Big| \int_{ c }^{ d } f  \Big|  < \varepsilon. \]
         (In one direction it will be useful to consider the sequence \( a_{n} = \int_{ a }^{ a+ n  } f  \).)
         \begin{proof}
-        For the forwards direction, suppose that the improper integral \( \int_{ a }^{ \infty  } f  \) converges. Let \( \epsilon > 0  \). By assumption, we can find an \( M > a  \) such that whenever \(  d >  c \geq M  \), it follows that  
+        For the forwards direction, suppose that the improper integral \( \int_{ a }^{ \infty  } f  \) converges. Let \( \varepsilon > 0  \). By assumption, we can find an \( M > a  \) such that whenever \(  d >  c \geq M  \), it follows that  
         \begin{align*}
-            \Big| \int_{ a }^{ d } f  - L  \Big| &< \frac{ \epsilon  }{ 2  } \ \ \text{whenever } d \geq M > a,  \\
-            \Big| \int_{ a }^{ c } f - L  \Big| &< \frac{ \epsilon  }{ 2  }  \ \ \text{whenever } c \geq M > a.
+            \Big| \int_{ a }^{ d } f  - L  \Big| &< \frac{ \varepsilon  }{ 2  } \ \ \text{whenever } d \geq M > a,  \\
+            \Big| \int_{ a }^{ c } f - L  \Big| &< \frac{ \varepsilon  }{ 2  }  \ \ \text{whenever } c \geq M > a.
         \end{align*}
         Observe that 
         \[  \int_{ c }^{ d } f = \int_{ c }^{ a } f + \int_{ a }^{ d } f = \int_{ a }^{ d } f  - \int_{ a }^{ c } f.   \]
@@ -281,16 +281,31 @@ This is know in our regular Calculus classes as the \textit{improper Riemann int
         \begin{align*}
             \Big| \int_{ c }^{ d } f  \Big| &= \Big| \int_{ a }^{ d } f  - \int_{ a }^{ c } f  \Big|  \\
                                             &\leq \Big| \int_{ a }^{ d } f - L  \Big| + \Big| L - \int_{ a }^{ c } f  \Big| \\
-                                            &< \frac{ \epsilon  }{ 2  }  + \frac{ \epsilon  }{ 2 } = \epsilon. \\
+                                            &< \frac{ \varepsilon  }{ 2  }  + \frac{ \varepsilon  }{ 2 } = \varepsilon. \\
         \end{align*}
         
-        Now assume the converse. Let \( \epsilon > 0 \).  
+        Now assume the converse. Let \( \varepsilon > 0 \). We want to show that 
+        \[  \lim_{ n \to \infty  }  \int_{ a }^{ a + n }  f  = L. \] By assumption, there exists a natural number \( N > a     \) such that whenever \( a + n > n \geq N  \), we have 
+        \begin{align*}
+            \Big| \int_{ a }^{ a + n  } f  -  L  \Big| &= \Big| \Big(  \int_{ a }^{ n  }  f  + \int_{ n }^{ a + n } f \Big)  - L  \Big|  \\
+                                                       &= \Big| \Big( \int_{ a }^{ n }  f   -L \Big)  + \int_{ n }^{  a+ n } f   \Big| \\
+                                                       &\leq \Big| \int_{ a }^{ n } f  - L  \Big| + \Big| \int_{ n }^{ a+n  } f  \Big| \\
+                                                       &< \frac{ \varepsilon  }{ 2  } + \frac{ \varepsilon  }{ 2  }  \\
+                                                       &= \varepsilon.
+        \end{align*}
         \end{proof}
     \item[(b)] Show that if \( 0 \leq f \leq g  \) and \( \int_{ a }^{ \infty  } g   \) converges then \( \int_{ a }^{ \infty  } f   \) converges.
         \begin{proof}
-        
+        Let \( \epsilon > 0  \). Our goal is to show that there exists an \( M > a  \) such that whenever \(  d > c \geq M  \), we have 
+        \[  \Big| \int_{ c }^{ d }  f  \Big| < \epsilon.  \] 
+        Since \(  0 \leq  f \leq  g  \) and \( \int_{ 0 }^{ \infty  }  g   \) converges, there exists an \( M > a  \) such that whenever \( d > d \geq M  \), we have that   
+        \begin{align*}
+            \Big| \int_{ c }^{ d } f  \Big| &\leq \Big| \int_{ c }^{ d }  g  \Big|  
+                                            < \epsilon. 
+        \end{align*}
+        Hence, we must have that \( \int_{ 0 }^{ \infty  } f  \) converges as well.
         \end{proof}
-    \item[(c)] Part (a) is a Cauchy criterion, and part (b) is a comparison test. State and prove an absolute convergence test for improper integral State and prove an absolute convergence test for improper integrals. 
+    \item[(c)] Part (a) is a Cauchy criterion, and part (b) is a comparison test. State and prove an absolute convergence test for improper integrals.  
         \begin{proof}
         
         \end{proof}
@@ -310,7 +325,7 @@ This is know in our regular Calculus classes as the \textit{improper Riemann int
         \end{align*}
         \end{proof}
     \item[(b)] Show
-        \[  \int_{ 0  }^{ \infty  }  e^{-t} \  dt, \ \text{for all } \alpha > 0. \]
+        \[  \int_{ 0  }^{ \infty  }  e^{-t} \  dt, \ \text{for all } \alpha > 0. \tag{3} \]
         \begin{proof}
         Let \( \alpha > 0  \). Using part (i) of FTC, we have
         \begin{align*}
@@ -322,14 +337,44 @@ This is know in our regular Calculus classes as the \textit{improper Riemann int
         \end{proof}
 \end{enumerate}
 
+Let us now consider the left side of (3). Differentiating the left hand side, we certainly get the following 
+\[  \Big[ \frac{ 1 }{ \alpha  }  \Big]' = \frac{ -1 }{ \alpha^{2} }. \] On the right hand side of (3), however, it is not so obvious whether or not we can "distribute" differentiation inside the integral of (3). Let us pretend that we can so we have 
+\[  [e^{- \alpha t }]' = e^{- \alpha t } \cdot (-t). \]
+Now let us actually find out if our conjecture that 
+\[  \frac{ 1 }{ \alpha^{2}  }  = \int_{ 0 }^{ \infty  }  t e^{-\alpha t } \ dt.  \]
 
+\subsubsection{Exercise 8.4.11} 
+\begin{enumerate}
+    \item[(a)] Evaluate \( \int_{ 0 }^{ b  } t e^{- \alpha t } \  dt \) using the integration-by-parts formula from Exercise 7.5.6. The result will be an expression in \( \alpha  \) and \( b  \).
+        \begin{proof}[Solution]
+        Using the integration-by-parts formula, we get that 
+        \begin{align*}
+            \int_{ 0 }^{ b } t e^{- \alpha t } \  dt &= \Big[  \frac{ - t  }{ \alpha  }  e^{- \alpha t } \Big]_{0}^{b} + \frac{ 1 }{ \alpha  } \int_{ 0 }^{ b } e^{- \alpha t } \  dt \\
+                                                     &= \Big[ \frac{ -b e^{-\alpha b } }{ \alpha  }  \Big] +  \frac{ 1 }{ \alpha  } \Big[ \frac{ -1  }{ \alpha  } e^{- \alpha t }  \Big]_{0}^{b} \\
+                                                     &= \Big[ \frac{ -b e^{-\alpha b } }{ \alpha  }  \Big] +  \frac{ 1 }{ \alpha  } \Big[ \frac{ -1  }{ \alpha  } e^{- \alpha b  } + \frac{ 1 }{ \alpha  }   \Big] \\
+                                                     &= \frac{ -b e^{-\alpha b } }{ \alpha  } - \frac{ e^{- \alpha b }  }{ \alpha^{2}  }  + \frac{ 1 }{ \alpha^{2} }    \\
+        \end{align*}
+        \end{proof}
+    \item[(b)] Now compute \( \int_{ 0 }^{ \infty  }  t e^{-\alpha t } \  dt  \) and verify equation (4).
+        \begin{proof}[Solution]
+        Letting \( b \to \infty  \) in the result in part (a), gives us 
+        \[  \int_{ 0 }^{ \infty  }  t e^{- \alpha t } \  dt = \lim_{ b \to \infty  }  \int_{ 0 }^{ b } t e^{- \alpha t } \ dt = \frac{ 1 }{ \alpha^{2}  }. \]
+        \end{proof}
+\end{enumerate}
 
+Since the above (4) ended up working out, we have to now create a rigorous foundation for why this works. 
 
+\subsection{Differentiating Under the Integral}
 
+Suppose we have a function of two variables \( f(x,t)  \) that is defined for all \(  x \in [a,b]  \) and \( t \in [c, d]  \). The domain for  \( f  \) can be called the \textit{rectangle \( D  \)} in \( \R^{2} \). 
 
+Let's say that we have \( f  \) continuous at some point \( (x_{0}, t_{0}) \) in \(  D  \)? To have this make more sense, observe that we have a different metric under \( \R^{2} \) which contains the Euclidean distance formula 
+\[  \lVert (x,t) - (x_{0}, t_{0}) \rVert = \sqrt{ (x - x_{0})^{2} + (t - t_{0})^{2}  }. \]
 
-
-
+\begin{definition}{}{}
+   A function \( f: D \to \R   \)  is continuous at \( (x_{0}, t_{0})  \) if for all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that whenever \( \lVert (x,t) - (x_{0}, t_{0})  \rVert < \delta  \), it follows that 
+   \[  | f(x,t) - f(x_{0}, t_{0})  | < \epsilon. \]
+\end{definition}
 
 
 

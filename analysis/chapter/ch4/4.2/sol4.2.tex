@@ -192,12 +192,10 @@ We say \( \lim_{ x \to c } f(x) = \infty  \) to mean that for all \( M > 0  \), 
         Hence, we have 
         \[  \lim_{ x \to 0 } f(x) = \infty. \]
         \end{proof} \item[(b)] Now, construct a definition for the statement \( \lim_{ x \to \infty  } f(x) = L  \). Show that \( \lim_{ x \to \infty  } 1/x = 0  \).
-       \begin{tcolorbox}
-       \begin{defn}
+        \begin{definition}{}{}
       Let \( f: A \to \R  \). We say \( \lim_{ x \to \infty  } f(x) = L  \) to mean for any \( \epsilon > 0  \), there exists \( x_0 \in A  \) where \( A \subseteq \R  \) such that for any \( x \geq x_0  \), we have 
       \[  | f(x) - L  | < \epsilon. \]
-       \end{defn}
-       \end{tcolorbox} 
+       \end{definition}
 
        \begin{proof}[Solution]
         We start with some sketch work for what \( x_0  \) might be. Observe that 
@@ -228,8 +226,7 @@ Introductory calculus courses typically refer to the \textit{right-hand limit} o
         \begin{center}
             \( \lim_{ x \to a^{+} } f(x) = L  \) and \( \lim_{ x \to a^{-} } f(x) = M. \) 
         \end{center}
-        \begin{tcolorbox}
-        \begin{defn}
+        \begin{definition}
         We say that
         \[ \lim_{ x \to a^{+}  } f(x) = L  \text{~and~} \lim_{ x \to a^{-} } f(x) = M  \]  
         if for all \( \epsilon > 0  \), there exists a \(  \delta > 0 \) such that whenever \( 0 < | x - c  | < \delta \)  and \( 0 < | c - x  | < \delta  \) we have 
@@ -238,8 +235,7 @@ Introductory calculus courses typically refer to the \textit{right-hand limit} o
             | f(x) - M  | &< \epsilon
         \end{align*}
         respectively.
-        \end{defn}
-        \end{tcolorbox}
+        \end{definition}
     \item[(b)] Prove that \( \lim_{ x \to a } f(x) = L  \) if and only if both the right and left-hand limits equal to \( L  \).
         \begin{proof}
         Suppose \( \lim_{ x \to a } f(x) = L  \). Let \( \epsilon > 0  \). Then there exists \( \delta > 0  \) such that whenever \( 0 < | x - a  | < \delta  \), we have 

@@ -24,3 +24,6 @@ console.log(cc("J"));
 console.log(cc(9));
 console.log(cc(2));
 console.log(cc(7));
+
+
+

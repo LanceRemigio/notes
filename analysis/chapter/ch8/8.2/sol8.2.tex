@@ -119,11 +119,6 @@ Hence, \( \rho(x,y)  \) is a metric on any arbitrary set \(  X \).
 \end{itemize}
 
 
-\begin{tcolorbox}
-\begin{defn}
-A metric space \( (X, d ) \) is \textit{complete} if every Cauchy sequence in \( X  \) converges to an element of \( X  \).
-\end{defn}
-\end{tcolorbox}
 
 
 \subsubsection{Exercise 8.2.5} 
@@ -165,11 +160,6 @@ The sup metric is usually written as
 \[  \lVert f \rVert_{\infty } = d(f,0 ) = \sup \{ | f(x)  | : x \in [0,1] \} . \]
 From now on, we will assume that the space \( C[0,1]  \) is paired with the metric above unless otherwise specified.
 
-\begin{tcolorbox}
-\begin{defn}
-Let \( (X, d_{1}) \) and \( (Y, d_{2}) \) be metric spaces. A function \( f: X \to Y  \) is \textit{continuous} at \( x \in  X  \) if for all \(\epsilon > 0  \), there exists a \( \delta > 0  \) such that \( d_{2}(f(x) , f(y)) < \epsilon  \) whenever \( d_{1} (x,y) < \delta \).  
-\end{defn}
-\end{tcolorbox}
 
 \subsubsection{Exercise 8.2.6} Which of these functions from \( C[0,1] \) to \( \R  \) (with the usual metric) are continuous? 
 \begin{enumerate}
@@ -258,19 +248,9 @@ Reframing our definitions of these concepts in \( \R  \) in terms of a general s
 
 
 
-\begin{tcolorbox}
-\begin{defn}
-A subset \( K  \) of a metric space \( (X,d)  \) is \textit{compact} if every sequence in \( K  \) has a convergent subsequence that converges to a limit in \( K  \).
-\end{defn}
-\end{tcolorbox}
 
 In \( \R  \), we came across a proposition that a set is compact if and only if it is closed and bounded. For more general metric spaces, however, this proposition only holds true in the forwards direction.
 
-\begin{tcolorbox}
-\begin{defn}
-A subset \( K \) of a metric space \( (X,d)  \) is \textit{bounded} if there exists an \( R > 0  \) such that for all \( x,y \in X  \), we have \( d(x,y) < R  \).
-\end{defn}
-\end{tcolorbox}
 
 
 \subsubsection{Exercise 8.2.10} 
@@ -297,12 +277,6 @@ A subset \( K \) of a metric space \( (X,d)  \) is \textit{bounded} if there exi
     \item The result found in part (b) can only be made possible if, in addition to our assumptions, \( Y  \) contained a collection of functions that are equicontinuous.
 \end{itemize}
 
-\begin{tcolorbox}
-\begin{defn}
-    Given a subset \( E  \) of a metric space \( (X,d)  \), the \textit{closure} \( \overline{E} \) is the union of \( E  \) together with its limit points. The \textit{interior} of \( E \) is denoted by \( E^{\circ} \) and is defined as 
-    \[  E^{\circ} = \{ x \in E : \text{ there exists } V_{\epsilon }(x) \subseteq E  \}. \]
-\end{defn}
-\end{tcolorbox}
 
 
 \subsubsection{Exercise 8.2.11} 
@@ -333,11 +307,6 @@ A subset \( K \) of a metric space \( (X,d)  \) is \textit{bounded} if there exi
         \end{proof}
 \end{enumerate}
 
-\begin{tcolorbox}
-\begin{defn}
-A set \( A \subseteq X  \) is \textit{dense} in the metric space \( (X,d) \) if \( \overline{A} = X  \). A subset \( E  \) of a metric space \( (X,d) \) is \textit{nowhere-dense} in \( X  \) if \( \overline{E}^{\circ}  \) is empty.
-\end{defn}
-\end{tcolorbox}
 
 \subsubsection{Exercise 8.2.13} If \( E  \) is a subset of a metric space \( (X,d) \), show that \( E  \) is nowhere-dense in \( X  \) if and only if \( \overline{E}^{c}  \) is dense in \( X  \). 
 \begin{proof}
