@@ -382,11 +382,52 @@ Let's say that we have \( f  \) continuous at some point \( (x_{0}, t_{0}) \) in
 \subsubsection{Exercise 8.4.12} Assume the function \( f(x,t)  \) is continuous on the rectangle \( D = \{ (x,t) : a \leq x \leq b , c \leq t \leq d  \}. \) Explain why the function
 \[  F(x) = \int_{ c }^{ d } f(x,t) \ dt \] is properly defined for all \( x \in [a,b]  \).
 \begin{proof}[Solution]
-
+    All we need to do is show that \( F \) is integrable on \( D  \). To do this, we need to show that \( F  \) is continuous. Let \( \epsilon > 0  \) and let \( x \in [a,b] \). Since \( f: D \to \R   \) is continuous at \( (x_{0}, t_{0}) \), there exists a \( \delta > 0 \) such that whenever \( \lVert (x,t) - (x_{0}, t_{0}) \rVert <  \delta  \), it follows that 
+\[ | f(x,t) - f(x_{0}, t_{0}) | < \frac{ \varepsilon }{  d - c  } .  \] 
+Then observe that 
+\begin{align*}
+    | F(x) - F(u)  | &= \Big| \int_{ c }^{ d } f(x,t) \ dt - \int_{ c }^{ d } f(u,v) \  dt \Big|   \\
+                     &= \Big| \int_{ c }^{ d } f(x,t) - f(u,v) \ dt \Big| \\
+                     &\leq \int_{ c }^{ d }  | f(x,t) - f(u,v) | \  dt \\
+                     &< \int_{ c }^{ d }  \frac{ \varepsilon }{ d -c  } \  dt 
+                     = \varepsilon.
+\end{align*}
+Hence, we have \( F  \) must be continuous on \( D  \) and therefore it must be integrable on \( D  \). Not only is \( F  \) continuous but it is uniformly continuous since \( D  \) is a compact set.
 \end{proof}
+
+There is a direct analogue of continuous functions on compact sets in the \( \R^{2} \) setting.
 
 \begin{theorem}{}{}
     If \( f(x,t)  \) is continuous on \( D  \), then \( F(x) = \int_{ c }^{ d } f(x,t) \ dt \) is uniformly continuous on \( [a,b]  \).
 \end{theorem}
 
 \subsubsection{Exercise 8.4.13} Prove Theorem 8.4.5. 
+
+\begin{proof}
+Apply the same argument as in exercise 8.4.12.
+\end{proof}
+
+Now let us add the assumption that for every fixed value \( t \in [c,d] \), we end up with a differentiable function \( f(x,t) \) such that the limit
+\[  f_{x}(x,t) = \lim_{ z \to x }  \frac{ f(z,t) - f(x,t)  }{  z -x  }  \] 
+exists for all \( (x,t) \in D  \). Furthermore, suppose \( f_{x}(x,t)  \) is continuous.
+
+\begin{theorem}{}{}
+    If \( f(x,t)  \) and \( f_{x}(x,t)  \) are continuous on \( D  \), then the function \( F(x)  \)
+\end{theorem}
+
+\begin{proof}
+    Fix \( x \in [a,b]  \) and let \( \epsilon > 0  \) be arbitrary. Our goal is to find a \( \delta > 0  \) such that 
+    \[  \Big| \frac{ F(z) - F(x)  }{ z -x  }  - \int_{ c }^{ d }  f_{x}(x,t) \ dt \Big| < \varepsilon. \tag{5} \]
+    whenever \( 0 < | z  -x  | < \delta  \).
+\end{proof}
+
+\subsubsection{Exercise 8.4.14} Finish the proof of Theorem 8.4.6.
+\begin{proof}
+LTR.
+\end{proof}
+
+\subsection{Improper Integrals, Revisited}
+
+
+
+
