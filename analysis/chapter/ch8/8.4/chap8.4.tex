@@ -412,7 +412,8 @@ Now let us add the assumption that for every fixed value \( t \in [c,d] \), we e
 exists for all \( (x,t) \in D  \). Furthermore, suppose \( f_{x}(x,t)  \) is continuous.
 
 \begin{theorem}{}{}
-    If \( f(x,t)  \) and \( f_{x}(x,t)  \) are continuous on \( D  \), then the function \( F(x)  \)
+    If \( f(x,t)  \) and \( f_{x}(x,t)  \) are continuous on \( D  \), then the function \( F(x) = \int_{ c }^{ d }  f(x,t) \ dt    \) is differentiable and 
+    \[  F'(x) = \int_{ c }^{ d } f_{x}(x,t) \ dt. \]
 \end{theorem}
 
 \begin{proof}
@@ -423,10 +424,40 @@ exists for all \( (x,t) \in D  \). Furthermore, suppose \( f_{x}(x,t)  \) is con
 
 \subsubsection{Exercise 8.4.14} Finish the proof of Theorem 8.4.6.
 \begin{proof}
-LTR.
+Suppose \( f(x,t)  \) and \( f_{x}(x,t)  \) are continuous on \( D  \). Let \( \epsilon > 0  \). Observe that 
+\begin{align*}
+    \frac{ F(z) - F(x)  }{ z - x  }   &=  \frac{ 1 }{ z - x  } \Big[   \int_{ c }^{ d }  f(z,t) \ dt - \int_{ c }^{ d } f(x,t) \ dt \Big]  \\
+                 &= \int_{ c }^{ d }  \frac{ f(z,t) - f(x,t)  }{ z - x  }  \  dt.
+\end{align*}  Since \( f(x,t)   \) is differentiable, there exists \( \alpha \in (a,b)  \) such that 
+\[  f_{x}(\alpha , t ) = \frac{ f(z,t) - f(x,t)  }{ z - x } \] by MVT. Since \( f_x \) is continuous on \( D  \) and \( D  \) is a compact set, we know that \( f_{x} \) is uniformly continuous. Hence, there exists \( \delta_1 > 0  \) such that whenever \( \lVert (x,t) - (z,t)  \rVert < \delta_{1} \) where 
+\[ | f_{x}(\alpha,t ) - f_{x}(x,t)  | < \frac{ \varepsilon }{ d -c   }.   \]  
+By assumption, there exists a \(  \delta_2 > 0  \) and then assume \( 0 < | z  -x  | < \delta_2  \). Then choose \( \delta = \min \{ \delta_{1}, \delta_{2} \}  \) such that whenever \(  0 < | z - x  | < \delta  \), we have that 
+\begin{align*}
+   \Big| \frac{ F(z) - F(x)  }{  z - x  } - \int_{ c }^{ d } f_{x}(x,t)  \ dt  \Big|  &= \Big| \int_{ c }^{ d } \frac{ f(z,t) - f(x,t)   }{  z - x  } \ dt - \int_{ c }^{ d } f_{x}(x,t) \ dt \Big|  \\
+                                                                                      &= \Big|  \int_{ c }^{ d } f_{x}(\alpha, t) \  dt - \int_{ c }^{ d } f_{x}(x,t) \  dt \Big|\\
+                                                                                      &= \Big| \int_{ c }^{ d }  f_{x}(\alpha, t ) \  - f_{x}(x,t)  \ dt \Big| \\  
+                                                                                      &\leq \int_{ c }^{ d }  | f_{x}(\alpha,t ) - f_{x}(x,t) | \  dt \\
+                                                                                      &< \frac{ \varepsilon  }{ d -c   }  \int_{ c }^{ d }  \ dt = \varepsilon.
+\end{align*}
+We conclude that \( F(x)   \) is differentiable and that 
+\[  F'(x) = \int_{ c }^{ d }  f_{x}(x,t) \ dt. \]
 \end{proof}
 
 \subsection{Improper Integrals, Revisited}
+
+We see that Theorem 8.4.2 forms a rigorous foundation for what it means to differentiate under the integral sign. However, we are partly there since we are still trying to form rigorous theory for (3) where the integral is improper. Observe that (3) is a function \( f(x,t)  \) where \( t  \) is defined on an unbounded interval where \( t \in [c, \infty ) \). 
+
+Suppose we fix \( x \in A  \) a subset of \( \R  \).
+
+
+
+
+
+
+
+
+
+
 
 
 
