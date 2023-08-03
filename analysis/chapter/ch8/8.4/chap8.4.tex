@@ -447,10 +447,128 @@ We conclude that \( F(x)   \) is differentiable and that
 
 We see that Theorem 8.4.2 forms a rigorous foundation for what it means to differentiate under the integral sign. However, we are partly there since we are still trying to form rigorous theory for (3) where the integral is improper. Observe that (3) is a function \( f(x,t)  \) where \( t  \) is defined on an unbounded interval where \( t \in [c, \infty ) \). 
 
-Suppose we fix \( x \in A  \) a subset of \( \R  \).
+Suppose we fix \( x \in A  \) a subset of \( \R  \). Then for this choice of \( x  \), we have that 
+\[  F(x) = \int_{ c }^{ \infty  }  f(x,t) \ dt = \lim_{ n \to \infty  } \int_{ c }^{ d } f(x,t) \ dt, \tag{6} \]
+provided that the limit exists.
+
+Note that (6) is a \textit{pointwise} statement; that is, given an arbitrary \( x \in A  \) and \( \epsilon > 0  \), there exists an \( M(x)  \) such that 
+\[  \Big| F(x) - \int_{ c }^{ d }  f(x,t) \  dt  \Big| < \varepsilon \]
+whenever \( d \geq M \). 
+\begin{definition}{}{}
+   Given \( f(x,t)  \) defined on \( D = \{ (x,t) : x \in A , c \leq t  \}  \), assume \( F(x) = \int_{ c }^{ \infty  }  f(x,t) \ dt  \) exists for all \( x \in A  \). We say the improper integral \textit{converges uniformly} to \( F(x)  \) on \( A  \) if for all \( \epsilon > 0  \), there exists \( M > c  \) such that 
+   \[  \Big| F(x) - \int_{ c }^{ d }  f(x,t) \ dt \Big| < \varepsilon \]
+\end{definition}
+
+\subsubsection{Exercise 8.4.15} 
+\begin{enumerate}
+    \item[(a)] Show that the improper integral \( \int_{ 0 }^{ \infty  }  e^{-xt} \ dt \) converges uniformly to \( 1 /x  \) on the set \( [1/2, \infty ) \). 
+        \begin{proof}
+            Let \( x \in [1/2, \infty ) \). Let \( \epsilon > 0  \). Taking the integral of \( \int_{ 1/2 }^{ d }  e^{-xt} \  dt \) leads us to 
+            \[  \int_{ 1/2 }^{ d }  e^{-xt} \ dt = \frac{ 1 }{ x } ( e^{-dx} - e^{(-1/2)x}). \]
+            Since \( \lim_{ x \to \infty  }  1 /x = 0 \), we can find a \( M > 1/2   \) such that 
+            \[  \Big| \frac{ 1 }{ x }  - 0  \Big| < \frac{ \varepsilon }{ 2 } \] whenever \( x \geq M  \). Furthermore, we know that  \( f(x,t) = e^{-xt} \) is a uniformly continuous function on \( [1/2, \infty ) \). Hence, there we know that there exists a \( \delta > 0  \) such that whenever \( \lVert -1/2 - d  \rVert < \delta   \), we have
+            \[  | f(-1/2,t) - f(d, t)  | < \frac{ \varepsilon }{ 4 }. \]
+            Using the same choice of \( M > 1 /2   \), we have that
+            \begin{align*}
+               \Big| \frac{ 1 }{ x }  - \int_{ 1/2 }^{ d  } e^{-xt} \ dt  \Big|  &= \Big| \frac{ 1 }{ x } - \frac{ 1 }{ x } \Big( e^{-dx} - e^{(-1/2) x} \Big) \Big|  \\
+                                                                                 &= \Big| \frac{ 1 }{ x }  + \frac{ 1 }{ x } \Big( e^{(-1/2)x} - e^{-dx} \Big) \Big|  
+                                        \\                                         &\leq \Big| \frac{ 1 }{ x }  \Big| + \frac{ 1 }{ x } | e^{(-1/2)x} -  e^{-dx}  | \\
+                                                                                   &\leq \Big| \frac{ 1 }{ x } - 0 \Big|  + 2 | e^{(-1/2)x} - e^{-dx}  |. \\
+                                                                                   &< \frac{ \varepsilon }{ 2  } + \frac{ \varepsilon }{ 2 }  = \varepsilon. \\
+            \end{align*}
+            Hence, we have that 
+            \[  \int_{ 1/2 }^{ d }  e^{-xt} \ dt \implies \frac{ 1 }{ x  }  \] uniformly.
+        \end{proof}
+    \item[(b)] Is the convergence uniform on \( (0,\infty ) \)? 
+        \begin{proof}[Solution]
+        No, the convergence is not uniform. To see why, observe that 
+        \begin{align*}
+           \Big| \frac{ 1 }{ x } - \int_{ 0 }^{ d } e^{-xt} \ dt \Big|  &= \Big| \frac{ 1 }{ x } - \frac{ 1 }{ x }  ( e^{-dx} - 1) \Big|.  \\
+        \end{align*}
+        We can see that the convergence of \( 1 /x \to 0   \) depends on our choice of \( x  \) because clearly we cannot bound \( 1/ x  \) by \( 0  \). Hence, the convergence of \( \int_{ 0 }^{ \infty  }  e^{-xt}  \ dt \) on \( (0,\infty )  \) is pointwise.  
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 8.4.16} Prove the following analogue of the Weierstrass M-Test for improper integrals: If \( f(x,t)  \) satisfies \( | f(x,t)  | \leq g(t)  \) and \( \int_{ a }^{ \infty  } g(t) \ dt \) converges, then \( \int_{ a }^{ \infty  } f(x,t) \ dt \) converges uniformly on \( A  \).
+
+\begin{proof}
+Our goal is to use the Absolute Comparison test for improper integrals and the comparison test for improper integrals found in Exercise 8.4.9 (b) to show that \( \int_{ 0 }^{ \infty  } f(x,t) \ dt  \) converges uniformly. Observe that 
+\[  \Big| \int_{ 0 }^{ \infty  }  f(x,t) \  dt  \Big| \leq \int_{ 0 }^{ \infty  }  | f(x,t)  | \ dt \leq \int_{ 0 }^{ \infty  }  g(t) \ dt. \]
+Since \( \int_{ 0 }^{ \infty  } g(t) \ dt  \) converges (which means that our choice of \( M  \) is independent of \( x \in [0, \infty ) \)), we know that \( \Big| \int_{ 0 }^{ \infty  } f(x,t) \ dt \Big|  \) must converge absolutely. Hence, we must have \( \int_{ 0 }^{ \infty  }  f(x,t)  \ dt  \) converge uniformly by the comparison test.
+\end{proof}
+
+An immediate consequence of Definition 8.4.7 is that the uniform convergence of an improper integral implies that the sequence of functions defined by 
+\[  F_{n}(x) = \int_{ c }^{ c + n  } f(x,t) \ dt  \] converges uniformly to \( F(x)  \) on the closed interval \( [a,b] \). 
+
+\begin{theorem}{}{}
+    If \( f(x,t)  \) continuous on \( D = \{ (x,t) : a \leq x \leq b , c \leq t  \}  \), then 
+    \[  F(x) = \int_{ c }^{ \infty  } f(x,t) \ dt \] is uniformly continuous on \( [a,b]  \), provided the integral converges uniformly.
+\end{theorem}
+
+\subsubsection{Exercise 8.4.17} Prove Theorem 8.4.8.
+\begin{proof}
+Let \( \epsilon > 0  \) and let \( x, y \in (a,b)  \). Since \( f(x,t)  \) is continuous on \( D  \) and \( D  \) is a compact set, we know that \( f(x,t)  \) must be uniformly continuous on \( D  \). Hence, there exists a \( \delta > 0  \) such that whenever \( \lVert (x,t) - (y,t) \rVert < \delta  \), we must have 
+\[  | f(x,t) - f(y,t)  | < \frac{ \varepsilon }{  d -c  }. \] 
+Then using the same choice of \( \delta > 0  \), we can say
+\begin{align*}
+   | F(x) - F(y)  |  &= \Big| \int_{ c }^{ d } f(x,t) \ dt - \int_{ c }^{ d } f(y,t) \ dt    \Big|  \\
+                     &= \Big| \int_{ c }^{ d } f(x,t)  - f(y,t) \ dt  \Big| \\
+                     &\leq \int_{ c }^{ d }  | f(x,t) - f(y,t)  | \  dt \\
+                     &< \frac{ \varepsilon }{ d - c  } \int_{ c }^{ d }  \ dt = \varepsilon.
+\end{align*}
+Hence, \( F  \) is a uniformly continuous function.
+\end{proof}
+
+\begin{theorem}{}{}
+    Assume the function \( f(x,t)  \) is continuous on \( D = \{ (x,t) : a \leq x \leq b , c \leq t  \}  \) and \( F(x) = \int_{ c }^{ \infty  } f(x,t) \ dt  \) exists for each  \(  x \in [a,b]  \). If the derivative function \( f_{x}(x,t)  \) exists and is continuous, then 
+    \[  F'(x) = \int_{ c  }^{ \infty  }  f_{x}(x,t) \ dt, \]
+    provided the integral in (7) converges uniformly.
+\end{theorem}
+
+\subsubsection{Exercise 8.4.18} Prove Theorem 8.4.9.
+\begin{proof}
+Let \( \varepsilon > 0  \). We can use MVT (since \( F  \) is differentiable) to write  
+\begin{align*}
+    F'(x) &= \frac{ F(z) - f(y)  }{ z - y  }  \\
+          &= \frac{ 1 }{ z - y  } \int_{ c }^{ d } f(z,t) - f(y,t) \  dt \\
+          &= \int_{ c }^{ d }  \frac{ f(z,t) - f(y,t)  }{ z - y } \ dt
+\end{align*}
+for some \( x \in (z,y)   \). Since the derivative \( f_{x}(x,t)  \) also exists, we can use MVT again to find an \( \alpha \in (z,y)   \) such that 
+\[  f_{x}(\alpha, t) = \frac{ f(z,t) - f(y,t)  }{ z - y  }. \] 
+We know that \( f_{x} \) is continuous. Hence, there exists a \(  \delta  > 0 \) such that whenever \( \lVert (\alpha, t) - (x,t)  \rVert < \delta \), we have 
+\[  | f_{x}(\alpha, t ) - f_{x}(x, t) | < \frac{ \varepsilon  }{ d - c  }.\]
+Since the improper integral \( \int_{ c }^{ d }   f_{x}(x,t) \ dt  \) converges uniformly, we can find an \( M > c  \),
+\begin{align*}
+    \Big| F'(x) - \int_{ c }^{ d } f_{x}(x,t) \ dt \Big| &= \Big| \int_{ c }^{ d }  f_{x}(\alpha, t) \ dt - \int_{ c }^{ d }  f_{x}(x,t) \ dt \Big|  \\
+                                                         &= \Big| \int_{ c }^{ d }  f_{x}(\alpha, t) - f_{x}(x,t) \ dt \Big|  \\
+                                                         &\leq \int_{ c }^{ d }  | f_{x}(\alpha, t ) - f_{x}(x,t)  | \ dt \\
+                                                         &< \frac{ \varepsilon  }{  d-c   }  \int_{ c }^{ d }  \ dt = \varepsilon.
+\end{align*}
+Hence, we conclude that 
+\[  F'(x) = \int_{ c }^{ \infty } f_{x}(x,t) \  dt. \]
+\end{proof}
 
 
+\subsection{The Factorial Function}
 
+We can now give a more rigorous justification for 
+\[  \frac{ 1  }{  \alpha  } = \int_{ 0 }^{  \infty  }  e^{- \alpha t } \ dt, \ \text{for all } \alpha > 0.  \tag{8} \]
+
+\subsubsection{Exercise 8.4.19} 
+\begin{enumerate}
+    \item[(a)] Although we verified it directly, show how to use the theorems in this section to give a second justification for the formula
+        \[ \frac{ 1 }{ \alpha^{2}  } = \int_{ 0 }^{ \infty  }  t e^{- \alpha t } \  dt, \ \text{for all } \alpha > 0   \]
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Now derive the formula 
+        \[  \frac{ n!  }{ \alpha^{n+1} } = \int_{ 0 }^{ \infty  }  t^{n} e^{- \alpha t } \ dt, \ \text{for all } \alpha > 0.\]
+        If we set \( \alpha = 1  \) in equation (8) we get 
+        \[  n! = \int_{ 0 }^{ \infty  }  t^{n} e^{-t} \ dt. \]
+        \begin{proof}[Solution]
+        
+        \end{proof}
+\end{enumerate}
 
 
 
