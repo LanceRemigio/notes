@@ -559,24 +559,123 @@ We can now give a more rigorous justification for
     \item[(a)] Although we verified it directly, show how to use the theorems in this section to give a second justification for the formula
         \[ \frac{ 1 }{ \alpha^{2}  } = \int_{ 0 }^{ \infty  }  t e^{- \alpha t } \  dt, \ \text{for all } \alpha > 0   \]
         \begin{proof}
-        
+        Note that \( f(\alpha, t ) =  e^{- \alpha t } \) is continuous on \( D  \) implies that 
+        \[  F( \alpha ) =  \frac{ 1 }{  \alpha  }  =  \int_{ 0 }^{ \infty  }  e^{- \alpha t } \ dt \tag{1} \] exists and is also continuous on \( D  \). If we differentiate with respect to \( \alpha \), we get that \( f_{\alpha}(\alpha,t) \) is also continuous on \( D  \). Thus, we can say that (1) is differentiable and that 
+        \[  \frac{ 1 }{ \alpha^{2} } = F'(\alpha) = \int_{ c }^{ d }  f_{\alpha}(\alpha,t) \ dt  \] is defined by Theorem 8.4.9.
         \end{proof}
     \item[(b)] Now derive the formula 
         \[  \frac{ n!  }{ \alpha^{n+1} } = \int_{ 0 }^{ \infty  }  t^{n} e^{- \alpha t } \ dt, \ \text{for all } \alpha > 0.\]
         If we set \( \alpha = 1  \) in equation (8) we get 
         \[  n! = \int_{ 0 }^{ \infty  }  t^{n} e^{-t} \ dt. \]
         \begin{proof}[Solution]
-        
+        We proceed using induction. Observe that for the \( n = 1  \) case, we know that 
+        \[  \int_{ 0 }^{ \infty  } t e^{-\alpha t } \ dt = \frac{ 1 }{ \alpha^{2} } \]
+        by Exercise 8.4.11. Now suppose 
+        \[  \frac{ n! }{ \alpha^{n+1} } = \int_{ 0 }^{ \infty  } t^{n} e^{- \alpha t} \ dt  \] for \( n \geq 1  \). We want to show that this holds for the \( n  + 1  \) case; that is, we want to show 
+        \[  \frac{ (n+1)! }{ \alpha^{n+2} } = \int_{ 0 }^{ \infty  } t^{n+1} e^{- \alpha t } \ dt. \]
+        Observe by the integration-by-parts formula that 
+        \begin{align*}
+            \int_{ 0 }^{ d } t^{n+1} e^{- \alpha t } \ dt &=  \Big[ \frac{ - t^{n+1} }{ \alpha } e^{- \alpha t  } \Big]_{0}^{d} + \frac{ (n+1) }{ \alpha } \int_{ 0 }^{ d } t^{n} e^{ - \alpha t } \    dt  \\
+                                                          &= \frac{ - d^{n+1}  }{ \alpha }  e^{- \alpha d } + \frac{ (n+1)  }{ \alpha } \int_{ 0 }^{ d }  t^{n} e^{- \alpha t } \ dt.
+        \end{align*}
+        We see that as we take the limit as \( d \to \infty  \), we have 
+        \[  \lim_{ d \to \infty  }  \frac{  - d^{n+1} }{ \alpha } e^{- \alpha d } = 0.\] Now using our induction hypothesis, we have 
+        \begin{align*}
+            \lim_{ d \to \infty  } \int_{ 0 }^{ d  } t^{n+1} e^{ - \alpha t } \ dt &= \frac{ (n+1)  }{ \alpha }  \lim_{ d \to \infty  } \int_{ 0 }^{ d }  t^{n} e^{ - \alpha t } \  dt.    \\
+                                                                                   &= \frac{ (n+1)  }{ \alpha }  \int_{ 0 }^{ \infty  }  t^{n} e^{- \alpha t } \ dt \\
+                                                                                   &= \frac{ (n+1)  }{ \alpha } \cdot \frac{ n!  }{ \alpha^{n+1}  } \\
+                                                                                   &= \frac{ (n+1)!  }{ \alpha^{n+2} }.
+        \end{align*}
+        Hence, we conclude that 
+        \[ \frac{ n!  }{ \alpha^{n+1} } =  \int_{ 0 }^{ \infty  }  t^{n} e^{ - \alpha t } \ dt.\]  
         \end{proof}
 \end{enumerate}
 
+Now we are well on our way to extending the \( n!  \) on the right-hand and left-hand side of the above equation to \( x \in \R  \).
 
+\begin{definition}{}{}
+    For \( x \geq 0  \), define the \textit{factorial function} 
+    \[  x! = \int_{ 0 }^{ \infty  } t^{x} e^{-t} \ dt. \]
+\end{definition}
 
+\subsubsection{Exercise 8.4.20} 
+\begin{enumerate}
+    \item[(a)] Show that \( x!  \) is an infinitely differentiable function on \( (0, \infty ) \) and produce a formula for the \( n^{th} \) derivative. In particular show that \( (x!)^{"} > 0 \). 
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Use the integration-by-parts formula employed earlier to show that \( x!  \) satisfies the functional equation 
+        \[  (x+1)! = (x+1) x!. \]
+        \begin{proof}
+        Using the integration-by-parts formula and the definition of \( x!  \), we can write 
+        \begin{align*}
+            (x+1)! &= \int_{ 0 }^{ \infty  } t^{x+1} e^{-t } \ dt \\
+                   &= \lim_{ d \to \infty  } \Big[ - t^{x+1} e^{-t} \Big]_{0}^{d} + (x+1) \int_{ 0 }^{ \infty  } t^{x} e^{-t} \    dt \\
+                   &= 0 + (x+1) x! \\
+                   &= (x+1) x!.
+        \end{align*}
+        Hence, we have 
+        \[  (x+1)! = (x+1)x!. \]
+        \end{proof}
+\end{enumerate}
 
+\begin{theorem}{Bohr-Mollerup Theorem}{}
+    There is a unique positive function \( f  \) defined on \( x \geq  0  \) satisfying 
+    \begin{enumerate}
+        \item[(i)] \( f(0) = 1  \).
+        \item[(ii)] \( f(x+1) = (x+1) f(x)  \), and 
+        \item[(iii)] \( \log(f(x))  \) is convex.
+    \end{enumerate}
+    Since \( x!  \) satisfies properties (i), (ii), and (iii), it follows that \( f(x) = x!  \).
+\end{theorem}
 
+\begin{proof}
+    Geometrically, if \( [a,b]  \) and \( [a',b'] \) are two intervals in the domain of a convex function \( \phi \), and \( a \leq a' \) and \( b \leq b'\), then the slopes the function \( \phi  \) would satisfy the following inequality
+    \[  \frac{ \phi(b) - \phi(a)  }{  b - a  } \leq \frac{ \phi(b') - \phi(a')  }{ b' - a' }.  \] Since \( f  \) satisfies properties (i) and (ii) we know \( f(n) = n!  \) for all \( n \in \N  \). Now let us fix \( n \in \N  \) and \( x \in (0,1] \).
+\end{proof}
 
-
-
-
-
-
+\subsubsection{Exercise 8.4.21} 
+\begin{enumerate}
+    \item[(a)] Use the convexity of \( \log(f(x)) \) and the three intervals \( [n-1,n]  \), \( [n,n +x] \), and \( [n,n+1] \) to show 
+        \[  x \log(n) \leq \log(f(n+x)) - \log(n!) \leq x \log(n+1). \]
+        \begin{proof}
+ On the interval \( [n-1,n ] \) and the fact that \( f(n) = n!  \), we have 
+            \begin{align*}
+                \log(f(n)) - \log(f(n-1))   &= \log(n!) - \log(n-1!)  \\
+                                            &= \log(n(n-1)!) - \log(n-1)! \\
+                                            &= \log(n) + \log(n-1)! - \log(n-1)! \\
+                                            &= \log(n).
+            \end{align*}
+            Similarly, we have 
+            \begin{align*}
+                \log(f(n+1)) - \log(f(n)) &= \log(n+1)! - \log(n)! \\
+                                          &= \log((n+1)! n) - \log(n) \\
+                                          &= \log(n+1) + \log(n) - \log(n) \\
+                                          &= \log(n+1).
+            \end{align*}
+            Then using the convexity of \( \log(f(x))  \), we have 
+            \[  \log(n) \leq \frac{ \log(f(n+x)) - \log(n!) }{ x  }  \leq \log(n+1)     \]
+            which implies 
+            \[  x \log(n) \leq \log(f(n+x)) - \log(n!)  \leq x \log(n+1).   \]
+        \end{proof}
+        \item[(b)] Show \( \log(f(n+x)) = \log(f(x)) + \log((x+1)(x+2) \dots (x+n)). \)
+            \begin{proof}
+            We can use induction to show the statement above. Let our base case be \( n = 1  \). Then observe that 
+            \[ f(x+1) = f(x)(x+1) \] which implies that 
+            \begin{align*}
+                \log(f(x+1)) &= \log(f(x)(x+1)) \\
+                             &= \log(f(x)) + \log((x+1)).
+            \end{align*}
+            Now assume the statement holds for \( n \geq 1  \). For the \( n+1  \) case, observe that 
+            \begin{align*}
+                \log(f(x+(n+1)))  &= \log(f((x+n) + 1 ))  \\
+                                  &= \log(f(x+n) ((x+n) + 1 )) \\
+                                  &= \log (f(x)) + \log ( (x+1)(x+2) \dots (x+n) (x + (n+1)) ).\\
+            \end{align*}
+            \end{proof}
+        \item[(c)] Now establish that 
+            \[  0 \leq \log(f(x)) - \log \Big( \frac{ n^{x} n!  }{ (x+1)(x+2) \dotsb (x+n)  }  \Big) \leq x \log \Big( 1 + \frac{ 1 }{ n }  \Big). \]
+            \begin{proof}
+            
+            \end{proof}
+\end{enumerate} 
