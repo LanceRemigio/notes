@@ -602,7 +602,15 @@ Now we are well on our way to extending the \( n!  \) on the right-hand and left
 \begin{enumerate}
     \item[(a)] Show that \( x!  \) is an infinitely differentiable function on \( (0, \infty ) \) and produce a formula for the \( n^{th} \) derivative. In particular show that \( (x!)^{"} > 0 \). 
         \begin{proof}
-        
+            Note that \( f(x,t) = t^{x} e^{-t } \) is continuous and so is \( f_{x}(x,t) = \log(t) t^{x} e^{-t }  \). Observe that we can differentiate \( t^{x}  \) as many times as we want. Hence, we have that 
+            \[  x! = \int_{ 0  }^{ \infty  }  t^{x} e^{-t} \ dt \tag{1}  \] is infinitely differentiable by Theorem 8.4.6.  Differentiating (1), we have that  
+            \begin{align*}
+                \frac{d  }{d x } [ x! ]  &= \frac{ d }{ dx  } \Big[ \int_{ 0 }^{ \infty  }  t^{x} e^{-t} \ dt \Big]  \\
+                                         &= \int_{ 0 }^{ \infty  } \frac{\partial  }{\partial x }  [ t^{x} e^{-t }] \ dt \\
+                                         &= \int_{ 0 }^{ \infty  } \log(t) t^{x} e^{-t } \ dt 
+            \end{align*}
+            It can be shown, using induction, that for every \( n \geq  1  \), that 
+            \[  \frac{d ^{n}  }{d x^{n} } [ x! ] = \int_{ 0 }^{ \infty  }  \log^{n}(t) t^{x} e^{-t} \ dt. \]
         \end{proof}
     \item[(b)] Use the integration-by-parts formula employed earlier to show that \( x!  \) satisfies the functional equation 
         \[  (x+1)! = (x+1) x!. \]
@@ -676,6 +684,89 @@ Now we are well on our way to extending the \( n!  \) on the right-hand and left
         \item[(c)] Now establish that 
             \[  0 \leq \log(f(x)) - \log \Big( \frac{ n^{x} n!  }{ (x+1)(x+2) \dotsb (x+n)  }  \Big) \leq x \log \Big( 1 + \frac{ 1 }{ n }  \Big). \]
             \begin{proof}
-            
+            Using our result from part (a), we can subtract \( x \log(n)  \) on both sides to get 
+            \[ 0 \leq  \log(f(n+x)) - \log(n!) - x \log(n) \leq  x \log(n+1) - x \log(n) \tag{1}.  \]
+            Now observe the middle of the inequality above. Using our logarithm properties that we derived from earlier sections and using the result from part (b), we get that 
+            \begin{align*}
+                \log(f(n+x)) - \log(n!) - x \log(n) &=   \log(f(x)) + \log((x+1)(x+2)\dots (x+n)) \\
+                                                    &- \log(n^{x} n! ) \\
+                                                    &= \log(f(x)) - \Big(  \log(n^{x} n! )  \\  & - \log((x+1)(x+2) \dots (x+n))   \Big) \\
+                                                    &= \log(f(x)) \\ &- \log \Big( \frac{ n^{x} n!  }{ (x+1)(x+2) \dots (x+n) }  \Big).
+            \end{align*}
+            Now, focusing on the right side of the inequality in (1), we have 
+            \begin{align*}
+                x \log(n+1) - x \log(n) &= x \Big(  \log(n+1) - \log(n) \Big) \\
+                                        &= x \log \Big( \frac{ n +1  }{ n }  \Big) \\
+                                        &= x \log \Big(  1 + \frac{ 1 }{ n }  \Big).
+            \end{align*}
+            Hence, we have reached our desired result that
+            \[  0 \leq \log(f(x)) - \log \Big( \frac{ n^{x} n!  }{ (x+1)(x+2) \dotsb (x+n)  }  \Big) \leq x \log \Big( 1 + \frac{ 1 }{ n }  \Big). \]
+            \end{proof}
+        \item[(d)] Conclude that 
+            \[  f(x) = \lim_{ n \to \infty  }  \frac{ n^{x} n!  }{ (x+1)(x+2) \dots (x+n)  }, \ \text{for all } x \in (0,1]. \]
+            \begin{proof}
+                Observe that the right hand side of the inequality found in part (c) converges; that is, 
+                \[  \lim_{ n \to \infty  }  x \log \Big( 1 + \frac{ 1 }{ n }  \Big) = 0.\] Now let \( \varepsilon > 0  \). Since the limit above converges, we know that we can find an \( N \in \N  \) such that whenever \( n \geq N  \) and \( x \in (0,1] \), we have that 
+                \[  \Bigg| \log(f(x)) - \log \Big( \frac{ n^{x} n!  }{ (x+1)(x+2) \dots (x+n)  }  \Big) \Bigg| < \varepsilon.  \]
+                This implies that 
+                \[  \log(f(x)) = \lim_{ n \to \infty  }  \log \Big( \frac{ n^{x} n!  }{ (x+1) (x+2) \dots (x+n)  }  \Big). \]
+                However, we know that the limit above holds whenever 
+                \[  f(x) = \lim_{ n \to \infty  } \frac{ n^{x} n!  }{ (x+1)(x+2) \dots (x+n)  }.   \]
+            \end{proof}
+        \item[(e)] Finally, show that the conclusion in (d) holds for all \(  x \geq 0  \).
+            \begin{proof}
+            First, we show that the limit in part (d) converges when \( x = 0  \) into the limit found in part (d), we get 
+            \[  \lim_{ n \to \infty  }  \frac{ n!  }{ 1 \cdot 2  \dotsb \  n } = \lim_{ n \to \infty  }  \frac{ n!  }{ n!  } = 1! = f(0)  .  \]
+            Now suppose \( x > 0  \). By parts (a) and (c), we know that 
+            \[  \frac{ n^{x} n!  }{ (n+x)! }  \] is bounded as well as decreasing for all \( n \geq 1  \). By MCT, we must have
+            \[  \lim_{ n \to \infty  }  \frac{ n^{x} n!  }{ (n+x)! } = f(x). \]
             \end{proof}
 \end{enumerate} 
+
+
+\subsection{The Gamma Function}
+
+The function we have been rigorously developing is the gamma function which is denoted by the following notation
+
+\[  \Gamma(x) = (x-1)! = \int_{ 0 }^{ \infty  }  t^{x-1} e^{-t } \ dt. \] 
+Just as we have seen in the prior exercises, we have \( \Gamma(n+1) = n!   \) and \( x\Gamma(x) = x(x+1)! \). This is the convention in many fields such as Number Theory, Probability Theory, Geometry and so on.
+
+If we try to extend the Gamma function to all of \( \R  \) using the functional equation \(  x! = x (x-1)! \), we will get asymptotes at each \( x \in  \Z^{-} \). In this case, we can consider the reciprocal function \( 1 / x!  \) which we can define as \( 0  \) for every \( x \in \Z^{- } \).
+
+\subsubsection{Exercise 8.4.22}
+\begin{enumerate}
+    \item[(a)] Where does \( g(x)  = \frac{ x }{ x! (-x)! }  \) equal zero? What other familiar function has the same set of roots? 
+        \begin{proof}[Solution]
+        
+        \end{proof}
+    \item[(b)] The function \( e^{-x ^{2}}  \) provides the raw material for the all-important Gaussian bell curve from probability, where it is known that \( \int_{ -\infty  }^{ \infty  }  e^{-x ^{2}} \ dx = \sqrt{ \pi  }   \) Use this fact (and some standard integration techniques) to evaluate \( (1/2)! \).
+        \begin{proof}[Solution]
+        
+        \end{proof}
+    \item[(c)] Now use (a) and (b) to conjecture a striking relationship between the factorial function and a well-known function from trigonometry. 
+       \begin{proof}[Solution]
+       
+       \end{proof} 
+\end{enumerate}
+
+\subsubsection{Exercise 8.4.23} As a parting shot, use the value for \( (1/2)! \) and the Gauss product formula in equation (9) to derive the famous product formula for \( \pi  \) discovered by John Wallis in the 1650's:
+\[ \frac{ \pi  }{  2 } = \lim_{ n \to \infty  } \Big( \frac{ 2 \cdot 2  }{ 1 \cdot 3  }  \Big) \Big( \frac{ 4 \cdot 4  }{ 3 \cdot 5  }  \Big) \Big(  \frac{ 6 \cdot 6  }{ 5 \cdot 7  }  \Big) \dotsb \Big( \frac{ 2n \cdot 2n  }{ (2n-1)(2n+1) }  \Big).\]
+\begin{proof}
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
