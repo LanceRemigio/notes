@@ -730,7 +730,6 @@ The function we have been rigorously developing is the gamma function which is d
 
 \[  \Gamma(x) = (x-1)! = \int_{ 0 }^{ \infty  }  t^{x-1} e^{-t } \ dt. \] 
 Just as we have seen in the prior exercises, we have \( \Gamma(n+1) = n!   \) and \( x\Gamma(x) = x(x+1)! \). This is the convention in many fields such as Number Theory, Probability Theory, Geometry and so on.
-
 If we try to extend the Gamma function to all of \( \R  \) using the functional equation \(  x! = x (x-1)! \), we will get asymptotes at each \( x \in  \Z^{-} \). In this case, we can consider the reciprocal function \( 1 / x!  \) which we can define as \( 0  \) for every \( x \in \Z^{- } \).
 
 \subsubsection{Exercise 8.4.22}
@@ -741,18 +740,44 @@ If we try to extend the Gamma function to all of \( \R  \) using the functional 
         \end{proof}
     \item[(b)] The function \( e^{-x ^{2}}  \) provides the raw material for the all-important Gaussian bell curve from probability, where it is known that \( \int_{ -\infty  }^{ \infty  }  e^{-x ^{2}} \ dx = \sqrt{ \pi  }   \) Use this fact (and some standard integration techniques) to evaluate \( (1/2)! \).
         \begin{proof}[Solution]
-        
+        Using the definition of \( x!  \), we have 
+        \begin{align*}
+            ( 1/2  )! &= \int_{ 0 }^{ \infty  } t^{1/2} e^{-t } \ dt \\
+                                          &= \lim_{ d \to \infty  } \int_{ 0 }^{ d } t^{1/2} e^{-t} \  dt \\
+                                          &= \lim_{ d \to \infty  }  \Big[ t^{ 1/2} e^{-t } \Big]_{0}^{d} + \frac{ 1 }{ 2 }  \int_{ 0 }^{ \infty  } t^{-1/2} e^{-t} \ dt \\
+                                          &= \int_{ 0 }^{ \infty  } \frac{ 1 }{ 2 }  \cdot t^{-1/2} e^{- (\sqrt{ t } )^{2}} \ dt  \tag{  \text{let \( u = \sqrt{ t }    \)} }  \\
+                                          &= \int_{ 0 }^{ \infty  } e^{-u^{2}} \ du \tag{ \( du = 1 /2 \cdot  t^{-1/2} \ dt  \) } \\
+        \end{align*}
+        Hence, we have that 
+        \[  (1/2)! = \frac{ \sqrt{ \pi  }  }{ 2  }. \]
         \end{proof}
     \item[(c)] Now use (a) and (b) to conjecture a striking relationship between the factorial function and a well-known function from trigonometry. 
        \begin{proof}[Solution]
-       
+       The factorial function (most notably the gamma function) can be used to find values of the sine function. It can also be applied to finding values of the Riemann Zeta function found in the last section.
        \end{proof} 
 \end{enumerate}
 
 \subsubsection{Exercise 8.4.23} As a parting shot, use the value for \( (1/2)! \) and the Gauss product formula in equation (9) to derive the famous product formula for \( \pi  \) discovered by John Wallis in the 1650's:
 \[ \frac{ \pi  }{  2 } = \lim_{ n \to \infty  } \Big( \frac{ 2 \cdot 2  }{ 1 \cdot 3  }  \Big) \Big( \frac{ 4 \cdot 4  }{ 3 \cdot 5  }  \Big) \Big(  \frac{ 6 \cdot 6  }{ 5 \cdot 7  }  \Big) \dotsb \Big( \frac{ 2n \cdot 2n  }{ (2n-1)(2n+1) }  \Big).\]
 \begin{proof}
-
+In the last section, we defined 
+\[  \prod_{i=1}^{n} \frac{ 2i }{ 2i-1 } =  \frac{ 2^{2n} (n!)^{2}  }{ (2n)! }   \] as well as 
+\[  \prod_{i=1}^{n} \frac{ 2i }{ 2i+1 } =  \frac{ 2^{2n} (n!)^{2}  }{ (2n+1)! }   \]  
+Using our result from part (b) of Exercise 8.4.22 and the Gauss product formula found in equation (9), we can write  
+\begin{align*}
+    \frac{ \sqrt{ \pi }  }{ 2 }  = (1/2)! &= \int_{ 0 }^{ \infty  } t^{1/2} e^{-t} \ dt \\
+                                          &= \lim_{ n \to \infty  } \frac{ n^{1/2} n! }{ ( \frac{ 1 }{ 2 } + 1  ) ( \frac{ 1 }{ 2 } + 2  ) \dots ( \frac{ 1 }{ 2 } + n ) }  \\
+                                          &= \lim_{ n \to \infty  } \frac{ n^{1/2}  2^{n} n!  }{ (2n+1)! }. 
+\end{align*}
+By exercise 8.3.5, we have that 
+\[  \sqrt{ \pi } = \lim_{ n \to \infty  }  \frac{ 2^{2n} (n!)^{2}  }{ (2n)! \sqrt{ n }  }. \]
+Using this fact and the others stated at the beginning of this proof, we have that 
+\begin{align*}
+    \lim_{ n \to \infty  } \prod_{i=1}^{n} \frac{ 2i \cdot 2i }{ (2i-1)(2i+1) } &= \Big( \lim_{ n \to \infty  }  \prod_{i=1}^{n} \frac{ 2i }{ 2i-1 }  \Big) \cdot \Big( \lim_{ n \to \infty  } \prod_{i=1}^{n} \frac{ 2i }{ 2i+1 }  \Big)\\
+                                                                                &= \Big( \lim_{ n \to \infty  } \frac{ 2^{2n} (n!)^{2}  }{ n^{1/2} (2n)!  }    \Big) \cdot \Big( \lim_{ n \to \infty  }  \frac{ 2^{2n} (n!)^{2} n^{1/2} }{ (2n+1)!  }  \Big) \\
+                                                                                &= \sqrt{ \pi } \cdot \frac{ \sqrt{ \pi }  }{ 2 }  \\
+                                                                                &= \frac{ \pi }{ 2 }. 
+\end{align*}
 \end{proof}
 
 
