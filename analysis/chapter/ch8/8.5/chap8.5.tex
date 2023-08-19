@@ -5,7 +5,68 @@ Fourier's development of a special type of series involving trigonometric functi
 \subsection{Trigonometric Series}
 
 The basic use of series representations is to express a given function \( f(x)  \) in terms of the sum of simpler and "nicer" functions such as polynomials. In the case of power series representations, we have the following set of component functions \( \{ 1, x, x^{2}, x^{3}, \dots \}  \) such that the following series takes the form 
-\[  f(x) = \sum_{ n=0  }^{ \infty  } a_{n} x^{n} = a_{0} + a_{1} x + a_{2} x^{2} + a_{3} x^{3} + \dotsb / . \]
+\[  f(x) = \sum_{ n=0  }^{ \infty  } a_{n} x^{n} = a_{0} + a_{1} x + a_{2} x^{2} + a_{3} x^{3} + \dotsb  . \]
 A \textit{trigonometric series} on the other hand is an infinite series composed of component functions that are trigonometric; that is, we have 
 \[  \{ 1 , \cos(x), \sin(x), \sin(2x), \cos(3x), \sin(3x), \dots \}.  \]
+Thus, we can write a trigonometric series in the following way 
+\begin{align*}
+    f(x) &= a_{0} + a_{1}\cos(x) + b_{1} \sin(x) +  a_{2} \cos(2x) + b_{2} \sin(2x) + a_{3} \cos(3x) + \dotsb  \\
+         &= a_{0} + \sum_{ n=1 }^{ \infty  } a_{n} \cos(nx) + b_{n} \sin(nx). 
+\end{align*}
+
+Now we will see how this formulation can be used to solve partial differential equations. Consider the following problem proposed by d'Alembert
+\[  \frac{\partial ^{2} u  }{\partial x^{2}   } = \frac{\partial ^{2} u  }{\partial t^{2} } \tag{1} \]
+which describes the motion of a vibrating string. Suppose the solution to the partial differential equation above is \( u(x,t)  \) which models that displacement of the string at time \( t \geq 0  \). Suppose the string is attached at each end of this interval. Then the boundary conditions apply
+\[  u(0,t) = 0 \ \text{and} \ u(\pi, t) = 0  \tag{2} \]
+for all values of \( t \geq 0  \). If we let \( t = 0  \) (at the instant the string is released), then we can assume that 
+\[  \frac{\partial u }{\partial t } (x,0) = 0; \]
+that is, the initial velocity of the string is defined to be \( 0 \). 
+
+\subsubsection{Exercise 8.5.1} 
+\begin{enumerate}
+    \item[(a)] Verify that 
+        \[  u(x,t) = b_{n} \sin(nx) \cos(nt) \] satisfies equations (1), (2), and (3) for any choice of \( n \in \N  \) and \( b_{n} \in \R  \). What goes wrong if \( n \notin \N  \).
+        \begin{proof}[Solution]
+        We first compute the partial derivatives of \( u(x,t)  \). Observe the first partial derivative with respect to \( x  \) of \( u(x,t) \) is 
+        \begin{align*}
+            \frac{\partial u }{\partial x } &= n b_{n} \cos(nx) \cos(nt). \\
+        \end{align*}
+        Then differentiating with respect to the same variable leads to 
+        \[  \frac{\partial ^{2} u  }{\partial x^{2} } = - n^{2} b_{n} \sin(nx) \cos(nt).  \] 
+        Likewise, differentiating with respect to \( t  \) leads to 
+
+        \begin{align*}
+            \frac{\partial u }{\partial t } &= -n b_{n} \sin(nx) \sin(nt). \\
+            \frac{\partial ^{2} u  }{\partial  t^{2} } &= - n^{2} b_{n} \sin(nx) \cos(nt).
+        \end{align*}
+        We can see that (1) is satisfied using our given solution \( u(x,t) \).
+        Now, using the boundary conditions found in (2) and the fact that the sine function is 0 with \( n \pi  \) for all \( n \in \N  \), we can see that 
+        \[  u(0,t) =  b_{n} \sin(0) \cos(nt) = 0  \]
+        and 
+        \[  u(\pi, t ) = b_{n} \sin(n \pi ) \cos(nt) = 0. \] Hence, (2) is satisfied. By the same reasoning, we can see that (3) is satisfied.
+
+        If \( n \notin \N \), then \( u(x,t)  \) would result in nonzero sine values rendering equations (1), (2), (3) invalid.
+        \end{proof}
+    \item[(b)] Explain why any finite sum of functions of the form given in part (a) would also satisfy (1), (2), and (3). (Incidentally, it is possible to hear the different solutions in (a) for values of \( n  \) up to 4 or 5 by isolating the harmonics on a well-made stringed instrument.)
+        \begin{proof}[Solution]
+        Since \( \sin(x) \) and \( \cos(x) \) are both continuous differentiable up to \( n  \) times, we can use term-by-term differentiation of the finite sum of these trigonometric functions to show that, indeed, equations (1), (2), and (3) are all satisfied.
+        \end{proof}
+\end{enumerate}
+
+Observe that 
+\[  u(x,t) = \sum_{ n=1 }^{ N } b_{n} \sin(nx) \cos(nt) \tag{4} \] solves the PDE in (1) which is called d'Alembert's \textit{wave equation}. The solutions to (1), however, depend on how the string is originally "plucked". Suppose at \( t = 0  \), the string is given some initial displacement 
+\[  f(x) = u(x,0) .\] Letting \( t = 0  \) in our general solution in (4), we find that 
+\[  f(x) = \sum_{ n=1 }^{ N } b_{n} \sin(nx). \] Given there exists coefficients \( b_{n}   \) for all \( 1 \leq n \leq N \) such that our solution \( f(x) \) can be written in terms of the finite sum of sine functions found in  (5), we can be sure that the PDE in (1) can be solved by \( u(x,t)  \) given in (4). We can then ask, more generally, how can we construct solutions that are linear combinations of functions found in the set 
+\[  \{  \sin(x), \sin(2x), \sin(3x), \dots \} . \] It turns out that we can take an \textit{infinite} sum of (5) to model the position of \( f(x)  \) for any \( x \in [0, \pi] \). The function \( f(x) \) can be thought of as the initial temperature applied to some boundary of a heat-conducting material.
+
+
+\subsection{Periodic Functions}
+A more general formulation of our problem is to find suitable coefficients \( (a_{n}) \) and \( (b_{n}) \) to express a function \( f(x)  \) as 
+\[  f(x) = a_{0} + \sum_{ n=1 }^{ \infty  } a_{n} \cos(nx) + b_{n} \sin(nx). \tag{6} \] It is important to note that every component that makes up (6) is \( 2 \pi  \) periodic.
+
+
+
+
+
+
 
