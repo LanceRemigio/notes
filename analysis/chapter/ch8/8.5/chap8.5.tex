@@ -56,15 +56,187 @@ that is, the initial velocity of the string is defined to be \( 0 \).
 Observe that 
 \[  u(x,t) = \sum_{ n=1 }^{ N } b_{n} \sin(nx) \cos(nt) \tag{4} \] solves the PDE in (1) which is called d'Alembert's \textit{wave equation}. The solutions to (1), however, depend on how the string is originally "plucked". Suppose at \( t = 0  \), the string is given some initial displacement 
 \[  f(x) = u(x,0) .\] Letting \( t = 0  \) in our general solution in (4), we find that 
-\[  f(x) = \sum_{ n=1 }^{ N } b_{n} \sin(nx). \] Given there exists coefficients \( b_{n}   \) for all \( 1 \leq n \leq N \) such that our solution \( f(x) \) can be written in terms of the finite sum of sine functions found in  (5), we can be sure that the PDE in (1) can be solved by \( u(x,t)  \) given in (4). We can then ask, more generally, how can we construct solutions that are linear combinations of functions found in the set 
+\[  f(x) = \sum_{ n=1 }^{ N } b_{n} \sin(nx).  \tag{5}\] 
+Given there exists coefficients \( b_{n}   \) for all \( 1 \leq n \leq N \) such that our solution \( f(x) \) can be written in terms of the finite sum of sine functions found in  (5), we can be sure that the PDE in (1) can be solved by \( u(x,t)  \) given in (4). We can then ask, more generally, how can we construct solutions that are linear combinations of functions found in the set 
 \[  \{  \sin(x), \sin(2x), \sin(3x), \dots \} . \] It turns out that we can take an \textit{infinite} sum of (5) to model the position of \( f(x)  \) for any \( x \in [0, \pi] \). The function \( f(x) \) can be thought of as the initial temperature applied to some boundary of a heat-conducting material.
 
 
 \subsection{Periodic Functions}
 A more general formulation of our problem is to find suitable coefficients \( (a_{n}) \) and \( (b_{n}) \) to express a function \( f(x)  \) as 
-\[  f(x) = a_{0} + \sum_{ n=1 }^{ \infty  } a_{n} \cos(nx) + b_{n} \sin(nx). \tag{6} \] It is important to note that every component that makes up (6) is \( 2 \pi  \) periodic.
+\[  f(x) = a_{0} + \sum_{ n=1 }^{ \infty  } a_{n} \cos(nx) + b_{n} \sin(nx). \tag{6} \] It is important to note that every component that makes up (6) is \( 2 \pi  \) periodic. That is, any function that is represented by trigonometric functions is necessarily periodic. Turning our attention on the interval \( (-\pi, \pi] \), we can take a function such as \( f(x) = x^{2} \), restrict its domain to \( (-\pi , \pi]  \), and then extend \( f  \) periodically to all of \( \R  \) using the rule \( f(x) = f(x+ 2 k \pi ) \) for all \( k \in \Z \)
 
+\subsection{Types of Convergence}
+The way we express functions in terms of a series of trigonometric functions depends on the type of convergence. As we have been discussing all throughout this book, we have to look at the partial sums. Hence, we have 
+\[  S_{N}(x) = a_{0} + \sum_{ n=1 }^{ N } a_{n} \cos(nx) + b_{n } \sin(nx). \tag{7} \]
+The idea of expressing \( f(x)  \) in terms of a trigonometric series involves finding the coefficients 
+\( (a_{n})_{n=0}^{\infty } \) and \( (b_{n})_{n=1}^{\infty } \) such that  
+\[  f(x) = \lim_{ N \to \infty  } S_{N}(x). \tag{8} \]
+Showing that 
+\[  \int_{ - \pi  }^{  \pi  } | S_{N}(x) - f(x)  |^{2} \ dx \to 0 \]
+is a natural way to understand (8). This convergence is called the \( L^{2} \) \textit{convergence} (won't be discussed here). Another type of convergence that we will look at in this section is the \textit{Cesaro mean convergence} which involves taking the \textit{averages} of the partial sums and showing that they converge uniformly to \( f(x)  \).
 
+\subsection{Fourier Coefficients}
+
+Before discussing the Cesaro mean convergence, we will look at a few basic calculus facts.
+
+\subsubsection{Exercise 8.5.2} Using trigonometric identities when necessary, verify the following integrals.
+\begin{enumerate}
+    \item[(a)] For all \( n \in \N  \), 
+        \[  \int_{ - \pi  }^{ \pi  }  \cos(nx) \ dx = 0 \ \text{ and } \ \int_{ - \pi  }^{ \pi   } \sin(nx) \   dx = 0  \]
+\begin{proof}[Solution]
+    We will begin by showing the first integral. Hence, using the fact that \( \sin(x)  \) is odd and the fact that \( \sin(n \pi) = 0  \) for all \( n \in \N  \), we can say
+    \begin{align*}
+        \int_{ -\pi  }^{ \pi  } \cos(nx) \ dx &=  \Big[ \frac{ 1 }{ n }  \sin(nx)\Big]_{- \pi }^{\pi }  \\
+                                              &= \frac{ 1 }{ n } [  \sin(n \pi ) - \sin(-n \pi)  ] \\
+                                              &= \frac{ 2 }{ n }  \sin(n \pi) \\
+                                              &= 0.
+    \end{align*}
+    Now we show the second integral. Using the fact that \( \cos(x) \) is an even function, we can write
+    \begin{align*}
+        \int_{ -\pi  }^{ \pi  } \sin(nx)  \ dx &= \Big[ -\frac{ 1 }{ n } \cos(nx) \Big]_{-\pi}^{\pi } \\
+                                               &= \frac{ 1 }{ n } [  \cos(-n \pi) -\cos(n \pi)  ]  \\
+                                               &= \frac{ 1 }{ n } [ \cos(n \pi) - \cos(n \pi )] \\
+                                               &= 0.
+    \end{align*}
+\end{proof}
+    \item[(b)] For all \( n \in \N  \),
+        \[  \int_{ - \pi  }^{ \pi  }  \cos^{2}(nx) \ dx = \pi \ \text{ and } \ \int_{ - \pi  }^{ \pi   } \sin^{2}(nx) \   dx = \pi.  \]
+        \begin{proof}[Solution]
+            Using the trigonometric identity \( \cos^{2}(x) = \frac{ 1 }{ 2 }  [ 1 + \cos(2x)] \), we can write 
+            \begin{align*}
+                \int_{ - \pi  }^{ \pi  } \cos^{2}(2xn) \ dx &= \frac{ 1 }{ 2 } \int_{ - \pi  }^{ \pi } [ 1+ \cos(2xn) ]   \ dx \\
+                                                          &= \frac{ 1 }{ 2 } \int_{ - \pi  }^{ \pi  }  \ dx + \frac{ 1 }{ 2 }  \int_{ - \pi  }^{ \pi  } \cos(2xn) \ dx \\
+            \end{align*}
+            The first integral evaluates to 
+            \[  \frac{ 1 }{ 2 } \int_{ - \pi  }^{ \pi  }  \ dx = \frac{ 1 }{ 2 }  [ x]_{- \pi}^{\pi } = \pi  \]
+            Then, using the fact that sine is an odd function and the fact that \( \sin(2 \pi n ) = 0  \) for all \( n \in \N  \), the second integral evaluates to
+            \begin{align*}
+                \int_{ - \pi  }^{ \pi  } \cos(2xn) \ dx &= \frac{ 1 }{ 2n } [ \sin(2x n)]_{- \pi}^{\pi } \\
+                                                       &= \frac{ 1 }{ 2n } [ \sin( 2\pi n) - \sin(- 2 \pi n)] \\
+                                                       &= \frac{ 1 }{ 2n } [ \sin(2 \pi)] \tag{ \( \sin(-2 \pi n) = -\sin(2 \pi n) \)} \\
+                                                       &= 0.
+            \end{align*}
+            Hence, we have 
+            \[  \int_{ - \pi  }^{ \pi  } \cos^{2}(x) \ dx = \pi. \]
+
+            Similarly, we have
+            \begin{align*}
+                \int_{ - \pi  }^{ \pi  } \sin^{2}(nx)    \ dx &= \frac{ 1 }{ 2 }  \int_{ - \pi  }^{ \pi  } [ 1 - \cos(2xn) ]  \ dx \\
+                                                              &= \frac{ 1 }{ 2 } \int_{ - \pi  }^{  \pi }  \ dx - \frac{ 1 }{ 2 }  \int_{ - \pi  }^{ \pi  } \cos(2xn) \ dx \\
+                                                              &= \frac{ 1 }{ 2 } \cdot 2 \pi - 0  \\
+                                                              &= \pi.
+            \end{align*}
+        \end{proof}
+    \item[(c)] For all \( m,n \in \N  \), 
+        \[  \int_{ - \pi  }^{ \pi  } \cos(mx) \sin(nx)  \ dx =  0. \]
+        For \( m \neq n  \), 
+        \[  \int_{ - \pi  }^{ \pi  } \cos(mx) \cos(nx) \ dx = 0 \ \text{and} \ \int_{ -\pi  }^{ \pi  } \sin(mx) \sin(nx)  \ dx = 0. \]
+        \begin{proof}[Solution]
+        Let \( m, n \in \N  \). Suppose \( m = n  \). Then using a change of variable (letting \( u = \sin(mx) \)), we get
+        \begin{align*}
+            \int_{ - \pi  }^{ \pi  } \cos(mx) \sin(mx)  \ dx &= \frac{ 1 }{ m } \int_{ - \pi  }^{ \pi } u    \ du \\
+                                                             &= \frac{ 1 }{ 2m } [ \sin^{2}(\pi x)]_{- \pi}^{\pi}  \\
+                                                             &= \frac{ 1 }{ 2m } \sin ^{2}( \pi m) + \frac{ 1 }{ 2m } \sin^{2}(\pi m) \\
+                                                             &= \frac{ 1 }{ m } \sin ^{2}(\pi m) \\
+                                                             &= 0.
+        \end{align*}
+        If \( m \neq n  \), then using the trigonometric identity 
+        \[  \cos(mx)\sin(nx) =  \frac{ 1 }{ 2 } [ \sin((m+n)x) - \sin((m-n)x) ]  \]
+        we obtain
+        \begin{align*}
+            \int_{ - \pi  }^{ \pi  } \cos(mx) \sin(nx)  \ dx &= \frac{ 1 }{ 2 } \int_{ - \pi  }^{ \pi  } [ \sin((m+n)x) - \sin((m-n)x)] \ dx \\
+                                                             &= \frac{ 1 }{ 2 } \int_{ - \pi  }^{ \pi  } \sin((m+n)x)  \ dx + \frac{ 1 }{ 2 } \int_{ - \pi  }^{ \pi  } \sin((m-n)x) \ dx \\
+                                                             &=\frac{ \cos((m-n)x) }{ 2(m-n) }  \Big|_{- \pi}^{\pi } + \frac{ \cos((m+n)x) }{ 2(m+n) }  \Big|_{- \pi}^{\pi } \\ 
+        \end{align*}
+        Using the fact that cosine is an even function we can evaluate the first term which leads to 
+        \begin{align*}
+            \frac{ \cos((m-n)x) }{ 2(m-n) }  \Big|_{- \pi}^{\pi } &= \frac{ 1 }{ 2(m-n)  } [ \cos((m-n) \pi) - \cos(-(m-n) \pi)] \\
+                                                                  &= \frac{ 1 }{ (m-n) } [  \cos((m-n) \pi) - \cos((m-n) \pi) ] \\
+                                                                  &= 0.
+        \end{align*}
+        Using the same reasoning, the second term can be written as 
+        \begin{align*}
+            \frac{ \cos((m+n)x) }{ 2(m+n) }  \Big|_{- \pi}^{\pi } &= \frac{ 1 }{ 2(m+n)  } [ \cos((m+n) \pi) - \cos(-(m+n) \pi) ] \\
+                                                                  &= \frac{ 1 }{ 2(m+n) } [ \cos((m+n)\pi) - \cos((m+n)\pi)] \\
+                                                                  &= 0.
+        \end{align*}
+        Hence, we have
+        \[  \int_{ - \pi  }^{ \pi  } \cos(mx) \sin(nx)  \ dx = 0.  \]
+        
+        Our goal now is to show 
+        \[  \int_{ - \pi  }^{ \pi  } \cos(mx) \cos(nx) \ dx = 0 \ \text{and} \ \int_{ -\pi  }^{ \pi  } \sin(mx) \sin(nx)  \ dx = 0 \]
+        for all \( m \neq n  \). Let \( m \neq  n \). Using the trigonometric identity 
+        \[ \cos(a)\cos(b) = \frac{ 1 }{ 2 }  [ \cos(a+b ) + \cos(a-b)],   \]
+        the first integral evaluates to
+        \begin{align*}
+            \int_{ -\pi  }^{ \pi } \cos(mx) \cos(nx) \ dx  &= \frac{ 1 }{ 2 } \int_{ - \pi  }^{ \pi  } [ \cos((m+n)x) + \cos((m-n)x) ]  \ dx \\
+                                                           &= \frac{ 1 }{ 2 } \int_{ - \pi  }^{ \pi  } \cos((m+n)x)  \ dx + \frac{ 1 }{ 2 }  \int_{ - \pi  }^{ \pi  } \cos((m-n)x) \ dx  \\
+                                                           &= \frac{ \sin((m+n)x) }{ 2(m+n) }  \Big|_{-\pi}^{\pi} + \frac{ \sin((m-n)x) }{ 2(m-n) } \Big|_{- \pi}^{\pi}. \\
+        \end{align*}
+        Using the fact that the sine function is odd and the fact that \( \sin((m+n) \pi) = 0  \) for all \( m, n \in \N  \), we can write     
+        \begin{align*}
+            \frac{ \sin((m+n)x) }{ 2(m+n) }  \Big|_{-\pi}^{\pi} &= \frac{ 1 }{ 2(m+n)  } \cdot  2\sin((m+n)\pi)  \\
+                                                                &= \frac{ \sin((m+n)\pi) }{ (m+n) } \\
+                                                                &= 0
+        \end{align*}
+       Likewise, the second term evaluates to  
+       \begin{align*} 
+           \frac{ \sin((m-n)x) }{ 2(m-n) } \Big|_{- \pi}^{\pi} &= \frac{ 1 }{ 2(m-n) } \cdot 2\sin((m-n)\pi) \\
+                                                               &= \frac{ \sin((m-n)\pi) }{ (m-n)  }   \\
+                                                               &= 0.
+      \end{align*}
+      Hence, we have 
+      \[  \int_{ -\pi  }^{ \pi  } \cos(mx) \cos(nx)  \ dx = 0. \]
+      
+      Now we show the second integral. Similarly, we use the trigonometric identity
+      \[ \sin(a)\sin(b) = \frac{ 1 }{ 2 }  [ \sin(a+b) + \sin(a-b) ]. \]
+      Then observe that
+      \begin{align*}
+          \int_{ -\pi  }^{ \pi  } \sin(mx) \sin(nx)  \ dx &= \frac{ 1 }{ 2 } \int_{ - \pi  }^{ \pi  } [ \sin((m+n)x) + \sin((m-n)x)]  \ dx \\
+                                                          &= \frac{ 1 }{ 2 } \int_{ - \pi  }^{ \pi  } \sin((m+n)x) \ dx + \frac{ 1 }{ 2 } \int_{ - \pi  }^{ \pi  } \sin((m-n)x) \ dx \\
+                                                          &= \frac{ -\cos((m+n)x) }{ 2(m+n) } \Big|_{-\pi}^{\pi} + \frac{ \cos((m-n)x) }{ 2(m-n) } \Big|_{- \pi}^{\pi}.   
+      \end{align*}
+      Starting with the first term, we can utilize the fact that \( \cos(x) \) is an even function to get
+      \begin{align*}
+          \frac{ - \cos((m+n)x)  }{ 2(m+n)  } \Big|_{-\pi }^{\pi } &= \frac{ 1 }{ 2(m+n) } [ \cos((m+n) \pi) - \cos((m+n) \pi)] \\
+                                                                   &= 0.
+      \end{align*}
+      Likewise, the second integral evaluates to 
+      \begin{align*}
+          \frac{ \cos((m-n)x) }{ 2(m-n) } \Big|_{- \pi}^{\pi} &= \frac{ 1 }{ 2(m-n) } [ \cos((m-n)\pi) - \cos((m-n)\pi)] \\
+                                                              &= 0.
+      \end{align*}
+      Hence, we have 
+      \[ \int_{ - \pi  }^{ \pi  } \sin(mx) \sin(mx)  \ dx = 0. \]
+
+        \end{proof}
+\end{enumerate}
+
+We can interpret the integrals in exercise 8.5.2 as dot products allowing us to see that all the functions from the set 
+\[  \{ 1, \cos(x) , \sin(x), \cos(2x), \sin(2x), \cos(3x), \dots \}  \]
+are all \textit{orthogonal} to each other. This, in turn, forms a \textit{basis} for a large class of functions.
+
+Our ultimate goal is to find coefficients \( (a_{n}) \) and \( (b_{n}) \) in equation (6). We can assume that we are in possession of some expression described in (6) that will allow us to find formulas for both coefficients. This is similar to how we found the coefficients of a taylor series back in chapter 6, but instead of differentiating repeatedly, we aim to integrate.
+
+In order to compute \( a_{0} \), we need to integrate each side of (6) on the closed interval \( [ - \pi, \pi ] \) to get 
+\begin{align*}
+    \int_{ -\pi  }^{ \pi  } f(x) \ dx &= \int_{ -\pi  }^{ \pi  } \Big[ a_{0} + \sum_{ n=1 }^{ \infty  } a_{n} \cos(nx) + b_{n} \sin(nx) \Big] \ dx \\
+                                      &= \int_{ -\pi  }^{ \pi  } a_{0} \ dx + \sum_{ n=1 }^{ \infty  } \int_{ -\pi  }^{ \pi  } [ a_{n} \cos(nx) + b_{n} \sin(mx)] \ dx \\
+                                      &= a_{0}2\pi + \sum_{ n=1 }^{ \infty  } a_{n} \int_{ -\pi  }^{ \pi  } \cos(nx) \ dx + \sum_{ n=1 }^{ \infty  } \int_{ -\pi  }^{ \pi  } b_{n} \sin(mx) \ dx \\
+                                      &= a_{0} 2 \pi + 0 + 0 \\
+                                      &= a_{0 } 2 \pi.
+\end{align*}
+Solving for \( a_{0} \) gives us 
+\[  a_{0} = \frac{ 1 }{ 2\pi  } \int_{ - \pi  }^{ \pi  } f(x) \ dx. \tag{9} \]
+One might look at the interchanging of the integral and summation used in the derivation with suspicion. The point, as of now, is not to justify each step of the derivation, but rather work backwards so that we may find a representation to prove. The rigor will follow later.
+
+Now suppose we fix \( m \geq 1  \). To compute \( a_{m} \), we first multiply (6) by \( \cos(mx)  \) on both sides and integrate over the closed interval \( [ -\pi, \pi]  \).
+
+\subsubsection{Exercise 8.5.3} Derive the formulas
+\[  a_{m} = \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(x) \cos(mx) \ dx \ \text{and} \ b_{m} = \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(x) \sin(mx) \ dx \] for all \( m \geq 1 \).
+\begin{proof}
+
+\end{proof}
 
 
 
