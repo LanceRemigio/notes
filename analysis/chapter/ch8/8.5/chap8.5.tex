@@ -1,5 +1,4 @@
 \section{Fourier Series}
-
 Fourier's development of a special type of series involving trigonometric functions caused a rework into what it really means to have a "limit" or to "converge" towards a specific value.
 
 \subsection{Trigonometric Series}
@@ -235,8 +234,116 @@ Now suppose we fix \( m \geq 1  \). To compute \( a_{m} \), we first multiply (6
 \subsubsection{Exercise 8.5.3} Derive the formulas
 \[  a_{m} = \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(x) \cos(mx) \ dx \ \text{and} \ b_{m} = \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(x) \sin(mx) \ dx \] for all \( m \geq 1 \).
 \begin{proof}
+Let \( m \geq 1  \). Multiplying by \( \cos(mx) \) on both sides of (6) gives us 
+\[  f(x) \cos(mx) = a_{0} \cos(mx) + \sum_{ n=1 }^{ \infty } a_{n}\cos(mx)\cos(nx) + b_{n} \cos(mx) \sin(nx).  \]
+Now, taking the integral on the closed interval \( [- \pi , \pi ] \) on (6) gives us 
+\begin{align*}
+    \int_{ - \pi  }^{ \pi  } f(x) \cos(mx)  \ dx &= a_{0} \int_{ -\pi  }^{ \pi  } \cos(mx)  \ dx \\ 
+                                                 &+ \sum_{ n=1   }^{ \infty  } \int_{ - \pi  }^{ \pi  } [ a_{n} \cos(mx) \cos(nx) + b_{n} \cos(mx) \sin(nx)   ] \ dx. \\
+\end{align*}
+Using exercise 8.5.2, we know that all the integrals in the above equation evaluate to 0 for all \( n \in \N  \), except when \( n =m  \) for which the right side of the equation evaluates to
+\begin{align*}
+   \int_{ - \pi  }^{ \pi  } f(x) \cos(mx)  \ dx &= \int_{ -\pi  }^{ \pi } a_{m} \cos ^{2}(mx) \ dx \\
+                                                &= a_{m} \cdot \pi
+\end{align*}
+Solving for \( a_{m}  \) gives us our result
+\[  a_{m} = \frac{ 1 }{ m } \int_{ -\pi  }^{ \pi  } \cos ^{2}(mx) \ dx. \]
+
+Using the same reasoning to show the first integral, we have that 
+\[  \int_{ -\pi  }^{ \pi  } f(x) \sin(mx)  \ dx = 0  \]
+for all \( n \in \N  \) except when \( n = m  \) for which the integral above evaluates to
+\begin{align*}
+    \int_{ -\pi  }^{ \pi  } f(x) \sin(mx)  \ dx &=  a_{0} \int_{ - \pi  }^{ \pi  } \sin(mx) \ dx \\ 
+                                                &+ \sum_{ n=1 }^{ \infty  } \int_{ -\pi  }^{ \pi }   [ a_{n} \cos(nx) \sin(mx) + b_{n} \sin(nx) \sin(mx)   ] \ dx \\
+                                                &= b_{m} \int_{ -\pi  }^{ \pi  } \sin^{2}(mx) \ dx \\
+                                                &= b_{m} \cdot \pi.
+\end{align*}
+Solving for \( b_{m} \) gives us our desired result
+\[  b_{m} = \frac{ 1 }{ \pi  } \int_{ - \pi  }^{ \pi  } f(x)\sin(mx) \ dx. \]
 
 \end{proof}
+
+Let's see how these coefficients are computed with simple functions.
+
+\begin{example}{}{}
+    Let 
+    \[  f(x) = 
+    \begin{cases}
+        1 \ \text{if } 0 < x < \pi \\
+        0 \ \text{if } x =0 \ \text{or } x = \pi \\
+        -1 \ \text{if } -\pi < x < 0.
+    \end{cases} \]
+    Notice that \( f \) is an odd function which means that we can evaluate our integrals easily using the symmetry argument; that is, we have
+    \[  a_{0} = \frac{ 1 }{ 2 \pi  } \int_{ -\pi  }^{ \pi  } f(x)  \ dx = 0 \ \text{and} \  \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(x) \cos(nx)  \ dx = 0  \]
+    for all \( n \geq 1  \). Using the same argument, we can simplify \( b_{n} \) to get
+    \begin{align*}
+        b_{n} &= \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(x) \sin(nx)  \ dx \\
+              &= \frac{ 2 }{ \pi  } \int_{ 0  }^{ \pi  } \sin(nx) \ dx \\
+              &= \frac{ 2 }{ \pi  } \Big( \frac{ -1 }{ n }  \cos(nx) \Big|_{0}^{\pi} \Big)  \\
+              &= \frac{ 2 }{ \pi  } \Big( \frac{ -1 }{ n }  \cos(n \pi) + \frac{ 1 }{ n } \Big) \\ 
+              &= 
+              \begin{cases}
+                  4 / n\pi   \ \text{if } n \text{ is odd} \\
+                  0   \ \text{if } n \text{ is even} \\
+              \end{cases}
+    \end{align*}
+    Plugging in our results into (6) then gives us the following representation of \( f(x)  \)
+    \[  f(x) = \frac{ 4  }{ \pi }  \sum_{ n=0  }^{ \infty  } \frac{ 1 }{ 2n+1 } \sin((2n+1)x). \]
+\end{example}
+
+\subsubsection{Exercise 8.5.4} 
+\begin{enumerate}
+    \item[(a)] Referring to the previous example, explain why we can be sure that the convergence of the partial sums to \( f(x)  \) is \textit{not} uniform on any interval containing \( 0  \).
+        \begin{proof}[Solution]
+        At the endpoints, \( f(x)  \) takes on a different value making our convergence pointwise instead of being uniform.
+        \end{proof}
+    \item[(b)] Repeat the computations of Example 8.5.1 for the function \( g(x) = | x |  \) and examine graphs for some partial sums. This time, make use of the fact that \( g  \) is even (\( g(x) = g(-x) \) ) to simplify the calculations. By just looking at the coefficients, how do we know this series converges uniformly to something?
+        \begin{proof}[Solution]
+            Our goal is to produce coefficients \( a_{0}, a_{m},   \) and \( b_{m} \) so that we have the following representation of \( f(x)  \); that is, 
+            \[  f(x) = a_{0} + \sum_{ n=1 }^{ \infty  } a_{n} \cos(nx) + b_{n} \sin(nx). \] Using the formula for \( a_{0} \) derived earlier and using the fact that \( | x  |  \) is an even function, we produce 
+            \begin{align*}
+                a_{0} &= \frac{ 1 }{ 2 \pi  } \int_{ -\pi  }^{ \pi  } x \ dx \\
+                      &= \frac{ 1 }{ \pi  } \int_{ 0  }^{ \pi  } x  \ dx \\
+                      &= \frac{ 1 }{ \pi  } \cdot \frac{ 1 }{ 2  } x^{2} \Big|_{0}^{\pi } \\
+                      &= \frac{ \pi  }{ 2 }.
+            \end{align*}
+            Using the symmetry from the absolute value function once again, we get that computing \( a_{m} \) leads to
+            \begin{align*}
+                a_{m} &= \frac{ 2 }{ \pi } \int_{ 0 }^{ \pi } x \cos(mx)  \ dx \\
+                      &= \frac{ 2 }{ \pi  } \Big[ \frac{ 1 }{ m } x\sin(mx)    \Big]_{0}^{\pi} - \frac{ 2 }{m \pi  } \int_{ 0 }^{ \pi  } \sin(mx) \ dx \\   
+                      &=  \frac{ 2 }{ m^{2}\pi  }  \cos(mx) \Big|_{0}^{\pi} \\ 
+                      &= \frac{ 2 }{ m^{2} \pi  } [ \cos(m \pi) - 1 ] \\
+                      &= 
+                      \begin{cases}
+                          0 \ &\text{if } m \text{ even} \\
+                          -4/ m^{2}\pi \ &\text{if } m  \text{ odd}.
+                      \end{cases}
+            \end{align*}
+            Since \( \sin(mx)  \) is an odd function and \( | x  |  \) is an even function, we find that their product \( | x |  \sin(mx)  \) is also odd. Hence, the integral 
+            \[ \frac{ 1 }{ \pi  }  \int_{ -\pi }^{ \pi   } f(x) \sin(mx)   \ dx  \]
+            evaluates to zero. Hence, \( b_{m} = 0  \). Therefore, \( f(x) = | x  |  \) can be represented by the following Fourier series
+            \[  | x |  = \frac{ \pi  }{ 2 }  - \frac{ 4  }{ \pi  }  \sum_{ n=0  }^{ \infty  } \frac{ \cos((2n+1)x)  }{ (2n+1)^{2}  }.  \] By looking at the coefficients, we can see that the convergence of \( (a_{n}) \) goes to zero and does not depend on our choice of \( x \in [-\pi , \pi ] \).
+        \end{proof}
+\end{enumerate}
+
+\subsection{The Riemann-Lebesgue Lemma}
+
+Observe that by looking at the Fourier coefficients of \( (a_{n}) \) and \( (b_{n}) \) tend to zero as we take the limit as \( n  \) approaches \( \infty  \). We will see why this works in our upcoming convergence proof.
+
+If we take a look at any function \( h(x)  \) and \( \sin(nx) \), we will notice that when we take their product \( h(x) \sin(nx) \), the oscillatory nature of \( \sin(nx) \) do not affect the value of \( h  \) too much. This means that the value from the integral 
+\[  \int_{ - \pi  }^{ \pi  } h(x) \sin(nx)  \ dx \] 
+leads to a small value (because of the positive and negative oscillations of \( h(x) \sin(nx) \) leads values cancelling out).
+
+\begin{theorem}{Riemann-Lebesgue Lemma}{}
+    Assume \( h(x)  \) is continuous on \( (-\pi , \pi]  \). Then, 
+    \[  \int_{ -\pi  }^{ \pi  } h(x) \sin(nx) \ dx \to 0 \ \text{ and } \ \int_{ -\pi  }^{ \pi  } h(x) \cos(nx)  \ dx \to 0 \]
+    as \( n \to \infty  \).
+\end{theorem}
+
+\begin{proof}
+
+\end{proof}
+
 
 
 
