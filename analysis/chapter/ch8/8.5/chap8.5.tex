@@ -341,11 +341,77 @@ leads to a small value (because of the positive and negative oscillations of \( 
 \end{theorem}
 
 \begin{proof}
-
+    Using our assumption that \( h  \) is continuous on the interval \( (- \pi , \pi]  \), we can periodically extend \( h  \) to be continuous on all of \( \R  \). This implies that we have to assume that \( \lim_{ n \to - \pi ^{+} } h(x) = h(\pi) \) holds.
 \end{proof}
 
+\subsubsection{Exercise 8.5.5} Explain why \( h  \) is uniformly continuous on \( \R  \).
+\begin{proof}[Solution]
+    We know that \( h  \) is uniformly continuous on \( \R  \) since we can extend the continuity of \( h  \) to any interval \( (-n\pi, n\pi]   \) for all \( n\in \Z^{+} \) as well as having the implication that \( \lim_{ x \to - n \pi^{+} } h(x) = h(n\pi) \).
+\end{proof}
+
+Given \( \epsilon > 0 \), choose \( \delta > 0  \) such that \( | x - y  | < \delta  \) implies \( | h(x) - h(y) | < \frac{ \epsilon }{ 2 }  \). Notice that the period of \( \sin(nx) \) is \( 2 \pi / n  \). Hence, we can choose an \( N  \) large enough such that \( \pi / n < \delta  \) whenever \( n \geq N  \). Now
+consider a particular interval \( [a,b]  \) of length \( 2 \pi / n  \) over which \( \sin(nx) \) moves through one complete oscillation.
+
+\subsubsection{Exercise 8.5.6} Show that \( \Big| \int_{ a }^{ b } h(x) \sin(nx) \ dx  \Big| < \epsilon / n  \), and use this fact to complete the proof.
+
+\begin{proof}
+    Let \( \epsilon > 0  \). Choose \( \delta = \min \{ \frac{ 1 }{ 2n } , \frac{ \epsilon  }{ 4mN  }   \} > 0   \) such that \(  | x - y  |  < \delta  \) implies \( | h(x) - h(y)  | < \epsilon / 2  \). Using the period of \( \sin(nx)  \) which is \( 2 \pi / n  \), we can choose an \( N  \) large enough such that \( \pi / n  < \delta  \) whenever \( n \geq N  \). Then using the length of \([a,b]   \) given to us above and the fact that \( | \sin(nx) | \leq 1  \), we can write  
+    \[  \int_{ a }^{ b } | h(x)  |  | \sin(nx) |  \ dx \leq \int_{ a }^{ b } | h(x) |  \ dx. \]
+    Since \( h  \) is integrable, we know that \( h  \) must also be bounded. Hence, there exists an \( M > 0  \) such that \( | h(y) | \leq M  \) for all \( y \in [a,b] \). Now observe that  
+    \begin{align*}
+        \Big| \int_{ a }^{ b } h(x) \sin(nx) \ dx  \Big| &\leq \int_{ a }^{ b } | h(x)  |  | \sin(nx) |  \ dx \\
+                                                         &= \int_{ a }^{ b } | h(x) |  \ dx \\
+                                                         &< \Big( \frac{ \epsilon  }{ 2 } + | h(y) |  \Big) \int_{ a }^{ b }  \ dx \\
+                                                         &= \Big( \frac{ \epsilon  }{ 2 } + | h(y) |  \Big)(b-a) \\
+                                                         &= \frac{ \epsilon  }{ 2 }  (b-a) + | h(y) | (b-a) \\
+                                                         &\leq \frac{ \epsilon  }{ 2 } (b-a) + M (b-a) \\
+                                                         &< \frac{ \epsilon  }{ 2  } \cdot \frac{ 2 \pi  }{ n }  + M \cdot \frac{ 2 \pi  }{ n } \\
+                                                         &< \frac{ \epsilon  }{ 2n }  + \frac{ \epsilon  }{ 2  n  } \\
+                                                         &= \frac{ \epsilon  }{ n }.
+    \end{align*}
+    Hence, we have that 
+    \[  \Big| \int_{ a }^{ b } h(x) \sin(nx) \ dx \Big| < \frac{ \epsilon  }{ n }. \] We can use the same reasoning to show that if \( | \cos(nx) | \leq 1  \), then 
+    \[  \Big| \int_{ a }^{ b } h(x) \cos(nx) \ dx \Big|  < \frac{ \epsilon  }{ n }. \]
+    Letting \( \epsilon > 0  \), we know that \( \epsilon / n  \to 0  \) as \( n \to \infty  \). This tells us that we can find an \( N \in \N  \) such that for any \( n \geq N  \), we have 
+    \[  \Big| \int_{ a }^{ b } h(x) \sin(nx) \ dx \Big| < \frac{ \epsilon  }{ n }  \to 0  \]
+    and 
+    \[  \Big| \int_{ a }^{ b } h(x) \cos(nx)  \ dx \Big| < \frac{ \epsilon  }{ n } \to 0. \]
+\end{proof}
+
+In attempt to make the proof above shorter, we can just say that since \( h  \) is uniformly continuous on \( \R  \), we know that \( h  \) must be bounded on any compact interval \( [a,b] \subseteq \R  \). Hence, there must exists an \( M > 0 \) such that \( | h(x)  | \leq M  \) for any \(  x \in [a,b]  \). Using the same set of assumption above we can write 
+\begin{align*}
+    \Big| \int_{ a }^{ b } h(x) \sin(nx)  \ dx \Big| &\leq \int_{ a }^{ b } | h(x)  | | \sin(nx) |  \ dx \\
+                                                     &\leq M \int_{ a }^{ b } | \sin(nx)  |  \ dx \\
+                                                     &\leq M \int_{ a }^{ b }  \ dx \\
+                                                     &= M (b-a) \\
+                                                     &< M \cdot \frac{ 2 \pi    }{ n } \\
+                                                     &< 2M \cdot \frac{ \epsilon  }{ 2 M n } = \frac{ \epsilon  }{ n }. 
+\end{align*}
 
 
+Note that the lemma above still holds even if we take out the continuity assumption. This makes the use of Fourier series much more versatile in terms of its application to a wider variety of functions and is capable of more interesting behavior than our power series counterpart.
 
+
+\subsection{A Pointwise Convergence Proof}
+
+The formulas for the Fourier coefficients that we have produced so far require the implicit assumption that our function needs to be Riemann Integrable. This tells us that it is advantageous to have our class of integrable functions to be as large as possible in order to properly represent \( f(x)  \) in terms of (6). The goal now is to determine how many more assumptions do we need in order to have Fourier series converge back to \( f(x)  \). This involves determining which type of convergence we hope to establish.
+
+Consider 
+\[  f(x) = a_{0} + \sum_{ n=1 }^{ \infty  } a_{n} \cos(nx) + b_{n} \sin(nx) \] once again.
+On the left-hand side, we would like to have \( f(x)  \) be 
+\begin{enumerate}
+    \item[(i)] bounded,
+    \item[(ii)] integrable,
+    \item[(iii)] continuous,
+    \item[(iv)] differentiable 
+    \item[(vi)] \( f'  \) continuous.
+\end{enumerate}
+Suppose on the right-hand side, we list the types of convergences needed to properly represent \( f(x)  \) using (6). These types of convergences include 
+\begin{enumerate}
+    \item[(i)] pointwise convergence
+    \item[(ii)] uniform convergence
+    \item[(iii)] \( L^{2}  \) convergence, and
+    \item[(iv)] Cesaro mean convergence.
+\end{enumerate}
 
 
