@@ -378,7 +378,7 @@ consider a particular interval \( [a,b]  \) of length \( 2 \pi / n  \) over whic
     \[  \Big| \int_{ a }^{ b } h(x) \cos(nx)  \ dx \Big| < \frac{ \epsilon  }{ n } \to 0. \]
 \end{proof}
 
-In attempt to make the proof above shorter, we can just say that since \( h  \) is uniformly continuous on \( \R  \), we know that \( h  \) must be bounded on any compact interval \( [a,b] \subseteq \R  \). Hence, there must exists an \( M > 0 \) such that \( | h(x)  | \leq M  \) for any \(  x \in [a,b]  \). Using the same set of assumption above we can write 
+In attempt to make the proof above shorter, we can just say that since \( h  \) is uniformly continuous on \( \R  \), we know that \( h  \) must be bounded on any compact interval \( [a,b] \subseteq \R  \). Hence, there must exists an \( M > 0 \) such that \( | h(x)  | \leq M  \) for any \(  x \in [a,b]  \). Using the same set of assumptions above and letting \( \delta = \epsilon  / 4 M n  \), we can write 
 \begin{align*}
     \Big| \int_{ a }^{ b } h(x) \sin(nx)  \ dx \Big| &\leq \int_{ a }^{ b } | h(x)  | | \sin(nx) |  \ dx \\
                                                      &\leq M \int_{ a }^{ b } | \sin(nx)  |  \ dx \\
@@ -413,5 +413,79 @@ Suppose on the right-hand side, we list the types of convergences needed to prop
     \item[(iii)] \( L^{2}  \) convergence, and
     \item[(iv)] Cesaro mean convergence.
 \end{enumerate}
+
+\begin{theorem}{}{}
+    Let \( f(x)  \) be continuous on \( (- \pi , \pi]  \), and let \( S_{N}(x)  \) be the \( N \)th partial sum of the Fourier series described in equation (7), where the coefficients \( (a_{n}) \) and \( (b_{n}) \) are given by equations (9) and (10). It follows that 
+    \[  \lim_{ N \to \infty  }  S_{N}(x) = f(x)  \] 
+    pointwise at any \( x \in (-\pi, \pi]   \) where \( f'(x)  \) exists.
+\end{theorem}
+
+Before we embark on the proof, let us get a few known facts out of the way.
+\begin{enumerate}
+    \item[(i)]  \( \cos(\alpha - \theta) = \cos(\alpha) \cos(\theta) + \sin(\alpha ) \sin(\theta)  \).
+    \item[(ii)] \( \sin(\alpha + \theta) = \sin(\alpha) \cos(\theta) + \cos(\alpha) \sin(\theta). \)
+    \item[(iii)] For any \( \theta \neq 2n \pi \), we have  
+        \[ \frac{ 1 }{ 2 } + \cos(\theta) + \cos(2 \theta) + \cos(3 \theta) + \dotsb  + \cos(N \theta) = \frac{ \sin((N+1/2) \theta)  }{ 2 \sin(\theta / 2 )  }.   \] This function is called the \textit{Dirichlet Kernel}. The proof of this fact will be omitted because it involves complex analysis; that is, it results from taking the real part of a geometric sum of complex exponentials. 
+    \item[(iv)] Letting 
+        \[  D_{N}(\theta) = 
+        \begin{cases}
+            \frac{ \sin((N+1/2) \theta) }{ 2 \sin(\theta / 2 )  } , &\text{if } \theta \neq 2 n \pi \\         
+            1 / 2 + N, &\text{if } \theta = 2n\pi 
+        \end{cases} 
+    \]
+    from (iii), we can see that
+    \[  \int_{ - \pi  }^{ \pi  } D_{N}(\theta)  \ d\theta = \pi. \]
+\item[(v)] The Riemann-Lebesgue Lemma.
+\end{enumerate}
+
+Let us fix a point \( x \in  (- \pi , \pi] \). Our first goal is to simplify \( S_{N}(x)  \). Since \( x  \) is a fixed constant, we can write equations (9) and (10) using \( t  \) as the "dummy" variable for integration. Using facts (i) and (iii), we can see that 
+\begin{align*}
+    S_{N}(x) &= a_{0 } + \sum_{ n=1  }^{ N  }a_{n} \cos(nx) + b_{n} \sin(nx) \\
+             &=  \Big[ \frac{ 1 }{  2 \pi  } \int_{ -\pi  }^{ \pi  } f(t)  \ dt \Big] + \sum_{ n=1  }^{ N  } \Big[\frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(t) \cos(nt)  \ dt \Big] \cos(nx)  \\
+             &+ \sum_{ n=1  }^{ N  } \Big[ \frac{ 1 }{ \pi  } \int_{ - \pi  }^{ \pi  } f(t) \sin(nt) \ dx  \Big] \sin(nx) \\ \\
+             &= \frac{ 1 }{ \pi  } \int_{ - \pi  }^{ \pi  } f(t) \Big[ \frac{ 1 }{ 2 }  + \sum_{ n=1  }^{ N  } \cos(nt) \cos(nx) + \sin(nt) \sin(nx) \Big] \ dt  \\
+             &= \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(t) \Big[\frac{ 1 }{ 2 } + \sum_{ n =1  }^{ N  } \cos(n( t - x)) \Big] \ dt \\
+             &= \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(t) D_{N}(t-x) \ dx.
+\end{align*}
+Letting \( u = t - x  \) and using the fact that \( f  \) is extended to be \( 2 \pi-\)periodic, we can express \( S_{N}(x)  \) in terms of \( D_{N}(u)  \). By fact (iv), it follows that
+\[  S_{N}(x) = \frac{ 1 }{ \pi  } \int_{ -\pi - x  }^{ \pi - x  } f(u+x) D_{N}(u) \ du = \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(u+x) D_{N}(u)  \ du. \]
+Since \( D_{N} \) is periodic, we know that our computation of the integral is independent of the choice of interval granted that we cover one full period.
+    Now showing that \( S_{N}(x) \to f(x)  \) is a matter of showing \( | S_{N}(x) - f(x)  |  \) gets arbitrarily small when we let \( N \to \infty  \). Using (iv), we can express \( f(x)  \) as we have done with \( S_{N}(x)  \) in terms of \( D_{N}(u)  \). Hence, we have
+    \[  f(x) = \frac{ f(x)  }{ \pi  } \int_{ -\pi  }^{ \pi  } D_{N}(u)  \ du = \frac{ 1 }{ \pi  } \int_{ - \pi  }^{ \pi  } f(x) D_{N}(u)  \ du \] and thus we have 
+    \[  S_{N}(x) - f(x) = \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } (f(u+x) - f(x)) D_{N}(u) \ du. \tag{11} \]
+
+We can use (ii), to rewrite the Dirichlet kernel \( D_{N}(u)  \) as 
+\begin{align*}
+    D_{N}(u) &= \frac{ \sin((N+1/2)u) }{ 2 \sin(u/2) }   \\
+             &= \frac{ \sin(Nu) \cos(u/2) + \cos(Nu) \sin(u/2) }{ 2 \sin(u/2) } \\
+             &= \frac{ 1 }{ 2 } \Big[ \frac{ \sin(Nu) \cos(u/2) }{ \sin(u/2) } + \cos(Nu)\Big]. \\
+\end{align*}
+
+Now observe that
+\begin{align*}
+    S_{N}(x) - f(x) &= \frac{ 1 }{ 2 \pi  } \int_{ - \pi  }^{ \pi  } (f(u+x) - f(x) ) D_{N}(u)     \ du \\ 
+                    &= \frac{ 1 }{  2 \pi  } \int_{ -\pi  }^{ \pi  } (f(u+x) - f(x) ) \Big[ \frac{ \sin(Nu) \cos(u/2) }{ \sin(u/2) } + \cos(Nu) \Big] \ du \\
+                    &= \frac{ 1 }{ 2\pi  } \int_{ -\pi  }^{ \pi  } (f(u+x) - f(x) ) \Big( \frac{ \sin(Nu) \cos(u/2) }{ \sin(u/2) }  \Big)  \\ 
+                    &+ (f(u+x) - f(x)) \cos(Nu)  \ du \\
+                    &= \frac{ 1 }{ 2 \pi  } \int_{ - \pi  }^{ \pi  } p_{x}(u) \sin(Nu)  \ du + \frac{ 1 }{ 2 \pi  } \int_{ -\pi  }^{ \pi  } q_{x}(u) \cos(Nu)  \ du,
+\end{align*}
+where in the last equality, we set 
+\[ p_{x}(u) = \frac{ (f(u+x) - f(x)) \cos(u/2) }{ \sin(u/2) } \ \text{ and } \ q_{x}(u) = f(u+x) - f(x).    \]
+ 
+\subsubsection{Exercise 8.5.7}  
+\begin{enumerate}
+    \item[(a)] First, argue why the integral involving \( q_{x}(u)  \) tends to zero as \( N \to \infty  \).
+        \begin{proof}
+        
+        \end{proof} 
+    \item[(b)] The first integral is a little more subtle because the function \( p_{x}(u)  \) has the \( \sin(u/2)  \) term in the denominator. Use the fact that \( f \) is differentiable at \( x  \) (and a familiar limit from calculus) to prove that the first integral goes to zero as well.
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate} 
+
+
+
+
 
 
