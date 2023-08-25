@@ -1,0 +1,718 @@
+
+\subsubsection{Exercise 8.4.1} For each \( n \in \N  \), let 
+\[  n \# = n + (n -1 ) + (n-2) + \dots + 2 + 1. \]
+\begin{enumerate}
+    \item[(a)] Without looking ahead, decide if there is a natural way to define \( 0 \#  \). How about \( (-2) \#  \)? Conjecture a reasonable value for \(  \frac{ 7 }{ 2 }  \# \).
+        \begin{proof}[Solution]
+        
+        \end{proof}
+    \item[(b)] Now prove \( n \# = \frac{ 1 }{ 2 }  n (n+1) \) for all \( n \in \N  \), and revisit part (a).
+        \begin{proof}
+        The statement above is clearly true for \( n =1  \). Now assume \(  n \#   = \frac{ 1 }{ 2 }  n (n+1) \) holds for \(  1 \leq n \leq k -1  \). We want to show that \( n \#  \) holds for the \( k  \)th case. By using the definition of \( n \#  \), we can write 
+        \begin{align*}
+            k \# &= k + (k-1)\#  \\
+                 &= k + \frac{ 1 }{ 2 }  k (k-1) \\
+                 &= \frac{ 1 }{ 2 }  (k^{2} + k) \\
+                 &= \frac{ 1 }{ 2 } k (k+1).
+        \end{align*}
+        Since \( n \# = \frac{ 1 }{ 2 }  n (n+1)  \) holds for the \( k  \)th case, we know that it holds for any \( n \in \N  \).
+        \end{proof}
+\end{enumerate}
+We can replace the discrete variable \( n \in \N   \) for values of \( x \in \R  \) and the resulting formula 
+\[  x \# = \frac{ 1 }{ 2 }  x (x+1)  \] will still make sense.
+
+\subsubsection{Exercise 8.4.2} Verify that the series converges absolutely for all \( x \in \R  \), that \( E(x)  \) is differentiable on \( \R  \), and \( E'(x) = E(x)  \).
+\begin{proof}[Solution]
+First we prove that the series above converges absolutely for all \( x \in \R  \). Let \( x \in \R  \). Observe that 
+\[  \Big| \sum_{ n=0  }^{ \infty  } \frac{ x^{n}  }{  n!  }  \Big| \leq \sum_{ n=0  }^{ \infty  } \Big| \frac{ x^{n}  }{ n!  }  \Big|.    \] By using the ratio test for power series found in section 6.5, we have
+\begin{align*}
+    \Big| \frac{ a_{n+1} }{ a_{n} }  \Big| &= \Big| \frac{ x^{n+1} }{ (n+1)!  } \cdot \frac{ n!  }{ x^{n} }  \Big|  \\
+                                           &= \frac{ | x  |  }{ n+1  } \xrightarrow{n\rightarrow\infty} 0. \\
+\end{align*}
+Since the limit above is \(  0  \), we know that the series 
+\[  \sum_{ n=0  }^{ \infty  } \frac{ x^{n}  }{  n!  } \tag{1} \] converges absolutely for all \( x \in \R  \). Given any compact set in \( \R  \), we know that the convergence of (1) to \( E(x)  \) is uniform. Hence, it must be continuous on any \( A \subseteq \R  \) and differentiable \( n  \) times. Differentiating 
+\[  E(x) = \sum_{ n= 0 }^{ \infty  } \frac{ x^{n}  }{ n!  }  \] and reordering indices we find that \( E'(x) = E(x)  \).
+\end{proof}
+
+\subsubsection{Exercise 8.4.3} 
+\begin{enumerate}
+    \item[(a)] Use the results of Exercise 2.8.7 and the binomial formula to show that \( E(x+y) = E(x)E(y)  \) for all \( x , y \in \R  \).
+    \begin{proof}
+    Let \( x, y \in \R  \). By definition of \( E(x+y)  \), using the binomial formula, we can write 
+    \begin{align*}
+        E(x+y)    &= \sum_{ n=0  }^{ \infty  } \frac{ (x+y)^{n}  }{  n!  }  \\
+                  &= \sum_{ n=0 }^{ \infty  } \sum_{ k=0 }^{ \infty  } \frac{ y^{k } \cdot x^{n-k} }{  k! (n-k)!  }  \\
+                  &= \sum_{ n=0  }^{ \infty  } \sum_{ k=0  }^{ \infty  } \frac{ y^{k }  }{  k!  }  \cdot \frac{ x^{n-k} }{ (n-k)!  } \\
+                  &=  \Big[ \sum_{ m=0 }^{ \infty  } \frac{ x^{m} }{ m! }  \Big] \Big[ \sum_{ k = 0  }^{ \infty  } \frac{ y^{ k }  }{ k!  }  \Big] \tag{\( n-k = m \)}. \\
+    \end{align*}
+    Since 
+    \begin{align*}
+        E(x) &= \sum_{ m=0  }^{ \infty  } \frac{ x^{m}  }{ m!  },  \\
+        E(y) &= \sum_{ k=0  }^{ \infty  } \frac{ y^{ k }  }{  k!  } \\
+    \end{align*}
+    both converge absolutely (by Exercise 2.8.7), we can write 
+    \[  E(x+y) = E(x)E(y). \]
+    \end{proof}
+    \item[(b)] Show that \( E(0) = 1, E(-x) = 1 / E(x)  \), and \( E(x) > 0  \) for all \( x \in \R  \).
+        \begin{proof}
+        Let \( x \in \R  \). The first fact immediately follows when \( x = 0  \). Now let us show the second fact. Using the first fact and part(a), we can write 
+        \[   1 = E(0) = E(x - x ) = E(x) E(-x) \iff E(x)E(-x) = 1.   \] 
+        Dividing through by \( E(x)  \) on both sides leads us to our result 
+        \[  E(-x) = \frac{ 1 }{ E(x)  }. \]  For the last fact, observe that \( E(x) > 0  \) follows immediately when we consider any \( x \geq 0  \). Suppose we let \( x  \) be negative, then using the fact that 
+        \[  E(-x) = \frac{ 1 }{ E(x)  }   \] where \( E(x) > 0  \) for any \( x > 0  \) implies that \( E(-x) = \sum_{ n=0 }^{ \infty  } \frac{ (-1)^{n} x^{n}  }{  n!  } > 0    \).
+        \end{proof}
+\end{enumerate}
+
+The takeaway here is that the power series \( E(x)  \) contains all the "normal" properties that is associated with the exponential function \( e^{x} \). 
+
+\subsubsection{Exercise 8.4.4} Define \( e = E(1)  \). Show \( E(n) = e^{n}  \) and \( E(m/n) = (\sqrt[n]{e})^{m} \) for all \( m,n \in \Z  \).
+\begin{proof}
+Let \( P(n)  \) be the statement that \( E(n) = e^{n} \) for all \(  n \in \Z  \). Let our base case be \( n = 1  \). Then by definition, we must have \( E(1) = e  \). Now assume \( E(n) = e^{n}   \) holds for all \( n \in \Z^{+} \). We want to show that \( E(n+1) = e^{n+1 } \) holds. Observe that by part (a) of Exercise 4.4.3, we have 
+\begin{align*}
+    E(n+1) &= E(n) \cdot E(1)  \\
+           &= e^{n} \cdot e \\
+           &= e^{n+1}.
+\end{align*}
+Hence, \( E(n) = e^{n}  \) for all \( n \in \Z^{+} \). To show that the statement also holds for all \( n \in \Z^{-} \), we can just multiply \( n  \) by a negative to get 
+\begin{align*}
+    E(-n) &= \frac{ 1 }{ E(n) }  \\
+          &= \frac{ 1  }{ e^{n}  } \\
+          &= e^{-n}.
+\end{align*}
+Lastly, we show \( E(m/n) = (\sqrt[n]{e} )^{m } \) for all \( n,m \in \Z  \). Let \( n,m \in \Z  \). Observe that 
+\[  E(1)  = E \Big( \frac{ n }{ n }  \Big) = ( \sqrt[n]{e})^{n} \implies E(1/n) = \sqrt[n]{e}.  \] Furthermore, we can rewrite \( m / n  \) in the following way where 
+\[  \frac{ m }{ n }  = \sum_{ i=0 }^{ m  } \frac{ 1 }{ n }. \]
+Then we see that 
+\begin{align*}
+    E \Big( \frac{ m }{ n }  \Big) &= E \Big( \sum_{ i=0 }^{ m  } \frac{ 1 }{ n }  \Big) \\
+                                   &= E \Big( \frac{ 1 }{ n }  \Big) \cdot E \Big( \frac{ 1 }{ n }  \Big) \cdot E \Big( \frac{ 1 }{ n }  \Big) \cdot \ \dotsb \  m \text{ times} \\ 
+                                   &= \sqrt[n]{e} \cdot \sqrt[n ]{e } \cdot \sqrt[n]{e} \cdot \ \dotsb \ m \text{ times} \\
+                                   &= (\sqrt[n]{e})^{m}.
+\end{align*}
+\end{proof}
+
+To complete our list of properties of \( e^{x}  \), all we need is its behavior as \( x \to \pm \infty  \).
+
+\begin{definition}{}{}
+    Given \( f : [a,\infty )  \to \R \), we say that \( \lim_{ x \to \infty  }  f(x) = L  \) if, for all \( \varepsilon > 0  \), there exists \( M > a  \) such that whenever \( x \geq M  \) it follows that \( |  f(x) - L  | < \varepsilon  \).
+\end{definition}
+
+\subsubsection{Exercise 8.4.5} Show \( \lim_{ x \to \infty  }  x^{n} e^{-x} = 0  \) for all \( n = 0,1,2, \dots \ \). To get started notice that when \( x \geq 0   \), all the terms in (1) are positive.
+\begin{proof}
+    Let \( \varepsilon > 0  \) and \( n \in \N  \). Choose \( M = 1 / \varepsilon  > a   \). Then observe that for any \( x \geq M  \), we have
+    \begin{align*}
+        \Big| \frac{ x^{n} }{  e^{x} }  - 0  \Big| &= \frac{ x^{n}  }{  e^{x} }  
+                                                   <  \frac{ x^{n}  }{  x^{n+1} } 
+                                                   = \frac{ 1 }{ x } 
+                                                   < \varepsilon.
+    \end{align*}
+    Hence, \( \lim_{ x \to \infty  }  x^{n} e^{-x} = 0. \)
+\end{proof}
+
+\subsubsection{Exercise 8.4.6} 
+\begin{enumerate}
+    \item[(a)] Explain why we know \( e^{x}  \) has an inverse function; that is, let's call it \( \log(x)  \) defined for any real \(  x > 0  \) and satisfying
+        \begin{enumerate}
+            \item[(i)] \( \log(e^{y}) = y  \) for all \(  y\in \R  \) and 
+            \item[(ii)] \( e^{\log(x)} = x  \), for all \( x > 0  \).
+        \end{enumerate}
+        \begin{proof}[Solution]
+        If we are considering \( f(x) = e^{x} \) defined on \( (0,\infty ) \), then we get that \( f(x)  \) is a bijective function for all \( x \in (0, \infty ) \). To see why, suppose we let \( x, y \in (0,\infty )  \). Since \( \log(x)  \) is defined for all \(  x \in (0,\infty ) \), we can say that 
+        \begin{align*}
+            E(x) &= E(y) \\
+             e^{x}    &= e^{y} \\
+             \log(e^{x}) &= \log(e^{y}) \\
+             x &= y. 
+        \end{align*}
+        Hence, \( E(x) = e^{x} \) is an injective function. Now let's show surjectivity. Then letting \( x = \log(y)  \), observe that 
+        \[  E(x) = e^{x} = e^{\log(y)} = y. \] Hence, \( E(x)  \) is a surjective function. Since \( E(x)  \) is both injective and surjective, we know that \( E(x)  \) must be bijective and thus must have an inverse function.
+        \end{proof}
+    \item[(b)] Prove \( (\log x )' = 1 / x   \). (See Exercise 5.2.12.)
+        \begin{proof}
+        Let \( y = f(x) = e^{x} \). Using the result from Exercise 5.2.12, the fact that \( f'(x) = e^{x} \), and \( e^{\log(x)}  \), we get that 
+        \begin{align*}
+            (\log x)' &= \frac{ 1 }{ f'(x)  }  \\
+                      &= \frac{ 1 }{ e^{\log(x)} } \\
+                      &= \frac{ 1 }{ x }.
+        \end{align*}
+        \end{proof}
+    \item[(c)] Fix \( y > 0  \) and differentiate \( \log(xy)  \) with respect to \( x  \). Conclude that 
+        \[  \log(xy) = \log(x) + \log(y) \ \text{for all } x,y > 0. \]
+        \begin{proof}
+        Let \( x, y \in (0,\infty )  \) with \( x = e^{y}   \) and \( y = e^{x} \). Our logarithm properties, we then have \( \log(x) = y  \) and \( \log(y) = x  \). Then by using the properties of \( e^{x}  \) and \( \log(x)   \), observe that  
+        \begin{align*}
+            \log(xy) &= \log(e^{y} \cdot e^{x} ) \\
+                     &= \log(e^{y+x}) \\
+                     &= y + x \\
+                     &= \log(x) + \log(y).
+        \end{align*} 
+        Hence, we have 
+        \[  \log(xy) = \log(x) + \log(y). \]
+
+        \end{proof}
+    \item[(d)] For \( t > 0  \) and \( n \in \N  \), \( t^{n} \) has the usual interpretation as \( t \cdot t \dotsb t  \) ( \( n \) times).
+        Show that 
+        \[  t^{n} = e^{n \log t } \ \text{for all } n \in \N.   \]
+        \begin{proof}
+            Let \( t>0  \) and \( n \in \N  \). Observe that \( t = e^{\log(t)} \) and then 
+            \[  t^{n} = \Big( e^{\log(t)}  \Big)^{n} = e^{n \log (t)}. \]
+        \end{proof}
+\end{enumerate}
+
+\begin{definition}{}{}
+   Given \( t > 0  \), define the exponential function \( t^{x} \) to be 
+   \[  t^{x} = e^{x \log t } \ \text{for all } x \in \R. \]
+\end{definition}
+
+\subsubsection{Exercise 8.4.7}  
+\begin{enumerate}
+    \item[(a)] Show \( t^{m/n} = (\sqrt[n]{t})^{m}  \) for all \( m,n \in \N  \).
+        \begin{proof}
+        Let \( m, n \in \N  \). Then 
+        \[  t^{m/n} = (t^{1/n})^{m} = (\sqrt[n]{t})^{m}. \]
+        \end{proof}
+    \item[(b)] Show \( \log(t^{x}) = x \log t \), for all \( t > 0  \) and \( x \in \R \).
+        \begin{proof}
+        Let \( t > 0  \) and \( x \in \R  \). Then observe that 
+        \begin{align*}  
+            t^{x} = e^{x \log t } &\implies \log(t^{x}) = \log(e^{x\log t }) \\ 
+                                  &\implies \log (t^{x} ) = x \log t.
+        \end{align*}
+        \end{proof}
+    \item[(c)] Show \( t^{x} \) is differentiable on \( \R  \) and find the derivative.
+        \begin{proof}
+        Let \( x,t \in \R  \). To show that \( f(x) = t^{x}  \) is differentiable, we can use the definition of differentiability. Using the fact that \( t^{x} = e^{x \log t }  \), we have    
+        \begin{align*}
+            f'(c) &= \lim_{ x \to c } \frac{ t^{x} - t^{c} }{  x -c  }  \\
+                  &= \lim_{ x \to c }  \frac{ e^{x \log t } - e^{c \log t }  }{ x -c  }.  \\
+        \end{align*}
+        Observe that \( g(x) = e^{x \log t}  \) is differentiable. Hence, the limit in the last equality exists and therefore \( f'(c)  \) exists. Using the Chain Rule, we get
+        \[  f'(x) = (t^{x} )' = (e^{x \log t })' = \log(t) e^{x \log t } = \log (t) t^{x}.\]
+        \end{proof} 
+\end{enumerate}
+
+The strategy we have been partaking in so far is a similar to how we would define what \( n!  \) would mean if it was replaced by \( x  \in \R  \) instead of \( n \in \N  \). 
+
+\subsubsection{Exercise 8.4.8} Inspired by the fact that \( 0! = 1  \) and \( 1! = 1  \), let \( h(x)  \) satisfy 
+\begin{enumerate}
+    \item[(i)] \( h(x) = 1  \) for all \( 0 \leq x \leq 1  \), and 
+    \item[(ii)] \( h(x) = x h(x-1)  \) for all \( x \in \R  \).
+\end{enumerate}
+\begin{enumerate}
+    \item[(a)] Find a formula for \( h(x)  \) on \( [1,2]  \), \( [2,3]  \), and \( [n, n +1 ] \) for arbitrary \( n \in \N  \).
+        \begin{proof}[Solution] 
+        On \( [1,2]  \), observe that 
+        \[  h(2) = 2 \cdot h(1) = 2 \cdot 1 \cdot h(0) = 2 \]
+        and likewise 
+        \[  h(1) = 1. \] This tells us that \( h(x)  \) on \( [1,2]  \) must be defined as \( h(x) =x  \). Whereas on \( [2,3]  \), we have 
+        \[  h(3) = 3 \cdot h(2) = 3 \cdot 2 \cdot h(1) = 3! = 3 \]
+        and 
+        \[  h(2) = 2 \cdot h(1) = 2 \cdot 1 \cdot h(0) = 2! = 2. \]
+        which tells us that \( h(x)  \) on \( [2,3]  \) must be defined as \( h(x) = x (x-1)  \). On \( [n,n+1] \), observe that 
+        \[  h(n) = n \cdot h(n-1) = n \cdot (n-1) \cdot h(n-2) = n!  \]
+        and  
+        \[  h(n+1) = (n+1) \cdot n \cdot (n-1) \cdot (n-2) = (n+1)!. \]
+        This tells us that \( h(x)  \) on \( [n,n+1]  \) will be defined as 
+        \[  h(x) = \prod_{i=1}^{n-1} x - i\] which can be proven using induction. 
+        \end{proof}
+    \item[(b)] Now do the same for \( [-1,0], [-2,-1] , \) and \( [-n, -n+1]  \).
+        \begin{proof}[Solution] 
+        
+        \end{proof}
+    \item[(c)] Sketch \( h  \) over the domain \( [-4,4]  \).
+        \begin{proof}[Solution]
+            \textbf{To do.}
+        \end{proof}
+\end{enumerate}
+Our function above \( h(x)  \) satisfies \( h(n) = n!   \) and it is at least continuous for \( x \geq 0  \). However, we still run into the problem where our piecewise function contains non-differentiable corners. We conclude that from the exercise above that \( x!  \) will have the same asymptotic behavior as \( h  \) at negative integers \( x  \). Hence, it won't be defined on \( x \in \Z^{-} \).
+
+\subsubsection{Exercise 8.4.9} 
+\begin{enumerate}
+    \item[(a)] Show that the improper integral \( \int_{ a }^{ \infty  } f  \) converges if and only if, for all \( \varepsilon > 0 \), there exists \( M > a  \) such that whenever \( d > c \geq M  \) it follows that 
+        \[  \Big| \int_{ c }^{ d } f  \Big|  < \varepsilon. \]
+        (In one direction it will be useful to consider the sequence \( a_{n} = \int_{ a }^{ a+ n  } f  \).)
+        \begin{proof}
+        For the forwards direction, suppose that the improper integral \( \int_{ a }^{ \infty  } f  \) converges. Let \( \varepsilon > 0  \). By assumption, we can find an \( M > a  \) such that whenever \(  d >  c \geq M  \), it follows that  
+        \begin{align*}
+            \Big| \int_{ a }^{ d } f  - L  \Big| &< \frac{ \varepsilon  }{ 2  } \ \ \text{whenever } d \geq M > a,  \\
+            \Big| \int_{ a }^{ c } f - L  \Big| &< \frac{ \varepsilon  }{ 2  }  \ \ \text{whenever } c \geq M > a.
+        \end{align*}
+        Observe that 
+        \[  \int_{ c }^{ d } f = \int_{ c }^{ a } f + \int_{ a }^{ d } f = \int_{ a }^{ d } f  - \int_{ a }^{ c } f.   \]
+        Then we have 
+        \begin{align*}
+            \Big| \int_{ c }^{ d } f  \Big| &= \Big| \int_{ a }^{ d } f  - \int_{ a }^{ c } f  \Big|  \\
+                                            &\leq \Big| \int_{ a }^{ d } f - L  \Big| + \Big| L - \int_{ a }^{ c } f  \Big| \\
+                                            &< \frac{ \varepsilon  }{ 2  }  + \frac{ \varepsilon  }{ 2 } = \varepsilon. \\
+        \end{align*}
+        
+        Now assume the converse. Let \( \varepsilon > 0 \). We want to show that 
+        \[  \lim_{ n \to \infty  }  \int_{ a }^{ a + n }  f  = L. \] By assumption, there exists a natural number \( N > a     \) such that whenever \( a + n > n \geq N  \), we have 
+        \begin{align*}
+            \Big| \int_{ a }^{ a + n  } f  -  L  \Big| &= \Big| \Big(  \int_{ a }^{ n  }  f  + \int_{ n }^{ a + n } f \Big)  - L  \Big|  \\
+                                                       &= \Big| \Big( \int_{ a }^{ n }  f   -L \Big)  + \int_{ n }^{  a+ n } f   \Big| \\
+                                                       &\leq \Big| \int_{ a }^{ n } f  - L  \Big| + \Big| \int_{ n }^{ a+n  } f  \Big| \\
+                                                       &< \frac{ \varepsilon  }{ 2  } + \frac{ \varepsilon  }{ 2  }  \\
+                                                       &= \varepsilon.
+        \end{align*}
+        \end{proof}
+    \item[(b)] Show that if \( 0 \leq f \leq g  \) and \( \int_{ a }^{ \infty  } g   \) converges then \( \int_{ a }^{ \infty  } f   \) converges.
+        \begin{proof}
+        Let \( \epsilon > 0  \). Our goal is to show that there exists an \( M > a  \) such that whenever \(  d > c \geq M  \), we have 
+        \[  \Big| \int_{ c }^{ d }  f  \Big| < \epsilon.  \] 
+        Since \(  0 \leq  f \leq  g  \) and \( \int_{ 0 }^{ \infty  }  g   \) converges, there exists an \( M > a  \) such that whenever \( d > d \geq M  \), we have that   
+        \begin{align*}
+            \Big| \int_{ c }^{ d } f  \Big| &\leq \Big| \int_{ c }^{ d }  g  \Big|  
+                                            < \epsilon. 
+        \end{align*}
+        Hence, we must have that \( \int_{ 0 }^{ \infty  } f  \) converges as well.
+        \end{proof}
+    \item[(c)] Part (a) is a Cauchy criterion, and part (b) is a comparison test. State and prove an absolute convergence test for improper integrals.  
+        \begin{definition}{Absolute Convergence Test For Improper Integrals}{}
+        If \( \int_{ 0 }^{ \infty  } | f |   \) converges, then  \( \int_{ 0 }^{ \infty  }  f   \) converges as well.
+        \end{definition}
+        \begin{proof}
+        Suppose \( \int_{ 0 }^{ \infty  } | f |   \) converges. Then observe that 
+        \[  \Big| \int_{ 0 }^{ \infty  } f  \Big| \leq \int_{ 0 }^{ \infty  }  | f | . \] Since the right-hand side converges, we know that the left-hand side of the inequality also converges via the Comparison test. Hence, \( \int_{ 0 }^{ \infty  } f    \) converges.
+        \end{proof}
+\end{enumerate}
+\subsubsection{Exercise 8.4.10} 
+\begin{enumerate}
+    \item[(a)] Use the properties of \( e^{t} \) previously discussed to show 
+        \[  \int_{ 0 }^{ \infty  }  e^{-t} \  dt = 1 . \]
+        \begin{proof}[Solution]
+        Using part (i) of FTC implies
+        \begin{align*}
+            \int_{ 0 }^{ \infty  }  e^{-t} \ dt &= \lim_{ b \to \infty  } \int_{ 0 }^{ b }  e^{-t} \ dt \\
+                                                &= \lim_{ b \to \infty  }  \Big[ - e^{-b} + e^{0} \Big] \\
+                                                &= 0 + 1 \\
+                                                &= 1.
+        \end{align*}
+        \end{proof}
+    \item[(b)] Show
+        \[  \int_{ 0  }^{ \infty  }  e^{-t} \  dt, \ \text{for all } \alpha > 0. \tag{3} \]
+        \begin{proof}
+        Let \( \alpha > 0  \). Using part (i) of FTC, we have
+        \begin{align*}
+            \int_{ 0 }^{ \infty  }  e^{- \alpha t} \ dt &= \lim_{ b \to \infty  }  \int_{ 0 }^{ b }  e^{-\alpha t } \  dt \\
+                                                        &= \lim_{ b \to \infty  }  \Big[ \frac{ -e^{- b t } }{ b } + \frac{ e^{0} }{ \alpha }    \Big] \\
+                                                        &= 0 + \frac{ 1 }{ \alpha } \\
+                                                        &= \frac{ 1 }{\alpha }.
+        \end{align*}
+        \end{proof}
+\end{enumerate}
+
+Let us now consider the left side of (3). Differentiating the left hand side, we certainly get the following 
+\[  \Big[ \frac{ 1 }{ \alpha  }  \Big]' = \frac{ -1 }{ \alpha^{2} }. \] On the right hand side of (3), however, it is not so obvious whether or not we can "distribute" differentiation inside the integral of (3). Let us pretend that we can so we have 
+\[  [e^{- \alpha t }]' = e^{- \alpha t } \cdot (-t). \]
+Now let us actually find out if our conjecture that 
+\[  \frac{ 1 }{ \alpha^{2}  }  = \int_{ 0 }^{ \infty  }  t e^{-\alpha t } \ dt.  \]
+
+\subsubsection{Exercise 8.4.11} 
+\begin{enumerate}
+    \item[(a)] Evaluate \( \int_{ 0 }^{ b  } t e^{- \alpha t } \  dt \) using the integration-by-parts formula from Exercise 7.5.6. The result will be an expression in \( \alpha  \) and \( b  \).
+        \begin{proof}[Solution]
+        Using the integration-by-parts formula, we get that 
+        \begin{align*}
+            \int_{ 0 }^{ b } t e^{- \alpha t } \  dt &= \Big[  \frac{ - t  }{ \alpha  }  e^{- \alpha t } \Big]_{0}^{b} + \frac{ 1 }{ \alpha  } \int_{ 0 }^{ b } e^{- \alpha t } \  dt \\
+                                                     &= \Big[ \frac{ -b e^{-\alpha b } }{ \alpha  }  \Big] +  \frac{ 1 }{ \alpha  } \Big[ \frac{ -1  }{ \alpha  } e^{- \alpha t }  \Big]_{0}^{b} \\
+                                                     &= \Big[ \frac{ -b e^{-\alpha b } }{ \alpha  }  \Big] +  \frac{ 1 }{ \alpha  } \Big[ \frac{ -1  }{ \alpha  } e^{- \alpha b  } + \frac{ 1 }{ \alpha  }   \Big] \\
+                                                     &= \frac{ -b e^{-\alpha b } }{ \alpha  } - \frac{ e^{- \alpha b }  }{ \alpha^{2}  }  + \frac{ 1 }{ \alpha^{2} }    \\
+        \end{align*}
+        \end{proof}
+    \item[(b)] Now compute \( \int_{ 0 }^{ \infty  }  t e^{-\alpha t } \  dt  \) and verify equation (4).
+        \begin{proof}[Solution]
+        Letting \( b \to \infty  \) in the result in part (a), gives us 
+        \[  \int_{ 0 }^{ \infty  }  t e^{- \alpha t } \  dt = \lim_{ b \to \infty  }  \int_{ 0 }^{ b } t e^{- \alpha t } \ dt = \frac{ 1 }{ \alpha^{2}  }. \]
+        \end{proof}
+\end{enumerate}
+
+Since the above (4) ended up working out, we have to now create a rigorous foundation for why this works. 
+
+\subsubsection{Exercise 8.4.12} Assume the function \( f(x,t)  \) is continuous on the rectangle \( D = \{ (x,t) : a \leq x \leq b , c \leq t \leq d  \}. \) Explain why the function
+\[  F(x) = \int_{ c }^{ d } f(x,t) \ dt \] is properly defined for all \( x \in [a,b]  \).
+\begin{proof}[Solution]
+    All we need to do is show that \( F \) is integrable on \( D  \). To do this, we need to show that \( F  \) is continuous. Let \( \epsilon > 0  \) and let \( x \in [a,b] \). Since \( f: D \to \R   \) is continuous at \( (x_{0}, t_{0}) \), there exists a \( \delta > 0 \) such that whenever \( \lVert (x,t) - (x_{0}, t_{0}) \rVert <  \delta  \), it follows that 
+\[ | f(x,t) - f(x_{0}, t_{0}) | < \frac{ \varepsilon }{  d - c  } .  \] 
+Then observe that 
+\begin{align*}
+    | F(x) - F(u)  | &= \Big| \int_{ c }^{ d } f(x,t) \ dt - \int_{ c }^{ d } f(u,v) \  dt \Big|   \\
+                     &= \Big| \int_{ c }^{ d } f(x,t) - f(u,v) \ dt \Big| \\
+                     &\leq \int_{ c }^{ d }  | f(x,t) - f(u,v) | \  dt \\
+                     &< \int_{ c }^{ d }  \frac{ \varepsilon }{ d -c  } \  dt 
+                     = \varepsilon.
+\end{align*}
+Hence, we have \( F  \) must be continuous on \( D  \) and therefore it must be integrable on \( D  \). Not only is \( F  \) continuous but it is uniformly continuous since \( D  \) is a compact set.
+\end{proof}
+
+There is a direct analogue of continuous functions on compact sets in the \( \R^{2} \) setting.
+
+\begin{theorem}{}{}
+    If \( f(x,t)  \) is continuous on \( D  \), then \( F(x) = \int_{ c }^{ d } f(x,t) \ dt \) is uniformly continuous on \( [a,b]  \).
+\end{theorem}
+
+\subsubsection{Exercise 8.4.13} Prove Theorem 8.4.5. 
+
+\begin{proof}
+Apply the same argument as in exercise 8.4.12.
+\end{proof}
+
+Now let us add the assumption that for every fixed value \( t \in [c,d] \), we end up with a differentiable function \( f(x,t) \) such that the limit
+\[  f_{x}(x,t) = \lim_{ z \to x }  \frac{ f(z,t) - f(x,t)  }{  z -x  }  \] 
+exists for all \( (x,t) \in D  \). Furthermore, suppose \( f_{x}(x,t)  \) is continuous.
+
+\begin{theorem}{}{}
+    If \( f(x,t)  \) and \( f_{x}(x,t)  \) are continuous on \( D  \), then the function \( F(x) = \int_{ c }^{ d }  f(x,t) \ dt    \) is differentiable and 
+    \[  F'(x) = \int_{ c }^{ d } f_{x}(x,t) \ dt. \]
+\end{theorem}
+
+\begin{proof}
+    Fix \( x \in [a,b]  \) and let \( \epsilon > 0  \) be arbitrary. Our goal is to find a \( \delta > 0  \) such that 
+    \[  \Big| \frac{ F(z) - F(x)  }{ z -x  }  - \int_{ c }^{ d }  f_{x}(x,t) \ dt \Big| < \varepsilon. \tag{5} \]
+    whenever \( 0 < | z  -x  | < \delta  \).
+\end{proof}
+
+\subsubsection{Exercise 8.4.14} Finish the proof of Theorem 8.4.6.
+\begin{proof}
+Suppose \( f(x,t)  \) and \( f_{x}(x,t)  \) are continuous on \( D  \). Let \( \epsilon > 0  \). Observe that 
+\begin{align*}
+    \frac{ F(z) - F(x)  }{ z - x  }   &=  \frac{ 1 }{ z - x  } \Big[   \int_{ c }^{ d }  f(z,t) \ dt - \int_{ c }^{ d } f(x,t) \ dt \Big]  \\
+                 &= \int_{ c }^{ d }  \frac{ f(z,t) - f(x,t)  }{ z - x  }  \  dt.
+\end{align*}  Since \( f(x,t)   \) is differentiable, there exists \( \alpha \in (a,b)  \) such that 
+\[  f_{x}(\alpha , t ) = \frac{ f(z,t) - f(x,t)  }{ z - x } \] by MVT. Since \( f_x \) is continuous on \( D  \) and \( D  \) is a compact set, we know that \( f_{x} \) is uniformly continuous. Hence, there exists \( \delta_1 > 0  \) such that whenever \( \lVert (x,t) - (z,t)  \rVert < \delta_{1} \) where 
+\[ | f_{x}(\alpha,t ) - f_{x}(x,t)  | < \frac{ \varepsilon }{ d -c   }.   \]  
+By assumption, there exists a \(  \delta_2 > 0  \) and then assume \( 0 < | z  -x  | < \delta_2  \). Then choose \( \delta = \min \{ \delta_{1}, \delta_{2} \}  \) such that whenever \(  0 < | z - x  | < \delta  \), we have that 
+\begin{align*}
+   \Big| \frac{ F(z) - F(x)  }{  z - x  } - \int_{ c }^{ d } f_{x}(x,t)  \ dt  \Big|  &= \Big| \int_{ c }^{ d } \frac{ f(z,t) - f(x,t)   }{  z - x  } \ dt - \int_{ c }^{ d } f_{x}(x,t) \ dt \Big|  \\
+                                                                                      &= \Big|  \int_{ c }^{ d } f_{x}(\alpha, t) \  dt - \int_{ c }^{ d } f_{x}(x,t) \  dt \Big|\\
+                                                                                      &= \Big| \int_{ c }^{ d }  f_{x}(\alpha, t ) \  - f_{x}(x,t)  \ dt \Big| \\  
+                                                                                      &\leq \int_{ c }^{ d }  | f_{x}(\alpha,t ) - f_{x}(x,t) | \  dt \\
+                                                                                      &< \frac{ \varepsilon  }{ d -c   }  \int_{ c }^{ d }  \ dt = \varepsilon.
+\end{align*}
+We conclude that \( F(x)   \) is differentiable and that 
+\[  F'(x) = \int_{ c }^{ d }  f_{x}(x,t) \ dt. \]
+\end{proof}
+
+\subsubsection{Exercise 8.4.15} 
+\begin{enumerate}
+    \item[(a)] Show that the improper integral \( \int_{ 0 }^{ \infty  }  e^{-xt} \ dt \) converges uniformly to \( 1 /x  \) on the set \( [1/2, \infty ) \). 
+        \begin{proof}
+            Let \( x \in [1/2, \infty ) \). Let \( \epsilon > 0  \). Taking the integral of \( \int_{ 1/2 }^{ d }  e^{-xt} \  dt \) leads us to 
+            \[  \int_{ 1/2 }^{ d }  e^{-xt} \ dt = \frac{ 1 }{ x } ( e^{-dx} - e^{(-1/2)x}). \]
+            Since \( \lim_{ x \to \infty  }  1 /x = 0 \), we can find a \( M > 1/2   \) such that 
+            \[  \Big| \frac{ 1 }{ x }  - 0  \Big| < \frac{ \varepsilon }{ 2 } \] whenever \( x \geq M  \). Furthermore, we know that  \( f(x,t) = e^{-xt} \) is a uniformly continuous function on \( [1/2, \infty ) \). Hence, there we know that there exists a \( \delta > 0  \) such that whenever \( \lVert -1/2 - d  \rVert < \delta   \), we have
+            \[  | f(-1/2,t) - f(d, t)  | < \frac{ \varepsilon }{ 4 }. \]
+            Using the same choice of \( M > 1 /2   \), we have that
+            \begin{align*}
+               \Big| \frac{ 1 }{ x }  - \int_{ 1/2 }^{ d  } e^{-xt} \ dt  \Big|  &= \Big| \frac{ 1 }{ x } - \frac{ 1 }{ x } \Big( e^{-dx} - e^{(-1/2) x} \Big) \Big|  \\
+                                                                                 &= \Big| \frac{ 1 }{ x }  + \frac{ 1 }{ x } \Big( e^{(-1/2)x} - e^{-dx} \Big) \Big|  
+                                        \\                                         &\leq \Big| \frac{ 1 }{ x }  \Big| + \frac{ 1 }{ x } | e^{(-1/2)x} -  e^{-dx}  | \\
+                                                                                   &\leq \Big| \frac{ 1 }{ x } - 0 \Big|  + 2 | e^{(-1/2)x} - e^{-dx}  |. \\
+                                                                                   &< \frac{ \varepsilon }{ 2  } + \frac{ \varepsilon }{ 2 }  = \varepsilon. \\
+            \end{align*}
+            Hence, we have that 
+            \[  \int_{ 1/2 }^{ d }  e^{-xt} \ dt \implies \frac{ 1 }{ x  }  \] uniformly.
+        \end{proof}
+    \item[(b)] Is the convergence uniform on \( (0,\infty ) \)? 
+        \begin{proof}[Solution]
+        No, the convergence is not uniform. To see why, observe that 
+        \begin{align*}
+           \Big| \frac{ 1 }{ x } - \int_{ 0 }^{ d } e^{-xt} \ dt \Big|  &= \Big| \frac{ 1 }{ x } - \frac{ 1 }{ x }  ( e^{-dx} - 1) \Big|.  \\
+        \end{align*}
+        We can see that the convergence of \( 1 /x \to 0   \) depends on our choice of \( x  \) because clearly we cannot bound \( 1/ x  \) by \( 0  \). Hence, the convergence of \( \int_{ 0 }^{ \infty  }  e^{-xt}  \ dt \) on \( (0,\infty )  \) is pointwise.  
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 8.4.16} Prove the following analogue of the Weierstrass M-Test for improper integrals: If \( f(x,t)  \) satisfies \( | f(x,t)  | \leq g(t)  \) and \( \int_{ a }^{ \infty  } g(t) \ dt \) converges, then \( \int_{ a }^{ \infty  } f(x,t) \ dt \) converges uniformly on \( A  \).
+
+\begin{proof}
+Our goal is to use the Absolute Comparison test for improper integrals and the comparison test for improper integrals found in Exercise 8.4.9 (b) to show that \( \int_{ 0 }^{ \infty  } f(x,t) \ dt  \) converges uniformly. Observe that 
+\[  \Big| \int_{ 0 }^{ \infty  }  f(x,t) \  dt  \Big| \leq \int_{ 0 }^{ \infty  }  | f(x,t)  | \ dt \leq \int_{ 0 }^{ \infty  }  g(t) \ dt. \]
+Since \( \int_{ 0 }^{ \infty  } g(t) \ dt  \) converges (which means that our choice of \( M  \) is independent of \( x \in [0, \infty ) \)), we know that \( \Big| \int_{ 0 }^{ \infty  } f(x,t) \ dt \Big|  \) must converge absolutely. Hence, we must have \( \int_{ 0 }^{ \infty  }  f(x,t)  \ dt  \) converge uniformly by the comparison test.
+\end{proof}
+
+An immediate consequence of Definition 8.4.7 is that the uniform convergence of an improper integral implies that the sequence of functions defined by 
+\[  F_{n}(x) = \int_{ c }^{ c + n  } f(x,t) \ dt  \] converges uniformly to \( F(x)  \) on the closed interval \( [a,b] \). 
+
+\begin{theorem}{}{}
+    If \( f(x,t)  \) continuous on \( D = \{ (x,t) : a \leq x \leq b , c \leq t  \}  \), then 
+    \[  F(x) = \int_{ c }^{ \infty  } f(x,t) \ dt \] is uniformly continuous on \( [a,b]  \), provided the integral converges uniformly.
+\end{theorem}
+
+\subsubsection{Exercise 8.4.17} Prove Theorem 8.4.8.
+\begin{proof}
+Let \( \epsilon > 0  \) and let \( x, y \in (a,b)  \). Since \( f(x,t)  \) is continuous on \( D  \) and \( D  \) is a compact set, we know that \( f(x,t)  \) must be uniformly continuous on \( D  \). Hence, there exists a \( \delta > 0  \) such that whenever \( \lVert (x,t) - (y,t) \rVert < \delta  \), we must have 
+\[  | f(x,t) - f(y,t)  | < \frac{ \varepsilon }{  d -c  }. \] 
+Then using the same choice of \( \delta > 0  \), we can say
+\begin{align*}
+   | F(x) - F(y)  |  &= \Big| \int_{ c }^{ d } f(x,t) \ dt - \int_{ c }^{ d } f(y,t) \ dt    \Big|  \\
+                     &= \Big| \int_{ c }^{ d } f(x,t)  - f(y,t) \ dt  \Big| \\
+                     &\leq \int_{ c }^{ d }  | f(x,t) - f(y,t)  | \  dt \\
+                     &< \frac{ \varepsilon }{ d - c  } \int_{ c }^{ d }  \ dt = \varepsilon.
+\end{align*}
+Hence, \( F  \) is a uniformly continuous function.
+\end{proof}
+
+\begin{theorem}{}{}
+    Assume the function \( f(x,t)  \) is continuous on \( D = \{ (x,t) : a \leq x \leq b , c \leq t  \}  \) and \( F(x) = \int_{ c }^{ \infty  } f(x,t) \ dt  \) exists for each  \(  x \in [a,b]  \). If the derivative function \( f_{x}(x,t)  \) exists and is continuous, then 
+    \[  F'(x) = \int_{ c  }^{ \infty  }  f_{x}(x,t) \ dt, \]
+    provided the integral in (7) converges uniformly.
+\end{theorem}
+
+\subsubsection{Exercise 8.4.18} Prove Theorem 8.4.9.
+\begin{proof}
+Let \( \varepsilon > 0  \). We can use MVT (since \( F  \) is differentiable) to write  
+\begin{align*}
+    F'(x) &= \frac{ F(z) - f(y)  }{ z - y  }  \\
+          &= \frac{ 1 }{ z - y  } \int_{ c }^{ d } f(z,t) - f(y,t) \  dt \\
+          &= \int_{ c }^{ d }  \frac{ f(z,t) - f(y,t)  }{ z - y } \ dt
+\end{align*}
+for some \( x \in (z,y)   \). Since the derivative \( f_{x}(x,t)  \) also exists, we can use MVT again to find an \( \alpha \in (z,y)   \) such that 
+\[  f_{x}(\alpha, t) = \frac{ f(z,t) - f(y,t)  }{ z - y  }. \] 
+We know that \( f_{x} \) is continuous. Hence, there exists a \(  \delta  > 0 \) such that whenever \( \lVert (\alpha, t) - (x,t)  \rVert < \delta \), we have 
+\[  | f_{x}(\alpha, t ) - f_{x}(x, t) | < \frac{ \varepsilon  }{ d - c  }.\]
+Since the improper integral \( \int_{ c }^{ d }   f_{x}(x,t) \ dt  \) converges uniformly, we can find an \( M > c  \),
+\begin{align*}
+    \Big| F'(x) - \int_{ c }^{ d } f_{x}(x,t) \ dt \Big| &= \Big| \int_{ c }^{ d }  f_{x}(\alpha, t) \ dt - \int_{ c }^{ d }  f_{x}(x,t) \ dt \Big|  \\
+                                                         &= \Big| \int_{ c }^{ d }  f_{x}(\alpha, t) - f_{x}(x,t) \ dt \Big|  \\
+                                                         &\leq \int_{ c }^{ d }  | f_{x}(\alpha, t ) - f_{x}(x,t)  | \ dt \\
+                                                         &< \frac{ \varepsilon  }{  d-c   }  \int_{ c }^{ d }  \ dt = \varepsilon.
+\end{align*}
+Hence, we conclude that 
+\[  F'(x) = \int_{ c }^{ \infty } f_{x}(x,t) \  dt. \]
+\end{proof}
+
+
+\subsubsection{Exercise 8.4.19} 
+\begin{enumerate}
+    \item[(a)] Although we verified it directly, show how to use the theorems in this section to give a second justification for the formula
+        \[ \frac{ 1 }{ \alpha^{2}  } = \int_{ 0 }^{ \infty  }  t e^{- \alpha t } \  dt, \ \text{for all } \alpha > 0   \]
+        \begin{proof}
+        Note that \( f(\alpha, t ) =  e^{- \alpha t } \) is continuous on \( D  \) implies that 
+        \[  F( \alpha ) =  \frac{ 1 }{  \alpha  }  =  \int_{ 0 }^{ \infty  }  e^{- \alpha t } \ dt \tag{1} \] exists and is also continuous on \( D  \). If we differentiate with respect to \( \alpha \), we get that \( f_{\alpha}(\alpha,t) \) is also continuous on \( D  \). Thus, we can say that (1) is differentiable and that 
+        \[  \frac{ 1 }{ \alpha^{2} } = F'(\alpha) = \int_{ c }^{ d }  f_{\alpha}(\alpha,t) \ dt  \] is defined by Theorem 8.4.9.
+        \end{proof}
+    \item[(b)] Now derive the formula 
+        \[  \frac{ n!  }{ \alpha^{n+1} } = \int_{ 0 }^{ \infty  }  t^{n} e^{- \alpha t } \ dt, \ \text{for all } \alpha > 0.\]
+        If we set \( \alpha = 1  \) in equation (8) we get 
+        \[  n! = \int_{ 0 }^{ \infty  }  t^{n} e^{-t} \ dt. \]
+        \begin{proof}[Solution]
+        We proceed using induction. Observe that for the \( n = 1  \) case, we know that 
+        \[  \int_{ 0 }^{ \infty  } t e^{-\alpha t } \ dt = \frac{ 1 }{ \alpha^{2} } \]
+        by Exercise 8.4.11. Now suppose 
+        \[  \frac{ n! }{ \alpha^{n+1} } = \int_{ 0 }^{ \infty  } t^{n} e^{- \alpha t} \ dt  \] for \( n \geq 1  \). We want to show that this holds for the \( n  + 1  \) case; that is, we want to show 
+        \[  \frac{ (n+1)! }{ \alpha^{n+2} } = \int_{ 0 }^{ \infty  } t^{n+1} e^{- \alpha t } \ dt. \]
+        Observe by the integration-by-parts formula that 
+        \begin{align*}
+            \int_{ 0 }^{ d } t^{n+1} e^{- \alpha t } \ dt &=  \Big[ \frac{ - t^{n+1} }{ \alpha } e^{- \alpha t  } \Big]_{0}^{d} + \frac{ (n+1) }{ \alpha } \int_{ 0 }^{ d } t^{n} e^{ - \alpha t } \    dt  \\
+                                                          &= \frac{ - d^{n+1}  }{ \alpha }  e^{- \alpha d } + \frac{ (n+1)  }{ \alpha } \int_{ 0 }^{ d }  t^{n} e^{- \alpha t } \ dt.
+        \end{align*}
+        We see that as we take the limit as \( d \to \infty  \), we have 
+        \[  \lim_{ d \to \infty  }  \frac{  - d^{n+1} }{ \alpha } e^{- \alpha d } = 0.\] Now using our induction hypothesis, we have 
+        \begin{align*}
+            \lim_{ d \to \infty  } \int_{ 0 }^{ d  } t^{n+1} e^{ - \alpha t } \ dt &= \frac{ (n+1)  }{ \alpha }  \lim_{ d \to \infty  } \int_{ 0 }^{ d }  t^{n} e^{ - \alpha t } \  dt.    \\
+                                                                                   &= \frac{ (n+1)  }{ \alpha }  \int_{ 0 }^{ \infty  }  t^{n} e^{- \alpha t } \ dt \\
+                                                                                   &= \frac{ (n+1)  }{ \alpha } \cdot \frac{ n!  }{ \alpha^{n+1}  } \\
+                                                                                   &= \frac{ (n+1)!  }{ \alpha^{n+2} }.
+        \end{align*}
+        Hence, we conclude that 
+        \[ \frac{ n!  }{ \alpha^{n+1} } =  \int_{ 0 }^{ \infty  }  t^{n} e^{ - \alpha t } \ dt.\]  
+        \end{proof}
+\end{enumerate}
+
+Now we are well on our way to extending the \( n!  \) on the right-hand and left-hand side of the above equation to \( x \in \R  \).
+
+\begin{definition}{}{}
+    For \( x \geq 0  \), define the \textit{factorial function} 
+    \[  x! = \int_{ 0 }^{ \infty  } t^{x} e^{-t} \ dt. \]
+\end{definition}
+
+\subsubsection{Exercise 8.4.20} 
+\begin{enumerate}
+    \item[(a)] Show that \( x!  \) is an infinitely differentiable function on \( (0, \infty ) \) and produce a formula for the \( n^{th} \) derivative. In particular show that \( (x!)^{"} > 0 \). 
+        \begin{proof}
+            Note that \( f(x,t) = t^{x} e^{-t } \) is continuous and so is \( f_{x}(x,t) = \log(t) t^{x} e^{-t }  \). Observe that we can differentiate \( t^{x}  \) as many times as we want. Hence, we have that 
+            \[  x! = \int_{ 0  }^{ \infty  }  t^{x} e^{-t} \ dt \tag{1}  \] is infinitely differentiable by Theorem 8.4.6.  Differentiating (1), we have that  
+            \begin{align*}
+                \frac{d  }{d x } [ x! ]  &= \frac{ d }{ dx  } \Big[ \int_{ 0 }^{ \infty  }  t^{x} e^{-t} \ dt \Big]  \\
+                                         &= \int_{ 0 }^{ \infty  } \frac{\partial  }{\partial x }  [ t^{x} e^{-t }] \ dt \\
+                                         &= \int_{ 0 }^{ \infty  } \log(t) t^{x} e^{-t } \ dt 
+            \end{align*}
+            It can be shown, using induction, that for every \( n \geq  1  \), that 
+            \[  \frac{d ^{n}  }{d x^{n} } [ x! ] = \int_{ 0 }^{ \infty  }  \log^{n}(t) t^{x} e^{-t} \ dt. \]
+        \end{proof}
+    \item[(b)] Use the integration-by-parts formula employed earlier to show that \( x!  \) satisfies the functional equation 
+        \[  (x+1)! = (x+1) x!. \]
+        \begin{proof}
+        Using the integration-by-parts formula and the definition of \( x!  \), we can write 
+        \begin{align*}
+            (x+1)! &= \int_{ 0 }^{ \infty  } t^{x+1} e^{-t } \ dt \\
+                   &= \lim_{ d \to \infty  } \Big[ - t^{x+1} e^{-t} \Big]_{0}^{d} + (x+1) \int_{ 0 }^{ \infty  } t^{x} e^{-t} \    dt \\
+                   &= 0 + (x+1) x! \\
+                   &= (x+1) x!.
+        \end{align*}
+        Hence, we have 
+        \[  (x+1)! = (x+1)x!. \]
+        \end{proof}
+\end{enumerate}
+
+\begin{theorem}{Bohr-Mollerup Theorem}{}
+    There is a unique positive function \( f  \) defined on \( x \geq  0  \) satisfying 
+    \begin{enumerate}
+        \item[(i)] \( f(0) = 1  \).
+        \item[(ii)] \( f(x+1) = (x+1) f(x)  \), and 
+        \item[(iii)] \( \log(f(x))  \) is convex.
+    \end{enumerate}
+    Since \( x!  \) satisfies properties (i), (ii), and (iii), it follows that \( f(x) = x!  \).
+\end{theorem}
+
+\begin{proof}
+    Geometrically, if \( [a,b]  \) and \( [a',b'] \) are two intervals in the domain of a convex function \( \phi \), and \( a \leq a' \) and \( b \leq b'\), then the slopes the function \( \phi  \) would satisfy the following inequality
+    \[  \frac{ \phi(b) - \phi(a)  }{  b - a  } \leq \frac{ \phi(b') - \phi(a')  }{ b' - a' }.  \] Since \( f  \) satisfies properties (i) and (ii) we know \( f(n) = n!  \) for all \( n \in \N  \). Now let us fix \( n \in \N  \) and \( x \in (0,1] \).
+\end{proof}
+
+\subsubsection{Exercise 8.4.21} 
+\begin{enumerate}
+    \item[(a)] Use the convexity of \( \log(f(x)) \) and the three intervals \( [n-1,n]  \), \( [n,n +x] \), and \( [n,n+1] \) to show 
+        \[  x \log(n) \leq \log(f(n+x)) - \log(n!) \leq x \log(n+1). \]
+        \begin{proof}
+ On the interval \( [n-1,n ] \) and the fact that \( f(n) = n!  \), we have 
+            \begin{align*}
+                \log(f(n)) - \log(f(n-1))   &= \log(n!) - \log(n-1!)  \\
+                                            &= \log(n(n-1)!) - \log(n-1)! \\
+                                            &= \log(n) + \log(n-1)! - \log(n-1)! \\
+                                            &= \log(n).
+            \end{align*}
+            Similarly, we have 
+            \begin{align*}
+                \log(f(n+1)) - \log(f(n)) &= \log(n+1)! - \log(n)! \\
+                                          &= \log((n+1)! n) - \log(n) \\
+                                          &= \log(n+1) + \log(n) - \log(n) \\
+                                          &= \log(n+1).
+            \end{align*}
+            Then using the convexity of \( \log(f(x))  \), we have 
+            \[  \log(n) \leq \frac{ \log(f(n+x)) - \log(n!) }{ x  }  \leq \log(n+1)     \]
+            which implies 
+            \[  x \log(n) \leq \log(f(n+x)) - \log(n!)  \leq x \log(n+1).   \]
+        \end{proof}
+        \item[(b)] Show \( \log(f(n+x)) = \log(f(x)) + \log((x+1)(x+2) \dots (x+n)). \)
+            \begin{proof}
+            We can use induction to show the statement above. Let our base case be \( n = 1  \). Then observe that 
+            \[ f(x+1) = f(x)(x+1) \] which implies that 
+            \begin{align*}
+                \log(f(x+1)) &= \log(f(x)(x+1)) \\
+                             &= \log(f(x)) + \log((x+1)).
+            \end{align*}
+            Now assume the statement holds for \( n \geq 1  \). For the \( n+1  \) case, observe that 
+            \begin{align*}
+                \log(f(x+(n+1)))  &= \log(f((x+n) + 1 ))  \\
+                                  &= \log(f(x+n) ((x+n) + 1 )) \\
+                                  &= \log (f(x)) + \log ( (x+1)(x+2) \dots (x+n) (x + (n+1)) ).\\
+            \end{align*}
+            \end{proof}
+        \item[(c)] Now establish that 
+            \[  0 \leq \log(f(x)) - \log \Big( \frac{ n^{x} n!  }{ (x+1)(x+2) \dotsb (x+n)  }  \Big) \leq x \log \Big( 1 + \frac{ 1 }{ n }  \Big). \]
+            \begin{proof}
+            Using our result from part (a), we can subtract \( x \log(n)  \) on both sides to get 
+            \[ 0 \leq  \log(f(n+x)) - \log(n!) - x \log(n) \leq  x \log(n+1) - x \log(n) \tag{1}.  \]
+            Now observe the middle of the inequality above. Using our logarithm properties that we derived from earlier sections and using the result from part (b), we get that 
+            \begin{align*}
+                \log(f(n+x)) - \log(n!) - x \log(n) &=   \log(f(x)) + \log((x+1)(x+2)\dots (x+n)) \\
+                                                    &- \log(n^{x} n! ) \\
+                                                    &= \log(f(x)) - \Big(  \log(n^{x} n! )  \\  & - \log((x+1)(x+2) \dots (x+n))   \Big) \\
+                                                    &= \log(f(x)) \\ &- \log \Big( \frac{ n^{x} n!  }{ (x+1)(x+2) \dots (x+n) }  \Big).
+            \end{align*}
+            Now, focusing on the right side of the inequality in (1), we have 
+            \begin{align*}
+                x \log(n+1) - x \log(n) &= x \Big(  \log(n+1) - \log(n) \Big) \\
+                                        &= x \log \Big( \frac{ n +1  }{ n }  \Big) \\
+                                        &= x \log \Big(  1 + \frac{ 1 }{ n }  \Big).
+            \end{align*}
+            Hence, we have reached our desired result that
+            \[  0 \leq \log(f(x)) - \log \Big( \frac{ n^{x} n!  }{ (x+1)(x+2) \dotsb (x+n)  }  \Big) \leq x \log \Big( 1 + \frac{ 1 }{ n }  \Big). \]
+            \end{proof}
+        \item[(d)] Conclude that 
+            \[  f(x) = \lim_{ n \to \infty  }  \frac{ n^{x} n!  }{ (x+1)(x+2) \dots (x+n)  }, \ \text{for all } x \in (0,1]. \]
+            \begin{proof}
+                Observe that the right hand side of the inequality found in part (c) converges; that is, 
+                \[  \lim_{ n \to \infty  }  x \log \Big( 1 + \frac{ 1 }{ n }  \Big) = 0.\] Now let \( \varepsilon > 0  \). Since the limit above converges, we know that we can find an \( N \in \N  \) such that whenever \( n \geq N  \) and \( x \in (0,1] \), we have that 
+                \[  \Bigg| \log(f(x)) - \log \Big( \frac{ n^{x} n!  }{ (x+1)(x+2) \dots (x+n)  }  \Big) \Bigg| < \varepsilon.  \]
+                This implies that 
+                \[  \log(f(x)) = \lim_{ n \to \infty  }  \log \Big( \frac{ n^{x} n!  }{ (x+1) (x+2) \dots (x+n)  }  \Big). \]
+                However, we know that the limit above holds whenever 
+                \[  f(x) = \lim_{ n \to \infty  } \frac{ n^{x} n!  }{ (x+1)(x+2) \dots (x+n)  }.   \]
+            \end{proof}
+        \item[(e)] Finally, show that the conclusion in (d) holds for all \(  x \geq 0  \).
+            \begin{proof}
+            First, we show that the limit in part (d) converges when \( x = 0  \) into the limit found in part (d), we get 
+            \[  \lim_{ n \to \infty  }  \frac{ n!  }{ 1 \cdot 2  \dotsb \  n } = \lim_{ n \to \infty  }  \frac{ n!  }{ n!  } = 1! = f(0)  .  \]
+            Now suppose \( x > 0  \). By parts (a) and (c), we know that 
+            \[  \frac{ n^{x} n!  }{ (n+x)! }  \] is bounded as well as decreasing for all \( n \geq 1  \). By MCT, we must have
+            \[  \lim_{ n \to \infty  }  \frac{ n^{x} n!  }{ (n+x)! } = f(x). \]
+            \end{proof}
+\end{enumerate} 
+
+
+\subsubsection{Exercise 8.4.22}
+\begin{enumerate}
+    \item[(a)] Where does \( g(x)  = \frac{ x }{ x! (-x)! }  \) equal zero? What other familiar function has the same set of roots? 
+        \begin{proof}[Solution]
+        We have \( g(x) = \frac{ x }{ x! (-x)! }  \) equals zero at every \(  x \in \Z  \). A similar function that has the same roots as \( g(x)  \) is \( f(x) = \sin(\pi x) \). 
+        \end{proof}
+    \item[(b)] The function \( e^{-x ^{2}}  \) provides the raw material for the all-important Gaussian bell curve from probability, where it is known that \( \int_{ -\infty  }^{ \infty  }  e^{-x ^{2}} \ dx = \sqrt{ \pi  }   \) Use this fact (and some standard integration techniques) to evaluate \( (1/2)! \).
+        \begin{proof}[Solution]
+        Using the definition of \( x!  \), we have 
+        \begin{align*}
+            ( 1/2  )! &= \int_{ 0 }^{ \infty  } t^{1/2} e^{-t } \ dt \\
+                                          &= \lim_{ d \to \infty  } \int_{ 0 }^{ d } t^{1/2} e^{-t} \  dt \\
+                                          &= \lim_{ d \to \infty  }  \Big[ t^{ 1/2} e^{-t } \Big]_{0}^{d} + \frac{ 1 }{ 2 }  \int_{ 0 }^{ \infty  } t^{-1/2} e^{-t} \ dt \\
+                                          &= \int_{ 0 }^{ \infty  } \frac{ 1 }{ 2 }  \cdot t^{-1/2} e^{- (\sqrt{ t } )^{2}} \ dt  \tag{  \text{let \( u = \sqrt{ t }    \)} }  \\
+                                          &= \int_{ 0 }^{ \infty  } e^{-u^{2}} \ du \tag{ \( du = 1 /2 \cdot  t^{-1/2} \ dt  \) } \\
+        \end{align*}
+        Hence, we have that 
+        \[  (1/2)! = \frac{ \sqrt{ \pi  }  }{ 2  }. \]
+        \end{proof}
+    \item[(c)] Now use (a) and (b) to conjecture a striking relationship between the factorial function and a well-known function from trigonometry. 
+       \begin{proof}[Solution]
+       The factorial function (most notably the gamma function) can be used to find values of the sine function. It can also be applied to finding values of the Riemann Zeta function found in the last section.
+       \end{proof} 
+\end{enumerate}
+
+\subsubsection{Exercise 8.4.23} As a parting shot, use the value for \( (1/2)! \) and the Gauss product formula in equation (9) to derive the famous product formula for \( \pi  \) discovered by John Wallis in the 1650's:
+\[ \frac{ \pi  }{  2 } = \lim_{ n \to \infty  } \Big( \frac{ 2 \cdot 2  }{ 1 \cdot 3  }  \Big) \Big( \frac{ 4 \cdot 4  }{ 3 \cdot 5  }  \Big) \Big(  \frac{ 6 \cdot 6  }{ 5 \cdot 7  }  \Big) \dotsb \Big( \frac{ 2n \cdot 2n  }{ (2n-1)(2n+1) }  \Big).\]
+\begin{proof}
+In the last section, we defined 
+\[  \prod_{i=1}^{n} \frac{ 2i }{ 2i-1 } =  \frac{ 2^{2n} (n!)^{2}  }{ (2n)! }   \] as well as 
+\[  \prod_{i=1}^{n} \frac{ 2i }{ 2i+1 } =  \frac{ 2^{2n} (n!)^{2}  }{ (2n+1)! }   \]  
+Using our result from part (b) of Exercise 8.4.22 and the Gauss product formula found in equation (9), we can write  
+\begin{align*}
+    \frac{ \sqrt{ \pi }  }{ 2 }  = (1/2)! &= \int_{ 0 }^{ \infty  } t^{1/2} e^{-t} \ dt \\
+                                          &= \lim_{ n \to \infty  } \frac{ n^{1/2} n! }{ ( \frac{ 1 }{ 2 } + 1  ) ( \frac{ 1 }{ 2 } + 2  ) \dots ( \frac{ 1 }{ 2 } + n ) }  \\
+                                          &= \lim_{ n \to \infty  } \frac{ n^{1/2}  2^{n} n!  }{ (2n+1)! }. 
+\end{align*}
+By exercise 8.3.5, we have that 
+\[  \sqrt{ \pi } = \lim_{ n \to \infty  }  \frac{ 2^{2n} (n!)^{2}  }{ (2n)! \sqrt{ n }  }. \]
+Using this fact and the others stated at the beginning of this proof, we have that 
+\begin{align*}
+    \lim_{ n \to \infty  } \prod_{i=1}^{n} \frac{ 2i \cdot 2i }{ (2i-1)(2i+1) } &= \Big( \lim_{ n \to \infty  }  \prod_{i=1}^{n} \frac{ 2i }{ 2i-1 }  \Big) \cdot \Big( \lim_{ n \to \infty  } \prod_{i=1}^{n} \frac{ 2i }{ 2i+1 }  \Big)\\
+                                                                                &= \Big( \lim_{ n \to \infty  } \frac{ 2^{2n} (n!)^{2}  }{ n^{1/2} (2n)!  }    \Big) \cdot \Big( \lim_{ n \to \infty  }  \frac{ 2^{2n} (n!)^{2} n^{1/2} }{ (2n+1)!  }  \Big) \\
+                                                                                &= \sqrt{ \pi } \cdot \frac{ \sqrt{ \pi }  }{ 2 }  \\
+                                                                                &= \frac{ \pi }{ 2 }. 
+\end{align*}
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

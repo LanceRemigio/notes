@@ -476,7 +476,18 @@ where in the last equality, we set
 \begin{enumerate}
     \item[(a)] First, argue why the integral involving \( q_{x}(u)  \) tends to zero as \( N \to \infty  \).
         \begin{proof}
-        
+            Observe that 
+            \begin{align*}
+              \frac{ 1 }{ 2 \pi }   \int_{ -\pi }^{ \pi  } q_{x}(u) \cos(Nu)  \ du &= \frac{ 1 }{ 2 \pi } \int_{ -\pi }^{ \pi  }  (h(u+x) - h(x)) \cos(Nu) \ du \\
+                                                                                   &= \frac{ 1 }{  2\pi  } \int_{ -\pi  }^{ \pi  }  h(u+x) \cos(Nu)  \ du  \\ 
+                                                                                   &- \frac{ 1 }{ 2 \pi } \int_{ -\pi }^{ \pi  } h(x) \cos(Nu)   \ du. \\
+            \end{align*}
+            Since \( h(x)  \) continuous on \( (-\pi,\pi] \), we know that both 
+            \[  \int_{ -\pi }^{ \pi } h(u+x) \cos(Nu)  \ du \to 0  \] and
+            \[  \int_{ -\pi  }^{ \pi  } h(x) \cos(Nu)  \ du \to 0\] as \( N \to \infty  \).  
+            Hence, we must also have 
+            \[  \frac{ 1 }{ 2 \pi } \int_{ -\pi  }^{ \pi  } q_{x}(u) \cos(Nu)  \ du \to 0  \] as \( N \to \infty  \)
+            
         \end{proof} 
     \item[(b)] The first integral is a little more subtle because the function \( p_{x}(u)  \) has the \( \sin(u/2)  \) term in the denominator. Use the fact that \( f \) is differentiable at \( x  \) (and a familiar limit from calculus) to prove that the first integral goes to zero as well.
         \begin{proof}

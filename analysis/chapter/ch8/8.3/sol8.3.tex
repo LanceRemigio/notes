@@ -1,0 +1,293 @@
+\section{Euler's Sum}
+
+
+\subsubsection{Exercise 8.3.1} Supply the details to show (3) above.
+
+\begin{proof}
+Plugging in \( x = \pi / 2  \) into (2), we get that 
+\[  1 = \frac{ \pi }{ 2 }  \prod_{n=1}^{\infty } \Big( 1 - \frac{ 1 }{ 2n }  \Big)\Big( 1 + \frac{ 1 }{ 2n }  \Big) =  \frac{ \pi }{ 2 }  \prod_{n=1}^{\infty } \frac{ (2n-1)(2n+1) }{ (2n)^{2} }.  \]
+Taking the reciprocal of the infinite product above, we end up with
+\[  \prod_{n=1}^{\infty } \frac{ (2n)^{2} }{  (2n-1) (2n+1) } = \frac{ \pi }{ 2 }.  \]
+\end{proof}
+
+Now we will prove why (3) holds. Set 
+\[  b_{n} = \int_{ 0 }^{ \frac{ \pi }{ 2 }  } \sin^{n}(x)  \ dx , \text{ for } n = 0,1,2, \ \dots \] If we look at the \( n=0  \) and \( n = 1  \) case, we can easily obtain the following equations 
+\[  b_{0 } = \int_{ 0 }^{ \frac{ \pi }{ 2 }  }  dx = \frac{ \pi }{ 2 } \ \text{and} \ b_{1} = \int_{ 0 }^{ \frac{ \pi }{ 2 }  } \sin(x)  \ dx = 1. \]
+\subsubsection{Exercise 8.3.2} Assume \( h(x)  \) and \( k(x)  \) have continuous derivatives on \( [a,b]  \), and derive the integration-by-parts formula
+\[  \int_{ a }^{ b } h(t) k'(t) \  dt = h(b)k(b) - h(a)k(a) - \int_{ a }^{ b } h'(t) k(t)  \  dt. \]
+\begin{proof}[Solution]
+Refer to the solution in part (a) of Exercise 7.5.6.
+\end{proof}
+
+\subsubsection{Exercise 8.3.3} \begin{enumerate}
+    \item[(a)] Using the simple identity \( \sin^{n}(x) = \sin^{n-1}(x) \sin(x)  \) and the previous exercise, derive the recurrence relation 
+        \[  b_{n} = \frac{ n-1 }{ n }  b_{n-2} \ \text{for all } n \geq 2. \]
+        \begin{proof}
+            Let \( h(x) = \sin^{n}(x)  \) and \( k'(x) = \sin(x)  \). Let \( n \geq 2  \). Then by the integration-by-parts formula and using the trigonometric identity \( \sin^{2}(x) + \cos^{2}(x) = 1  \), we must have 
+            \begin{align*}
+                \int_{ 0 }^{ \frac{ \pi  }{ 2  }   }  \sin^{n}(x) \ dx &= \int_{ 0 }^{ \frac{ \pi }{ 2 }  } \sin^{n}(x) \cdot \sin(x) \  dx  \\
+                                                                       &= \Big[ - \sin^{n-1}(x) \cdot \cos(x)  \Big]_{0}^{\frac{ \pi }{ 2 }} + \int_{ 0 }^{ \frac{ \pi }{ 2 }  } (n-1)\sin^{n-2}(x) \cdot \cos^{2}(x)  \  dx \\
+                                                                       &=  \Big[ - \sin^{n-1}(x) \cdot \cos(x)  \Big]_{0}^{\frac{ \pi }{ 2 }} +  \int_{ 0 }^{ \frac{ \pi }{ 2 }  } (n-1)\sin^{n-2}(x) \cdot  [ 1 - \sin^{2}(x)  ]  \  dx
+            \end{align*}
+        The first term on the last equality cancels out and the second term can be expanded into 
+        \begin{align*}
+            \int_{ 0 }^{ \frac{ \pi }{ 2 }  }  (n-1 ) \sin^{n-2}(x) \cdot [ 1 - \sin^{2}(x) ] \  dx 
+                                                                                                    &= \int_{ 0 }^{ \frac{ \pi }{ 2 }   } (n-1) \sin^{n-2}(x)  \   dx \\ &+ \int_{ 0 }^{ \frac{ \pi }{ 2 }  } (n-1) \sin^{n}(x) \  dx. \\
+        \end{align*}
+        Hence, we end up with 
+        \begin{align*}  \int_{ 0 }^{ \frac{ \pi }{ 2 }  }  \sin^{n}(x) \  dx &=  \int_{ 0 }^{ \frac{ \pi }{ 2 }   } (n-1) \sin^{n-2}(x)  \   dx + \int_{ 0 }^{ \frac{ \pi }{ 2 }  } (n-1) \sin^{n}(x) \  dx. \tag{1}  \\
+        \end{align*}
+        Finally, subtracting the second term on the right side of (1), simplifying, and dividing by \( n  \) on both sides gives us our desired result
+        \begin{align*}
+            b_{n}  &= \int_{ 0 }^{ \frac{ \pi }{ 2 }  }  \sin^{n}(x) \ dx \\ &= \frac{ n-1 }{ n } \int_{ 0 }^{ \frac{ \pi }{ 2 }  } \sin^{n-2}(x) \ dx \\
+                                                                &= \frac{ n-1 }{ n } b_{n-2}.
+        \end{align*}
+        \end{proof}
+    \item[(b)] Use this relation to generate the first three even terms and the first three odd terms of the sequence \( (b_{n}) \).
+        \begin{proof}[Solution]
+        The first three even terms are 
+		\begin{align*}
+		    b_{2} &= \frac{ 1 }{ 2 }  b_{0} = \frac{ 1 }{ 2 } \cdot \frac{ \pi }{ 2 } = \frac{ \pi }{ 4 },  \\
+			b_{4} &= \frac{ 3 }{ 4 } b_{2} = \frac{ 3 }{ 4 }  \cdot \frac{ \pi }{ 4 }  = \frac{ 3 \pi   }{ 16 }, \\
+			b_{6} &= \frac{ 5 }{ 6 } b_{4} = \frac{ 5 }{ 6 } \cdot \frac{ 3 \pi }{ 16 } = \frac{ 5 \pi }{ 32 }. 
+		\end{align*}
+		The first odd terms are 
+		\begin{align*}
+		    b_{3} &= \frac{ 2 }{ 3 }  b_{1} = \frac{ 2 }{ 3 } \cdot 1 = \frac{ 2 }{ 3 }    \\
+			b_{5} &= \frac{ 4 }{ 5 } b_{3} = \frac{ 4 }{ 5 }  \cdot \frac{ 2 }{ 3 } = \frac{ 8 }{ 15 }  \\
+			b_{7} &= \frac{ 6 }{ 7 }  b_{5} = \frac{ 6 }{ 7 }  \cdot \frac{ 8 }{ 15 }  = \frac{ 16 }{ 35 }.
+		\end{align*}
+        \end{proof}
+    \item[(c)] Write a general expression for \( b_{2n} \) and \( b_{2n+1}  \).
+        \begin{proof}[Solution]
+        Using the formula we derived in part (a), plugging in the desired cases gives us
+        \[  b_{2n} = \frac{ 2n -1  }{ 2n  }  b_{2(n-1)} \ \text{ and } \  b_{2n+1} = \frac{ 2n }{ 2n+1 } b_{2n-1}.  \]
+
+        \end{proof}
+\end{enumerate}
+
+For the \( (n+1) \)th term, we have the following bound \(  0 \leq \sin^{n+1}(x) \leq \sin^{n}(x)  \) on \( [0, \pi / 2]  \). But this tells us that \( (b_{n})  \) is a decreasing sequence of functions.  Since \( (b_{n}) \) is bounded and decreasing, we know that it must converge. It turns out that \( (b_{n}) \to 0  \) but this isn't the limit that we want to concern ourselves at the moment. 
+
+\subsubsection{Exercise 8.3.4} Show 
+\[  \lim_{ n \to \infty  }  \frac{ b_{2n} }{  b_{2n+1} }  = 1,  \] and use this fact to finish the proof of Walli's product formula in (3).
+\begin{proof}
+For \( k \geq 1  \), observe that
+\begin{align*}
+  \frac{ b_{2n} }{  b_{2n+1} }   &= \frac{ (2n-1) (2n+1)  }{ (2n)(2n) } \cdot \frac{ b_{2n-2}  }{ b_{2n-1} }   \\
+                                 &= \frac{ (2n-1) (2n+1)  }{ (2n)(2n)  } \cdot \frac{ (2n-3) (2n-1)  }{ (2n-2) (2n-2)  } \cdot \frac{ b_{2n-4}  }{ b_{2n-3} } . \\ 
+\end{align*}
+Notice when expanding the terms on the numerator and the denominator of \( b_{2n} / b_{2n+1} \), we will always have the same coefficient. Hence, the limit of \( b_{2n} / b_{2n+1} \) gives us our result that 
+\[  \lim_{ n \to \infty  }  \frac{ b_{2n}  }{  b_{2n+1} } = 1. \]
+\end{proof}
+
+Some techniques to dealing with the notation in (3) is to use the following equations 
+\[  2 \cdot 4 \cdot 6 \dotsb (2n) = 2^{n} n! \] and
+\[  1 \cdot 3 \cdot 5 \cdot \dotsb (2n+1) = \frac{ (2n+1)! }{  2 \cdot 4 \cdot 6 \dotsb (2n)  } = \frac{ (2n+1)! }{ 2^{n} n! }. \]
+
+
+\subsubsection{Exercise 8.3.5} Derive the following alternative form of Walli's product formula: 
+\[  \sqrt{ \pi }  = \lim_{ n \to \infty    }  \frac{ 2^{2n} (n!)^2  }{ (2n)! \sqrt{ n }  }. \]
+\begin{proof}
+
+
+
+
+\end{proof}
+
+
+\subsubsection{Exercise 8.3.6} Show that \( 1 / \sqrt{ 1 - x  }  \) has Taylor expansion \( \sum_{ n=0 }^{ \infty  } c_{n} x^{n}  \), where \( c_{0} = 1  \) and 
+\[  c_{n} = \frac{ (2n)!  }{  2^{2n} (n!)^{2}  } = \frac{ 1 \cdot 3 \cdot 5 \dotsb (2n-1) }{ 2 \cdot 4 \cdot 6 \dotsb 2n }  \] for \( n \geq 1  \).
+\begin{proof}
+Let \( f(x) = 1 / \sqrt{ 1 - x  }  \). Using Taylor's coefficient formula, we have the first three derivatives of \( f  \)
+\begin{align*}
+    f^{(1)}(x) &= \frac{ 1 }{ 2 } \cdot (1 - x )^{-3/2}, \\
+    f^{(2)}(x) &= \frac{ 1  }{ 2 }  \cdot \frac{ 3 }{ 2 } \cdot  (1-x)^{-5/2}, \\
+    f^{(3)}(x) &= \frac{ 1 }{ 2 }  \cdot \frac{ 3 }{ 2 }  \cdot \frac{ 5 }{ 2 } \cdot (1- x)^{-7/2}.
+\end{align*}
+For \( n  \geq 1 \), we can use induction to show  
+\[  f^{(n)}(x) =  \Big[ \prod_{k=1}^{n} \frac{ 2k-1 }{ 2k }   \Big] (1 -x )^{-(2n+1)/2}. \] Plugging in \( x = 0  \) and using the techniques given to us above, we now have the desired formula
+\[  c_{n} = \prod_{k=1}^{n} \frac{ 2k-1 }{ 2k } = \frac{ (2n)!  }{ 2^{2n}  (n!)^2   }  \] 
+where 
+\[  \frac{ 1 }{ \sqrt{ 1-x  }  }  = \sum_{ n=0 }^{ \infty  } c_{n} x^{n}. \]
+
+\end{proof}
+
+Observe that the coefficients above should look familiar to the formulas produced from Walli's product.
+
+\subsubsection{Exercise 8.3.7} Show that \( \lim c_{n} =  0  \) but \( \sum_{ n=0  }^{ \infty  } c_{n}  \) diverges.
+\begin{proof}
+The first statement is shown in Exercise 2.7.10. Observe that 
+\[  c_{n} \leq  \frac{ 1 }{ 2^{2n} } \leq \frac{ 1 }{ n }. \] Since \( \sum 1 / n  \) diverges, we must also have \( \sum c_{n}   \) diverge by the Comparison test. 
+\end{proof}
+
+Now our goal is to establish at which particular points in the domain of \( f  \) where 
+\[  \frac{ 1 }{ \sqrt{ 1- x  }  }  = \sum_{ n=0 }^{ \infty  } c_{n} x^{n} \tag{4}  \] is valid. This can be done by using Lagrange's Remainder Theorem. 
+
+To properly show that 
+\[  \frac{ 1 }{ \sqrt{ 1-x  }  }  = \sum_{ n=0  }^{ \infty  } c_{n} x^{n}  \]
+holds for all \( x \in (-1,1)  \), we need to show that the error function 
+\[  E_{N}(x) = \frac{ 1 }{ \sqrt{ 1- x  }  }  - \sum_{ n=0  }^{ N  } c_{n } x^{ n} \]
+approaches zero as \( N \to \infty  \). This can be done using Lagrange's Remainder Theorem (Theorem 6.6.3).
+
+
+\subsubsection{Exercise 8.3.8} Using the expression for \( E_{N}(x)  \) from Lagrange's Remainder Theorem, show that equation (4) is valid for all \( | x  |  < 1 / 2  \). What goes wrong when we try try to use this method to prove (4) for \( x \in (1/2, 1 ) \)?
+\begin{proof}
+Since \( f  \) is \( N+1  \) times differentiable on \( (-1/2 , 1/ 2 ) \), there exists a \( c  \) such that \( |  c  |  < | x  |  \) where the error function \( E_{N}(x)  \) satisfies 
+\[  E_{N}(x) = \frac{ f^{(N+1)}(c)  x^{n }  }{ (N+1)! } \] by Lagrange's Remainder Theorem. 
+Observe that 
+\[  f^{(N+1)}(c) = \Big[ \prod_{k=1}^{N+1} \frac{ 2k-1  }{ 2k }  \Big]   (1 -c )^{-(2N+3)/2} < \Big[ \prod_{k=1}^{N+1} \frac{ 2k-1  }{ 2k }  \Big]\Big( \frac{ 2 }{ 3 }  \Big)^{ (2N+3)/ 2}.\]
+Since \( | x  |  < 1/ 2  \) and \( |  c  | < | x  |  \), we can now write
+\[ E_{N}(x) < \Big[ \prod_{k=1}^{N+1} \frac{ 2k-1  }{ 2k }  \Big]\frac{  2^{3/2}}{  3^{(2N+3)/2} (N+1)! } \xrightarrow{N\rightarrow\infty} 0.   \]
+Hence, (4) holds for all \( x \in (-1,1) \). If we try to prove \( E_{N} \to 0  \) on \( (-1/2 , 1 ) \), then we produce a sequence that diverges.
+\end{proof}
+
+
+\subsubsection{Exercise 8.3.9} 
+\begin{enumerate}
+    \item[(a)] Show 
+        \[  f(x) = f(0) + \int_{ 0 }^{ x }  f'(t) \  dt. \]
+            Since \( f  \) is continuous differentiable for all  \( t \in (0,x) \), we can use part (i) of FTC to write 
+        \[  \int_{ 0 }^{ x } f'(t)  \ dt =  f(x) - f(0). \] Solving for \( f(x)  \) gives us our desired result 
+        \[ f(x) = f(0) + \int_{ 0 }^{ x }  f'(t) \ dt. \]
+    \item[(b)] Now use a previous result from this section to show 
+        \[  f(x) = f(0) + f'(0) x + \int_{ 0 }^{ x }  f"(t)(x-t) \  dt. \]
+            Taking advantage of \( f  \) being continuously differentiable \( N+1  \) times for all \(  t \in (0,x) \) and using the integration-by-parts formula found in Exercise 8.3.2, we have 
+            \begin{align*}  \int_{ 0 }^{ x }  f"(t) (x -t ) \  dt &= \Big[ f'(t) (x-t) \Big]_{0}^{x} + \int_{ 0 }^{ x }  f'(t) \  dt \\
+            &= -x f'(0) + [ f(x) - f(0)].  
+            \end{align*}
+            Solving for \( f(x)  \) once again, we get our desired result
+        \[  f(x) = f(0) + f'(0) x + \int_{ 0 }^{ x }  f"(t)(x-t) \  dt. \]
+    \item[(b)] Continue in this fashion to complete the proof of the theorem.
+ 
+        Continuing the process in parts (a) and (b) and using the fact that \( f  \) is \( N+1  \) times differentiable for all \( x \in (-R ,R ) \), we have that
+        \begin{align*}  f(x) &= \frac{ 1 }{ N! }  \int_{ 0 }^{ x  } f^{(N+1)}(t) (x -t )^{N} \  dt + \sum_{ k=0  }^{ N  } \frac{ f^{(k)}(0) }{ k! } x_{k } \\  
+            &= \frac{ 1 }{ N! } \int_{ 0 }^{ x }  f^{(N+1)}(t) (x-t)^{N} \   dt + S_{N}(x).
+        \end{align*}
+        Subtracting \( S_{N}(x)  \) from both sides above and using the fact that \( E_{N}(x) = f(x) - S_{N}(x)  \) gives us our desired result 
+    \[  E_{N}(x) = \frac{ 1 }{ N! } \int_{ 0 }^{ x  }  f^{(N+1) }(t) (x-t)^{N} \  dt.  \]
+\end{enumerate}
+
+\subsubsection{Exercise 8.3.10} 
+\begin{enumerate}
+    \item[(a)] Make a rough sketch of \( 1 / \sqrt{ 1 -x  }  \) and \( S_{2}(x)  \) over the interval \( (-1,1)  \), and compute \( E_{2}(x)  \) for \( x = 1/2 , 3/4 ,  \) and \( 8/9  \).
+        \begin{proof}[Solution]
+        
+        \end{proof}
+    \item[(b)] For a general \( x  \) satisfying \(  |  x  |  < 1  \), show 
+        \[  E_{2}(x) = \frac{ 15 }{ 16  }  \int_{ 0 }^{ x  }  \Big( \frac{ x - t  }{ 1 - t  }  \Big)^{2} \frac{ 1 }{ (1-t)^{3/2 } }  \ dt. \]
+        \begin{proof}[Solution]
+        Let \( |  x  |  < 1  \). Let \( N = 2  \). Observe that 
+        \[  f^{(3)}(t) = \frac{ 15 }{ 8  }  (1- t )^{-7/2}.\] Using the Integral Remainder Theorem, we have that 
+        \begin{align*}
+            E_{2}(x) &= \frac{ 1 }{ 2 } \int_{ 0 }^{ x }  f^{(3)}(t) (x-t)^{2} \  dt   \\
+                     &= \frac{ 15 }{ 16 } \int_{ 0 }^{ x }  (1-t)^{-7/2} (x - t )^{2} \  dt \\
+                     &= \frac{ 15 }{ 16 }  \int_{ 0 }^{ x  }  \Big( \frac{ x - t  }{ 1 - t  }  \Big)^{2} \frac{ 1 }{ (1-t)^{3/2 } }  \  dt.
+        \end{align*}
+        \end{proof}
+    \item[(c)] Explain why the inequality 
+        \[  \Big| \frac{ x - t  }{ 1 -t  }  \Big|  \leq | x  |  \]
+        is valid, and use this to find an overestimate for \( | E_{2}(x)  |   \) that no longer involves an integral. Note that this estimate will necessarily depend on \( x  \). Confirm that things are going well by checking that this overestimate is in fact larger than \( | E_{2}(x)  |  \) at three computed values from part (a).
+        \begin{proof}[Solution]
+        The inequality above is valid since 
+        \begin{align*}
+            \Big| \frac{ x - t  }{  1 - t  }  \Big|  &= \sqrt{  \Big( \frac{ x - t  }{ 1 - t  }  \Big)^{2}  }  \\
+                                                     &\leq \sqrt{ (x - t )^{2} }  \\
+                                                     &= |  x -t  | \\
+                                                     &\leq |  x  |
+        \end{align*}
+        which holds for \(  t   \).
+        \end{proof}
+    \item[(d)] Finally, show \( E_{N}(x) \to 0  \) as \( N \to \infty  \) for an arbitrary \( x \in (-1 , 1) \).
+        \begin{proof}
+        Let \( f  \) be differentiable \( N + 1  \) times. Using the inequality found in part (c) and \( |  x  |  < 1  \),we can write 
+        \begin{align*}
+            |E_{N}(x)| &= \frac{ 1 }{ N! } \Big[ \prod_{k=1}^{N+1}   \frac{ 2k-1 }{ 2k }  \Big] \Big| \int_{ 0 }^{ x }  \Big( \frac{ x- t  }{ 1 -t  }  \Big)^{N} \cdot \frac{ 1  }{ (1 -t)^{3/2} }  \ dt \Big|  \\
+            &\leq \frac{ c_{N+1} }{ N! }  \int_{ 0 }^{ x  } \Big|  \frac{ x -t  }{ 1 - t  } \Big|^{N}      \cdot \Big|  \frac{ 1 }{ (1-t)^{3/2} } \Big| \  dt   \\
+            &\leq \frac{ c_{N+1} }{ N! }  \int_{ 0 }^{ x }  \frac{ |x|^{N} }{  (1-t)^{3/2} } \  dt \\
+                     &< \frac{ c_{N+1} }{ N! }   \int_{ 0 }^{ x }  \frac{ 1 }{ (1-t)^{3/2} } \  dt \\
+                     &< \frac{ c_{N+1} }{ 2\sqrt{ 2 } \cdot N!  }  \int_{ 0 }^{ x }  \ dt  \\
+                     &= \frac{ c_{N+1} x  }{ 2 \sqrt{ 2 }  \cdot N!  }   \\
+                     &< \frac{ c_{N+1} }{ 2 \sqrt{ 2 }  \cdot N!  }.
+        \end{align*}
+        Since \( c_{N+1} = \prod_{k=1}^{N+1} \frac{ 2k-2 }{ 2k } \to 0  \) from Exercise 8.2.7, we can write
+        \[ | E_{N}(x) | < \frac{ c_{N+1} }{ 2 \sqrt{ 2 }  \cdot N!  }  \to 0  \]
+        as \( N \to \infty  \). 
+        Hence, \( |E_{N}(x)| \to 0  \) which tells us that \( E_{N} \to f(x)  \) uniformly.
+        \end{proof}
+\end{enumerate}
+Now that we have established that 
+\[  \frac{ 1 }{ \sqrt{ 1 - x  }  }  = \sum_{ n=0 }^{ \infty  } c_{n} x^{n} \tag{4}  \] holds for all \( x \in (-1,1 ) \), we are now in the position to conclude 
+\[  \arcsin(x) = \sum_{ n=0  }^{ \infty  } \frac{ c_{n} }{  n+1  } x^{2n+1}  \] for all \( |  x  |  < 1  \) using term-by-term anti-differentiation of (4).
+
+\subsubsection{Exercise 8.3.11} Assuming that the derivative of \( \arcsin(x)  \) is indeed \( 1 / \sqrt{ 1 - x^{2} }  \), supply the justification that allows us to conclude 
+\[  \arcsin(x) = \sum_{ n=0 }^{ \infty  } \frac{ c_{n}  }{  2n+1  } x^{2n+1} \ \text{for all }  | x  | < 1. \tag{5} \]
+\begin{proof}
+From our result in part (d) of Exercise 8.3.10, we know that substituting \( x  = x^{2} \) into 
+\[  \frac{ 1 }{ \sqrt{ 1 - x  }  }  = \sum_{ n=0 }^{ \infty  } c_{n} x^{n}   \] give us 
+\[  \frac{ 1  }{ \sqrt{ 1 -x^{2} }  } = \sum_{ n=0  }^{ \infty  } c_{n} x^{2n} \] which holds for all \( x \in (-1,1)\). By assumption, we know that the derivative of \( \arcsin(x)  \) is \( 1 / \sqrt{ 1 - x  }  \). Using Term-by-term Antidifferentiation, we get that 
+\[  \arcsin(x) = \sum_{ n=0 }^{ \infty  } \frac{ c_{n}  }{ 2n+1  } x^{2n+1} \ \text{for all } |  x  | < 1.\]
+\end{proof}
+
+\subsubsection{Exercise 8.3.12} Our work thus far shows that the Taylor series in (5) is valid  for all \( |  x  |  < 1  \), but note that \( \arcsin(x)  \) is continuous for all \( |  x  | \leq 1   \). Carefully, explain why the series in (5) converges uniformly to \( \arcsin(x)  \) on the closed interval \( [-1,1] \).
+\begin{proof}
+Since (5) is valid for all \( |  x  | < 1   \), it suffices to show that (5) holds for \( x = 1  \) and likewise \( x = -1  \) so that we may show that (5) holds for \( |  x  | \leq 1  \) using Theorem 6.5.2. Plugging in \( x = 1  \) gives us 
+\[  \sum_{ n=0 }^{ \infty  } \frac{ c_{n}  }{  2n+1  }. \] Let's define 
+\[  \gamma_{n} = \frac{ c_{n}  }{  2n+1  }. \]Using the Cauchy Condensation Test, we can prove that  \( \sum 2^{n} \gamma_{2^n }  \) so that \( \sum \gamma_{n}   \) converges. Observe that 
+\[  \sum_{ n=0 }^{ \infty  } \frac{ c_{2^n} }{ 2^{2n+1} + 1 } \leq \frac{ 1 }{ 2 } \sum_{ n=0 }^{ \infty  } c_{2^{n}}. \]
+Now our goal is to use the Comparison Test to show that the right side of the inequality above converges which will immediately imply that the left side converges. Hence, observe that we have the following bound
+\begin{align*}
+    \frac{ 1 }{ 2 }  c_{2^{n}} &= \frac{ 1 }{ 2 }  \cdot \frac{ (2^{n+1})! }{ (2^{n}!)^{2} \cdot 2^{2^{2n+1}}  }  \\
+                               &\leq \frac{ 2^{n+1} - 1  }{ 2 \cdot (2^{n})!  } \\  
+                               &\leq \frac{ 2^{n+1} }{ 2 \cdot n! }.  
+\end{align*}
+Observe that the last inequality forms a series that converges via the ratio test. Hence, we must have \( \frac{ 1 }{  2 } \sum c_{2^{n}}  \) converge via the Comparison test. Hence, we must have  \(  \sum  c_{n} / (2n+1)  \) converges via the Cauchy Condensation Test. Hence, by Theorem 6.5.2 we must have (5) converge at \( x = |  1  |  \) for all \(  x \in [-1 , 1 ]  \).
+\end{proof}
+
+\subsubsection{Exercise 8.3.13} 
+\begin{enumerate}
+    \item[(a)] Show 
+        \[  \int_{ 0 }^{ \pi /2    }  \theta  \  d \theta = \sum_{ n=0 }^{ \infty  } \frac{ c_{n}  }{  2n+1  }  b_{2n+1},   \] being careful to justify each step in the argument. The term \( b_{2n+1} \) refers back to our earlier work on Walli's product.
+        \begin{proof}
+        Observe that the series
+        \[  \theta = \sum_{ n=0  }^{ \infty  } \frac{ c_{n}  }{ 2n+1  }  \sin^{2n+1} (\theta)  \] converges uniformly to \( \theta  \) for all \( - \pi /2 \leq \theta \leq \pi /2  \). Hence, we are able to move integration from outside the summation to inside the summation. Using this fact, we write 
+        \begin{align*}
+            \int_{ 0 }^{ \pi / 2  } \theta \ d\theta &= \int_{ 0  }^{ \pi /2  } \sum_{ n=0 }^{ \infty  }  \frac{ c_{n}  }{  2n + 1 } \sin^{2n+1}(\theta) \  d\theta   \\
+                                                     &= \sum_{ n=0 }^{ \infty  } \frac{ c_{n}  }{  2n+1  }  \Big[ \int_{ 0 }^{ \pi /2  } \sin^{2n+1}(\theta)  \ d \theta  \Big] \\
+                                                     &= \sum_{ n=0  }^{ \infty   } \frac{ c_{n}  }{  2n + 1  }  b_{2n+1}. \tag{Walli's Formula}
+        \end{align*}
+        \end{proof}
+    \item[(b)] Deduce 
+        \[  \frac{ \pi^{2}  }{  8  } = \sum_{ n=0  }^{ \infty  } \frac{ 1 }{ (2n+1)^{2} },  \] and use this to finish the proof that \( \pi^{2} / 6  = \sum_{ n=1 }^{ \infty  } 1 / n^{2} \).
+        \begin{proof}
+        Looking at the left side of part (a), we can integrate to get 
+        \[  \int_{ 0 }^{ \pi /2  }  \theta \  d \theta = \Big[ \frac{ 1 }{ 2 }  \theta^{2} \Big]_{0}^{\pi/ 2 } = \frac{ \pi^{2}  }{ 8  }. \]  Focusing our attention to the right side of (a), we see that \( b_{2n+1}  \) can be expanded to
+        \begin{align*}
+            b_{2n+1}  &= \frac{ 2n }{ (2n+1)  } \cdot \frac{ (2n-2)  }{ (2n-1) } \cdot \frac{ (2n - 4)  }{ (2n - 3)  } \cdot \frac{ (2n-6)  }{ (2n-5) } \cdot  \dots \ .    \\
+        \end{align*}
+        Likewise, \( c_{n}  \) can be expanded into 
+        \begin{align*}
+            c_{n} &= \frac{ (2n)!  }{ 2^{2n } (n!)^{2}  } \\  
+                  &= \frac{ (2n) \cdot  (2n-1) \cdot (2n-2) \cdot (2n-3) \cdot (2n-4) \cdot \dots  }{  2^{2n} (n!)^{2}  } 
+        \end{align*}
+        Notice that when we multiply \( b_{2n+1}  \) and \( c_{n}  \) together as seen in part (a), we see that the \( (2n - k)  \) terms for \( k  \) odd cancel, leaving the \( (2n - \ell)   \) terms for \( \ell  \) even on the top. Hence, we have 
+        \begin{align*}
+            c_{n} b_{2n+1} &= \frac{ (2n)^{2} \cdot (2n-2)^{2} \cdot (2n-4)^{2} \cdot (2n-4)^{2} \cdot \dots   }{ 4^{n} (n!)^{2} (2n+1)  }  \\
+                           &= \frac{  (2n)^{2}  \cdot (2 (n-1))^{2} \cdot (2(n - 2 ))^{2} \cdot \dots   }{ 4^{n} (n!)^{2} (2n+1) } \\
+                           &= \frac{ 4^{n} \cdot n^{2} \cdot (n-1)^{2} \cdot (n-2)^{2}  \cdot \dots }{ 4^{n} (n!)^{2} (2n+1) } \\
+                           &= \frac{ 4^{n} (n!)^{2}   }{  4^{n} (n!)^{2}  } \cdot \frac{ 1 }{ 2n+1 }.  \\
+                           &= \frac{ 1 }{ 2n+1 } .
+        \end{align*}
+        Hence, part (a) leads to 
+        \[  \frac{ \pi^{2}  }{  8  }  = \sum_{ n=0  }^{ \infty  } \frac{ c_{n}  }{ 2n+1  } b_{2n+1} =  \sum_{ n=0  }^{ \infty  } \frac{ 1 }{ (2n+1)^{2}  }. \]
+            Since the infinite sum in part (a) converges uniformly for all \(  - \pi /2 \leq \theta \leq \pi /2  \), we are free to rearrange the sum however we like. Observe that
+        \begin{align*}
+            \sum_{ n=1  }^{ \infty  } \frac{ 1 }{ n^{2} }  &= \frac{ 1 }{ 1^{2} }  + \frac{ 1 }{ 2^{2} }  + \frac{ 1 }{ 3^{2}  }  + \frac{ 1 }{ 4^{2} }  + \frac{ 1 }{ 5^{2} } + \dotsb \\
+                                                           &= \Big( \frac{ 1 }{ 1^{2} } + \frac{ 1 }{ 3^{2} } + \frac{ 1 }{ 5^{2} }  + \dotsb \Big) + \Big( \frac{ 1 }{ 2^{2} } + \frac{ 1 }{ 4^{2} }  + \frac{ 1 }{ 6^{2} } + \dotsb  \Big) \\
+                                                           &= \sum_{ n= 0  }^{ \infty  } \frac{ 1 }{ (2n+1)^{2} }  + \sum_{ n=1 }^{ \infty  } \frac{ 1 }{ 4n^2 } \\
+                                                           &= \frac{ \pi^{2} }{  8  }  + \sum_{ n=1  }^{ \infty  } \frac{ 1 }{ 4 n^{2} }.
+        \end{align*}
+        Subtracting the second term on the right hand side to both sides above and collecting terms and dividing, we get
+        \[  \sum_{ n=1  }^{ \infty  } \frac{ 1 }{ n^{2} }  = \frac{ \pi^{2}  }{  6  }.  \]
+        \end{proof}
+\end{enumerate}
+

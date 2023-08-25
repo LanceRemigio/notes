@@ -2,9 +2,9 @@
 \section{The Intermediate Value Theorem}
 
 \subsubsection{Exercise 4.5.3} 
-\begin{defn}
+\begin{definition}{}{}
 A function \( f  \) is \textit{increasing} on \( A  \) if \( f(x) \leq f(y) \) for all \( x < y  \) in \( A  \).
-\end{defn}
+\end{definition}
 Show that if \( f  \) is increasing on \( [a,b]  \) and satisfies the intermediate value property, then \( f  \) is continuous on \( [a,b] \).
 \begin{proof}
     Let \( f  \) be an increasing function on \( [a,b] \). Since \( f  \) satisfies the intermediate value property, we know that \( f(a) \leq f(c) \leq f(b) \) for some \( c \in (x,y)  \). Since we know that \( f(a) \leq f(c)  \), let us suppose two cases; that is, let us suppose either \( f(c) - \epsilon  / 2 < f(a)  \) or \( f(a) \leq f(c) - \epsilon / 2  \). Then the former implies that we can set \( x_1 = a  \) and the latter implies that we can set \( f(c) - \epsilon / 2 = f(x_1) \). Taking the latter case, we can set \( f(x_1) = f(c) - \epsilon  / 2   \) and let \( x \in (x_1, c] \) because \( f  \) satisfies the intermediate value property. Hence, we have that 
