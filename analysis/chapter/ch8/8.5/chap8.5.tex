@@ -491,12 +491,65 @@ where in the last equality, we set
         \end{proof} 
     \item[(b)] The first integral is a little more subtle because the function \( p_{x}(u)  \) has the \( \sin(u/2)  \) term in the denominator. Use the fact that \( f \) is differentiable at \( x  \) (and a familiar limit from calculus) to prove that the first integral goes to zero as well.
         \begin{proof}
-        
+            Our goal is to show that \(  \frac{ 1 }{ 2 } p_{x}(u)   \) is a continuous function so that we may use the Riemann-Lebesgue formula to show that 
+            \[  \frac{ 1 }{ 2 \pi  } \int_{ -\pi  }^{ \pi  } p_{x}(u) \sin(Nu)   \ du = \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } \frac{ 1 }{ 2 } p_{x}(u) \sin(Nu) \ du = 0. \] We notice that \( \frac{ 1 }{ 2 } p_{x}(u)  \)  is clearly continuous. Let us show that it is continuous at \( x = 0  \).
+        Taking advantage of the famous trigonometric limit 
+        \[   \lim_{ u \to 0  } \frac{ u /2  }{ \sin(u/2) } = 1. \] and the fact that \( f  \) is differentiable at \( x  \), we can write the expression \( p_{x}(u)  \) and add a limit as \( u \to 0  \); that is, 
+        \begin{align*}
+            \frac{ 1 }{ 2 } \lim_{ u \to 0 } p_{x}(u) &= \frac{ 1 }{ 2 } \lim_{ u  \to 0 }   \frac{ (f(u+x) - f(x)) \cos(u/2)  }{ u \sin(u/2) } \\
+                                                      &= \lim_{ u \to 0  } \frac{ f(u+x) - f(u)  }{ 2\sin(u/2) }  \\
+                                         &= \lim_{ u \to 0  } \frac{ (f(u+x) - f(x))   }{ 2\sin(u/2) }  \cdot \frac{ u  }{ u  } \\
+                                         &= \lim_{ u  \to 0 }  \frac{ (f(u+x)  - f(x) ) \cos(u/2)   }{ u  }  \\ 
+                                         &\cdot \lim_{ u \to 0 } \frac{ u / 2  }{ \sin(u/2) } \cdot \lim_{ u \to 0 } \cos(u/2) \\
+                                         &= f'(x) \cdot 1 \cdot 1.
+        \end{align*}
+        Hence, we have that \( \frac{ 1 }{ 2 }  p_{x}(u)  \) is a continuous function. Now, using the Riemann-Lebesgue theorem, we can say that  
+        \begin{align*}
+            \frac{ 1 }{ 2 \pi  }  \int_{ -\pi  }^{ \pi  } \Big(  \lim_{ u \to 0  }  p_{x}(u)  \Big)  \sin(Nu) \ du &= \frac{ 1 }{ \pi  }  \int_{ -\pi  }^{ \pi  } \Big( \frac{ 1 }{ 2 } \lim_{ u \to 0 } p_{x}(u) \Big) \sin(Nu)   \ du  \\
+                                                                                                                   &= \frac{ 1  }{ \pi  } \int_{ -\pi  }^{ \pi  } f'(x) \sin(Nu) \ du \\
+                                                                                                                   &= 0.
+        \end{align*}
+        Hence, we also have 
+        \[  \frac{ 1 }{ 2 \pi  } \int_{ -\pi  }^{ \pi  } p_{x}(u) \sin(Nu) \ du = 0 \]
         \end{proof}
 \end{enumerate} 
 
+This completes the proof that \( S_{N}(x) \to f(x)  \) for all \( x  \) where \( f  \) is differentiable.  If \( f'  \) exists everywhere, then we get that \( S_{N} \to f  \) pointwise. It is not too hard to see that if \( f'  \) is continuous, then the convergence will be uniform. Furthermore, the smoothness of \( f  \) contributes to the rate at which the terms of the Fourier series converges. Even more interesting, the more differentiable \( f  \) is, the faster the rate of convergence of the partial sums \( S_{N}  \) to \( f  \).
 
+\subsection{Cesaro Mean Convergence}
 
+Now, we will look at a special type of convergence called the Cesaro mean convergence.
 
+\subsubsection{Exercise 8.5.8} Prove that if a sequence of real numbers \( (x_{n})  \) converges, then the arithmetic means 
+\[  y_{n} = \frac{ x_{1} + x_{2} + x_{3 } + \dotsb + x_{n}  }{ n } \]
+also converges to the same limit. Give an example to show that it is possible for the sequence of means \( (y_{n}) \) to converge even if the original sequence \( (x_{n}) \) does not.
+\begin{proof}
+    Let \( \epsilon > 0  \). Suppose \( (x_{n}) \to x  \). We can choose \( N \in \N  \) such that for any \( N \in \N  \), we have 
+    \[  | x_{n} - x  | < \varepsilon.  \]
+Then using the same choice of \( N \in \N  \), we can write 
+\begin{align*}
+    | y_{n} - x  | &= \Big| \frac{ 1 }{ n } \sum_{ i=1  }^{ n } x_{i} - \frac{ 1 }{ n }  \sum_{ i=1  }^{ n } x  \Big|  \\
+                   &= \frac{ 1 }{ n }  \Big| \sum_{ i=1  }^{ n  } (x_{i } - x ) \Big| \\
+                   &\leq \frac{ 1 }{ n }  \sum_{ i=1  }^{ n } | x_{i} -x  | \\
+                   &< \frac{ \varepsilon }{ n } \sum_{ i=1 }^{ n } \\ 
+                   &= \frac{ \varepsilon }{ n } \cdot n = \varepsilon.
+\end{align*}
+\end{proof}
 
+\begin{theorem}{Fej\'{e}r's Theorem }{}
+   Let \( S_{n}(x)  \) be the \( n \)th partial sum of the Fourier series for a function \( f  \) on \( (- \pi ,\pi ] \). Define 
+   \[  \sigma_{N}(x) = \frac{ 1 }{ N+1 } \sum_{ n=0 }^{ N } S_{n}(x). \]
+   If \( f  \) is continuous on \( (- \pi ,\pi] \), then \( \sigma_{N}(x) \to f(x)  \) uniformly.
+\end{theorem}
+
+\begin{proof}
+We can fashion an argument just like the proof in Theorem 8.5.3 but this time, it will be much simpler. In addition to the facts mentioned before the proof of Theorem 8.5.3, we are going to use 
+\[  \sin(\theta) + \sin(2 \theta) + \sin(3 \theta) + \dotsb + \sin(N \theta) = \frac{ \sin(\frac{ N \theta }{ 2  } ) \sin((N+1) \frac{ \theta }{ 2  } ) }{  \sin(\frac{ \theta }{ 2 } ) }.  \]
+\end{proof}
+
+\subsubsection{Exercise 8.5.9} Use the previous identity to show that
+\[  \frac{ 1 /2 + D_{1}(\theta) + D_{2}(\theta) + \dotsb  + D_{N}(\theta) }{ N+1  } = \frac{ 1 }{ 2 (N+1)  } \Bigg[\frac{ \sin((N+1) \frac{ \theta }{ 2 } ) }{ \sin( \frac{ \theta  }{ 2 } ) } \Bigg]^{2}.  \]
+\begin{proof}
+
+\end{proof}
 
