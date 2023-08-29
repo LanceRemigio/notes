@@ -550,6 +550,26 @@ We can fashion an argument just like the proof in Theorem 8.5.3 but this time, i
 \subsubsection{Exercise 8.5.9} Use the previous identity to show that
 \[  \frac{ 1 /2 + D_{1}(\theta) + D_{2}(\theta) + \dotsb  + D_{N}(\theta) }{ N+1  } = \frac{ 1 }{ 2 (N+1)  } \Bigg[\frac{ \sin((N+1) \frac{ \theta }{ 2 } ) }{ \sin( \frac{ \theta  }{ 2 } ) } \Bigg]^{2}.  \]
 \begin{proof}
-
+    Since 
+    \[  D_{n}(\theta) = \frac{ \sin( (N +1/2) \theta) }{ 2 \sin(\theta/2) }  \]
+    when \( \theta \neq 2 n \pi \) and using fact (ii), we can write 
+\begin{align*}
+    \frac{ 1/2 + \sum_{ n=1 }^{ N } D_{n}(\theta) }{ N+1 } &= \frac{ 1 }{ N+1 } \Big[ \frac{ 1 }{ 2 }  + \sum_{ n=1 }^{ N } \frac{ \sin(n \theta) \cos(\theta/2) + \cos(n \theta) \sin(\theta/2) }{ 2 \sin(\theta /2 ) } \Big]  \\
+                                                           &= \frac{ 1 }{ N+1 } \Big[ \frac{ 1 }{ 2  }  + \frac{ \cos(\theta/2) \sum_{ n=1 }^{ N } \sin( n\theta ) + \sin(\theta/2) \sum_{ n=1 }^{ N } \cos( n \theta)  }{ 2 \sin(\theta/2) } \Big]
+\end{align*}
+Using fact (iii), we can write for any \( \theta \neq 2 n \pi \) that
+\begin{align*}
+    \sum_{ n=1 }^{ N } \cos(n \theta) &= \frac{  \sin ((N + 1/2) \theta) }{ 2 \sin(\theta/2) } - \frac{ 1 }{ 2 }  \\
+\end{align*}
+so that we may express 
+\begin{align*}
+    \sin(\theta /2) \sum_{ n=1 }^{ N } \cos(n\theta) &=  \frac{ \sin(\theta/2) \sin((N+1/2)\theta) }{ 2 \sin(\theta/2) } - \frac{ \sin(\theta)  }{ 2 }  \\
+                                                     &= \frac{ \sin(\theta/2) \sin( (N+1/2)\theta)- \sin^{2}(\theta/2)  }{ 2 \sin(\theta/2) }.
+\end{align*}
+Similarly, we use the fact that 
+\[  \sum_{ n=1 }^{ N } \sin(n \theta) = \frac{ \sin( \frac{ N \theta }{ 2  } ) \sin((N+1) \frac{ \theta }{ 2 } ) }{ \sin(\theta/2) }  \] to express 
+\begin{align*}
+    \cos(\theta/2) \sum_{ n=1 }^{ N } \sin(n \theta) &= \frac{ \cos(\theta/2) \sin(\frac{ N \theta }{ 2 }  ) \sin((N+1) \frac{ \theta }{ 2 } )  }{ \sin(\theta/2) }. \\
+\end{align*}
 \end{proof}
 
