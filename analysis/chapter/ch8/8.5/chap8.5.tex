@@ -547,29 +547,91 @@ We can fashion an argument just like the proof in Theorem 8.5.3 but this time, i
 \[  \sin(\theta) + \sin(2 \theta) + \sin(3 \theta) + \dotsb + \sin(N \theta) = \frac{ \sin(\frac{ N \theta }{ 2  } ) \sin((N+1) \frac{ \theta }{ 2  } ) }{  \sin(\frac{ \theta }{ 2 } ) }.  \]
 \end{proof}
 
+
+
 \subsubsection{Exercise 8.5.9} Use the previous identity to show that
 \[  \frac{ 1 /2 + D_{1}(\theta) + D_{2}(\theta) + \dotsb  + D_{N}(\theta) }{ N+1  } = \frac{ 1 }{ 2 (N+1)  } \Bigg[\frac{ \sin((N+1) \frac{ \theta }{ 2 } ) }{ \sin( \frac{ \theta  }{ 2 } ) } \Bigg]^{2}.  \]
+
 \begin{proof}
-    Since 
-    \[  D_{n}(\theta) = \frac{ \sin( (N +1/2) \theta) }{ 2 \sin(\theta/2) }  \]
-    when \( \theta \neq 2 n \pi \) and using fact (ii), we can write 
+Let \( \theta \neq 2 \pi n  \) so that we may have
+\[  D_{n}(\theta) = \frac{ \sin((n+1/2)\theta)  }{ 2 \sin(\theta/2) }    \] be defined. Before we begin the derivation, we need a few more identities to make the computations simpler; that is, let us use \(  \sin(a)\cos(a) = 1/2 \sin(2a)   \) and \(  1/2(1 + \cos(2a)) = \cos^{2}(a/2)  \). Notice that we may write 
+\[  D_{N}(\theta) = \frac{ 1 }{ 2 } + \sum_{ n=1 }^{ N  } \cos( n\theta ) = \frac{ 1 }{ 2 }  \Big(  \cos(N \theta) + \frac{ \sin(N \theta) \cos( \theta/2) }{ \sin(\theta/2)   } \Big) . \] 
+Using the identities given to us, let's manipulate the left-hand side of the equation to get
 \begin{align*}
-    \frac{ 1/2 + \sum_{ n=1 }^{ N } D_{n}(\theta) }{ N+1 } &= \frac{ 1 }{ N+1 } \Big[ \frac{ 1 }{ 2 }  + \sum_{ n=1 }^{ N } \frac{ \sin(n \theta) \cos(\theta/2) + \cos(n \theta) \sin(\theta/2) }{ 2 \sin(\theta /2 ) } \Big]  \\
-                                                           &= \frac{ 1 }{ N+1 } \Big[ \frac{ 1 }{ 2  }  + \frac{ \cos(\theta/2) \sum_{ n=1 }^{ N } \sin( n\theta ) + \sin(\theta/2) \sum_{ n=1 }^{ N } \cos( n \theta)  }{ 2 \sin(\theta/2) } \Big]
+    \frac{ 1 }{ N+1 } \Big[\frac{ 1 }{ 2 } + \sum_{ n=1 }^{ N } D_{n}(\theta)\Big] 
+    &= \frac{ 1 }{ N+1 } \Big[ \frac{ 1 }{ 2 }  + \frac{ 1 }{ 2 \sin(\theta/2) } \sum_{ n=1 }^{ N } \sin((n+1/2) \theta) \Big] \\
+    &= \frac{ 1 }{ N+1 } \Big[ \frac{ 1 }{ 2 }  + \frac{ 1 }{ 2 \sin(\theta/2) } \Big( \cos(\theta/2) \sum_{ n=1 }^{ N } \sin(n \theta)  \\ &+ \sin(\theta/2) \sum_{ n=1 }^{ N } \cos(n \theta)  \Big) \Big] \\
+    &= \frac{ 1 }{ 2(N+1)  } \Big[1 + \frac{ \cos(\theta/2) }{ \sin(\theta/2) } \sum_{ n=1 }^{ N } \sin(n \theta) + \sum_{ n=1 }^{ N  } \cos(n \theta) \Big] \\
+    &= \frac{ 1 }{ 2(N+1)  } \Big[ \frac{ 1 }{ 2 }  + \sum_{ n=1 }^{ N } \cos(n \theta) + \frac{ \cos(\theta/2) }{ \sin(\theta/2)   } \sum_{ n=1 }^{ N } \sin( n \theta) + \frac{ 1 }{ 2 }  \Big] \\
+    &= \frac{ 1 }{ 2(N+1)  } \Big[ D_{N}(\theta) + \frac{ \cos(\theta/2)  }{ \sin(\theta/2) } \sum_{ n=1 }^{ N  } \sin(n\theta) + \frac{ 1 }{ 2 } \Big] \\
+    &= \frac{ 1 }{ 2(N+1) }  \Big[ \frac{ 1 }{ 2 }  \Big( \cos(N \theta) + \frac{ \sin(N \theta) \cos(\theta/2) }{ \sin(\theta/2) }  \Big)  \\ 
+    &+ \frac{ \cos(\theta/2) }{ \sin(\theta/2) } \sum_{ n=1 }^{ N } \sin(n \theta) + \frac{ 1 }{ 2 }   \Big] \\
+    &= \frac{ 1 }{ 2 (N+1)  } \Big[ \frac{ 1 }{ 2 }  \Big(  \cos(N\theta) + \frac{ \sin(N\theta) \cos(\theta/2) }{ \sin(\theta/2) }  \Big) \\ &+ \frac{ \cos(\theta/2) }{ \sin(\theta/2) } \Big( \frac{ \sin((N+1) \frac{ \theta }{ 2 } ) \sin(\frac{ N \theta }{ 2 } ) }{ \sin(\theta/2) }  \Big) + \frac{ 1 }{ 2 }   \Big] \\
+    &= \frac{ 1 }{ 2 (N+1) \sin^{2}(\theta/2)  } [ \mathbf{A} ]
 \end{align*}
-Using fact (iii), we can write for any \( \theta \neq 2 n \pi \) that
+where 
 \begin{align*}
-    \sum_{ n=1 }^{ N } \cos(n \theta) &= \frac{  \sin ((N + 1/2) \theta) }{ 2 \sin(\theta/2) } - \frac{ 1 }{ 2 }  \\
+    \mathbf{A} &= \frac{ 1 }{ 2 } ( \cos(N\theta) \sin^{2}(\theta/2) + \sin(\theta/2) \sin(N \theta) \cos(\theta/2)) \\ &+ \cos(\theta/2) \sin((N+1) \frac{ \theta }{ 2 }  ) \sin(\frac{ N \theta }{ 2 } )  + \frac{ 1 }{ 2 }  \sin^{2}(\theta/2). \tag{1} \\
 \end{align*}
-so that we may express 
+Working backwards and using the identities we mentioned at the beginning of this proof, we can manipulate \( \sin^{2}((N+1) \frac{ \theta }{ 2 } ) \) to get 
 \begin{align*}
-    \sin(\theta /2) \sum_{ n=1 }^{ N } \cos(n\theta) &=  \frac{ \sin(\theta/2) \sin((N+1/2)\theta) }{ 2 \sin(\theta/2) } - \frac{ \sin(\theta)  }{ 2 }  \\
-                                                     &= \frac{ \sin(\theta/2) \sin( (N+1/2)\theta)- \sin^{2}(\theta/2)  }{ 2 \sin(\theta/2) }.
+    \sin^{2}((N+1) \theta/2 ) &= [ \sin(N\theta/2) \cos(\theta/2) + \cos(N \theta/2) \sin(\theta/2)]^{2}   \\
+                              &= (\sin^{2}(N \theta/2) \cos^{2}(\theta/2) \\ &+ 2\sin(N\theta/2) \cos(N\theta/2) \sin(\theta/2) \cos(\theta/2) \\ &+ \cos^{2}(N\theta/2) \sin^{2}(\theta/2) )  \\   
+                              &= \sin^{2}(N\theta/2) \cos^{2}(\theta/2) + \frac{ 1 }{ 2 } \sin(\theta) \sin(N\theta) \\ 
+                              &+ \cos^{2}(N \theta/2) \sin ^{2}(\theta/2).  
 \end{align*}
-Similarly, we use the fact that 
-\[  \sum_{ n=1 }^{ N } \sin(n \theta) = \frac{ \sin( \frac{ N \theta }{ 2  } ) \sin((N+1) \frac{ \theta }{ 2 } ) }{ \sin(\theta/2) }  \] to express 
+Hence, all we need to show is 
+\[  \sin ^{2}((N+1)\theta/2) =  \sin^{2}(N\theta/2) \cos^{2}(\theta/2) + \frac{ 1 }{ 2 } \sin(\theta) \sin(N\theta) + \cos^{2}(N\theta/2) \sin^{2}(\theta/2)  \]
+and we're done. Manipulating (1), we write
 \begin{align*}
-    \cos(\theta/2) \sum_{ n=1 }^{ N } \sin(n \theta) &= \frac{ \cos(\theta/2) \sin(\frac{ N \theta }{ 2 }  ) \sin((N+1) \frac{ \theta }{ 2 } )  }{ \sin(\theta/2) }. \\
+    \mathbf{A} &= \frac{ 1 }{ 2 } ( \cos(N\theta) \sin^{2}(\theta/2) + \sin(\theta/2) \sin(N \theta) \cos(\theta/2)) \\ &+ \cos(\theta/2) \sin((N+1) \frac{ \theta }{ 2 }  ) \sin(\frac{ N \theta }{ 2 } )  + \frac{ 1 }{ 2 }  \sin^{2}(\theta/2)  \\
+               &=  \sin^{2}(\theta) \frac{ 1 }{ 2 } (1 + \cos(N\theta)) + \frac{ 1 }{ 2 } \sin(\theta/2) \cos(\theta/2) \sin(N\theta) \\ &+ \cos(\theta/2) \sin(N\theta/2) \sin((N+1) \theta/2) \\ 
+               &= \sin^{2}(\theta) \cos^{2}(N \theta/2) + \frac{ 1 }{ 4 } \sin(\theta) \sin(N\theta) + \frac{ 1 }{ 4 } \sin(\theta) \sin(N\theta) \\ 
+               &+ \sin^{2}(N \theta/2) \cos^{2}(\theta).
 \end{align*}
+Hence, we have that 
+\[  \mathbf{A} = \sin^{2}((N+1)\theta/2)  \]
+and thus we can conclude that
+\[  \frac{ 1 }{ N+1 } \Big[ \frac{ 1 }{ 2 }  + \sum_{ n=1 }^{ N } D_{n}(\theta) \Big] = \frac{ 1 }{ 2(N+1)  } \Big[ \frac{ \sin((N+1) \frac{ \theta }{ 2 } ) }{ \sin(\theta/2) } \Big]^{2} \]
+for \( \theta \neq 2 \pi n \).
 \end{proof}
+
+The result above is called the \textit{Fej\'{e}r's kernel} and will be denoted by \( F_{N}(\theta)  \) (similar to the Dirichlet kernel \( D_{N}(\theta)  \) ) derived earlier).
+\subsubsection{Exercise 8.5.10} 
+\begin{enumerate}
+    \item[(a)] Show that 
+        \[  \sigma_{N}(x) = \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(u+x) F_{N}(u)   \ du. \]
+        \begin{proof}
+        Let \( \theta \neq 2 \pi n \) and \( u = t - x   \). Using our results from Exercise 8.5.9, we can write 
+        \begin{align*}
+          \sigma_{N}(x)   &= \frac{ 1 }{ N+1 } \sum_{ n=0 }^{ N } S_{n}(x) \\
+                    &= \frac{ 1 }{ N+1 } \sum_{ n=0  }^{ N } \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(t) D_{n}(t-x) \ dx \\ 
+                    &= \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(u+x) \Big[  \frac{ 1  }{ N+1 } \sum_{ n=0  }^{ N  } D_{n}(u) \Big]  \ dx \\
+                    &= \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(u+x) \frac{ 1 }{ N+1 } \Big[ \frac{ 1 }{ 2 } + \sum_{ n=1 }^{ N } D_{n}(u) \Big]   \ dx \\
+                    &= \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(u+x) \frac{ 1 }{ 2(N+1) } \Big[\frac{ \sin((N+1)\frac{ u }{ 2 } ) }{ \sin(u/2) } \Big]^{2}  \ dx \\
+                    &= \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(u+x) F_{N}(u) \ dx. \\
+        \end{align*}
+        Thus, we have
+        \[  \sigma_{N}(x) = \frac{ 1 }{ \pi } \int_{ -\pi  }^{ \pi  } f(u+x) F_{N}(u) \ dx. \]
+        \end{proof}
+    \item[(b)] Graph the function \( F_{N}(u)  \) for several values of \( N \). Where is \( F_{N} \) large, and where is it close to zero? Compare this function to the Dirichlet kernel \( D_{N}(u)  \). Now, prove that \( F_{N} \to  0  \) uniformly on any set of the form \( \{ u: | u  | \geq \delta \}  \), where \( \delta > 0  \) is fixed (and \( u  \) is restricted to the interval \( (-\pi,\pi] \)). 
+        \begin{proof}[Solution]
+        
+        \end{proof}
+    \item[(c)] Prove that \( \int_{ -\pi  }^{ \pi  } F_{N}(u)  \ du = \pi. \)
+        \begin{proof}
+        
+        \end{proof}
+    \item[(d)] To finish the proof of Fej\'{e}r's  Theorem, first choose \( \delta > 0  \) so that 
+        \begin{center}
+            \( | u  |  < \delta  \) implies \( |  f(x+u) - f(x)  | < \epsilon. \)
+        \end{center}
+        Set up a single integral that represents the difference \( \sigma_{N}(x) - f(x)  \) and divide this integral into sets where \( | u  |  \leq \delta  \) and \( |  u  |  \geq \delta  \). Explain why it is possible to make each of these integrals sufficiently small, independently of the choice of \( x  \).
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
+
+
 
