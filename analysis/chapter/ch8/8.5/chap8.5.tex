@@ -616,7 +616,12 @@ The result above is called the \textit{Fej\'{e}r's kernel} and will be denoted b
         \end{proof}
     \item[(b)] Graph the function \( F_{N}(u)  \) for several values of \( N \). Where is \( F_{N} \) large, and where is it close to zero? Compare this function to the Dirichlet kernel \( D_{N}(u)  \). Now, prove that \( F_{N} \to  0  \) uniformly on any set of the form \( \{ u: | u  | \geq \delta \}  \), where \( \delta > 0  \) is fixed (and \( u  \) is restricted to the interval \( (-\pi,\pi] \)). 
         \begin{proof}[Solution]
-        
+        We can leave the graphing to your favorite Ti-84 calculator. We shall prove that \( F_{N} \to 0  \) uniformly. Let \( u \in \{ u: | u  | \geq \delta \}  \) where \( \delta > 0  \). Since \( 1 / 2 (N+1) \to 0  \) and the sine function is bounded by \(  1  \), we know that 
+        \begin{align*}
+            \frac{ 1 }{ 2(N+1) } \Big[ \frac{ \sin((N+1)\frac{ u }{ 2 } ) }{ \sin(u/2) } \Big]^{2} &\leq \frac{ 1 }{ 2(N+1) } \to 0.
+        \end{align*}
+        Hence, we must also have 
+        \[  \frac{ 1 }{ 2(N+1)  } \Big[\frac{ \sin((N+1)\frac{ u }{ 2 } ) }{ \sin(u/2) } \Big]^{2} \to 0  \] uniformly.
         \end{proof}
     \item[(c)] Prove that \( \int_{ -\pi  }^{ \pi  } F_{N}(u)  \ du = \pi. \)
         \begin{proof}
