@@ -630,9 +630,10 @@ The result above is called the \textit{Fej\'{e}r's kernel} and will be denoted b
         \begin{align*}
             \int_{ -\pi  }^{ \pi  } F_{N}(u)   \ du &= \int_{ -\pi  }^{ \pi  } \Big[ \frac{ 1 }{ N+1 } \Big( \frac{ 1 }{ 2 } + \sum_{ n=1 }^{ N } D_{n}(u) \Big) \Big]   \ du \\
                                                     &= \frac{ 1 }{ N+1 } \int_{ -\pi  }^{ \pi  }  \Big( D_{0}(u) + \sum_{ n=1 }^{ N } D_{n}(u) \Big) \ du. \\
-                                                    &= \frac{ 1 }{ N+1 }  \int_{ -\pi  }^{ \pi  } \Big[ \sum_{ n=0 }^{ N+1 } D_{n}(u) \Big] \ du \\
-                                                    &= \frac{ 1 }{ N+1 } \sum_{ n=0}^{ N+1 } \Big[ \int_{ -\pi }^{ \pi } D_{n}(u)  \ du \Big] \\
+                                                    &= \frac{ 1 }{ N+1 }  \int_{ -\pi  }^{ \pi  } \Big[ \sum_{ n=1 }^{ N+1 } D_{n-1}(u) \Big] \ du \\
+                                                    &= \frac{ 1 }{ N+1 } \sum_{ n=1}^{ N+1 } \Big[ \int_{ -\pi }^{ \pi } D_{n-1}(u)  \ du \Big] \\
                                                     &= \frac{ \pi }{ N+1 } \sum_{ n=0 }^{ N+1 } \\
+                                                    &= \frac{ \pi  }{ N+1  } \cdot N+1 \\
                                                     &=  \pi.
         \end{align*}
         Hence, we have 

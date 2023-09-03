@@ -1,1 +1,57 @@
 \section{A Construction of R from Q}
+
+In this section, we will focus on constructing a proof for the existence of the Real Numbers.
+
+\begin{theorem}{Existence of the Real Numbers}{}
+   There exists an ordered field in which every nonempty set that is bounded above has a least upper bound. In addition, this field contains \( \Q  \) as a subfield. 
+\end{theorem}
+
+A review of chapter 1 tells us that 
+\begin{enumerate}
+    \item[(i)] We can't do analysis on the set of rational numbers because we don't have the square root defined (nor does it exists) which does not allow us to define the convergence of Cauchy sequences.  
+\end{enumerate}
+
+A way that we solved this problem is to create the following axiom:
+
+\begin{axiom}{Axiom of Completeness}{}
+   Every nonempty set of real numbers that is bounded above has a least upper bound. 
+\end{axiom}
+
+Note that we actually need to demonstrate that we can actually extend the rational numbers to contain nonempty sets that have least upper bounds, thereby making the axiom into a theorem worth proving.
+
+
+\subsection{Dedekind Cuts}
+
+Let's begin by assuming that all the properties that come with the rational numbers are available to us. Let us also assume that we don't have real numbers at this point.
+
+\begin{definition}{Cuts}{}
+    A subset \( A  \) of the rational numbers is called a \textit{cut} if it possesses the following three properties: 
+    \begin{enumerate}
+        \item[(c1)] \( A \neq \emptyset \) and \( A \neq \Q  \). 
+        \item[(c2)] If \( r \in A  \), then \( A  \) also contains every rational \( q <  r  \).
+        \item[(c3)] \( A  \) does not have a maximum; that is, if \(  r \in A  \), then there exists \( s \in A  \) with \( r < s  \). 
+    \end{enumerate}
+\end{definition}
+
+\subsubsection{Exercise 8.6.1} 
+\begin{enumerate}
+    \item[(a)] Fix \( r \in \Q  \). Show that the set \( C_{r} = \{ t \in \Q : t < r  \}  \) is a cut.
+        \begin{proof}
+        
+        \end{proof}
+        Avoid thinking of cuts as only having this form. Which of the following subsets of \( \Q  \) are cuts?
+    \item[(b)] \( S = \{ t \in \Q : t \leq 2  \}  \)
+    \item[(c)] \( T = \{ t \in \Q : t^{2} < 2 \ \text{or} \ t < 0  \}  \)
+    \item[(d)] \( U = \{ t \in \Q : t^{2} \leq 2 \ \text{or} \ t < 0  \}  \)
+\end{enumerate}
+
+\subsubsection{Exercise 8.6.2} 
+Let \( A  \) be a cut. Show that if \( r \in  A \) and \( s \notin A  \), then \( r < s  \).
+\begin{proof}
+
+\end{proof}
+
+\begin{definition}{}{}
+    Define the \textit{real numbers} \( \R  \) to be the set of all cuts in \( \Q  \).
+\end{definition}
+
