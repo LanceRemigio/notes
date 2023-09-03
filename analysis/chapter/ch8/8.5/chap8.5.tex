@@ -414,7 +414,7 @@ Suppose on the right-hand side, we list the types of convergences needed to prop
     \item[(iv)] Cesaro mean convergence.
 \end{enumerate}
 
-\begin{theorem}{}{}
+\begin{theorem}{Pointwise Convergence of Fourier Series}{}
     Let \( f(x)  \) be continuous on \( (- \pi , \pi]  \), and let \( S_{N}(x)  \) be the \( N \)th partial sum of the Fourier series described in equation (7), where the coefficients \( (a_{n}) \) and \( (b_{n}) \) are given by equations (9) and (10). It follows that 
     \[  \lim_{ N \to \infty  }  S_{N}(x) = f(x)  \] 
     pointwise at any \( x \in (-\pi, \pi]   \) where \( f'(x)  \) exists.
@@ -682,14 +682,27 @@ We can use the fact that \( \sin(x)  \) and \( \cos(x)  \) is bounded on a compa
 \begin{enumerate}
     \item[(a)] Use the fact that the Taylor series for \( \sin(x)  \) and \( \cos(x) \) converge uniformly on any compact set to prove WAT under the added assumption that \( [a,b] \) is \( [0, \pi] \).
         \begin{proof}
-        
+            Let \( \varepsilon > 0  \). Since \( f(x)  \) is continuous on \( [0, \pi] \), we can pick a \( \delta > 0 \) such that whenever \( | u | < \delta  \), we have
+            \[  | f(u+x) - f(x)  | < \varepsilon. \] 
+            Observe that 
+            \[ \int_{ 0 }^{ \pi } F_{N}(u)   \ du = \frac{ 1 }{ 2 } \int_{ - \pi  }^{ \pi  } F_{N}(u)  \ du = \frac{ \pi }{ 2 }. \]
+            We can use \( \sigma_{N} \) defined in Fej\'{e}r's  Theorem to write
+            \begin{align*}
+                | \sigma_{N}(x) - f(x)  | &= \Big| \frac{ 2 }{ \pi  } \int_{ 0 }^{ \pi  } f(u+x) F_{N}(u)   \ du - \frac{ 2 }{ \pi  } \int_{ 0  }^{ \pi  } f(x) F_{N}(u)  \ du  \Big|  \\
+                                          &= \frac{ 2 }{ \pi  } \Big| \int_{ 0 }^{ \pi  } (f(u+x)-f(x)) F_{N}(u) \ du \Big| \\
+                                          &\leq \frac{ 2  }{ \pi  } \int_{ 0 }^{ \pi  } | f(u+x) - f(x) | F_{N}(u) \ du \\
+                                          &< \frac{ 2 \varepsilon  }{ \pi  } \int_{ 0 }^{ \pi  } F_{N}(u) \ du \\
+                                          &= \frac{ 2 \varepsilon }{ \pi  } \cdot \frac{ \pi }{ 2 } = \varepsilon.
+            \end{align*}
+        Note that the polynomial we found was just \( \sigma _{N}(x)  = p(x) \). Hence, we have that 
+        \[  | f(x) - p(x) | < \varepsilon. \]
         \end{proof}
     \item[(b)] Show how the case for an arbitrary interval \( [a,b] \) follows from this one.
         \begin{proof}
-        
+            Taking advantage of \( f  \)'s uniformly continuity on \( ( -\pi ,\pi ] \), we can extend uniform continuity of \( f  \) to all of \( \R  \). Using  Fej\'{e}r's Theorem, we can find a polynomial \( p(x) \) (in this case, \( p(x) = \sigma_{N}(x) \) ) such that 
+            \[  | f(x) - p(x) | < \varepsilon \]for any interval \( [a,b] \).  
         \end{proof}
 \end{enumerate}
-
 
 
 
