@@ -616,16 +616,29 @@ The result above is called the \textit{Fej\'{e}r's kernel} and will be denoted b
         \end{proof}
     \item[(b)] Graph the function \( F_{N}(u)  \) for several values of \( N \). Where is \( F_{N} \) large, and where is it close to zero? Compare this function to the Dirichlet kernel \( D_{N}(u)  \). Now, prove that \( F_{N} \to  0  \) uniformly on any set of the form \( \{ u: | u  | \geq \delta \}  \), where \( \delta > 0  \) is fixed (and \( u  \) is restricted to the interval \( (-\pi,\pi] \)). 
         \begin{proof}[Solution]
-        We can leave the graphing to your favorite Ti-84 calculator. We shall prove that \( F_{N} \to 0  \) uniformly. Let \( u \in \{ u: | u  | \geq \delta \}  \) where \( \delta > 0  \). Since \( 1 / 2 (N+1) \to 0  \) and the sine function is bounded by \(  1  \), we know that 
+        We can leave the graphing to your favorite Ti-84 calculator. We shall prove that \( F_{N} \to 0  \) uniformly. Let \( u \in \{ u: | u  | \geq \delta \}  \) where \( \delta > 0  \). Let \( \varepsilon > 0  \). Since \( 1 / 2 (N+1) \to 0  \), there exists an \( M \in \N  \) such that for any \( N \geq M  \), we have 
+        \[  \Big| \frac{ 1 }{ 2(N+1) }  \Big| < \varepsilon.  \] Furthermore, the sine function is bounded by \(  1  \). Hence, we can write the following
         \begin{align*}
-            \frac{ 1 }{ 2(N+1) } \Big[ \frac{ \sin((N+1)\frac{ u }{ 2 } ) }{ \sin(u/2) } \Big]^{2} &\leq \frac{ 1 }{ 2(N+1) } \to 0.
+            \Big| \frac{ 1 }{ 2(N+1) } \Big[ \frac{ \sin((N+1)\frac{ u }{ 2 } ) }{ \sin(u/2) } \Big]^{2} \Big| &\leq \Big| \frac{ 1 }{ 2(N+1) }  \Big| \cdot \Big| \frac{ \sin((N+1) \frac{ u }{ 2 } ) }{ \sin(u/2)  }  \Big|^{2}  \\ 
+                                                                                                               &\leq \frac{ 1 }{ 2(N+1) } \\
+                                                                                                               &< \varepsilon.
         \end{align*}
         Hence, we must also have 
         \[  \frac{ 1 }{ 2(N+1)  } \Big[\frac{ \sin((N+1)\frac{ u }{ 2 } ) }{ \sin(u/2) } \Big]^{2} \to 0  \] uniformly.
         \end{proof}
     \item[(c)] Prove that \( \int_{ -\pi  }^{ \pi  } F_{N}(u)  \ du = \pi. \)
         \begin{proof}
-        
+        We will use the fact that \( \int_{ -\pi }^{ \pi } D_{N}(u)  \ du = \pi \) to show the result. Using the definition of \( F_{N}(u)  \) and reordering indices, we can (specifically we will be using the left-hand side of the equation) write 
+        \begin{align*}
+            \int_{ -\pi  }^{ \pi  } F_{N}(u)   \ du &= \int_{ -\pi  }^{ \pi  } \Big[ \frac{ 1 }{ N+1 } \Big( \frac{ 1 }{ 2 } + \sum_{ n=1 }^{ N } D_{n}(u) \Big) \Big]   \ du \\
+                                                    &= \frac{ 1 }{ N+1 } \int_{ -\pi  }^{ \pi  }  \Big( D_{0}(u) + \sum_{ n=1 }^{ N } D_{n}(u) \Big) \ du. \\
+                                                    &= \frac{ 1 }{ N+1 }  \int_{ -\pi  }^{ \pi  } \Big[ \sum_{ n=0 }^{ N+1 } D_{n}(u) \Big] \ du \\
+                                                    &= \frac{ 1 }{ N+1 } \sum_{ n=0}^{ N+1 } \Big[ \int_{ -\pi }^{ \pi } D_{n}(u)  \ du \Big] \\
+                                                    &= \frac{ \pi }{ N+1 } \sum_{ n=0 }^{ N+1 } \\
+                                                    &=  \pi.
+        \end{align*}
+        Hence, we have 
+        \[  \int_{ -\pi  }^{ \pi  } F_{N}(u)  \ du = \pi. \]
         \end{proof}
     \item[(d)] To finish the proof of Fej\'{e}r's  Theorem, first choose \( \delta > 0  \) so that 
         \begin{center}
@@ -633,9 +646,50 @@ The result above is called the \textit{Fej\'{e}r's kernel} and will be denoted b
         \end{center}
         Set up a single integral that represents the difference \( \sigma_{N}(x) - f(x)  \) and divide this integral into sets where \( | u  |  \leq \delta  \) and \( |  u  |  \geq \delta  \). Explain why it is possible to make each of these integrals sufficiently small, independently of the choice of \( x  \).
         \begin{proof}
+        Let \( \varepsilon > 0  \). First, we show that \( \sigma_{n}(x) \to f(x)  \) on \( | u  |  \leq \delta \). Using the fact that \( f  \) is uniformly continuous on \( (-\pi,\pi] \), we can write
+        \begin{align*}
+            | \sigma_{n}(x) - f(x) | &= \Big| \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(u+x) F_{N}(u)  \ du - \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(x) F_{N}(u)  \ du  \Big|  \\
+                                     &= \frac{ 1 }{ \pi  } \Big| \int_{ -\pi  }^{ \pi  } (f(u+x) - f(x)) F_{N}(u)  \ du \Big| \\
+                                     &\leq \frac{ 1 }{ \pi  } \int_{ -\pi }^{ \pi  } | f(u+x) - f(x)  | F_{N}(u)  \ du \\
+                                     &< \frac{ \varepsilon }{ \pi  } \int_{ -\pi }^{ \pi  } F_{N}(u)  \ du \\ 
+                                     &=  \frac{ \varepsilon }{ \pi }  \cdot \pi = \varepsilon. \\
+        \end{align*}
+        Now suppose \( | u  | \geq \delta \). Since \( f \) is uniformly continuous, we can bound \( f  \) by some \( M > 0  \). Hence, we must have 
+        \[  | f(u+x) - f(x) | \leq 2M. \] 
+        Then we can use the fact that \( F_{N} \to 0  \) on sets such as \( | u  |  \geq \delta \) to write 
+        \begin{align*}
+           | \sigma_{n}(x) - f(x) |  &\leq \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } | f(u+x) - f(x) | |F_{N}(u) | \ du \\
+                                     &\leq \frac{ 2M }{ \pi  } \int_{ -\pi }^{ \pi } | F_{N}(u) |   \ du \\
+                                     &< \frac{ 2M    }{ \pi  } \cdot \frac{ \varepsilon }{ 4M  }  \int_{ -\pi  }^{ \pi  }   \ du \\
+                                     &= \frac{ \varepsilon }{ 2\pi  } \cdot 2\pi \\ 
+                                     &= \varepsilon. 
+        \end{align*}
+        \end{proof}
+\end{enumerate}
+
+\subsection{Weierstrass Approximation Theorem}
+
+Fej\'{e}r's  Theorem gives us a nice and concise argument for the Weierstrass Approximation Theorem found in section 6.7. We can restate here as a reminder.
+
+\begin{theorem}{Weierstrass Approximation Theorem}{}
+    Let \( f : [a,b] \to \R  \) be continuous. Given \( \varepsilon > 0  \), there exists a polynomial \( p(x) \) satisfying 
+    \[  | f(x) - p(x) | < \varepsilon \] for all \( x \in [a,b] \).
+\end{theorem}
+
+We can use the fact that \( \sin(x)  \) and \( \cos(x)  \) is bounded on a compact set to show theorem above.
+
+\subsubsection{Exercise 8.5.11}
+\begin{enumerate}
+    \item[(a)] Use the fact that the Taylor series for \( \sin(x)  \) and \( \cos(x) \) converge uniformly on any compact set to prove WAT under the added assumption that \( [a,b] \) is \( [0, \pi] \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Show how the case for an arbitrary interval \( [a,b] \) follows from this one.
+        \begin{proof}
         
         \end{proof}
 \end{enumerate}
+
 
 
 
