@@ -37,21 +37,136 @@ Let's begin by assuming that all the properties that come with the rational numb
 \begin{enumerate}
     \item[(a)] Fix \( r \in \Q  \). Show that the set \( C_{r} = \{ t \in \Q : t < r  \}  \) is a cut.
         \begin{proof}
-        
+        For the first property (C1), we show that \( C_{r} \neq \emptyset  \) and \( C_{r} \neq \Q  \). Suppose \( r \in \Q  \) is fixed. Now define \( t = r - 1  \). Then clearly, we have \( t  <r  \). But this means \( t \in C_{r } \). Hence, \(  C_{r} \neq \emptyset \). Now, we show \( C_{r} \neq \Q  \). Define \( s = r + 1 \in \Q   \). Then clearly, \( s > r  \). Hence, \( s \notin C_{r} \) and thus \( C_{r} \neq \Q  \).
+
+        For the second property (C2), we need to show that if \( r \in C_{r} \), then \( C_{r}  \) also contains every rational \( q < r  \). Suppose we let \( t,q  \in \Q  \) be arbitrary with \( t > q  \) with \( t \in C_{r} \). Then by definition of \( C_{r} \), we must have \( t < r  \). But we have \( q < t < r  \). Hence, we have \( q < r  \) for any \( q \in \Q  \). 
+
+        Lastly, we need to show that \( C_{r}  \) does not have a maximum; that is, for any \( x \in C_{r}  \), there exists an \( s \in C_{r}  \) with \( x < s  \). Let \( x \in C_{r}  \). Then by definition of \( C_{r}  \), we must have \( x < r  \). Suppose we take the midpoint between \( x \) and \( r  \). Then we must have \( x < \frac{ x  +r  }{ 2  } < r  \). Setting \( s = \frac{ x +r  }{ 2  }  \) gives us our desired result.
         \end{proof}
         Avoid thinking of cuts as only having this form. Which of the following subsets of \( \Q  \) are cuts?
     \item[(b)] \( S = \{ t \in \Q : t \leq 2  \}  \)
+        \begin{proof}[Solution]
+        This is not a cut because \( S  \) contains a maximum. In this case, the maximum is \( 2  \).
+        \end{proof}
     \item[(c)] \( T = \{ t \in \Q : t^{2} < 2 \ \text{or} \ t < 0  \}  \)
-    \item[(d)] \( U = \{ t \in \Q : t^{2} \leq 2 \ \text{or} \ t < 0  \}  \)
+        \begin{proof}[Solution]
+        The set \( T  \) is a cut. First, we show (C1). Observe that \(  0 \in T  \). Hence, \( T \neq \emptyset \). Then observe that \(  2 \notin T  \). Hence, \(  T \neq \Q  \). 
+
+        Next, we show (C2). Let \( r \in T  \). Then by definition of \( T  \), we must have either \( r^{2} < 2  \) or \( r < 0  \). If \( r < 0  \), then we can easily pick \(  q < r  \) for any \( q < 0  \). Otherwise, we have \( r^{2} < 2  \) such that if we let \( q \in \Q  \) be arbitrary with \( q^{2} < r^{2}  \). Then we easily have \( q < r  \).
+
+        Finally, we show (C3). Let \( r \in T  \). Then either we have \( r^{2} < 2  \) or \( r < 0  \). Consider 
+        \begin{align*}
+           \Big( r + \frac{ 1 }{ n }  \Big)^{2} &= r^{2} + \frac{ 2r }{ n }  + \frac{ 1 }{ n }  \\
+                                                &= r^{2} +  \frac{ 2r + 1  }{ n  }.  \\
+        \end{align*}
+        Let us set \( s = r + \frac{ 1 }{ n_{0} }   \). If \( r > 0  \), then we can pick an \( n_{0}  \) large enough such that 
+        \[ \frac{ 1 }{ n_{0}  }  < \frac{ 4 - r^{2}  }{ 2r+1  }.   \]
+        Then we have 
+        \[  \Big( r + \frac{ 1 }{ n_{0} }  \Big)^{2} < r^{2} + \frac{ 2r+1 }{ n_{0} } < r^{2} + \frac{ 2r+1 }{ n_{0}  }  \cdot \frac{ 4 - r^{2} }{ 2r+1 } < 4. \]
+        Hence, we have \( r < s < 2   \). Otherwise, we choose \( n_{0 }  \) large enough so that 
+        \[  \frac{ 1 }{ n_{0}  }  < \frac{ -r^{2} }{  2r+1 }. \] Then we have 
+        \[  \Big( r + \frac{ 1 }{ n_{0} }  \Big)^{2} < r^{2} + \frac{ 2r+1 }{ n_{0} }  < 0. \]
+         This implies that \( r < s < 0  \). 
+     \end{proof}
+
+
+    \item[(d)] \( U = \{ t \in \Q : t^{2} \leq 2 \ \text{or} \ t < 0  \}.  \)
+            \begin{proof}
+            
+            \end{proof}
 \end{enumerate}
 
 \subsubsection{Exercise 8.6.2} 
 Let \( A  \) be a cut. Show that if \( r \in  A \) and \( s \notin A  \), then \( r < s  \).
 \begin{proof}
-
+Suppose for sake of contradiction that \( r \geq s  \). Since \( r \in A  \) and \( s \in \Q  \), we know that \( s < r   \). But this means that \( s \in A  \) which leads to a contradiction.
 \end{proof}
 
 \begin{definition}{}{}
     Define the \textit{real numbers} \( \R  \) to be the set of all cuts in \( \Q  \).
 \end{definition}
+
+Here we have defined the set \( \R  \) whose elements are subsets of \( \Q  \) which is awkward because we think of numbers as elements of a set rather than the sets being elements themselves. Our goal now is to create an algebraic structure on \( \R  \). This involves answering the following question
+\begin{center}
+    "What do we mean by an ordered field?".
+\end{center}
+
+\subsection{Field and Order Properties}
+
+Suppose we were given a set \( F  \) and two elements \( x ,y \in F  \). The \textit{operation} that we impose on \( F  \) takes \( x  \) and \( y  \) as an ordered pair \( (x,y)  \) and maps it to a third element \( z \in F  \). Here we are trying to emulate our basic notions of adding and multiplying two numbers.
+
+\begin{definition}{Fields}{}
+   A set \( F  \) is a \textit{field} if there exists two operations --- addition \( (x+y)  \) and multiplication \( (xy) \) --- that satisfy the following list of conditions:
+   \begin{enumerate}
+       \item[(f1)] (commutativity) \( x + y = y + x  \) and \( xy = yx  \) for all \( x,y \in F  \).
+       \item[(f2)] (associativity) \( (x+y) + z = x + (y+z)  \) and \( (xy)z = x(yz)    \) for all \( x,y,z \in F  \).
+        \item[(f3)] (identities exist) There exist two special elements \( 0  \) and \( 1  \) with \(  0 \neq 1  \) such that \( x + 0 = x  \) and \( 1 \cdot x = x  \) for all \( x \in F  \).
+        \item[(f4)] (inverses exist) Given \( x \in F  \), there exists an element \( -x \in F  \) such that \( x + (-x) = 0  \). If \( x \neq 0  \), there exists an element \( x^{-1} \) such that \(  x x^{-1} = 1  \).
+        \item[(f5)] (distributive property) \( x(y+z) = xy + xz \) for all \( x,y,z \in F  \).
+   \end{enumerate}
+\end{definition}
+
+\subsubsection{Exercise 8.6.3}  Using the usual definitions of addition and multiplication, determine which of these properties are possessed by \( \N  , \Z,  \) and \( \Q  \), respectively.
+\begin{proof}[Solution]
+\begin{enumerate}
+    \item[(\( \N  \))] This is not a field since an additive inverse does not exist; that is, \( - 1 \notin \N \). 
+    \item[(\( \Z  \))] The set of integers is not a field because every element in \( x \in \Z  \) does not contain an inverse except for \(  1  \).
+    \item[(\( \Q \))] Field.
+\end{enumerate}
+\end{proof}
+ 
+Just an aside, we can actually use the field properties to show, for example, that for any \( x ,y , z  \in \Q  \), we have that \( x + y = x + z  \) implies \( y = z  \).
+
+\begin{definition}{Ordering}{}
+    An \textit{ordering} on a set \( F  \) is a relation, represented by \(  \leq  \), with the following three properties:
+    \begin{enumerate}
+        \item[(o1)] For arbitrary \( x,y \in F  \), at least one of the statements \( x \leq y  \) or \(  y \leq x  \) is true.
+        \item[(o2)] If \( x \leq y  \) and \( y \leq x  \), then \( x = y  \).
+        \item[(o3)] If \( x \leq y  \) and \( y \leq z  \), then \(  x \leq z  \).
+        Note that writing \(  y \geq x  \) is equivalent to \( x \leq y  \). The strict inequality \( x < y  \) is used to mean \( x \leq y  \) but \( x \neq y  \).
+        \item[(o4)] If \( y \leq z  \), then \( x + y \leq x + z  \).
+        \item[(o5)] If \( x \geq 0  \) and \( y \geq 0  \), then \( xy \geq 0  \).
+    \end{enumerate}
+\end{definition}
+
+We have thus far defined \( \R  \) to be the collection of \( \Q  \) cuts. Now we want to invent the ordering and basic operations outlined in the last two definitions. The easiest out of these is the ordering. Let \( A  \) and \(  B \) be two arbitrary elements of \( \R  \). Define \( A \leq B  \) to mean \( A \subseteq B  \).
+
+\subsubsection{Exercise 8.6.4} Show that this defines an ordering on \( \R  \) by verifying properties (o1), (o2), and (o3) from Definition 8.6.5.
+\begin{proof} 
+    Observe that the first property (o1) follows immediately. For the second property (o2), suppose \( A \leq B  \) and \( B \leq A  \). Then we have \( A \subseteq B  \) and \( B \subseteq A  \). This implies that \( A = B  \). Finally, for the third property (o3), let \( A, B, C \in \R   \). If \( A \leq B  \) and \( B \leq C \), then we have \( A \subseteq B  \) and \( B \subseteq C  \). Then we have \( A \subseteq B \subseteq C  \). Hence, we have \( A \subseteq C \). Hence, we have an ordering on \( \R  \).
+\end{proof}
+
+
+\subsection{Algebra in R}
+
+Given \( A  \) and \( B  \) in \( \R  \), define 
+\[  A +  B = \{ a + b : a \in A \ \text{and} \ b \in B  \}. \] Before trying to verify if \( A + B  \) defines an operation, we have first ask if \( A + B  \) defines a cut. Suppose we verify (c2) of our definition of a cut. Suppose \( A, B  \) are cuts. Let \( a + b \in A + B  \) be arbitrary and let \( s \in \Q  \) satisfy \( s < a + b \). Then, \( s - b < a  \), which implies that \( s - b \in A  \) because \( A  \) is a cut. But then 
+\[  s = (s-b) + b \in A + B,  \] and (c2) is proved.
+
+\subsubsection{Exercise 8.6.5} 
+\begin{enumerate}
+    \item[(a)] Show that (c1) and (c3) also hold for \( A + B  \). Conclude that \( A +  B \) is a cut.
+        \begin{proof}
+        For property (c1), let \( a \in A  \). Then \( a = (a-b) + b \) where \( a -b \in A  \) and \( b \in B  \) implies \( a \in A + B  \). Hence, we have that \( A + B \neq \emptyset \). Let \(  c \in C  \) where \( C \subseteq \Q   \), then we find that \( A + C \not\subseteq A + B  \). Hence, the sum \( a+c \notin A + B \). Hence, \( A + B \neq \Q  \). 
+        To show property (c3), Let \( a + b \in A +  B  \) be arbitrary. Since \( A  \) is a cut, we can find an \( \alpha \in A \) such that \( a < \alpha  \). Likewise, \( B  \) being a cut implies that there exists \( \beta \in B  \) such that \( b < \beta \). Adding the two inequalities together, we get that \(  a+b < \alpha + \beta \). Denote the set \( S = \{ \alpha + \beta : \alpha \in A \ \text{and} \ \beta \in B  \}  \). Then we have \( A + B \subseteq S  \) which proves property (c3). Since properties (c1), (c2), and (c3) have been satisfied, we can now conclude that \( A + B  \) is a cut.
+        \end{proof}
+    \item[(b)] Check that addition in \( \R  \) is commutative (f1) and associative (f2).
+        \begin{proof}
+        Since \( A + B  \) is a cut and its elements \( a + b   \), where \( a \in A  \) and \( b \in B  \) are both cuts, subsets of \( \Q  \) where \( \Q  \) is an ordered field, we know that addition must be commutative and associative. This means that 
+        \[  A + B = B + A.\] If we have an extra set \( C  \) that is also a cut, then we would have \( (a+b) + c = a + (b+c)  \) implying that 
+        \[  (A+B) + C = A + (B+C). \] 
+        Hence, we have (f1) and (f2) are satisfied.
+        \end{proof}
+    \item[(c)] Show that property (o4) holds.
+        \begin{proof}
+        Suppose we have \( A \subseteq C  \) where \( A  \) and \( C  \) are both cuts.         Let \( B  \) be a cut. Then \( A \subseteq C \) implies \( a \leq c  \). If we have \( b \in B  \) be arbitrary, then we can use the ordering of \( \Q  \) to write \( b + a \leq b + c  \). But this means that \(  B + A \subseteq B + C  \) and hence property (o4) is satisfied.
+        \end{proof}
+    \item[(d)] Show that the cut 
+        \[  O = \{ p \in \Q : p < 0  \}  \] successfully plays the role of the additive identity (f3). (Showing \( A + O = A  \) amounts to proving that these two sets are the same. The standard way to prove such a thing is to show two inclusions : \( A  + O \subseteq A  \) and \( A \subseteq A + O  \).) 
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
+
 
