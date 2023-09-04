@@ -5,14 +5,14 @@
 
 \subsection{Correspondence}
 
-\begin{definition}{}{}
+\begin{definition}
     A function \( f: A \to B \) is \textit{one-to-one} if \( a_1 \neq a_2 \) in \( A \) implies that 
     \( f(a_1) \neq f(a_2) \) in \( B \). The function \( f \) is \textit{onto} if, given any \( b \in B \), there exists an element \( a \in A \) for which \( f(a) = b\).
 \end{definition}
 
 An equivalent defintion for a function to be one-to-one is the following:
 
-\begin{definition}{}{}
+\begin{definition}
     A function \( f: A \to B \) is \textit{one-to-one} if \( f(a_1) \neq f(a_2) \) implies that \( a_1 = a_2 \).
 \end{definition}
     
@@ -20,35 +20,33 @@ A function that is both one-to-one and onto is said to be bijective. Meaning tha
 
 From an algebraic perspective, we can denote a function being bijective to mean the same thing as two sets having the same cardinality i.e we can say that 
 
-\begin{definition}{}{}
+\begin{definition}
 Two sets \( A \) and \( B \) have the same cardinality if there exists \( f: A \to B \) that is both one-to-one and onto. We can denote this symbolically as \( A \sim B\)
 \end{definition}
 
 Some examples of bijective maps are
-\begin{example}{}{}
 \begin{enumerate}
-    \item Let the following map \(f: \N \to \mathbf{E} \) be defined as \( f(n) = 2n \). We can see that \( \N \sim \mathbf{E}\). It's true that \( \mathbf{E}\) is indeed a subset of \( \N \), but do not conclude that it is a smaller set than \( \N \) since they have the same cardinality or isomorphic to each other.
-    \item We can show this again. This time let us have a map \( f: \N \to \Z \) such that 
+    \item[(i)] Let the following map \(f: \N \to \mathbf{E} \) be defined as \( f(n) = 2n \). We can see that \( \N \sim \mathbf{E}\). It's true that \( \mathbf{E}\) is indeed a subset of \( \N \), but do not conclude that it is a smaller set than \( \N \) since they have the same cardinality or isomorphic to each other.
+    \item[(ii)] We can show this again. This time let us have a map \( f: \N \to \Z \) such that 
         \[ f(n) = \begin{cases}  (n-1)/2 \text{ if } n \text{ is odd.}       \\
                                  -n/2 \text{ if } n \text{ is even.}
                                                 \end{cases}\]
 We have that \( \N \sim \Z \) indeed.
 \end{enumerate}
-\end{example}
 
 
 \subsection{Countable Sets}
 
-\begin{definition}{}{}
+\begin{definition}
 A set \( A \) is \textit{countable} if \( \N \sim A \). An infinite set that is not countable is called an \textit{uncountable set}.
 \end{definition}
 
-\begin{theorem}{}{}
+\begin{theorem}
 Let \( \Q, \R \). Then 
-\begin{itemize}
-    \item The set \( \Q \) is countable. 
-    \item The set \( \R \) is uncountable.
-\end{itemize}
+\begin{enumerate}
+    \item[(i)] The set \( \Q \) is countable. 
+    \item[(ii)] The set \( \R \) is uncountable.
+\end{enumerate}
 
 
 \end{theorem} 
@@ -81,15 +79,15 @@ We can create \( \R \) by taking the union of \( \Q \) and \( \mathbb{I} \). Sin
 We can summarize these results in the follow two theorems: 
 
 
-\begin{theorem}{}{}
+\begin{theorem}
     If \( A \subseteq B \) and \( B \) is \textit{countable}, then \( A \) is either countable or finite. 
 \end{theorem}
 
-\begin{theorem}{}{}
+\begin{theorem}
 \begin{enumerate}
-    \item If \( A_1, A_2,... A_n\) are each countable sets, then the union of 
+    \item[(i)] If \( A_1, A_2,... A_n\) are each countable sets, then the union of 
         \[ A_1 \cup A_2 \cup ... \cup A_m \] is countable.
-    \item If \( A_n \) is a countable set for each \( n \in \N \), the \( \bigcup_{n=1}^{\infty}A_n \) is countable. 
+    \item[(ii)] If \( A_n \) is a countable set for each \( n \in \N \), the \( \bigcup_{n=1}^{\infty}A_n \) is countable. 
 \end{enumerate}
 \end{theorem}
 

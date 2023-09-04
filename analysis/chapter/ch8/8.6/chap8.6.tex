@@ -2,8 +2,7 @@
 
 In this section, we will focus on constructing a proof for the existence of the Real Numbers.
 
-\begin{theorem}{Existence of the Real Numbers}{}
-   There exists an ordered field in which every nonempty set that is bounded above has a least upper bound. In addition, this field contains \( \Q  \) as a subfield. 
+\begin{theorem}[Existence of Real Numbers]   There exists an ordered field in which every nonempty set that is bounded above has a least upper bound. In addition, this field contains \( \Q  \) as a subfield. 
 \end{theorem}
 
 A review of chapter 1 tells us that 
@@ -13,9 +12,9 @@ A review of chapter 1 tells us that
 
 A way that we solved this problem is to create the following axiom:
 
-\begin{axiom}{Axiom of Completeness}{}
-   Every nonempty set of real numbers that is bounded above has a least upper bound. 
-\end{axiom}
+\begin{theorem}[Axiom of Completeness] 
+    Every nonempty set of real numbers that is bounded above has a least upper bound. 
+\end{theorem}
 
 Note that we actually need to demonstrate that we can actually extend the rational numbers to contain nonempty sets that have least upper bounds, thereby making the axiom into a theorem worth proving.
 
@@ -24,8 +23,7 @@ Note that we actually need to demonstrate that we can actually extend the ration
 
 Let's begin by assuming that all the properties that come with the rational numbers are available to us. Let us also assume that we don't have real numbers at this point.
 
-\begin{definition}{Cuts}{}
-    A subset \( A  \) of the rational numbers is called a \textit{cut} if it possesses the following three properties: 
+\begin{definition}[Cuts]   A subset \( A  \) of the rational numbers is called a \textit{cut} if it possesses the following three properties: 
     \begin{enumerate}
         \item[(c1)] \( A \neq \emptyset \) and \( A \neq \Q  \). 
         \item[(c2)] If \( r \in A  \), then \( A  \) also contains every rational \( q <  r  \).
@@ -95,8 +93,7 @@ Here we have defined the set \( \R  \) whose elements are subsets of \( \Q  \) w
 
 Suppose we were given a set \( F  \) and two elements \( x ,y \in F  \). The \textit{operation} that we impose on \( F  \) takes \( x  \) and \( y  \) as an ordered pair \( (x,y)  \) and maps it to a third element \( z \in F  \). Here we are trying to emulate our basic notions of adding and multiplying two numbers.
 
-\begin{definition}{Fields}{}
-   A set \( F  \) is a \textit{field} if there exists two operations --- addition \( (x+y)  \) and multiplication \( (xy) \) --- that satisfy the following list of conditions:
+\begin{definition}[Field]   A set \( F  \) is a \textit{field} if there exists two operations --- addition \( (x+y)  \) and multiplication \( (xy) \) --- that satisfy the following list of conditions:
    \begin{enumerate}
        \item[(f1)] (commutativity) \( x + y = y + x  \) and \( xy = yx  \) for all \( x,y \in F  \).
        \item[(f2)] (associativity) \( (x+y) + z = x + (y+z)  \) and \( (xy)z = x(yz)    \) for all \( x,y,z \in F  \).

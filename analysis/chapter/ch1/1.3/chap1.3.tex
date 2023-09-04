@@ -3,14 +3,14 @@
 
 
 
-\begin{axiom}{Axiom of Completeness}{}
+\begin{theorem}
 Every nonempty set of real numbers that is bounded above has a least upper bound.
-\end{axiom}
+\end{theorem}
 
 
 
 
-\begin{definition}{Bounded sets}{}
+\begin{definition}
         We call a set \( A \subseteq \R \) is \textit{bounded above} if there exists a number \( b \in \R \) such that \( a \leq b \) for all \( a \in A \).
         Otherwise, a set is \textit{bounded below} if there exists a \( \ell \in \R \) satisfying \( \ell \leq a \) for every \( a \in A \) .
 \end{definition}
@@ -42,8 +42,9 @@ Consider the following set
 This set is bounded above and below. In addition, we can see that \( \sup(A) = 1 \) and \( \inf(A) = 0 \) (this is because each subsequent number in the sequence gets smaller and smaller). 
 
 
-\begin{definition}{Maximum and Minimum of sets}{label}
-        We say that \( a_0 \in \R \) is a \textit{maximum} of the set \( A \) if \( a_0 \in A \) and \( a \leq a_0 \) for all \( a \in A \). Likewise, we say that \(a_1 \in \R \) is a \textit{minimum} of \( A \) if \( a_1 \in A \) and \( a \geq a_1 \) for every \( a \in A \).  
+\begin{definition}    
+    We say that \( a_0 \in \R \) is a \textit{maximum} of the set \( A \) if \( a_0 \in A \) and \( a \leq a_0 \) for all \( a \in A \). Likewise, we say that \(a_1 \in \R \) is a \textit{minimum} of \( A \) if \( a_1 \in A \) and \( a \geq a_1 \) for every \( a \in A \).  
+
     \end{definition}
 
 If we have an open set \( (0,2) \) then the end points of this set are the infimum and supremum of the set respectively. Note that the maximum and the minimum do not exists because the infimum and the supremum are not in the set. If this set were to be closed, then the supremum and infimum would be in the set which implies that the max and min exists. 
@@ -72,8 +73,7 @@ Notice that when we try and search for the supremum for this set, we cannot find
 
 There is another way to restate part (ii) of defintion 0.2 i.e 
 
-\begin{lemma}{Alternative definition of least upper bound}{}
-Assume \( s \in \R \) is an upper bound for a set \( A \subseteq \R \). Then, \( s = \sup A \) if and only if for every \( \epsilon > 0 \), there exists \( a \in A \) such that \( s - \epsilon < a \).
+\begin{lemma}Assume \( s \in \R \) is an upper bound for a set \( A \subseteq \R \). Then, \( s = \sup A \) if and only if for every \( \epsilon > 0 \), there exists \( a \in A \) such that \( s - \epsilon < a \).
 \end{lemma}
 
 \begin{proof}
