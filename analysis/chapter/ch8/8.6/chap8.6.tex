@@ -206,15 +206,65 @@ Given \( A \geq O  \) and \( B \geq O  \) in \( \R  \), define the product
 \begin{enumerate}
     \item[(a)] Show that \( AB  \) is a cut and that property (o5) holds.
         \begin{proof}
-        
+        To show (c1), let \( a , b \in \Q  \) with the property that \( a,b \geq  0  \). Since \( \Q \) is a field, we can take the product of \( a  \) and \(  b  \) and get \( a \cdot b \geq 0  \) implying that \( AB \neq \emptyset \). Likewise, if we take any \( p \in \Q  \) with \( p < 0  \) and multiply it by any strictly non-negative \( a \in \Q  \), then \( p \cdot a < 0  \) implying that \( AB \neq \emptyset  \) once again. We know that \( AB \neq \emptyset  \) since \( q \leq  0  \) is not in \( A B  \). Hence, (c1) is satisfied.
+
+    To show (c2), we need to show that for all \( q \in \Q  \) that \(  r \in A B  \) implies \( q < r  \). Suppose \( r = a \cdot b  \) with \( a \in A \) and \( b \in B  \). Since \( A   \) and \( B  \) are cuts, we can use (c2) to state that for all  \( \alpha \in A  \) and for all \( \beta \in B  \), we have such \(  \alpha < a   \) and \( \beta < b  \) respectively. Then taking the product of these inequalities, we get our desired result that \( q =  \alpha \cdot \beta < a \cdot b = r \). Hence, (c2) is satisfied.
+
+    Finally, we show (c3). Let \( r \in AB  \) where \( r = a \cdot  b \) where \( a \in A  \) and \( b \in B \). Since \( A  \) and \( B  \) are cuts, we can find \(  w \in A  \) and \( z \in B  \) such that \( r = a \cdot b < z \cdot w = \omega \). Hence, (c3) is satisfied.
+
+    Now we need to show that  property \( (o5)   \) holds for \( AB \). Assume \( A \geq O  \) and \( B \geq O  \). We know that \( O \subseteq A   \) and \(  O \subseteq B  \). This means that if we let \(  p, w \in O  \), then \( p, w \in A  \) and \( p, w  \in B  \). Note that \( p \cdot w < 0   \). Since \( ab \geq 0  \), we know that \( pw \leq ab  \) which implies that \( pw \in AB \) and hence, \( O \subseteq AB \).
         \end{proof}
     \item[(b)] Propose a good candidate for the multiplicative identity on \( \R  \) and show that this works for all cuts \( A \geq O  \).
         \begin{proof}
-        
+        We propose the following candidate for the multiplicative identity on \( \R  \): For \( A \geq O  \), we have 
+        \[  A^{-1} =  \{ a \in \Q : \exists p \in \Q \implies a \cdot p^{-1} < 1 \ \text{and } p > 0 \ \text{with} \ p^{-1} \notin A   \} \cup \{ q \in \Q : q < 0  \}. \] 
         \end{proof}
     \item[(c)] Show the distributive property (f5) holds for non-negative cuts.
         \begin{proof}
         
         \end{proof}
 \end{enumerate}
+
+We can define products of two positive cuts by observing that \( -A \geq O  \) whenever \( O \leq A  \). In addition, given any \( A \leq O  \), we can use property (o4) to write \( A + (-A) \leq O + (-A) \) which results in \( O \leq -A  \). 
+
+Now let \( A, B \in \R  \) and define the following possible cases for which we can multiple \( A  \) and \( B  \): 
+\[  AB = 
+\begin{cases}
+    \text{as given} &\text{if } A \geq O \ \text{and} \ B \geq O \\
+      -[A(-B)] &\text{if } A \geq O \ \text{and} \ B \geq O  \\
+      -[(-A)B] &\text{if } A < O  \ \text{and} \ B \geq  O  \\
+      (-A)(-B) &\text{if } A < O \ \text{and} \  B < O.
+\end{cases} \]
+
+We leave these as exercises for you to do. The proofs follow the same pattern as the ones we have done so far with cases usually falling into when terms are either positive or negative.
+
+\subsection{Least Upper Bounds}
+
+We can now use the fact that \( \R  \) is an ordered field to show that the field is complete. Recall in Chapter 1 that we define "complete" in terms of least upper bounds. Below we restate the definitions seen in Chapter 1.
+
+\begin{definition}
+    A set \( \mathcal{A} \subseteq \R  \) is \textit{bounded above} if there exists a \( B \in \R  \) such that \( A \leq B  \) for all \( A \in \mathcal{A}  \). The number \( B  \) is called an \textit{upper bound} for \( \mathcal{A} \). 
+
+    A real number \( S \in \R  \) is the \textit{least upper bound} for a set \( \mathcal{A} \subseteq \R  \) if it meets the following two criteria:
+    \begin{enumerate}
+        \item[(i)] \( S  \) is an upper bound for \( \mathcal{A}  \) and
+        \item[(ii)] if \( B  \) is any upper bound for \( \mathcal{A}  \), then \( S \leq B  \).
+    \end{enumerate}
+\end{definition}
+
+\subsubsection{Exercise 8.6.8} 
+Let \( \mathcal{A} \subseteq \R  \) be nonempty and bounded above, and let \( S  \) be the \textit{union} of all \( A \in \mathcal{A}  \).  
+\begin{enumerate}
+    \item[(a)] First, prove that \( S \in \R  \) by showing that it is a cut.
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Now, show that \( S  \) is the least upper bound for \( \mathcal{A} \).
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
+
+
 
