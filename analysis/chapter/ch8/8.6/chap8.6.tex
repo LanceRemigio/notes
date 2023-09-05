@@ -161,9 +161,53 @@ Given \( A  \) and \( B  \) in \( \R  \), define
     \item[(d)] Show that the cut 
         \[  O = \{ p \in \Q : p < 0  \}  \] successfully plays the role of the additive identity (f3). (Showing \( A + O = A  \) amounts to proving that these two sets are the same. The standard way to prove such a thing is to show two inclusions : \( A  + O \subseteq A  \) and \( A \subseteq A + O  \).) 
         \begin{proof}
-        
+        First, we show \( A + O \subseteq A  \). Let \( a + p \in  A+ O  \) be arbitrary. Since \(  p < 0  \), we must have \(  a + p \leq a  \). But this means that \( A + O \subseteq A  \). For the second inclusion \( A \subseteq A + O  \), let \( a \in A  \). Then observe that \( a = (a-p) + p \). Since \( p < 0  \), we can write \(  a = (a-p) + p  \). But since \( a - p \in A  \) and \( p \in O  \), we know that \( a \in A + O  \). Hence, we have \( A \subseteq A + O  \).        
         \end{proof}
 \end{enumerate}
 
+Suppose we try and prove additive inverses? Given an \( A \in \R  \), we need to construct a cut \( -A  \) such that \( A + (-A ) = O \). Without the help of the supremum, which we can't even use because it is strictly defined on \( \R  \) without inherently assuming that it exists, how do we go about defining this set? 
 
+Suppose we are given \( A \in \R  \), then define
+\[  -A = \{ r \in \Q:  \ \text{there exists } t  \not\in A \ \text{with} \ t < -r \}. \]
+
+\subsubsection{Exercise 8.6.6} 
+\begin{enumerate}
+    \item[(a)] Prove that \( -A  \) defines a cut.
+        \begin{proof}
+        To show the (c1), let \( r \in \Q  \). Since \( \Q  \) is a field, we can rewrite \( r  \) in the following way
+        \[  r = r + (t - t)  = (r+t) - t = (t+r) - t < -t  \] with \( t \not\in A  \). Multiplying through the inequality by a negative leads us to \(  -r > t  \). This tells us that \( r \in -A  \) and we must have \( -A \neq \emptyset  \). However, this also implies that \( -r \notin -A  \) and hence, \( -A \neq \Q  \).
+        To show (c2), let \( r \in -A  \). Then by definition of \( -A  \), there exists a \( t \notin A  \) such that \( -r  > t  \). Suppose we let \( -q \in \Q  \) be arbitrary with \( -q > -r  \). Using the fact that \( \Q  \) is a field, we can multiply the inequality by a negative to get \( r > q  \) our desired result. Hence, (c2) is satisfied.
+
+        Finally, we show (c3). Suppose \( r \in -A  \). Then there exists \( t \notin A  \) such that \( -r > t  \). Multiplying through the inequality by a negative gives us \( r < -t  \) which is our desired result. Hence, \( -A  \) defines a cut.
+        \end{proof}
+    \item[(b)] What goes wrong if we set \( -A = \{ r \in \Q : -r \in A  \}  \)?
+        \begin{proof}[Solution]
+        
+        \end{proof}
+    \item[(c)] If \( a \in A  \) and \( r \in -A  \), show \( a + r \in O  \). This shows \( A + (-A ) \subseteq O  \). Now, finish the proof of property (f4) for addition in the definition of a field.
+        \begin{proof}
+
+        \end{proof}
+\end{enumerate}
+
+Suppose we try to create the structure for multiplication using cuts. This can be quite difficult because of the fact that the product of two negative numbers is positive. A way to do this is to define multiplication on non-negative cuts.
+
+Given \( A \geq O  \) and \( B \geq O  \) in \( \R  \), define the product 
+\[  AB = \{ ab: a \in A , b \in B \ \text{with} \ a,b \geq 0  \} \cup \{ q \in \Q : q < 0  \}. \]
+
+\subsubsection{Exercise 8.6.7} 
+\begin{enumerate}
+    \item[(a)] Show that \( AB  \) is a cut and that property (o5) holds.
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Propose a good candidate for the multiplicative identity on \( \R  \) and show that this works for all cuts \( A \geq O  \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(c)] Show the distributive property (f5) holds for non-negative cuts.
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
 
