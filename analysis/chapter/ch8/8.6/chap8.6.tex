@@ -181,14 +181,21 @@ Suppose we are given \( A \in \R  \), then define
         Finally, we show (c3). Suppose \( r \in -A  \). Then there exists \( t \notin A  \) such that \( -r > t  \). Multiplying through the inequality by a negative gives us \( r < -t  \) which is our desired result. Hence, \( -A  \) defines a cut.
         \end{proof}
     \item[(b)] What goes wrong if we set \( -A = \{ r \in \Q : -r \in A  \}  \)?
-        \begin{proof}[Solution]
-        
-        \end{proof}
+        \begin{explanation}
+        If we have \( -A  \) defined as the set above, then it would fail (c3). We can see this when we define \(  A = \{ r \in \Q : r < 0  \}  \) and let \( -A = \{ r \in \Q : r \leq  0 \}   \) which tells us that \( -A  \) contains a maximum.
+        \end{explanation}
     \item[(c)] If \( a \in A  \) and \( r \in -A  \), show \( a + r \in O  \). This shows \( A + (-A ) \subseteq O  \). Now, finish the proof of property (f4) for addition in the definition of a field.
         \begin{proof}
-
+            Let \( a \in A  \) and \( r \in -A  \). Let \( a + r \in O  \). Since \( r \in -A  \), we know that there exists \( t \notin A  \) with \( t < -r  \). Now, we can write \( a + r < a - t    \). But \( -t < 0  \) so this tells us that \( a + r < 0  \). Hence, \( a + r \in O  \) and we have \( A + (-A) \subseteq O  \). Now we need to show \( O \subseteq A + (-A)  \). Let us fix \( p \in O  \) and finding \( a \in A  \) such that \( a + b = o  \). Let \( \epsilon  = | o | / 2  \). Taking advantage of properties (c1) and (c2), we can choose a rational \( t \notin A  \) such that \( t - \epsilon \in A  \). If no such \( t  \) existed then we would either have \( A = \Q  \) or \( A = \emptyset \). Now, \( t \notin A   \) implies \( -(t+\epsilon ) \in -A  \). Then 
+            \[ o = -2 \epsilon = -(t+\epsilon ) + (t-\epsilon ) \in A + (-A ), \] and hence we conclude \( O \subseteq A + (-A) \). Hence, (f4) is proven.
         \end{proof}
 \end{enumerate}
+
+\begin{remark}
+   Another possible way you could show the reverse inclusion in part (c) is to rewrite \( o \in O  \) such that \( o = (o+r) - r  \) and show that \( 0+r  \in -A \) for which, in addition to \( -r \in A  \), leads to \( O \subseteq A + (-A ) \). Since there exists \( t \notin A  \) such that \( -r > t  \) and \( o < 0  \), we have 
+   \[  o+r < r \implies o + r < r < -t.   \]
+   Multiplying the inequality by a negative gives us \( -(o+r) < t  \), which tells us that \( o +r \in -A  \). Since we also have \( - r \in A   \), we conclude that \( o \in A + (-A )  \) and hence \( O \subseteq A + (-A) \).
+\end{remark}
 
 Suppose we try to create the structure for multiplication using cuts. This can be quite difficult because of the fact that the product of two negative numbers is positive. A way to do this is to define multiplication on non-negative cuts.
 
