@@ -219,9 +219,17 @@ Given \( A \geq O  \) and \( B \geq O  \) in \( \R  \), define the product
         We propose the following candidate for the multiplicative identity on \( \R  \): For \( A \geq O  \), we have 
         \[  A^{-1} =  \{ a \in \Q : \exists p \in \Q \implies a \cdot p^{-1} < 1 \ \text{and } p > 0 \ \text{with} \ p^{-1} \notin A   \} \cup \{ q \in \Q : q < 0  \}. \] 
         \end{proof}
+
     \item[(c)] Show the distributive property (f5) holds for non-negative cuts.
+        Before moving on to the proof, define \( A(B+C)  \) as 
+        \[  A(B+C) = \{ a(b+c) : a \in A, b+c \in B+C \ \text{with} \ a, b+c \geq 0   \} \cup  \{ p \in \Q : p < 0  \}. \] Then let 
+        \[  P = \{ a(b+c) : a \in A , b+c \in B + C \ \text{with} \ a, b+c \geq 0   \}.  \]
         \begin{proof}
-        
+        The main goal is to show that \( A (B+C) = AB + AC \); that is, we need to show the following two inclusions:
+        \[  A (B+C) \subseteq AB+AC  \ \text{and} \  AB+AC \subseteq  A (B+C). \]
+        Since \( x \in A(B+C)  \), then either \( x \in  P  \) or \( x \in O  \). Suppose we have \( x \in P  \). Then we have \( x = a(b+c)  \). Since \( \Q  \) is an ordered field, we can use the distributive property to write \( a(b+c) = ab+ ac \in AB + BC   \). Hence, \( a(b+c) \in AB + BC  \) and \( A(B+C) \subseteq AB + BC  \). Now suppose \( x \in O  \), then \( x < 0  \). Since the products \( AB  \) and \( BC  \) are non-negative, we know that we must have \( ab \geq 0  \) and \( bc \geq 0  \). This tells us that their sum \( ab + ac \geq 0  \) and hence, we have \( x <  0 \leq ab + ac   \). Since \( x \leq ab + ac  \), we can write \( O \subseteq AB + AC  \).  
+
+        Next, we show \( AB + BC \subseteq A(B+C) \). Let \( x \in AB + BC \). Then \( x = r_{1} + r_{2}  \) where \( r_{1} \in AB \) and \( r_{2} \in BC \). If \( r_{1} \in AB  \), then either \( r_{1} = ab \geq 0  \) or \( r_{1} < 0  \). Likewise, \( r_{2} \in BC \) implies that either \( r_{2} = ac \geq 0  \) or \( r_{2} < 0  \). Suppose \( r_{1} = ab \geq 0  \) and \( r_{2} = ac \geq  0  \). Then we can simply use the distributive property to write \( ab + ac = a (b+c)  \in A(B+C)  \). Hence, \( ab + ac \in A(B+C) \). Now suppose \(  r_{1} \geq 0  \) and \( r_{2} < 0  \). Then \( x = r_{1} + r_{2} < r_{1} + 0 \). But note that \( AB + O \subseteq O  \) which tells us that \( x \in A(B+C) \). The case for when \( r_{2} \geq  0   \) and \( r_{1} < 0  \) is similar. If both \( r_{1} < 0  \) and \( r_{2} < 0  \), then \( x = r_{1} + r_{2} < 0 \leq a(b+c)  \) and hence, \( x \in A(B+C)  \). Thus, we can conclude that \( AB + BC \subseteq A(B+C) \).
         \end{proof}
 \end{enumerate}
 
@@ -265,6 +273,19 @@ Let \( \mathcal{A} \subseteq \R  \) be nonempty and bounded above, and let \( S 
         \end{proof}
 \end{enumerate}
 
+This finishes the proof that \( \R  \) is complete. However, we need to solve the problem of the slight mistake in saying that \( \R  \) contains \( \Q  \) as a subfield. We can solve this issue by saying that \( \R  \) contains a subfield that looks and acts exactly like \( \Q  \).
 
-
+\subsubsection{Exercise 8.6.9} Consider the collection of so-called "rational" cuts of the form 
+\[  C_{r} = \{ t \in \Q  : t < r \}  \]
+where \( r \in \Q  \). (See Exercise 8.6.1)
+\begin{enumerate}
+    \item[(a)] Show that \( C_{r} + C_{s} = C_{r+s} \) for all \( r,s \in \Q  \). Verify \( C_{r} C_{s} = C_{rs} \) for the case when \( r, s \geq 0  \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Show that \( C_{r} \leq C_{s}  \) if and only if \( r \leq s  \) in \( \Q  \).
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
 
