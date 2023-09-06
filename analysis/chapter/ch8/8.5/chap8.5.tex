@@ -1,5 +1,6 @@
 \section{Fourier Series}
-Fourier's development of a special type of series involving trigonometric functions caused a rework into what it really means to have a "limit" or to "converge" towards a specific valuea4papersubsection{Trigonometric Series}
+Fourier's development of a special type of series involving trigonometric functions caused a rework into what it really means to have a "limit" or to "converge" towards a specific 
+\subsection{Trigonometric Series}
 
 The basic use of series representations is to express a given function \( f(x)  \) in terms of the sum of simpler and "nicer" functions such as polynomials. In the case of power series representations, we have the following set of component functions \( \{ 1, x, x^{2}, x^{3}, \dots \}  \) such that the following series takes the form 
 \[  f(x) = \sum_{ n=0  }^{ \infty  } a_{n} x^{n} = a_{0} + a_{1} x + a_{2} x^{2} + a_{3} x^{3} + \dotsb  . \]
@@ -263,7 +264,6 @@ Solving for \( b_{m} \) gives us our desired result
 
 Let's see how these coefficients are computed with simple functions.
 
-\begin{example}{}{}
     Let 
     \[  f(x) = 
     \begin{cases}
@@ -287,7 +287,6 @@ Let's see how these coefficients are computed with simple functions.
     \end{align*}
     Plugging in our results into (6) then gives us the following representation of \( f(x)  \)
     \[  f(x) = \frac{ 4  }{ \pi }  \sum_{ n=0  }^{ \infty  } \frac{ 1 }{ 2n+1 } \sin((2n+1)x). \]
-\end{example}
 
 \subsubsection{Exercise 8.5.4} 
 \begin{enumerate}
@@ -332,7 +331,7 @@ If we take a look at any function \( h(x)  \) and \( \sin(nx) \), we will notice
 \[  \int_{ - \pi  }^{ \pi  } h(x) \sin(nx)  \ dx \] 
 leads to a small value (because of the positive and negative oscillations of \( h(x) \sin(nx) \) leads values cancelling out).
 
-\begin{theorem}{Riemann-Lebesgue Lemma}{}
+\begin{theorem}[Riemann-Lebesgue Lemma]
     Assume \( h(x)  \) is continuous on \( (-\pi , \pi]  \). Then, 
     \[  \int_{ -\pi  }^{ \pi  } h(x) \sin(nx) \ dx \to 0 \ \text{ and } \ \int_{ -\pi  }^{ \pi  } h(x) \cos(nx)  \ dx \to 0 \]
     as \( n \to \infty  \).
@@ -412,7 +411,7 @@ Suppose on the right-hand side, we list the types of convergences needed to prop
     \item[(iv)] Cesaro mean convergence.
 \end{enumerate}
 
-\begin{theorem}{Pointwise Convergence of Fourier Series}{}
+\begin{theorem}[Pointwise Convergence of Fourier Series] 
     Let \( f(x)  \) be continuous on \( (- \pi , \pi]  \), and let \( S_{N}(x)  \) be the \( N \)th partial sum of the Fourier series described in equation (7), where the coefficients \( (a_{n}) \) and \( (b_{n}) \) are given by equations (9) and (10). It follows that 
     \[  \lim_{ N \to \infty  }  S_{N}(x) = f(x)  \] 
     pointwise at any \( x \in (-\pi, \pi]   \) where \( f'(x)  \) exists.
@@ -534,7 +533,7 @@ Then using the same choice of \( N \in \N  \), we can write
 \end{align*}
 \end{proof}
 
-\begin{theorem}{Fej\'{e}r's Theorem }{}
+\begin{theorem}[Fej\'{e}r's Theorem] 
    Let \( S_{n}(x)  \) be the \( n \)th partial sum of the Fourier series for a function \( f  \) on \( (- \pi ,\pi ] \). Define 
    \[  \sigma_{N}(x) = \frac{ 1 }{ N+1 } \sum_{ n=0 }^{ N } S_{n}(x). \]
    If \( f  \) is continuous on \( (- \pi ,\pi] \), then \( \sigma_{N}(x) \to f(x)  \) uniformly.
@@ -670,7 +669,7 @@ The result above is called the \textit{Fej\'{e}r's kernel} and will be denoted b
 
 Fej\'{e}r's  Theorem gives us a nice and concise argument for the Weierstrass Approximation Theorem found in section 6.7. We can restate here as a reminder.
 
-\begin{theorem}{Weierstrass Approximation Theorem}{}
+\begin{theorem}[Weierstrass Approximation Theorem]
     Let \( f : [a,b] \to \R  \) be continuous. Given \( \varepsilon > 0  \), there exists a polynomial \( p(x) \) satisfying 
     \[  | f(x) - p(x) | < \varepsilon \] for all \( x \in [a,b] \).
 \end{theorem}

@@ -265,11 +265,21 @@ Let \( \mathcal{A} \subseteq \R  \) be nonempty and bounded above, and let \( S 
 \begin{enumerate}
     \item[(a)] First, prove that \( S \in \R  \) by showing that it is a cut.
         \begin{proof}
+            First, we show (c1). Since \( S  \) is defined as the union of nonempty sets \( A  \), we also have that \( S \neq \emptyset \). Since all the sets within \( S   \) are just a union of cuts, we know that these cuts also have the property that \( A \neq \Q  \) and hence \( S \neq \Q  \).
+
+            Next, we show property (c2). Let \( x \in S  \). Since \( S  \) is defined as the union of all cuts \( A \in \mathcal{A}  \), we know that \( x \in S  \) implies that there exists an \( A'  \) such that \(  x \in A'  \). Let \( q \in \Q  \) But since \( A'  \) is a cut, we know that we can use \( (c2)  \) to say that \( q < x  \). Hence, (c2) is satisfied.
+            
+            Lastly, we show property (c3). Let \( x \in S  \). Using the same reasoning to show (c2), we know that \( x \in A'  \) implies that there exists \( \alpha \in Q  \) such that \( x < \alpha   \).
         
+            Since all the properties of a cut are satisfied, we can now conclude that \( S  \in \R   \) is also a cut.
         \end{proof}
     \item[(b)] Now, show that \( S  \) is the least upper bound for \( \mathcal{A} \).
         \begin{proof}
+            In order to show that  \( S  \) is the least upper bound of \( \mathcal{A}  \), we need to show that \( S  \) is an upper bound and that \( S  \) is the least upper bound.
         
+            First, we show \( S  \) is an upper bound; that is, \( S \geq A  \) for all \( A \in \mathcal{A} \). Let \( A \in \mathcal{A} \) be arbitrary. Observe that since \( S = \bigcup A  \), we know that \( A \subseteq \bigcup A = S  \). But this tells us that \( A \leq S  \). Since \( A  \) is arbitrary, we know that \( S  \) must be an upper bound.      
+
+            Lastly, we show that \( S  \) is the \textit{least upper bound}. Let \( B \in \mathcal{A}  \) be any upper bound. Since each set \( A  \) in the union \( S = \bigcup A  \) is bounded by \( B  \) (that is, \( A \subseteq B\)), it follows that \( S \subseteq B  \). But this tells us that \(  S \leq B  \) and hence, \(  S  \) must be the least upper bound of \( \mathcal{A} \).
         \end{proof}
 \end{enumerate}
 
@@ -281,7 +291,9 @@ where \( r \in \Q  \). (See Exercise 8.6.1)
 \begin{enumerate}
     \item[(a)] Show that \( C_{r} + C_{s} = C_{r+s} \) for all \( r,s \in \Q  \). Verify \( C_{r} C_{s} = C_{rs} \) for the case when \( r, s \geq 0  \).
         \begin{proof}
-        
+       Let \( r,s \in \Q  \). First, we show \( C_{r} + C_{s} = C_{r+s} \); that is, we need to show that following two inclusions:
+       \[  C_{r } + C_{s} \subseteq C_{r+S} \ \text{and} \ C_{r+s} \subseteq C_{r} + C_{s}.   \]
+    Let \( z \in C_{r} + C_{s} \). 
         \end{proof}
     \item[(b)] Show that \( C_{r} \leq C_{s}  \) if and only if \( r \leq s  \) in \( \Q  \).
         \begin{proof}
