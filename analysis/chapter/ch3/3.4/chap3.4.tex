@@ -3,20 +3,19 @@
 
 
 
-\begin{definition}{}{}
-A set \( P \subseteq \R \) is \textit{perfect} if it is closed and contains no isolated points. \end{definition} 
+\begin{definition}
+A set \( P \subseteq \R \) is \textit{perfect} if it is closed and contains no isolated points. 
+\end{definition} 
 An straightforward example of perfect sets are closed intervals and singleton sets.
 
-\begin{example}{}{}
 It is not too hard to see that the Cantor set from the very beginning of this chapter is perfect. We defined 
 \[  C = \bigcap_{ n=0 }^{ \infty  } C_n  \] where each \( C_n \) is a finite union of closed intervals. We know by Theorem 3.2.14 that each \( C_n \) is closed, and as a result of using the same theorem that \( C \) is closed as well. Now all we need to show is that \( C \) contains no isolated points. 
 
 Let \( x \in C \) be arbitrary. Let us construct a sequence \( (x_n) \) of points in \( C \) that are different from \( x  \) such that \( (x_n) \to x  \). We know that \( C \) contains endpoints of each interval that make up each \( C_n \). In exercise 3.4.3, we sketch the argument that these are all that is needed to construct such an \( (x_n) \).
-\end{example}
 
 An argument for uncountability of the Cantor set.
 
-\begin{theorem}{}{}
+\begin{theorem}
 A nonempty perfect set is uncountable.
 \end{theorem}
 
@@ -52,7 +51,7 @@ But we find that each \( K_n \subseteq P \) where \( x_n \notin i_{n+1} \) leads
 
 Consider the two open intervals \( (1,2) \) and \( (2,5) \). Notice that these two intervals have the limit point \( x =2   \) in common. However, there is some space between them in the sense that \( 2 \) isn't contained in the other. Another way to say this is that \( \overline{(1,2)} \cap (2,5) = \emptyset \) and likewise, \( \overline{(2,5)} \cap (1,2) = \emptyset \). Notice that this same observation cannot be extended to the two sets \( (1,2] \) and \( (2,5) \) even though these two sets are disjoint.
 
-\begin{definition}{}{}
+\begin{definition}[Seperated Sets]
 \begin{enumerate}
     \item[(i)] Two nonempty sets \( A,B \subseteq \R   \) are \textit{separated} if \( \overline{A} \cap B  \) and \( A \cap \overline{B} \) are both empty.
     \item[(ii)] A set \( E \subseteq \R  \) is \textit{disconnected}  if it can be written as \( E = A \cup B \), where \( A  \) and \( B \) are nonempty separated sets.
@@ -65,20 +64,18 @@ Consider the two open intervals \( (1,2) \) and \( (2,5) \). Notice that these t
 
 
 
-\begin{example}{}{}
 \begin{enumerate}
     \item[(i)] If we let \( A = (1,2) \) and \( B = (2,5) \), then it is not difficult to verify that \( E = (1,2) \cup (2,5) \) is disconnected. Notice that the sets \( C = (1, 2] \) and \( D = (2,5) \) are NOT separated because \( C \cap \overline{D}  = \{ 2 \} \) is nonempty. We know that the interval \( (1,5) \) is the union of sets \( C  \) and \( D \), but we cannot say they are disconnected. We will prove later that every interval is a connected subset of \( \R  \) and vice versa. 
     \item[(ii)] Consider the set of rational numbers 
         \[ A = \Q \cap (- \infty , \sqrt{ 2 }  ) ~ \text{and} ~ B = \Q \cap (\sqrt{ 2 }, \infty  ). \]
         It turns out that these two sets are disconnected such that \( \Q = A \cup B \). The fact that \( A \subseteq (\infty , \sqrt{ 2 }  ) \) implies that any limit point of \( A \) will necessarily fall in \( (-\infty , \sqrt{ 2 } ] \) by the Order Limit Theorem. Because this is disjoint from \( B \), we get that \( \overline{A} \cap B = \emptyset \). We can similarly show that \( A \cap \overline{B} = \emptyset \), which implies that \( A  \) and \( B \) are separated.
 \end{enumerate}
-\end{example}
 
 The definition of connected is stated as the negation of disconnected, but using the logical negation of the quantifiers in the definition above results in a positive characterization of connectedness. 
 
 A way to show that a set \( E \) is connected is to partition \( E \) into two nonempty disjoint sets where we can show at least one of the sets contains a limit point of the other.
 
-\begin{theorem}{}{}
+\begin{theorem}
 A set \( E \subseteq \R \) is connected if and only if, for all nonempty disjoint sets \( A \) and \( B \) satisfying \( E = A \cup B \), there always exists a convergent sequence \( (x_n) \to x  \) with \( (x_n) \) contained in one of \( A \) or \( B \), and \( x  \) an element of the other.
 \end{theorem}
 
@@ -86,7 +83,7 @@ A set \( E \subseteq \R \) is connected if and only if, for all nonempty disjoin
 Exercise 3.4.6.
 \end{proof}
 
-\begin{theorem}{}{}
+\begin{theorem}
 A set \( E \subseteq \R  \) is connected if and only if whenever \( a < c < b  \) with \( a,b \in E \), it follows that \( x \in E  \) as well.
 \end{theorem}
 

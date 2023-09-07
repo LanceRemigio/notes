@@ -6,7 +6,7 @@ Let \( P = \{ x_{0}, x_{1}, x_{2}, \dots, x_{n} \}  \) be a partition of \( [a,b
 \[  R(f,P ) = \sum_{ k=1 }^{ n } f(c_{k }) (x_{k } - x_{k-1}). \]
 By definition of the upper sum and the lower sum given in section 7.2, it follows immediately that 
 \[  L(f,P) \leq R(f,P) \leq U(f,P)   \] for any bounded function \( f  \). From section 7.2.7, integrability is guaranteed when the supremum of the lower sums and infimum of the upper sums go to the same value. By the inequality above, it is quite clear that we expect \( R(f,P ) \) to also have the same value. We can characterize this by using an \( \epsilon - \delta   \) definition applied to \( R(f,P)  \).
-\begin{definition}{}{}
+\begin{definition}[\( \delta- \)fine Partions]
     Let \( \delta > 0   \). A partition \( P  \) is \( \delta- \)\textit{fine} if every subinterval \( [x_{k }, x_{k-1} ]  \) satisfies \( x_{k } - x_{k-1} <  \delta  \). In other words, every subinterval has width less than \( \delta  \).
 \end{definition}
 
@@ -139,11 +139,11 @@ Hence, \( f  \) is integrable and \( A = \int_{ a }^{ b } f  \).
 
 The main component of the generalized Riemann Integral above is to have \( \delta  \) to be a function of \( x  \). 
 
-\begin{definition}{Gauges}{}
+\begin{definition}[Gauges]
     A function \( \delta: [a,b] \to \R  \) is called a \textit{gauge} on \( [a,b]  \) if \( \delta(x) > 0  \) for all \( x \in [a,b]  \).
 \end{definition}
 
-\begin{definition}{}{}
+\begin{definition}
     Given a particular gauge \( \delta (x)  \), a tagged partition \( (P, \{ c_{k }  \}_{k=1}^{n} ) \) is \( \delta(x)- \)fine if every subinterval \( [x_{k-1}, x_{k }] \) satisfies \( x_{k-1} - x_{k } < \delta(c_{k})  \). In other words, each subinterval \( [x_{k-1}, x_{k} ] \) has width less than \( \delta(c_{k }) \). 
 \end{definition}
 
@@ -196,12 +196,12 @@ It's important to note that \( \delta(x)  \) is normally a constant function. Th
 
 \subsection{Generalized Riemann Integrability} 
 Using gauges now, we can restate Riemann Integrability in a more generalized way.
-\begin{definition}{Generalized Riemann Integral}{}
+\begin{definition}[Generalized Riemann Integral]
     A function \( f  \) on \( [a,b]  \) has \textit{generalized Riemann Integral A} if, for every \( \epsilon > 0  \), there exists a gauge \( \delta(x)  \) on \( [a,b]  \) such that for each tagged partition \( (P, \{ c_{k } \}_{k=1}^n) \) that is \( \delta(x)- \)fine, it is true that 
     \[  | R(f,P) - A  | <\epsilon. \] In this case, we write \( A = \int_{ a }^{ b } f \).
 \end{definition}
 
-\begin{theorem}{}{}
+\begin{theorem}
 If a function has a generalized Riemann integral, then the value of the integral is unique.
 \end{theorem}
 
@@ -275,7 +275,7 @@ is a non-Riemann-integrable function whose discontinuities are at every point of
     \item[(ii)] While the MVT played a crucial role in the proof of Theorem 7.5.1, it turns out that we won't be needing that either.
 \end{enumerate}
 
-\begin{theorem}{}{}
+\begin{theorem}
     Assume \( F: [a,b] \to \R  \) is differentiable at each point in \( [a,b]  \) and set \( f(x) = F'(x)  \). Then, \( f  \) has the generalized Riemann integral
     \[  \int_{ a }^{ b } f  = F(b) - F(a). \]
 \end{theorem}
@@ -287,11 +287,9 @@ is a non-Riemann-integrable function whose discontinuities are at every point of
 
 \subsubsection{Exercise 8.1.11} Show that 
     \[  F(b) - F(a) = \sum_{ k=1 }^{ n } [F(x_{k} ) - F(x_{k-1})].\]
-    \begin{proof}[Solution]
     Since \( F: [a,b] \to \R  \) is differentiable at each point in \( [a,b]  \), we must also have \( F  \) continuous at each point in \( [a,b]  \). This means that the sum 
     \[  \sum_{ k=1 }^{ n }[F(x_{k }) - F(x_{k-1})] \] is telescoping and thus we must have 
     \[  \sum_{ k=1 }^{ n }[F(x_{k }) - F(x_{k-1})] = F(b) - F(a). \] 
-\end{proof} 
 
 
     If \( \{ c_{k }  \}_{k=1}^{n} \) is a set of tags for \( P  \), then we can estimate the difference between the Riemann sum \( R(f,P)  \) and \( F(b) - F(a)  \) by
@@ -307,13 +305,11 @@ for all \( (P, \{ c_{k } \} ) \) that are \( \delta(c)- \)fine (Using the variab
 \subsubsection{Exercise 8.1.12} For each \( c \in [a,b]  \), explain why there exists a \( \delta(c) > 0  \) (a \( \delta > 0  \) depending on \( c   \) ) such that 
 \[  \Big| \frac{ F(x) - F(c)  }{ x -c  }  - f(c)  \Big|  < \epsilon \]
 for all \( 0 < | x -c  | < \delta(c)  \).
-\begin{proof}[Solution]
 Since \( F  \) is differentiable, then by we are guaranteed to find a \( \delta(c) > 0  \) such that whenever \( 0 < | x - c  |  < \delta(c)  \) it follows that 
 \[  \Big| \frac{ F(x) - F(c)  }{ x -c  }  - f(c)  \Big| < \epsilon. \]
 
 
 
-\end{proof}
 
 
 \subsubsection{Exercise 8.1.13} 
@@ -322,17 +318,14 @@ Since \( F  \) is differentiable, then by we are guaranteed to find a \( \delta(
     \item[(a)] For a particular \( c_{k } \in [x_{k-1}, x_{k } ]  \) of \( P  \), show that  
 \[  | F(x_{k }) - F(c_{k}) - f(c_{k })(x_{k } - x_{k-1})  | < \epsilon ( x_{k } - c_{k }) \] and 
 \[  | F(c_{k}) - F(x_{k-1}) - f(c_{k })(c_{k} - x_{k-1})   | <  \epsilon (c_{k } -  x_{k-1}). \]
-\begin{proof}
 Note that the differentiability of \( F \) implies that the right hand limit and left hand limit are the same. Hence, we can state that 
 \[ \lim_{ x_{k}  \to c_{k }  }  \frac{ F(x_{k } ) - F(c_{k })  }{ x_{k } - c_{k}  } = \lim_{ x_{k-1}  \to c_{k }  } \frac{ F(c_{k }) - F(x_{k-1}) }{ c_{k } - x_{k-1} }. \tag{1}  \] Then by definition of the derivative, the right hand side of (1) implies
 \[  \Big| \frac{ F(x_{k } ) - F(c_{k }) }{ x_{k } - c_{k } }  - f(c)  \Big| < \epsilon  \] which leads to 
 \[  | F(x_{k }) - F(c_{k}) - f(c_{k })(x_{k } - x_{k-1})  | < \epsilon ( x_{k } - c_{k }) \] and  likewise the left hand side of (1) implies
 \[  \Big| \frac{ F(c_{k } ) - F(x_{k-1}) }{ c_{k} - x_{k-1} } - f(c) \Big| < \epsilon \] which also implies 
 \[  | F(c_{k}) - F(x_{k-1}) - f(c_{k })(c_{k} - x_{k-1})   | <  \epsilon (c_{k } -  x_{k-1}). \]
-\end{proof}
     \item[(b)] Now, argue that 
         \[  | F(c_{k }) - F(x_{k-1}) - f(c_{k } )(c_{k} - x_{k-1}) | < \epsilon (c_{k } - x_{k-1}). \]
-        \begin{proof}
         Let \( \epsilon > 0  \). Using algebraic manipulations we can write, collecting terms, and using the results from part (a), we have
         \begin{align*}
             | F(x_{k}) - F(x_{k-1}) -F(c_{k})(x_{k } - x_{k-1}) | &\leq | F(x_{k}) - F(c_{k } ) - f(c_{k}  ) (x_{k } - c_{k }) | \\&+ | F(c_{k})  - F(x_{k-1}) - f(c_{k }) (c_{k} - x_{k-1}) |   \\
@@ -344,7 +337,6 @@ Note that the differentiability of \( F \) implies that the right hand limit and
             | F(b) - F(a) - R(f,P)   | &<  \epsilon  \sum_{ k=1 }^{ n } ( x_{k } - x_{k-1}) \\
                                        &=\epsilon (b -a )
         \end{align*}
-        \end{proof}
 \end{enumerate}
 \end{proof}
 
@@ -362,7 +354,7 @@ that is differentiable everywhere, including \( x = 0  \), with
 \end{cases} \]
 
 An interesting fact about the function above is that it is \textit{unbounded} even though the ordinary Riemann integral only considers bounded functions on closed intervals. This shows that the Generalized Riemann integral does not restrict itself to a certain class of functions. 
-\begin{theorem}{Change-of-variable Formula}{} Let \(g: [a,b] \to \R  \) be differentiable at each point of \( [a,b]  \), and assume \( F  \) is differentiable on the set \( g([a,b] ) \). If \( f(x) = F'(x)  \) for all \( x \in g[a,b]  \), then 
+\begin{theorem}[Change-of-variable Formula] Let \(g: [a,b] \to \R  \) be differentiable at each point of \( [a,b]  \), and assume \( F  \) is differentiable on the set \( g([a,b] ) \). If \( f(x) = F'(x)  \) for all \( x \in g[a,b]  \), then 
         \[  \int_{ a }^{ b } (f \circ g) \cdot g' = \int_{ g(a) }^{ g(b)  } f. \]
 \end{theorem}
 

@@ -108,7 +108,7 @@ Then we see that
 
 To complete our list of properties of \( e^{x}  \), all we need is its behavior as \( x \to \pm \infty  \).
 
-\begin{definition}{}{}
+\begin{definition}
     Given \( f : [a,\infty )  \to \R \), we say that \( \lim_{ x \to \infty  }  f(x) = L  \) if, for all \( \varepsilon > 0  \), there exists \( M > a  \) such that whenever \( x \geq M  \) it follows that \( |  f(x) - L  | < \varepsilon  \).
 \end{definition}
 
@@ -178,7 +178,7 @@ Having established a rigorous foundation for \( e^{x}  \), we can now do the sam
         \end{proof}
 \end{enumerate}
 
-\begin{definition}{}{}
+\begin{definition}
    Given \( t > 0  \), define the exponential function \( t^{x} \) to be 
    \[  t^{x} = e^{x \log t } \ \text{for all } x \in \R. \]
 \end{definition}
@@ -259,7 +259,7 @@ Our goal in this section is to provide a rigorous foundation for the formula
 \[  \int_{ 0 }^{ \infty  }  e^{-t} \ dt. \] 
 This is know in our regular Calculus classes as the \textit{improper Riemann integral} which is defined by taking the limit of "proper" integrals over unbounded regions such as \( [0,\infty ) \). 
 
-\begin{definition}{}{}
+\begin{definition}
     Assume \( f  \) is defined on \( [a,\infty ) \) and integrable on every interval of the form \( [a,b]  \). Then define \( \int_{ a }^{ \infty  }  f  \) to be  
     \[  \lim_{ b \to \infty  }  \int_{ a }^{ b } f,  \] provided the limit exists. In this case, we say the improper integral \( \int_{ a }^{ \infty  }  f  \) \textit{converges}. 
 \end{definition}
@@ -374,7 +374,7 @@ Suppose we have a function of two variables \( f(x,t)  \) that is defined for al
 Let's say that we have \( f  \) continuous at some point \( (x_{0}, t_{0}) \) in \(  D  \)? To have this make more sense, observe that we have a different metric under \( \R^{2} \) which contains the Euclidean distance formula 
 \[  \lVert (x,t) - (x_{0}, t_{0}) \rVert = \sqrt{ (x - x_{0})^{2} + (t - t_{0})^{2}  }. \]
 
-\begin{definition}{}{}
+\begin{definition}
    A function \( f: D \to \R   \)  is continuous at \( (x_{0}, t_{0})  \) if for all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that whenever \( \lVert (x,t) - (x_{0}, t_{0})  \rVert < \delta  \), it follows that 
    \[  | f(x,t) - f(x_{0}, t_{0})  | < \epsilon. \]
 \end{definition}
@@ -397,7 +397,7 @@ Hence, we have \( F  \) must be continuous on \( D  \) and therefore it must be 
 
 There is a direct analogue of continuous functions on compact sets in the \( \R^{2} \) setting.
 
-\begin{theorem}{}{}
+\begin{theorem}
     If \( f(x,t)  \) is continuous on \( D  \), then \( F(x) = \int_{ c }^{ d } f(x,t) \ dt \) is uniformly continuous on \( [a,b]  \).
 \end{theorem}
 
@@ -411,7 +411,7 @@ Now let us add the assumption that for every fixed value \( t \in [c,d] \), we e
 \[  f_{x}(x,t) = \lim_{ z \to x }  \frac{ f(z,t) - f(x,t)  }{  z -x  }  \] 
 exists for all \( (x,t) \in D  \). Furthermore, suppose \( f_{x}(x,t)  \) is continuous.
 
-\begin{theorem}{}{}
+\begin{theorem}
     If \( f(x,t)  \) and \( f_{x}(x,t)  \) are continuous on \( D  \), then the function \( F(x) = \int_{ c }^{ d }  f(x,t) \ dt    \) is differentiable and 
     \[  F'(x) = \int_{ c }^{ d } f_{x}(x,t) \ dt. \]
 \end{theorem}
@@ -454,7 +454,7 @@ provided that the limit exists.
 Note that (6) is a \textit{pointwise} statement; that is, given an arbitrary \( x \in A  \) and \( \epsilon > 0  \), there exists an \( M(x)  \) such that 
 \[  \Big| F(x) - \int_{ c }^{ d }  f(x,t) \  dt  \Big| < \varepsilon \]
 whenever \( d \geq M \). 
-\begin{definition}{}{}
+\begin{definition}
    Given \( f(x,t)  \) defined on \( D = \{ (x,t) : x \in A , c \leq t  \}  \), assume \( F(x) = \int_{ c }^{ \infty  }  f(x,t) \ dt  \) exists for all \( x \in A  \). We say the improper integral \textit{converges uniformly} to \( F(x)  \) on \( A  \) if for all \( \epsilon > 0  \), there exists \( M > c  \) such that 
    \[  \Big| F(x) - \int_{ c }^{ d }  f(x,t) \ dt \Big| < \varepsilon \]
 \end{definition}
@@ -500,7 +500,7 @@ Since \( \int_{ 0 }^{ \infty  } g(t) \ dt  \) converges (which means that our ch
 An immediate consequence of Definition 8.4.7 is that the uniform convergence of an improper integral implies that the sequence of functions defined by 
 \[  F_{n}(x) = \int_{ c }^{ c + n  } f(x,t) \ dt  \] converges uniformly to \( F(x)  \) on the closed interval \( [a,b] \). 
 
-\begin{theorem}{}{}
+\begin{theorem}
     If \( f(x,t)  \) continuous on \( D = \{ (x,t) : a \leq x \leq b , c \leq t  \}  \), then 
     \[  F(x) = \int_{ c }^{ \infty  } f(x,t) \ dt \] is uniformly continuous on \( [a,b]  \), provided the integral converges uniformly.
 \end{theorem}
@@ -519,7 +519,7 @@ Then using the same choice of \( \delta > 0  \), we can say
 Hence, \( F  \) is a uniformly continuous function.
 \end{proof}
 
-\begin{theorem}{}{}
+\begin{theorem}
     Assume the function \( f(x,t)  \) is continuous on \( D = \{ (x,t) : a \leq x \leq b , c \leq t  \}  \) and \( F(x) = \int_{ c }^{ \infty  } f(x,t) \ dt  \) exists for each  \(  x \in [a,b]  \). If the derivative function \( f_{x}(x,t)  \) exists and is continuous, then 
     \[  F'(x) = \int_{ c  }^{ \infty  }  f_{x}(x,t) \ dt, \]
     provided the integral in (7) converges uniformly.
@@ -593,7 +593,7 @@ We can now give a more rigorous justification for
 
 Now we are well on our way to extending the \( n!  \) on the right-hand and left-hand side of the above equation to \( x \in \R  \).
 
-\begin{definition}{}{}
+\begin{definition}[Factorial Function]
     For \( x \geq 0  \), define the \textit{factorial function} 
     \[  x! = \int_{ 0 }^{ \infty  } t^{x} e^{-t} \ dt. \]
 \end{definition}
@@ -627,7 +627,7 @@ Now we are well on our way to extending the \( n!  \) on the right-hand and left
         \end{proof}
 \end{enumerate}
 
-\begin{theorem}{Bohr-Mollerup Theorem}{}
+\begin{theorem}[Bohr-Mollerup Theorem]
     There is a unique positive function \( f  \) defined on \( x \geq  0  \) satisfying 
     \begin{enumerate}
         \item[(i)] \( f(0) = 1  \).

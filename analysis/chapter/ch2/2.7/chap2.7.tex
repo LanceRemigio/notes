@@ -4,7 +4,7 @@ We have learned the convergence of the series \( \sum_{k=1}^{\infty} a_k \) is d
 \[ \sum_{k=1}^{\infty} a_k = A \text{ means that } \lim s_n = A.\]
 We called \( (s_n)\) the \textit{sequence of partial sums} of the series \( \sum_{k=1}^{\infty} a_k\). Just like the \textit{Algebraic Limit Theorem} for sequences, we can also do the same thing for series. 
 
-\begin{theorem}{Properties of Infinite Series}{}
+\begin{theorem}[Properties of Infinite Series]
 If \( \sum_{k=1}^{ \infty} a_k = A \) and \( \sum_{k=1}^{ \infty} b_k = B \), then 
 \begin{enumerate}
     \item[(i)] \( \sum_{k=1}^{ \infty } ca_k = cA \) for all \( c \in \R \),
@@ -32,7 +32,7 @@ Hence,
 
 We can summarize this theorem by keeping in mind that we can perform distribution over infinite addition and that we can add two infinite series together. 
 
-\begin{theorem}{Cauchy Criterion for Series}{}
+\begin{theorem}[Cauchy Criterion for Series]
      The series \( \sum_{k=1}^{ \infty} a_k \) converges if and only if, given \( \epsilon > 0\), there exists \( N \in \N \) such that whenever \( n > m \geq N \) it follows that 
      \[ |a_{m+1} + a_{m+2} + ... + a_n| < \epsilon.\]
     \end{theorem}
@@ -52,7 +52,7 @@ Note that
 
 This gives us the opportunity to prove some basic facts about series.
 
-\begin{theorem}{}{}
+\begin{theorem}
 If the series \( \sum_{k=1}^{\infty} a_k \) converges, then \( (a_k) \to 0\).
 \end{theorem}
 
@@ -64,7 +64,7 @@ implies that \( (a_n) \to 0 \).
 
 Keep in mind that the converse of this statement is not true! Just because \( (a_k)\) tends to \( 0 \) does not immediately imply that the series converges! 
 
-\begin{theorem}{Comparison Test}{}
+\begin{theorem}[Comparison Test]
 Assume \((a_k)\) and \((b_k)\) are sequences satisfying \( 0 \leq a_k \leq b_k \) for all \( k \in \N \). Then we have 
 
 \begin{enumerate}
@@ -89,7 +89,6 @@ Note that the convergence of sequences and series are relatively immutable when 
     \( \sum_{n=1}^{\infty} 1/ n^p\) converges if and only if \( p > 1\).    
 \end{center}
 
-\begin{example}{}{}
 A series is called \textit{geometric} if it is of the form 
 \[ \sum_{k=0}^{\infty} ar^k = a + ar + ar^2 + ar^3 + ... ~ .\]
 If \( r = 1 \) and \( a \neq  0\), the series diverges. We can use the following algebraic identity, for \( r \neq 1 \), to write the following: 
@@ -102,11 +101,10 @@ is a convergent sequence.
 Using the \textit{Algebraic Limit Theorem}, therefore, allows us to say that 
 \[ \sum_{k=0}^{\infty} ar^k = \frac{a}{1-r}\]
 if and only if \( |r| < 1\).
-\end{example}
 
 The next theorem is a modification of the \textit{Comparison Test} to handle series that contain negative terms.
 
-\begin{theorem}{Absolute Convergence Test}{}
+\begin{theorem}[Absolute Convergence Test]
     If the series \( \sum_{n=1}^{\infty} |a_n| \) converges, then \( \sum_{n=1}^{\infty} a_n\) converges as well.
 \end{theorem}
 
@@ -123,7 +121,7 @@ Note that the converse of the above statement is false as taking the absolute va
 \[ 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \frac{1}{5} - \frac{1}{6} + ... ~  \]
 produces the regular harmonic series which \textit{diverges}.
 
-\begin{theorem}{Alternating Series Test}{}
+\begin{theorem}[Alternating Series Test]
     Let \((a_n)\) be a sequence satisfying, 
     \begin{enumerate}
         \item[(i)] \( a_1 \geq a_2 \geq a_3 ... \geq a_n \geq a_{n+1} \geq ... \) and
@@ -136,7 +134,7 @@ produces the regular harmonic series which \textit{diverges}.
 See exercise 2.7.1 for proof
 \end{proof}
 
-\begin{definition}{Absolute Convergence and Conditional Convergence}{}
+\begin{definition}[Absolute Convergence and Conditional Convergence]
 If \( \sum_{n=1}^{\infty} |a_n| \) converges, then we say that the original series \( \sum_{n=1}^{\infty} a_n \) \textit{converges absolutely}. If, on the other hand, the series \( \sum_{n=1}^{\infty} a_n \) converges but the series of absolute values \( \sum_{n=1}^{\infty} |a_n|\) does not converges, then we say that the original series \(\sum_{n=1}^{\infty} a_n \) \textit{converges conditionally}.
 \end{definition}
 
@@ -153,13 +151,13 @@ This tells us that any convergent series with positive terms must converge absol
 
 We can obtain a rearrangement of an infinite series by permuting terms in the sum in some other order. In order for a sum to be a valid rearrangement, all the terms must appear and there should be no repeats.
 
-\begin{definition}{}{}
+\begin{definition}[Rearrangements]
     Let \( \sum_{k=1}^{\infty} a_k\) be a series. A series \( \sum_{k=1}^{\infty} b_k\) is called a \textit{rearrangement} of \(\sum_{k=1}^{\infty} a_k \) if there exists a \textit{bijective} function \(f: \N \to \N \) such that \( b_{f(k)} = a_k \) for all \( k \in \N \).
 \end{definition}
 
 We can now explain the weird behavior for why the \textit{harmonic series} converges to a different limit when rearranging the terms; that is, it is because the \textit{harmonic series} is a \textit{conditionally convergent} series which leads us to the next theorem. 
 
-\begin{theorem}{Rearrangement of Series}{}
+\begin{theorem}[Rearrangement of Series]
 If a series converges absolutely, then any rearrangement of this series converges to the same limit.
 \end{theorem}
 

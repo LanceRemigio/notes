@@ -6,12 +6,11 @@ Recall that given any \( \epsilon >0 \), the \( \epsilon-\)neighborhood of \( a 
 \[ V_{\epsilon } = \{ x \in \R : | x - a | < \epsilon  \}.\]
 In other words, we have an open interval \( (a -\epsilon , a + \epsilon ) \) or \( a - \epsilon < x < a + \epsilon  \) centered at \( a \) with radius \( \epsilon  \). 
 
-\begin{definition}{Open Sets}{}
+\begin{definition}[Open Sets]
     A set \( A \subseteq \R  \) is \textit{open} if for all points \( a \in A \) there exists an \( \epsilon - \)neighborhood \(  V_{\epsilon }(a) \subseteq A \). 
 \end{definition}
 
 
-\begin{example}{}{}
 \begin{enumerate}
     \item[(i)] The set \( \R  \) is an \textit{open} set because for any \( a \in \R  \), we can pick a \( \epsilon- \)neighborhood \( V_{\epsilon }(a) \) such that \( V_{\epsilon } (a) \subseteq \R \). 
     \item[(ii)] The empty set \( \emptyset \) is an open subset of the real line. This statement is vacuously true due to the definition of an open \textit{set} i.e this set has no interior points to consider so it is true by default. 
@@ -19,9 +18,8 @@ In other words, we have an open interval \( (a -\epsilon , a + \epsilon ) \) or 
         \[  (c,d) = \{ x \in \R : c < x < d \}.\] To see why \( (c,d) \) is an \textit{open} set, let \( x \in (c,d) \) be an arbitrary point. Let \(  \epsilon = \min\{ x - c, d -x  \}  \), then we can construct the following \( \epsilon-\)neighborhood where
         \[  V_{\epsilon} = \{ x' \in \R : | x' - x  | < \epsilon \}.  \]
 \end{enumerate}
-\end{example}
 
-\begin{theorem}{}{}
+\begin{theorem}
 \begin{enumerate}
     \item[(i)] The union of an arbitrary collection open sets is open.
     \item[(ii)] The intersection of a finite collection of open sets is open. 
@@ -40,14 +38,14 @@ Hence, we have
 
 \subsection{Closed Sets} 
 
-\begin{definition}{Limit Points}{}
+\begin{definition}[Limit Points]
     A point \( x \) is a \textit{limit point} of a set \( A  \) if every \( \epsilon- \)neighborhood \( V_{\epsilon }(x) \) of \( x \) intersects the set \( A  \) at some point other than \( x \). 
 \end{definition}
 In other words, we have the following intersection 
 \[ x \notin V_{\epsilon }(x) \cap A.  \]
 This is another way of saying that a sequence approaches of values approaches the limit point \( x \) where \( V_{\epsilon }(x) \) can be thought of as neighborhoods "clustering" around the point \( x \). 
 
-\begin{theorem}{}{}
+\begin{theorem}
 A point \( x \) is a limit point of a set \( A \) if and only of \( x = \lim a_n \) for some sequence \( (a_n) \) contained in A satisfying \( a_n \neq x  \) for all \( n \in \N  \). 
 \end{theorem}
 
@@ -70,26 +68,25 @@ A point \( x \) is a limit point of a set \( A \) if and only of \( x = \lim a_n
 
 Keep in mind that \( a \in A  \) means that there is a sequence in \( A  \) such that \( a_n = {a,a,a, ...} \) which is uninteresting for the most part. We can distinguish \textit{limit points} from \textit{isolated points}.  
 
-\begin{definition}{Isolated Points}{}
+\begin{definition}[Isolated Points]
 A point \( a \in A  \) is an \textit{isolated point} of \( A \) if it is not a \textit{limit point} of \( A \).  
 \end{definition}
 
 Remember that an isolated point is always in the set \( A  \), but a limit point can be sometimes be outside of the set \( A \). An example of this is the endpoint of an open interval. A sequence can approach the endpoint where \( a_n \neq x  \) for all \( n \in \N  \) but \( x  \) is not in the set.  
 
-\begin{definition}{Closed Sets}{}
+\begin{definition}[Closed Sets]
 A set \( F \subseteq \R  \) is \textit{closed} if it contains its limit points. 
 \end{definition}
 
 In other words, can say that a set \( A  \) is closed if sequences contained in \(  A  \) converge to their limits that are within the set \( A  \). 
 
-\begin{theorem}{}{}
+\begin{theorem}
 A set \( F \subseteq \R \) is closed if and only if every Cauchy sequence contained in \( F \) has a limit that is also an element of \( F \). 
 \end{theorem}
 
 \begin{proof}
     Suppose \( F \subseteq \R  \) is closed. Let \( x \in F \) be a limit point. Let \( (x_n) \) be a Cauchy sequence contained in \( F  \). By the Cauchy Criterion, \( (x_n) \) converges to \( x \in F  \). 
 \end{proof}
-\begin{example}{}{}
 \begin{enumerate}
     \item[(i)] Consider the set 
         \[ A = \Big\{ \frac{ 1 }{ n }  : n \in \N \Big\}.   \]
@@ -103,11 +100,10 @@ A set \( F \subseteq \R \) is closed if and only if every Cauchy sequence contai
         This means \( x \in [c,d] \) which proves that \( [c,d] \) is a closed set. 
     \item[(iii)] Consider the set \( \Q \subseteq \R  \) of rational numbers. An interesting property of \( \Q \) is that all of its limit points is actually all of \( \R  \). To see why this is so, let us have \( y \in \R  \) be arbitrary and construct \( V_{\epsilon }(y) \) such that we have the open set \( (y- \epsilon , y + \epsilon ) \). Since \( \Q  \) is dense in \( \R \), there exists \( x \in \Q \) where \( x \neq y \) such that \(x \in (y-\epsilon , y+\epsilon ) \). Hence, \( y  \) is a limit point of \( \Q \).  
 \end{enumerate}
-\end{example}
 
 We can actually restate the Density Property from the first chapter by saying the following:
 
-\begin{theorem}{}{}
+\begin{theorem}
 For every \( y \in \R  \), there exists a sequence of rational numbers that converges to \( y \). 
 \end{theorem}
 
@@ -119,11 +115,10 @@ For every \( y \in \R  \), there exists a sequence of rational numbers that conv
 
 \subsection{Closure}
 
-\begin{definition}{}{}
+\begin{definition}
     Given a set \( A \subseteq \R  \), let \( L \) be the set of all limit points of \( A \). The closure of \( A \) is defined to be the \( \bar{A} = A \cup L \). 
 \end{definition}
 
-\begin{example}{}{}
 \begin{enumerate}
     \item[(i)] Consider \( A = \{ 1/n : n \in \N  \}  \), then the \textit{closure of} \( A \) is 
     just 
@@ -132,9 +127,8 @@ For every \( y \in \R  \), there exists a sequence of rational numbers that conv
 \item[(iii)] If \( A \) is an open interval \( (a,b) \), then the closure is just \( \bar{A} = [a,b] \); that is, \( \bar{A} = A \cup \{ a,b \}  \) where \( a,b \in \R  \) are the endpoints of the set \( (a,b) \). 
 \item[(iv)]If \( A \) is a closed interval then the closure is just \( \bar{A} = A  \). The obvious conclusion from this is that closed intervals are always closed sets. 
 \end{enumerate}
-\end{example}
 
-\begin{theorem}{}{}
+\begin{theorem}
     For any \( A \subseteq \R  \), the closure of \( \bar{A} \) is a closed set and is the smallest closed set containing \( A \). 
 \end{theorem}
 
@@ -158,7 +152,7 @@ Recall that the complement of a set \( A \subseteq \R  \) is defined to be the s
 \[ A^c = \{ x \in \R : x \notin A  \} \]
 which describes all of the elements that are not in \( A \). 
 
-\begin{theorem}{}{}
+\begin{theorem}
 A set \( A \) is open if and only if \( A^c \) is closed. Likewise, a set \( B \) is closed if and only if \( B^c \) is open. 
 \end{theorem}
 
@@ -169,7 +163,7 @@ A set \( A \) is open if and only if \( A^c \) is closed. Likewise, a set \( B \
     The second statement follows quickly when taking the complement of each going in each direction.
 \end{proof}
 
-\begin{theorem}{}{}
+\begin{theorem}
 \begin{enumerate}
     \item[(i)] The union of a finite collection of closed sets is closed. 
     \item[(ii)] The intersection of an arbitrary collection of closed sets is closed. 

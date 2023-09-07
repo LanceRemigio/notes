@@ -3,7 +3,7 @@
 In this section, we aim to give a more generalized view of what it means to have a "distance" over sets other than \( \R  \). Do the theorems and properties we have proved about sequences, series, and functions carry over to sets like \( \R^{2} \) or even in higher dimensions like \( \R^n \)? We will be mainly testing our notions that we have developed throughout the book on sets such as \( \R^{2} \) and \( C[0,1] \), the space of continuous functions on \( [0,1] \).
 
 
-\begin{definition}{Metric Spaces}{}
+\begin{definition}[Metric Spaces]
 Given a set \( X  \), a function \( d: X \times X \to \R  \) is a \textit{metric} on \( X  \) if for all \( x,y \in X  \):
 \begin{enumerate}
     \item[(i)]\( d(x,y) \geq 0  \) with \( d(x,y) =0  \) if and only if \( x = y  \),
@@ -121,12 +121,12 @@ Hence, \( \rho(x,y)  \) is a metric on any arbitrary set \(  X \).
 
 \subsection{Basic Definitions}
 
-\begin{definition}{Convergence In A General Metric Space}{}
+\begin{definition}[Convergence In A General Metric Space]
 Let \( (X,d)  \) be a metric space. A sequence \( (x_{n}) \subseteq  X  \) \textit{converges} to an element \( x \in X  \) if for all \( \epsilon > 0  \) there exists an \( N \in \N  \) such that \( d(x_{n} ,x )  < \epsilon \) whenever \( n \geq N  \).
 \end{definition}
 
 
-\begin{definition}{Cauchy Sequences}{}
+\begin{definition}[Cauchy Sequences]
 A sequence \( (x_{n}) \) in a metric space is a \textit{Cauchy sequence} if for all \( \epsilon > 0  \), there exists an \( N \in \N  \) such that \( d(x_{m}, x_{n}) < \epsilon \) whenever \( m, n \geq N  \).
 \end{definition} 
 
@@ -150,7 +150,7 @@ A sequence \( (x_{n}) \) in a metric space is a \textit{Cauchy sequence} if for 
 \end{itemize}
 
 
-\begin{definition}{Complete Metric Spaces}{}
+\begin{definition}[Complete Metric Spaces]
 A metric space \( (X, d ) \) is \textit{complete} if every Cauchy sequence in \( X  \) converges to an element of \( X  \).
 \end{definition}
 
@@ -194,7 +194,7 @@ The sup metric is usually written as
 \[  \lVert f \rVert_{\infty } = d(f,0 ) = \sup \{ | f(x)  | : x \in [0,1] \} . \]
 From now on, we will assume that the space \( C[0,1]  \) is paired with the metric above unless otherwise specified.
 
-\begin{definition}{Continuity}{}
+\begin{definition}[Continuity in General Metric Spaces]
 Let \( (X, d_{1}) \) and \( (Y, d_{2}) \) be metric spaces. A function \( f: X \to Y  \) is \textit{continuous} at \( x \in  X  \) if for all \(\epsilon > 0  \), there exists a \( \delta > 0  \) such that \( d_{2}(f(x) , f(y)) < \epsilon  \) whenever \( d_{1} (x,y) < \delta \).  
 \end{definition}
 
@@ -232,7 +232,7 @@ Let \( (X, d_{1}) \) and \( (Y, d_{2}) \) be metric spaces. A function \( f: X \
 
 \subsection{Topology on Metric Spaces}
 
-\begin{definition}{\( \epsilon - \)neighborhoods}{}
+\begin{definition}[\( \epsilon - \)neighborhoods]
     Given \( \epsilon > 0  \) and an element \( x  \) in the metric space \( (X,d) \), the \( \epsilon- \)\textit{neighborhood of} \( x  \)  is the set 
     \[  V_{\epsilon }(x) = \{ y \in X : d(x,y) < \epsilon \}. \]
 \end{definition}
@@ -292,13 +292,13 @@ Reframing our definitions of these concepts in \( \R  \) in terms of a general s
 
 
 
-\begin{definition}
+\begin{definition}[Compact Metric Spaces]
 A subset \( K  \) of a metric space \( (X,d)  \) is \textit{compact} if every sequence in \( K  \) has a convergent subsequence that converges to a limit in \( K  \).
 \end{definition}
 
 In \( \R  \), we came across a proposition that a set is compact if and only if it is closed and bounded. For more general metric spaces, however, this proposition only holds true in the forwards direction.
 
-\begin{definition}
+\begin{definition}[Boundedness]
 A subset \( K \) of a metric space \( (X,d)  \) is \textit{bounded} if there exists an \( R > 0  \) such that for all \( x,y \in X  \), we have \( d(x,y) < R  \).
 \end{definition}
 
@@ -327,7 +327,7 @@ A subset \( K \) of a metric space \( (X,d)  \) is \textit{bounded} if there exi
     \item The result found in part (b) can only be made possible if, in addition to our assumptions, \( Y  \) contained a collection of functions that are equicontinuous.
 \end{itemize}
 
-\begin{definition}{Closure}{}
+\begin{definition}[Closure]
     Given a subset \( E  \) of a metric space \( (X,d)  \), the \textit{closure} \( \overline{E} \) is the union of \( E  \) together with its limit points. The \textit{interior} of \( E \) is denoted by \( E^{\circ} \) and is defined as 
     \[  E^{\circ} = \{ x \in E : \text{ there exists } V_{\epsilon }(x) \subseteq E  \}. \]
 \end{definition}
@@ -361,7 +361,7 @@ A subset \( K \) of a metric space \( (X,d)  \) is \textit{bounded} if there exi
         \end{proof}
 \end{enumerate}
 
-\begin{definition}{Dense Sets}{}
+\begin{definition}[Dense Sets]
 A set \( A \subseteq X  \) is \textit{dense} in the metric space \( (X,d) \) if \( \overline{A} = X  \). A subset \( E  \) of a metric space \( (X,d) \) is \textit{nowhere-dense} in \( X  \) if \( \overline{E}^{\circ}  \) is empty.
 \end{definition}
 

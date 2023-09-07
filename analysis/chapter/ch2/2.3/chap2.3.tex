@@ -2,14 +2,14 @@
 
 The goal of having a rigorous definition of convergence in Analysis is to prove statements about sequences in general like the notion of "boundedness" which we will define below.
 
-\begin{definition}{}{}
+\begin{definition}[Bounded Sequences]
 A sequence \( (x_n) \) is \textit{bounded} if there exists a number \( M > 0 \) such that \( | x_n | \leq M \) for all \( n \in \N \).
 \end{definition}
 
 Geometrically, this means that we can find an interval \( [-M, M]\) that contains every term in the sequence \( (x_n)\).
 This naturally leads us to the point that all convergent sequences are bounded i.e 
 
-\begin{theorem}{}{}
+\begin{theorem}
 Every convergent sequence is bounded.
 \end{theorem}
 
@@ -28,7 +28,7 @@ for all \( n \geq N \) where
 Hence, it follows that \( | x_n  | \leq M \) for all \( n \in \N \) as desired.
 \end{proof}
 
-\begin{theorem}{Algebraic Limit Theorem}{}
+\begin{theorem}[Algebraic Limit Theorem]
         Let \( \lim a_n = a \), and \( \lim b_n = b \). Then, 
         \begin{enumerate}
             \item[(i)] \( \lim(ca_n) = ca \) for all \( c \in \R \);
@@ -110,7 +110,7 @@ Hence, it follows that \( \lim ( \frac{a_n}{b_n} ) = \frac{a}{b} \) provided tha
 
 \end{proof}%
 
-\begin{theorem}{Order Limit Theorem} 
+\begin{theorem}[Order Limit Theorem] 
     Assume \( \lim a_n  = a\) and \( \lim b_n =  b\).
     \begin{enumerate}
         \item[(i)] If \( a_n \geq 0 \) for all \( n \in \N \), then \( a \geq 0\).

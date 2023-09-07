@@ -2,10 +2,10 @@
 
 As we have seen in the last section, convergent sequences are bounded while the converse is not true. But if a sequence is monotone then surely it is convergent. 
 
-\begin{definition}{Monotone Sequences}{}
+\begin{definition}[Monotone Sequences]
     A sequence \( (a_n) \) is \textit{increasing } if \( a_n \leq a_{n+1}\) for all \( n \in \N \) and \textit{decreasing} if \( a_n \geq a_{n+1}\) for all \( n \in \N \). A sequence is \textit{monotone} if it is either increasing or decreasing.
 \end{definition}%
-\begin{theorem}{Monotone Convergence Theorem}{}
+\begin{theorem}[Monotone Convergence Theorem]
         If a sequence is monotone and bounded, then it converges.
     \end{theorem}%
 
@@ -38,7 +38,7 @@ The key takeaway from this theorem is that we don't actually need to specify a v
         and say that the series \( \sum_{n=1}^{ \infty} b_n \) \textit{converges} to \( B \) if the sequence \( (s_m)\) converges to \( B \). In this case, we write 
         \[ \sum_{n=1}^{ \infty} b_n = B.\]
 \end{definition}
-\begin{example}{}{}
+
 Consider 
 \[ \sum_{n=1}^{ \infty} \frac{1}{n^2}.\]
 Because the terms in the sum are all positive, the sequence of partial sums are given by 
@@ -55,8 +55,6 @@ The third second equality is found by taking the partial fractions of the line b
 Thus, we find that \( 2 \) is an upper bound for the sequence of partial sums, so we can conclude that the infinite series 
 \[ \sum_{n=1}^{ \infty} \frac{1}{n^2} \]
 is convergent.
-\end{example}
-\begin{example}{The Harmonic Series Diverges}{}
     Let's consider the Harmonic Series 
     \[ \sum_{n=1}^{ \infty} \frac{1}{n}. \]
     The sequence of partial sums is defined as follows
@@ -72,11 +70,10 @@ is convergent.
                &= 1 + k\frac{1}{2}.
     \end{align*}
     This shows that our sequence is unbounded because we found \( M = 1 + k \Big( \frac{1}{2}\Big) > 0\) such that \( s_k > M \). Despite how slow the sequence of partial of sums may be at reaching this point, it does end up surpassing every number on the postive real line. Since we have an unbounded sequence of partial sums, we conclude that the Harmonic series as divergent.
-\end{example}
 
 
 
-\begin{theorem}{Cauchy Condensation Test}{}
+\begin{theorem}[Cauchy Condensation Test]
     Suppose \( (b_n)\) is decreasing and satisfies \( b_n \geq 0  \) for all \( n \in \N \). Then, the series \( \sum_{n=0}^{ \infty} b_n \)
     converges if and only if \( \sum_{n=0}^{ \infty} 2^n b_{2^n}\)
 converges.
