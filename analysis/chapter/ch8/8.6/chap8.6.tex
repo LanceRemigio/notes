@@ -292,12 +292,24 @@ where \( r \in \Q  \). (See Exercise 8.6.1)
     \item[(a)] Show that \( C_{r} + C_{s} = C_{r+s} \) for all \( r,s \in \Q  \). Verify \( C_{r} C_{s} = C_{rs} \) for the case when \( r, s \geq 0  \).
         \begin{proof}
        Let \( r,s \in \Q  \). First, we show \( C_{r} + C_{s} = C_{r+s} \); that is, we need to show that following two inclusions:
-       \[  C_{r } + C_{s} \subseteq C_{r+S} \ \text{and} \ C_{r+s} \subseteq C_{r} + C_{s}.   \]
-    Let \( z \in C_{r} + C_{s} \). 
+       \[  C_{r } + C_{s} \subseteq C_{r+s} \ \text{and} \ C_{r+s} \subseteq C_{r} + C_{s}.   \]
+    Let \( z \in C_{r} + C_{s} \). Then we have \( z = x + y   \) where \( x \in C_{r}  \) and \( y \in C_{s} \). By definition of \( C_{r} \) and \( C_{s } \), we know that \( x < r  \) and \( y < s  \) respectively. Hence, adding both of these inequalities produces \( z = x + y < r + s  \) which tells us that \( z \in C_{r+s} \). Thus, we have \( C_{r} + C_{s} \subseteq C_{r+s} \). 
+
+    Now, we show the reverse inclusion. Let \( z \in C_{r+s} \). Then \( z < r + s  \) by definition of \( C_{r+s} \). Note that subtract \( s  \) from both sides of the inequality to get \( z - s < r  \). This tells us that \( z - s \in C_{r}  \). Likewise, subtract \( r  \) from both sides of the inequality to get \( z - r < s  \) which implies that \( z -r  \in C_{s} \). We can add these two distinct elements to get 
+    \[ (z-r) + (z-s) = 2z - (r+s) < 2(r+s). \]
+    Dividing by 2 then gives us 
+    \[  z - \frac{ r+s }{ 2 }  < r + s. \]
+    Hence, \( z \in C_{r} + C_{s}. \) and we conclude that \( C_{r+s} \subseteq C_{r} + C_{s} \).
+
+    Let \( r, s \geq 0  \) in \( \Q  \). We want to show \( C_{r} C_{s} = C_{rs} \). To do this, we need to show the following two inclusions; that is, 
+    \[  C_{r} C_{s} \subseteq C_{rs} \ \text{and} \ C_{rs} \subseteq C_{r} C_{s}. \]
+    First, let \( x \in C_{r}  C_{s}   \). Then either \( x = \alpha  \beta  \) where \( \alpha \cdot \beta \geq   0  \) where \( \alpha \in C_{r} \) and \( \beta \in C_{s} \) or \( x < 0 \). If we assume the former, we can take \( \alpha \in C_{r}  \) imply \( \alpha < r  \) and \( \beta \in C_{s}  \) imply \( \beta < s  \). Multiplying these two inequalities together, we must have \( \alpha \beta < rs  \) which implies \( x  \in C_{rs}  \) and hence \( C_{r} C_{s} \subseteq C_{rs} \). Suppose \( x < 0  \). Since \( r, s \geq 0  \) implies \( rs \geq  0  \), we know that \( x < 0 < rs \). Hence, we must have \( x \in C_{rs} \).
+
+   Now, we show the reverse inclusion. Suppose \( x \in C_{rs} \), then \( x < rs \) for \( r,s \geq 0  \) in \( \Q  \). 
         \end{proof}
     \item[(b)] Show that \( C_{r} \leq C_{s}  \) if and only if \( r \leq s  \) in \( \Q  \).
         \begin{proof}
-        
+        Suppose \( r \leq s  \) in \( \Q  \). Let \( z \in C_{r}  \). Using the fact that \( r \leq s  \) and using definition of \( C_{r}  \), we have \( z < r \leq s   \). This tells us that \( z \leq s  \) which subsequently tells us that \( z \in C_{s}   \). Hence, \( C_{r } \subseteq C_{s}  \) which is equivalent to \( C_{r} \leq C_{s} \). Now, let \( C_{r} \leq C_{s}  \) and let \( z \in C_{r} \) be arbitrary. By definition of \( C_{r}  \), we have \( z < r  \).    
         \end{proof}
 \end{enumerate}
 
