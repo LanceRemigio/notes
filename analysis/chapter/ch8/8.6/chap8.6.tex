@@ -70,7 +70,7 @@ Let's begin by assuming that all the properties that come with the rational numb
 
     \item[(d)] \( U = \{ t \in \Q : t^{2} \leq 2 \ \text{or} \ t < 0  \}.  \)
             \begin{proof}
-            
+            Is a cut. Same reasoning can be used to prove that \( U  \) is a cut, but we can assume \( a \geq 0  \) this time.
             \end{proof}
 \end{enumerate}
 
@@ -216,8 +216,12 @@ Given \( A \geq O  \) and \( B \geq O  \) in \( \R  \), define the product
         \end{proof}
     \item[(b)] Propose a good candidate for the multiplicative identity on \( \R  \) and show that this works for all cuts \( A \geq O  \).
         \begin{proof}
-        We propose the following candidate for the multiplicative identity on \( \R  \): For \( A \geq O  \), we have 
-        \[  A^{-1} =  \{ a \in \Q : \exists p \in \Q \implies a \cdot p^{-1} < 1 \ \text{and } p > 0 \ \text{with} \ p^{-1} \notin A   \} \cup \{ q \in \Q : q < 0  \}. \] 
+        A good candidate for the multiplicative identity is \( I  \). Let us define it as follows: 
+        \[  I = \{ p \in \Q : p < 1 \}.  \] 
+        We want to show that \( AI =A  \); that is, we need to show the following two inclusions:     
+
+        \[  A I \subseteq A  \ \text{and} \ A \subseteq A  I. \]
+        Let \( x \in A I  \). Then we have \( xp < x \cdot 1 = x   \) which tells us \( xp \in  A  \) and we have \( A I \subseteq A   \). Now if \( x \in A  \), then we have \( x \cdot 1 > xp  \) and hence \( x \in A  I \). Thus, we have \( A \subseteq AI  \). Hence, \(  AI = A  \). 
         \end{proof}
 
     \item[(c)] Show the distributive property (f5) holds for non-negative cuts.
@@ -303,13 +307,14 @@ where \( r \in \Q  \). (See Exercise 8.6.1)
 
     Let \( r, s \geq 0  \) in \( \Q  \). We want to show \( C_{r} C_{s} = C_{rs} \). To do this, we need to show the following two inclusions; that is, 
     \[  C_{r} C_{s} \subseteq C_{rs} \ \text{and} \ C_{rs} \subseteq C_{r} C_{s}. \]
-    First, let \( x \in C_{r}  C_{s}   \). Then either \( x = \alpha  \beta  \) where \( \alpha \cdot \beta \geq   0  \) where \( \alpha \in C_{r} \) and \( \beta \in C_{s} \) or \( x < 0 \). If we assume the former, we can take \( \alpha \in C_{r}  \) imply \( \alpha < r  \) and \( \beta \in C_{s}  \) imply \( \beta < s  \). Multiplying these two inequalities together, we must have \( \alpha \beta < rs  \) which implies \( x  \in C_{rs}  \) and hence \( C_{r} C_{s} \subseteq C_{rs} \). Suppose \( x < 0  \). Since \( r, s \geq 0  \) implies \( rs \geq  0  \), we know that \( x < 0 < rs \). Hence, we must have \( x \in C_{rs} \).
+    First, let \( x \in C_{r}  C_{s}   \). Then either \( x = \alpha  \beta  \) where \( \alpha \cdot \beta \geq   0  \) where \( \alpha \in C_{r} \) and \( \beta \in C_{s} \) or \( x < 0 \). If we assume the former, we can take \( \alpha \in C_{r}  \) imply \( \alpha < r  \) and \( \beta \in C_{s}  \) imply \( \beta < s  \). Multiplying these two inequalities together, we must have \( \alpha \beta < rs  \) which implies \( x  \in C_{rs}  \) and hence \( C_{r} C_{s} \subseteq C_{rs} \). Suppose \( x < 0  \). Since \( r, s \geq 0  \) implies \( rs \geq  0  \), we know that \( x < 0 < rs \). Hence, we must have \( x \in C_{rs} \). 
 
-   Now, we show the reverse inclusion. Suppose \( x \in C_{rs} \), then \( x < rs \) for \( r,s \geq 0  \) in \( \Q  \). 
+   Now, we show the reverse inclusion. Suppose \( x \in C_{rs} \), then \( x < rs \) for \( r,s \geq 0  \) in \( \Q  \). Suppose \( r,s > 0  \) (if \( r,s = 0  \) then the result follows immediately), then dividing by \( r  \) on both sides gives us \( x /r  < s   \) which tells us that \( x / r \in C_{s}  \). Similarly, we can divide by \(  s  \) to get \( x / s < r  \) which implies \( x / s \in C_{r}  \). Hence, taking the product of these two elements leads to 
+   \[  \frac{ x }{ s }  \cdot \frac{ x }{ r }  < (rs)^{2} \iff \frac{ x  }{ s^{2}  } \cdot \frac{ x  }{ r^{2} } < rs . \] Hence, we must have \( x \in C_{r}C_{s} \) and thus we have \(  C_{rs } \subseteq C_{r}C_{s} \). 
         \end{proof}
     \item[(b)] Show that \( C_{r} \leq C_{s}  \) if and only if \( r \leq s  \) in \( \Q  \).
         \begin{proof}
-        Suppose \( r \leq s  \) in \( \Q  \). Let \( z \in C_{r}  \). Using the fact that \( r \leq s  \) and using definition of \( C_{r}  \), we have \( z < r \leq s   \). This tells us that \( z \leq s  \) which subsequently tells us that \( z \in C_{s}   \). Hence, \( C_{r } \subseteq C_{s}  \) which is equivalent to \( C_{r} \leq C_{s} \). Now, let \( C_{r} \leq C_{s}  \) and let \( z \in C_{r} \) be arbitrary. By definition of \( C_{r}  \), we have \( z < r  \).    
+        Suppose \( r \leq s  \) in \( \Q  \). Let \( z \in C_{r}  \). Using the fact that \( r \leq s  \) and using definition of \( C_{r}  \), we have \( z < r \leq s   \). This tells us that \( z \leq s  \) which subsequently tells us that \( z \in C_{s}   \). Hence, \( C_{r } \subseteq C_{s}  \) which is equivalent to \( C_{r} \leq C_{s} \). Now, let \( C_{r} \leq C_{s}  \). Suppose for sake of contradiction that \( r > s  \). Suppose we take the midpoint of \( r  \) and \( s \). Then we have \( a = \frac{ r+s }{ 2 }  \) which implies \( a < r  \). This tells us that \( a \in C_{r} \), but \( a \notin C_{s} \) since \( a > s  \). Hence, we have a contradiction. Hence, we must have \( r \leq s  \) in \( \Q  \).      
         \end{proof}
 \end{enumerate}
 
