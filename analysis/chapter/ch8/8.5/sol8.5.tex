@@ -1,0 +1,481 @@
+\section{Fourier Series}
+
+\subsubsection{Exercise 8.5.1} 
+\begin{enumerate}
+    \item[(a)] Verify that 
+        \[  u(x,t) = b_{n} \sin(nx) \cos(nt) \] satisfies equations (1), (2), and (3) for any choice of \( n \in \N  \) and \( b_{n} \in \R  \). What goes wrong if \( n \notin \N  \).
+        \begin{proof}[Solution]
+        We first compute the partial derivatives of \( u(x,t)  \). Observe the first partial derivative with respect to \( x  \) of \( u(x,t) \) is 
+        \begin{align*}
+            \frac{\partial u }{\partial x } &= n b_{n} \cos(nx) \cos(nt). \\
+        \end{align*}
+        Then differentiating with respect to the same variable leads to 
+        \[  \frac{\partial ^{2} u  }{\partial x^{2} } = - n^{2} b_{n} \sin(nx) \cos(nt).  \] 
+        Likewise, differentiating with respect to \( t  \) leads to 
+
+        \begin{align*}
+            \frac{\partial u }{\partial t } &= -n b_{n} \sin(nx) \sin(nt). \\
+            \frac{\partial ^{2} u  }{\partial  t^{2} } &= - n^{2} b_{n} \sin(nx) \cos(nt).
+        \end{align*}
+        We can see that (1) is satisfied using our given solution \( u(x,t) \).
+        Now, using the boundary conditions found in (2) and the fact that the sine function is 0 with \( n \pi  \) for all \( n \in \N  \), we can see that 
+        \[  u(0,t) =  b_{n} \sin(0) \cos(nt) = 0  \]
+        and 
+        \[  u(\pi, t ) = b_{n} \sin(n \pi ) \cos(nt) = 0. \] Hence, (2) is satisfied. By the same reasoning, we can see that (3) is satisfied.
+
+        If \( n \notin \N \), then \( u(x,t)  \) would result in nonzero sine values rendering equations (1), (2), (3) invalid.
+        \end{proof}
+    \item[(b)] Explain why any finite sum of functions of the form given in part (a) would also satisfy (1), (2), and (3). (Incidentally, it is possible to hear the different solutions in (a) for values of \( n  \) up to 4 or 5 by isolating the harmonics on a well-made stringed instrument.)
+        \begin{proof}[Solution]
+        Since \( \sin(x) \) and \( \cos(x) \) are both continuous differentiable up to \( n  \) times, we can use term-by-term differentiation of the finite sum of these trigonometric functions to show that, indeed, equations (1), (2), and (3) are all satisfied.
+        \end{proof}
+\end{enumerate}
+
+
+\subsubsection{Exercise 8.5.2} Using trigonometric identities when necessary, verify the following integrals.
+\begin{enumerate}
+    \item[(a)] For all \( n \in \N  \), 
+        \[  \int_{ - \pi  }^{ \pi  }  \cos(nx) \ dx = 0 \ \text{ and } \ \int_{ - \pi  }^{ \pi   } \sin(nx) \   dx = 0  \]
+\begin{proof}[Solution]
+    We will begin by showing the first integral. Hence, using the fact that \( \sin(x)  \) is odd and the fact that \( \sin(n \pi) = 0  \) for all \( n \in \N  \), we can say
+    \begin{align*}
+        \int_{ -\pi  }^{ \pi  } \cos(nx) \ dx &=  \Big[ \frac{ 1 }{ n }  \sin(nx)\Big]_{- \pi }^{\pi }  \\
+                                              &= \frac{ 1 }{ n } [  \sin(n \pi ) - \sin(-n \pi)  ] \\
+                                              &= \frac{ 2 }{ n }  \sin(n \pi) \\
+                                              &= 0.
+    \end{align*}
+    Now we show the second integral. Using the fact that \( \cos(x) \) is an even function, we can write
+    \begin{align*}
+        \int_{ -\pi  }^{ \pi  } \sin(nx)  \ dx &= \Big[ -\frac{ 1 }{ n } \cos(nx) \Big]_{-\pi}^{\pi } \\
+                                               &= \frac{ 1 }{ n } [  \cos(-n \pi) -\cos(n \pi)  ]  \\
+                                               &= \frac{ 1 }{ n } [ \cos(n \pi) - \cos(n \pi )] \\
+                                               &= 0.
+    \end{align*}
+\end{proof}
+    \item[(b)] For all \( n \in \N  \),
+        \[  \int_{ - \pi  }^{ \pi  }  \cos^{2}(nx) \ dx = \pi \ \text{ and } \ \int_{ - \pi  }^{ \pi   } \sin^{2}(nx) \   dx = \pi.  \]
+        \begin{proof}[Solution]
+            Using the trigonometric identity \( \cos^{2}(x) = \frac{ 1 }{ 2 }  [ 1 + \cos(2x)] \), we can write 
+            \begin{align*}
+                \int_{ - \pi  }^{ \pi  } \cos^{2}(2xn) \ dx &= \frac{ 1 }{ 2 } \int_{ - \pi  }^{ \pi } [ 1+ \cos(2xn) ]   \ dx \\
+                                                          &= \frac{ 1 }{ 2 } \int_{ - \pi  }^{ \pi  }  \ dx + \frac{ 1 }{ 2 }  \int_{ - \pi  }^{ \pi  } \cos(2xn) \ dx \\
+            \end{align*}
+            The first integral evaluates to 
+            \[  \frac{ 1 }{ 2 } \int_{ - \pi  }^{ \pi  }  \ dx = \frac{ 1 }{ 2 }  [ x]_{- \pi}^{\pi } = \pi  \]
+            Then, using the fact that sine is an odd function and the fact that \( \sin(2 \pi n ) = 0  \) for all \( n \in \N  \), the second integral evaluates to
+            \begin{align*}
+                \int_{ - \pi  }^{ \pi  } \cos(2xn) \ dx &= \frac{ 1 }{ 2n } [ \sin(2x n)]_{- \pi}^{\pi } \\
+                                                       &= \frac{ 1 }{ 2n } [ \sin( 2\pi n) - \sin(- 2 \pi n)] \\
+                                                       &= \frac{ 1 }{ 2n } [ \sin(2 \pi)] \tag{ \( \sin(-2 \pi n) = -\sin(2 \pi n) \)} \\
+                                                       &= 0.
+            \end{align*}
+            Hence, we have 
+            \[  \int_{ - \pi  }^{ \pi  } \cos^{2}(x) \ dx = \pi. \]
+
+            Similarly, we have
+            \begin{align*}
+                \int_{ - \pi  }^{ \pi  } \sin^{2}(nx)    \ dx &= \frac{ 1 }{ 2 }  \int_{ - \pi  }^{ \pi  } [ 1 - \cos(2xn) ]  \ dx \\
+                                                              &= \frac{ 1 }{ 2 } \int_{ - \pi  }^{  \pi }  \ dx - \frac{ 1 }{ 2 }  \int_{ - \pi  }^{ \pi  } \cos(2xn) \ dx \\
+                                                              &= \frac{ 1 }{ 2 } \cdot 2 \pi - 0  \\
+                                                              &= \pi.
+            \end{align*}
+        \end{proof}
+    \item[(c)] For all \( m,n \in \N  \), 
+        \[  \int_{ - \pi  }^{ \pi  } \cos(mx) \sin(nx)  \ dx =  0. \]
+        For \( m \neq n  \), 
+        \[  \int_{ - \pi  }^{ \pi  } \cos(mx) \cos(nx) \ dx = 0 \ \text{and} \ \int_{ -\pi  }^{ \pi  } \sin(mx) \sin(nx)  \ dx = 0. \]
+        \begin{proof}[Solution]
+        Let \( m, n \in \N  \). Suppose \( m = n  \). Then using a change of variable (letting \( u = \sin(mx) \)), we get
+        \begin{align*}
+            \int_{ - \pi  }^{ \pi  } \cos(mx) \sin(mx)  \ dx &= \frac{ 1 }{ m } \int_{ - \pi  }^{ \pi } u    \ du \\
+                                                             &= \frac{ 1 }{ 2m } [ \sin^{2}(\pi x)]_{- \pi}^{\pi}  \\
+                                                             &= \frac{ 1 }{ 2m } \sin ^{2}( \pi m) + \frac{ 1 }{ 2m } \sin^{2}(\pi m) \\
+                                                             &= \frac{ 1 }{ m } \sin ^{2}(\pi m) \\
+                                                             &= 0.
+        \end{align*}
+        If \( m \neq n  \), then using the trigonometric identity 
+        \[  \cos(mx)\sin(nx) =  \frac{ 1 }{ 2 } [ \sin((m+n)x) - \sin((m-n)x) ]  \]
+        we obtain
+        \begin{align*}
+            \int_{ - \pi  }^{ \pi  } \cos(mx) \sin(nx)  \ dx &= \frac{ 1 }{ 2 } \int_{ - \pi  }^{ \pi  } [ \sin((m+n)x) - \sin((m-n)x)] \ dx \\
+                                                             &= \frac{ 1 }{ 2 } \int_{ - \pi  }^{ \pi  } \sin((m+n)x)  \ dx + \frac{ 1 }{ 2 } \int_{ - \pi  }^{ \pi  } \sin((m-n)x) \ dx \\
+                                                             &=\frac{ \cos((m-n)x) }{ 2(m-n) }  \Big|_{- \pi}^{\pi } + \frac{ \cos((m+n)x) }{ 2(m+n) }  \Big|_{- \pi}^{\pi } \\ 
+        \end{align*}
+        Using the fact that cosine is an even function we can evaluate the first term which leads to 
+        \begin{align*}
+            \frac{ \cos((m-n)x) }{ 2(m-n) }  \Big|_{- \pi}^{\pi } &= \frac{ 1 }{ 2(m-n)  } [ \cos((m-n) \pi) - \cos(-(m-n) \pi)] \\
+                                                                  &= \frac{ 1 }{ (m-n) } [  \cos((m-n) \pi) - \cos((m-n) \pi) ] \\
+                                                                  &= 0.
+        \end{align*}
+        Using the same reasoning, the second term can be written as 
+        \begin{align*}
+            \frac{ \cos((m+n)x) }{ 2(m+n) }  \Big|_{- \pi}^{\pi } &= \frac{ 1 }{ 2(m+n)  } [ \cos((m+n) \pi) - \cos(-(m+n) \pi) ] \\
+                                                                  &= \frac{ 1 }{ 2(m+n) } [ \cos((m+n)\pi) - \cos((m+n)\pi)] \\
+                                                                  &= 0.
+        \end{align*}
+        Hence, we have
+        \[  \int_{ - \pi  }^{ \pi  } \cos(mx) \sin(nx)  \ dx = 0.  \]
+        
+        Our goal now is to show 
+        \[  \int_{ - \pi  }^{ \pi  } \cos(mx) \cos(nx) \ dx = 0 \ \text{and} \ \int_{ -\pi  }^{ \pi  } \sin(mx) \sin(nx)  \ dx = 0 \]
+        for all \( m \neq n  \). Let \( m \neq  n \). Using the trigonometric identity 
+        \[ \cos(a)\cos(b) = \frac{ 1 }{ 2 }  [ \cos(a+b ) + \cos(a-b)],   \]
+        the first integral evaluates to
+        \begin{align*}
+            \int_{ -\pi  }^{ \pi } \cos(mx) \cos(nx) \ dx  &= \frac{ 1 }{ 2 } \int_{ - \pi  }^{ \pi  } [ \cos((m+n)x) + \cos((m-n)x) ]  \ dx \\
+                                                           &= \frac{ 1 }{ 2 } \int_{ - \pi  }^{ \pi  } \cos((m+n)x)  \ dx + \frac{ 1 }{ 2 }  \int_{ - \pi  }^{ \pi  } \cos((m-n)x) \ dx  \\
+                                                           &= \frac{ \sin((m+n)x) }{ 2(m+n) }  \Big|_{-\pi}^{\pi} + \frac{ \sin((m-n)x) }{ 2(m-n) } \Big|_{- \pi}^{\pi}. \\
+        \end{align*}
+        Using the fact that the sine function is odd and the fact that \( \sin((m+n) \pi) = 0  \) for all \( m, n \in \N  \), we can write     
+        \begin{align*}
+            \frac{ \sin((m+n)x) }{ 2(m+n) }  \Big|_{-\pi}^{\pi} &= \frac{ 1 }{ 2(m+n)  } \cdot  2\sin((m+n)\pi)  \\
+                                                                &= \frac{ \sin((m+n)\pi) }{ (m+n) } \\
+                                                                &= 0
+        \end{align*}
+       Likewise, the second term evaluates to  
+       \begin{align*} 
+           \frac{ \sin((m-n)x) }{ 2(m-n) } \Big|_{- \pi}^{\pi} &= \frac{ 1 }{ 2(m-n) } \cdot 2\sin((m-n)\pi) \\
+                                                               &= \frac{ \sin((m-n)\pi) }{ (m-n)  }   \\
+                                                               &= 0.
+      \end{align*}
+      Hence, we have 
+      \[  \int_{ -\pi  }^{ \pi  } \cos(mx) \cos(nx)  \ dx = 0. \]
+      
+      Now we show the second integral. Similarly, we use the trigonometric identity
+      \[ \sin(a)\sin(b) = \frac{ 1 }{ 2 }  [ \sin(a+b) + \sin(a-b) ]. \]
+      Then observe that
+      \begin{align*}
+          \int_{ -\pi  }^{ \pi  } \sin(mx) \sin(nx)  \ dx &= \frac{ 1 }{ 2 } \int_{ - \pi  }^{ \pi  } [ \sin((m+n)x) + \sin((m-n)x)]  \ dx \\
+                                                          &= \frac{ 1 }{ 2 } \int_{ - \pi  }^{ \pi  } \sin((m+n)x) \ dx + \frac{ 1 }{ 2 } \int_{ - \pi  }^{ \pi  } \sin((m-n)x) \ dx \\
+                                                          &= \frac{ -\cos((m+n)x) }{ 2(m+n) } \Big|_{-\pi}^{\pi} + \frac{ \cos((m-n)x) }{ 2(m-n) } \Big|_{- \pi}^{\pi}.   
+      \end{align*}
+      Starting with the first term, we can utilize the fact that \( \cos(x) \) is an even function to get
+      \begin{align*}
+          \frac{ - \cos((m+n)x)  }{ 2(m+n)  } \Big|_{-\pi }^{\pi } &= \frac{ 1 }{ 2(m+n) } [ \cos((m+n) \pi) - \cos((m+n) \pi)] \\
+                                                                   &= 0.
+      \end{align*}
+      Likewise, the second integral evaluates to 
+      \begin{align*}
+          \frac{ \cos((m-n)x) }{ 2(m-n) } \Big|_{- \pi}^{\pi} &= \frac{ 1 }{ 2(m-n) } [ \cos((m-n)\pi) - \cos((m-n)\pi)] \\
+                                                              &= 0.
+      \end{align*}
+      Hence, we have 
+      \[ \int_{ - \pi  }^{ \pi  } \sin(mx) \sin(mx)  \ dx = 0. \]
+
+        \end{proof}
+\end{enumerate}
+
+
+\subsubsection{Exercise 8.5.3} Derive the formulas
+\[  a_{m} = \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(x) \cos(mx) \ dx \ \text{and} \ b_{m} = \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(x) \sin(mx) \ dx \] for all \( m \geq 1 \).
+\begin{proof}
+Let \( m \geq 1  \). Multiplying by \( \cos(mx) \) on both sides of (6) gives us 
+\[  f(x) \cos(mx) = a_{0} \cos(mx) + \sum_{ n=1 }^{ \infty } a_{n}\cos(mx)\cos(nx) + b_{n} \cos(mx) \sin(nx).  \]
+Now, taking the integral on the closed interval \( [- \pi , \pi ] \) on (6) gives us 
+\begin{align*}
+    \int_{ - \pi  }^{ \pi  } f(x) \cos(mx)  \ dx &= a_{0} \int_{ -\pi  }^{ \pi  } \cos(mx)  \ dx \\ 
+                                                 &+ \sum_{ n=1   }^{ \infty  } \int_{ - \pi  }^{ \pi  } [ a_{n} \cos(mx) \cos(nx) + b_{n} \cos(mx) \sin(nx)   ] \ dx. \\
+\end{align*}
+Using exercise 8.5.2, we know that all the integrals in the above equation evaluate to 0 for all \( n \in \N  \), except when \( n =m  \) for which the right side of the equation evaluates to
+\begin{align*}
+   \int_{ - \pi  }^{ \pi  } f(x) \cos(mx)  \ dx &= \int_{ -\pi  }^{ \pi } a_{m} \cos ^{2}(mx) \ dx \\
+                                                &= a_{m} \cdot \pi
+\end{align*}
+Solving for \( a_{m}  \) gives us our result
+\[  a_{m} = \frac{ 1 }{ m } \int_{ -\pi  }^{ \pi  } \cos ^{2}(mx) \ dx. \]
+
+Using the same reasoning to show the first integral, we have that 
+\[  \int_{ -\pi  }^{ \pi  } f(x) \sin(mx)  \ dx = 0  \]
+for all \( n \in \N  \) except when \( n = m  \) for which the integral above evaluates to
+\begin{align*}
+    \int_{ -\pi  }^{ \pi  } f(x) \sin(mx)  \ dx &=  a_{0} \int_{ - \pi  }^{ \pi  } \sin(mx) \ dx \\ 
+                                                &+ \sum_{ n=1 }^{ \infty  } \int_{ -\pi  }^{ \pi }   [ a_{n} \cos(nx) \sin(mx) + b_{n} \sin(nx) \sin(mx)   ] \ dx \\
+                                                &= b_{m} \int_{ -\pi  }^{ \pi  } \sin^{2}(mx) \ dx \\
+                                                &= b_{m} \cdot \pi.
+\end{align*}
+Solving for \( b_{m} \) gives us our desired result
+\[  b_{m} = \frac{ 1 }{ \pi  } \int_{ - \pi  }^{ \pi  } f(x)\sin(mx) \ dx. \]
+
+\end{proof}
+
+\subsubsection{Exercise 8.5.4} 
+\begin{enumerate}
+    \item[(a)] Referring to the previous example, explain why we can be sure that the convergence of the partial sums to \( f(x)  \) is \textit{not} uniform on any interval containing \( 0  \).
+        \begin{proof}[Solution]
+        At the endpoints, \( f(x)  \) takes on a different value making our convergence pointwise instead of being uniform.
+        \end{proof}
+    \item[(b)] Repeat the computations of Example 8.5.1 for the function \( g(x) = | x |  \) and examine graphs for some partial sums. This time, make use of the fact that \( g  \) is even (\( g(x) = g(-x) \) ) to simplify the calculations. By just looking at the coefficients, how do we know this series converges uniformly to something?
+        \begin{proof}[Solution]
+            Our goal is to produce coefficients \( a_{0}, a_{m},   \) and \( b_{m} \) so that we have the following representation of \( f(x)  \); that is, 
+            \[  f(x) = a_{0} + \sum_{ n=1 }^{ \infty  } a_{n} \cos(nx) + b_{n} \sin(nx). \] Using the formula for \( a_{0} \) derived earlier and using the fact that \( | x  |  \) is an even function, we produce 
+            \begin{align*}
+                a_{0} &= \frac{ 1 }{ 2 \pi  } \int_{ -\pi  }^{ \pi  } x \ dx \\
+                      &= \frac{ 1 }{ \pi  } \int_{ 0  }^{ \pi  } x  \ dx \\
+                      &= \frac{ 1 }{ \pi  } \cdot \frac{ 1 }{ 2  } x^{2} \Big|_{0}^{\pi } \\
+                      &= \frac{ \pi  }{ 2 }.
+            \end{align*}
+            Using the symmetry from the absolute value function once again, we get that computing \( a_{m} \) leads to
+            \begin{align*}
+                a_{m} &= \frac{ 2 }{ \pi } \int_{ 0 }^{ \pi } x \cos(mx)  \ dx \\
+                      &= \frac{ 2 }{ \pi  } \Big[ \frac{ 1 }{ m } x\sin(mx)    \Big]_{0}^{\pi} - \frac{ 2 }{m \pi  } \int_{ 0 }^{ \pi  } \sin(mx) \ dx \\   
+                      &=  \frac{ 2 }{ m^{2}\pi  }  \cos(mx) \Big|_{0}^{\pi} \\ 
+                      &= \frac{ 2 }{ m^{2} \pi  } [ \cos(m \pi) - 1 ] \\
+                      &= 
+                      \begin{cases}
+                          0 \ &\text{if } m \text{ even} \\
+                          -4/ m^{2}\pi \ &\text{if } m  \text{ odd}.
+                      \end{cases}
+            \end{align*}
+            Since \( \sin(mx)  \) is an odd function and \( | x  |  \) is an even function, we find that their product \( | x |  \sin(mx)  \) is also odd. Hence, the integral 
+            \[ \frac{ 1 }{ \pi  }  \int_{ -\pi }^{ \pi   } f(x) \sin(mx)   \ dx  \]
+            evaluates to zero. Hence, \( b_{m} = 0  \). Therefore, \( f(x) = | x  |  \) can be represented by the following Fourier series
+            \[  | x |  = \frac{ \pi  }{ 2 }  - \frac{ 4  }{ \pi  }  \sum_{ n=0  }^{ \infty  } \frac{ \cos((2n+1)x)  }{ (2n+1)^{2}  }.  \] By looking at the coefficients, we can see that the convergence of \( (a_{n}) \) goes to zero and does not depend on our choice of \( x \in [-\pi , \pi ] \).
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 8.5.5} Explain why \( h  \) is uniformly continuous on \( \R  \).
+\begin{proof}[Solution]
+    We know that \( h  \) is uniformly continuous on \( \R  \) since we can extend the continuity of \( h  \) to any interval \( (-n\pi, n\pi]   \) for all \( n\in \Z^{+} \) as well as having the implication that \( \lim_{ x \to - n \pi^{+} } h(x) = h(n\pi) \).
+\end{proof}
+
+Given \( \epsilon > 0 \), choose \( \delta > 0  \) such that \( | x - y  | < \delta  \) implies \( | h(x) - h(y) | < \frac{ \epsilon }{ 2 }  \). Notice that the period of \( \sin(nx) \) is \( 2 \pi / n  \). Hence, we can choose an \( N  \) large enough such that \( \pi / n < \delta  \) whenever \( n \geq N  \). Now
+consider a particular interval \( [a,b]  \) of length \( 2 \pi / n  \) over which \( \sin(nx) \) moves through one complete oscillation.
+
+\subsubsection{Exercise 8.5.6} Show that \( \Big| \int_{ a }^{ b } h(x) \sin(nx) \ dx  \Big| < \epsilon / n  \), and use this fact to complete the proof.
+
+\begin{proof}
+    Let \( \epsilon > 0  \). Choose \( \delta = \min \{ \frac{ 1 }{ 2n } , \frac{ \epsilon  }{ 4mN  }   \} > 0   \) such that \(  | x - y  |  < \delta  \) implies \( | h(x) - h(y)  | < \epsilon / 2  \). Using the period of \( \sin(nx)  \) which is \( 2 \pi / n  \), we can choose an \( N  \) large enough such that \( \pi / n  < \delta  \) whenever \( n \geq N  \). Then using the length of \([a,b]   \) given to us above and the fact that \( | \sin(nx) | \leq 1  \), we can write  
+    \[  \int_{ a }^{ b } | h(x)  |  | \sin(nx) |  \ dx \leq \int_{ a }^{ b } | h(x) |  \ dx. \]
+    Since \( h  \) is integrable, we know that \( h  \) must also be bounded. Hence, there exists an \( M > 0  \) such that \( | h(y) | \leq M  \) for all \( y \in [a,b] \). Now observe that  
+    \begin{align*}
+        \Big| \int_{ a }^{ b } h(x) \sin(nx) \ dx  \Big| &\leq \int_{ a }^{ b } | h(x)  |  | \sin(nx) |  \ dx \\
+                                                         &= \int_{ a }^{ b } | h(x) |  \ dx \\
+                                                         &< \Big( \frac{ \epsilon  }{ 2 } + | h(y) |  \Big) \int_{ a }^{ b }  \ dx \\
+                                                         &= \Big( \frac{ \epsilon  }{ 2 } + | h(y) |  \Big)(b-a) \\
+                                                         &= \frac{ \epsilon  }{ 2 }  (b-a) + | h(y) | (b-a) \\
+                                                         &\leq \frac{ \epsilon  }{ 2 } (b-a) + M (b-a) \\
+                                                         &< \frac{ \epsilon  }{ 2  } \cdot \frac{ 2 \pi  }{ n }  + M \cdot \frac{ 2 \pi  }{ n } \\
+                                                         &< \frac{ \epsilon  }{ 2n }  + \frac{ \epsilon  }{ 2  n  } \\
+                                                         &= \frac{ \epsilon  }{ n }.
+    \end{align*}
+    Hence, we have that 
+    \[  \Big| \int_{ a }^{ b } h(x) \sin(nx) \ dx \Big| < \frac{ \epsilon  }{ n }. \] We can use the same reasoning to show that if \( | \cos(nx) | \leq 1  \), then 
+    \[  \Big| \int_{ a }^{ b } h(x) \cos(nx) \ dx \Big|  < \frac{ \epsilon  }{ n }. \]
+    Letting \( \epsilon > 0  \), we know that \( \epsilon / n  \to 0  \) as \( n \to \infty  \). This tells us that we can find an \( N \in \N  \) such that for any \( n \geq N  \), we have 
+    \[  \Big| \int_{ a }^{ b } h(x) \sin(nx) \ dx \Big| < \frac{ \epsilon  }{ n }  \to 0  \]
+    and 
+    \[  \Big| \int_{ a }^{ b } h(x) \cos(nx)  \ dx \Big| < \frac{ \epsilon  }{ n } \to 0. \]
+\end{proof}
+
+\subsubsection{Exercise 8.5.7}  
+\begin{enumerate}
+    \item[(a)] First, argue why the integral involving \( q_{x}(u)  \) tends to zero as \( N \to \infty  \).
+        \begin{proof}
+            Observe that 
+            \begin{align*}
+              \frac{ 1 }{ 2 \pi }   \int_{ -\pi }^{ \pi  } q_{x}(u) \cos(Nu)  \ du &= \frac{ 1 }{ 2 \pi } \int_{ -\pi }^{ \pi  }  (h(u+x) - h(x)) \cos(Nu) \ du \\
+                                                                                   &= \frac{ 1 }{  2\pi  } \int_{ -\pi  }^{ \pi  }  h(u+x) \cos(Nu)  \ du  \\ 
+                                                                                   &- \frac{ 1 }{ 2 \pi } \int_{ -\pi }^{ \pi  } h(x) \cos(Nu)   \ du. \\
+            \end{align*}
+            Since \( h(x)  \) continuous on \( (-\pi,\pi] \), we know that both 
+            \[  \int_{ -\pi }^{ \pi } h(u+x) \cos(Nu)  \ du \to 0  \] and
+            \[  \int_{ -\pi  }^{ \pi  } h(x) \cos(Nu)  \ du \to 0\] as \( N \to \infty  \).  
+            Hence, we must also have 
+            \[  \frac{ 1 }{ 2 \pi } \int_{ -\pi  }^{ \pi  } q_{x}(u) \cos(Nu)  \ du \to 0  \] as \( N \to \infty  \)
+            
+        \end{proof} 
+    \item[(b)] The first integral is a little more subtle because the function \( p_{x}(u)  \) has the \( \sin(u/2)  \) term in the denominator. Use the fact that \( f \) is differentiable at \( x  \) (and a familiar limit from calculus) to prove that the first integral goes to zero as well.
+        \begin{proof}
+            Our goal is to show that \(  \frac{ 1 }{ 2 } p_{x}(u)   \) is a continuous function so that we may use the Riemann-Lebesgue formula to show that 
+            \[  \frac{ 1 }{ 2 \pi  } \int_{ -\pi  }^{ \pi  } p_{x}(u) \sin(Nu)   \ du = \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } \frac{ 1 }{ 2 } p_{x}(u) \sin(Nu) \ du = 0. \] We notice that \( \frac{ 1 }{ 2 } p_{x}(u)  \)  is clearly continuous. Let us show that it is continuous at \( x = 0  \).
+        Taking advantage of the famous trigonometric limit 
+        \[   \lim_{ u \to 0  } \frac{ u /2  }{ \sin(u/2) } = 1. \] and the fact that \( f  \) is differentiable at \( x  \), we can write the expression \( p_{x}(u)  \) and add a limit as \( u \to 0  \); that is, 
+        \begin{align*}
+            \frac{ 1 }{ 2 } \lim_{ u \to 0 } p_{x}(u) &= \frac{ 1 }{ 2 } \lim_{ u  \to 0 }   \frac{ (f(u+x) - f(x)) \cos(u/2)  }{ u \sin(u/2) } \\
+                                                      &= \lim_{ u \to 0  } \frac{ f(u+x) - f(u)  }{ 2\sin(u/2) }  \\
+                                         &= \lim_{ u \to 0  } \frac{ (f(u+x) - f(x))   }{ 2\sin(u/2) }  \cdot \frac{ u  }{ u  } \\
+                                         &= \lim_{ u  \to 0 }  \frac{ (f(u+x)  - f(x) ) \cos(u/2)   }{ u  }  \\ 
+                                         &\cdot \lim_{ u \to 0 } \frac{ u / 2  }{ \sin(u/2) } \cdot \lim_{ u \to 0 } \cos(u/2) \\
+                                         &= f'(x) \cdot 1 \cdot 1.
+        \end{align*}
+        Hence, we have that \( \frac{ 1 }{ 2 }  p_{x}(u)  \) is a continuous function. Now, using the Riemann-Lebesgue theorem, we can say that  
+        \begin{align*}
+            \frac{ 1 }{ 2 \pi  }  \int_{ -\pi  }^{ \pi  } \Big(  \lim_{ u \to 0  }  p_{x}(u)  \Big)  \sin(Nu) \ du &= \frac{ 1 }{ \pi  }  \int_{ -\pi  }^{ \pi  } \Big( \frac{ 1 }{ 2 } \lim_{ u \to 0 } p_{x}(u) \Big) \sin(Nu)   \ du  \\
+                                                                                                                   &= \frac{ 1  }{ \pi  } \int_{ -\pi  }^{ \pi  } f'(x) \sin(Nu) \ du \\
+                                                                                                                   &= 0.
+        \end{align*}
+        Hence, we also have 
+        \[  \frac{ 1 }{ 2 \pi  } \int_{ -\pi  }^{ \pi  } p_{x}(u) \sin(Nu) \ du = 0 \]
+        \end{proof}
+\end{enumerate} 
+
+\subsubsection{Exercise 8.5.8} Prove that if a sequence of real numbers \( (x_{n})  \) converges, then the arithmetic means 
+\[  y_{n} = \frac{ x_{1} + x_{2} + x_{3 } + \dotsb + x_{n}  }{ n } \]
+also converges to the same limit. Give an example to show that it is possible for the sequence of means \( (y_{n}) \) to converge even if the original sequence \( (x_{n}) \) does not.
+\begin{proof}
+    Let \( \epsilon > 0  \). Suppose \( (x_{n}) \to x  \). We can choose \( N \in \N  \) such that for any \( N \in \N  \), we have 
+    \[  | x_{n} - x  | < \varepsilon.  \]
+Then using the same choice of \( N \in \N  \), we can write 
+\begin{align*}
+    | y_{n} - x  | &= \Big| \frac{ 1 }{ n } \sum_{ i=1  }^{ n } x_{i} - \frac{ 1 }{ n }  \sum_{ i=1  }^{ n } x  \Big|  \\
+                   &= \frac{ 1 }{ n }  \Big| \sum_{ i=1  }^{ n  } (x_{i } - x ) \Big| \\
+                   &\leq \frac{ 1 }{ n }  \sum_{ i=1  }^{ n } | x_{i} -x  | \\
+                   &< \frac{ \varepsilon }{ n } \sum_{ i=1 }^{ n } \\ 
+                   &= \frac{ \varepsilon }{ n } \cdot n = \varepsilon.
+\end{align*}
+\end{proof}
+
+\subsubsection{Exercise 8.5.9} Use the previous identity to show that
+\[  \frac{ 1 /2 + D_{1}(\theta) + D_{2}(\theta) + \dotsb  + D_{N}(\theta) }{ N+1  } = \frac{ 1 }{ 2 (N+1)  } \Bigg[\frac{ \sin((N+1) \frac{ \theta }{ 2 } ) }{ \sin( \frac{ \theta  }{ 2 } ) } \Bigg]^{2}.  \]
+
+\begin{proof}
+Let \( \theta \neq 2 \pi n  \) so that we may have
+\[  D_{n}(\theta) = \frac{ \sin((n+1/2)\theta)  }{ 2 \sin(\theta/2) }    \] be defined. Before we begin the derivation, we need a few more identities to make the computations simpler; that is, let us use \(  \sin(a)\cos(a) = 1/2 \sin(2a)   \) and \(  1/2(1 + \cos(2a)) = \cos^{2}(a/2)  \). Notice that we may write 
+\[  D_{N}(\theta) = \frac{ 1 }{ 2 } + \sum_{ n=1 }^{ N  } \cos( n\theta ) = \frac{ 1 }{ 2 }  \Big(  \cos(N \theta) + \frac{ \sin(N \theta) \cos( \theta/2) }{ \sin(\theta/2)   } \Big) . \] 
+Using the identities given to us, let's manipulate the left-hand side of the equation to get
+\begin{align*}
+    \frac{ 1 }{ N+1 } \Big[\frac{ 1 }{ 2 } + \sum_{ n=1 }^{ N } D_{n}(\theta)\Big] 
+    &= \frac{ 1 }{ N+1 } \Big[ \frac{ 1 }{ 2 }  + \frac{ 1 }{ 2 \sin(\theta/2) } \sum_{ n=1 }^{ N } \sin((n+1/2) \theta) \Big] \\
+    &= \frac{ 1 }{ N+1 } \Big[ \frac{ 1 }{ 2 }  + \frac{ 1 }{ 2 \sin(\theta/2) } \Big( \cos(\theta/2) \sum_{ n=1 }^{ N } \sin(n \theta)  \\ &+ \sin(\theta/2) \sum_{ n=1 }^{ N } \cos(n \theta)  \Big) \Big] \\
+    &= \frac{ 1 }{ 2(N+1)  } \Big[1 + \frac{ \cos(\theta/2) }{ \sin(\theta/2) } \sum_{ n=1 }^{ N } \sin(n \theta) + \sum_{ n=1 }^{ N  } \cos(n \theta) \Big] \\
+    &= \frac{ 1 }{ 2(N+1)  } \Big[ \frac{ 1 }{ 2 }  + \sum_{ n=1 }^{ N } \cos(n \theta) + \frac{ \cos(\theta/2) }{ \sin(\theta/2)   } \sum_{ n=1 }^{ N } \sin( n \theta) + \frac{ 1 }{ 2 }  \Big] \\
+    &= \frac{ 1 }{ 2(N+1)  } \Big[ D_{N}(\theta) + \frac{ \cos(\theta/2)  }{ \sin(\theta/2) } \sum_{ n=1 }^{ N  } \sin(n\theta) + \frac{ 1 }{ 2 } \Big] \\
+    &= \frac{ 1 }{ 2(N+1) }  \Big[ \frac{ 1 }{ 2 }  \Big( \cos(N \theta) + \frac{ \sin(N \theta) \cos(\theta/2) }{ \sin(\theta/2) }  \Big)  \\ 
+    &+ \frac{ \cos(\theta/2) }{ \sin(\theta/2) } \sum_{ n=1 }^{ N } \sin(n \theta) + \frac{ 1 }{ 2 }   \Big] \\
+    &= \frac{ 1 }{ 2 (N+1)  } \Big[ \frac{ 1 }{ 2 }  \Big(  \cos(N\theta) + \frac{ \sin(N\theta) \cos(\theta/2) }{ \sin(\theta/2) }  \Big) \\ &+ \frac{ \cos(\theta/2) }{ \sin(\theta/2) } \Big( \frac{ \sin((N+1) \frac{ \theta }{ 2 } ) \sin(\frac{ N \theta }{ 2 } ) }{ \sin(\theta/2) }  \Big) + \frac{ 1 }{ 2 }   \Big] \\
+    &= \frac{ 1 }{ 2 (N+1) \sin^{2}(\theta/2)  } [ \mathbf{A} ]
+\end{align*}
+where 
+\begin{align*}
+    \mathbf{A} &= \frac{ 1 }{ 2 } ( \cos(N\theta) \sin^{2}(\theta/2) + \sin(\theta/2) \sin(N \theta) \cos(\theta/2)) \\ &+ \cos(\theta/2) \sin((N+1) \frac{ \theta }{ 2 }  ) \sin(\frac{ N \theta }{ 2 } )  + \frac{ 1 }{ 2 }  \sin^{2}(\theta/2). \tag{1} \\
+\end{align*}
+Working backwards and using the identities we mentioned at the beginning of this proof, we can manipulate \( \sin^{2}((N+1) \frac{ \theta }{ 2 } ) \) to get 
+\begin{align*}
+    \sin^{2}((N+1) \theta/2 ) &= [ \sin(N\theta/2) \cos(\theta/2) + \cos(N \theta/2) \sin(\theta/2)]^{2}   \\
+                              &= (\sin^{2}(N \theta/2) \cos^{2}(\theta/2) \\ &+ 2\sin(N\theta/2) \cos(N\theta/2) \sin(\theta/2) \cos(\theta/2) \\ &+ \cos^{2}(N\theta/2) \sin^{2}(\theta/2) )  \\   
+                              &= \sin^{2}(N\theta/2) \cos^{2}(\theta/2) + \frac{ 1 }{ 2 } \sin(\theta) \sin(N\theta) \\ 
+                              &+ \cos^{2}(N \theta/2) \sin ^{2}(\theta/2).  
+\end{align*}
+Hence, all we need to show is 
+\[  \sin ^{2}((N+1)\theta/2) =  \sin^{2}(N\theta/2) \cos^{2}(\theta/2) + \frac{ 1 }{ 2 } \sin(\theta) \sin(N\theta) + \cos^{2}(N\theta/2) \sin^{2}(\theta/2)  \]
+and we're done. Manipulating (1), we write
+\begin{align*}
+    \mathbf{A} &= \frac{ 1 }{ 2 } ( \cos(N\theta) \sin^{2}(\theta/2) + \sin(\theta/2) \sin(N \theta) \cos(\theta/2)) \\ &+ \cos(\theta/2) \sin((N+1) \frac{ \theta }{ 2 }  ) \sin(\frac{ N \theta }{ 2 } )  + \frac{ 1 }{ 2 }  \sin^{2}(\theta/2)  \\
+               &=  \sin^{2}(\theta) \frac{ 1 }{ 2 } (1 + \cos(N\theta)) + \frac{ 1 }{ 2 } \sin(\theta/2) \cos(\theta/2) \sin(N\theta) \\ &+ \cos(\theta/2) \sin(N\theta/2) \sin((N+1) \theta/2) \\ 
+               &= \sin^{2}(\theta) \cos^{2}(N \theta/2) + \frac{ 1 }{ 4 } \sin(\theta) \sin(N\theta) + \frac{ 1 }{ 4 } \sin(\theta) \sin(N\theta) \\ 
+               &+ \sin^{2}(N \theta/2) \cos^{2}(\theta).
+\end{align*}
+Hence, we have that 
+\[  \mathbf{A} = \sin^{2}((N+1)\theta/2)  \]
+and thus we can conclude that
+\[  \frac{ 1 }{ N+1 } \Big[ \frac{ 1 }{ 2 }  + \sum_{ n=1 }^{ N } D_{n}(\theta) \Big] = \frac{ 1 }{ 2(N+1)  } \Big[ \frac{ \sin((N+1) \frac{ \theta }{ 2 } ) }{ \sin(\theta/2) } \Big]^{2} \]
+for \( \theta \neq 2 \pi n \).
+\end{proof}
+
+\subsubsection{Exercise 8.5.10} 
+\begin{enumerate}
+    \item[(a)] Show that 
+        \[  \sigma_{N}(x) = \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(u+x) F_{N}(u)   \ du. \]
+        \begin{proof}
+        Let \( \theta \neq 2 \pi n \) and \( u = t - x   \). Using our results from Exercise 8.5.9, we can write 
+        \begin{align*}
+          \sigma_{N}(x)   &= \frac{ 1 }{ N+1 } \sum_{ n=0 }^{ N } S_{n}(x) \\
+                    &= \frac{ 1 }{ N+1 } \sum_{ n=0  }^{ N } \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(t) D_{n}(t-x) \ dx \\ 
+                    &= \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(u+x) \Big[  \frac{ 1  }{ N+1 } \sum_{ n=0  }^{ N  } D_{n}(u) \Big]  \ dx \\
+                    &= \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(u+x) \frac{ 1 }{ N+1 } \Big[ \frac{ 1 }{ 2 } + \sum_{ n=1 }^{ N } D_{n}(u) \Big]   \ dx \\
+                    &= \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(u+x) \frac{ 1 }{ 2(N+1) } \Big[\frac{ \sin((N+1)\frac{ u }{ 2 } ) }{ \sin(u/2) } \Big]^{2}  \ dx \\
+                    &= \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(u+x) F_{N}(u) \ dx. \\
+        \end{align*}
+        Thus, we have
+        \[  \sigma_{N}(x) = \frac{ 1 }{ \pi } \int_{ -\pi  }^{ \pi  } f(u+x) F_{N}(u) \ dx. \]
+        \end{proof}
+    \item[(b)] Graph the function \( F_{N}(u)  \) for several values of \( N \). Where is \( F_{N} \) large, and where is it close to zero? Compare this function to the Dirichlet kernel \( D_{N}(u)  \). Now, prove that \( F_{N} \to  0  \) uniformly on any set of the form \( \{ u: | u  | \geq \delta \}  \), where \( \delta > 0  \) is fixed (and \( u  \) is restricted to the interval \( (-\pi,\pi] \)). 
+        \begin{proof}[Solution]
+        We can leave the graphing to your favorite Ti-84 calculator. We shall prove that \( F_{N} \to 0  \) uniformly. Let \( u \in \{ u: | u  | \geq \delta \}  \) where \( \delta > 0  \). Let \( \varepsilon > 0  \). Since \( 1 / 2 (N+1) \to 0  \), there exists an \( M \in \N  \) such that for any \( N \geq M  \), we have 
+        \[  \Big| \frac{ 1 }{ 2(N+1) }  \Big| < \varepsilon.  \] Furthermore, the sine function is bounded by \(  1  \). Hence, we can write the following
+        \begin{align*}
+            \Big| \frac{ 1 }{ 2(N+1) } \Big[ \frac{ \sin((N+1)\frac{ u }{ 2 } ) }{ \sin(u/2) } \Big]^{2} \Big| &\leq \Big| \frac{ 1 }{ 2(N+1) }  \Big| \cdot \Big| \frac{ \sin((N+1) \frac{ u }{ 2 } ) }{ \sin(u/2)  }  \Big|^{2}  \\ 
+                                                                                                               &\leq \frac{ 1 }{ 2(N+1) } \\
+                                                                                                               &< \varepsilon.
+        \end{align*}
+        Hence, we must also have 
+        \[  \frac{ 1 }{ 2(N+1)  } \Big[\frac{ \sin((N+1)\frac{ u }{ 2 } ) }{ \sin(u/2) } \Big]^{2} \to 0  \] uniformly.
+        \end{proof}
+    \item[(c)] Prove that \( \int_{ -\pi  }^{ \pi  } F_{N}(u)  \ du = \pi. \)
+        \begin{proof}
+        We will use the fact that \( \int_{ -\pi }^{ \pi } D_{N}(u)  \ du = \pi \) to show the result. Using the definition of \( F_{N}(u)  \) and reordering indices, we can (specifically we will be using the left-hand side of the equation) write 
+        \begin{align*}
+            \int_{ -\pi  }^{ \pi  } F_{N}(u)   \ du &= \int_{ -\pi  }^{ \pi  } \Big[ \frac{ 1 }{ N+1 } \Big( \frac{ 1 }{ 2 } + \sum_{ n=1 }^{ N } D_{n}(u) \Big) \Big]   \ du \\
+                                                    &= \frac{ 1 }{ N+1 } \int_{ -\pi  }^{ \pi  }  \Big( D_{0}(u) + \sum_{ n=1 }^{ N } D_{n}(u) \Big) \ du. \\
+                                                    &= \frac{ 1 }{ N+1 }  \int_{ -\pi  }^{ \pi  } \Big[ \sum_{ n=1 }^{ N+1 } D_{n-1}(u) \Big] \ du \\
+                                                    &= \frac{ 1 }{ N+1 } \sum_{ n=1}^{ N+1 } \Big[ \int_{ -\pi }^{ \pi } D_{n-1}(u)  \ du \Big] \\
+                                                    &= \frac{ \pi }{ N+1 } \sum_{ n=0 }^{ N+1 } \\
+                                                    &= \frac{ \pi  }{ N+1  } \cdot N+1 \\
+                                                    &=  \pi.
+        \end{align*}
+        Hence, we have 
+        \[  \int_{ -\pi  }^{ \pi  } F_{N}(u)  \ du = \pi. \]
+        \end{proof}
+    \item[(d)] To finish the proof of Fej\'{e}r's  Theorem, first choose \( \delta > 0  \) so that 
+        \begin{center}
+            \( | u  |  < \delta  \) implies \( |  f(x+u) - f(x)  | < \epsilon. \)
+        \end{center}
+        Set up a single integral that represents the difference \( \sigma_{N}(x) - f(x)  \) and divide this integral into sets where \( | u  |  \leq \delta  \) and \( |  u  |  \geq \delta  \). Explain why it is possible to make each of these integrals sufficiently small, independently of the choice of \( x  \).
+        \begin{proof}
+        Let \( \varepsilon > 0  \). First, we show that \( \sigma_{n}(x) \to f(x)  \) on \( | u  |  \leq \delta \). Using the fact that \( f  \) is uniformly continuous on \( (-\pi,\pi] \), we can write
+        \begin{align*}
+            | \sigma_{n}(x) - f(x) | &= \Big| \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(u+x) F_{N}(u)  \ du - \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } f(x) F_{N}(u)  \ du  \Big|  \\
+                                     &= \frac{ 1 }{ \pi  } \Big| \int_{ -\pi  }^{ \pi  } (f(u+x) - f(x)) F_{N}(u)  \ du \Big| \\
+                                     &\leq \frac{ 1 }{ \pi  } \int_{ -\pi }^{ \pi  } | f(u+x) - f(x)  | F_{N}(u)  \ du \\
+                                     &< \frac{ \varepsilon }{ \pi  } \int_{ -\pi }^{ \pi  } F_{N}(u)  \ du \\ 
+                                     &=  \frac{ \varepsilon }{ \pi }  \cdot \pi = \varepsilon. \\
+        \end{align*}
+        Now suppose \( | u  | \geq \delta \). Since \( f \) is uniformly continuous, we can bound \( f  \) by some \( M > 0  \). Hence, we must have 
+        \[  | f(u+x) - f(x) | \leq 2M. \] 
+        Then we can use the fact that \( F_{N} \to 0  \) on sets such as \( | u  |  \geq \delta \) to write 
+        \begin{align*}
+           | \sigma_{n}(x) - f(x) |  &\leq \frac{ 1 }{ \pi  } \int_{ -\pi  }^{ \pi  } | f(u+x) - f(x) | |F_{N}(u) | \ du \\
+                                     &\leq \frac{ 2M }{ \pi  } \int_{ -\pi }^{ \pi } | F_{N}(u) |   \ du \\
+                                     &< \frac{ 2M    }{ \pi  } \cdot \frac{ \varepsilon }{ 4M  }  \int_{ -\pi  }^{ \pi  }   \ du \\
+                                     &= \frac{ \varepsilon }{ 2\pi  } \cdot 2\pi \\ 
+                                     &= \varepsilon. 
+        \end{align*}
+        \end{proof}
+\end{enumerate}
+
+\subsection{Weierstrass Approximation Theorem}
+
+Fej\'{e}r's  Theorem gives us a nice and concise argument for the Weierstrass Approximation Theorem found in section 6.7. We can restate here as a reminder.
+
+\begin{theorem}[Weierstrass Approximation Theorem]
+    Let \( f : [a,b] \to \R  \) be continuous. Given \( \varepsilon > 0  \), there exists a polynomial \( p(x) \) satisfying 
+    \[  | f(x) - p(x) | < \varepsilon \] for all \( x \in [a,b] \).
+\end{theorem}
+
+We can use the fact that \( \sin(x)  \) and \( \cos(x)  \) is bounded on a compact set to show theorem above.
+
+\subsubsection{Exercise 8.5.11}
+\begin{enumerate}
+    \item[(a)] Use the fact that the Taylor series for \( \sin(x)  \) and \( \cos(x) \) converge uniformly on any compact set to prove WAT under the added assumption that \( [a,b] \) is \( [0, \pi] \).
+        \begin{proof}
+            Let \( \varepsilon > 0  \). Since \( f(x)  \) is continuous on \( [0, \pi] \), we can pick a \( \delta > 0 \) such that whenever \( | u | < \delta  \), we have
+            \[  | f(u+x) - f(x)  | < \varepsilon. \] 
+            Observe that 
+            \[ \int_{ 0 }^{ \pi } F_{N}(u)   \ du = \frac{ 1 }{ 2 } \int_{ - \pi  }^{ \pi  } F_{N}(u)  \ du = \frac{ \pi }{ 2 }. \]
+            We can use \( \sigma_{N} \) defined in Fej\'{e}r's  Theorem to write
+            \begin{align*}
+                | \sigma_{N}(x) - f(x)  | &= \Big| \frac{ 2 }{ \pi  } \int_{ 0 }^{ \pi  } f(u+x) F_{N}(u)   \ du - \frac{ 2 }{ \pi  } \int_{ 0  }^{ \pi  } f(x) F_{N}(u)  \ du  \Big|  \\
+                                          &= \frac{ 2 }{ \pi  } \Big| \int_{ 0 }^{ \pi  } (f(u+x)-f(x)) F_{N}(u) \ du \Big| \\
+                                          &\leq \frac{ 2  }{ \pi  } \int_{ 0 }^{ \pi  } | f(u+x) - f(x) | F_{N}(u) \ du \\
+                                          &< \frac{ 2 \varepsilon  }{ \pi  } \int_{ 0 }^{ \pi  } F_{N}(u) \ du \\
+                                          &= \frac{ 2 \varepsilon }{ \pi  } \cdot \frac{ \pi }{ 2 } = \varepsilon.
+            \end{align*}
+        Note that the polynomial we found was just \( \sigma _{N}(x)  = p(x) \). Hence, we have that 
+        \[  | f(x) - p(x) | < \varepsilon. \]
+        \end{proof}
+    \item[(b)] Show how the case for an arbitrary interval \( [a,b] \) follows from this one.
+        \begin{proof}
+            Taking advantage of \( f  \)'s uniformly continuity on \( ( -\pi ,\pi ] \), we can extend uniform continuity of \( f  \) to all of \( \R  \). Using  Fej\'{e}r's Theorem, we can find a polynomial \( p(x) \) (in this case, \( p(x) = \sigma_{N}(x) \) ) such that 
+            \[  | f(x) - p(x) | < \varepsilon \]for any interval \( [a,b] \).  
+        \end{proof}
+\end{enumerate}

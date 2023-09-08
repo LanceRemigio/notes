@@ -146,25 +146,30 @@ Hence, (4) holds for all \( x \in (-1,1) \). If we try to prove \( E_{N} \to 0  
 \begin{enumerate}
     \item[(a)] Show 
         \[  f(x) = f(0) + \int_{ 0 }^{ x }  f'(t) \  dt. \]
+        \begin{proof}
             Since \( f  \) is continuous differentiable for all  \( t \in (0,x) \), we can use part (i) of FTC to write 
         \[  \int_{ 0 }^{ x } f'(t)  \ dt =  f(x) - f(0). \] Solving for \( f(x)  \) gives us our desired result 
         \[ f(x) = f(0) + \int_{ 0 }^{ x }  f'(t) \ dt. \]
+        \end{proof}
     \item[(b)] Now use a previous result from this section to show 
         \[  f(x) = f(0) + f'(0) x + \int_{ 0 }^{ x }  f"(t)(x-t) \  dt. \]
+        \begin{proof}
             Taking advantage of \( f  \) being continuously differentiable \( N+1  \) times for all \(  t \in (0,x) \) and using the integration-by-parts formula found in Exercise 8.3.2, we have 
             \begin{align*}  \int_{ 0 }^{ x }  f"(t) (x -t ) \  dt &= \Big[ f'(t) (x-t) \Big]_{0}^{x} + \int_{ 0 }^{ x }  f'(t) \  dt \\
             &= -x f'(0) + [ f(x) - f(0)].  
             \end{align*}
             Solving for \( f(x)  \) once again, we get our desired result
         \[  f(x) = f(0) + f'(0) x + \int_{ 0 }^{ x }  f"(t)(x-t) \  dt. \]
-    \item[(b)] Continue in this fashion to complete the proof of the theorem.
- 
+        \end{proof}
+    \item[(c)] Continue in this fashion to complete the proof of the theorem.
+        \begin{proof} 
         Continuing the process in parts (a) and (b) and using the fact that \( f  \) is \( N+1  \) times differentiable for all \( x \in (-R ,R ) \), we have that
         \begin{align*}  f(x) &= \frac{ 1 }{ N! }  \int_{ 0 }^{ x  } f^{(N+1)}(t) (x -t )^{N} \  dt + \sum_{ k=0  }^{ N  } \frac{ f^{(k)}(0) }{ k! } x_{k } \\  
             &= \frac{ 1 }{ N! } \int_{ 0 }^{ x }  f^{(N+1)}(t) (x-t)^{N} \   dt + S_{N}(x).
         \end{align*}
         Subtracting \( S_{N}(x)  \) from both sides above and using the fact that \( E_{N}(x) = f(x) - S_{N}(x)  \) gives us our desired result 
     \[  E_{N}(x) = \frac{ 1 }{ N! } \int_{ 0 }^{ x  }  f^{(N+1) }(t) (x-t)^{N} \  dt.  \]
+        \end{proof}
 \end{enumerate}
 
 \subsubsection{Exercise 8.3.10} 

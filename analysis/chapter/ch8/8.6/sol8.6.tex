@@ -1,35 +1,4 @@
-\section{A Construction of R from Q}
-
-In this section, we will focus on constructing a proof for the existence of the Real Numbers.
-
-\begin{theorem}[Existence of Real Numbers]   There exists an ordered field in which every nonempty set that is bounded above has a least upper bound. In addition, this field contains \( \Q  \) as a subfield. 
-\end{theorem}
-
-A review of chapter 1 tells us that 
-\begin{enumerate}
-    \item[(i)] We can't do analysis on the set of rational numbers because we don't have the square root defined (nor does it exists) which does not allow us to define the convergence of Cauchy sequences.  
-\end{enumerate}
-
-A way that we solved this problem is to create the following axiom:
-
-\begin{theorem}[Axiom of Completeness] 
-    Every nonempty set of real numbers that is bounded above has a least upper bound. 
-\end{theorem}
-
-Note that we actually need to demonstrate that we can actually extend the rational numbers to contain nonempty sets that have least upper bounds, thereby making the axiom into a theorem worth proving.
-
-
-\subsection{Dedekind Cuts}
-
-Let's begin by assuming that all the properties that come with the rational numbers are available to us. Let us also assume that we don't have real numbers at this point.
-
-\begin{definition}[Cuts]   A subset \( A  \) of the rational numbers is called a \textit{cut} if it possesses the following three properties: 
-    \begin{enumerate}
-        \item[(c1)] \( A \neq \emptyset \) and \( A \neq \Q  \). 
-        \item[(c2)] If \( r \in A  \), then \( A  \) also contains every rational \( q <  r  \).
-        \item[(c3)] \( A  \) does not have a maximum; that is, if \(  r \in A  \), then there exists \( s \in A  \) with \( r < s  \). 
-    \end{enumerate}
-\end{definition}
+\section{Construction of R from Q}
 
 \subsubsection{Exercise 8.6.1} 
 \begin{enumerate}
@@ -74,34 +43,15 @@ Let's begin by assuming that all the properties that come with the rational numb
             \end{proof}
 \end{enumerate}
 
+
+
+
+
 \subsubsection{Exercise 8.6.2} 
 Let \( A  \) be a cut. Show that if \( r \in  A \) and \( s \notin A  \), then \( r < s  \).
 \begin{proof}
 Suppose for sake of contradiction that \( r \geq s  \). Since \( r \in A  \) and \( s \in \Q  \), we know that \( s < r   \). But this means that \( s \in A  \) which leads to a contradiction.
 \end{proof}
-
-\begin{definition}{Real Numbers Using Dedekind Cuts}
-    Define the \textit{real numbers} \( \R  \) to be the set of all cuts in \( \Q  \).
-\end{definition}
-
-Here we have defined the set \( \R  \) whose elements are subsets of \( \Q  \) which is awkward because we think of numbers as elements of a set rather than the sets being elements themselves. Our goal now is to create an algebraic structure on \( \R  \). This involves answering the following question
-\begin{center}
-    "What do we mean by an ordered field?".
-\end{center}
-
-\subsection{Field and Order Properties}
-
-Suppose we were given a set \( F  \) and two elements \( x ,y \in F  \). The \textit{operation} that we impose on \( F  \) takes \( x  \) and \( y  \) as an ordered pair \( (x,y)  \) and maps it to a third element \( z \in F  \). Here we are trying to emulate our basic notions of adding and multiplying two numbers.
-
-\begin{definition}[Field]   A set \( F  \) is a \textit{field} if there exists two operations --- addition \( (x+y)  \) and multiplication \( (xy) \) --- that satisfy the following list of conditions:
-   \begin{enumerate}
-       \item[(f1)] (commutativity) \( x + y = y + x  \) and \( xy = yx  \) for all \( x,y \in F  \).
-       \item[(f2)] (associativity) \( (x+y) + z = x + (y+z)  \) and \( (xy)z = x(yz)    \) for all \( x,y,z \in F  \).
-        \item[(f3)] (identities exist) There exist two special elements \( 0  \) and \( 1  \) with \(  0 \neq 1  \) such that \( x + 0 = x  \) and \( 1 \cdot x = x  \) for all \( x \in F  \).
-        \item[(f4)] (inverses exist) Given \( x \in F  \), there exists an element \( -x \in F  \) such that \( x + (-x) = 0  \). If \( x \neq 0  \), there exists an element \( x^{-1} \) such that \(  x x^{-1} = 1  \).
-        \item[(f5)] (distributive property) \( x(y+z) = xy + xz \) for all \( x,y,z \in F  \).
-   \end{enumerate}
-\end{definition}
 
 \subsubsection{Exercise 8.6.3}  Using the usual definitions of addition and multiplication, determine which of these properties are possessed by \( \N  , \Z,  \) and \( \Q  \), respectively.
 \begin{proof}[Solution]
@@ -111,34 +61,14 @@ Suppose we were given a set \( F  \) and two elements \( x ,y \in F  \). The \te
     \item[(\( \Q \))] Field.
 \end{enumerate}
 \end{proof}
- 
-Just an aside, we can actually use the field properties to show, for example, that for any \( x ,y , z  \in \Q  \), we have that \( x + y = x + z  \) implies \( y = z  \).
 
-\begin{definition}[Ordering]
-    An \textit{ordering} on a set \( F  \) is a relation, represented by \(  \leq  \), with the following three properties:
-    \begin{enumerate}
-        \item[(o1)] For arbitrary \( x,y \in F  \), at least one of the statements \( x \leq y  \) or \(  y \leq x  \) is true.
-        \item[(o2)] If \( x \leq y  \) and \( y \leq x  \), then \( x = y  \).
-        \item[(o3)] If \( x \leq y  \) and \( y \leq z  \), then \(  x \leq z  \).
-        Note that writing \(  y \geq x  \) is equivalent to \( x \leq y  \). The strict inequality \( x < y  \) is used to mean \( x \leq y  \) but \( x \neq y  \).
-        \item[(o4)] If \( y \leq z  \), then \( x + y \leq x + z  \).
-        \item[(o5)] If \( x \geq 0  \) and \( y \geq 0  \), then \( xy \geq 0  \).
-    \end{enumerate}
-\end{definition}
 
-We have thus far defined \( \R  \) to be the collection of \( \Q  \) cuts. Now we want to invent the ordering and basic operations outlined in the last two definitions. The easiest out of these is the ordering. Let \( A  \) and \(  B \) be two arbitrary elements of \( \R  \). Define \( A \leq B  \) to mean \( A \subseteq B  \).
 
 \subsubsection{Exercise 8.6.4} Show that this defines an ordering on \( \R  \) by verifying properties (o1), (o2), and (o3) from Definition 8.6.5.
 \begin{proof} 
     Observe that the first property (o1) follows immediately. For the second property (o2), suppose \( A \leq B  \) and \( B \leq A  \). Then we have \( A \subseteq B  \) and \( B \subseteq A  \). This implies that \( A = B  \). Finally, for the third property (o3), let \( A, B, C \in \R   \). If \( A \leq B  \) and \( B \leq C \), then we have \( A \subseteq B  \) and \( B \subseteq C  \). Then we have \( A \subseteq B \subseteq C  \). Hence, we have \( A \subseteq C \). Hence, we have an ordering on \( \R  \).
 \end{proof}
 
-
-\subsection{Algebra in R}
-
-Given \( A  \) and \( B  \) in \( \R  \), define 
-\[  A +  B = \{ a + b : a \in A \ \text{and} \ b \in B  \}. \] Before trying to verify if \( A + B  \) defines an operation, we have first ask if \( A + B  \) defines a cut. Suppose we verify (c2) of our definition of a cut. Suppose \( A, B  \) are cuts. Let \( a + b \in A + B  \) be arbitrary and let \( s \in \Q  \) satisfy \( s < a + b \). Then, \( s - b < a  \), which implies that \( s - b \in A  \) because \( A  \) is a cut. But then 
-\[  s = (s-b) + b \in A + B,  \] and (c2) is proved.
 
 \subsubsection{Exercise 8.6.5} 
 \begin{enumerate}
@@ -165,10 +95,6 @@ Given \( A  \) and \( B  \) in \( \R  \), define
         \end{proof}
 \end{enumerate}
 
-Suppose we try and prove additive inverses? Given an \( A \in \R  \), we need to construct a cut \( -A  \) such that \( A + (-A ) = O \). Without the help of the supremum, which we can't even use because it is strictly defined on \( \R  \) without inherently assuming that it exists, how do we go about defining this set? 
-
-Suppose we are given \( A \in \R  \), then define
-\[  -A = \{ r \in \Q:  \ \text{there exists } t  \not\in A \ \text{with} \ t < -r \}. \]
 
 \subsubsection{Exercise 8.6.6} 
 \begin{enumerate}
@@ -181,9 +107,9 @@ Suppose we are given \( A \in \R  \), then define
         Finally, we show (c3). Suppose \( r \in -A  \). Then there exists \( t \notin A  \) such that \( -r > t  \). Multiplying through the inequality by a negative gives us \( r < -t  \) which is our desired result. Hence, \( -A  \) defines a cut.
         \end{proof}
     \item[(b)] What goes wrong if we set \( -A = \{ r \in \Q : -r \in A  \}  \)?
-        \begin{explanation}
+        \begin{proof}
         If we have \( -A  \) defined as the set above, then it would fail (c3). We can see this when we define \(  A = \{ r \in \Q : r < 0  \}  \) and let \( -A = \{ r \in \Q : r \leq  0 \}   \) which tells us that \( -A  \) contains a maximum.
-        \end{explanation}
+        \end{proof}
     \item[(c)] If \( a \in A  \) and \( r \in -A  \), show \( a + r \in O  \). This shows \( A + (-A ) \subseteq O  \). Now, finish the proof of property (f4) for addition in the definition of a field.
         \begin{proof}
             Let \( a \in A  \) and \( r \in -A  \). Let \( a + r \in O  \). Since \( r \in -A  \), we know that there exists \( t \notin A  \) with \( t < -r  \). Now, we can write \( a + r < a - t    \). But \( -t < 0  \) so this tells us that \( a + r < 0  \). Hence, \( a + r \in O  \) and we have \( A + (-A) \subseteq O  \). Now we need to show \( O \subseteq A + (-A)  \). Let us fix \( o \in O  \) and finding \( a \in A  \) such that \( a + b = o  \). Let \( \epsilon  = | o | / 2 = -o / 2  \). Taking advantage of properties (c1) and (c2), we can choose a rational \( t \notin A  \) such that \( t - \epsilon \in A  \). If no such \( t  \) existed then we would either have \( A = \Q  \) or \( A = \emptyset \). Now, \( t \notin A   \) implies \( -(t+\epsilon ) \in -A  \). Then 
@@ -191,16 +117,13 @@ Suppose we are given \( A \in \R  \), then define
         \end{proof}
 \end{enumerate}
 
+
 \begin{remark}
    Another possible way you could show the reverse inclusion in part (c) is to rewrite \( o \in O  \) such that \( o = (o+r) - r  \) and show that \( 0+r  \in -A \) for which, in addition to \( -r \in A  \), leads to \( O \subseteq A + (-A ) \). Since there exists \( t \notin A  \) such that \( -r > t  \) and \( o < 0  \), we have 
    \[  o+r < r \implies o + r < r < -t.   \]
    Multiplying the inequality by a negative gives us \( -(o+r) < t  \), which tells us that \( o +r \in -A  \). Since we also have \( - r \in A   \), we conclude that \( o \in A + (-A )  \) and hence \( O \subseteq A + (-A) \).
 \end{remark}
 
-Suppose we try to create the structure for multiplication using cuts. This can be quite difficult because of the fact that the product of two negative numbers is positive. A way to do this is to define multiplication on non-negative cuts.
-
-Given \( A \geq O  \) and \( B \geq O  \) in \( \R  \), define the product 
-\[  AB = \{ ab: a \in A , b \in B \ \text{with} \ a,b \geq 0  \} \cup \{ q \in \Q : q < 0  \}. \]
 
 \subsubsection{Exercise 8.6.7} 
 \begin{enumerate}
@@ -237,32 +160,6 @@ Given \( A \geq O  \) and \( B \geq O  \) in \( \R  \), define the product
         \end{proof}
 \end{enumerate}
 
-We can define products of two positive cuts by observing that \( -A \geq O  \) whenever \( O \leq A  \). In addition, given any \( A \leq O  \), we can use property (o4) to write \( A + (-A) \leq O + (-A) \) which results in \( O \leq -A  \). 
-
-Now let \( A, B \in \R  \) and define the following possible cases for which we can multiple \( A  \) and \( B  \): 
-\[  AB = 
-\begin{cases}
-    \text{as given} &\text{if } A \geq O \ \text{and} \ B \geq O \\
-      -[A(-B)] &\text{if } A \geq O \ \text{and} \ B \geq O  \\
-      -[(-A)B] &\text{if } A < O  \ \text{and} \ B \geq  O  \\
-      (-A)(-B) &\text{if } A < O \ \text{and} \  B < O.
-\end{cases} \]
-
-We leave these as exercises for you to do. The proofs follow the same pattern as the ones we have done so far with cases usually falling into when terms are either positive or negative.
-
-\subsection{Least Upper Bounds}
-
-We can now use the fact that \( \R  \) is an ordered field to show that the field is complete. Recall in Chapter 1 that we define "complete" in terms of least upper bounds. Below we restate the definitions seen in Chapter 1.
-
-\begin{definition}
-    A set \( \mathcal{A} \subseteq \R  \) is \textit{bounded above} if there exists a \( B \in \R  \) such that \( A \leq B  \) for all \( A \in \mathcal{A}  \). The number \( B  \) is called an \textit{upper bound} for \( \mathcal{A} \). 
-
-    A real number \( S \in \R  \) is the \textit{least upper bound} for a set \( \mathcal{A} \subseteq \R  \) if it meets the following two criteria:
-    \begin{enumerate}
-        \item[(i)] \( S  \) is an upper bound for \( \mathcal{A}  \) and
-        \item[(ii)] if \( B  \) is any upper bound for \( \mathcal{A}  \), then \( S \leq B  \).
-    \end{enumerate}
-\end{definition}
 
 \subsubsection{Exercise 8.6.8} 
 Let \( \mathcal{A} \subseteq \R  \) be nonempty and bounded above, and let \( S  \) be the \textit{union} of all \( A \in \mathcal{A}  \).  
@@ -286,8 +183,6 @@ Let \( \mathcal{A} \subseteq \R  \) be nonempty and bounded above, and let \( S 
             Lastly, we show that \( S  \) is the \textit{least upper bound}. Let \( B \in \mathcal{A}  \) be any upper bound. Since each set \( A  \) in the union \( S = \bigcup A  \) is bounded by \( B  \) (that is, \( A \subseteq B\)), it follows that \( S \subseteq B  \). But this tells us that \(  S \leq B  \) and hence, \(  S  \) must be the least upper bound of \( \mathcal{A} \).
         \end{proof}
 \end{enumerate}
-
-This finishes the proof that \( \R  \) is complete. However, we need to solve the problem of the slight mistake in saying that \( \R  \) contains \( \Q  \) as a subfield. We can solve this issue by saying that \( \R  \) contains a subfield that looks and acts exactly like \( \Q  \).
 
 \subsubsection{Exercise 8.6.9} Consider the collection of so-called "rational" cuts of the form 
 \[  C_{r} = \{ t \in \Q  : t < r \}  \]
@@ -317,11 +212,3 @@ where \( r \in \Q  \). (See Exercise 8.6.1)
         Suppose \( r \leq s  \) in \( \Q  \). Let \( z \in C_{r}  \). Using the fact that \( r \leq s  \) and using definition of \( C_{r}  \), we have \( z < r \leq s   \). This tells us that \( z \leq s  \) which subsequently tells us that \( z \in C_{s}   \). Hence, \( C_{r } \subseteq C_{s}  \) which is equivalent to \( C_{r} \leq C_{s} \). Now, let \( C_{r} \leq C_{s}  \). Suppose for sake of contradiction that \( r > s  \). Suppose we take the midpoint of \( r  \) and \( s \). Then we have \( a = \frac{ r+s }{ 2 }  \) which implies \( a < r  \). This tells us that \( a \in C_{r} \), but \( a \notin C_{s} \) since \( a > s  \). Hence, we have a contradiction. Hence, we must have \( r \leq s  \) in \( \Q  \).      
         \end{proof}
 \end{enumerate}
-
-\subsection{Cantor's Approach}
-
-A weirdly different approach used by Cantor to characterizing completeness is to define a real number as the entirety of a Cauchy sequence. But we run into some issues when we characterize it this way because we can have two different Cauchy sequences converge to the same limit. Does this mean two different numbers converge to the same number? A quite confusing problem to wrestle with indeed. A way to fix this issue is to create \textit{equivalency classes} of Cauchy sequences where we have two sequences say \( (x_{n}) \) and \( (y_{n}) \) and say that they're in the same equivalence class if and only if \( (x_{n} - y_{n}) \to 0  \).
-
-
-
-
