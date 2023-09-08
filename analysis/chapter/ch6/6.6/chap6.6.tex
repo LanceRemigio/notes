@@ -20,7 +20,7 @@ for all \( x \in (-1,1) \). Note that the power series representation above is a
 
 Given an infinitely differentiable function \( f  \) defined on some interval centered at zero, if we assume that a function \( f  \) has a power series expansion, we can be able to find the every coefficient.
 
-\begin{theorem}{Taylor's Formula}{}
+\begin{theorem}[Taylor's Formula]
     Let 
     \[  f(x) = a_0 + a_{1}x + a_{2} x^{2} + a_{3} x^{3} + \dotsb \]
     be defined on some nontrivial interval centered at zero. Then, 
@@ -54,7 +54,7 @@ A few questions:
 The idea of the Remainder theorem is to express the error between the function \( f  \) and partial sum \( S_N  \) in terms 
 \[  E_N (x) = f(x) - S_N(x).\]
 
-\begin{theorem}{Lagrange's Remainder Theorem}
+\begin{theorem}[Lagrange's Remainder Theorem]
     Let \( f  \) be differentiable \( N + 1  \) times on \( (-R ,R ) \), define \( a_n = f^{n}(0) / n!  \) for \( n = 0, 1 , \dots , N  \), and let 
     \[  S_N(x) = a_0 + a_{1} x + a_{2}x^{2} + \dotsb + a_{N}x^{N}. \]
     Given \( x \neq 0  \) in \( (-R ,R ) \), there exists a point \( c  \) satisfying \( | c  |  < | x  |  \) where the error function \( E_N(x) = f(x) - S_N(x)  \) satisfies 
@@ -69,7 +69,6 @@ Components that make up the theorem:
     \item[(iv)] The second term on the numerator \( f^{(N+1)} (c)  \) can be handled by introducing some upper bound either from a compact set or based on the behavior of \( f  \).
 \end{enumerate}
 
-\begin{example}{}{}
 Consider the Taylor series for \( \sin (x)  \) from earlier. We can ask how well does our sequence of partial sums approximate \( \sin(x)  \) when \( N=5  \); that is, how well does  
 \[  S_{5}(x) = x - \frac{ 1 }{ 3! } x^{3} + \frac{ 1 }{ 5! } x^{5} \]
 approximate \( \sin(x)  \) on the interval \( [-2, 2 ] \). By using Lagrange's Remainder Theorem we can assert that 
@@ -78,7 +77,6 @@ for some \( c \in (-| x |, | x | ) \). Since we don't know the value of \( c  \)
 \[  | E_5(x) | = \Big| \frac{ - \sin(c)  }{ 6! } x^{6} \Big| \leq \frac{ 2^{6} }{ 6! } \tag{\( x \in [-2,2] \)}.  \]
 We can show that \( S_N(x)  \) converges uniformly to \( \sin(x)  \) on \( [-2,2] \) by observing that \( | f^{(N+1)}(c) | \leq 1  \). Thus, 
 \[  | E_N(x)  | = \Big| \frac{ f^{(N+1)}(c) }{ (N+1)! } x^{N+1} \Big| \leq \frac{ 1 }{ (N+1)! }  2^{N+1} \] for \( x \in [-2,2] \). We know that factorials grow faster than exponentials. Hence, we know that \( E_N(x) \to 0  \) on \( [-2,2] \).
-\end{example}
 
 \begin{proof}[Proof of Lagrange's Remainder Theorem]
     Note that the Taylor coefficients are chosen so that the function \( f  \) and the polynomial \( S_N  \) have the same derivatives at \( 0  \), at least up to through the \( N \)th derivative, after which \( S_N  \) becomes the zero function. That is, we have \( f^{(n)}(0) = S_N^{(n)}(0) \) for all \( 0 \leq n \leq N  \), which implies the error function \( E_{N}(x) = f(x) - S_{N}(x)  \) satisfies 

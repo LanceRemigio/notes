@@ -12,7 +12,7 @@
     \item[(d)] One of mechanisms needed to show Lagrange's Remainder Theorem and used to approximate the error between a Taylor polynomial.
 \end{enumerate}
 
-\begin{theorem}{Rolle's Theorem}{}
+\begin{theorem}[Rolle's Theorem]
         Let \( f : [a,b] \to \R  \) be continuous on \( [a,b]  \) and differentiable on \( (a,b)  \). If \( f(a) = f(b) \), then there exists a point \( c \in (a,b)  \) where \( f'(c) = 0  \). 
     \end{theorem}
 
@@ -21,7 +21,7 @@
     Since \( f  \) is continuous on a compact set, we know that \( f  \) attains a maximum and a minimum. If \( f  \) attains a maximum and minimum at the endpoints and the fact that \( f(a) = f(b)  \), we know that \( f  \) must be a constant function. Hence, we can choose any \( x \in [a,b]  \) such that \( f'(x) = 0  \). If \( f  \) attains a maximum or minimum in the interior of \( f  \) then there exists \( c \in (a,b)  \) such that \( f'(c) = 0  \).
 \end{proof}
 
-\begin{theorem}{Mean Value Theorem}{}
+\begin{theorem}[Mean Value Theorem]
         If \( f: [a,b] \to \R  \) is continuous on \( [a,b]  \) and differentiable on \( (a,b)  \), then there exists a point \( c \in (a,b)  \) where 
         \[  f'(c) = \frac{ f(b) - f(a)  }{ b - a  }. \]
     \end{theorem}
@@ -41,9 +41,9 @@ Now, using Rolle's Theorem, we can find a \( c \in (a,b)  \) such that \( d'(c) 
 
 Now consider a constant function \( f(x) = k  \) for any \( k  \). Intuition suggests that for all \( x \in A  \), we have \( f'(x) = 0  \). Is there any way we can prove that \( f(x)  \) is constant given \( f'(x) = 0  \) for all \( x \in A  \)? Indeed, we can using the Mean Value Theorem.
 
-\begin{cor}
+\begin{corollary}
 If \( g: A \to \R  \) is differentiable on an interval \( A  \) and satisfies \( g'(x) = 0  \) for all \( x \in A  \), then \( g(x) = k  \) for some constant \(  k \in \R  \).
-\end{cor}
+\end{corollary}
 
 \begin{proof}
     Take \( x, y \in A  \) and assume \( x < y  \). Applying the Mean Value Theorem to \( g  \) on the interval \( [a,b ] \), we can see that 
@@ -53,9 +53,9 @@ If \( g: A \to \R  \) is differentiable on an interval \( A  \) and satisfies \(
     Set \(  k  \) equal to this common value. Since \( x,y \in A  \) are arbitrary, it follows that \( g(x) = k \) for all \( x \in A  \).
 \end{proof}
 
-\begin{cor}{}{}
+\begin{corollary}
 If \( f  \) and \( g  \) are differentiable functions on an interval \( A  \) and satisfy \( f'(x) = g'(x)   \) for all \( x \in A  \), then \( f(x) = g(x) + k  \) for some interval \(  k \in \R  \).
-\end{cor}
+\end{corollary}
 
 \begin{proof}
 Suppose \( f \) and \( g  \) are differentiable functions on an interval \( A  \) and satisfy \( f'(x) = g'(x)  \). Let us define a new function \( h(x) = f(x) - g(x)  \). Differentiating this function gives us the following \( h'(x) = f'(x) - g'(x)  \). But since \( g'(x) = f'(x)  \), we have that \( h'(x) = 0  \). Since \( h  \) is differentiable on an interval \( A  \), we know that \( h(x) = k  \). Hence, we have that 
@@ -64,7 +64,7 @@ Suppose \( f \) and \( g  \) are differentiable functions on an interval \( A  \
 
 We can build a more general form of the Mean Value Theorem which can be used to prove L'hopital's rules and the Lagrange Remainder Theorem.
 
-\begin{theorem}{Generalized Mean Value Theorem}{}
+\begin{theorem}[Generalized Mean Value Theorem]
     If \( f  \) and \( g  \) are continuous on the closed interval \( [a,b]  \) and differentiable on the open interval \( (a,b)  \), then there exists a point \( c \in (a,b)  \) where 
     \[  [f(b) -f(a)]g'(c) = [g(b) -g(a)]f'(c). \]
     If \( g'  \) is never zero on \( (a,b)  \), then the conclusion can be stated as 
@@ -83,7 +83,7 @@ The Algebraic Limit Theorem asserts that when taking a limit of a quotient of fu
 \[  \lim_{ x \to c  } \frac{ f(x)  }{ g(x)  } = \frac{ \lim_{ x \to c  } f(x)  }{ \lim_{ x \to c  } g(x)  }  \]
 provided that the quotient is well-defined. What happens when the denominator has a limit that goes to zero while the numerator goes to a limit that is non-zero? Both zero? Both infinite?
 
-\begin{theorem}{L'Hopital's Rule: 0/0 case}{}
+\begin{theorem}[L'Hopital's Rule: 0/0 case]
     Let \( f  \) and \( g  \) be continuous on an interval containing \( a  \), and assume \( f  \) and \( g  \) are differentiable on this interval with the possible exception of the point \( a  \). If \( f(a) = g(a) = 0  \) and \( g'(x) \neq 0  \) for all \( x \neq a  \), then 
     \begin{center}
         \( \lim_{ x \to a } \frac{ f'(x)  }{ g'(x)  } = L  \) implies \( \lim_{ x \to a } \frac{ f(x)  }{ g(x)  } = L. \)
@@ -96,11 +96,11 @@ Of course they would leave this to the reader to finish. It is requested in Exer
 
 Next is the case when we replace the assumption of the last theorem with the case that \( \lim_{ x \to a } g(x) = \infty \). We can define what it means to have an infinite limit.
 
-\begin{definition}{}{}
+\begin{definition}
 Given \( g: A \to \R \) and a limit point \( c  \) of \( A  \), we say that \( \lim_{ x \to c  } g(x) = \infty  \) if, for every \( M > 0  \), there exists a \( \delta > 0  \) such that whenever \( 0 < | x -c  |  < \delta  \) it follows that \( g(x) \geq M  \). We can define \( \lim_{ x \to c  } g(x)  \) in a similar way.
 \end{definition}
  Next is the case of L'hopital's rule when applied to the case when both the numerator and the denominator go to infinity.
- \begin{theorem}{L'Hopital's Rule: \( \infty / \infty  \) case}
+ \begin{theorem}[L'Hopital's Rule: \( \infty / \infty  \) case]
     Assume \( f  \) and \( g  \) are differentiable on \( (a,b)  \) and that \( g'(x) \neq 0  \) for all \( x \in (a,b) \). If \( \lim_{ x \to a } g(x) = \infty  \) (or \( - \infty  \)), then 
     \[  \lim_{ x \to a } \frac{ f'(x)  }{ g'(x)  } = L \text{~implies~} \lim_{ x \to a } \frac{ f(x)  }{ g(x)  } = L. \]
     \end{theorem}

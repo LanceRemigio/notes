@@ -3,7 +3,7 @@
 In intuitive terms, the Intermediate Value Theorem is an observation that explains how a continuous function \( f \) on a closed interval \( [a,b] \) attains every value that falls between two range values \( f(a) \) and \( f(b) \).
 
 
-\begin{theorem}{Intermediate Value Theorem}{}
+\begin{theorem}[Intermediate Value Theorem]
     Let \( f: [a,b] \to \R  \) be continuous. If \( L  \) is a real number satisfying \( f(a) < L < f(b) \) or \( f(a) > L > f(b) \), then there exists a point \( c \in (a,b) \) where \( f(c) = L  \).
     \end{theorem}
 
@@ -12,7 +12,7 @@ In intuitive terms, the Intermediate Value Theorem is an observation that explai
 Before we prove the Intermediate Value Theorem, we should understand that it is a special case of continuous functions mapping connected sets to connected sets. In the last section, we saw how continuous functions on compact sets \( K  \) produces range sets \( f(K) \) that are also compact. This just so happened to also hold for connected sets.
 
 
-\begin{theorem}{Preservation of Connected Sets}{}
+\begin{theorem}[Preservation of Connected Sets]
     Let \( f: G \to \R  \) be continuous. If \( E \subseteq G  \) is connected, then \( f(E) \) is connected as well.
     \end{theorem}
 
@@ -51,7 +51,7 @@ Below is the second proof of the Intermediate Value Theorem using the Nested Int
 
 An interesting question we can ask is does the Intermediate Value Theorem have a converse that is true?
 
-\begin{definition}{}{}
+\begin{definition}[Intermediate Value Property]
     A function \( f  \) has the \textit{intermediate value property} on an interval \( [a,b] \) if for all \( x < y  \) in \( [a,b] \) and all \( L   \) between \( f(x)  \) and \( f(y) \), it is always possible to find a point \( c \in (x,y) \) where \( f(c) = L  \).
 \end{definition}
 

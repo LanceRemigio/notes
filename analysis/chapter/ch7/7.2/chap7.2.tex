@@ -4,7 +4,7 @@ Before we have \textit{Riemann sums}, we need to construct \textit{upper sums}  
 
 \subsection{Partitions, Upper Sums, and Lower Sums}
 
-\begin{definition}{Upper and Lower Sums}{}
+\begin{definition}[Upper and Lower Sums]
 	A \textit{partition} \( P  \) of \( [a,b]  \) is a finite set of points from \( [a,b]  \) that includes both \( a  \) and \( b  \). The notational convention is to always list the points of a partition \( P = \{ x_{0}, x_{1}, x_{2}, \dots, x_{n} \}  \) in increasing order; thus, \[  a = x_{0} < x_{1} < x_{2} < \dotsb < x_{n} = b. \]
 	For each subinterval \( [x_{k-1}, x_{k} ] \) of \( P  \), let 
 	\[  m_{k } = \inf \{ f(x) : x \in [x_{k-1} , x_{k } ] \} \ \text{ and } \  M_{k } = \sup \{ f(x) : x \in [x_{k-1}, x_{k }] \}. \]
@@ -17,14 +17,14 @@ Before we have \textit{Riemann sums}, we need to construct \textit{upper sums}  
 It is clear from this definition that 
 \[  U(f, P ) \leq L(f, P ).\]  This inequality holds even with respect to different partitions.
 
-\begin{definition}{Refinements of Partitions}{}
+\begin{definition}[Refinements of Partitions]
 A partition \( Q  \) is a \textit{refinement} of a partition \( P  \) if \( Q  \) contains all of the points of \( P  \); that is, if \( P \subseteq Q  \).
 
 
 
 \end{definition}
 
-\begin{lemma}{}{}
+\begin{lemma}
 If \( P \subseteq Q  \), then \( L(f,P) \leq L(f,Q)  \), and \( U(f,P ) \geq U(f,Q) \).
 \end{lemma}
 
@@ -47,7 +47,7 @@ If \( P \subseteq Q  \), then \( L(f,P) \leq L(f,Q)  \), and \( U(f,P ) \geq U(f
 	Using induction again to repeat the argument above, we can show that \( U(f, P) \geq U(f,Q) \).
 \end{proof}
 
-\begin{lemma}{}{}
+\begin{lemma}
 	If \( P_1  \) and \( P_2  \) are any two partitions of \( [a,b]  \), then \( L(f, P_{1}) \leq U(f, P_2) \).
 \end{lemma}
 
@@ -62,29 +62,31 @@ Let \( Q = P_{1} \cup P_{2}  \) be the so-called \textit{common refinement} of \
 Another way of thinking Integrability is to think of the upper sums as an overestimate of the value of the integral and lower sums as an underestimate of the value of the integral. We can see that as the we continually refine our partitions, the upper sums become smaller and smaller and the lower sums become larger and larger until they meet at some common point in the middle. 
 	Rather than thinking of this whole process as the limit of these sums, we will instead make use of the Axiom of Completeness and consider the \textit{infimum} of the upper sums and the \textit{supremum} of the lower sums.
 
-    \begin{definition}{Upper and Lower Integrals}{}
+\begin{definition}[Upper and Lower Integrals]
 	Let \( \mathcal{P}  \) be the collection of all possible partitions of the interval \( [a,b] \). The \textit{upper integral} of \( f \) is defined to be 
 	\[  U(f) = \inf \{ U(f,P) : P \in \mathcal{P} \}.  \]
 	In a similar way, define the \textit{lower integral} of \( f  \) by 
 	\[  L(f) = \sup \{ L(f,P) : P \in \mathcal{P}. \}  \]
 \end{definition}
  The following fact is not surprising. 
- \begin{lemma}{}{}
+
+ \begin{lemma}
 	For any bounded function \( f  \) on \( [a,b]  \), it is always the case that \( U(f) \leq L(f) \).
 \end{lemma}
+
 Why is this not surprising you ask? It is because \( U(f) \) is the exact definition for what it means to be the least upper bound and \( L(f)  \) is the exact definition for what it means to be the greatest upper bound.
 
-\begin{definition}{Riemann Integrability}{}
+\begin{definition}[Riemann Integrability]
 	A bounded function \( f  \) defined on the interval \( [a,b] \) is \textit{Riemann-integrable} if \( U(f) = L(f) \). In this case, we define \( \int_{ a }^{ b } f   \) or \( \int_{ a }^{ b } f(x) \ dx \) to be this common value; namely, 
 	\[  \int_{ a }^{ b } f  = U(f) = L(f). \]
-	\end{definition}
+\end{definition}
 
 \subsection{Criteria for Integrability} 
 
 To summarize, we know that it is always the case that for a bounded function  \( f  \) on a closed interval \( [a,b]  \), we have 
 \[  \sup \{ L(f,P) : P \in \mathcal{P} \} = L(f) \leq U(f) = \inf \{ U(f,P) : P \in \mathcal{P} \}.\] For \( f  \) to be integrable, the inequaltity above must be an equality. More rigorously, finding our if a function is integrable is equivalent to the existence of partitions whose upper and lower sums are arbitrarly close together.
 
-\begin{theorem}{Integrability Criterion}{}
+\begin{theorem}[Integrability Criterion]
 		A bounded function \(  f \) is integrable on \( [a,b]  \) if and only if, for every \( \epsilon > 0  \), there exists a partition \( P_{\epsilon } \) of \( [a,b] \) such that 
 		\[  U(f, P_{\epsilon }) - L(f, P_{\epsilon }) < \epsilon. \]
 	\end{theorem}
@@ -114,7 +116,7 @@ At the beginning of this section, it was clear that a function's integrability w
 where \( M _{k }  \) and \( m_{ k }  \) are the supremum and infimum of \( f  \) on the subinterval \( [x_{k -1 } , x_{ k  }] \) (as defined before) respectively. The size of 
 \[  U(f,P) - L(f,P)   \] is dependent upon the size of the differences of our extremums \(  M_{k } - m_{k } \), which can be interpreted as the variation of the range of \( f  \) over the interval \( [x_{k-1 }, x_{k }] \). This variation and its restriction of our function \( f  \) on arbitrarly small intervals on \( [a,b]  \) is \textit{precisely} what it means fopr \( f  \) to be uniformly continuous on \( [a,b] \).
 
-\begin{theorem}{Continuity Implies Integrability}{}
+\begin{theorem}[Continuity Implies Integrability]
 	If \( f  \) is continuous on \( [a,b] \), then it is integrable.
 \end{theorem}
 

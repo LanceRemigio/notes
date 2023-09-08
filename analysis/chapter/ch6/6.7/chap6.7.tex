@@ -1,6 +1,6 @@
 \section{The Weierstrass Approximation Theorem}
 
-\begin{theorem}{Weierstrass Approximation Theorem}{}
+\begin{theorem}[Weierstrass Approximation Theorem]
         Let \( f: [a,b] \to \R  \) be continuous. Given \( \epsilon > 0  \), there exists a polynomial \( p(x) \) satisfying 
         \[  | f(x) - p(x) | < \epsilon \] for all \( x \in [a,b] \).
     \end{theorem}
@@ -18,14 +18,14 @@ This means that every continuous function over a closed interval can be uniforml
 
 The purpose of Weiertrass's theorem is to approximate polynomials. We can get try to understand this a little more by looking at the collection of continuous, piecewise-linear functions instead of polynomials.
 
-\begin{definition}{}{}
+\begin{definition}
     A continuous function \( \phi : [a,b] \to \R  \) is \textit{polygonal} if there is a partition 
     \[  a = x_{0} < x_{1} < \dotsb < x_{n} = b   \] of \( [a,b] \) such that \( \phi  \) is linear on each subinterval \( [x_{i-1}, x_{i}] \) where \(  i = 1, \dots n. \)
 \end{definition}
 
 The goal of interpolation is to find a function whose graph passes through a given set of points. We can do this by using line segments.
 
-\begin{theorem}{}{}
+\begin{theorem}
     Let \( f: [a,b] \to \R  \) be continuous. Given \( \epsilon > 0   \), there exists a polygonal function \( \phi  \) satisfying 
     \[  | f(x) - \phi(x) | < \epsilon \] for all \( x \in [a,b] \).
 \end{theorem}

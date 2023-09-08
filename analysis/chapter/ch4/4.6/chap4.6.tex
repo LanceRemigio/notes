@@ -1,6 +1,6 @@
 \section{Sets of Discontinuity} 
 
-\begin{definition}{Set of Discontinuities}{}
+\begin{definition}[Sets of Discontinuities]
 Given a function \( f: \R \to \R  \), we call the set \( D_f \subseteq \R  \) to be the set of points where the function \( f  \) fails to be continuous.
 \end{definition}
 
@@ -15,13 +15,13 @@ We can always write the set of discontinuous points for a function \( D_f  \) as
 
 \subsection{Monotone Functions}
 
-\begin{definition}{Monotone Functions}{}
+\begin{definition}[Monotone Functions]
 A function \( f: A \to \R  \) is \textit{increasing} on \( A \) if \( f(x) \leq f(y)  \) whenever \( x < y  \) and \textit{decreasing} if \( f(x) \geq f(y)  \) whenever \( x < y  \) in \( A  \). A \textit{monotone} function is one that is either increasing or decreasing.
 \end{definition}
 
 The continuity of a function at a point \( c  \) means that \( \lim_{ x \to c } f(x) = f(c) \). Discontinuities occur when right-hand limits do not equal the left-hand limits approaching \( c  \). 
 
-\begin{definition}{Right-Hand Limits}{}
+\begin{definition}[Right-Hand Limits]
 Given a limit point \( c  \) of a set \( A  \) and a function \( f: A \to \R  \), we write
 \[ \lim_{ x \to c^{+}   }  f(x) = L \]
 if for all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that \( | f(x) -  L  | < \epsilon  \) whenever \( 0 < x - c < \delta  \). Equivalently, in terms of sequences, \( \lim_{ x  \to c^{+} } f(x) = L  \) if \( \lim f(x_n) = L  \) for all sequences \( (x_n)  \) satisfying \( x_n >  c  \) and \( \lim (x_n) = c  \).
@@ -33,7 +33,7 @@ if for all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that \( | f(
     We say \( \lim_{ x \to c^{-}  } f(x) = L  \) if for all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that \( | f(x) - L  | < \epsilon  \) whenever \( 0 < | c - x  | < \delta  \). Equivalently, \( \lim_{ x \to c^{-} } f(x) = L  \) if \( \lim f(y_n) = M  \) for all sequences \( (y_n)  \) satisfying \( y_n < c  \) and \( \lim (y_n) = c  \).
 \end{proof}
 
-\begin{theorem}{Functional Limit}{}
+\begin{theorem}[Functional Limit]
 Given \( f: A \to \R  \) and a limit point \( c  \) of \( A  \), \( \lim_{ x \to c  } f(x) = L  \) if and only if 
 \begin{center}
     \( \lim_{ x \to c^{-} } f(x) = L  \) and \( \lim_{ x \to c^{+} } f(x) = L  \).
@@ -71,7 +71,7 @@ Review of infinite and finite closed or open sets:
     \item[(b)] On the other hand, the intersection of a finite collection of open sets must be open and the union of a infinite collection of open sets must be open.
 \end{enumerate}
 
-\begin{definition}{}{}
+\begin{definition}
     A set that can be written as the countable union of closed sets is in the class \( F_{\sigma} \).
 \end{definition}
 

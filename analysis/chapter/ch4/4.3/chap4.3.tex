@@ -41,9 +41,9 @@ We observed in the previous section that functional limits can be formulated usi
     \[ \lim_{ x \to c } f(x) = f(c). \]
 \end{proof}
 
-\begin{cor}{Criterion for Discontinuity}{}
+\begin{corollary}[Criterion for Discontinuity]
     Let \( f: A \to \R  \), and let \( c \in A  \) be a limit point of \( A  \). If there exists a sequence \( (x_n) \subseteq A  \) where \( (x_n) \to c  \) but such that \( f(x_n) \not \to f(c) \), we may conclude that \( f \) is not continuous at \( c \).
-    \end{cor}
+    \end{corollary}
 
 This sequential characterization of continuity allows us to use all the results that we know of when it comes to sequences from Chapter 2. 
 
@@ -63,34 +63,26 @@ All of these statements can be derived from the Characterizations of Continuity 
 \end{proof}
 
 
-\begin{example}{}{}
 All polynomials are continuous on \( \R  \). In fact, rational functions (Quotients of polynomials) are continuous wherever they are defined. Consider the identity function \( g(x) = x  \). Since \( | g(x) - g(c) | = | x - c  |  \), we can respond to a given \( \epsilon > 0 \) by choosing \( \delta = \epsilon  \) such that \( g  \) is continuous on all of \( \R  \). Furthermore, this argument gets much simpler when we consider a constant function such as \( f(x) = k  \). Since any arbitrary polynomial 
 \[  p(x) = a_0 + a_1 x + a_2 x^2 + \dots + a_n x^n \]
 consists of sums and products of \( g(x) \) with different constant functions, we can conclude that \( p(x) \) is continuous. On the other hand, the Algebraic Continuity Theorem implies that quotients of polynomials are continuous as long as the denominator is not zero.
-\end{example}
 
-\begin{example}{}{}
 In the sinuisodal example in the last section, we noticed that the oscillations of \( \sin (1/x ) \) are so rapid near the origin that \( \lim_{ x \to 0  } \sin (1/x) \) does not exist. Consider the function, 
 \[  g(x) = 
 \begin{cases}
     x \sin (1/x) &\text{~if~} x \neq 0 \\ 
     0 &\text{~if~}  x = 0. 
 \end{cases} \]
-\end{example}
 Suppose we want to observe the continuity of \( g \) at \( c = 0  \). We can do this by the following:
 \[ | g(x) - g(0) | = | x \sin(1/x) - 0  | \leq | x |   \]
 since \( | \sin (x)  |  \leq 1 \). Given \( \epsilon > 0 \), choose \( \delta = \epsilon  \) such that whenever \( | x | < \delta \) it follows that \( | g(x) - g(0) | < \epsilon  \). Thus, \( g  \) is continuous at the origin. 
 
 
-\begin{example}{}{}
     Consider the greatest integer function \( h(x) = [[x]] \) which for each \( x \in \R  \) returns the largest integer \( n \in \Z  \) such that \( n \leq x  \). In previous math classes, this step function is observed to have discontinuous jumps at each integer value of its domain. We can show this more rigorously using the tools we have at our disposal. Given \( m \in \Z  \), define the sequence \( (x_n)  \) by \( x_n = m -  1/n \). It follows that \( (x_n) \to m \), but not that 
     \[  h(x_n) \to (m-1), \]
     which does not equal \( m = h(m) \). By the Criterion for Discontinuity, we see that \( h \) fails to be continuous at each \( m \in \Z  \). Suppose we want to see why \( h  \) is continuous at a point \( c \notin \Z \). Given any \( \epsilon > 0  \), we must find a \( \delta-\)neighborhood \( V_{\delta}(c) \) such that \( x \in V_{\delta}(c) \) implies \( h(x) \in V_{\epsilon }(h(c)) \). We know that \( c \in \R  \) falls between consecutive integers \( n < c < n+1 \) for some \(  n \in \Z  \). Taking \( \delta = \min \{ c -n , (n+1) - c  \}  \), then it follows from definition of \( h \) that \( h(x) = h(c) \). Thus, we certainly have that \( h(x) \in V_{\epsilon }(h(c)) \) whenever \( x \in V_{\delta}(c) \). This proof actually implies that our \( \delta \) is not dependent on the value of \( \epsilon > 0  \). 
-\end{example}
 
-\begin{example}{}{}
 Consider \( f(x) = \sqrt{ x }  \) defined on \( A = \{ x \in \R : x \geq 0 \}  \). Exercise 2.3.1 outlines a sequential proof that \( f  \) is continuous on \( A  \). Show \( f \) is continuous below.
-\end{example}
 
 What about functions like \( h(x) = \sqrt{ 3x^2 + 5  }   \) is continuous. Hence, a Compositions of Continuous functions type theorem is needed to show that \( h(x) \) is continuous on its domain.
 

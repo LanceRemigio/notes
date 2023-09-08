@@ -2,7 +2,7 @@
 
 We shall start this section by asking what is the effect of having a pointwise converging sequence of functions that are differentiable? It turns out that if we require the sequence of derivatives of some function to be uniformly convergent, then the limit of the sequence of derivative is the derivative of the original function.
 
-\begin{theorem}{Differentiable Limit Theorem}{}
+\begin{theorem}[Differentiable Limit Theorem]
         Let \( f_n \to f  \) pointwise on the closed interval \( [a,b] \), and assume that each \( f_n  \) differentiable. If \( (f'_n) \) converges uniformly on \( [a,b] \) to a function \( g  \), then the function \( f  \) is differentiable and \( f' = g  \).
     \end{theorem}%
 
@@ -42,7 +42,7 @@ for all \( x \in [a,b] \).
 
 As it turns out, we don't really need to assume that \( f_n(x) \to f(x)  \) for the conclusion above to be true. We only need uniform convergence of \( (f'_n)  \) for the theorem above to work. Two functions with the same derivative may differ by a constant, so we must suppose that there is at least one point \( x_0  \) where \( f_n(x_0) \to f(x_0)  \).
 
-\begin{theorem}{}{}
+\begin{theorem}
     Let \( (f_n)  \) be a sequence of differentiable functions defined on the closed interval \( [a,b]  \), and assume \( (f'_n)  \) converges uniformly on \( [a,b]  \). If there exists a point \( x_0 \in [a,b]  \) where \( f_n(x_0)  \) is convergent, then \( (f_n)  \) converges uniformly on \( [a,b]  \).
 \end{theorem}
 
@@ -75,7 +75,7 @@ As it turns out, we don't really need to assume that \( f_n(x) \to f(x)  \) for 
 
 Now we have a stronger version of the first theorem of this section.
 
-\begin{theorem}{}{}
+\begin{theorem}
     Let \( (f_n)  \) be a sequence of differentiable functions defined on the closed interval \( [a,b]  \), and assume \( (f'_n)  \) converges uniformly to a function \( g  \) on \( [a,b]  \). If there exists a point \( x_0 \in [a,b]  \) for which \( f_n(x_0)  \) is convergent, then \( (f_n)  \) converges uniformly. Moreover, the limit function \( f = \lim f_n  \) is differentiable and satisfies \( f' = g  \).
 \end{theorem}
 
