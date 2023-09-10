@@ -290,7 +290,21 @@ function findGreaterOrEqual(a,b) {
 }
 ````
 
+# Use Recursion to Create a Range of Numbers
 
+The following function takes in two parameters, `startNum` and `endNum`, and uses recursion to generate an array with a range of numbers starting from `startNum` and `endNum`. 
+
+```js
+function rangeOfNumbers(startNum, endNum) {
+    if (startNum < endNum) { 
+        return [];
+    } else { 
+        const rangeArray = rangeOfNumbers(startNum, endNum-1); 
+        rangeArray.push(endNum);
+        return rangeArray;
+    }
+};
+```
 
 
 
