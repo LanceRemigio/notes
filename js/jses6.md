@@ -89,14 +89,39 @@ const myFunc = function() {
 }
 ````
 to 
+````js
+const myFunc = () => {
+    const myVar = "value";
+    return myVar;
+} 
 ````
-
+We can even condense functions down into one line statements such as the following:
+````js
+const myFunc = () => "value";
 ````
+which will return `value` by default.
 
+# Write Arrow Functions with Parameters
 
+We can pass arguments into an arrow function
 
+````js
+const doubler = (item) => item*2;
+doubler(4);
+````
+If we have a function with a single argument then we don't even need to bother with the parantheses. Another example is when we multiply two integers; that is,
+````js
+const multiplier = (item, multi) => item * multi;
+multiplier(4,2);
+````
+# Set Default Parameters for your Functions
 
+We can create more flexible functions by using *default parameters*. Suppose we have the following code
 
-
-
+````js
+const greeting = (name = "Anonymous") => "Hello" + name;
+console.log(greeting("John"));
+console.log(greeting());
+````
+Notice that when the parameter is not specified the function output defaults to the name "Anonymous".
 
