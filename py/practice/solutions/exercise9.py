@@ -3,6 +3,15 @@ import random
 # generate a number between 1 and 9 (inclusive)
 # Ask the user to guess the number, then thell them whether they guessed too low, too high, or exactly right.
 
+def intersection (x,y):
+   return [
+           x[i] for i in range(min(len(x), len(y))) 
+            for j in range(min(len(x),len(y))) 
+            if (x[i] == y[j])
+           ] 
+
+
+
 num = random.randint(1,9)
 guess = 0
 
