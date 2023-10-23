@@ -1,18 +1,18 @@
-\documentclass[a4paper]{report}
+\documentclass[a4paper]{book}
 \input{../newpreamble.tex}
 
-\title{Test}
-
+\title{Linear Algebra Notes}
 \author{Lance Remigio}
+
 \begin{document}
 \maketitle
+\tableofcontents
 
-\begin{theorem}[Weierstrass Approximation Theorem]
-    Let \( f : [a,b] \to \R  \) be continuous. Given \( \varepsilon > 0  \), there exists a polynomial \( p(x) \) satisfying 
-    \[  | f(x) - p(x) | < \varepsilon \] for all \( x \in [a,b] \).
-\end{theorem}
-\begin{proof}
-This is a proof
-\end{proof}
+\chapter{Vector Spaces}
+
+\input{chapter/chap1/sec1.2.tex}
+
+
+
 
 \end{document}

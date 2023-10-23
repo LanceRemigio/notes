@@ -1,0 +1,46 @@
+
+\section{Vector Spaces}
+
+\begin{definition}{}{}
+    A \textbf{vector space} (or \textbf{linear space}) over a field \( F \) consists of a set on which two operations (called \textbf{addition} and \textbf{scalar multiplication}, respectively) are defined so that for each pair of elements \( x,y, \) in \( V \) there is a unique element \( ax  \) in \( V  \), such that the following conditions hold:
+    \begin{enumerate}
+        \item[(VS 1)] For all \( x,y   \in V \), \( x + y = y + x  \) (commutativity of addition).
+        \item[(VS 2)] For all \( x, y, z  \in V  \) , \( (x+y) + z = x + (y + z)  \) (associativity of addition).
+        \item[(VS 3)] There exists an element in \( V  \) denoted by \( O  \) such that \( x + O = x  \) for each \( x  \in V \) 
+        \item[(VS 4)] For each element \( x \in V  \), there exists an element \( y \in V  \) such that \( x + y = O \).
+        \item[(VS 5)] For each element \( x \in V  \), we have \( 1x = x  \).
+        \item[(VS 6)] For each \( a,b \in F  \) and each element \( x \in V  \), then \( (ab)x = a(bx) \). 
+        \item[(VS 7)] For each element \( a \in F  \) and each pair \( x,y \in V  \), we have \( a(x+y) = ax + ay \).
+        \item[(VS 8)]  For each pair \( a,b \in F  \) and each \( x \in V  \), we have \( (a+b)x = ax + bx \).
+    \end{enumerate} 
+The elements \( x + y  \) and \( a x  \) are called the \textbf{sum} of \( x  \) and \( y  \) and the \textbf{product} of \( a  \) and \( x  \), respectively.
+\end{definition}
+
+\begin{itemize}
+    \item The elements of a field \( F  \) are called \textbf{scalars} and the elements of a vector space \( V  \) are called \textbf{vectors} (these should not be confused!).
+    \item Every vector space will always be defined over a given field, mostly defined over the real numbers \( \R  \) or the complex numbers \( \C  \) unless otherwise noted.
+    \item Every vector space should specify the operations of addition and scalar multiplication.
+\end{itemize}
+
+\begin{definition}{}{}
+    An object of the form \( (a_{1}, a_{2}, \dots ,a_{n}) \), where the entries \( a_{1}, a_{2} , \dots, a_{n} \) are elements of a field \( F  \), is called an \textbf{n-tuple} with entries from \( F  \). The elements \( a_{1}, a_{2} , \dots, a_{n} \) are called \textbf{entries} or \textbf{components} of the \( n \)-tuple.
+\end{definition}
+
+
+\begin{definition}{}{}
+    We say that two \( n \)-tuples, \( (a_{1}, a_{2}, \dots, a_{n}) \) and \( (b_{1}, b_{2}, \dots , b_{n}) \),  are \textbf{equal} if \( a_{i} = b_{i}  \) for \( i = 1,2, \dots, n \).  
+\end{definition}
+
+\begin{eg}{}{}
+    The set of all \( n \)-tuples with entries from a field \( F  \) denoted by \( F_{n} \) is a vector space. To see why, suppose \( u, v \in F_{n}  \) where \( u = (a_{1}, a_{2}, \dots a_{n}) \) and \( v = (b_{1}, b_{2}, \dots, b_{n}) \). If we take term-by-term addition of the entries in both \( u  \) and \(  v  \), then we end up with 
+    \[  u + v = (a_{1} + b_{1}, a_{2} + b_{2}, \dots , a_{n} + b_{n}) \]
+and likewise,
+    \[ cu = (ca_{1}, ca_{2}, \dots, ca_{n}).   \]
+    These same set of operations define \( \R ^{3} \) as a vector space over \( \R  \) and likewise, \( \C ^{2} \) is a vector space over \( \C  \).
+
+
+\end{eg}
+
+
+
+
