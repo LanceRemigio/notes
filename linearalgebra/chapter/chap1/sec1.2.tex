@@ -1,7 +1,9 @@
-
 \section{Vector Spaces}
 
-\begin{definition}{}{}
+\subsection{Basics}
+
+
+\begin{definition}[Vector Spaces]
     A \textbf{vector space} (or \textbf{linear space}) over a field \( F \) consists of a set on which two operations (called \textbf{addition} and \textbf{scalar multiplication}, respectively) are defined so that for each pair of elements \( x,y, \) in \( V \) there is a unique element \( ax  \) in \( V  \), such that the following conditions hold:
     \begin{enumerate}
         \item[(VS 1)] For all \( x,y   \in V \), \( x + y = y + x  \) (commutativity of addition).
@@ -22,25 +24,156 @@ The elements \( x + y  \) and \( a x  \) are called the \textbf{sum} of \( x  \)
     \item Every vector space should specify the operations of addition and scalar multiplication.
 \end{itemize}
 
-\begin{definition}{}{}
+\begin{definition}[n-tuples]
     An object of the form \( (a_{1}, a_{2}, \dots ,a_{n}) \), where the entries \( a_{1}, a_{2} , \dots, a_{n} \) are elements of a field \( F  \), is called an \textbf{n-tuple} with entries from \( F  \). The elements \( a_{1}, a_{2} , \dots, a_{n} \) are called \textbf{entries} or \textbf{components} of the \( n \)-tuple.
 \end{definition}
 
 
-\begin{definition}{}{}
+\begin{definition}
     We say that two \( n \)-tuples, \( (a_{1}, a_{2}, \dots, a_{n}) \) and \( (b_{1}, b_{2}, \dots , b_{n}) \),  are \textbf{equal} if \( a_{i} = b_{i}  \) for \( i = 1,2, \dots, n \).  
 \end{definition}
 
-\begin{eg}{}{}
+\begin{eg}
     The set of all \( n \)-tuples with entries from a field \( F  \) denoted by \( F_{n} \) is a vector space. To see why, suppose \( u, v \in F_{n}  \) where \( u = (a_{1}, a_{2}, \dots a_{n}) \) and \( v = (b_{1}, b_{2}, \dots, b_{n}) \). If we take term-by-term addition of the entries in both \( u  \) and \(  v  \), then we end up with 
     \[  u + v = (a_{1} + b_{1}, a_{2} + b_{2}, \dots , a_{n} + b_{n}) \]
 and likewise,
     \[ cu = (ca_{1}, ca_{2}, \dots, ca_{n}).   \]
     These same set of operations define \( \R ^{3} \) as a vector space over \( \R  \) and likewise, \( \C ^{2} \) is a vector space over \( \C  \).
 
-
 \end{eg}
 
+\begin{itemize}
+    \item 
+    Note that vectors in \( F^{n} \) can be written as \textbf{column vectors} 
+            \[  \begin{pmatrix}
+                a_{1} \\
+                a_{2} \\
+                \vdots \\ 
+                a_{n}
+            \end{pmatrix} \]
+    rather than \textbf{row vectors} \( (a_{1} , a_{2}, \dots , a_{n}) \). 
+\item 1-tuples are are just scalars or an just an element from \( F \). 
+\end{itemize}
 
 
+\begin{definition}
+An \( m \times n  \) \textbf{matrix} with entries from a field \( F  \) is a rectangular array of the form
+    \[  \begin{pmatrix}
+        a_{11} & a_{12} & \cdots & a_{1n} \\
+        a_{21} & a_{22} & \cdots & a_{2n}  \\
+        \vdots & \vdots &           & \vdots \\
+        a_{m1} & a_{m2} & \cdots     & a_{mn}
+    \end{pmatrix} \]
+    where each entry \( a_{ij} \) with \( (1 \leq i \leq m , 1 \leq j \leq n  ) \) is an element of \( F  \). We call the entries \( a_{ij}  \) with \( i = j  \) the \textbf{diagonal entries} of the matrix. The entries \( a_{i1}, a_{i2}, \dots a_{in} \) compose the \textbf{\( i \)th row}of the matrix, and the entries \( a_{1j}, a_{2j}, \dots a_{mj } \) compose the \( j \)th column of the matrix.
+\end{definition}
+
+\begin{itemize}
+    \item The rows make a vector space which we denote \( F^{n} \).
+    \item Likewise, the columns make a vector space we denote \( F^{m} \)
+\end{itemize}
+
+\begin{definition}[Zero Matrix]   
+    The \( m \times n  \) matrix in which each entry equals zero is called the \textbf{zero matrix} and is denoted by \( O \).
+\end{definition}
+
+\begin{definition}[Square Matrix]
+    A matrix is \textbf{square} if the number of rows and columns of a matrix are equal.
+\end{definition}
+
+\begin{itemize}
+    \item Just like our tuple example, the set of all \( m \times n  \) matrices with entries from a field \( F  \) form a vector space. Denote this vector space as \( M_{m \times n}(F) \) endowed with two operations; that is, \textbf{matrix addition} and \textbf{scalar multiplication}. Suppose for \( A,B \in M_{m \times n}(F) \) and \( c \in F  \), we have 
+        \[   (A + B)_{ij} = A_{ij} + B_{ij} \]
+        and 
+        \[  (cA)_{ij} = c A_{ij} \] for \(  1 \leq i \leq m  \) and \( 1 \leq j \leq n  \). In other words, the two operations can be performed entry-wise.
+    \item The operations from our tuple case extends very naturally to \( M_{m \times n}(F) \). In other words, if we add two matrices \( A_{ij}  \) and \( B_{ij }  \), then we would expect to that \( A_{ij} + B_{ij} \in  M_{m \times n }(F) \) as well and likewise for the scalar multiplication case.
+\end{itemize}
+
+\begin{definition}[Set of All Functions]
+    Let \( S \) be any nonempty set and \( F  \) be any field, and let \( \mathcal{F}(S,F) \) denote the set of all functions from \( S  \) to \( F  \).
+\end{definition}
+
+\begin{definition}
+    Two functions \( f,g \in \mathcal{F}(S,F)  \) are called \textbf{equal} if \( f(s) = g(s) \) for each \( s \in S  \). 
+\end{definition}
+
+The set of functions above forms a vector space with the operations of addition and scalar multiplication defined for every \( f,g \in \mathcal{F}(S,F) \) and \( c \in F  \) with 
+\begin{center}
+    \( (f+g)(s) = f(s) + g(s)  \) and \( (cf)(s) = cf(s)  \)
+\end{center}
+
+\begin{definition}[Set of All Polynomials]
+    A \textbf{polynomial} with coefficients from a field \( F  \) is an expression of the form 
+    \[  f(x) = a_{n} x^{n} + a_{n-1} x^{n-1} + \cdots + a_{1} x + a_{0}, \]
+    where \( n  \) is a nonnegative integer and each \( a_{k } \in F   \) is called the \textbf{coefficient } of \( x_{k }  \).
+\end{definition}
+
+\begin{definition}[Zero Polynomial]
+    We call \( f(x) = 0  \) the \textbf{zero polynomial} if \( a_{n} = a_{n-1} = \cdots = a_{0} = 0  \).
+\end{definition}
+
+\begin{definition}[Degree]
+    The \textbf{degree} of a given polynomial \( f  \) is defined to be the largest exponent of \( x  \) that appears in the representation
+    \[  f(x) = a_n x^{n} + a_{n-1} x^{n-1} + \cdots + a_{1}x + a_{0}.  \]
+\end{definition}
+
+\begin{definition}[Equality of Polynomials]
+    We call two polynomials \( f,g  \), where 
+    \[ f(x) = a_n x^{n} +  a_{n-1} x^{n-1} + \cdots + a_{1}x + a_{0}   \] and 
+    \[  g(x) = b_m x^{m} + b_{m-1} x^{m-1} + \cdots + b_{1}x + b_{0}, \],
+    \textbf{equal} if \( m =n  \) and \( a_{i} = b_{i}  \) for all \( i = 0,1, \dots , n  \).
+\end{definition}
+
+
+Suppose we have \( c \in F  \) and say we evaluated the polynomial \( f \in F   \) at \( c  \). Then we would have the following 
+\[  f(c) = a_n c^{n} + a_{n-1} c^{n-1} + \cdots + a_{1}c + a_{0} \]
+where \( f(c) \in F  \).
+
+\begin{definition}[Basic Operations of Polynomials]
+    Define polynomial \textbf{addition} \( f + g  \) as the following:
+        \[  f(x) + g(x) = (a_{n} + b_{n} ) x^{n} + (a_{n-1} + b_{n-1}) x^{n-1} + \cdots + (a_{1} + b_{1})x + (a_{0} + b_{0}). \] Let \( c \in F  \). Let scalar \textbf{multiplication} be defined by 
+        \[  c f(x) = ca_n x^{n} + ca_{n-1} x^{n-1} + \cdots + ca_{1}x + ca_{0}. \]
+\end{definition}
+
+The operations above form a vector space for \( P(F) \) (the set of all polynomials).
+
+\begin{definition}[Sequences]
+    A \textbf{sequence} in \( F  \) is a function \( \sigma : \Z^{+} \to F   \). A given sequence \( \sigma  \) such that \( \sigma (n) = a_{n}  \) for \( n = 1,2,\dots  \) is denoted \( (a_{n}) \).   
+\end{definition}
+
+Let \( V  \) be the set of all sequences \( \sigma(n) \in F  \). For every \( (a_{n}), (b_{n} ) \in V  \) with \( t \in F  \), we have the following operations
+\begin{center}
+        \( (a_{n}) + (b_{n}) = (a_{n} + b_{n}) \) and \( t(a_{n}) = (t a_{n}) \).
+\end{center}
+
+\subsection{Non-examples}
+
+\begin{eg}
+    Let \( S = \{  (a_{1}, a_{2}) : a_{1} , a_{2} \in R  \}   \) where \( R  \) is a field. For every \( (a_{1} , a_{2}), (b_{1} , b_{2} ) \in S  \) and \( c \in R  \), define 
+    \begin{center}
+        \( (a_{1}, a_{2} ) + (b_{1}, b_{2}) = (a_{1} + b_{1} , a_{2} - b_{2}) \) and \( c(a_{1}, a_{2}) = (ca_{1}  , ca_{2}) \). 
+    \end{center}
+    Note that \( S \) is \textbf{NOT} a vector space since  (VS 1), (VS 2), and (VS 8) fail. 
+\end{eg}
+
+% add the second example here
+
+
+\subsection{Basic Extensions from Definition}
+
+\begin{theorem}[Cancellation Law for Vector Addtion]
+    If \( x,y,z \in V  \) such that \( x + z = y + z  \), then \( x = y  \).
+\end{theorem}
+\begin{proof}
+There exists a vector \( v \in V  \) such that \( z + v = O  \) (VS 4). Thus, we have
+    \begin{align*}
+        x &= x + O  \\
+            &= x + (z + v ) \\
+            &= (x+ z) + v  \\
+            &= (y+z) + v \\
+            &= y + (z + v) \\
+            &= y + O \\ 
+            &= y.
+    \end{align*}
+    Hence, we have \( x = y  \).
+\end{proof}
 
