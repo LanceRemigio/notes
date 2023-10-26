@@ -119,8 +119,8 @@ The set of functions above forms a vector space with the operations of addition 
 \begin{definition}[Equality of Polynomials]
     We call two polynomials \( f,g  \), where 
     \[ f(x) = a_n x^{n} +  a_{n-1} x^{n-1} + \cdots + a_{1}x + a_{0}   \] and 
-    \[  g(x) = b_m x^{m} + b_{m-1} x^{m-1} + \cdots + b_{1}x + b_{0}, \],
-    \textbf{equal} if \( m =n  \) and \( a_{i} = b_{i}  \) for all \( i = 0,1, \dots , n  \).
+    \[  g(x) = b_m x^{m} + b_{m-1} x^{m-1} + \cdots + b_{1}x + b_{0}, \]
+    are \textbf{equal} if \( m =n  \) and \( a_{i} = b_{i}  \) for all \( i = 0,1, \dots , n  \).
 \end{definition}
 
 
@@ -188,15 +188,50 @@ There exists a vector \( v \in V  \) such that \( z + v = O  \) (VS 4). Thus, we
     The vector described \( O  \) described in (VS 3) is unique.
 \end{corollary}
 \begin{proof}
-\textbf{TO DO.}
+    Let \( x \in V  \). Suppose there exists two elements \( O , O' \in V  \) such that
+    \[  x + O = x  \tag{1} \]
+    and 
+    \[  x + O' = x.  \tag{2} \]
+    Our objective is to show that \( O = O' \). Equating (1) and (2), we find that 
+    \[  x  + O = x + O' \tag{3} \]
+    Using the Cancellation Law for Vector Addition, (3) implies that \(  O = O' \). Hence, \(  O  \) is a unique vector in \( V  \).
 \end{proof}
 
 \begin{corollary}
    The vector \( y  \) described in (VS 4) is unique. 
 \end{corollary}
 \begin{proof}
-\textbf{TO DO.}
+    Let \( x \in V  \). Suppose there exists \( y , y' \in V  \) such that 
+    \begin{center}
+        \( x + y = O  \) and \( x + y' = O \).
+    \end{center}
+    Equating the two equations above, we get that 
+    \[  x + y = x + y'.\] Applying the Cancellation Law for Vector Addition once again, we get that \(  y = y' \). Hence, \( y  \) is a unique vector in \( V  \).
 \end{proof}
 
+\begin{theorem}
+   In any vector space \( V  \), the following statements are true: \begin{enumerate}
+       \item[(a)] \( 0x = O  \) for any \( x \in V  \).
+        \item[(b)] \( (-a)x = -(ax) = a(-x)  \) for each \( a \in F  \) and each \( x \in V  \).
+        \item[(c)] \( a0 = 0 \) for any \( a \in F  \).
+   \end{enumerate} 
+\end{theorem}
+
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Using (VS 8), (VS 3), and (VS 1), it follows that 
+        \begin{align*}
+            0x + 0x &= (0+0)x \\
+                    &= 0x \\
+                    &= 0x + O \\
+                    &= O + 0x.
+        \end{align*}
+        Hence, \( 0x = O  \) by Theorem 1.1.
+    \item[(b)] The vector \( -(ax)  \) is the unique element of \( V  \) such that \( a x + [-(ax)] = O \). If we know that \( ax + (-a) x = O  \), we can use Corollary 2 to Theorem 1.1 to state that \( (-a)x = -(ax) \). But by (VS 8), we have
+        \[  ax + (-ax) = [a + (-a)]x = 0x = O\] by (a). Hence, we have that \( (-a) x = -(ax)  \). In particular, we have \( (-1)x = -x  \). Thus, (VS 6) implies that 
+        \[  a(-x) = a[(-1)x] = [a(-1)]x = (-a)x. \]
+    \item[(c)] The proof of (c) is similar to the proof of (a).
+\end{enumerate}
+\end{proof}
 
 
