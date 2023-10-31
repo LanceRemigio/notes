@@ -1,0 +1,168 @@
+\section{Vector Spaces}
+
+
+\subsubsection{Exercise 1.2.1}
+
+Label the following statements as true or false.
+
+\begin{enumerate}
+    \item[(a)] Every vector space contains a zero vector.
+    \item[(b)] A vector space may have more than one zero vector.
+    \item[(c)] In any vector space, \( ax = bx  \) implies that \( a = b  \).
+    \item[(d)] In any vector space, \( ax = ay  \) implies that \( x = y \). 
+\end{enumerate}
+
+\subsubsection{Exercise 1.2.7} Let \( S  = \{ 0,1 \}   \) and \( F = \R   \). In \( \mathcal{F}(S,\R \), show that \( f = g  \) and where \( f(t) = 2t + 1  \), \( g(t) = 1 +4t - 2 t^{2}  \), and \( h(t) = 5^{t} + 1  \).
+\begin{proof}
+To show that \( f = g  \), we have to show that for each \( s \in S  \) that \( f(s) = g(s) \). Since \( S = \{ 0,1 \}  \), we can just evaluate both \( f  \) and \( g  \) for elements in \( S  \). Note that 
+\[  f(0) = 2(0) + 1 = 1   \]
+and likewise, 
+\[  g(0) = 1 + 4(0) - 2(0)^{2}.\]
+Hence, \( f(0) = g(0) \).  Now let us evaluate both functions \( f  \) and \( g  \) at \( s = 1  \). Hence, we have 
+\[  f(1) = 2(1) + 1 = 3  \]
+and
+\[  g(1) = 1 + 4(1) - 2(1)^{2} = 3.  \]
+Thus, we must have \( f(s) = g(s)  \) for all \( s \in S  \).
+
+Now, we need to show that \( f + g = h  \). Like we did above, we have to show that this is the case for all \( s \in S  \). Note that 
+\[  (f+g)(s) = f(s) + g(s). \]
+Hence, we have 
+\[  f(s) + g(s) = 2 + 6s  - 2s^{2}. \]
+Evaluating at \( s = 0  \), we have 
+\[  f(0) + g(0) = 2.\] and likewise,  
+\[  h(0) = 5^{0} + 1 = 2. \] Hence, \(  (f+g)(0) = h(0) \).
+Now let us evaluate \( f + g  \) at \( s = 1  \)  
+\[ f(1) + g(1) = 2 + 6(1) - 2(1)^{2} = 6    \]
+and likewise, we have 
+\[  h(1) = 5^{1} + 1 = 6.\]
+Hence, we have \( (f+g)(1) = h(1) \). Thus, we have that 
+\( f+g = h \) for all \( s \in S \).
+
+\end{proof}
+
+\subsubsection{Exercise 1.2.8}
+In any vector space \( V  \), we have 
+\[  (a+b)(x+y) = ax + ay + bx + by  \] for any \( x ,y \in V  \) and any \( a,b \in F  \).
+\begin{proof}
+Observe the following set equalities:
+\begin{align*}
+    (a+b)(x+y) &= a(x+y) + b(x+y) \tag{VS 8} \\
+               &= ax + ay + bx + by \tag{VS 7}.
+\end{align*}
+Hence, we have that 
+\[  (a+b)(x+y) = ax + ay + bx + by  \] for any \( x ,y \in V  \) and any \( a,b \in F  \).
+\end{proof}
+
+
+
+\subsubsection{Exercise 1.2.10} Let \( V  \) denote the set of all differentiable real-valued functions defined on the real line. Prove that \( V  \) is a vector space with the operations of addition and scalar multiplication defined in Example 3.  
+\begin{proof}
+    Let \( f,g \in \mathcal{F }(S,\R ) \) and let \( x \in S  \). Using the addition operation defined in Example 3, we have  
+    \[  (f+g)(x) = f(x) + g(x). \]
+    Since \( f(x) , g(x) \in \R  \) where \( \R  \) is a field, we know that commutativity is preserved. Hence, we have that 
+    \[  f(x) + g(x) = g(x) + f(x). \]
+    By the same reasoning, we have that associativity is also preserved.
+
+ Since \( \R  \) is a field, we also know that there exists an element \( O  \) in \( \R  \) such that for every \( y \in \R  \), we have \( y + O = y  \). Since \( f(y) \in \R  \), there exists an  \(f_{0}   \) such that   \( f(y) + f_{0} = f(y)  \). Hence, the third property is also satisfied. Likewise, the fourth property is also satisfied since \( \R  \) is a field.
+Since \( \R  \) is a field in which multiplicative identities exists and that for every \( x \in S  \) with \( f(x) \in \R  \), we know that \( 1 \cdot f(x) = f(x)  \). Hence, property 5 is satisfied.
+
+ Let \( x \in S  \). Since \( f(x) \in \R  \) and \( \R  \) is a field, we also know that properties 6 and 7 are satisfied. Now, let \( f \in \mathcal{F}(S, \R ) \) and \( x \in S  \). Let \( a,b \in \R  \). Using the operations of addition and scalar multiplication and the fact that \( \R  \) is a field, we have that 
+ \[ (a+b)f(x) = a f(x) + b f(x).\]
+ Hence, we conclude that \( V = \mathcal{F}(S, \R ) \) is a vector space.
+
+\end{proof}
+
+
+
+\subsubsection{Exercise 1.2.11} Let \( V = \{ 0  \}  \) consist of a single vector \( O  \) and define \( O + O = O  \) and \( c O = O  \) for each scalar \( c \in F  \). Prove that \( V  \) is a vector space over \( F  \).
+\begin{proof}
+    Let \( x,y \in O  \). Since \( V = \{ 0  \}  \), we know that \( x  \) and \( y  \) are both the \( 0  \) vector. By using the addition defined on \( V  \), we can see that 
+\[  x + y = O + O = y + x. \] 
+Note that \( x + y \in V \) implies that \( x+ y = O + O  \) and  likewise \( y + z = O + O  \) for every  \( x, y, z \in V  \). Hence, we have that 
+\[  x + ( y + z ) = O + (O + O) = (O+ O) + O =  (x+y) + z. \]
+
+Since \( V  \) consists of only the zero vector \( O  \), we know that (VS 3) and (VS 4) are satisfied. By the same reasoning, (VS 5) is satisfied because 
+\[  1 \cdot O = O. \]
+Let \( a,b \in F  \). Then (VS 6) and (VS 7) are satisfied because 
+\begin{center}
+    \( (ab)O = 0 = a \cdot 0 =  a (bO)  \) and \( a ( O + O ) = 0 = O + O  =  a O + a O\) respectively.
+\end{center}
+Let \( a,b \in F  \) again. Then we have 
+\begin{align*}
+    (a+b) O &= 0  \\
+            &= O + O \\
+            &= a O + b O. 
+\end{align*}
+Hence, (VS 8) is satisfied. 
+\end{proof}
+
+\subsubsection{Exercise 1.2.12}
+
+A real-valued function \( f  \) defined on the real line is called an \textbf{even function} if \( f(-t) = f(t)  \) for all \( t \in \R  \). Prove that the set of even functions defined on \( \R  \) with the operations of addition and scalar multiplication defined in Example 3 is a vector space.
+
+\begin{proof}
+    First, let us show that for every \( t \in \R  \) that \( (f+g)(t)  \) is also an even function for every pair of even functions \( f,g  \) and likewise \( (cf)(t)  \) is an even function for every \( c \in \R  \). Observe that 
+    \begin{align*}
+        (f+g)(-t) &= f(-t) + g(-t) \\
+                  &= f(t) + g(t) \\
+                  &= (f+g)(t).
+    \end{align*}
+    Hence, the function \( f + g  \) is also even. Now observe that 
+    \begin{align*}
+        (cf)(-t) &= cf(-t)  \\
+                 &= c f(t) \\
+                 &= (cf)(t).
+    \end{align*}
+    Hence, \( cf  \) is also even function.
+
+    Now we can show that the set of even functions is a vector space. 
+    \begin{enumerate}
+        \item[(VS 1)] Let  \( f,g  \) be a pair of real-valued even functions.  Let \( t \in \R  \) be arbitrary. We need to show that \( f + g = g + f  \). Since \( f(t)  \) and \( g(t)  \) are real numbers, observe that 
+            \[  (f+g)(t) = f(t) + g(t) = g(t) + f(t) = (g + f)(t).   \] Hence, we have that \(  f + g = g + f  \).
+        \item[(VS 2)] Let \( f,g,h  \) be even functions and let \( t \in \R  \) be arbitrary. We need to show that \( f + (g+h) = (f+g) + h \). By the same reasoning we used to prove (VS 1), observe that
+            \begin{align*}
+               f(t) + ((g+h)(t)) &= f(t) + (g(t) + h(t)) \\
+                                 &= (f(t) + g(t)) + h(t) \\
+                                 &= ((f+g)(t)) + h(t) \\
+            \end{align*}
+            Hence, we have that  \( f + ( g+ h ) + (f+g) + h \).
+        \item[(VS 3)] Let \( f  \) be an even function. Note that the zero function is an even function. Denote the zero function as \( f_{0}  \). For every \( t \in \R  \), we have \( f_{0}(x) = O \). We need to show that \(  f + f_{0} = f  \). Since \( f_{0}(x)  \) is just a real number, we have 
+            \[  (f+ f_{0})(t) = f(t) + f_{0}(t) = f(t) + O = f(t). \]
+        \item[(VS 4)] Let \( f  \) be an even function and let \( f_{0}  \) be the zero function defined above. We need to show that there exists a even function \( g  \) such that \( f + g = f_{0} \). Let \( t \in \R  \) be arbitrary. Note that 
+            \[ (f+g)(t) = f(t) + g(t)  \]
+        Since \( f(t)  \) and \( g(t)  \) are real numbers and there exists an additive identity in the real numbers, we have
+        that \(  f(t)  + g(t) = f_{0}(t)  \). Hence, (VS 5) is satisfied.
+        \item[(VS 5)] Let \( x \in \R  \) and \( f  \) an even function. Then we immediately have \( (1 \cdot f)(t) = 1 f(t) = f(t).  \) 
+        \item[(VS 6)] Let \( a, b \in \R  \). We need to show that \( (ab) f = a (bf)  \). Hence, let \( t \in \R  \). Then we have 
+            \begin{align*}
+                (ab  f)(t)  &= a (bf)(t).  \\
+            \end{align*}
+        \item[(VS 7)] Let \( a \in \R  \) and let \( f,g   \) be even functions. Let \( t \in \R  \). We need to show that \( a (f+g) = af + ag \). Then we have 
+            \begin{align*}
+                a(f+g)(t) &= a [ f(t) + g(t) ] \\
+                          &= a f(t) + a g(t).
+            \end{align*}
+            Hence, (VS 7) is satisfied.
+        \item[(VS 8)] Now let \( a,b \in \R  \) and let \( f  \) be an even function. We need to show that \(  (a+b) f =  a f + b f  \). Let \( t \in \R  \) be arbitrary.
+            Observe that 
+            \begin{align*}
+                (a+b)f(t) &= a f(t) + b f(t)   \\
+                          &=  (af)(t) + (bf)(t) \\
+            \end{align*}
+            Hence, (VS 8) is satisfied.
+    \end{enumerate}
+\end{proof}
+
+\subsubsection{Exercise 1.2.13} Let \( V  \) denote the set of ordered pairs of real numbers. If \( (a_{1}, a_{2}) \) and \( (b_{1}, b_{2}) \) are elements of \( V  \) and \( c \in \R  \), define 
+\begin{center}
+    \( (a_{1}, a_{2} ) + (b_{1} , b_{2} ) = (a_{1} + a_{2} , a_{2} b_{2} ) \) and \( c (a_{1} , a_{2} ) = (ca_{1} , a_{2})  \).
+\end{center}
+Is \( V  \) is a vector space over \( \R  \) with these operations? Justify your answer.
+\begin{proof}[Solution]
+
+\end{proof}
+
+
+
+
+
