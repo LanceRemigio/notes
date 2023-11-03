@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1698792960 "sol.tex" "sol.pdf" "sol" 1698792963 0
+["pdflatex"] 1699049653 "sol.tex" "sol.pdf" "sol" 1699049656 0
   "../newpreamble.tex" 1698049868 7814 d47f2863ea4711a8d92be3e7a015e4bf ""
   "/etc/texmf/web2c/texmf.cnf" 1689972185 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -303,9 +303,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1676468108 39561 34c98e380bf7c7201ee6a7909aff625a ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1689972326 4623455 fa0568a71dd9a288d6c226ee477506c6 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1689972456 7881645 4af324a4b5b9410e36c4a95c8066a653 ""
-  "exercises/chapter/exer1.2.tex" 1698792960 9557 d3737e689970944c6dfbc98d9067b17a ""
-  "sol.aux" 1698792962 3848 ae850a70785570132ed9af28628f9d24 "pdflatex"
-  "sol.out" 1698792962 233 21bdb77cff72f333521eafcf582a74c0 "pdflatex"
+  "exercises/chapter/exer1.2.tex" 1699049649 16491 0a0751d0c50015837ea7a5dc8815f149 ""
+  "sol.aux" 1699049655 5184 c4232511d01c093e81cc90e4bffb283c "pdflatex"
+  "sol.out" 1699049655 233 21bdb77cff72f333521eafcf582a74c0 "pdflatex"
   "sol.tex" 1698445457 230 9b7c7e23e8003b39d9dbefa1fd70c2a2 ""
   (generated)
   "sol.aux"

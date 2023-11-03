@@ -159,8 +159,64 @@ A real-valued function \( f  \) defined on the real line is called an \textbf{ev
 \end{center}
 Is \( V  \) is a vector space over \( \R  \) with these operations? Justify your answer.
 \begin{proof}[Solution]
-
+We have that \( V  \) is not a vector space of \( \R  \). To see why,  let \( (2,1), (4,2) \in V  \) where \( x = (2,1)  \) and \( y = (4,2) \). We will show that (VS 1) does not hold; that is, \( x + y \neq y + x  \). Hence, observe that 
+\begin{align*}
+    (2,1) + (4,2) &= (2 + 1, 2 ) = (3,2) \\
+\end{align*}
+and 
+\begin{align*}
+    (4,2) + (2,1) &= (4+2 , 2) =  (6, 2) \\
+\end{align*}
+Hence, we have \( x + y \neq y  + x   \) and so \( V  \) is \textbf{NOT} a vector space.
 \end{proof}
+
+\subsubsection{Exercise 1.2.14} Let \( V = \{ (a_{1}, a_{2}, \dots, a_{n} )  : a_{i} \in C  \ \text{for} \  i = 1,2, \dots, n) \}  \); so \( V  \) is a vector space over \( C   \) by Example 1.  Is \( V  \) is a vector space over the field of real numbers with the operations of coordinate-wise addition and multiplication?
+
+\begin{proof}
+Yes, \( V  \) where 
+\[  V = \{ (a_{1}, a_{2}, \dots , a_{n} ): a_{i} \in \R \ \text{for} \  i = 1,2, \dots, n  \}  \] is a vector space of \( \R  \).
+\begin{enumerate}
+    \item[(VS 1)] Let \( x,y \in V  \) such that \( x = (a_{1}, a_{2} , \dotsm,  a_{n}) \) and \( y = (b_1, b_2, \dots, b_n)  \). Since addition is entry-wise in \( V  \) and each entry in both \( x  \) and \( y  \) are elements of \( \R  \) (where \( \R  \)  is a field), we have \( a_{i} + b_{i} = b_{i} + a_{i}   \) for all \( i = 1,2, \dots, n  \). Hence, \( x + y = y + x  \).
+    \item[(VS 2)] Let \( x,y,z \in V  \) with \( x \) and \( y  \) as defined as before where \( z  \) contains entries \( c_{i}  \) for all \( i = 1,2, \dots n  \). We can see that the entries of \( x,y,z \) are elements of \( \R  \) so associativity is preserved; that is, \( a_{i} + ( b_{i} + c_{i}  )  = ( a_{i}  + b_{i} ) + c_{i}   \)  for all \( i = 1,2, \dots , n \). Hence, we have \( x + (y + z) = (x+ y) + z   \).
+    \item[(VS 3)] Since \( \R  \) contains the zero element \( 0  \) and \( V  \) is the set of \( n  \)-tuples, there exists an element denoted by \( O  \) such that this element consisting of entries that only have the zero element \( 0  \); that is, \( O = (0, 0 , \dots, 0 ) \). Take \( x \in V  \). Hence, we have \( a_{i} + 0 = a_{i}  \) for every \( i = 1,2, \dots, n  \). Thus, we must have \( x + O = x  \). 
+    \item[(VS 4)] Let \( x \in V  \) be arbitrary as defined before. Since every entry in \( x  \) is an element of \( \R  \); that is, every \( a_{i} \in \R   \) for all \( i = 1,2, \dots, n  \), we know that every entry contains an element \( c_{i}  \) such that \( a_{i} + c_{i} = 0   \) for every \( i = 1,2,\dots, n  \). Denote \( x' = (c_{1}, c_{2}, \dots, c_{n})  \). Hence, we have \( x + x' = O  \). 
+    \item[(VS 5)] Let \( x \in V  \). Every entry \( a_{i} \in \R   \) for all \( i = 1,2, \dots, n  \), we have \( 1 \cdot a_{i} = a_{i} \) which holds for all \( i  \). Denote this identity element as \( I  \) with entries  consisting only of \( 1 \). Hence, we have \( I \cdot x = x  \).
+    \item[(VS 6)] Let \( e,r  \in \R  \) and let \( x \in V  \). For every entry \( a_{i} \in \R  \) for all \( i = 1,2, \dots, n  \), we have \( (er)a_{i} = e(r a_{i}) \) for all \( i = 1,2, \dots, n  \). By using the operations of scalar multiplication for \( n \)-tuples, this tells us that \( (er)x = e(rx)  \). Hence, (VS 6 ) is satisfied.
+    \item[(VS 7)]  Let \( e \in \R  \) and let \( x,y \in V  \). We need to show that \( e(x+y) = ex + ey \). Note that \( a_{i} , b_{i} \in \R  \) implies that \( e(a_{i} + b_{i} ) = ea_{i} + eb_{i} \). Hence, we have \( e(x+y) = ex + ey \).
+    \item[(VS 8)] Let \( e,r \in \R  \) and \( x \in V  \) as defined before. We need to show that \( (e+r)x = ex + rx  \). Since \( a_{i} \in \R   \) with \( e,r \in \R  \), we are guaranteed to have \( (e+r)a_{i} = e a_{i} + r a_{i}  \) for all \( i = 1,2, \dots, n  \). Hence, we have \( (e+r)x = e x + r x  \).
+\end{enumerate}
+\end{proof}
+
+\subsubsection{Exercise 1.2.16} Let \( V  \) denote the set of all \( m \times n  \) matrices with real entries; so \( V  \) is a vector space over \( \R  \) by Example 2. Let \( F  \) be the field of rational numbers. Is \( V  \) a vector space over \( F  \) with the usual definitions of matrix addition and scalar multiplication?
+
+\begin{proof}
+\begin{enumerate}
+    \item[(VS 1)] Let \( A, B \in V  \). Since \( A,B  \) consist of elements \( A_{ij}, B_{ij} \in \R  \), we know that \( A_{ij} + B_{ij} = B_{ij} + A_{ij}  \). Hence, \( A + B = B +  A \). 
+    \item[(VS 2)] Let \( A,B, C \in V  \) with \( A,B  \) defined as before and \( C   \) containing real entries \( C_{ij}  \). With the same reasoning used to prove (VS 1), we know that \( A_{ij } + ( B_{ij } + C_{ij}  ) = (A_{ij} + B_{ij}) + C_{ij}   \). Hence, we have \( A + (B +C ) = (A+B) + C  \). 
+    \item[(VS 3)] Let \( A \in V  \) once again. Since the entries of \( A  \) imply that there exists an element \( O  \) such that \( A_{ij} + 0 = A_{ij}    \), we know that \( A + O = A  \) where \( O  \) is the \textbf{zero matrix} of \( V  \).
+    \item[(VS 4)] Since the real  entries of \( A  \) also consists of an element \( A'_{ij}  \) such that \( A_{ij} + A'_{ij} = 0  \), this implies that \( A + A' = O \) where \( A'  \) is the additive inverse matrix of \(  V  \).
+    \item[(VS 5)] Let \( x \in V  \) as defined as before. Every entry of \( A  \), \( A_{ij} \in \R  \), has the following property: \( 1 \cdot A_{ij} = A_{ij}   \) for all  for all \(  1 \leq i \leq m   \) and  for all \(  1 \leq j \leq n   \) . The matrix whose entries consists of only one we can define as the \textbf{identity matrix} denoted by \(  I  \) where \( I_{ij} = 1  \) for all \(  1 \leq i \leq m   \) and \( 1 \leq j \leq n  \). Hence, we have \( A \cdot I = A  \).
+    \item[(VS 6)] Let \( r,t \in \Q  \) and let \( A \in V  \) as defined before. We need to show that \( (rt) A = r(tA) \). Since \( A_{ij} \in \R  \), entry-wise scalar multiplication implies that \( (rt) A_{ij} = r(t A_{ij})  \) for all \( 1 \leq i \leq m  \) and \( 1 \leq j \leq n  \). Hence, we must have \( (rt) A = r (tA ) \).
+    \item[(VS 7)] Let \( r \in \Q  \) and \( A, B \in V  \) as defined before. Since \( A_{ij}, B_{ij}  \in \R  \), we know that \( r(A_{ij} + B_{ij} ) = r A_{ij} + r B_{ij}  \). Hence, we have \( r(A + B ) = r A + r B  \).
+    \item[(VS 8)] Let \( r,t \in \Q  \) and let \( A \in V  \) as defined before. Since \( A_{ij} \in \R   \) for all \( i,j \), we must have \( (r+t)A_{ij} = r A_{ij} + t A_{ij}    \). Hence, we have \( (r+t) A  = rA + tA  \).
+\end{enumerate}
+Hence, \( V  \) is a vector space over \( \Q  \).
+\end{proof}
+
+\subsubsection{Exercise 1.2.17}
+
+Let \( V = \{ (a_{1}, a_{2}) : a_{1}, a_{2} \in F   \}  \), where \( F  \) is a field. Define addition of elements of \( V  \) coordinate-wise, and for \( c \in F  \) and \( (a_{1} , a_{2}) \in V   \), define 
+\[  c(a_{1}, a_{2} ) = (ca_{1}, 0 ).\]
+Is \( V  \) a vector space over \( F  \) with these operations? Justify your answer.
+
+\begin{proof}
+We claim that \( V  \) is not a vector space over \( F  \) because \( V  \) fails to satisfy (VS 7). To see why, let \( F = \R  \) and \( V  \) be \( \R^{2}  \). If let \( (1,2), (4,3) \in \R^{2}  \) and use the operations given to us. Let \( 2 \in \R  \), then observe that 
+\begin{align*}
+    2 \Big( (1,2) + (4,3)  \Big) &= 2 (5 , 5) \\
+                                 &= (10, 0)
+\end{align*}
+\end{proof}
+
 
 
 
