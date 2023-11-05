@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1699049653 "sol.tex" "sol.pdf" "sol" 1699049656 0
+["pdflatex"] 1699175045 "sol.tex" "sol.pdf" "sol" 1699175047 0
   "../newpreamble.tex" 1698049868 7814 d47f2863ea4711a8d92be3e7a015e4bf ""
   "/etc/texmf/web2c/texmf.cnf" 1689972185 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -42,6 +42,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1248133631 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-bb.pfb" 1136849748 6232 c3fc7954848548c26c82678efc1400a6 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-mcl.pfb" 1136849748 13002 76b3b19f03922c2b74fdd6dc787518a6 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-mex.pfb" 1575236847 35376 a07df24b37ec077fc9f917f37a80f694 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb" 1575236847 22238 87e9c1bfb269d3da7d96d9f4df8849d2 ""
   "/usr/share/texlive/texmf-dist/fonts/vf/public/fourier/futb8t.vf" 1136768653 2168 d2ac693e07cd79dbc2b914caee3e8df0 ""
   "/usr/share/texlive/texmf-dist/fonts/vf/public/fourier/futmii.vf" 1136768653 1332 62b87bc157157fd0616b8398929f8399 ""
@@ -303,9 +304,9 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1676468108 39561 34c98e380bf7c7201ee6a7909aff625a ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1689972326 4623455 fa0568a71dd9a288d6c226ee477506c6 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1689972456 7881645 4af324a4b5b9410e36c4a95c8066a653 ""
-  "exercises/chapter/exer1.2.tex" 1699049649 16491 0a0751d0c50015837ea7a5dc8815f149 ""
-  "sol.aux" 1699049655 5184 c4232511d01c093e81cc90e4bffb283c "pdflatex"
-  "sol.out" 1699049655 233 21bdb77cff72f333521eafcf582a74c0 "pdflatex"
+  "exercises/chapter/exer1.2.tex" 1699175041 22409 3a325058ad25edc1b3370bc41743adbf ""
+  "sol.aux" 1699175047 7067 578d785650028c7000acd2ab122a87cd "pdflatex"
+  "sol.out" 1699175047 233 21bdb77cff72f333521eafcf582a74c0 "pdflatex"
   "sol.tex" 1698445457 230 9b7c7e23e8003b39d9dbefa1fd70c2a2 ""
   (generated)
   "sol.aux"

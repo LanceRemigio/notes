@@ -210,14 +210,105 @@ Let \( V = \{ (a_{1}, a_{2}) : a_{1}, a_{2} \in F   \}  \), where \( F  \) is a 
 Is \( V  \) a vector space over \( F  \) with these operations? Justify your answer.
 
 \begin{proof}
-We claim that \( V  \) is not a vector space over \( F  \) because \( V  \) fails to satisfy (VS 7). To see why, let \( F = \R  \) and \( V  \) be \( \R^{2}  \). If let \( (1,2), (4,3) \in \R^{2}  \) and use the operations given to us. Let \( 2 \in \R  \), then observe that 
-\begin{align*}
-    2 \Big( (1,2) + (4,3)  \Big) &= 2 (5 , 5) \\
-                                 &= (10, 0)
-\end{align*}
+    We claim that \( V  \) is not a vector space over \( F  \) because \( V  \) fails to satisfy (VS 5). To see why, let \( (1,2) \in V  \). Using (VS 5), we have 
+    \[  1 \cdot (1,2) = (1,0) \neq (1,2). \]
+    Hence, \( V  \) cannot be a vector space.
 \end{proof}
 
+\subsubsection{Exercise 1.2.18} Let \( V = \{ (a_{1}, a_{2}  ) : a_{1}, a_{2} \in \R  \}   \). For \( (a_{1}, a_{2}), (b_{1} , b_{2} ) \in V  \) and \( c \in \R  \), define 
+\begin{center}
+    \( (a_{1}, a_{2} ) + (b_{1} , b_{2} ) = (a_{1} + 2 b_{1} , a_{2} + 3 b_{2} ) \) and \( c(a_{1}, a_{2} ) = (ca_{1}, ca_{2})  \). 
+\end{center}
+Is \( V  \) a vector space over \( F = \R   \) with these operations? Justify your answer?
 
+\begin{proof}
+We claim that \( V  \) is not a vector space over \( \R   \) and we will use (VS 1) to show this. Let \( x,y \in V  \) be defined by \( x = (1,2)  \) and \( y = (3,4)  \). Observe that 
+\[  x + y = (1,2) + (3,4) = (7,14)  \]  and
+\[  y + x = (3,4)  + (1,2) = (5,10). \]
+Clearly, we have \(  x + y  = (7,14) \neq (5,10) = y + x  \) and so (VS 1) does not hold.
+\end{proof}
+
+\subsubsection{Exercise 1.2.19}
+
+
+Let \( V = \{ (a_{1}, a_{2}) : a_{1}, a_{2} \in \R  \}   \). Define addition of elements of \( V  \) coordinate-wise, and for \( (a_{1}, a_{2}) \in V  \) and \( c \in \R  \), define 
+\[  c(a_{1}, a_{2} ) = 
+\begin{cases}
+    (0,0)  &\text{if} \ c = 0 \\
+    \Big( ca_{1}, \frac{ a_{2}  }{ c  }  \Big) &\text{if } c \neq 0 .
+\end{cases} \]
+Is \( V  \) a vector space over \( \R  \) with these operations? Justify your answer.
+\begin{proof}
+We claim that \( V   \) is not a vector space over \( \R  \). To see why, consider (VS 8). If we let \( (0,1) \in V  \) with \( c = 2 + 1 = 3    \). Observe that 
+\[  (2+1) (0,1) = \Big(0, \frac{ 1 }{ 2 + 1  }  \Big) = \Big( 0, \frac{ 1 }{ 3 }  \Big).   \]
+Likewise, we have 
+\[  2(0,1) + 1(0,1) = \Big( 0, \frac{ 1 }{ 2 }  \Big) + \Big( 0, 1 \Big) = \Big( 0, \frac{ 3 }{ 2 }  \Big).  \]
+Notice that \( (2+1) (0,1) \neq 2(0,1) + 1(0,1)  \). Hence, \( V  \) cannot be a vector space over \( \R  \).  
+\end{proof} 
+
+\subsubsection{Exercise 1.2.20} Let \( V  \) denote the set of all real-valued functions \( f  \) defined on the real line such that \( f(1) = 0  \). Prove that \( V  \) is a vector space with the operations of addition and scalar multiplication defined in Example 3.
+\begin{proof} 
+    Define \( V  \) as a vector space with the operations of addition and scalar multiplication defined in Example 3. We must show that \( V  \) is a vector space.
+\begin{enumerate}
+\item[(VS 1)] Let \( f,g \in V  \). This means that \( f(1) = 0  \) and \( g(1) = 0 \). We need to show that \( f+ g = g + f  \). Since \( f(1), g(1) \in \R  \) and commutativity holds in \( \R  \), we can write
+    \begin{align*}
+        (f+g)(1)   &= f(1) + g(1) \\
+                   &= g(1) + f(1) \\
+                   &= (g+f)(1) \\
+    \end{align*}
+    Hence, we have \( f+g = g+f \).
+\end{enumerate}
+\item[(VS 2)] Let \( f,g,h \in V  \) then \( f(1) = g(1) = h(1) = 0  \). We need to show that \( f + (g+h) = (f+g) + h  \). Observe that  
+    \begin{align*}
+       \Big( f + (g+h)  \Big)(1)  &=  f(1) + (g+h)(1) \\
+                       &= f(1) + g(1) + h(1) \\
+                       &= (f+g)(1) + h(1) \\
+                       &= \Big( (f+g) + h \Big)(1).
+    \end{align*}
+    Hence, we have \( f + (g+h) = (f+g) + h \).
+\item[(VS 3)]  Let \( f \in V  \). We need to show that \( f + f_{0} = f  \) for some \( f_{0} \in V  \). Since \( V  \) contains elements of \( f \in V  \) such that \( f(1) = 0  \), we can choose \( f_{0} \) such that \( f_{0}(1) = 0  \). We can show that this is indeed the additive inverse of \( V  \) by writing the following: 
+    \[  (f + f_{0})(1) = f(1) + f_{0}(1) = f(1) + 0 = f(1).  \]
+    Hence, we have \( f + f_{0} = f \).
+\item[(VS 4)] Let \( f \in V  \). We need to find an element \( g \in V  \) such that \( f + g = f_{0} \) By definition of \( V  \), \( f(1) = 0  \).  We need to show that \( f+ g = f_{0} \) with \( f_{0}  \) defined as before. Choose \( g = -f  \) as our additive inverse and observe that  
+    \begin{align*}
+        (f+g)(1)  &= (f - f)(1)  \\
+                  &= f(1) - f(1) \\
+                  &= 0 - 0  \\
+                  &= 0 \\
+                  &= f_{0}(1).
+    \end{align*}
+    Hence, \( g = -f  \) an element such that \( f + g = f_{0} \).
+\item[(VS 5)] Let \( f \in V  \). By definition of \( V  \), we have  \( f(1) = 0   \). Since \( f(1) \in \R  \), we know that \( 1 \cdot f(1) = f(1) \). We need to show that \( 1f = f  \). Observe that \[  (1f)(1) = 1 \cdot f(1) = f(1).  \]
+    Hence, (VS 5) holds.
+\item[(VS 6)] Let \( a,b \in \R  \) and let \( x \in V  \). We need to show that \( (ab)f = a(bf)  \). By using scalar multiplication, we can see that 
+    \[  (ab \cdot f) (1) = (ab)f(1) = a (bf(1)) = a(b \cdot f)(1). \]
+    Hence,  (VS 6) must hold.
+\item[(VS 7)] Let \( a \in \R  \) and let \( f,g \in V  \). We need to show that \( a(f+g) = af + ag \). Observe that 
+    \begin{align*}
+        a(f+g)(1) &= a (f(1) + g(1))  \\
+                  &= a f(1) + a g(1) \\
+                  &=  (af)(1) + (ag)(1).
+    \end{align*}
+    Hence, \( a(f+g) = af + ag \) and so (VS 7) is satisfied.
+\item[(VS 8)] Let \( a,b \in \R  \) and let \( f \in V  \). Observe that 
+    \begin{align*}
+        (a+b)f(1) &= a f(1) + b f(1)  \\
+                  &=  (af)(1) + (bf)(1) \\
+    \end{align*}
+    Hence, \( (a+b)f =  af + bf  \). 
+Thus, \( V  \) must be a vector space over \( \R  \).
+\end{proof}
+
+\subsubsection{Exercise 1.2.21} 
+Let \( V  \) and \( W  \) be vector spaces over a field \( F  \). Let 
+\[  Z = \{ (v,w): v \in v \ \text{and} \  w \in W  \}. \]
+Prove that \( Z  \) is a vector space over \( F  \) with the operations   
+\begin{center}
+   \( (v_{1}, w_{1}) + (v_{2}, w_{2}) = (v_{1} + v_{2} , w_{1} + w_{2} ) \) and \( c(v_{1}, w_{1} ) = (cv_{1}, cw_{1} ) \). 
+\end{center}
+\begin{proof}
+
+\end{proof}
 
 
 
