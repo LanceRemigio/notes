@@ -307,9 +307,78 @@ Prove that \( Z  \) is a vector space over \( F  \) with the operations
    \( (v_{1}, w_{1}) + (v_{2}, w_{2}) = (v_{1} + v_{2} , w_{1} + w_{2} ) \) and \( c(v_{1}, w_{1} ) = (cv_{1}, cw_{1} ) \). 
 \end{center}
 \begin{proof}
+    Let \( V  \) and \( W  \) be vector spaces over a field \( F  \).
+\begin{enumerate}
+    \item[(VS 1)] Let \( x,y \in Z  \) where \( x = (v_{1}, w_{1}) \) and \( y = (v_{2}, w_{2}) \). Since \( V  \) and \( W  \) are vector spaces, commutativity holds. Since the addition defined on both \( V  \) and \( W  \) is entry-wise, we can see that 
+        \begin{align*}
+            x + y &= (v_{1}, w_{1}) + (v_{2}, w_{2}) \\
+                  &=  (v_{1} + v_{2}, w_{1} + w_{2} ) \\
+                  &= (v_{2} + v_{1}, w_{2} +  w_{1}) \\
+                  &=  (v_{2}, w_{2}) + (v_{1}, w_{1}) \\
+                  &=  y + x.
+        \end{align*}
+        Hence, we can see that (VS 1) is satisfied.
+    \item[(VS 2)] Let \( x, y, z \in Z  \) with \( x  \) and \( y  \) as defined before as well as \( z = (z_{3}, w_{3}) \). Using the entry-wise addition defined for \( Z  \), we can see that   
+        \begin{align*}
+            x + (y+z) &= (v_{1}, w_{1}) + \Big( (v_{2}, w_{2}) + (v_{3}, w_{3})  \Big)   \\
+                      &= (v_{1}, w_{1}) +   (v_{2} + v_{3}, w_{2} + w_{3})   \\
+                      &=  (v_{1} + (v_{2} + v_{3}), w_{1} + (w_{2} + w_{3})  ) \\
+                      &= ( (v_{1} + v_{2}) + v_{3}, (w_{1} + w_{2})  + w_{3})  \\
+                      &=  (v_{1} + v_{2} , w_{1} + w_{2}  ) + (v_{3} , w_{3}) \\
+                      &=  (x+y) + z.
+        \end{align*}
+    \item[(VS 3)] Since \( V  \) and \( W  \) are vector spaces, we know that there exists an additive identity \( O_{V}   \) and \( O_{W} \) respectively. Hence,  we have \( (O_{V}, O_{W}) \in Z  \) and denote \( O_{Z} = (O_{V }, O_{W}) \). Now, let \( x \in Z  \) as defined before. Observe that 
+        \begin{align*} 
+            x + O_{Z} &= (v_{1}, w_{1}) + (O_{V}, O_{W})   \\
+                      &= (v_{1} + O_{V}, w_{1} + O_{W}) \\
+                      &= (v_{1}, w_{1}) \\
+                      &= x.
+        \end{align*}
+    \item[(VS 4)] Observe that \( V  \) and \( W  \) contain additive inverses for each \( v \in V  \) and \( w \in W  \) respectively. Since \( x = (v_{1}, w_{1}) \) with \( v_{1} \in V  \) and \( w_{1} \in W  \), there exists an additive inverse \( v'_{1} \in V   \) and \( w'_{1} \in W  \) such that \( v_{1} + v'_{1} = O_{V}  \) and \( w_{1} + w'_{1} = O_{W} \). This implies that \( (v'_{1}, w'_{1}) \in Z  \) which we will denote by \( x' \) such that 
+        \begin{align*}
+        x + x' &= (v_{1}, w_{1})  +(O_{V}, O_{W})   \\
+               &= (v_{1} + v'_{1} , w_{1} + w'_{1} ) \\
+               &= (O_{V}, O_{W}) \\
+               &= O_{Z}.
+    \end{align*}
+    \item[(VS 5)] Let \( x \in Z  \). Since \( V  \) and \( W  \) are vector spaces (VS 5) implies that \( 1 \cdot v_{1} = v_{1}  \) and \( 1 \cdot w_{1} = w_{1}  \) respectively. Then observe that 
+        \begin{align*}
+            1 \cdot x &= 1 \cdot (v_{1}, w_{1}) \\
+                      &= (1 \cdot v_{1}, 1 \cdot w_{1}) \\
+                      &= (v_{1}, w_{1}) \\
+                      &= x.
+        \end{align*}
+    \item[(VS 6)] Let \( x \in Z  \) and \( a,b \in F  \). Then 
+        \begin{align*}
+            (ab)x &= (ab)(v_{1}, w_{1})  \\ 
+                  &= ( (ab) v_{1} , (ab) w_{1} ) \\
+                  &= ( a(b v_{1}) , a(bw_{1})) \tag{\( V,W  \) vector space} \\
+                  &= a (bv_{1}, bw_{1}) \\
+                  &= a (bx)
+        \end{align*}
+    \item[(VS 7)] Let \( x,y \in Z  \) as defined before. Let \( a \in F  \). Then 
+        \begin{align*}
+           a(x+y)  &= a \Big(  (v_{1}, w_{1})  + (v_{2}, w_{2}) \Big)  \\
+                   &= a \Big(  (v_{1} + v_{2}, w_{1} + w_{2}) \Big) \\
+                   &= (a(v_{1} + v_{2}), a(w_{1} + w_{2})) \\
+                   &= (av_{1} + av_{2}, aw_{1} + aw_{2}) \\
+                   &= (av_{1}, av_{2}) + (aw_{1}, aw_{2}) \\
+                   &= a(v_{1}, v_{2}) + a(w_{1}, w_{2}) \\
+                   &= a x + ay.
+        \end{align*}
+    \item[(VS 8)] Let \( a,b \in F  \) and let \( x \in V  \) as defined before. Since \( V  \) and \( W  \) are vector spaces, we know that (VS 8) holds for bot entries \( v_{1} \in V  \) and \( w_{1} \in W  \). Hence, observe that 
+        \begin{align*}
+            (a+b) x  &= (a+b) (v_{1} , w_{1} ) \\
+                     &= \Big( (a+b) v_{1} , (a+b) w_{1} \Big)  \\
+                     &=  ( av_{1} + bv_{1} , aw_{1} + bw_{1}) \\
+                     &=  ( av_{1}, aw_{1} ) + (bv_{1} , bw_{1}) \\
+                     &= a(v_{1}, w_{1}) + b(v_{1}, w_{1}) \\
+                     &= ax + bx.
+        \end{align*}
+    Hence, \( Z  \) is a vector space.
+\end{enumerate}
 
 \end{proof}
 
-hello
 
 
