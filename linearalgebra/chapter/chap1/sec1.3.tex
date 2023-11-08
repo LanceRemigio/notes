@@ -1,1 +1,81 @@
-\subsection{Subspaces}
+\section{Subspaces}
+
+\begin{definition}[Subspaces]
+   A subset \( W  \) of a vector space \( V  \) over a field \( F  \) is called a \textbf{subspace} of \( V  \) if \( W  \) is a vector space over \( F  \) with the operations of addition and scalar multiplication.
+\end{definition}
+
+
+The most simple examples of subspaces of \( V  \) is \( V  \) itself and the set containing just the zero vector. The latter is denoted as the \textbf{zero subspace} of \( V  \).
+
+
+We don't have to check all the vector space properties to prove that a subset \( W \) of \( V  \) is a subspace of \( V  \). This is because vectors in any subset of \( V  \) already satisfy all the properties of a vector space. Hence, we need only check that \( W  \) is closed under 
+\begin{enumerate}
+    \item \textbf{Addition}: \( x + y \in W  \) whenever \( x \in W  \) and \( y \in W  \).
+    \item \textbf{Scalar Multiplication}: \( cx \in W  \) whenever \( c \in F  \) and \( x \in W  \).
+    \item \( W  \) contains a zero vector.
+    \item Each vector in \( W  \) has an additive inverse in \( W  \).
+\end{enumerate}
+
+\begin{theorem}[Subspaces]
+   Let \( V  \) be a vector space and \( W  \) a subset of \( V  \). Then \( W  \) is a subspace of \( V  \) if and only if the following three conditions hold for the operations defined in \( V  \). 
+   \begin{enumerate}
+       \item[(a)] \( O \in W  \).
+       \item[(b)] \( x + y \in W  \) whenever \( x \in W  \) and \( y \in W  \).
+       \item[(c)] \( cx \in W  \) whenever \( c \in F  \) and \( x \in W  \).
+   \end{enumerate}
+\end{theorem}
+\begin{proof}
+Suppose \(W \) is a subspace of \( V  \). Since \( W  \) is also a vector space with the operations of addition and scalar multiplication defined in \( V  \). Hence, we know that \( W  \) is closed under addition and scalar multiplication. Note that \( W  \) contains a zero vector \( O' \in W  \) such that for any \( x \in W  \), we have \( x + 0' = x  \). Since \( x  \) is also in \( V  \) (since \( W \subseteq V  \)), we know that \( x + 0 = x  \). Using the cancellation , we can see that \( x + 0' = x + 0 \) implies \( 0' = 0  \). Hence, properties (a), (b), and (c) are satisfied.
+
+Conversely, suppose conditions (a), (b), and (c) hold. We need to show that \( W  \) is a subspace. This tells us that \( W  \) is closed under addition and scalar multiplication in addition to containing the zero vector. Let \( x \in W  \). Since \( W  \) is closed under scalar multiplication, we know that \( (-1)x \in W  \). By part (b) of theorem 2, we know that \( 1 (-x) = -x \in W   \). Hence, \( W  \) contains an additive inverse and we are done.
+\end{proof}
+
+The theorem above provides a simpler way to determine whether a given subset of a vector space is a subspace. Instead of using the definition to show that a give subset is a subspace, it is more common to use the result above.
+
+\begin{definition}[Tranpose]
+    The \textbf{transpose} of \( A^{t}  \) of an \( m \times n  \) matrix  \( A  \) is the \( n \times m  \) matrix obtained from \( A  \) by interchanging the rows with the columns; that is, \( (A^{t})_{ij}  = A_{ji} \).
+\end{definition}
+
+\begin{eg}
+    \[ \begin{pmatrix}
+        1 & -2 & 3 \\
+        0 & 5 & -1
+    \end{pmatrix}^{t} =  \begin{pmatrix}
+        1 & 0 \\ 
+        -2 & 5 \\
+        3 & -1
+    \end{pmatrix}  \]
+    and 
+    \[  \begin{pmatrix}
+        1 & 2 \\ 
+        2 & 3 
+        \end{pmatrix}^{t} = \begin{pmatrix}
+            1 & 2 \\
+            2 & 3
+        \end{pmatrix}.\]
+\end{eg}
+
+\begin{definition}[Symmetric Matrices]
+    A \textbf{symmetric matrix} is a matrix \( A  \) such that \( A^{t} = A  \).
+\end{definition}
+
+\begin{itemize}
+    \item The easiest example of a symmetric matrix would be a square matrix where \( i = j  \). 
+    \item The set \( W  \) of all symmetric matrices in \( M_{n \times n}(F ) \) is a subspace of \( M_{n \times n}(F)  \) since the conditions of Theorem 1.3 hold.
+\end{itemize}
+
+We can show that \( W  \) is indeed a subspace.
+
+\begin{enumerate}
+    \item The zero matrix is equal to its transpose and hence belongs to \( W  \).
+    \item Suppose \( A \in W  \) and \( B \in W  \). Hence, \( A^{t} = A  \) and \( B^{t} = B  \). Hence, we have 
+        \[  (A+B)^{t} = A^{t} + B^{t} = A + B \]
+        which implies that \( A + B \in W  \).
+    \item We have \( A \in W  \) implies \( A^{t} = A  \). Now, let \( a \in F  \). Then we have that \( (aA)^{t} = a A^{t} = aA  \). Hence, \( aA \in W  \).
+\end{enumerate}
+
+\begin{eg}
+    Let \( n  \) be non-negative integer, and let \( P_{n}(F) \) consist of all polynomials in \( P(F) \) having degree less than or equal to \( n \). Since the zero polynomial has degree -1, it is in \( P_{n}(F) \). 
+\end{eg}
+
+
