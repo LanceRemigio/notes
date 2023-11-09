@@ -57,19 +57,53 @@ Hence, we have that
 
 \subsubsection{Exercise 1.2.10} Let \( V  \) denote the set of all differentiable real-valued functions defined on the real line. Prove that \( V  \) is a vector space with the operations of addition and scalar multiplication defined in Example 3.  
 \begin{proof}
-    Let \( f,g \in \mathcal{F }(S,\R ) \) and let \( x \in S  \). Using the addition operation defined in Example 3, we have  
-    \[  (f+g)(x) = f(x) + g(x). \]
-    Since \( f(x) , g(x) \in \R  \) where \( \R  \) is a field, we know that commutativity is preserved. Hence, we have that 
-    \[  f(x) + g(x) = g(x) + f(x). \]
-    By the same reasoning, we have that associativity is also preserved.
-
- Since \( \R  \) is a field, we also know that there exists an element \( O  \) in \( \R  \) such that for every \( y \in \R  \), we have \( y + O = y  \). Since \( f(y) \in \R  \), there exists an  \(f_{0}   \) such that   \( f(y) + f_{0} = f(y)  \). Hence, the third property is also satisfied. Likewise, the fourth property is also satisfied since \( \R  \) is a field.
-Since \( \R  \) is a field in which multiplicative identities exists and that for every \( x \in S  \) with \( f(x) \in \R  \), we know that \( 1 \cdot f(x) = f(x)  \). Hence, property 5 is satisfied.
-
- Let \( x \in S  \). Since \( f(x) \in \R  \) and \( \R  \) is a field, we also know that properties 6 and 7 are satisfied. Now, let \( f \in \mathcal{F}(S, \R ) \) and \( x \in S  \). Let \( a,b \in \R  \). Using the operations of addition and scalar multiplication and the fact that \( \R  \) is a field, we have that 
- \[ (a+b)f(x) = a f(x) + b f(x).\]
- Hence, we conclude that \( V = \mathcal{F}(S, \R ) \) is a vector space.
-
+    Let \( V  \) denote the set of all differentiable real-valued functions defined on the real line. We need to show that \( V  \) is a vector space over \( \R  \) with addition and scalar multiplication defined in Example 3.
+    \begin{enumerate}
+        \item[(VS 1)] Let \( f,g \in V  \). We need to show that \( f + g = g + f  \) for all \( x \in \R  \). Let \( x \in \R  \). Since \( f(x)  \) and \( g(x)  \) are also real numbers, we have 
+            \[  (f+g)(x) = f(x) + g(x) = g(x) + f(x) = (g+f)(x).  \]
+            Hence, we have \( f + g = g +f  \).
+        \item[(VS 2)] Let \( f,g, h \in V  \). We need to show that \( f + (g +h) = (f+g) + h  \). Let \( x \in \R  \). Since \( f(x), g(x), h(x) \in \R    \), we can see that 
+            \begin{align*}
+                (f+(g+h))(x ) &= f(x) + (g+h)(x) \\
+                              &= f(x) + g(x) + h(x) \\
+                              &= (f+g)(x) + h(x) \\  
+                              &= ((f+g) + h )(x).
+            \end{align*}
+            Hence, we have \( f + (g+h) = (f+g) + h  \).
+        \item[(VS 3)] Observe that \( f_{0}(x) = 0  \) for all \( x \in \R  \) is also a real-valued function that is differentiable. We need to show that \( f + f_{0} = f   \). Hence, we have 
+            \[  (f + f_{0})(x) = f(x) + f_{0}(x) = f(x) + 0 = f(x).  \]
+            Hence, \( f + f_{0} = f  \) for all \( x \in \R  \).
+        \item[(VS 4)] Take \( c = -1  \) and perform a scalar operation with a \( f \in V   \). Observe that \( (-1 \cdot f )(x) = (-1)f(x) = -f(x) \). Denote \( g = -f  \). Since additive inverses exists in \( \R  \), we have 
+            \begin{align*}
+                (f-g)(x) &= (f-f)(x) \\
+                         &= f(x) - f(x) \\
+                         &= 0 \\
+                         &= f_{0}(x).
+            \end{align*}
+            Hence, \( f - g = f_{0}  \) for all \( x \in \R  \).
+        \item[(VS 5)] Let \( f \in V  \) and let \( x \in \R  \). We need to show that \( 1 \cdot f = f  \). Since \( f(x) \in \R  \), we can see that multiplicative identities in \( \R  \) are also preserved in \( V  \); that is, we have
+            \[  (1f)(x) = 1 \cdot f(x) = f(x).  \]
+            Hence, we have \( 1 f = f  \) for all \( x \in \R  \).
+        \item[(VS 6)] Let \( a, b \in \R   \) and \( f \in V  \). Let \( x \in \R  \) be arbitrary. Then observe that 
+            \[  ((ab)f)(x) = (ab) f(x) = a (bf(x)) = a (bf)(x).  \]
+            Hence, we have \( (ab)f = a(bf) \) for all \( x \in \R  \).
+        \item[(VS 7)] Let \( a \in \R  \) and let \( f,g \in V  \). We need to show that \( a (f+ g) = af  +ag \). Let \( x \in \R  \). Observe that  \( f(x) , g(x) \in \R  \) imply
+            \begin{align*}
+                (a(f+g))(x) &= a(f+g)(x) \\
+                            &= a (f(x) + g(x)) \\
+                            &= af(x) + ag(x) \\
+                            &= (af)(x) + (ag)(x).
+            \end{align*}
+            Hence, we conclude that \( a(f+g) = af + ag \) for all \(  x \in \R  \).
+        \item[(VS 8)] Let \( a,b \in \R  \) and let \( f \in V  \). Let \( x \in \R  \). Then we have 
+            \begin{align*}
+                ((a+b)f)(x) &= (a+b)f(x)  \\
+                            &= af(x) + bf(x) \\
+                            &= (af)(x) + (bf)(x).
+            \end{align*}
+            Hence, we have \( (a+b)f = af + bf \) for all \( x \in \R  \).
+    \end{enumerate}
+    Since all the properties of a vector space have been satisfied, we conclude that \( V  \) is a vector space.
 \end{proof}
 
 

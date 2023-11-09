@@ -75,7 +75,88 @@ We can show that \( W  \) is indeed a subspace.
 \end{enumerate}
 
 \begin{eg}
-    Let \( n  \) be non-negative integer, and let \( P_{n}(F) \) consist of all polynomials in \( P(F) \) having degree less than or equal to \( n \). Since the zero polynomial has degree -1, it is in \( P_{n}(F) \). 
+    Let \( n  \) be non-negative integer, and let \( P_{n}(F) \) consist of all polynomials in \( P(F) \) having degree less than or equal to \( n \). We get that \( P_{n}(F) \) is a subspace because:
+    \begin{enumerate}
+        \item Zero polynomial has degree -1, it is in \( P_{n}(F) \). 
+        \item The sum of two polynomials with degrees less than or equal to \( n  \) is another a polynomial less than or equal to \( n  \).
+        \item The product of a scalar and a polynomial of degree less than or equal to \( n  \) is a polynomial less than or equal to \( n  \).
+    \end{enumerate}
+    This tells us that \( P_{n}(F) \) is a subspace of the space of all polynomials.
 \end{eg}
+
+\begin{eg}
+    Let \( C(\R ) \) denote the set of all continuous real-valued functions defined on \( \R  \). We know that \( C(\R ) \) is a subset of the vector space \( \mathcal{F}(\R , \R ) \) defined in Example 3.  We will show that \( C(\R ) \) is a subspace of \( \mathcal{F}(\R , \R ) \).
+    \begin{enumerate}
+        \item Note that the zero function \( f(x) = 0    \) for all \( x \in \R  \) of \( \mathcal{F}(\R ,\R ) \) is a continuous real-valued function. 
+        \item Let \( f,g \in C(\R )\). Since the sum of \( f   \)  and \( g  \) is also continuous for all \( x \in \R  \), we have that \( f + g  \in C(\R ) \).
+        \item Let \( c \in \R  \) and \( f \in C(\R ) \). We have that for any \( x \in \R   \), \( (cf)(x) = cf(x)    \) is a continuous function. Hence, property (c) is satisfied.
+    \end{enumerate}
+    Hence, \( C(\R ) \) is a subspace.
+\end{eg}
+
+\begin{definition}[Upper Triangular]
+    An \( m \times n  \) matrix \( A  \) is called \textbf{upper triangular} if all its entries below the diagonal entries are zero; that is, if \( A_{ij} = 0  \) whenever \( i > j  \). 
+\end{definition}
+
+\begin{eg}
+    Let \( B  \) be an upper triangular \( 3 \times 4  \) matrix 
+    \[  B = \begin{pmatrix}
+        1 & 2 & 3 & 4 \\
+        0 & 5 & 6 & 7 \\
+        0 & 0 & 8 & 9
+    \end{pmatrix} \]
+\end{eg}
+
+\begin{definition}[Diagonal Matrix]
+    An \( n \times n  \) matrix \( M  \) is called a \textbf{diagonal matrix} if \( M_{ij} = 0  \) whenever \( i \neq j  \); that is, if all its non-diagonal entries are zero.
+\end{definition}
+
+\begin{eg}
+    Let \( A  \) be diagonal \(  3 \times 3  \) matrix.
+    \[  A = \begin{pmatrix}
+        3 & 0 & 0 \\
+        0 & -2 & 0 \\
+        0 & 0 & 8
+    \end{pmatrix} \]
+\end{eg}
+
+\begin{eg}
+    The set of diagonal matrices is a subspace of \( M_{n \times n}(F)  \). To see why, we have 
+    \begin{enumerate}
+        \item Let \( O  \) be the zero matrix of \( M_{n \times n }(F) \). Since \( O  \) is also a diagonal matrix, we know that \( O  \) must be in the set of diagonal matrices.
+        \item Let \( A, B  \) in the set of diagonal matrices. Let \( i \neq j  \) such that 
+            \[  (A +  B)_{ij} =  A_{ij} + B_{ij} = 0 + 0 = 0.  \]
+            Hence, \( A + B   \) is a diagonal matrix and so addition is closed.
+        \item Let \( A  \) be a diagonal matrix as before and let \( c \in F   \). Let \( i \neq j  \) again, and observe that 
+            \[  (cA)_{ij} = cA_{ij} = c \cdot 0 = 0.   \]
+            Hence, \( cA   \) is a diagonal matrix and so scalar multiplication is closed.
+    \end{enumerate}
+    Since the set of diagonal matrices satisfies all properties of theorem 3, we conclude that it is indeed a subspace of \( M_{n \times n }(F) \).
+\end{eg}
+
+\begin{definition}[Trace]
+    The \textbf{trace} of an \( n \times n  \) matrix \( M  \), denoted \( \text{tr}(M) \), is the sun of the diagonal entries of \( M  \); that is,
+    \[  \text{tr}(M) = M_{11} + M_{22} + \cdots + M_{n n }. \]
+\end{definition}
+
+The set of all \( n \times n  \) matrices that have a trace equal to zero is a subspace of \( M_{n \times n}(F)  \) (proved in Exercise 6).
+
+
+\begin{eg}[Non-example]
+   Denote \( V  \) as the set of matrices in \( M_{m \times n}(\R ) \) having non-negative entries. The subset \( V  \) is not a subspace because it is not closed under scalar multiplication. We can see this by multiplying any matrix in \( V  \) be a negative number and observe that the entries of said matrix are no longer all non-negative.  
+\end{eg}
+
+We can create subspaces out of other subspaces.
+
+
+\begin{theorem}
+   Any intersection of subspaces of a vector space \( V  \) is a subspace of \( V  \).
+\end{theorem}
+
+\begin{proof}
+Let \( C  \) be a collection of subspaces of \( V  \), and let \( W  \) denote the intersection of the subspaces in \( C  \). Since every subspace contains the zero vector and the intersection \( W  \neq \emptyset  \), the zero vector \( 0 \in W  \). Let \( a \in F  \) and \( x,y \in W  \). Since each subspace of \( C  \) is closed under addition and scalar multiplication, it follows that \( x + y  \) and \( ax  \) are contained each subspace in \( C  \) and hence \(W   \) must be closed under addition and closed under scalar multiplication. Thus, \( W  \) is a subspace of \( V  \) by theorem 3.
+\end{proof}
+
+A natural question to ask is whether or not the union of subspaces of a vector space \( V  \) is a subspace of \( V  \) too. We can see that indeed the union of subspaces of \( V  \) satisfy the first first and third property of theorem 3. However, property 2 need not be satisfied all the time. In fact, the union can only be a subspace of \( V  \) if and only if one the subspaces is a subset of the other.
 
 
