@@ -128,7 +128,75 @@ We claim that \( W_{2}  \) is not a subspace because \( W_{2}  \) is not closed 
             \[  (f+g)(s_{0}) = f(s_{0}) + g(s_{0}) = 0 + 0 = 0. \]
         Hence, \( V  \) is closed under addition.
         \item[(c)] Let \( f \in V  \) and \( c \in F  \). We have \( cf \in V  \) since 
-            \[  (cf)(s_{0} = c f(s_{0})) = c \times 0 = 0  \] for any \( s_{0} \in S  \). Hence, \( V  \) is closed under scalar multiplication.
+            \[  (cf)(s_{0}) = c f(s_{0}) = c \cdot 0 = 0  \] for any \( s_{0} \in S  \). Hence, \( V  \) is closed under scalar multiplication.
     \end{enumerate} 
 \end{proof}
+
+\subsubsection{Exercise 1.3.14} Let \( S  \) be a nonempty set and \( F  \) a field. Let \( \mathcal{C}(S,F) \) denote the set of all functions \( f \in \mathcal{F}(S,F) \) such that \( f(s) = 0  \) for all but a finite number of elements of \( S  \). Prove that \( \mathcal{C}(S,F) \) is a subspace of \( \mathcal{F}(S,F) \).
+\begin{proof}
+    We proceed by using Theorem 3 to prove that \(  \mathcal{C}(S,F) \) is a subspace where \( S  \) is a nonempty set and \( F  \) is a field.  
+    \begin{enumerate}
+        \item[(a)] Note that the zero vector \( f_{0} \in \mathcal{F}(S,F) \) is in \( \mathcal{C}(S,F) \) because \( f_{0}(x_{n}) = 0  \) where \( x_{n} \in S  \) for finitely many \( n  \).
+        \item[(b)] Let \( f,g \in \mathcal{C}(S,F) \). We need to show that \( f+g \in \mathcal{C}(S,F) \). Let \( x_{n} \in S   \) for finitely many \( n  \). Then using the addition defined on \( \mathcal{F}(S,F) \), we can write
+            \[  (f+g)(x_{n}) = f(x_{n}) + g(x_{n}) = 0 + 0 = 0. \]
+        \item[(c)] Let \( f \in \mathcal{C}(S,F)  \) and \( c \in F  \). We need to show that \( cf \in \mathcal{C}(S,F) \). Let \( x_{n} \in S  \) for finitely many \( n  \). Using the scalar operation defined on \( \mathcal{F}(S,F) \), we can write 
+            \[  (cf)(x_{n}) = c f(x_{n}) = c \cdot 0 = 0. \]
+    \end{enumerate}
+    Since all the properties of Theorem 3 have been satisfied, we conclude that \( \mathcal{C}(S,F) \) is indeed a subspace of \( \mathcal{F}(S,F) \).
+\end{proof}
+
+\subsubsection{Exercise 1.3.15} Is the set of all differentiable real-valued functions defined on \( \R  \) a subspace of \( C(\R ) \)?
+\begin{proof}
+    We claim that the set of all differentiable real-valued functions defined on \( \R  \) is a subspace of \( C (\R ) \). Denote this set as \( V  \). 
+    \begin{enumerate}
+        \item[(a)] Note that the zero function \( f_{0} \) is differentiable for all \( x \in \R  \) and continuous for all \( x \in R  \). Hence, \( f_{0} \in V \).
+        \item[(b)] Let \( f,g \in V  \). Using the addition operation defined on \( C (\R ) \), we get that the sum \( (f+g)(x) = f(x) + g(x)  \) differentiable which implies that the sum of functions \( f, g \) is also continuous. Hence, \( f+g \in V  \).
+        \item[(c)] Let \( f \in V  \) and let \( c \in \R  \). Then \( (cf)(x) = cf(x)  \) is differentiable for all \( x \in \R  \) which means that \( cf  \) is also continuous. Hence, \( cf \in V  \).
+    \end{enumerate}
+    Hence, \( V  \) is a subspace of \( C(\R ) \).
+\end{proof}
+
+\subsubsection{Exercise 1.3.16} Let \( C^{n}(\R ) \) denote the set of all real-valued functions defined on the real line that have a continuous \( n \)th derivative. Prove that \( C^{n}(\R) \) is a subspace of \( \mathcal{F}(\R , \R ) \).
+
+\begin{proof}
+
+\end{proof}
+
+\subsubsection{Exercise 1.3.17} Prove that a subset \( W  \) of a vector space \( V  \) is a subspace of \( V  \) if and only if \( W \neq \emptyset \) and, whenever \( a \in F  \) and \( x , y \in W  \), then \( ax \in W  \) and \( x + y \in W  \).
+\begin{proof}
+For the forwards direction, let \( W \subseteq V   \) where \( V  \) is a vector space and \( W  \) is a subspace of \( V  \). Let \( a \in F  \) and \( x,y \in W  \). Since \( W  \) is a subspace, we know that \( O_{V} \in W  \). So, \( W  \) is nonempty. Since \( W  \) is closed under addition and multiplication, we get that \( x + y \in W  \) and \(  ax \in W  \) and we are done.
+
+For the backwards direction, let \( W \neq \emptyset \) and \( W \subseteq V  \). Let \( a \in F  \) and \( x,y \in W  \) be arbitrary such that \( ax \in W  \) and \( x + y \in W  \). We need to show that \( W  \) is a subspace of \( V  \). We need only show that \( O_{V} \in W  \) since \( W  \) is closed under addition and scalar multiplication. Let \( x \in W  \). We can pick any \( c \in F  \) such that \( c = 0  \). So, we have \( c \cdot x = 0 \cdot x = O_{w}. \) Since the zero vector \( O_{W} \in W   \) is unique, we must have \( O_{V} = O_{W} \). Hence, \( O_{V} \in W  \) and we conclude that \( W  \) is a subspace of \(  V \). 
+\end{proof} 
+
+\subsubsection{Exercise 1.3.18} Prove that a subset \( W  \) of a vector space \( V  \) is a subspace of \( V  \) if and only if \( O \in W  \) and \( ax + y \in W  \) whenever \( a \in F  \) and \( x,y \in W  \).
+\begin{proof}
+    (\( \Rightarrow \)) Let \( W \subseteq V  \) where \( W  \) is a subspace of \( V  \). Since \( W  \) is a subspace of \( V  \), we know that \( W  \) is closed under addition and scalar multiplication. Let \( a \in F  \) and \( x,y \in W  \). Using the third property of Theorem 3, we can see that \( ax \in W  \).  Since \( W  \) is closed under addition, we can take \( y \in W  \) and \( ax \in W \) such that \( ax + y \in W   \). Since \( W   \) is also a vector space by definition, we know that \( O_{W} \in W  \). But \( O_{W} = O_{V}  \) so \( O_{V} \in W  \).
+
+    (\( \Leftarrow \)) Let \( a \in F  \) and \( x,y \in W  \). We want to show that \( W \subseteq V   \) is a subspace of \( V  \). We can do this by using Theorem 3.
+    \begin{enumerate}
+        \item[(a)] By assumption, the zero vector \( O_{V } \in W  \).
+        \item[(b)] Let \( x,y \in W  \). Choose \( a = 1  \) such that  \( ax + y = x + y   \). Since \( ax + y \in W  \) and \( ax + y = x + y  \), we also have \( x + y \in W  \). Hence, \( W  \) is closed under addition. 
+        \item[(c)] Let \( x \in W  \) and \( O_{V} \in W   \). Let \( a \in F  \). Then we have \( ax + O_{V} = ax \in W   \). 
+    \end{enumerate}
+    Hence, \( W  \) is a subspace of \( V  \) by Theorem 3.
+\end{proof}
+\subsubsection{Exercise 1.3.19} Let \( W_{1}  \) and \( W_{2}  \) be subspaces of a vector space \( V  \). Prove that \( W_{1} \cup W_{2}  \) is a subspace of \( V  \) if and only if \( W_{1} \subseteq W_{2}  \) or \(  W_{2} \subseteq W_{1}  \).
+\begin{proof}
+    ( \( \Rightarrow \)) Let \( W_{1} \cup W_{2}  \) is a subspace of \( V  \). We need to show that \( W_{1} \subseteq W_{2}  \) or \( W_{2} \subseteq W_{1}  \). We proceed by showing the contrapositive. Assume \( W_{2} \not\subseteq W_{1}  \) and \( W_{1} \not\subseteq W_{2}   \). We need to show that \( W_{1} \cup W_{2}  \) is \textbf{NOT} a subspace of \( V  \).  By assumption, \( x \in W_{1}  \) is not contained in \( W_{2}  \) as well as \( y \in W_{2}  \) is not contained in \( W_{1} \). This implies that \( W_{1} \cup W_{2} = \emptyset \). Since \( W_{1} \cup W_{2}  \) is empty where \( W_{1} \cup W_{2}  \) does not contain \( O_{V} \), it cannot possibly be a subspace of \( V  \).
+
+    ( \(\Leftarrow \) ) Let \( W_{1} \subseteq W_{2}  \) or \( W_{2} \subseteq W_{1}  \). We need to show that \( W_{1} \cup W_{2}  \) is a subspace of \( V  \). We proceed by using Theorem 3 to do this. Without loss of generality, assume \( W_{1} \subseteq W_{2}  \). The proof will be the same if we use \( W_{2} \subseteq W_{1} \).
+    \begin{enumerate}
+        \item[(a)] Since \( W_{1}  \) is a subspace of \( V \), we get that \( O_{W} \in W   \). Furthermore, \( W_{1} \subseteq W_{2}  \) implies that \( O_{V} \in W  \). Since \( O_{W} \in W_{1}  \) and \( O_{V} \in W_{2} \), we get that \( O_{V} \in W_{1} \cup W_{2}  \) by definition of union.
+        \item[(b)] Let \( x,y \in W_{1}  \). Since \( W_{1}  \) is a subspace, we get that \( x + y \in W_{1}  \). Since \( W_{1} \subseteq W_{2}  \), we also get that \( x + y \in W_{2} \).
+            Since both \( x + y \in W_{1}   \)  and \( x+y \in W_{2}  \), we know that \( x+ y \in W_{1} \cup W_{2}  \) by definition of the union.
+        \item[(c)] Let \( x \in W_{1}   \) and \( c \in F  \). Since \( W_{1}  \) is closed under scalar multiplication, we have that \( cx \in W_{1}  \). But \( W_{1} \subseteq W_{2}  \) so \( W_{2}  \) also contains \( cx \in W_{1} \). So we must have \( cx \in W_{1} \cup W_{2} \).
+    \end{enumerate}
+\end{proof}
+
+\subsubsection{Exercise 1.3.20} Prove that if \( W  \) is a subspace of a vector space \( V  \) and \( w_{1} , w_{2} , \dots, w_{n}  \) are in \( W  \), then \( a_{1} w_{1} + a_{2} w_{2} + \cdots + a_{n} w_{n}  \).
+\begin{proof}
+
+\end{proof}
+
 
