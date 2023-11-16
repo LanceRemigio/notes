@@ -196,7 +196,74 @@ For the backwards direction, let \( W \neq \emptyset \) and \( W \subseteq V  \)
 
 \subsubsection{Exercise 1.3.20} Prove that if \( W  \) is a subspace of a vector space \( V  \) and \( w_{1} , w_{2} , \dots, w_{n}  \) are in \( W  \), then \( a_{1} w_{1} + a_{2} w_{2} + \cdots + a_{n} w_{n}  \).
 \begin{proof}
-
+Let \( W  \) be a subspace of a vector space \( V \). Our goal is to show that the following statement: \( a_{1} w_{1} + a_{2} w_{2} + \cdots + a_{n} w_{n} \in W  \) for all \( 1 \leq i  \leq n \). We proceed by induction on \( i \geq 1  \). Let \( i = 1  \). Since \( W  \) is closed under scalar multiplication, we know that \( a_{1} \in F  \) and \( w_{1} \in W  \) implies that \( a_{1} w_{1} \in W  \). Now let \( i = 2  \), then \( w_{1}, w_{2} \in W  \) and \( a_{1}, a_{2} \in F  \) implies that \( a_{1} w_{1} + a_{2} w_{2} \in W  \) since \( W  \) is closed under scalar multiplication and addition. Now, assume that our result holds for all \( 1 \leq i \leq  n  \). We want to show that it also holds for \( i = n + 1  \). By our inductive hypothesis, we know that \( a_{1} w_{1} + a_{2} w_{2} + \cdots + a_{n} w_{n} \in W  \). Let \( a_{n+1} \in F   \) and \( w_{n+1 } \in W  \). Using vector addition and scalar multiplication, we know that 
+\[  \Big( a_{1} w_{1} + a_{2} w_{2} + \cdots + a_{n} w_{n} \Big)  + a_{n+1} w_{n+1} \in W. \]
 \end{proof}
+
+\subsubsection{Exercise 1.3.21} Let \( V  \) denote the vector space of sequences in  \( \R  \), as defined in Example 5 of section 1.2. Show that the set of convergent sequences \( (a_{n}) \) (that is, those for which \( \lim_{ n \to \infty  } a_{n}  \) exists ) is a subspace of \( V  \).
+
+\begin{proof}
+We will show that \( W  \) (the set of convergent sequences in \( \R  \)) is a subspace of  \( V  \) by using Theorem 3.
+\begin{enumerate}
+    \item[(a)] Note that the zero sequence \( O_{n}   \)  is zero for all \( n = 1,2,... \). Hence, the limit of \( O_{n}  \) converges to \( 0  \) and so we have \( O_{n} \in W  \).
+    \item[(b)] Let \( (a_{n})  \) and \( (b_{n}) \) be two convergent sequences in \( \R  \). Then we get that \( \lim_{ n \to \infty  }  a_{n}  \) and \( \lim_{ n \to \infty  }  b_{n} \) exists. Observe that 
+        \[  \lim_{ n \to \infty  }  (a_{n} + b_{n}) = \lim_{ n \to \infty  }  a_{n} + \lim_{ n \to \infty  }  b_{n}.  \]
+        Since the \( a_{n}  \) and \( b_{n}  \) are both convergent sequences, we also get that the sum \( (a_{n} + b_{n}) \) also converges. Hence, \( (a_{n} + b_{n} ) \in W  \).
+    \item[(c)] Let \( t \in F  \) and \( a_{n} \in W \) as before. Then we have 
+        \[  \lim_{ n \to \infty  }  ta_{n} = t \lim_{ n \to \infty  }  a_{n}. \] Since any constant \( t \in F  \) multiplied by a convergent sequence is convergent, we also get that the sequence \( (ta_{n})  \) is also convergent. Hence, \( ta_{n} \in W  \).
+\end{enumerate}
+\end{proof}
+
+
+\subsubsection{Exercise 1.3.22} Let \( F_{1}  \) and \( F_{2}  \) be fields. A function \( g \in \mathcal{F} (F_{1}, F_{2} )  \) is called an \textbf{even function} if \( g(-t) = g(t)  \) for each \( t \in F_{1}  \) and is called an \textbf{odd function} if \( g(-t) = -g(t)  \) for each \( t \in F_{1}  \). Prove that the set of all even functions in \( \mathcal{F}(F_{1} , F_{2})  \) and the set of all odd functions in \( \mathcal{F}(F_{1}, F_{2})  \) are subspaces of \( \mathcal{F}(F_{1} , F_{2}) \).
+
+\begin{proof}
+    Let \( V  \) be the set of all even functions and let \( W  \) be the set of all odd functions. We will first prove that \( V  \) is a subspace of \( \mathcal{F}(F_{1}, F_{2})  \) and the same with \( W  \).
+    \begin{enumerate}
+        \item[(a)] Note that the zero function \( f_{0}  \) from \( \mathcal{F}(F_{1}, F_{2})  \) is even since \( f_{0}(-t) = 0 = f_{0}(t)  \) for all \( t \in F_{1}   \). Hence, \( f_{0} \in V  \).
+        \item[(b)] Let \( f,g \in V  \). We need to show that \( f+ g \in V   \); that is, we need to show that it is even. Let \( t \in F_{1}  \). Then observe that 
+            \[  (f+g)(-t) = f(-t) + g(-t) = f(t) + g(t) = (f+g)(t)   \]
+            Hence, \( (f+g)(-t) = (f+g)(t) \) for all \( t \in F_{1}  \).
+        \item[(c)]  Let \( f \in V  \) and let \( c \in F_{2} \). Then observe that 
+            \[  (cf)(-t) = c f(-t) = c f(t) = (cf)(t).  \]
+            Hence, \( cf \in V  \).
+    \end{enumerate}
+    Since all the properties of \( V  \) are satisfied, we have that \( V  \) is a subspace of \( \mathcal{F}(F_{1}, F_{2})  \).
+   
+    Now we will prove \( W  \) is a subspace of \( \mathcal{F}(F_{1}, F_{2})  \).
+    \begin{enumerate}
+        \item[(a)] Note that the zero function \( f_{0}  \) is in \( W  \) because for any \( t \in F_{1}  \) we have \( f_{0}(-t) = 0 = -1 \cdot 0 = -f(t). \) Hence, \( f_{0} \in W  \).
+        \item[(b)] Let \( f,g \in W  \) and Let \( t \in F_{1}  \). Observe that  
+            \[  (f+g)(-t) = f(-t) + g(-t) = -f(t) - g(t) -(f+g)(t).  \]
+            Hence, \( f+g \in W  \).
+        \item[(c)] Let \( c \in F_{2}  \) and \( f \in W  \). Let \( t \in F_{1}  \) such that \( f(-t) = - f(t)  \). Then observe that 
+            \[  (cf)(-t) = c f(-t) = - cf(t) = - (cf)(t).  \]
+            Hence, \( cf \in W  \).
+    \end{enumerate}
+    Hence, \( W  \) is a subspace of \( \mathcal{F}(F_{1}, F_{2}) \)
+\end{proof}
+
+
+\begin{definition}[Sum of Two Sets]
+    If \( S_{1}  \) and \( S_{2}   \) are nonempty subsets of a vector spaces \( V  \), then the \textbf{sum} \( S_{1}  \) and \( S_{2}  \), denoted \( S_{1} + S_{2} \), is the set \( \{ x + y : x \in S_{1} \ \text{and} \  y \in S_{2}  \}  \).
+\end{definition}
+
+\begin{definition}[Direct Sum]
+    A vector space \( V  \) is called the \textbf{direct sum} of \( W_{1}  \) and \( W_{2}  \) if \( W_{1}  \) and \( W_{2}  \) are subspaces of \( V  \) such that \( W_{1} \cap W_{2} = \{ 0  \}  \) and \( W_{1} + W_{2} = V  \). We denote that \( V  \) is the direct sum of \( W_{1}  \) and \( W_{2}  \) by writing \( V = W_{1} \bigoplus W_{2} \).
+\end{definition}
+ 
+\subsubsection{Exercise 1.3.23} Let \( W_{1} + W_{2}  \) is a subspace of a vector space \( V  \).
+\begin{enumerate}
+    \item[(a)] Prove that \( W_{1} + W_{2}  \) is a subspace of \( V  \) that contains both \( W_{1}  \) and \( W_{2}  \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Prove that any subspace of \( V  \) that contains both \( W_{1}  \) and \( W_{2}  \) must also contain \( W_{1} + W_{2} \).
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
+
 
 
