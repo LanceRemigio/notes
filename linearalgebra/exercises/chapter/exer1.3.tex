@@ -187,11 +187,12 @@ For the backwards direction, let \( W \neq \emptyset \) and \( W \subseteq V  \)
 
     ( \(\Leftarrow \) ) Let \( W_{1} \subseteq W_{2}  \) or \( W_{2} \subseteq W_{1}  \). We need to show that \( W_{1} \cup W_{2}  \) is a subspace of \( V  \). We proceed by using Theorem 3 to do this. Without loss of generality, assume \( W_{1} \subseteq W_{2}  \). The proof will be the same if we use \( W_{2} \subseteq W_{1} \).
     \begin{enumerate}
-        \item[(a)] Since \( W_{1}  \) is a subspace of \( V \), we get that \( O_{W} \in W   \). Furthermore, \( W_{1} \subseteq W_{2}  \) implies that \( O_{V} \in W  \). Since \( O_{W} \in W_{1}  \) and \( O_{V} \in W_{2} \), we get that \( O_{V} \in W_{1} \cup W_{2}  \) by definition of union.
+        \item[(a)] Since \( W_{1}  \) is a subspace of \( V \), we get that \( O_{W} \in W_{1}   \). Furthermore, \( W_{1} \subseteq W_{2}  \) implies that \( O_{V} \in W  \). Since \( O_{V} \in W_{1}  \) and \( O_{V} \in W_{2} \), we get that \( O_{V} \in W_{1} \cup W_{2}  \) by definition of union.
         \item[(b)] Let \( x,y \in W_{1}  \). Since \( W_{1}  \) is a subspace, we get that \( x + y \in W_{1}  \). Since \( W_{1} \subseteq W_{2}  \), we also get that \( x + y \in W_{2} \).
             Since both \( x + y \in W_{1}   \)  and \( x+y \in W_{2}  \), we know that \( x+ y \in W_{1} \cup W_{2}  \) by definition of the union.
         \item[(c)] Let \( x \in W_{1}   \) and \( c \in F  \). Since \( W_{1}  \) is closed under scalar multiplication, we have that \( cx \in W_{1}  \). But \( W_{1} \subseteq W_{2}  \) so \( W_{2}  \) also contains \( cx \in W_{1} \). So we must have \( cx \in W_{1} \cup W_{2} \).
     \end{enumerate}
+    Hence,  \( W_{1} \cup W_{2}    \) is a subspace of a vector space \( V \).
 \end{proof}
 
 \subsubsection{Exercise 1.3.20} Prove that if \( W  \) is a subspace of a vector space \( V  \) and \( w_{1} , w_{2} , \dots, w_{n}  \) are in \( W  \), then \( a_{1} w_{1} + a_{2} w_{2} + \cdots + a_{n} w_{n}  \).
@@ -237,7 +238,7 @@ We will show that \( W  \) (the set of convergent sequences in \( \R  \)) is a s
             \[  (f+g)(-t) = f(-t) + g(-t) = -f(t) - g(t) -(f+g)(t).  \]
             Hence, \( f+g \in W  \).
         \item[(c)] Let \( c \in F_{2}  \) and \( f \in W  \). Let \( t \in F_{1}  \) such that \( f(-t) = - f(t)  \). Then observe that 
-            \[  (cf)(-t) = c f(-t) = - cf(t) = - (cf)(t).  \]
+            \[  (cf)(-t) = c f(-t) = c f(t) = (cf)(t).  \]
             Hence, \( cf \in W  \).
     \end{enumerate}
     Hence, \( W  \) is a subspace of \( \mathcal{F}(F_{1}, F_{2}) \)
@@ -249,21 +250,78 @@ We will show that \( W  \) (the set of convergent sequences in \( \R  \)) is a s
 \end{definition}
 
 \begin{definition}[Direct Sum]
-    A vector space \( V  \) is called the \textbf{direct sum} of \( W_{1}  \) and \( W_{2}  \) if \( W_{1}  \) and \( W_{2}  \) are subspaces of \( V  \) such that \( W_{1} \cap W_{2} = \{ 0  \}  \) and \( W_{1} + W_{2} = V  \). We denote that \( V  \) is the direct sum of \( W_{1}  \) and \( W_{2}  \) by writing \( V = W_{1} \bigoplus W_{2} \).
+    A vector space \( V  \) is called the \textbf{direct sum} of \( W_{1}  \) and \( W_{2}  \) if \( W_{1}  \) and \( W_{2}  \) are subspaces of \( V  \) such that \( W_{1} \cap W_{2} = \{ 0  \}  \) and \( W_{1} + W_{2} = V  \). We denote that \( V  \) is the direct sum of \( W_{1}  \) and \( W_{2}  \) by writing \( V = W_{1} \oplus W_{2} \).
 \end{definition}
  
 \subsubsection{Exercise 1.3.23} Let \( W_{1} + W_{2}  \) is a subspace of a vector space \( V  \).
 \begin{enumerate}
     \item[(a)] Prove that \( W_{1} + W_{2}  \) is a subspace of \( V  \) that contains both \( W_{1}  \) and \( W_{2}  \).
         \begin{proof}
-        
+        Let  \( W_{1}  \) and \( W_{2}  \) be subspaces of a vector space \( V   \). Define \( W_{1} + W_{2}  \) as the set  
+        \[  \{ x_{1} + y_{2} :  w_{1} \in W_{1}  \ \text{and} \ w_{2} \in W_{2}  \}.  \]
+        \begin{enumerate}
+            \item[(a)] Since \( W_{1}  \) and \( W_{2}  \) are subspaces of \( V  \), we know that the zero vector \( O_{V} \) is contained in both \( W_{1}  \) and \( W_{2} \). Hence, the sum \(  O_{V} = O_{V } + O_{V} \in W_{1} + W_{2}   \).
+            \item[(b)] Let \( u,v \in W_{1} + W_{2} \) with \( u = x_{1} + y_{1}  \) and \(  v  = x_{2} + y_{2}  \). Since \( W_{1}  \) and \( W_{2}  \) are subspaces of \( V  \), we know that addition is closed in both subsets \( W_{1}  \) and \( W_{2}  \). Hence, \( x_{1} + x_{2} \in W_{1}  \) and \( y_{1} + y_{2} \in W_{2}  \). Observe that 
+                \begin{align*}
+                    u + v &= (x_{1} + y_{1}) + (x_{2} + y_{2}) \\
+                          &= (x_{1} + x_{2}) + (y_{1} + y_{2}) \in W_{1} + W_{2}.
+                \end{align*}
+                Hence,  addition is closed in \( W_{1} + W_{2} \).
+            \item[(c)] Let \( c \in F  \) where \( F  \) is a field and let \( u \in W_{1} + W_{2}  \) with \( u = x_{1} + y_{1}  \). Since \( W_{1}  \) and \( W_{2}  \) are subspaces of \( V  \), we know that  \( cx_{1} \in W_{1}   \) and \( cx_{2} \in W_{2}  \). Observe that 
+                \begin{align*}
+                    cu &= c(x_{1} + y_{1}) \\
+                       &= cx_{1} + cy_{1} \in W_{1} + W_{2}.
+                \end{align*}
+        \end{enumerate}
+        Hence, \( W_{1} + W_{2}  \) is a subspace of \( V  \).
         \end{proof}
     \item[(b)] Prove that any subspace of \( V  \) that contains both \( W_{1}  \) and \( W_{2}  \) must also contain \( W_{1} + W_{2} \).
         \begin{proof}
-        
+            Let \( X \) be a subspace of \( V  \). Suppose \( X  \) contains both \( W_{1}  \) and \( W_{2}  \); that is, \( W_{1} \subseteq X  \) and \( W_{2} \subseteq X  \). We must show that \( W_{1} + W_{2} \subseteq X \). Let \( u \in W_{1} + W_{2}  \) with \( u = x_{1} + y_{1} \). By definition, we have \( x_{1} \in W_{1}  \) and \( y_{1} \in W_{2}  \). Since \( W_{1} \subseteq X  \) and \( W_{2} \subseteq X  \), we have \( x_{1} \in X  \) and \( y_{1} \in X  \). Since \( X  \) is a subspace of \( V  \) and \( X  \) is closed under addition, we have \( x_{1} + y_{1} \in X  \). Hence, \( u \in X  \) and we conclude \( W_{1}  + W_{2} \subseteq X  \).
         \end{proof}
 \end{enumerate}
 
+\subsubsection{Exercise 1.3.24} Show that \( F^{n}  \) is the direct sum of the subspaces 
+\[  W_{1} = \{ (a_{1} , a_{2} , \cdots a_{n}) \in F^{n} : a_{n} = 0  \}  \]
+and 
+\[  W_{2} = \{ (a_{1} , a_{2} , \cdots, a_{n}) \in F^{n} : a_{1} = a_{2} = \cdots = a_{n-1} = 0  \}. \]
+
+\begin{proof}
+Let \( W_{1}  \) and \( W_{2}  \) be subspaces of \( F^{n} \).  Since \( W_{1}  \) and \( W_{2}  \) are subspaces, they both contain the zero vector \( O_{F^{n}}  \). Observe that for any element \( x \in W_{1}  \), we have the \( n \)th element \( a_{n} = 0  \). On the other hand, \( y \in W_{2}  \) implies that \( a_{1} = a_{2} = \cdots = a_{n-1} = 0  \) except for the \( n \)th element. Thus, the only element that \( W_{1}  \) and \( W_{2}  \) have in common is the zero vector \( O_{F^{n}} \). Hence, we have \( W_{1} \cap W_{2} = \{ O_{F^{n}} \}  \).
+
+Now, we show \( W_{1} + W_{2} = F^{n}  \). To do this, we need to show the following containments:
+\begin{enumerate}
+    \item[(i)] \( W_{1} + W_{2} \subseteq F^{n} \) and
+    \item[(ii)] \( F^{n} \subseteq W_{1} + W_{2} \).
+\end{enumerate}
+
+Let \( u \in W_{1} + W_{2}  \) with \( u = x_{1} + x_{2}  \) where \( x_{1} \in W_{1}  \) and \( y_{1} \in W_{2}  \). Since \( W_{1} \subseteq F^{n}  \), we know that \( x_{1} \in F^{n} \). Likewise, \( W_{2} \subseteq F^{n} \) implies that \( y_{1} \in F^{n}  \). Since \( F^{n} \) is a vector space where addition is closed, we have that \( u = x_{1} + y_{1}  \in F^{n} \). Hence, \( W_{1} + W_{2} \subseteq F^{n} \). 
+
+Now, let \( u \in F^{n} \). Since \( F^{n}  \) is a vector space over \( F  \), each entry in \( U \) (where each entry is an element of a field \( F  \)) can written and separated using the addition defined in \( F^{n} \) in the following way:
+\begin{align*}
+    u &= (a_{1}, a_{2} , \dots, a_{n}) \\ 
+      &= (a_{1} + 0 , a_{2} + 0 , \dots, 0 + a_{n}) \\
+      &= (a_{1}, a_{2}, \dots, 0 ) + ( 0, 0, \dots, a_{n}) \\
+\end{align*}
+where the first term is an element of \( W_{1}  \) and the second term is an element of \( W_{2} \). Hence, \( u \in W_{1} + W_{2} \).
+
+Since both containments are satisfied, we that \( W_{1} + W_{2} = F^{n} \). Thus, \( W_{1} \oplus  W_{2} = F^{n}  \).
+\end{proof}
 
 
+
+\subsubsection{Exercise 1.3.25} Let \( W_{1}  \) denote the set of all polynomials \( f(x)  \) in \( P(F)  \) such that in the representation
+\[  f(x) = a_{n} x^{n} + a_{n-1} x^{n-1} + \cdots + a_{1} x + a_{0}, \]
+we have \( a_{i} = 0  \) whenever \( i  \) is even. Likewise, let \( W_{2}  \) denote the set of all polynomials \( g(x)  \) in \( P(F)  \) such that in the representation 
+\[  g(x) = b_{m} x^{m} + b_{m-1} x^{m-1} + \cdots + b_{1} x + b_{0},  \]
+we have \( b_{i} = 0  \) whenever \( i  \) is odd. Prove that \( P(F) = W_{1} \oplus W_{2} \).
+\begin{proof}
+\textbf{TO DO.}
+\end{proof}
+
+
+\subsubsection{Exercise 1.3.26} In \(  M_{m \times n }(F)    \) define  \( W_{1} = \{ A \in M_{m \times n  } (F ) : A_{ij } = 0 \ \text{whenever} \  i > j   \}  \)  and \( W_{2} = \{ A \in M_{m \times n }(F) : A_{ij} \ \text{whenever} \ i \leq j \}  \). Show that \( M_{m \times n } (F) = W_{1} \oplus W_{2} \). (\( W_{1}  \) is the set of all triangular matrices as defined in the previous section.)
+\begin{proof}
+\textbf{TO DO.}
+\end{proof}
 
