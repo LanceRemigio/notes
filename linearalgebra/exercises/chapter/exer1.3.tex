@@ -316,7 +316,22 @@ we have \( a_{i} = 0  \) whenever \( i  \) is even. Likewise, let \( W_{2}  \) d
 \[  g(x) = b_{m} x^{m} + b_{m-1} x^{m-1} + \cdots + b_{1} x + b_{0},  \]
 we have \( b_{i} = 0  \) whenever \( i  \) is odd. Prove that \( P(F) = W_{1} \oplus W_{2} \).
 \begin{proof}
-\textbf{TO DO.}
+Let \( f(x) \in W_{1}  \).  Then we have
+\[ f(x) = a_{0} + a_{1} x + a_{2} x^{2} + \cdots + a_{n-1}x^{n-1} a_{n} x^{n}    \]
+where \( a_{i} = 0    \) where \( i  \) is even. Likewise, let \( g(x) \in W_{2}   \). Hence, 
+\[  g(x) = b_{0} + b_{1} x + b_{2} x^{2} + \cdots + b_{n-1} x^{n-1} + b_{n} x^{n} \]
+where \( b_{i} = 0  \) for \( i  \) odd. This tells us that the only representation that \( W_{1}  \) and \( W_{2}  \) have in common is the zero polynomial \( f(x) = 0  \) where \( a_{i} = 0  \) for all \( 0 \leq i \leq n  \). Hence, \( W_{1} \cap W_{2} = \{ O \}  \). 
+
+Now, we want to show that \( W_{1} + W_{2} = P(F)  \); that is, we need to show \( P(F) \subseteq W_{1} + W_{2}  \) and \( W_{1} + W_{2} \subseteq P(F) \). Starting with the former, let \( f \in P(F)  \). Observe that for \( a_{i}  \) where \(  1 \leq i \leq n  \)   
+\begin{align*}
+    f(x) &= a_{0} + a_{1} x + a_{2} x^{2} + \cdots + a_{n-1}x^{n-1} + a_{n} x^{n}   \\
+         &=  \underbrace{(a_{1}x + a_{3} x^{3} + \cdots + a_{n} x^{n} )}_{\in W_{1}} + \underbrace{(a_{0} + a_{2} x^{2} +  a_{4} x^{4} + \cdots + a_{n} x^{n} )}_{\in W_{2}}  \\
+\end{align*}
+The first term of the last equality contains coefficients \( a_{i} = 0  \) for even \( i   \) and the second term contains coefficients \( a_{i} = 0  \) for odd \( i  \). This implies that \( f(x) \in W_{1} + W_{2}  \). Hence, \( P(F) \subseteq W_{1} + W_{2}  \).
+
+Now, let \( u(x) \in W_{1} + W_{2}  \) with \( u(x) = f(x) + g(x)   \) with \( f(x) \in W_{1}  \) and \( g(x) \in W_{2}  \). Since \( W_{1}  \) and \( W_{2}  \) are subsets of \( P(F) \), we have that \( f(x) , g(x) \in P(F) \). Since addition is closed in \( P(F)  \), we have 
+that \( u(x) =  f(x) + g(x) \in P(F) \). Hence, \( W_{1} + W_{2} \subseteq P(F) \).
+Since \( W_{1} + W_{2} = P(F) \)  and \( W_{1} \cap W_{2} = \{ 0 \}  \), we have \( W_{1} \oplus W_{2} = P(F) \).
 \end{proof}
 
 
