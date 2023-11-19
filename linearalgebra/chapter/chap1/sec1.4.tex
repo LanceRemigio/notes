@@ -5,3 +5,132 @@
    \[  v = a_{1} u_{1} + a_{2} u_{2} + \cdots + a_{n} u_{n}. \] In this case, we say that \( v \) is a linear combination of \( u_{1} , u_{2} , \dots, u_{n} \in V   \) and call \( a_{1} , a_{2} , \dots, a_{n} \in F   \) the \textbf{coefficients} of the linear combination. 
 \end{definition}
 
+\begin{itemize}
+    \item An easy example of a vector expressed as a linear combination is the zero vector \( O  \) where \( 0 v = O  \) for each \( v \in V  \).
+    \item Determining whether a vector is a linear combination of other vectors often involves solving a system of linear equations.
+\end{itemize}
+
+\begin{eg}
+    Suppose we wanted to express the vector \( (2,6,8) \in \R^{3}  \) as a linear combination of 
+    \begin{center}
+    \( u_{1} = (1,2,1)  \), \( u_{2} = (-2, -4, -2) \), \( u_{3} = (0,2,3) \), \( u_{4} = (2,0,-3) \), and \( u_{5} = (-3, 8, 16) \).
+    \end{center}
+    Our goal is to find scalars \( a_{1}, a_{2}, a_{3}, a_{4} \) and \( a_{5}  \) such that 
+    \begin{align*}
+        (2,6,8) &= a_{1} u_{1} + a_{2} u_{2} + a_{3} u_{3} + a_{4} u_{4} + a_{5}  u_{5}.   \\
+    \end{align*}
+    Doing a bit of algebra, we would need to solve the following system of linear equations 
+    \begin{align*}
+        a_{1} - 2a_{2}  \ \ \  + 2a_{4} - 3a_{5} &= 2  \\
+        2a_{1} - 4a_{2} + 2a_{3}  \ \ \  + 8a_{5} &= 6  \\
+        a_{1} - 2a_{2} + 3a_{3} + 16a_{5} &= 8
+    \end{align*}
+\end{eg}
+
+Solving the system of equations above involves three types of operations:
+\begin{enumerate}
+    \item Interchanging the order of any two equations in the system;
+    \item multiplying any equation in the system by some non-zero constant;
+    \item adding a constant multiple of any equation to another equation in the system.
+\end{enumerate}
+We will learn in a later section that the operations listed above do not change the set of solutions to the original system.
+
+\begin{eg}
+    We claim that 
+    \[  2x^{3} - 2x^{2} + 12x - 6 \] is a linear combination of
+    \begin{center}
+        \( x^{3} - 2x^{2} - 5x - 3  \) and \( 3x^{3} - 5x^{2} - 4x - 9  \) 
+    \end{center}
+    in \( P_{3}(\R ) \), but that 
+    \[  3x^{3} - 2x^{2} + 7x + 8  \] is not. In the first case we wish to find scalars \( a \) and \( b  \) such that 
+    \begin{align*}
+        2x^{3} - 2x^{2} + 12x - 6 &= a(x^{3} - 2x^{2} - 5x - 3 ) \\ 
+                                  &+ b(3x^{3} - 5x^{2} - 4x - 9)  \\
+                                  &= (a + 3b)x^{3} + (-2a-5b)x^{2} \\  
+                                  &+ (-5a-4b)x + (-3a - 9b). 
+    \end{align*}
+    Thus, we have the following system of linear equations:
+    \begin{align*}
+       a + 3b  &= 2 \\
+       -2a - 5b &= -2 \\ 
+       -5a - 4b = 12 \\
+       -3a - 9b = -6.
+    \end{align*}
+    Adding the appropriate multiples of the first equation to the others in order to eliminate \( a  \), we find that 
+    \begin{align*}
+        a + 3b &= 2  \\
+        b &= 2  \\
+        11b &= 22 \\
+        0b &= 0.
+    \end{align*}
+    Then we get that \( a = -4  , b = 2 , 0 = 0 , 0= 0  \). Hence, we have
+ \[ 2x^{3} - 2x^{2} + 12x - 6 = -4(x^{3} - 2x^{2} - 5x - 3 )  + 2(3x^{3} - 5x^{2} - 4x - 9). \]  
+    Looking at the second case now, we observe that using the preceding technique leads us to the following system of linear equations
+    \begin{align*}
+        a + 3b &= 3  \\
+        -2a - 5b &= -2 \\
+        -5a - 4b &= 7  \\
+        -3a - 9b &= 8. 
+    \end{align*}
+    Eliminating \( a  \) as before yields the following:
+    \begin{align*}
+        a + 3b &= 3  \\
+        b &= 4  \\
+        11b &= 22 \\ 
+        0 &= 17.
+    \end{align*}
+    The presence of the non-sensical result in the last equality tells us that there are no solutions to the system and that the second polynomial cannot be written as a linear combination of the two polynomials.
+\end{eg}
+
+We can denote the set of all linear combinations of some set of vectors in the following:
+
+\begin{definition}[Span]
+    Let \( S  \) be a nonempty subset of a vector space \( V  \). The \textbf{span} of \( S  \), denoted \( \text{span}(S) \), is the set consisting of all linear combinations of the vectors in \( S  \). For convenience, we define \( \text{span}(\emptyset) = \{ 0  \}  \). 
+\end{definition}
+
+Some immediate examples of spans are:
+\begin{eg}
+      In \( \R^{3}   \), the span of the set \( S =  \{ (1,0,0) , (0,1,0)  \}  \) consist of all vectors in \( \R^{3}  \) such that for some scalars \( a,b \in \R  \), we have 
+        \[  a(1,0,0) + b (0,1,0) = (a,b , 0). \]
+        This tells us that \( S  \) contains all the points in the \( xy \)-plane. One can show that \( S  \) is a subspace of \( \R^{3} \).
+\end{eg}
+
+\begin{theorem}[ ]
+    The span of any subset \( S  \) of a vector space \( v  \) is a subspace of \( V  \) that contains \( S  \). Moreover, any subspace of \( V  \) that contains \( S  \) must also contain the span of \( S  \).
+\end{theorem}
+\begin{proof}
+Suppose \( S = \emptyset \). Then the span of \( S  \) is just \( \text{span}(\emptyset) = \{ 0  \}  \) which is a subspace in which \( S  \) is contained in. Moreover, \( \text{span}(\emptyset) = \{ 0  \}   \) is always contained in any subspace \( X  \) of \( V  \) because every subspace contains the zero vector \( 0  \). 
+Suppose \( S \neq \emptyset \), then \( S  \) contains a vector \( z  \). We need to show that \( \text{span}(S) \) is a subspace of \( V  \). 
+\begin{enumerate}
+    \item[(a)] Since \( S \neq \emptyset \), we know that \( S  \)  contains a vector \( v  \) such that \( 0 z = 0  \). Hence, \( 0 \in \text{span}(S) \).
+    \item[(b)] Let \( x,y \in \text{span}(S) \). We need to show that \( x + y \in \text{span}(S) \). If \( x \in \text{span}(S) \), then we can find \( a_{1}, a_{2}, \dots, a_{n} \in F  \) and \( x_{1}  , x_{2}, \dots, x_{n} \in S  \) such that 
+        \[  a_{1} x_{1} + a_{2} x_{2} + \cdots + a_{n} x_{n}. \]
+        Likewise, \( y \in \text{span}(S) \) implies that we can find scalars \( b_{1} , b_{2} , \dots , b_{m}   \) and vectors  \( y_{1}, y_{2} , \dots, y_{m} \) such that 
+        \[  b_{1} y_{1} + b_{2} y_{2} + \dots + b_{m } y_{m}. \]
+        Then  
+        \begin{align*}
+            x + y &= a_{1} x_{1} + a_{2} x_{2} + \cdots + a_{n} x_{n} + b_{1} y_{1} + b_{2} y_{2} + \dots + b_{m } y_{m} \\
+        \end{align*}
+        is a linear combination and thus \( x + y \in \text{span}(S) \).
+    \item[(c)] Note that \( c \in F  \) implies that
+        \begin{align*}
+            cx &= c(a_{1} x_{1} + a_{2} x_{2} + \cdots + a_{n} x_{n}) \\
+               &= (c a_{1}) x_{1} + (ca_{2})  x_{2} + \cdots + (ca_{n}) x_{n} \\
+        \end{align*}
+        is a linear combination and thus \( cx \in \text{span}(S) \).
+\end{enumerate}
+Hence, \( \text{span}(S)  \) is a subspace of \( V  \). Now we need to show that \( S  \) is contained within \( \text{span}(S) \); that is, \( S \subseteq \text{span}(S) \). Let \( v \in S  \). Then using (VS 5), we can see that \( 1 \cdot v = v \) is a linear combination; so we have \( v \in \text{span}(S) \) and hence, the span of \( S  \) contains \( S  \). 
+
+Now let \( W  \) be any subspace of \( V  \) that contains \( S  \).  We need to show that \( \text{span}(S) \subseteq W  \). Let \( v \in \text{span}(S) \). Then we can find scalars \( a_{1}, a_{2}, \dots, a_{n} \in F    \) and \( x_{1} , x_{2} , \dots, x_{n} \in S  \) such that 
+\[  v = a_{1} x_{1} + a_{2} x_{2} + \dots + a_{n} x_{n}.   \]
+Since \( S \subseteq W  \), we know that \( x_{1}, x_{2} , \dots , x_{n} \in W  \). Using exercise 20 from section 1.3 and using the same set of scalars \( a_{1}, a_{2}, \dots, a_{n} \in F  \), we have \( v = a_{1} x_{1} + a_{2} x_{2} + \cdots + a_{n} x_{n} \in W  \). Hence, \( \text{span}(S) \subseteq W  \).
+\end{proof}
+
+\begin{definition}[ ]
+    A subset \( S  \) of a vector space \( V  \) \textbf{generates} (or \textbf{spans}) \( V  \) if \( \text{span}(S) = V  \). In this case, we also say that the vectors of \( S  \) generates (or span) \( V  \).
+\end{definition}
+
+
+
+
+

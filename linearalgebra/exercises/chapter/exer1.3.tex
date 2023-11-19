@@ -195,7 +195,7 @@ For the backwards direction, let \( W \neq \emptyset \) and \( W \subseteq V  \)
     Hence,  \( W_{1} \cup W_{2}    \) is a subspace of a vector space \( V \).
 \end{proof}
 
-\subsubsection{Exercise 1.3.20} Prove that if \( W  \) is a subspace of a vector space \( V  \) and \( w_{1} , w_{2} , \dots, w_{n}  \) are in \( W  \), then \( a_{1} w_{1} + a_{2} w_{2} + \cdots + a_{n} w_{n}  \).
+\subsubsection{Exercise 1.3.20} Prove that if \( W  \) is a subspace of a vector space \( V  \) and \( w_{1} , w_{2} , \dots, w_{n}  \) are in \( W  \), then \( a_{1} w_{1} + a_{2} w_{2} + \cdots + a_{n} w_{n} \in W   \).
 \begin{proof}
 Let \( W  \) be a subspace of a vector space \( V \). Our goal is to show that the following statement: \( a_{1} w_{1} + a_{2} w_{2} + \cdots + a_{n} w_{n} \in W  \) for all \( 1 \leq i  \leq n \). We proceed by induction on \( i \geq 1  \). Let \( i = 1  \). Since \( W  \) is closed under scalar multiplication, we know that \( a_{1} \in F  \) and \( w_{1} \in W  \) implies that \( a_{1} w_{1} \in W  \). Now let \( i = 2  \), then \( w_{1}, w_{2} \in W  \) and \( a_{1}, a_{2} \in F  \) implies that \( a_{1} w_{1} + a_{2} w_{2} \in W  \) since \( W  \) is closed under scalar multiplication and addition. Now, assume that our result holds for all \( 1 \leq i \leq  n  \). We want to show that it also holds for \( i = n + 1  \). By our inductive hypothesis, we know that \( a_{1} w_{1} + a_{2} w_{2} + \cdots + a_{n} w_{n} \in W  \). Let \( a_{n+1} \in F   \) and \( w_{n+1 } \in W  \). Using vector addition and scalar multiplication, we know that 
 \[  \Big( a_{1} w_{1} + a_{2} w_{2} + \cdots + a_{n} w_{n} \Big)  + a_{n+1} w_{n+1} \in W. \]
@@ -339,4 +339,13 @@ Since \( W_{1} + W_{2} = P(F) \)  and \( W_{1} \cap W_{2} = \{ 0 \}  \), we have
 \begin{proof}
 \textbf{TO DO.}
 \end{proof}
+
+\subsubsection{Exercise 1.3.30} Let \( W_{1} \) and \( W_{2}  \) be subspaces of a vector space \( V  \). Prove that \( V  \) is the direct sum of \( W_{1}  \) and \( W_{2}  \) if and only if each vector in \( V  \) can be \textit{uniquely}  written as \( x_{1} + x_{2}  \), where \( x_{1} \in W_{1}  \) and \( x_{2} \in W_{2} \).
+\begin{proof}
+
+Let \( W_{1}  \) and \( W_{2}  \) be subspaces of \( V  \). Let \( v \in V  \).  Let \( x_{1}, x'_{1} \in W_{1}  \) and \( x_{2}, x'_{2} \in W_{2}  \) such that \( v = x_{1} + x_{2} = x'_{1} + x'_{2}  \). Since \( W_{1}  \) and \( W_{2}  \) is closed under addition, we know that \( x_{1} - x'_{2} \in W_{1}  \) and \( x_{2} - x'_{2} \in W_{2}  \). But observe that \( x_{1} - x'_{1} = x_{2} - x'_{2} \in W_{1} \cap W_{2}  \). Since \( V  \) is a direct sum of the two subspaces \( W_{1}  \) and \( W_{2}  \), we know that \( W_{1} \cap W_{2} = \{ O_{V} \}  \) which implies that \( x_{1} = x'_{1} \) and \( x_{2} = x'_{2} \). This tells us that every \( v  \) can be expressed uniquely as \( x_{1} + x_{2}   \) with \( x_{1} \in W_{1}  \) and \( x_{2} \in W_{2} \).
+
+Conversely, suppose every vector \( v \in V  \) can be \textit{uniquely} written as \( x_{1} + x_{2}  \) with \( x_{1} \in W_{1}  \) and \( x_{2} \in W_{2} \). We need to show that \( W_{1} \oplus W_{2} = V \). Since \( v \in V  \) is uniquely expressed in terms of \( x_{1} + x_{2}  \), the only vector that the two subspaces \( W_{1}  \) and \( W_{2}  \) share is the zero vector. Hence, \( W_{1} \cap W_{2} = \{ O_{V} \}  \). Now, we need to show that \( V = W_{1} + W_{2} \); that is, we need to show \( V \subseteq W_{1} + W_{2}  \) and \( W_{1} + W_{2} \subseteq V  \). Suppose \( v \in V  \). Since \( x_{1} \in W_{1}  \) and \( x_{2} \in W_{2} \), we have that \( v \in W_{1} + W_{2} \). Hence, \( V \subseteq W_{1} + W_{2} \).  Now, let \( v \in W_{1} + W_{2}  \). Since \( v = x_{1} + x_{2}  \) where \( x_{1} \in W_{1}  \) and \( x_{2} \in W_{2}  \) and \( W_{1} \subseteq V  \) and \( W_{2} \subseteq V  \) , we know that \( x_{1} \) and \(x_{2} \) are contained within \( V  \). Since \( V  \) is vector space, we know that sum of  \( x_{1} \) and \( x_{2}  \) are contained in \( V  \). Hence, \( v \in V  \) and so \( V \subseteq W_{1} + W_{2} \). Thus, \( V = W_{1} \oplus W_{2} \).
+\end{proof}
+
 
