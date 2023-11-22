@@ -139,24 +139,8 @@ If \( x_{i} \in S_{1} \cap S_{2}  \) for all \( 1 \leq i \leq n  \), then \( x_{
     Define \( S_{1}  \) as the set
     \[ \{  (1,1,0) \in \R^{3} \}   \] and \( S_{2} \) as the set 
     \[ \{ (1,1,0), (1,0,1), (0,1,1) \in  \R^{3} \}.   \]
-    Observe that \( S_{1} \cap S_{2} = \{ (1,1,0) \}   \) and thus the of this set yields \( \{ a(1,1,0) : a \in F \ \text{and} \ (1,1,0) \in \R^{3} \}  \). The span of \( S_{1}  \) yields the following set \( \{ a(1,1,0) : a \in F \ \text{and} \ (1,1,0) \in \R^{3} \}  \) and the span of \( S_{2}   \) yields the following set
-    \[ \{ a(1,10) + b(1,0,1) + c(0,1,1) : a,b,c \in F  \ \text{and} \ (1,1,0), (1,0,1),  (0,1,1) \in \R^{3} \}.  \] Note that \( \text{span}(S_{1} \cap S_{2}) \neq \text{span}(S_{1}) \cap \text{span}(S_{2})  \) since \( \text{span}(S_{1}) \cap \text{span}(S_{2}) \neq \emptyset \).
-
-    Now define \( S_{1} = \{ O_{V} \} = S_{2}  \). Clearly, \( S_{1} \cap S_{2} = \{ O_{V} \}  \), \( \text{span}(S_{1} ) \cap \text{span}(S_{2}) = \{ O_{V} \}  \), and that \( \text{span}(S_{1} \cap S_{2}) \) is also equal to this set.  \( \text{span}(S_{1} \cap S_{2} ) = \text{span}(S_{1}) \cap \text{span}(S_{2})  \) 
+    Observe that \( S_{1} \cap S_{2} = \{ (1,1,0) \}   \). The span of \( S_{1}  \) yields the following set \( \{ a(1,1,0) : a \in F \ \text{and} \ (1,1,0) \in \R^{3} \}  \).
 \end{eg}
-
-\subsubsection{Exercise 1.4.16} Let \( V  \) be a vector space and \( S  \) a subset of \( V  \) with the property that whenever \( v_{1}, v_{2}, \dots, v_{n} \in S  \) and \( a_{1} v_{1} + a_{2} v_{2} + \cdots + a_{n} v_{n} = 0  \), then \( a_{1} = a_{2} = \cdots = a_{n} = 0  \). Prove that every vector in the span  of \( S  \) can be \textit{uniquely}  written as a linear combination of vectors of \( S  \).
-\begin{proof}
-     Let \( x \in \text{span}(S) \). Suppose there exists two sets of scalars \( a_{1}, a_{2} , \dots, a_{n} \in F  \) and \( b_{1}, b_{2}, \dots, b_{n} \in F  \) such that whenever \( v_{1}, v_{2}, \dots, v_{n} \in S  \) such that 
-     \[  a_{1} v_{1} + a_{2} v_{2} + \cdots + a_{n} v_{n} = x \tag{1}  \] and 
-     \[  b_{1} v_{1} + b_{2} v_{2} + \cdots + b_{n} v_{n} = x \tag{2}  \]
-     implies that \( a_{i}  \)
-     Setting (1) and (2) together, we have 
-     \[   a_{1} v_{1} + a_{2} v_{2} + \cdots + a_{n} v_{n} = b_{1} v_{1} + b_{2} v_{2} + \cdots + b_{n} v_{n} \tag{3}  \]
-     which implies that 
-     \[ (a_{1} - b_{1}) v_{1} + (a_{2} - b_{2})v_{2} + \cdots + (a_{n} - b_{n} ) v_{n} = 0.  \]
-     Since \( v_{1}, v_{2}, \dots, v_{n} \in S   \), we have that  \( a_{i} - b_{i} = 0   \) and thus \( a_{i} = b_{i} \) for all \( 1 \leq i \leq n  \). Hence, every vector in the span of \( S  \) can be \textit{uniquely} written as a linear combination of vectors of \( S  \). 
- \end{proof}
 
 
 
