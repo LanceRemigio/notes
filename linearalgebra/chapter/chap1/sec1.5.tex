@@ -16,7 +16,7 @@ Suppose \( V  \) is a vector space over a field \( F  \) and that \( W \subseteq
 
 \begin{definition}[Linearly Dependence]
    A subset \( S  \) of a vector space \( V  \) is called \textbf{linearly dependent} if there exists a finite number of distinct vectors in \( u_{1}, u_{2} , \dots , u_{n} \in S  \) and scalars \( a_{1}, a_{2}, \dots, a_{n}  \) not all zero, such that  
-   \[  a_{1} u_{1} + a_{2} u_{2} + \cdots + a_{n} u_{n} \]
+   \[  a_{1} u_{1} + a_{2} u_{2} + \cdots + a_{n} u_{n} = 0.  \]
    In this case, we also say that the vectors of \( S  \) are linearly dependent.
 \end{definition}
 
@@ -81,9 +81,47 @@ Some facts about linearly independent sets include:
         \[  u = 1 \cdot u =  (a^{-1} a ) u = a^{-1} (au) = a^{-1} \cdot 0 = 0.    \]
 \end{itemize}
 
-\begin{eg}
+\begin{eg}[A Set of Vectors in \( \R^4 \)]
      It can be shown that the set
     \[  S = \{ (1,0,0,-1) , (0,1,0,-1) , (0,0,1,-1), (0,0,0,1) \}  \] is linearly independent by showing that all the coefficients of the linear combination of 0 represent the trivial representation; that is, we have scalars \( a_{1} = a_{2} = a_{3} = a_{4} = 0  \).
 \end{eg}
 
+\begin{eg}
+    For \( k = 0,1, \dots, n  \), let \( p_{k} = x^{k } + x^{k+1}  + \cdots + x^{n}  \). The set 
+    \[  \{ p_{0}(x), p_{1}(x), \dots p_{n}(x) \}  \] is linearly independent in \( P_{n}(F) \).
+    It can be shown that for some scalars \( a_{0}, a_{1} , \dots , a_{n} \in F   \),  the following equation 
+    \[  a_{0} + (a_{0} + a_{1} + a_{2})x^{2} + \cdots + (a_{0} + a_{1} + \cdots + a_{n})x^{n} = 0  \]
+    has the trivial-representation; that is, \( a_{i} = 0  \) for all \( 1 \leq i \leq n \).
+\end{eg}
 
+\begin{theorem}[ ]
+    Let \( V  \) be a vector space, and let \( S_{1} \subseteq S_{2} \subseteq V  \). If \( S_{1}  \) is linearly dependent, then \( S_{2}  \) is linearly dependent.
+\end{theorem}
+\begin{proof}
+Let \( V  \) be a vector space. Suppose \( S_{1}  \) is linearly dependent. Then there exists a finite number of distinct vectors \( v_{1}, v_{2}, \dots, v_{n} \in S_{1}  \) and scalars \( a_{1}, a_{2}, \dots, a_{n} \in F  \) not all zero such that 
+\[  a_{1} v_{1} + a_{2} v_{2} + \cdots + a_{n} v_{n} = 0.  \]
+Since \( S_{1} \subseteq S_{2}  \), we must have \( v_{1} , v_{2}, \dots, v_{n} \in S_{2} \) as well. If these vectors are linearly dependent, then these vectors are also linearly dependent in \( S_{2} \); that is, we have scalars \( a_{1}, a_{2}, \dots, a_{n} \in F  \) not all zero such that  
+\[  a_{1} v_{1} + a_{2} v_{2} + \cdots + a_{n} v_{n} = 0.  \]
+Hence, \( S_{2}  \) is linearly dependent.
+\end{proof}
+
+\begin{corollary}
+   Let \( V  \) be a vector space, and let \( S_{1} \subseteq S_{2} \subseteq V  \). If \( S_{2}  \) is linearly independent, then \( S_{1}  \) is linearly independent. 
+\end{corollary}
+\begin{proof}
+    Note that this corollary is just the contrapositive of the theorem before it. Hence, \( S_{1}  \) is linearly independent.
+\end{proof}
+
+\begin{itemize}
+    \item Determining whether there exists a minimal generating set for the span of \( S  \) is related to solving the problem of finding whether some vector in \( S  \) that can be written in terms of a linear combination of other vectors in \( S  \). 
+    \item We can see that in a given subset of \( \R^{3}  \) defined by 
+        \[  S = \{ u_{1}, u_{2}, u_{3}, u_{4}  \}  \] where \( u_{1} = (2,-1,4) , u_{2} = (1,-1, 3), u_{3} = (1,1,-1) \), and \( u_{4} = (1,-2,1) \). Note that this \( S  \) is linearly dependent. This tells us that any vector in \( S  \) can be written as a linear combination of the others. Suppose we pick \( u_{3}  \) and write as a linear combination of the vectors \( u_{1}, u_{2},  \) and \( u_{4} \). We would find that the span of these three vectors (denote this set as \( S' \)) generates the same spanning set \( S  \) but with a cardinality one less than \( S  \); that is, \( \text{span}(S) = \text{span}(S') \). 
+    \item If we find that there does not exist a proper subset that is equivalent to the span of \( S  \), then \( S  \) must be a linearly independent set.
+\end{itemize}
+
+\begin{theorem}[ ]
+    Let \( S  \) be a linearly independent subset of a vector space \( V  \), and let \( v \in V  \) but not in \( S  \). Then \( S \cup \{ v \}  \) is linearly dependent if and only if \( v \in \text{span}(S) \).
+\end{theorem} 
+\begin{proof}
+
+\end{proof}
