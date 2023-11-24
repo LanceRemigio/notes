@@ -120,8 +120,22 @@ Hence, \( S_{2}  \) is linearly dependent.
 \end{itemize}
 
 \begin{theorem}[ ]
+
     Let \( S  \) be a linearly independent subset of a vector space \( V  \), and let \( v \in V  \) but not in \( S  \). Then \( S \cup \{ v \}  \) is linearly dependent if and only if \( v \in \text{span}(S) \).
 \end{theorem} 
 \begin{proof}
+    ( \( \Rightarrow \) ) Suppose \( S \cup \{ v \}  \) is a linearly dependent set. Then there exists a finite number of scalars \( a_{1}, a_{2}, \dots, a_{n} \in F  \) and vectors \( u_{1} , u_{2} , \dots, u_{n} \in S \cup \{ v  \}  \) such that 
+\[  a_{1} u_{1} + a_{2} u_{2} + \dots + a_{n} u_{n} = 0. \]
+Since \( S  \) is a linearly independent set, we must have \( u_{i} = v   \) for some \( 1 \leq i \leq n  \). Choose \( i = 1  \) (any choice of \( i \) will do) such that 
+\[ a_{1} v + a_{2} u_{2} + \cdots + a_{n} u_{n} = 0.  \]
+Solving for \( v  \) by subtracting \( a_{1} v   \) on both sides, multiplying by \( a^{-1}_{1}  \) on both sides of the equation, and distributing by \( a^{-1}_{1} \) yields the following:
+\[  v = (- a_{1}^{-1} a_{2})u_{2} + (- a_{1}^{-1} a_{3}) u_{3} + \cdots + (- a^{-1}_{1} a_{n}  ) u_{n}.     \]
+Since \( v  \) is a linear combination of vectors \( u_{1} , u_{2}, \dots, u_{n} \in S  \), we know that \( v \in \text{span}(S) \). 
 
+
+    ( \( \Leftarrow  \) ) Conversely, suppose \( v \in \text{span}(S) \). This implies that there exists a finite amount of scalars \( a_{1} , a_{2} , \dots, a_{n} \in F  \) and \( u_{1} , u_{2} , \dots, u_{n} \in S  \) such that   
+    \[  v = a_{1} u_{1} + a_{2} u_{2} + \cdots + a_{n} u_{n}. \]
+    Subtracting \( v  \) from both sides of the equation above gives us the following equation:
+    \[  a_{1} u_{1} + a_{2} u_{2} + \cdots + a_{n} u_{n} - v = 0.  \]
+    Note that \( v  \) is not contained in \( S  \), so \( v \neq u_{i}  \) for all \( 1 \leq i \leq n \). Since \( S  \) is a linearly independent set, we know that \( a_{i} = 0  \) for all \( 1 \leq i \leq n \). This implies that the only coefficient that is non-zero is with \( -v = -1v  \). Hence, the set of vectors \( S' = \{ u_{1}, u_{2} , \dots , u_{n} , v  \}  \) is linearly dependent. Since \( S' \subseteq S \cup \{ v \}  \), we know that \( S \cup \{ v \}  \) is also linearly independent by Theorem 6. 
 \end{proof}
