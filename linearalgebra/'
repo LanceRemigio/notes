@@ -181,17 +181,7 @@ See proof in notes.
 
 \subsubsection{Exercise 1.5.14} Prove that a set \( S  \) is linearly dependent if and only if \( S = \{ 0  \}  \) or there exists distinct vectors \( v , u_{1}, u_{2}, \dots, u_{n} \in S  \) such that \( v  \) is a linear combination of \( u_{1}, u_{2}, \dots, u_{n} \).
 \begin{proof}
-    For the forwards direction, Let \( S  \) be a linearly dependent. Then we need to show that either \( S = \{ 0  \}  \) or \( S  \) contains distinct vectors \( v , u_{1}, u_{2} , \dots, u_{n} \in S  \) such that \( v \in \text{span}(S ) \). Suppose there does not exists distinct vectors  \( v , u_{1}, u_{2}, \dots, u_{n} \in  S  \) such that \( v \in \text{span}(S ) \). This tells us that \( S  \) only contains the singleton \( S = \{ v  \}  \). Furthermore, we must require \( v = 0  \) since \( S  \) is linearly dependent. Otherwise, \( v \neq 0  \) would imply that \( S  \) is linearly independent. Hence, we have \( S = \{ 0 \}  \).  
-    Now suppose \( S \neq \{ 0 \}  \). Since \( S  \) is linearly dependent, there exists scalars \( a_{1}, a_{2}, \dots, a_{n+1} \)  and vectors \( v , u_{1}, u_{2}, \dots, u_{n}     \) such that 
-    \[  a_{1} v +  a_{2} u_{1} + a_{3} u_{2} + \cdots + a_{n+1} u_{n} = 0   \] with all \( a_{1} , a_{2}, \dots , a_{n},  a_{n+1} \) not all equal to zero. Solving for \( v  \), we get that
-    \[  v = -(a^{-1}_{1} a_{2} ) u_{1} - (a^{-1}_{1} a_{3}) u_{2} - \cdots - (a^{-1}_{1} a_{n+1}) u_{n}. \] 
-    Since \( v  \) is a linear combination of \( u_{1}, u_{2}, \dots, u_{n}  \), we have that \( v \in \text{span}(S) \).
-
-    Conversely, suppose that either \( S = \{ 0  \}  \) or there exists distinct vectors \( v , u_{1}, u_{2}, \dots, u_{n} \in S  \) such that \( v  \) is a linear combination of \( u_{1}, u_{2}, \dots, u_{n}   \). Assume \( S = \{ 0 \}  \). Then \( S  \) is linearly dependent because the singleton is the zero vector. Now suppose \( v  \) is a linear combination of vectors \( u_{1}, u_{2}, \dots, u_{n}  \). Then there exists scalars  \( a_{1}, a_{2}, \dots, a_{n} \in F  \) and distinct vectors \( u_{1}, u_{2}, \dots, u_{n} \in S  \) such that
-    \[  v = a_{1} u_{1} + a_{2} u_{2} + \cdots + a_{n} u_{n}. \]
-    Subtracting \( v  \) from both sides of this equation yields the following equation 
-    \[  a_{1} u_{1} + a_{2} u_{2} + \cdots + a_{n} u_{n} - 1 v = 0.  \]
-    Since not all scalars in the equation above are zero and \( v  , u_{1}, u_{2}, \dots, u_{n} \in S  \), we must have that \( S  \) is a linearly dependent set.
+For the forwards direction, suppose \( S  \) is linearly dependent. We need to show that either \( S = \{ 0  \}    \) or there exists distinct vectors \( v, u_{1}, u_{2}, \dots, u_{n} \in S   \) such that \( v  \) is a linear combination of \( u_{1}, u_{2}, \dots, u_{n}   \). Suppose that there does not exists distinct vectors \( v, u_{1}, u_{2}, \dots, u_{n} \in S   \) such that \( v  \) is linear combination of \( u_{1}, u_{2}, \dots, u_{n}  \). We need to show that \( S = \{ 0  \}  \).
 \end{proof}
 
 
