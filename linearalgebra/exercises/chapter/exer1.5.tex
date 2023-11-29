@@ -268,12 +268,12 @@ Using scalar multiplication and addition, we arrive at the following system of e
                                                                      \delta_{n-1} a_{n-1 n-1 } + \delta_{n} a_{n-1 n }     &= 0 \\
                                                                      \delta_{n} a_{n n } &= 0.
 \end{align*}
-Since all the diagonal entries of \( M  \) are non-zero, we can see from the equation above that \( \delta_{n } = 0  \) which subsequently tells us that \( \delta_{n -1 } = 0  \). We claim that \( \delta_{n-1} = \delta_{n } = 0  \) for all \( n > 1  \). We can prove this via induction. Let our base case be \( n = 2  \). Then observe that we have an upper triangular \( 2 \times 2  \) matrix such that the linear combination of the columns lead to the following system of linear equations:
+Since all the diagonal entries of \( M  \) are non-zero, we can see from the equation above that \( \delta_{n } = 0  \) which subsequently tells us that \(  \delta_{n -1 } = 0  \). We claim that \( \delta_{1} =  \cdots =  \delta_{n-1} = \delta_{n } = 0  \) for all \( n \geq 1  \). We can prove this via induction. Let our base case be \( n = 2  \). Then observe that we have an upper triangular \( 2 \times 2  \) matrix such that the linear combination of the columns lead to the following system of linear equations:
 \begin{align*}
     \delta_{1} a_{11} + \delta_{2} a_{12} &= 0 \\
     0 + \delta_{2} a_{22} &= 0. 
 \end{align*}
-Observe that \( \delta_{2} = 0  \) which also implies that \( \delta_{1} =0  \). Now suppose our claim that \( \delta_{n-1} = \delta_{n} = 0   \) holds for all \( n > 1  \). We want to show that our claim still holds for the \( n + 1  \) case. Observe that \( \delta_{n + 1} = 0   \). Using the same process that proved the base case, we have that \( \delta_{n} = \delta_{n+1} = 0  \). By our inductive hypothesis, we know that \( \delta_{n-1} = \delta_{n} = 0  \). This tells us that \( \delta_{n} = \delta_{n+1} \) for all \( n > 1  \).  Hence, the columns of \( M  \) are linearly independent.  
+Observe that \( \delta_{2} = 0  \) which also implies that \( \delta_{1} =0  \). Now suppose our claim that \( \delta_{1} = \cdots =  \delta_{n-1} = \delta_{n} = 0   \) holds for all \( n \geq  1  \). We want to show that our claim still holds for the \( n + 1  \) case. Observe that \( \delta_{n + 1} = 0   \) derived from an \( n + 1 \times n  + 1  \) matrix. Using the same process that proved the base case, we find that \(  \delta_{n} = \delta_{n+1} = 0  \). By our inductive hypothesis, we know that \( \delta_{1} = \cdots =  \delta_{n-1} = \delta_{n} = 0  \) for all \( n \geq 1  \). This tells us that \( \delta_{1} = \cdots = \delta_{n+1} \) for all \( n \geq 1  \).  Hence, the columns of \( M  \) are linearly independent.  
 
 
 \end{proof}
