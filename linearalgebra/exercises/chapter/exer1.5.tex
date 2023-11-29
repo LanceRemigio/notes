@@ -290,7 +290,9 @@ Observe that \( \delta_{2} = 0  \) which also implies that \( \delta_{1} =0  \).
 
 \subsubsection{Exercise 1.5.20} Let \( f,g \in \mathcal{F}(\R , \R ) \) be the functions defined by \( f(t) = e^{rt} \) and \( g(t) = e^{s t  } \), where \( r \neq s  \). Prove that \( f  \) and \( g  \) are linearly independent in \( \mathcal{F}(\R , \R ) \).
 \begin{proof}
-\textbf{TO DO.} 
+    Let \( f,g \in \mathcal{F}(\R , \R )  \) where \( f  \) and \( g  \) are defined by \( f(t) = e^{rt}  \) and \( g(t) = e^{s t  } \) with \( r \neq  s  \). Suppose for sake of contradiction that the set \( \{ f,g  \}  \) is a linearly dependent set of vectors. By Exercise 1.5.9, we know that either \( f  \) is a multiple of \( g  \) or \( g  \) is a multiple of \( f  \). Assume \( f  \) is a multiple of \( g  \). Hence, there exists a \(  c \in R  \) such that \( f(t) = c g(t ) \). In other words, 
+    \[  f(t) = c g(t) \implies e^{rt} = c e^{s t }. \]
+     This equality is valid only when \( r = s  \) because otherwise \( f  \) would not be a scalar multiple of \( g  \). But note that \( r \neq s  \) by assumption. Hence, we have a contradiction and thus \( \{ f,g  \}  \) must be linearly independent.
 \end{proof}
 
 
