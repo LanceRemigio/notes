@@ -197,7 +197,7 @@ See proof in notes.
 
 \subsubsection{Exercise 1.5.15} Prove that a set \( S = \{ u_{1} , u_{2}, \dots, u_{n} \}   \) be a finite set of vectors. Prove that \( S  \) is linearly dependent if and only if \( u_{1} = 0  \)  or \( u_{k+1} \in \text{span}(\{ u_{1}, u_{2}, \dots, u_{k } \} ) \) for some \( k  \) where \( 1 \leq k < n  \). 
 \begin{proof}
-Suppose  \( u_{k+1} \notin \text{span}(\{ u_{1} , u_{2}, \dots, u_{k }  \} ) \) for all \( 1 \leq k \leq n \). Since \( S  \) is linearly dependent, we know that the zero vector is contained in \( S  \). Choose \( k =1  \) such that \( u_{1} = 0  \) and we are done. On the other hand, suppose \( u_{1} \neq 0  \). We need to show that \( u_{k+1} \in \text{span}(\{ u_{1} , u_{2} , \dots, u_{k } \} ) \). Choose \( k = n -1  \). Then clearly \( n = k + 1  \). Since \( S  \) is linear independent, choose scalars \( a_{1} , a_{2}, \dots, a_{n} \in F   \) such that
+Suppose  \( u_{k+1} \notin \text{span}(\{ u_{1} , u_{2}, \dots, u_{k }  \} ) \) for all \( 1 \leq k < n \). Since \( S  \) is linearly dependent, we know that the zero vector is contained in \( S  \). Choose \( k =1  \) such that \( u_{1} = 0  \) and we are done. On the other hand, suppose \( u_{1} \neq 0  \). We need to show that \( u_{k+1} \in \text{span}(\{ u_{1} , u_{2} , \dots, u_{k } \} ) \). Choose \( k = n -1  \). Then clearly \( n = k + 1  \). Since \( S  \) is linear independent, choose scalars \( a_{1} , a_{2}, \dots, a_{n} \in F   \) such that
 \[ a_{1} u_{1} + a_{2} u_{2} + \cdots + a_{k } u_{k } + a_{k+1}u_{k+1} = 0.    \tag{1}\]
 where \( a_{1}, a_{2} , \dots, a_{k } ,  a_{k+1} \) not all zero. Solving for \( u_{k+1}  \) by subtracting \( a_{k+1} u_{k+1} \) on both sides of (1) and multiplying \( -a^{-1}_{k+1}  \) on both sides of (1), we end up with the following equation:
 \[ u_{k+1} = - (a^{-1}_{k+1} a_{1})  u_{1} - ( a^{-1}_{k+1} a_{2} ) u_{2}  - \cdots -  ( a^{-1}_{k+1} a_{k}    ) u_{k}.    \]
@@ -213,4 +213,84 @@ Subtracting \( u_{n}  \) on both sides of (1) implies that
 Since not all scalars in the linear combination above are zero, we know that \( S  \) must be linearly dependent.
 
 \end{proof}
+
+\subsubsection{Exercise 1.5.16} Prove that a set \( S  \) of vectors is linearly independent if and only if each finite subset of \( S  \) is linearly independent.
+\begin{proof}
+    (  \( \Rightarrow \)  ) Suppose \( S  \) is a linearly independent set. Let \( S' \) be any finite subset of \( S  \). By corollary to Theorem 6, we can see that \( S' \subseteq S  \) implies that \( S'  \) is also linearly independent. 
+    ( \( \Leftarrow \) ) We will proceed by proving the contrapositive. Let \( S' \subseteq S  \) be a finite subset that is linearly dependent set. We will prove that \( S  \) is a linearly dependent set. Since \( S' \subseteq S  \), we have that \( S  \) must be a linearly dependent set by Theorem 6.
+\end{proof}
+
+\subsubsection{Exercise 1.5.17} Let \( M  \) be a square upper triangular matrix (as defined in Section 1.3) with nonzero diagonal entries. Prove that the columns of M are linearly independent.
+\begin{proof}
+Let \( M  \) be a square upper triangular matrix. Note that \( M  \) have the following form:
+\[  
+    \begin{pmatrix}
+        a_{11} & a_{12} & a_{13} &  \cdots &  a_{1n} \\
+        0 & a_{22} &  a_{23} &  \cdots &  a_{2n} \\
+        \vdots & \vdots & \ddots & \ddots & \vdots \\ 
+        \vdots & \vdots & \cdots & \ddots & a_{n-1 n } \\
+        0 & 0  & \cdots & \cdots & a_{n n }
+    \end{pmatrix}.
+ \]
+We can define the following columns as vectors \( v_{1}, v_{2}, \dots v_{n}   \) where 
+\[  
+    v_{1}  =
+    \begin{pmatrix}
+        a_{11} \\
+        0 \\
+        \vdots \\
+        0
+    \end{pmatrix}, v_{2} = \begin{pmatrix}
+        a_{12} \\
+        a_{22} \\
+        \vdots \\
+        0 
+    \end{pmatrix}, \dots , v_{n} = \begin{pmatrix}
+        a_{1n} \\
+        a_{2n} \\
+        \vdots \\
+        a_{n n }
+    \end{pmatrix}.
+\]
+Choose scalars \( \delta_{1} , \delta_{2}, \dots, \delta_{n} \in F  \) such that 
+\[  \delta_{1} v_{1} + \delta_{2} v_{2} + \cdots + \delta_{n} v_{n} = 0 \]
+where the zero vector \( 0  \) is denoted as 
+\[  0 = \begin{pmatrix}
+    0 \\ 
+    \vdots \\
+    0
+\end{pmatrix}. \]
+Using scalar multiplication and addition, we arrive at the following system of equations:
+\begin{align*}
+    \delta_{1} a_{11} + \delta_{2} a_{12} + \cdots + \delta_{n-1} a_{1 n - 1} +  \delta_{n} a_{1n} &= 0 \\
+      \delta_{2} a_{22} + \delta_{3} a_{23} + \cdots +  \delta_{n}  a_{2n} &= 0 \\
+                                                                         &\vdots  \\
+                                                                     \delta_{n-1} a_{n-1 n-1 } + \delta_{n} a_{n-1 n }     &= 0 \\
+                                                                     \delta_{n} a_{n n } &= 0.
+\end{align*}
+Since all the diagonal entries of \( M  \) are non-zero, we can see from the equation above that \( \delta_{n } = 0  \) which subsequently tells us that \( \delta_{n -1 } = 0  \). We claim that \( \delta_{n-1} = \delta_{n } = 0  \) for all \( n > 1  \). We can prove this via induction. Let our base case be \( n = 2  \). Then observe that we have an upper triangular \( 2 \times 2  \) matrix such that the linear combination of the columns lead to the following system of linear equations:
+\begin{align*}
+    \delta_{1} a_{11} + \delta_{2} a_{12} &= 0 \\
+    0 + \delta_{2} a_{22} &= 0. 
+\end{align*}
+Observe that \( \delta_{2} = 0  \) which also implies that \( \delta_{1} =0  \). Now suppose our claim that \( \delta_{n-1} = \delta_{n} = 0   \) holds for all \( n > 1  \). We want to show that our claim still holds for the \( n + 1  \) case. Observe that \( \delta_{n + 1} = 0   \). Using the same process that proved the base case, we have that \( \delta_{n} = \delta_{n+1} = 0  \). By our inductive hypothesis, we know that \( \delta_{n-1} = \delta_{n} = 0  \). This tells us that \( \delta_{n} = \delta_{n+1} \) for all \( n > 1  \).  Hence, the columns of \( M  \) are linearly independent.  
+
+
+\end{proof}
+
+\subsubsection{Exercise 1.5.18} Let \( S  \) be a set of nonzero polynomials in \( P(F) \) such that no two have the same degree. Prove that \( S  \) is linearly independent.
+\begin{proof}
+\textbf{TO DO.}
+\end{proof}
+
+\subsubsection{Exercise 1.5.19} Prove that if \( \{ A_{1}, A_{3}, \dots, A_{k} \}  \) is a linearly independent subset of \( M_{n \times n }(F) \), then \( \{ A^{t}_{1} , A^{t}_{2} , A^{t}_{3}, \dots, A^{t}_{k } \}  \) is also linearly independent.
+\begin{proof}
+\textbf{TO DO.}
+\end{proof}
+
+\subsubsection{Exercise 1.5.20} Let \( f,g \in \mathcal{F}(\R , \R ) \) be the functions defined by \( f(t) = e^{rt} \) and \( g(t) = e^{s t  } \), where \( r \neq s  \). Prove that \( f  \) and \( g  \) are linearly independent in \( \mathcal{F}(\R , \R ) \).
+\begin{proof}
+\textbf{TO DO.} 
+\end{proof}
+
 
