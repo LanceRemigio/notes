@@ -280,18 +280,30 @@ Observe that \( \delta_{2} = 0  \) which also implies that \( \delta_{1} =0  \).
 
 \subsubsection{Exercise 1.5.18} Let \( S  \) be a set of nonzero polynomials in \( P(F) \) such that no two have the same degree. Prove that \( S  \) is linearly independent.
 \begin{proof}
-\textbf{TO DO.}
 \end{proof}
 
-\subsubsection{Exercise 1.5.19} Prove that if \( \{ A_{1}, A_{3}, \dots, A_{k} \}  \) is a linearly independent subset of \( M_{n \times n }(F) \), then \( \{ A^{t}_{1} , A^{t}_{2} , A^{t}_{3}, \dots, A^{t}_{k } \}  \) is also linearly independent.
+\subsubsection{Exercise 1.5.19} Prove that if \( \{ A_{1}, A_{2}, \dots, A_{k} \}  \) is a linearly independent subset of \( M_{n \times n }(F) \), then \( \{ A^{t}_{1} , A^{t}_{2} , A^{t}_{3}, \dots, A^{t}_{k } \}  \) is also linearly independent.
 \begin{proof}
-\textbf{TO DO.}
+    Suppose \( \{ A_{1}, A_{2}, \dots, A_{k } \}  \) is a linearly independent set. Choose a finite set of scalars \( \delta_{1} , \delta_{2}, \dots, \delta_{k} \in F \) such that 
+    \[  \delta_{1} A_{1} + \delta_{2} A_{2} + \cdots + \delta_{k} A_{k} = 0  \]
+with \( \delta_{1} = \delta_{2} = \cdots = \delta_{k } = 0 \).
+Apply the transpose to both sides, we know that \( 0^{t} = 0  \) and \((\delta_{i} A_{i})^{t} = \delta_{i} (A_{i})^{t} \) for all \( 1 \leq i \leq k   \).  Hence, we have
+\begin{align*}  
+    &(  \delta_{1} A_{1} + \delta_{2} A_{2} + \cdots + \delta_{k} A_{k})^{t} = 0^{t}  \\   
+    &\implies (  \delta_{1} A_{1} )^{t}  + (\delta_{2} A_{2})^{t}  + \cdots + (\delta_{k} A_{k} )^{t}   = 0  \\
+    &\implies \delta_{1} A_{1}^{t} + \delta_{2} A_{2}^{t} + \cdots + \delta_{k } A_{k }^{t} = 0. 
+\end{align*}
+Hence, the set \( \{ A_{1}^{t} , A_{2}^{t} , \dots, A_{k }^{t} \}  \) is also linearly independent.
 \end{proof}
 
 \subsubsection{Exercise 1.5.20} Let \( f,g \in \mathcal{F}(\R , \R ) \) be the functions defined by \( f(t) = e^{rt} \) and \( g(t) = e^{s t  } \), where \( r \neq s  \). Prove that \( f  \) and \( g  \) are linearly independent in \( \mathcal{F}(\R , \R ) \).
 \begin{proof}
     Let \( f,g \in \mathcal{F}(\R , \R )  \) where \( f  \) and \( g  \) are defined by \( f(t) = e^{rt}  \) and \( g(t) = e^{s t  } \) with \( r \neq  s  \). Suppose for sake of contradiction that the set \( \{ f,g  \}  \) is a linearly dependent set of vectors. By Exercise 1.5.9, we know that either \( f  \) is a multiple of \( g  \) or \( g  \) is a multiple of \( f  \). Assume \( f  \) is a multiple of \( g  \). Hence, there exists a \(  c \in R  \) such that \( f(t) = c g(t ) \). In other words, 
     \[  f(t) = c g(t) \implies e^{rt} = c e^{s t }. \]
+    To solve for \( c  \), let \( t = 0  \). Then we have 
+    \[  f(0) = c g(0) \implies 1 = c. \]
+    Hence, we have
+    \[  e^{rt} = e^{s t }. \]
      This equality is valid only when \( r = s  \) because otherwise \( f  \) would not be a scalar multiple of \( g  \). But note that \( r \neq s  \) by assumption. Hence, we have a contradiction and thus \( \{ f,g  \}  \) must be linearly independent.
 \end{proof}
 
