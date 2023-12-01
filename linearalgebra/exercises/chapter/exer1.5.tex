@@ -178,8 +178,8 @@ See proof in notes.
         \end{proof}
 \end{enumerate}
 
-
 \subsubsection{Exercise 1.5.14} Prove that a set \( S  \) is linearly dependent if and only if \( S = \{ 0  \}  \) or there exists distinct vectors \( v , u_{1}, u_{2}, \dots, u_{n} \in S  \) such that \( v  \) is a linear combination of \( u_{1}, u_{2}, \dots, u_{n} \).
+
 \begin{proof}
     For the forwards direction, Let \( S  \) be a linearly dependent. Then we need to show that either \( S = \{ 0  \}  \) or \( S  \) contains distinct vectors \( v , u_{1}, u_{2} , \dots, u_{n} \in S  \) such that \( v \in \text{span}(S ) \). Suppose there does not exists distinct vectors  \( v , u_{1}, u_{2}, \dots, u_{n} \in  S  \) such that \( v \in \text{span}(S ) \). This tells us that \( S  \) only contains the singleton \( S = \{ v  \}  \). Furthermore, we must require \( v = 0  \) since \( S  \) is linearly dependent. Otherwise, \( v \neq 0  \) would imply that \( S  \) is linearly independent. Hence, we have \( S = \{ 0 \}  \).  
     Now suppose \( S \neq \{ 0 \}  \). Since \( S  \) is linearly dependent, there exists scalars \( a_{1}, a_{2}, \dots, a_{n+1} \)  and vectors \( v , u_{1}, u_{2}, \dots, u_{n}     \) such that 
@@ -268,18 +268,29 @@ Using scalar multiplication and addition, we arrive at the following system of e
                                                                      \delta_{n-1} a_{n-1 n-1 } + \delta_{n} a_{n-1 n }     &= 0 \\
                                                                      \delta_{n} a_{n n } &= 0.
 \end{align*}
-Since all the diagonal entries of \( M  \) are non-zero, we can see from the equation above that \( \delta_{n } = 0  \) which subsequently tells us that \(  \delta_{n -1 } = 0  \). We claim that \( \delta_{1} =  \cdots =  \delta_{n-1} = \delta_{n } = 0  \) for all \( n \geq 1  \). We can prove this via induction. Let our base case be \( n = 2  \). Then observe that we have an upper triangular \( 2 \times 2  \) matrix such that the linear combination of the columns lead to the following system of linear equations:
+Since all the diagonal entries of \( M  \) are non-zero, we can see from the equation above that \( \delta_{n } = 0  \) which subsequently tells us that \(  \delta_{n -1 } = 0  \). We claim that \( \delta_{1} =  \cdots =  \delta_{n-1} = \delta_{n } = 0  \) for all \( n \geq 1  \). We can prove this via induction. Let our base case be \( n = 1  \). Then we have \( \delta_{1} a_{11} = 0  \) with \( a_{11} \neq 0  \) implies \( \delta_{1} = 0  \). Now let \( n = 2  \). Then observe that we have an upper triangular \( 2 \times 2  \) matrix such that the linear combination of the columns lead to the following system of linear equations:
 \begin{align*}
     \delta_{1} a_{11} + \delta_{2} a_{12} &= 0 \\
     0 + \delta_{2} a_{22} &= 0. 
 \end{align*}
 Observe that \( \delta_{2} = 0  \) which also implies that \( \delta_{1} =0  \). Now suppose our claim that \( \delta_{1} = \cdots =  \delta_{n-1} = \delta_{n} = 0   \) holds for all \( n \geq  1  \). We want to show that our claim still holds for the \( n + 1  \) case. Observe that \( \delta_{n + 1} = 0   \) derived from an \( n + 1 \times n  + 1  \) matrix. Using the same process that proved the base case, we find that \(  \delta_{n} = \delta_{n+1} = 0  \). By our inductive hypothesis, we know that \( \delta_{1} = \cdots =  \delta_{n-1} = \delta_{n} = 0  \) for all \( n \geq 1  \). This tells us that \( \delta_{1} = \cdots = \delta_{n+1} \) for all \( n \geq 1  \).  Hence, the columns of \( M  \) are linearly independent.  
-
-
 \end{proof}
 
 \subsubsection{Exercise 1.5.18} Let \( S  \) be a set of nonzero polynomials in \( P(F) \) such that no two have the same degree. Prove that \( S  \) is linearly independent.
 \begin{proof}
+    Let \( 0 \leq n \leq k  \) such that \( S = \{ p_{0}(x) , p_{1}(x), p_{2}(x), \dots, p_{k}(x) \}  \) where every \( p_{n}(x) \) non-zero such that no two polynomials in this set have the same degree. Define \( p_{n }(x) =  x^{n} + x^{n+1} + \cdots + x^{k} \). Choose scalars \( a_{1} , a_{2}, \dots, a_{k } \in F  \) such that 
+    \[  a_{1} p_{1}(x) + a_{2} p_{2}(x) + \cdots + a_{k } p_{k }(x) = 0 \tag{1} \]
+    We need to show that \( \delta_{1} = \delta_{2} = \cdots = \delta_{k } = 0  \). Observe that (1) implies that
+    \[  a_{0} + (a_{0} + a_{1} + a_{2})x^{2} + \cdots + (a_{0} + a_{1} + \cdots + a_{k})x^{k} = 0 \tag{2}.  \]
+    Setting each \( x^{n} \) to both sides of the equation above leads to the following system of linear equations:
+    \begin{align*}
+        a_{0} &= 0  \\
+        a_{0} + a_{1} &= 0  \\
+        a_{0} + a_{1} + a_{2} &= 0 \\
+        \vdots  \\
+        a_{0} + a_{1} + a_{2} + \cdots + a_{k} &= 0.
+    \end{align*}
+    It can be proved via induction that \( a_{1} = a_{2} = \cdots = a_{k } = 0  \) for all \( 1 \leq n \leq  k  \). Hence, \( S  \) is a linearly independent set.
 \end{proof}
 
 \subsubsection{Exercise 1.5.19} Prove that if \( \{ A_{1}, A_{2}, \dots, A_{k} \}  \) is a linearly independent subset of \( M_{n \times n }(F) \), then \( \{ A^{t}_{1} , A^{t}_{2} , A^{t}_{3}, \dots, A^{t}_{k } \}  \) is also linearly independent.
@@ -307,4 +318,20 @@ Hence, the set \( \{ A_{1}^{t} , A_{2}^{t} , \dots, A_{k }^{t} \}  \) is also li
      This equality is valid only when \( r = s  \) because otherwise \( f  \) would not be a scalar multiple of \( g  \). But note that \( r \neq s  \) by assumption. Hence, we have a contradiction and thus \( \{ f,g  \}  \) must be linearly independent.
 \end{proof}
 
+\subsubsection{Exercise 1.5.21} Let \( S_{1}  \) and \( S_{2}  \) be disjoint linearly independent subsets of \( V  \). Prove that \( S_{1} \cup S_{2}  \) is linearly dependent if and only if \( \text{span}(S_{1}) \cap  \text{span}(S_{2} ) \neq \{ 0  \}  \).
+\begin{proof}
+    ( \( \Rightarrow \) ) We will proceed by proving the contrapositive. Suppose that \( \text{span}(S_{1}) \cap \text{span}(S_{2}) = \{ 0  \}  \). We need to show that \( S_{1} \cup S_{2} \) is a linearly independent set. Choose scalars \( a_{1}, a_{2}, \dots, a_{n} \in F  \) and \( x_{1} - y_{1}, x_{2} - y_{2}, \dots, x_{n} - y_{n} \in S_{1} \cup S_{2}  \) with \( x_{i} \in S_{1} \) and \( y_{i} \in S_{2} \) such that  
+    \[ \sum_{ i= 1  }^{ n } a_{i} (x_{i} - y_{i}) = 0. \tag{1}  \]
+    We need to show  \( a_{i} = 0  \) for all \( 1 \leq i \leq n  \).  Observe that (1) can be re-written in the following way:
+    \[  \sum_{ i=1  }^{ n  } a_{i} x_{i} - \sum_{ i=1 }^{ n } a_{i} y_{i} = 0  \implies  \sum_{ i=1 }^{ n } a_{i} x_{i} = \sum_{ i=1 }^{ n } a_{i} y_{i}.  \]
+    Observe that 
+    \[ \sum_{ i=1  }^{ n  } a_{i} x_{i} = \sum_{ i=1 }^{ n } a_{i} y_{i} = 0  \] since \( \text{span}(S_{1}) \cap \text{span}(S_{2}) = \{  0 \}  \). Furthermore, we must have \( a_{i} = 0   \) for all \( 1 \leq i \leq n  \) since \( S_{1}  \) and \( S_{2}  \) is a linearly independent set. But this tells us that \( S_{1} \cup S_{2}  \) is also linearly independent.
 
+    ( \( \Leftarrow  \) ) We will proceed via contrapositive for this direction as well. We need to show that \( \text{span}(S_{1} ) \cap \text{span}(S_{2}) = \{ 0  \}  \). Since \( S_{1} \cup S_{2}  \) is linearly independent, we can choose scalars \( a_{1}, a_{2}, \dots, a_{n} \in F  \) and vectors \( x_{1} - y_{1}, x_{2} - y_{2}, \dots, x_{n} - y_{n} \in S_{1} \cup S_{2}  \) such that 
+    \[  \sum_{ i=1 }^{ n } a_{i} (x_{i} - y_{i}) = 0 \tag{1}  \]
+    with \( a_{i} = 0  \) for all \( 1 \leq i \leq n \). Observe that (1) implies that 
+    \[  \underbrace{\sum_{ i=1 }^{ n } a_{i} x_{i}}_{\in \text{span}(S_{1})} = \underbrace{\sum_{ i=1 }^{ n } a_{i} y_{i}}_{\in \text{span}(S_{2})}. \] Since \( S_{1} \cup S_{2}  \) is linearly independent, \( a_{i} = 0  \) for all \( 1 \leq i \leq n  \) which implies that 
+    \[  \sum_{ i=1 }^{ n } a_{i} x_{i} = \sum_{ i=1 }^{ n } a_{i} y_{i} = 0 \]
+    and thus \( \text{span}(S_{1}) \cap \text{span}(S_{2}) = \{ 0 \}. \)
+    
+\end{proof}
