@@ -16,7 +16,9 @@
         \textbf{False}. It is linearly independent.
         \end{proof}
     \item[(d)] Subsets of linearly dependent sets are linearly dependent. 
-        \textbf{True} by Theorem 6.
+        \begin{proof}
+        This is \textbf{False}. We can have a linearly independent subset of a set that is linearly dependent.
+        \end{proof}
     \item[(e)] Subsets of linearly independent sets are linearly independent.
         \begin{proof}
         \textbf{True} by corollary to Theorem 6.
@@ -320,12 +322,14 @@ Hence, the set \( \{ A_{1}^{t} , A_{2}^{t} , \dots, A_{k }^{t} \}  \) is also li
 
 \subsubsection{Exercise 1.5.21} Let \( S_{1}  \) and \( S_{2}  \) be disjoint linearly independent subsets of \( V  \). Prove that \( S_{1} \cup S_{2}  \) is linearly dependent if and only if \( \text{span}(S_{1}) \cap  \text{span}(S_{2} ) \neq \{ 0  \}  \).
 \begin{proof}
-    ( \( \Rightarrow \) ) We will proceed by proving the contrapositive. Suppose that \( \text{span}(S_{1}) \cap \text{span}(S_{2}) = \{ 0  \}  \). We need to show that \( S_{1} \cup S_{2} \) is a linearly independent set. Choose scalars \( a_{1}, a_{2}, \dots, a_{n} \in F  \) and \( x_{1} - y_{1}, x_{2} - y_{2}, \dots, x_{n} - y_{n} \in S_{1} \cup S_{2}  \) with \( x_{i} \in S_{1} \) and \( y_{i} \in S_{2} \) such that  
-    \[ \sum_{ i= 1  }^{ n } a_{i} (x_{i} - y_{i}) = 0. \tag{1}  \]
-    We need to show  \( a_{i} = 0  \) for all \( 1 \leq i \leq n  \).  Observe that (1) can be re-written in the following way:
-    \[  \sum_{ i=1  }^{ n  } a_{i} x_{i} - \sum_{ i=1 }^{ n } a_{i} y_{i} = 0  \implies  \sum_{ i=1 }^{ n } a_{i} x_{i} = \sum_{ i=1 }^{ n } a_{i} y_{i}.  \]
+    ( \( \Rightarrow \) ) We will proceed via contrapositive. Since \( \text{span}(S_{1}) \cap \text{span}(S_{2}) = \{ 0  \}  \), let \( v \in \text{span}(S_{1}) \) such that we can find a \( w \in \text{span}(S_{2}) \) such that both  \( v = w   \) where both \( v =0  \) and \( w = 0  \). Since \( v \in \text{span}(S_{1}) \), we can find a finite set of vectors \( x_{1}, x_{2}, \dots, x_{n} \in S_{1} \) and scalars \( a_{1} , a_{2} , \dots, a_{n} \in F  \) such that 
+    \[ v =  \sum_{ i=1 }^{ n } a_{i} x_{i} = 0.  \]
+    Likewise, \( w \in \text{span}(S_{2}) \) implies that we can find \( y_{1}, y_{2}, \dots, y_{n} \in S_{2} \) and scalars \( b_{1}, b_{2} , \dots, b_{n} \in F  \) such that 
+    \[ w = \sum_{ j=1 }^{ n } b_{j} y_{j} = 0.   \]
     Observe that 
-    \[ \sum_{ i=1  }^{ n  } a_{i} x_{i} = \sum_{ i=1 }^{ n } a_{i} y_{i} = 0  \] since \( \text{span}(S_{1}) \cap \text{span}(S_{2}) = \{  0 \}  \). Furthermore, we must have \( a_{i} = 0   \) for all \( 1 \leq i \leq n  \) since \( S_{1}  \) and \( S_{2}  \) is a linearly independent set. But this tells us that \( S_{1} \cup S_{2}  \) is also linearly independent.
+    \[  v = w \implies \sum_{ i=1 }^{ n } a_{i} x_{i} = \sum_{ j=1 }^{ n } b_{j}y_{j}.  \]
+    Then we have
+    \[  \sum_{ i=1 }^{ n } a_{i} x_{i} - \sum_{ j=1 }^{ n } b_{j} y_{j} = 0. \] Since \( S_{1} \) and \( S_{2}  \) are disjoint linearly independent sets, we know that \( x_{i} \notin S_{2}  \) and \( y_{i} \notin S_{1} \) and that \( a_{i} = 0  \) and \( b_{j} = 0  \) for all \( 1 \leq i \leq n  \) and \( 1 \leq j \leq n \) respectively. Hence, \( S_{1} \cup S_{2}  \) is a linearly independent set.
 
     ( \( \Leftarrow  \) ) We will proceed via contrapositive for this direction as well. We need to show that \( \text{span}(S_{1} ) \cap \text{span}(S_{2}) = \{ 0  \}  \). Since \( S_{1} \cup S_{2}  \) is linearly independent, we can choose scalars \( a_{1}, a_{2}, \dots, a_{n} \in F  \) and vectors \( x_{1} - y_{1}, x_{2} - y_{2}, \dots, x_{n} - y_{n} \in S_{1} \cup S_{2}  \) such that 
     \[  \sum_{ i=1 }^{ n } a_{i} (x_{i} - y_{i}) = 0 \tag{1}  \]

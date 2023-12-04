@@ -14,7 +14,7 @@ Suppose \( V  \) is a vector space over a field \( F  \) and that \( W \subseteq
 \end{itemize}
 
 
-\begin{definition}[Linearly Dependence]
+\begin{definition}[Linearly Dependence]\label{linear dependence}
    A subset \( S  \) of a vector space \( V  \) is called \textbf{linearly dependent} if there exists a finite number of distinct vectors in \( u_{1}, u_{2} , \dots , u_{n} \in S  \) and scalars \( a_{1}, a_{2}, \dots, a_{n}  \) not all zero, such that  
    \[  a_{1} u_{1} + a_{2} u_{2} + \cdots + a_{n} u_{n} = 0.  \]
    In this case, we also say that the vectors of \( S  \) are linearly dependent.
@@ -22,7 +22,7 @@ Suppose \( V  \) is a vector space over a field \( F  \) and that \( W \subseteq
 
 \begin{itemize}
     \item The \textbf{trivial representation} of \( 0  \) is a linear combination of scalars \( a_{1}, a_{2}, \dots, a_{n} \in F  \) and distinct vectors \( v_{1}, v_{2}, \dots, v_{n}   \in S   \) where for all \( 1 \leq i \leq n  \), we have \( a_{i} = 0  \). 
-    \item This tells us that our definition of \textbf{Linear Dependence} implies that \( 0  \) is a non-trivial linear combination.
+    \item This tells us that our definition of {\hyperref[linear dependence]{\textbf{linear dependence}}} implies that \( 0  \) is a non-trivial linear combination.
     \item Any subset of \( V  \) that contains the zero vector is subsequently linearly dependent since \(  0  \) can be written as non-trivial representation; that is, \( 1 \cdot 0 = 0  \).
 \end{itemize}
 
@@ -139,3 +139,6 @@ Since \( v  \) is a linear combination of vectors \( u_{1} , u_{2}, \dots, u_{n}
     \[  a_{1} u_{1} + a_{2} u_{2} + \cdots + a_{n} u_{n} - v = 0.  \]
     Note that \( v  \) is not contained in \( S  \), so \( v \neq u_{i}  \) for all \( 1 \leq i \leq n \). Since \( S  \) is a linearly independent set, we know that \( a_{i} = 0  \) for all \( 1 \leq i \leq n \). This implies that the only coefficient that is non-zero is with \( -v = -1v  \). Hence, the set of vectors \( S' = \{ u_{1}, u_{2} , \dots , u_{n} , v  \}  \) is linearly dependent. Since \( S' \subseteq S \cup \{ v \}  \), we know that \( S \cup \{ v \}  \) is also linearly independent by Theorem 6. 
 \end{proof}
+
+
+
