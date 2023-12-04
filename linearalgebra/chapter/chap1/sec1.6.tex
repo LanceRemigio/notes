@@ -1,3 +1,40 @@
 \section{Bases And Dimension}
 
+\begin{itemize}
+    \item Recall that \( S  \) is a generating set for a subspace \( W  \) and no proper subset of \( S  \) is a generating set for \( W  \), then \( S  \) must be linearly independent. 
+    \item Linearly independent sets possess the unique property that every vector that its spanning set generates is unique.
+    \item This is property is what allows generating sets to be the building blocks of vector spaces.
+\end{itemize}
+
+\begin{definition}[Basis]
+    A \textbf{basis} \( \beta \) for a vector space \( V  \) is linearly independent subset of \( V  \) that generates \( V  \). If \( \beta  \) is a basis for \( V  \), we also say that the vectors of \( \beta \) form a basis for \( V  \).
+\end{definition}
+
+\begin{eg}
+    \begin{itemize}
+        \item     Recall that the empty set \( \emptyset \) is linearly independent and that \( \text{span}(\emptyset) = \{ 0 \}  \). The empty set \( \emptyset \) in this case is the basis for the zero vector space.
+        \item Note that in \( F^{n}  \), the vectors \( e_{1} = (1,0, \dots, 0 ) \), \( e_{2} = (0,1,0, \dots, 0 ) \dots, e_{n} = (0,0, \dots, 0, 1 ) \) form a basis for \( F^{n} \).
+        \item The basis for \( M_{m \times n}(F ) \) is the set of matrices \( E^{ij} \) such that the only nonzero entry is a 1 in the \( i \)th and \( j \)th column.
+        \item As we have seen in the last section, the set \( \{ 1, x , x^{2}, \dots, x^{n} \}  \) is a basis for \( P_{n}(F) \).
+        \item In \( P(F) \), the set \( \{ 1,x ,x x^{2}, \dots \}  \) is a basis. \textit{Bases are not limited to finite sets. They can be infinite.} 
+\end{itemize}
+\end{eg}
+
+\begin{theorem}[ ]
+    Let \( V  \) be a vector space and \( u_{1}, u_{2}, \dots, u_{n}  \) be distinct vectors in \( V  \). Then \( \beta = \{ u_{1}, u_{2},\dots , u_{n}  \}   \) is a basis for \( V  \) if and only if each \( v \in V  \) can be unique expressed as a linear combination of vectors in \( \beta \), that is, expressed in the form 
+    \[  v = a_{1} v_{1} + a_{2} v_{2} + \cdots + a_{n} v_{n}  \] for unique scalars \( a_{1}, a_{2}, \dots, a_{n}  \).
+\end{theorem}
+\begin{proof}
+Suppose \( \beta = \{ u_{1}, u_{2}, \dots, u_{n} \}  \) is a basis for \( V  \). Then \( \text{span}(\beta) = V  \). If \( v \in V  \), then \( v \in \text{span}(\beta) \). Hence, we can write \( v  \) as a linear combination of vectors in \( \beta   \) such that choosing scalars \( a_{1}, a_{2}, \dots, a_{n} \in F  \) leads to 
+\[ v = \sum_{ i=1 }^{ n } a_{i} u_{i}.   \]
+Suppose there exists another representation of \( v \in V  \) such that 
+\[  v = \sum_{ i=1 }^{ n  } b_{i} x_{i} \]
+Hence, observe that 
+\begin{align*}  &\sum_{ i=1  }^{ n } a_{i} x_{i} = \sum_{ i=1 }^{ n } b_{i} y_{i}  \\
+    &\implies \sum_{ i=1 }^{ n } (a_{i} - b_{i}) x_{i} = 0.
+\end{align*}
+Since \( \beta \) is linearly independent, we know that \( a_{i} - b_{i} = 0  \) which implies \( a_{i} = b_{i}  \) for all \( 1 \leq i \leq n \). Hence, \( v  \) can be expressed as a unique linear combination of vectors in \( \beta \).
+\end{proof}
+
+
 

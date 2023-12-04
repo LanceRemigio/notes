@@ -331,11 +331,8 @@ Hence, the set \( \{ A_{1}^{t} , A_{2}^{t} , \dots, A_{k }^{t} \}  \) is also li
     Then we have
     \[  \sum_{ i=1 }^{ n } a_{i} x_{i} - \sum_{ j=1 }^{ n } b_{j} y_{j} = 0. \] Since \( S_{1} \) and \( S_{2}  \) are disjoint linearly independent sets, we know that \( x_{i} \notin S_{2}  \) and \( y_{i} \notin S_{1} \) and that \( a_{i} = 0  \) and \( b_{j} = 0  \) for all \( 1 \leq i \leq n  \) and \( 1 \leq j \leq n \) respectively. Hence, \( S_{1} \cup S_{2}  \) is a linearly independent set.
 
-    ( \( \Leftarrow  \) ) We will proceed via contrapositive for this direction as well. We need to show that \( \text{span}(S_{1} ) \cap \text{span}(S_{2}) = \{ 0  \}  \). Since \( S_{1} \cup S_{2}  \) is linearly independent, we can choose scalars \( a_{1}, a_{2}, \dots, a_{n} \in F  \) and vectors \( x_{1} - y_{1}, x_{2} - y_{2}, \dots, x_{n} - y_{n} \in S_{1} \cup S_{2}  \) such that 
-    \[  \sum_{ i=1 }^{ n } a_{i} (x_{i} - y_{i}) = 0 \tag{1}  \]
-    with \( a_{i} = 0  \) for all \( 1 \leq i \leq n \). Observe that (1) implies that 
-    \[  \underbrace{\sum_{ i=1 }^{ n } a_{i} x_{i}}_{\in \text{span}(S_{1})} = \underbrace{\sum_{ i=1 }^{ n } a_{i} y_{i}}_{\in \text{span}(S_{2})}. \] Since \( S_{1} \cup S_{2}  \) is linearly independent, \( a_{i} = 0  \) for all \( 1 \leq i \leq n  \) which implies that 
-    \[  \sum_{ i=1 }^{ n } a_{i} x_{i} = \sum_{ i=1 }^{ n } a_{i} y_{i} = 0 \]
-    and thus \( \text{span}(S_{1}) \cap \text{span}(S_{2}) = \{ 0 \}. \)
-    
+    ( \( \Leftarrow  \) ) We will proceed via contrapositive for this direction as well. Suppose \( S_{1} \cup S_{2}  \) is linearly independent. Then choose a finite number of distinct vectors \( x_{1}, x_{2}, \dots, x_{n} \in S_{1} \cup S_{2} \) and scalars \( a_{1}, a_{2}, \dots, a_{n} \in  F \) such that      
+    \[  \underbrace{\sum_{ i=1 }^{ n } a_{i} x_{i}}_{\in \text{span}(S_{1})} = 0  \] with \( a_{i} = 0  \) for all \( 1 \leq i \leq m  \). Since \( x_{i} \in S_{1} \cup S_{2}  \), then either \( x_{i} \in S_{1}  \) or \( x_{i} \in S_{2} \). Without loss of generality, suppose \( x_{i} \in S_{1} \). Then we know that \( x_{i} \notin S_{2} \) since \( S_{1} \cap S_{2} = \emptyset \). Since \( S_{2} \) is linearly independent, choose a finite number of vectors \(y_{1}, y_{2}, \dots, y_{m} \in S_{2} \) and scalars \( b_{1}, b_{2}, \dots, b_{n} \in F  \) such that 
+    \[  \underbrace{\sum_{ j=1 }^{ m } b_{j} y_{j}}_{\in \text{span}(S_{2})} = 0  \] with \( b_{j} = 0  \) for all \( 1 \leq j \leq m  \). Observe that 
+    \[  \sum_{ i=1 }^{ n } a_{i} x_{i} = \sum_{ j=1 }^{ m } b_{j} y_{j} = 0. \] Hence, we have \( \text{span}(S_{1}) \cap \text{span}(S_{2}) = \{ 0  \}  \).
 \end{proof}
