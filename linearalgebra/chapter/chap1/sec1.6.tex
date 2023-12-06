@@ -43,10 +43,9 @@ This implies that \( a_{1} \in F  \) can be made arbitrary such that \( v  \) ca
 \[  u_{k+1} = \delta_{1} u_{1} + \delta_{2} u_{2} + \cdots + \delta_{k} u_{k }.  \]
 Substituting this equation for \( u_{k+1} \) in (1) produces the following equation:
 \begin{align*}
-    &v = a_{1} u_{1} +a_{2} u_{2} + \cdots + a_{k} u_{k} + a_{k+1} u_{k+1} + \cdots a_{n} u_{n}  \\
-    &\implies v =  a_{1} u_{1} + a_{2} u_{2} + \cdots + a_{k} u_{k } + a_{k+1} ( \delta_{1} u_{1} + \delta_{2} u_{2} + \cdots + \delta_{k} u_{k }  ) \\ 
-    &+ \cdots +  a_{n} u_{n} \\
-    &\implies v = (a_{1} + a_{k+1} \delta_{1}) u_{1} +  (a_{2} + a_{k+1} \delta_{2}) u_{2} + \cdots + (a_{k } + a_{k+1} \delta_{k } ) u_{k } + \cdots + a_{n} u_{n}. \tag{2} \\
+    v &= a_{1} u_{1} +a_{2} u_{2} + \cdots + a_{k} u_{k} + a_{k+1} u_{k+1} + \cdots a_{n} u_{n}  \\
+      &=  a_{1} u_{1} + a_{2} u_{2} + \cdots + a_{k} u_{k } + a_{k+1} ( \delta_{1} u_{1} + \delta_{2} u_{2} + \cdots + \delta_{k} u_{k }  ) + \cdots +  a_{n} u_{n} \\
+     &= (a_{1} + a_{k+1} \delta_{1}) u_{1} +  (a_{2} + a_{k+1} \delta_{2}) u_{2} + \cdots + (a_{k } + a_{k+1} \delta_{k } ) u_{k } + \cdots + a_{n} u_{n}. \tag{2} \\
 \end{align*}
 Since \( v  \) has a unique representation, we must have 
 \[  a_{i} = a_{i} + a_{k+1} \delta_{i } \implies  a_{k+1}\delta_{i} = 0 \tag{3}  \] 

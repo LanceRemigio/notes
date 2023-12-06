@@ -155,21 +155,12 @@
     },
 ]{thmexplanationbox}
 
-
-
-% \declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={ nobreak } ]{thmgreenbox}
-% \declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={ nobreak } ]{thmredbox}
-% \declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont]{thmbluebox}
-% \declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont]{thmblueline}
-% \declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, numbered=no, mdframed={ rightline=false, topline=false, bottomline=false, }, qed=\qedsymbol ]{thmproofbox}
-% \declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, numbered=no, mdframed={ nobreak, rightline=false, topline=false, bottomline=false } ]{thmexplanationbox}
-
-\declaretheorem[style=thmgreenbox, name=Definition]{definition}
-\declaretheorem[style=thmbluebox, numbered=no, name=Example]{eg}
-\declaretheorem[style=thmredbox, name=Proposition]{prop}
-\declaretheorem[style=thmredbox, name=Theorem]{theorem}
-\declaretheorem[style=thmredbox, name=Lemma]{lemma}
-\declaretheorem[style=thmredbox, numbered=no, name=Corollary]{corollary}
+\declaretheorem[style=thmgreenbox, numberwithin = section, name=Definition]{definition}
+\declaretheorem[style=thmbluebox, name=Example]{eg}
+\declaretheorem[style=thmredbox, numberwithin = section, name=Proposition]{prop}
+\declaretheorem[style=thmredbox, numberwithin = section, name=Theorem]{theorem}
+\declaretheorem[style=thmredbox, numberwithin = section,  name=Lemma]{lemma}
+\declaretheorem[style=thmredbox, numberwithin = section,  numbered=no, name=Corollary]{corollary}
 
 
 \declaretheorem[style=thmproofbox, name=Proof]{replacementproof}
@@ -178,6 +169,7 @@
 
 \declaretheorem[style=thmexplanationbox, name=Proof]{tmpexplanation}
 \newenvironment{explanation}[1][]{\vspace{-10pt}\begin{tmpexplanation}}{\end{tmpexplanation}}
+
 
 \declaretheorem[style=thmblueline, numbered=no, name=Remark]{remark}
 \declaretheorem[style=thmblueline, numbered=no, name=Note]{note}
