@@ -151,7 +151,7 @@ The first conclusion of the replacement theorem states that given a {\hyperref[F
 
 The next corollary from the Replacement Theorem refers to the size of the generating set.
 
-\begin{corollary}
+\begin{corollary}\label{2nd Corollary to RT}
     Let \( V  \) be a vector space with dimension \( n \).
     \begin{enumerate}
         \item[(a)] Any finite generating set for \( V  \) contains at least \( n  \) vectors, and a generating set for \( V  \) that contains exactly \( n \) vectors is a basis for \( V  \).
@@ -187,18 +187,66 @@ The next corollary from the Replacement Theorem refers to the size of the genera
             0 & 1 \\
             1 & 1 
         \end{pmatrix}     \Big\} \] is a basis for \( M_{2 \times 2}(\R) \).
+    \item The set in {\hyperref[A set of vectors in R4]{Example 1.4.3}} is a basis for \( \R^{4} \).
+    \item See {\hyperref[Linearly Independent Set of Polys]{Example 1.4.4}}. This set is a basis for \( P_{n}(F) \). 
     \end{itemize}
-\item The set in {\hyperref[A set of vectors in R4]{Example 1.4.3}} is a basis for \( \R^{4} \).
-\item See {\hyperref[Linearly Independent Set of Polys]{Example 1.4.4}}. This set is a basis for \( P_{n}(F) \). 
 \end{eg}
 
+
+\subsection{An Overview of Dimension and Its Consequences}
 The main takeaways from our results are:
 \begin{itemize}
-    \item Reduce a finite generating set into a basis for a vector space \( V  \).
-    \item Extend a linearly independent set into a basis for \( V  \).
-    \item Any basis for \( V  \) contains the same number of vectors.
+    \item We can reduce a finite generating set into a basis for a vector space \( V  \).
+    \item A finite generating set contains at least \( n  \) amount of vectors.
+    \item A linearly independent set of vectors contain at most \( n \) amount of vectors.
+    \item We can Extend a linearly independent set into a basis for \( V  \).
+    \item A finite basis for \( V  \) must contain exactly \( n  \) vectors.
+    \item Any basis for \( V  \) contains the same number of vectors. In other words, if a basis for \( V \), say \( \beta \), contains \( n  \) amount of vectors then any other basis must contain the same amount.
     \item The number of vectors in a basis is the dimension of a vector space.
 \end{itemize}
 
-\subsection{An Overview of Dimension and Its Consequences}
+
+\subsection{The Dimension of Subspaces}
+
+We can relate the dimension of a vector space \( V  \) to a subspace of \( V  \).
+
+\begin{theorem}[ ]
+    Let \( W  \) be a subspace of a {\hyperref[Finite-dimensional]{finite-dimensional}} vector space \( V  \). Then \( W  \) is a finite-dimensional and \( \text{dim}(W) \leq \text{dim}(V) \). Moreover, if \( \text{dim}(V) = \text{dim}(W) \), then \( V = W  \).
+\end{theorem}
+\begin{proof}
+    Let \( \text{dim}(V) = n  \) since \( V \) is finite-dimensional. Suppose \( W = \{ 0  \}  \). Then \( W  \) contains the empty set \( \emptyset \) such that \( \text{span}(\emptyset) = W  \) and \( \emptyset \) is linearly independent. Hence, \( \emptyset \) is a subset of \( W  \) that is a basis for \( W = \{ 0 \}  \) that contains \( 0  \) vectors. Hence, \( W  \) is finite-dimensional. Otherwise, \( W  \) contains a nonzero vector \( =  x_{1}  \) such that \(W' =  \{ x_{1} \}  \) is a linearly independent set. Continue this process of adding vectors \( x_{2}, x_{3} , \dots, x_{k } \) into \( W' \) such that \( W'  \) is linearly independent. Since no linearly independent subset of \( V  \) cannot contain no more than \( n \) vectors, this process must stop at \( k \leq  n \). Note adding a vector from \(w \in W  \) into \( W' \) such that \(w \notin W' \) will make a linearly dependent set. By {\hyperref[Theorem 1.7]{Theorem 1.4.2}}, we get that \( w \in \text{span}(W') \). Hence, \( W'  \) is a basis for \( W  \) and that \( \text{dim}(W) = k  \leq n = \text{dim}(V) \).
+    Suppose \( \text{dim}(W) = n  \), then there exists a basis \( \beta \) for \( W  \)   such that \( \beta \) contains exactly \( n \) amount of vectors. Since \( \beta \) is also linearly independent and contains the same amount of vectors as a basis for \( V  \), then we must have that \( \beta \) must also be a basis for \( V  \) by {\hyperref[2nd Corollary to RT]{Corollary 2}} of the Replacement Theorem. Hence, \( W = \text{span}(\beta) = V  \). 
+\end{proof}
+
+\begin{eg}
+    \begin{itemize}
+        \item Let  
+    \[  W = \{ (a_{1}, a_{2}, a_{3}, a_{4}, a_{5}) \in F^{5} : a_{1} + a_{3} + a_{5} = 0 , a_{2} = a_{4} \}. \]
+    It can be easily shown that \( W  \) is a subspace of \( F^{5} \) having 
+    \[  \{ (-1,0,1,0,0), (-1,0,0,0,1), (0,1,0,1,0) \}  \] as a basis. Hence, \( \text{dim}(W) = 3  \)
+    \item The set of diagonal \( n \times n  \) matrices is a subspace \( W  \) of \( M_{n \times n}(F)  \). A basis for \( W  \) is the following set 
+        \[  \{ E^{11} , E^{22} , \dots, E^{n n } \},  \]
+        where \( E^{ij}  \) is the matrix in which the only nonzero entry is a 1 in the \( i \)th row and \( j \)th column. Thus, we have \( \text{dim}(W) = n  \).
+    \end{itemize}
+\end{eg}
+
+\begin{corollary}
+    If \( W  \) is a subspace of a finite-dimensional vector space \( V  \), then any basis for \( W  \) can be extended to a basis for \( V  \).
+\end{corollary}
+\begin{proof}
+Let \( \beta \) be a basis for the subspace \( W    \). Since \( \beta \subseteq W \subseteq V   \) is a linearly independent subset of \( V  \), we know that \( \beta \) can be extended as a basis for \( V  \) by {\hyperref[2nd Corollary to RT]{Corollary 2}} of the Replacement Theorem.
+\end{proof}
+
+
+\subsection{Geometrical View of Subspaces in Euclidean Space}
+
+\begin{itemize}
+    \item The subspaces of \( R^{2} \) include \( \{ 0 \}   \) of dimension 0, \( \R  \) of dimension 1, and \( R^{2} \) itself. 
+        \begin{itemize}
+            \item The set \(\{ 0 \}   \) of zero dimension can be visualized as the origin in \( R^{2} \).
+            \item The set \( \R \) is the field itself and can be visualized as the line \( y = cx \) with \( c \in \R  \) where \( x \in \R^{2} \).
+            \item The set \( \R^{2} \) is the whole cartesian space itself.
+        \end{itemize}
+    \item The subspaces of \( \R^{3} \) must have subspaces with dimensions \( 0, 1, 2,  \) or \( 3 \). The same logic can be followed from the three bullet points above.
+\end{itemize}
 
