@@ -1,0 +1,42 @@
+\section{Bases and Dimension}
+
+\subsubsection{Exercise 1.6.11} Let \( u  \) and \( v \) be distinct vectors of a vector space \( V  \). Show that if \( \{ u,v \}  \) is a basis for \( V  \) and \( a \) and \( b \) are nonzero scalars, then both \( \{ u + v , au  \}  \) and \( \{ au, bv \}  \) are also bases for \( V  \).
+
+\begin{proof}
+    (\( \Rightarrow \)) We want to show that \( \{ u+v , au \}  \) and \( \{ au, bv  \}  \) is a basis for \( V  \); that is, we want to show that \( \{ u +v , au  \}   \)  and \( \{ au, bv  \}  \) is both linearly independent and generates \( V  \). We will start by showing that \( \{ u+v , au \}  \) is linearly independent. Choose scalars \( \delta_{1}, \delta_{2}  \) such that 
+    \[  \delta_{1} (u+v) + \delta_{2} (au) = 0 \tag{1}  \]
+    with \( \delta_{1} =  \delta_{2} = 0  \). Let us algebraically manipulate (1) into the following form:
+    \begin{align*} 
+    \delta_{1} u + \delta_{1} v  + (\delta_{2}a) u &= 0.  
+\end{align*}
+Since \( \{ u,v  \}   \) is linearly independent and \( a \neq 0  \), we get that 
+\[  \delta_{1} v + (\delta_{2}a) u = 0   \]
+implies \( \delta_{1} = 0  \) and \( \delta_{2}a = 0  \) such that \( \delta_{2} = 0  \). But this implies that \( \{ u+v, au \}  \) is also linearly independent. To show that \( \{ u+v , au \}  \) spans \( V  \), it suffices to show that \( V \subseteq \{ u+v , au \}  \) since the other containment \( \{ u+ v , au  \} \subseteq V  \) follows immediately. Let \( v \in V  \). By Theorem 1.7, we know that adjoining an arbitrary vector \( w \in V  \) but not in \( \{ u+v , au \}  \) creates a linearly dependent set. So, we must have \( w \in \text{span}(\{ u+v , au \} ) \) and thus \( V \subseteq \text{span}(\{ a+v , au \} ) \). 
+
+Now, we want to show that \( \{ au, bv  \}  \) is a basis. Choose scalars \( \delta_{1}, \delta_{2}  \) such that 
+\[  \delta_{1} (au) + \delta_{2} (bv) = 0 \tag{2}   \]  
+such that \( \delta_{1} = \delta_{2} = 0  \). We can manipulate (2) by rewriting it in the following form: 
+\[  (\delta_{1}a) u + (\delta_{2}b) v = 0. \tag{3}  \]
+Since \( \{ u,v  \}   \) is a linearly independent set, we know that   \( \delta_{1}a = \delta_{2}b = 0  \). Since \( a,b \neq 0 \), this implies that \( \delta_{1} = \delta_{2} = 0 \). Hence, the representation in (2) is trivial and thus the set \( \{ au, bv  \}  \) is linearly independent. Since adjoining any \( w \in V  \) not in \( \{ au, bv  \}  \) creates a linearly dependent set, we get that \( w \in \text{span}(\{ au,bv \} ) \) by Theorem 1.7. Hence, \( \{ au,bv \}  \) generates \( V  \). 
+
+
+\end{proof}
+
+\subsubsection{Exercise 1.6.12}
+Let \( u,v,  \) and \( w  \) be distinct vectors of a vector space \( V  \). Show that if \( \{ u,v,w \}  \) is a basis for \( V  \), then \( \{ u + v   + w , v + w , w  \}  \) is also a basis for \( V  \). 
+\begin{proof}
+
+\end{proof}
+
+
+\subsubsection{Exercise 1.6.20} Let \( V  \) be a vector space having dimension \( n  \), and let \( S  \) be a subset of \( V  \) that generates \( V  \).
+\begin{enumerate}
+    \item[(a)] Prove that there is a subset of \( S  \) that is a basis for \( V  \). (Be careful not to assume that \( S  \) is finite.)
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Prove that \( S  \) contains at least \( n  \) vector.
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
