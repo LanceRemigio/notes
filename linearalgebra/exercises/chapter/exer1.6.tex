@@ -25,6 +25,13 @@ Since \( \{ u,v  \}   \) is a linearly independent set, we know that   \( \delta
 \subsubsection{Exercise 1.6.12}
 Let \( u,v,  \) and \( w  \) be distinct vectors of a vector space \( V  \). Show that if \( \{ u,v,w \}  \) is a basis for \( V  \), then \( \{ u + v   + w , v + w , w  \}  \) is also a basis for \( V  \). 
 \begin{proof}
+    First, we prove that \( \{ u+v + w, v + w , w  \}   \) is linearly independent. Choose \( \delta_{1} , \delta_{2} , \delta_{3} \in F  \) such that 
+    \[  \delta_{1} (u+v+w) + \delta_{2} (v +w) + \delta_{3} w = 0. \tag{1}  \]
+    We can rewrite (1) in the following way:
+    \[ (\delta_{1} u + \delta_{2} v + \delta_{3} w ) + \delta_{1} (v+w) + \delta_{2} w  = 0.  \tag{2}.  \]
+    Since \( \{ u,v, w \}  \) is also a basis, we know that \( \{ u,v,w  \}   \) is also linearly independent. Hence, \( \delta_{1} = \delta_{2} = \delta_{3} = 0  \). Thus, (1) contains the trivial representation and so \( \{ u + v + w, v + w , w  \}  \) is linearly independent. 
+
+    Now, to prove that \( S = \{ u+v+w, v + w , w  \}   \) generates \( V  \), it suffices to show that \( V \subseteq \text{span}(S) \). Adjoining a vector \( x \in  V  \) but not in \( S  \) produces a linearly independent set. Hence, Theorem 1.7 implies that \( s \in \text{span}(S) \). Hence, \( S  \) generates \( V   \) and that \( S  \) is a basis for \( V  \).
 
 \end{proof}
 
@@ -33,9 +40,36 @@ Let \( u,v,  \) and \( w  \) be distinct vectors of a vector space \( V  \). Sho
 \begin{enumerate}
     \item[(a)] Prove that there is a subset of \( S  \) that is a basis for \( V  \). (Be careful not to assume that \( S  \) is finite.)
         \begin{proof}
+        Let \( \text{dim}(V) = n  \). Suppose \( S  \) is a subset of \( V  \) such that \( S  \) generates \( V  \). Then \( S  \) could be either \( S = \{ 0  \}   \) or \( S = \emptyset \). In either case, we find that \( \text{span}(\emptyset) = \{  0  \}  = V  \) or \( \text{span}(\{ 0 \} ) = \{ 0 \}  = V  \). Now, suppose \( S  \) contains a non-zero vector \( u_{1} \). Thus, the set \( \{ u_{1} \}  \) is linearly independent. Suppose we continue adding vectors inductively \( u_{2}, u_{3} , \dots, u_{k }  \) into this set such that this process stops at exactly \( k  \) vectors. We claim that our constructed set 
+        \[  L = \{ u_{1}, u_{2}, \dots, u_{k } \} \] 
+        is linearly independent for \( k \geq 1 \). Suppose we assume that \( L  \) holds for the \( k  \)th case. We want to show that it also holds for the \( k + 1  \) case. Observe that
+        \[  L = \{ u_{1}, u_{2} , \dots, u_{k+1} \} = \{ u_{1}, u_{2}, \dots, u_{k } \} \cup \{ u_{k+1} \}.  \] If \( u_{k+1} = 0  \), then \( L   \) would be linearly dependent. Otherwise \( u_{k+1} \neq 0  \) and so \( \{ u_{k+1} \}  \) is linearly independent. By inductive hypothesis, we also know that \( \{ u_{1}, u_{2}, \dots, u_{k } \}  \) is linearly independent. Since \( \text{span}(\{ u_{1}, u_{2}, \dots, u_{k } \}) \cap \text{span}(\{ u_{k+1} \} ) = \{ 0 \}  \) and that the two sets are disjoint, we know that \( \{ u_{1}, u_{2}, \dots, u_{k } \} \cup \{ u_{k+1} \}   \) is linearly independent. This ends our induction proof. 
+
+    Note that we cannot have \( S \neq L   \) since \( S  \) could be an infinite set. Since \( L  \) is a subset of \( V  \) where \( \text{dim}(V) = n  \), \( L  \) can be extended into a basis for \( V  \) by Corollary 2 of the Replacement Theorem that contains exactly \( n  \) vectors.
+        \end{proof}
+    \item[(b)] Prove that \( S  \) contains at least \( n  \) vectors.
+        \begin{proof}
+        Denote the basis constructed from part (a) as \( \beta \). Since \( \beta \) is a basis for \( V  \), \( \beta \) must contain exactly \( n  \) vectors. Since \( \beta \subseteq S  \) and \( S  \) is a generating set for \( V  \), then \( S  \) must contain at least \( n  \) vectors.
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 1.6.21} Prove that a vectors space is infinite-dimensional if and only if it contains an infinite linearly independent subset. 
+\begin{proof}
+\end{proof}
+
+
+\subsubsection{Exercise 1.6.22} Let \( W_{1} \) and \( W_{2} \) be subspaces of a finite-dimensional vector space \( V  \). Determine the necessary and sufficient conditions on \( W_{1}  \) and \( W_{2} \) so that \( \text{dim}(W_{1} \cup W_{2}) = \text{dim}(W_{1}). \)    
+\begin{proof}
+
+\end{proof}
+
+\subsubsection{Exercise 1.6.23} Let \( v_{1}, v_{2}, \dots, v_{k }, v  \) be vectors in a vector space \( V  \), and define \( W_{1} = \text{span}(\{ v_{1}, v_{2}, \dots, v_{k } \} )  \), and \( W_{2} = \text{span}(\{ v_{1}, v_{2}, \dots, v_{k }, v  \} ) \).
+\begin{enumerate}
+    \item[(a)] Find necessary and sufficient conditions on \( v  \) such that \( \text{dim}(W_{1}) = \text{dim}(W_{2}) \).
+        \begin{proof}
         
         \end{proof}
-    \item[(b)] Prove that \( S  \) contains at least \( n  \) vector.
+    \item[(b)] State and prove a relationship involving \( \text{dim}(W_{1}) \) and \( \text{dim}(W_{2}) \) in the case that \( \text{dim}(W_{1}) \neq \text{dim}(W_{2})  \).
         \begin{proof}
         
         \end{proof}
