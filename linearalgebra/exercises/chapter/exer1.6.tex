@@ -36,6 +36,12 @@ Let \( u,v,  \) and \( w  \) be distinct vectors of a vector space \( V  \). Sho
 \end{proof}
 
 
+\subsubsection{Exercise 1.6.19} Complete the proof of Theorem 1.8.
+\begin{proof}
+See proof in notes.
+\end{proof}
+
+
 \subsubsection{Exercise 1.6.20} Let \( V  \) be a vector space having dimension \( n  \), and let \( S  \) be a subset of \( V  \) that generates \( V  \).
 \begin{enumerate}
     \item[(a)] Prove that there is a subset of \( S  \) that is a basis for \( V  \). (Be careful not to assume that \( S  \) is finite.)
@@ -55,22 +61,59 @@ Let \( u,v,  \) and \( w  \) be distinct vectors of a vector space \( V  \). Sho
 
 \subsubsection{Exercise 1.6.21} Prove that a vectors space is infinite-dimensional if and only if it contains an infinite linearly independent subset. 
 \begin{proof}
+Let \( V  \) be a vector space. For the forwards direction, suppose \( V  \) is an infinite-dimensional vector space. By definition, \( V  \) contains a basis \( \beta \) that is infinite-dimensional. By definition, \( \beta \) is also linearly independent. Thus, \( V \) contains an infinite linearly independent set. 
+
+For the backwards direction, we proceed using the converse. Suppose \( V  \) is a finite-dimensional vector space. Let \( \text{dim}(V) = n  \). By definition, \( V  \) contains a basis \( \beta \) that contains exactly \( n  \) vectors. Since \( \beta \) is also linearly independent, \( \beta \) is a finite linearly independent subset.
 \end{proof}
 
 
-\subsubsection{Exercise 1.6.22} Let \( W_{1} \) and \( W_{2} \) be subspaces of a finite-dimensional vector space \( V  \). Determine the necessary and sufficient conditions on \( W_{1}  \) and \( W_{2} \) so that \( \text{dim}(W_{1} \cup W_{2}) = \text{dim}(W_{1}). \)    
+\subsubsection{Exercise 1.6.22} Let \( W_{1} \) and \( W_{2} \) be subspaces of a finite-dimensional vector space \( V  \). Determine the necessary and sufficient conditions on \( W_{1}  \) and \( W_{2} \) so that \( \text{dim}(W_{1} \cap W_{2}) = \text{dim}(W_{1}). \)    
 \begin{proof}
+We must have \( W_{1} \subseteq W_{2}  \) in order for \( \text{dim}(W_{1} \cap W_{2}) = \text{dim}(W_{1}) \). Let \( W_{1}  \) and \( W_{2} \) be subspaces of a finite dimensional vector space \( V  \). Since \( W_{1}  \) and \( W_{2}  \) are subspaces, we must also have \( W_{1} \cap W_{2} \) as a subspace. Hence, \( W_{1} \cap W_{2}  \) is finite-dimensional by Theorem 1.11. This implies that \( W_{1} \cap W_{2}  \) contains a basis \( \beta \) containing exactly \( \text{dim}(W_{1} \cap W_{2}) \) vectors. Since \( \beta \) is a linearly independent subset of \( W_{1} \), we know that \( \beta \) must contain at most \( \text{dim}(W_{1}) \) vectors. Hence, we have \( \text{dim}(W_{1} \cap W_{2}) \leq \text{dim}(W_{1}) \). Since \( W_{1} \cup W_{2} \), then \( W_{1} \subseteq W_{1} \cap W_{2} \). Since \( W_{1} \) is finite-dimensional, let \( \alpha \) be a basis containing exactly \( \text{dim}(W_{1})  \) vectors. Since \( \alpha \subseteq W_{1} \cap W_{2} \) and \( \alpha \) is a linearly independent set, \( \alpha  \) must contain at most \( \text{dim}(W_{1} \cap W_{2}) \) amount of vectors. Hence, \( \text{dim}(W_{1}) \leq \text{dim}(W_{1} \cap W_{2}) \). Thus, we have \( \text{dim}(W_{1}) = \text{dim}(W_{1} \cap W_{2}) \).
 
+Conversely, we have \( \text{dim}(W_{1} \cap W_{2}) = \text{dim}(W_{1}) \). By Theorem 1.11, we have \( W_{1} \cap W_{2} = W_{1} \). Since \( W_{1} \cap W_{2} \subseteq W_{2} \), we know that \( W_{1} \subseteq W_{2} \).  
 \end{proof}
 
 \subsubsection{Exercise 1.6.23} Let \( v_{1}, v_{2}, \dots, v_{k }, v  \) be vectors in a vector space \( V  \), and define \( W_{1} = \text{span}(\{ v_{1}, v_{2}, \dots, v_{k } \} )  \), and \( W_{2} = \text{span}(\{ v_{1}, v_{2}, \dots, v_{k }, v  \} ) \).
 \begin{enumerate}
     \item[(a)] Find necessary and sufficient conditions on \( v  \) such that \( \text{dim}(W_{1}) = \text{dim}(W_{2}) \).
         \begin{proof}
-        
+            The condition we need is \( v \in W_{1} \). Since \( W_{1} \) and \( W_{2} \) are subspaces, we also have \( W_{1} \cap W_{2} \) is a subspace. Hence, theorem 1.11 tells us that \( W_{1} \cap W_{2} \) is also finite-dimensional. Suppose \( v \in W_{1} \). Since \( v \in W_{2} \) as well, we have that \( W_{1} \subseteq W_{2} \). Now let \( v \in W_{2} \). Then choose scalars \( a_{1}, a_{2} , \dots , a_{k} \) such that 
+            \[ a_{1} v_{1} + a_{2} v_{2} + \cdots + a_{n} v_{k } = v.  \]
+            But this tells us that \( v \in W_{1} \). So, \( W_{2} \subseteq W_{1} \) and thus \( W_{1} = W_{2} \). By theorem 1.11, \( \text{dim}(W_{1}) = \text{dim}(W_{2})  \).
+
+            Conversely, \( \text{dim}(W_{1}) = \text{dim}(W_{2}) \). Since \( v \in W_{2}  \), this also means that \( v \in W_{1} \) since \( W_{1} = W_{2} \) by theorem 1.11.  
         \end{proof}
     \item[(b)] State and prove a relationship involving \( \text{dim}(W_{1}) \) and \( \text{dim}(W_{2}) \) in the case that \( \text{dim}(W_{1}) \neq \text{dim}(W_{2})  \).
+        \begin{proof}
+        If \( \text{dim}(W_{1}) \neq \text{dim}(W_{2}) \), then \( v \notin W_{1} \). This is just the contrapositive of the statement above.
+        \end{proof}
+\end{enumerate}
+
+
+\subsubsection{Exercise 1.6.24} Let \( f(x) \) be a polynomial of degree \( n \) in \( P_{n}(\R) \). Prove that for any \( g(x) \in P_{n}(\R)  \) there exists scalars \( c_{0}, c_{1}, \dots, c_{n}  \) such that  
+\[  g(x) = c_{0} f(x) + c_{1} f^{(1)}(x) + c_{2} f^{(2)}(x) + \cdots + c_{n} f^{(n)}(x), \]
+where \( f^{(n)}(x) \) denotes the \( n \)th derivative of \( f(x)  \).
+
+\begin{proof}
+    Since \( f \) is differentiable \( n  \) times, we can construct the set 
+    \[  W = \{ f(x), f^{(1)}(x) , f^{(2)}(x), \dots, f^{(n)}(x) \}  \] containing \( n + 1  \) polynomials such that no two polynomials contain the same degree (with each derivative of \( f(x) \), the degree decreases by one). Since \( W  \) is a subset of \( P_{n}(\R) \) with no two polynomials having the same degree, we see that following the process seen in example 4 in section 1.5 shows that \( W  \) is a linearly independent set containing \( n + 1  \) vectors. Hence, \( W  \) is a basis for \( P_{n}(\R) \) such that any \( g(x) \in P_{n}(\R) \) by Theorem 1.11. Consequently, \( g(x) \) can be expressed in terms of the vectors in \( W  \) such that  
+    \[  g(x) = c_{0} f(x) + c_{1} f^{(1)}(x) + c_{2} f^{(2)}(x) + \cdots + c^{n} f^{(n)}(x)  \]
+    for unique scalars \( c_{0}, c_{1}, \dots, c_{n} \) by Theorem 1.8. 
+\end{proof}
+
+\subsubsection{Exercise 1.6.29} 
+\begin{enumerate}
+    \item[(a)] Prove that if \( W_{1}  \) and \( W_{2}  \) are finite-dimensional subspaces of a vector space \( V  \), then the subspace \( W_{1} + W_{2} \) is finite-dimensional, and \( \text{dim}(W_{1} + W_{2}) = \text{dim}(W_{1}) + \text{dim}(W_{2}) - \text{dim}(W_{1} \cap W_{2}) \).
+        \begin{proof}
+        Since \( W_{1} \) and \( W_{2} \) are subspaces, we know that \( W_{1} + W_{2} \) is also a subspace by exercise 1.3.23. Hence, theorem 1.11 states that \( W_{1} + W_{2} \) is finite dimensional. Note that \( W_{1} + W_{2} \) contains both \( W_{1}  \) and \( W_{2} \) so \( W_{1} \cap W_{2} \subseteq W_{1} + W_{2} \).
+        \end{proof}
+    \item[(b)] Let \( W_{1}  \) and \( W_{2} \) be finite-dimensional subspaces of a vector space \( V  \), and let \( V = W_{1} + W_{2} \). Deduce that \( V  \) is the direct sum of \( W_{1} \) and \( W_{2} \) if and only if \( \text{dim}(V) = \text{dim}(W_{1}) + \text{dim}(W_{2}) \).
         \begin{proof}
         
         \end{proof}
 \end{enumerate}
+
+
+
+
