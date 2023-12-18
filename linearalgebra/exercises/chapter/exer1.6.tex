@@ -101,19 +101,79 @@ where \( f^{(n)}(x) \) denotes the \( n \)th derivative of \( f(x)  \).
     \[  g(x) = c_{0} f(x) + c_{1} f^{(1)}(x) + c_{2} f^{(2)}(x) + \cdots + c^{n} f^{(n)}(x)  \]
     for unique scalars \( c_{0}, c_{1}, \dots, c_{n} \) by Theorem 1.8. 
 \end{proof}
-
 \subsubsection{Exercise 1.6.29} 
 \begin{enumerate}
     \item[(a)] Prove that if \( W_{1}  \) and \( W_{2}  \) are finite-dimensional subspaces of a vector space \( V  \), then the subspace \( W_{1} + W_{2} \) is finite-dimensional, and \( \text{dim}(W_{1} + W_{2}) = \text{dim}(W_{1}) + \text{dim}(W_{2}) - \text{dim}(W_{1} \cap W_{2}) \).
         \begin{proof}
-        Since \( W_{1} \) and \( W_{2} \) are subspaces, we know that \( W_{1} + W_{2} \) is also a subspace by exercise 1.3.23. Hence, theorem 1.11 states that \( W_{1} + W_{2} \) is finite dimensional. Note that \( W_{1} + W_{2} \) contains both \( W_{1}  \) and \( W_{2} \) so \( W_{1} \cap W_{2} \subseteq W_{1} + W_{2} \).
+        Let \( W_{1} \) and \( W_{2} \) be subspaces of \( V \). Since \( W_{1}  \) and \( W_{2} \) are finite-dimensional, we also know that \( W_{1} + W_{2}  \) is finite-dimensional. Now, we will show that  
+        \[  \text{dim}(W_{1} + W_{2}) = \text{dim}(W_{1}) +  \text{dim}(W_{2}) - \text{dim}(W_{1} \cap W_{2}). \]
+        Consider \( W_{1} \cap W_{2} \) and note that \( W_{1} \cap W_{2} \) being finite-dimensional implies that it contains a basis \( \beta_{0} = \{ u_{1}, u_{2}, \dots, u_{k }  \}  \). We can extend \( \beta_{0} \) into a basis for \( W_{1} \) by adding vectors \( v_{1}, v_{2}, \dots, v_{m}  \) into \( \beta_{0} \). Denote this new set as \( \beta_{1} \). Likewise, we add vectors \( w_{1}, w_{2}, \dots, w_{p}   \) into \( \beta_{0}  \) to make a basis \( \beta_{2} \) for \( W_{2} \). We claim that \( \beta = \beta_{0} \cup \beta_{1} \cup \beta_{2} \) is a basis for \( W_{1} + W_{2} \). First, we will show that \( \beta \) is linearly independent. To do this, we need to show that 
+        \[  \sum_{ i=1 }^{ k  } a_{i} u_{i} + \sum_{ j=1 }^{ m } b_{j} v_{j} + \sum_{ \ell = 1  }^{ p  } \gamma_{\ell} w_{\ell} = 0. \tag{1} \]
+        Subtracting the third term on both sides of (1) produces the following equation:
+        \[ \sum_{ j=1 }^{ k  } a_{i} u_{i} + \sum_{ j-1 }^{ m } b_{j} v_{j} = - \sum_{ \ell =1  }^{ p } \gamma_{\ell} w_{\ell}. \]
+        Observe that the left-hand side is an element of \( W_{1} \) while the other side is an element of \( W_{2} \). Hence, we know that the term on the right-hand side of (1) is also an element of \( W_{1} \cap W_{2} \). This implies that 
+        \[  - \sum_{ \ell = 1  }^{ p } \gamma_{\ell} w_{\ell} = \sum_{ i=1 }^{ k  } \delta_{i} u_{i} \]
+        which can be re-written as 
+        \[  \sum_{ i=1 }^{ k  } \delta_{i} u_{i} + \sum_{ \ell = 1  }^{ p } \gamma_{\ell} w_{\ell} = 0. \]
+        Since \( \beta_{2} \) is a basis for \( W_{2} \), we know that \( \delta_{i} = 0  \) and \( \gamma_{\ell } = 0  \) implying that \( a_{i} = 0  \) and \( \gamma_{\ell} = 0  \). Now, subtracting the second term on the left-hand side of (1) on both sides and following the same process produces the same result with \( b_{j} = 0  \) and \( \gamma_{\ell} = 0  \). This tells us that \( a_{i} = b_{j} = \gamma_{\ell} = 0  \). Hence, \( \beta \) is a linearly independent set. 
+
+        Now, we will show that \( \beta \) spans \( W_{1} + W_{2} \). Observe that \( \text{span}(\beta) \subseteq W_{1} + W_{2} \). Now, we will show \( W_{1} + W_{2} \subseteq \text{span}(\beta) \). Suppose we take a vector \( v \in W_{1} + W_{2} \) that is not in \( \beta \) and adjoin this vector in \( \beta \). Note that \( \beta \cup \{ v \}  \) produces a linearly dependent set that by which Theorem 1.7 implies that \( v \in \text{span}(\beta) \) and we are done. Hence, \( \beta \) spans \( W_{1} + W_{2} \) and thus \( \beta \) is a basis.
+    
+        Note that \( \beta \) contains exactly \( m + p + k  \) vectors. Hence,  denote \( \text{dim}(W_{1} + W_{2}) = m + p + k  \) which can be re-written as 
+        \begin{align*}
+            \text{dim}(W_{1} + W_{2}) &= m + p + k  \\
+                                      &= (k+m) + (k+p) - k \\
+                                      &= \text{dim}(W_{1}) + \text{dim}(W_{2}) - \text{dim}(W_{1} \cap W_{2}).
+        \end{align*}
         \end{proof}
     \item[(b)] Let \( W_{1}  \) and \( W_{2} \) be finite-dimensional subspaces of a vector space \( V  \), and let \( V = W_{1} + W_{2} \). Deduce that \( V  \) is the direct sum of \( W_{1} \) and \( W_{2} \) if and only if \( \text{dim}(V) = \text{dim}(W_{1}) + \text{dim}(W_{2}) \).
         \begin{proof}
-        
+        Suppose \( V  \) is a direct sum of \( W_{1}  \) and \( W_{2} \). Then \( V = W_{1} + W_{2}  \) and \( W_{1} \cap W_{2} = \{ 0 \}  \). We need to show that \( \text{dim}(V) = \text{dim}(W_{1}) + \text{dim}(W_{2}) \). Since \( W_{1} \cap W_{2} = \{ 0  \}  \), we know that it contains the empty set \( \emptyset \) as the basis for \( W_{1} \cap W_{2} \). Hence, \( \text{dim}(W_{1} \cap W_{2}) = 0  \). Using the formula derived in part (a), we can write
+        \begin{align*}
+            \text{dim}(V) &= \text{dim}(W_{1} + W_{2}) \\
+                          &= \text{dim}(W_{1}) + \text{dim}(W_{2}) - \text{dim}(W_{1} \cap W_{2}) \\
+                          &= \text{dim}(W_{1}) + \text{dim}(W_{2})
+        \end{align*}
+        and we are done.
+
+        Conversely, \( \text{dim}(V) = \text{dim}(W_{1}) + \text{dim}(W_{2}) \) implies that \( V = W_{1} + W_{2} \). Using part (a) again, we see that the sum \( \text{dim}(V) = \text{dim}(W_{1}) + \text{dim}(W_{2}) -  0  \) implies that \( \text{dim}(W_{1} \cap W_{2}) = 0  \)  and hence \( W_{1} \cap W_{2}  \) must be equal to the zero set \( \{ 0 \}  \) (which we know by definition that \( \text{span}(\emptyset) = \{ 0 \}  \). Hence, \( V  \) is a direct sum of \( W_{1} \) and \( W_{2} \).
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 1.6.31} Let \( W_{1}  \) and \( W_{2}  \) be subspaces of a vector space \( V  \) having dimensions \( m  \) and \( n \), respectively, where \( m \geq n \).
+\begin{enumerate}
+    \item[(a)] Prove that \( \text{dim}(W_{1} \cap W_{2}) \leq n \).
+        \begin{proof}
+            Observe that \( W_{1} \) and \( W_{2} \) being subspaces of \( V  \) implies that \( W_{1} \cap W_{2}  \) is a subspace of \( V  \). Hence, \( W_{1} \cap W_{2} \) is finite-dimensional. Denote \( \text{dim}(W_{1} \cap W_{2}) = k  \) and let \( \beta \) be a basis for \( W_{1} \cap W_{2}  \). Since \( W_{1} \cap W_{2} \subseteq W_{2} \), we know that \( \beta \) must contain at most \( \text{dim}(W_{2}) =  n  \). Hence, \( \text{dim}(W_{1} \cap W_{2}) \leq n  \).
+        \end{proof}
+    \item[(b)] Prove that \( \text{dim}(W_{1} + W_{2}) \leq m + n  \).
+        \begin{proof}
+        Using the formula found in part (a) of Exercise 1.3.29, part (a) of this exercise, and \( \text{dim}(W_{1}) \geq \text{dim}(W_{2}) \), we find that 
+        \[ \text{dim}(W_{1} + W_{2}) = \text{dim}(W_{1}) + \text{dim}(W_{1}) - \text{dim}(W_{1} \cap W_{2}) \leq \text{dim}(W_{1}) + \text{dim}(W_{2}). \]
         \end{proof}
 \end{enumerate}
 
 
+\subsubsection{Exercise 1.6.33} 
+\begin{enumerate}
+    \item[(a)] Let \( W_{1} \) and \( W_{2} \) be subspaces of a vector space \( V  \) such that \( V = W_{1} \oplus W_{2} \). If \( \beta_{1}  \) and \( \beta_{2} \) are bases for \( W_{1} \) and \( W_{2} \), respectively, show that \( \beta_{1} \cup \beta_{2} \) is a basis for \( V  \).
+        \begin{proof}
+            Let \( W_{1}  \) and \( W_{2} \) be subspaces of \( V  \). Assume \( \beta_{1} \) and \( \beta_{2}  \) are bases for \( W_{1} \) and \( W_{2} \) respectively. We need to show that \( \beta_{1} \cap \beta_{2} = \emptyset \) and \( \beta_{1} \cup \beta_{2} \) is a basis for \( V  \). 
 
+            Since \( \beta_{1}  \) and \( \beta_{2} \) contain distinct linearly independent vectors, we must have \( \beta_{1} \cap \beta_{2} = \emptyset \). Since \( V  \) is a direct sum of the \( W_{1} \) and \( W_{2} \), we know that \( W_{1} \cap W_{2} = \{ 0 \}  \) by definition. Since \( \beta_{1}  \) and \( \beta_{2} \) generate \( W_{1} \) and \( W_{2} \) respectively, we must have \( \text{span}(\beta_{1}) \cap \text{span}(\beta_{2}) = \{ 0 \}  \). Now, we have the set \( \beta_{1} \cup \beta_{2}  \) as a linearly independent set by exercise 1.5.21. Observe that \(\text{span}(\beta_{1} \cup \beta_{2})  \subseteq V  \) follows immediately. Now, take any \( v \in V  \) that is not in \( \beta_{1} \cup \beta_{2} \) such that adjoining this vector \( v \in V  \) produces a linearly dependent set. By Theorem 1.7, we have \( v \in \text{span}(\beta_{1} \cup \beta_{2}) \). Thus, we have \( V \subseteq \text{span}(\beta_{1} \cup \beta_{2}) \). Hence, \( \beta_{1} \cup \beta_{2} \) is a generating set for \( V  \) and we are done.
+        \end{proof}
+    \item[(b)] Conversely, let \( \beta_{1} \) and \( \beta_{2} \) be disjoint bases for subspaces \( W_{1} \) and \( W_{2} \), respectively, of a vector space \( V  \). Prove that if \( \beta_{1} \cup \beta_{2} \) is a basis for \( V  \), then \( V = W_{1} \oplus W_{2} \).
+        \begin{proof}
+        Let \( \beta_{1} \) and \( \beta_{2} \) be disjoint bases for subspaces \( W_{1} \) and \( W_{2} \) respectively. Suppose \( \beta_{1} \cup \beta_{2} \) is a basis for \( V  \). This tells us that \( \beta_{1} \cup \beta_{2} \) is linearly independent. Thus, \( \text{span}(\beta_{1}) \cap \text{span}(\beta_{2}) = \{ 0 \}  \) and hence \( W_{1} \cap W_{2} = \{ 0 \}  \) since \( \text{span}(\beta_{1}) = W_{1} \) and \( \text{span}(\beta_{2}) = W_{2} \). This tells us that \( \text{dim}(W_{1} \cap W_{2}) = 0   \).  Using the fact that \( \beta_{1} \cup \beta_{2} \) is a basis for \( V  \) that contains exactly \( \text{dim}(W_{1}) + \text{dim}(W_{2}) \), we get that          
+        \[ \text{dim}(V) = \text{dim}(W_{1}) + \text{dim}(W_{2}). \]
+        By part (b) of Exercise 1.6.29, we get that \( V = W_{1} \oplus W_{2} \).
+        \end{proof}
+\end{enumerate}
 
+\subsubsection{Exercise 1.6.34} 
+\begin{enumerate}
+    \item[(a)] Prove that if \( W_{1} \) is any subspace of a finite-dimensional vector space \( V  \), then there exists a subspace \( W_{2} \) of \( V  \) such that \( V = W_{1} \oplus W_{2}  \).
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
