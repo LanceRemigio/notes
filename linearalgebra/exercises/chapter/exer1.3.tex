@@ -374,7 +374,7 @@ Conversely, suppose every vector \( v \in V  \) can be \textit{uniquely} written
 \end{definition}
 
 
-\subsubsection{Exercise 1.6.31} The following exercises require the application of the definitions above.
+\subsubsection{Exercise 1.3.31} The following exercises require the application of the definitions above.
 \begin{enumerate}
     \item[(a)] Prove that \( v + W  \) is a subspace of \( V  \) if and only if  \( v \in W  \).
         \begin{proof}
@@ -411,11 +411,29 @@ Conversely, suppose every vector \( v \in V  \) can be \textit{uniquely} written
         \[  a(v_{1} + W) = a(v'_{1} + W) \]
         for all \( a \in F  \).
         \begin{proof}
+        Suppose \( v_{1} + W = v'_{1} + W  \) and \( v_{2} + W = v'_{2} + W  \). Then \( v_{1} - v'_{1} \in W  \) and \( v_{2} - v'_{2} \in W  \) by part (b). Consequently, we have \( (v_{1} - v'_{1}) + (v_{2} - v'_{2}) \in W  \) if and only if \( (v_{1} + v_{2}) - (v'_{1} + v'_{2}) \in W  \) since \( W  \) is subspace. Using part (b) again, we have that 
+        \[  (v_{1} + v_{2}) + W = (v'_{1} + v'_{2}) + W.  \]
+       Using the addition defined on cosets, we get 
+        \[ (v_{1} + W) + (v_{2} + W) = (v'_{1} + W) + (v'_{2} + W).   \]
+        Since \( W  \) is a subspace, we have \( c(v_{1} - v'_{1}) \in W  \) if and only if \(cv_{1} - cv'_{1} \in W   \) for some \( a \in F  \). By part (b), we get that 
+        \[  av_{1} + W = av'_{1} + W \]
+        which can be re-written to
+        \[  a(v_{1} + W) = a(v'_{1} + W) \]
+        as our desired result.
         
         \end{proof}
-    \item[(d)] Prove that the set \( S  \) is a vector space with the operations defined in (c). This vector space is called the \textbf{quotient space of \( V  \) modulo \( W \) } by \( V \setminus W   \).
+    \item[(d)] Prove that the set \( S = \{ v + W : v \in V   \}   \) is a vector space with the operations defined in (c). This vector space is called the \textbf{quotient space of \( V  \) modulo \( W \) } by \( V \setminus W   \).
         \begin{proof}
-        
+        It suffices to show that \( S  \) is a subspace of \( V  \). 
+        \begin{enumerate}
+            \item[(a)] Since \( W  \) is a subspace of \( V  \), we know that \( 0_{V} \in W   \). Then \( 0_{V} + 0_{V} = 0_{V} \in S  \).
+            \item[(b)] Let \( x,y \in S  \). Then using the operations defined in part (c), we write
+                \[  x + y = (v_{1} + W) + (v_{2} + W) = (v_{1} + v_{2}) + W.  \]
+                This tells us that \( x + y \in S  \).
+            \item[(c)] Let \( x \in S  \). Our goal is to show that \( c \in F  \) implies \( cx \in S  \). Using the scalar multiplication in part (c), we get that
+                \[ cx = c(v_{1} + W) = cv_{1} + W.   \]
+        \end{enumerate}
+        Thus, \( S  \) is a vector space.
         \end{proof}
 \end{enumerate}
 
