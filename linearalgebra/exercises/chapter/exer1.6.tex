@@ -110,12 +110,14 @@ where \( f^{(n)}(x) \) denotes the \( n \)th derivative of \( f(x)  \).
         Consider \( W_{1} \cap W_{2} \) and note that \( W_{1} \cap W_{2} \) being finite-dimensional implies that it contains a basis \( \beta_{0} = \{ u_{1}, u_{2}, \dots, u_{k }  \}  \). We can extend \( \beta_{0} \) into a basis for \( W_{1} \) by adding vectors \( v_{1}, v_{2}, \dots, v_{m}  \) into \( \beta_{0} \). Denote this new set as \( \beta_{1} \). Likewise, we add vectors \( w_{1}, w_{2}, \dots, w_{p}   \) into \( \beta_{0}  \) to make a basis \( \beta_{2} \) for \( W_{2} \). We claim that \( \beta = \beta_{0} \cup \beta_{1} \cup \beta_{2} \) is a basis for \( W_{1} + W_{2} \). First, we will show that \( \beta \) is linearly independent. To do this, we need to show that 
         \[  \sum_{ i=1 }^{ k  } a_{i} u_{i} + \sum_{ j=1 }^{ m } b_{j} v_{j} + \sum_{ \ell = 1  }^{ p  } \gamma_{\ell} w_{\ell} = 0. \tag{1} \]
         Subtracting the third term on both sides of (1) produces the following equation:
-        \[ \sum_{ j=1 }^{ k  } a_{i} u_{i} + \sum_{ j-1 }^{ m } b_{j} v_{j} = - \sum_{ \ell =1  }^{ p } \gamma_{\ell} w_{\ell}. \]
+        \[ \sum_{ j=1 }^{ k  } a_{i} u_{i} + \sum_{ j=1 }^{ m } b_{j} v_{j} = - \sum_{ \ell =1  }^{ p } \gamma_{\ell} w_{\ell}. \]
         Observe that the left-hand side is an element of \( W_{1} \) while the other side is an element of \( W_{2} \). Hence, we know that the term on the right-hand side of (1) is also an element of \( W_{1} \cap W_{2} \). This implies that 
         \[  - \sum_{ \ell = 1  }^{ p } \gamma_{\ell} w_{\ell} = \sum_{ i=1 }^{ k  } \delta_{i} u_{i} \]
         which can be re-written as 
         \[  \sum_{ i=1 }^{ k  } \delta_{i} u_{i} + \sum_{ \ell = 1  }^{ p } \gamma_{\ell} w_{\ell} = 0. \]
-        Since \( \beta_{2} \) is a basis for \( W_{2} \), we know that \( \delta_{i} = 0  \) and \( \gamma_{\ell } = 0  \) implying that \( a_{i} = 0  \) and \( \gamma_{\ell} = 0  \). Now, subtracting the second term on the left-hand side of (1) on both sides and following the same process produces the same result with \( b_{j} = 0  \) and \( \gamma_{\ell} = 0  \). This tells us that \( a_{i} = b_{j} = \gamma_{\ell} = 0  \). Hence, \( \beta \) is a linearly independent set. 
+        Since \( \beta_{2} \) is a basis for \( W_{2} \), we know that \( \delta_{i} = 0  \) and \( \gamma_{\ell } = 0  \) implying that \( a_{i} = 0  \) and \( \gamma_{\ell} = 0  \). We can re-write (1) in the following form:
+        \[  \sum_{ j=1 }^{ k  } a_{i} u_{i} + \sum_{ j=1 }^{ m }b_{j} v_{j} = 0. \tag{2} \]
+        Since \( \beta_{1}  \) is a linearly independent set, we get that \( a_{i} = 0  \) and \( b_{j} = 0  \). Hence, (1) contains the trivial-representation which implies that \( \beta = \beta_{0} \cup \beta_{1} \cup \beta_{2}  \) is a linearly independent set.
 
         Now, we will show that \( \beta \) spans \( W_{1} + W_{2} \). Observe that \( \text{span}(\beta) \subseteq W_{1} + W_{2} \). Now, we will show \( W_{1} + W_{2} \subseteq \text{span}(\beta) \). Suppose we take a vector \( v \in W_{1} + W_{2} \) that is not in \( \beta \) and adjoin this vector in \( \beta \). Note that \( \beta \cup \{ v \}  \) produces a linearly dependent set that by which Theorem 1.7 implies that \( v \in \text{span}(\beta) \) and we are done. Hence, \( \beta \) spans \( W_{1} + W_{2} \) and thus \( \beta \) is a basis.
     
@@ -174,6 +176,24 @@ where \( f^{(n)}(x) \) denotes the \( n \)th derivative of \( f(x)  \).
 \begin{enumerate}
     \item[(a)] Prove that if \( W_{1} \) is any subspace of a finite-dimensional vector space \( V  \), then there exists a subspace \( W_{2} \) of \( V  \) such that \( V = W_{1} \oplus W_{2}  \).
         \begin{proof}
-        
+        Since \( W_{1}  \) is a subspace of a finite-dimensional vector space \( V  \), we know that \( W_{1} \) is also finite-dimensional and \( \text{dim}(W_{1}) \leq \text{dim}(V) \) by Theorem 1.11. Thus, let \( \beta  \) be a basis for \( W_{1} \) and let \( \alpha  \) be a basis for \( V  \). Since \( \alpha \) is a generating set consisting of \( \text{dim}(V) \) vectors and \( \beta   \) is a linearly independent subset of \( V  \), we can find a subset \( \sigma  \) of \( \alpha  \) consisting of \( \text{dim}(V) - \text{dim}(W_{1}) \) vectors such that \( \beta \cup \sigma  \) generates \( V  \) by the Replacement Theorem. Suppose \( \sigma  \) is a basis for a subspace of \( V  \) denoted by \( W_{2} \) for which \( \text{dim}(W_{2}) = \text{dim}(V) - \text{dim}(W_{1}) \). Note that \( \beta \cup \sigma \) contains exactly \( \text{dim}(V) \) vectors so it is also a basis for \( V  \) and that \( \beta \cap \sigma = \emptyset \). Hence, \( \text{dim}(V) = \text{dim}(W_{1}) + \text{dim}(W_{2}) \) for which it implies that \( V = W_{1} \oplus W_{2} \).
+        \end{proof}
+    \item[(b)] Let \( V = \R^{2} \) and \( W_{1} = \{ (a_{1}, 0 ) : a_{1} \in \R  \}   \). Give examples of two different subspaces \( W_{2} \) and \( W'_{2}  \) such that \( V = W_{1} \oplus W_{2} \) and \( V = W_{1} \oplus W'_{2} \).
+        \begin{proof}
+        \textbf{TO DO.}
         \end{proof}
 \end{enumerate}
+
+
+\subsubsection{Exercise 1.6.35} Let \( W  \) be a subspace of a finite-dimensional vector space \( V  \), and consider the basis \( \{ u_{1}, u_{2}, \dots, u_{k } \}   \) for \( W  \). Let \( \{ u_{1}, u_{2}, \dots, u_{k }, u_{k+1}, \dots, u_{n} \}  \) be an extension of this basis to a basis for \( V  \).
+\begin{enumerate}
+    \item[(a)] Prove that \( \{ u_{k+1} + W , u_{k+2} + W, \dots, u_{n} + W  \}  \) is a basis for \( V \setminus W  \).
+        \begin{proof}
+        \textbf{TO DO.}
+        \end{proof}
+    \item[(b)] Derive a formula relating \( \text{dim}(V), \text{dim}(W),  \) and \( \text{dim}(V \setminus W ) \).
+        \begin{proof}
+        \textbf{TO DO.}
+        \end{proof}
+\end{enumerate}
+

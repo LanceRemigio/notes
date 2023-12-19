@@ -358,4 +358,64 @@ Let \( W_{1}  \) and \( W_{2}  \) be subspaces of \( V  \). Let \( v \in V  \). 
 Conversely, suppose every vector \( v \in V  \) can be \textit{uniquely} written as \( x_{1} + x_{2}  \) with \( x_{1} \in W_{1}  \) and \( x_{2} \in W_{2} \). We need to show that \( W_{1} \oplus W_{2} = V \). Since \( v \in V  \) is uniquely expressed in terms of \( x_{1} + x_{2}  \), the only vector that the two subspaces \( W_{1}  \) and \( W_{2}  \) share is the zero vector. Hence, \( W_{1} \cap W_{2} = \{ O_{V} \}  \). Now, we need to show that \( V = W_{1} + W_{2} \); that is, we need to show \( V \subseteq W_{1} + W_{2}  \) and \( W_{1} + W_{2} \subseteq V  \). Suppose \( v \in V  \). Since \( x_{1} \in W_{1}  \) and \( x_{2} \in W_{2} \), we have that \( v \in W_{1} + W_{2} \). Hence, \( V \subseteq W_{1} + W_{2} \).  Now, let \( v \in W_{1} + W_{2}  \). Since \( v = x_{1} + x_{2}  \) where \( x_{1} \in W_{1}  \) and \( x_{2} \in W_{2}  \) and \( W_{1} \subseteq V  \) and \( W_{2} \subseteq V  \) , we know that \( x_{1} \) and \(x_{2} \) are contained within \( V  \). Since \( V  \) is vector space, we know that sum of  \( x_{1} \) and \( x_{2}  \) are contained in \( V  \). Hence, \( v \in V  \) and so \( V \subseteq W_{1} + W_{2} \). Thus, \( V = W_{1} \oplus W_{2} \).
 \end{proof}
 
+\begin{definition}[Cosets]Let \( W  \) be a subspace of a vector space \( V  \) over a field \( F  \). For any \( v \in V  \) the set \( \{ v  \}  + W = \{ v + w : w \in W \}   \) is called the \textbf{coset} of \( W  \) \textbf{containing} \( v  \). It is customary to denote this coset by \( v + W  \) rather than \( \{ v  \}  + W  \). 
+\end{definition}
+
+\begin{definition}[Addition of Cosets]
+    The \textbf{addition} of two cosets \( v_{1}  + W  \) and \( v_{2} + W  \) is defined as 
+    \[ (v_{1} + W) + (v_{2} + W) = (v_{1} + v_{2}) + W  \]
+    for all \( v_{1}, v_{2} \in V  \).
+\end{definition}
+
+\begin{definition}[Scalar Multiplication of Cosets]
+    The \textbf{scalar multiplication} of cosets by scalars of \( F  \) can be defined as 
+    \[  a ( v + W ) = av + W \]
+    for all \( v \in V  \) and \( a \in F  \).
+\end{definition}
+
+
+\subsubsection{Exercise 1.6.31} The following exercises require the application of the definitions above.
+\begin{enumerate}
+    \item[(a)] Prove that \( v + W  \) is a subspace of \( V  \) if and only if  \( v \in W  \).
+        \begin{proof}
+        Suppose \( v + W  \) is a subspace of \( V  \). Then \( 0_{V} \in v + W  \) which implies that \( O_{V} = v + w  \). Hence, \( v = -w  \) where \( -w \in W  \) and thus \( v \in W  \).
+        Conversely, suppose \( v \in W  \). 
+        \begin{enumerate}
+            \item[(a)] Since \( W  \) is a subspace of \( V  \), we know that \( 0_{V} \in W  \). Since \( v \in W  \), there exists an element \( v' \in W  \) such that \( v + v' = 0_{V} \). But this tell us that \( O_{V} \in v + W  \).
+            \item[(b)] Let \( x,y \in v + W  \). By definition, \( x = v + w  \) and \( y = v + w' \) for \( w, w' \in W  \). Then observe that
+                \[ x + y = (v + w) + (v+w') = v + (v + w + w')  \]
+                where \( v + w + w' \in W  \) since \( W  \) is a subspace of \( V  \). Hence, \( v + W  \) is closed under addition.
+            \item[(c)] Let \( x \in  v + W  \). Choose \( c \in F  \) for which we will show that \( cx \in v + W  \). Then 
+                \[  cx = c (v + w) = cv + cw = v (cv + cw - v ) \]
+                where \( cv + cw - v  \) since \( W  \) is a subspace of \( V  \).
+        \end{enumerate}
+        Hence, \( v + W  \) is a subspace of \( V  \).
+        \end{proof} 
+    \item[(b)] Prove that \( v_{1} + W =  v_{2} + W  \) if and only if \( v_{1} - v_{2} \in W  \).
+        \begin{proof}
+        Let \( x \in v_{1} + W  \). Then for \( \alpha \in W  \), we have \( x = v_{1} + \alpha  \). Since \( v_{1} + W = v_{2} + W  \), then \( x \in v_{2} + W  \) implies that for \( \beta \in W  \), we have \( x = v_{2} + \beta  \). Then observe that 
+        \[  v_{1} + \alpha = v_{2} + \beta \implies v_{1} - v_{2} = \beta - \alpha.  \]
+        Since \( W  \) is a subspace, we have that \(  \beta - \alpha = v_{1} - v_{2} \in W  \).
+
+        Conversely, suppose \( v_{1} - v_{2} \in W  \). By part (a), we know that \( (v_{1} - v_{2}) + W   \) is a subspace of \( V  \). Hence, \( 0_{V} \in (v_{1} - v_{2}) + W  \). This means that there exists \( w' \in W  \) such that 
+        \begin{align*}
+            &(v_{1} - v_{2}) + w' = 0_{V} \\
+            &\implies v_{1} + w' = v_{2} + (w - w) \\
+            &\implies v_{1} + \underbrace{(w' + w)}_{\in W} = v_{2} + \underbrace{w}_{\in W}.
+        \end{align*}
+        This tells us that \( v_{1} + W = v_{2} + W  \) and we are done.
+        \end{proof}
+    \item[(c)] Prove that the preceding operations are well defined; that is, show that if \( v_{1} + W = v'_{1} + W  \) and \( v_{2} + W = v'_{2} + W  \), then 
+        \[  (v_{1} + W) + (v_{2} + W) = (v'_{1} + W) + (v'_{2} + W) \]
+        and 
+        \[  a(v_{1} + W) = a(v'_{1} + W) \]
+        for all \( a \in F  \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(d)] Prove that the set \( S  \) is a vector space with the operations defined in (c). This vector space is called the \textbf{quotient space of \( V  \) modulo \( W \) } by \( V \setminus W   \).
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
 
