@@ -189,11 +189,25 @@ where \( f^{(n)}(x) \) denotes the \( n \)th derivative of \( f(x)  \).
 \begin{enumerate}
     \item[(a)] Prove that \( \beta_{2} = \{ u_{k+1} + W , u_{k+2} + W, \dots, u_{n} + W  \}  \) is a basis for \( V / W  \).
         \begin{proof}
-            To show that \( \beta_{1}  \) is a basis, we need to show that \( \beta_{1} \) is a linearly independent set and a generating set for \( V  \). Observe that \( 0 + W = W  \). Since \( \beta_{1}  \) is linear independent, we have
+            To show that \( \beta_{2}  \) is a basis, we need to show that \( \beta_{2} \) is a linearly independent set and a generating set for \( V  \). Observe that 
+            \[  \sum_{ j=k+1 }^{ n } \delta_{j} (u_{j} + W) = W  \] 
+             for scalars \( \delta_{j}  \) for \( k+1 \leq j \leq n  \) implies 
+            \[ \Big[\sum_{ j=k+1 }^{ n  } \delta_{j} u_{j}  \Big] + W = W.      \]
+            This implies that 
+            \[  \sum_{ j=k+1 }^{ n } \delta_{j} u_{j} \in W. \tag{1}  \]
+            Since \( W  \) contains \( \beta_{0}  \) as a basis, we can write
+            \[  \sum_{ j=k+1 }^{ n } \delta_{j} u_{j} = \sum_{ i=1 }^{ k }\gamma_{i} u_{i} \]
+            for scalars \( \gamma_{i}  \) for all \( 1 \leq i \leq k  \) which can be re-written to 
+            \[ \sum_{ j=k+1 }^{ n } \delta_{j} u_{j} - \sum_{ j=1 }^{ k  }\gamma_{i} u_{i} = 0  \]
+            where all \( \delta_{j} = 0  \) and \( \gamma_{i} = 0  \) since \( \beta_{1} \) is a basis for \( V  \). Since all \( \delta_{j} = 0 \), we get that \( \beta_{2}  \) is a linearly independent set. 
+
+            To show that \( \beta_{2}  \) is a generating set for \( V / W  \), we need to show that \( \text{span}(\beta_{2}) = V / W  \). Note that the containment \( \text{span}(\beta_{2}) \subseteq V / W  \). To show that other containment, let \( v \in V  \) not in \( \beta_{2} \). Observe that adjoining \( v  \) to \( \beta_{2} \) creates a linearly dependent set. By Theorem 1.7, we have \( v \in \text{span}(\beta_{2}) \). Hence, \( V \subseteq \text{span}(\beta_{2}) \). 
+
         \end{proof}
     \item[(b)] Derive a formula relating \( \text{dim}(V), \text{dim}(W),  \) and \( \text{dim}(V / W ) \).
         \begin{proof}
-        \textbf{TO DO.}
+            In part (a), we see that \( \beta_{2} \) contains \( n \) amount of vectors. Unioning this set with \( \beta_{1}   \) creates a basis for \( V  \) that contains \( \text{dim}(W) + \text{dim}(V/W) \) vectors. Hence, we must have 
+            \[  \text{dim}(V/W) = \text{dim}(V) - \text{dim}(W). \]
         \end{proof}
 \end{enumerate}
 
