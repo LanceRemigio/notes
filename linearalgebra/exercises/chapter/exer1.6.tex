@@ -190,11 +190,11 @@ where \( f^{(n)}(x) \) denotes the \( n \)th derivative of \( f(x)  \).
     \item[(a)] Prove that \( \beta_{2} = \{ u_{k+1} + W , u_{k+2} + W, \dots, u_{n} + W  \}  \) is a basis for \( V / W  \).
         \begin{proof}
             To show that \( \beta_{2}  \) is a basis, we need to show that \( \beta_{2} \) is a linearly independent set and a generating set for \( V  \). Observe that 
-            \[  \sum_{ j=k+1 }^{ n } \delta_{j} (u_{j} + W) = W  \] 
-             for scalars \( \delta_{j}  \) for \( k+1 \leq j \leq n  \) implies 
-            \[ \Big[\sum_{ j=k+1 }^{ n  } \delta_{j} u_{j}  \Big] + W = W.      \]
+            \[  \sum_{ j=k+1 }^{ n } \delta_{j} (u_{j} + W) = W  \tag{1} \] 
+             for scalars \( \delta_{j}  \) for \( k+1 \leq j \leq n  \). Note that \( W  \), in this case, is the zero vector of \( V / W  \). Hence, (1) implies that  
+             \[ \Big[\sum_{ j=k+1 }^{ n  } \delta_{j} u_{j}  \Big] + W = W. \tag{2}      \]
             This implies that 
-            \[  \sum_{ j=k+1 }^{ n } \delta_{j} u_{j} \in W. \tag{1}  \]
+            \[  \sum_{ j=k+1 }^{ n } \delta_{j} u_{j} \in W. \tag{3}  \]
             Since \( W  \) contains \( \beta_{0}  \) as a basis, we can write
             \[  \sum_{ j=k+1 }^{ n } \delta_{j} u_{j} = \sum_{ i=1 }^{ k }\gamma_{i} u_{i} \]
             for scalars \( \gamma_{i}  \) for all \( 1 \leq i \leq k  \) which can be re-written to 

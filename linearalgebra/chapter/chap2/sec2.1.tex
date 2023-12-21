@@ -1,0 +1,56 @@
+\section{Linear Transformations, Null Spaces, and Ranges}
+
+Suppose we have a function \( T  \) with domain \( V  \) and codomain \( W  \) denoted by \( T: V \to W  \).
+
+
+\begin{definition}[Linear Transformation]\label{Linear Transformation}
+   Let \( V  \) and \( W  \) be vector spaces (over \( F  \)). We call a function \( T: V \to W  \) a \textbf{linear transformation from \( V  \) to \( W  \)}, for all \( x,y \in V  \) and \( c \in F  \), we have
+   \begin{enumerate}
+       \item[(a)] \( T(x+y) = T(x) + T(y) \) and
+        \item[(b)] \( T(cx) = c T(x) \).
+   \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    If \( F = \Q   \), then (a) implies (b) in the definition above. Otherwise, (a) and (b) are logically independent statements.  
+\end{remark}
+The following are a list of properties for linear functions:
+\begin{enumerate}
+    \item If \( T  \) is linear, then \( T(0) = 0  \).
+        \begin{proof}
+        Suppose \( T  \) is linear, then \( T(0 \cdot 0 ) = 0 T(0) = 0  \).
+        \end{proof}
+    \item We have \( T  \) is linear if and only if \( T(cx+y) = cT(x) + T(y)  \) for all \( x,y \in V  \) and \( c \in F  \).
+        \begin{proof}
+        Suppose \( T  \) is linear. Let \( x,y \in V  \) and \( c \in F  \). Then 
+        \[  T(cx+y) = T(cx) + T(y) = cT(x) + T(y). \]
+        Conversely, if \( c = 1  \) then 
+        \[  T(x + y) = T(x) + T(y). \]
+        If  \( y = 0  \), then 
+        \[ T(cx) = cT(x).  \]
+        Hence, \( T  \) is a linear transformation.
+        \end{proof}
+    \item If \( T  \) is linear, then \( T(x-y) = T(x) - T(y)  \) for all \( x,y \in V  \).
+        \begin{proof}
+        Let \( x,y \in V  \). Suppose \( T  \) is linear, then 
+        \[ T(x - y) = T(x) + T(-y) = T(x) - T(y).  \]
+        \end{proof}
+    \item \( T  \) is linear if and only if, for \( x_{1}, x_{2} , \dots, x_{n} \in V  \) and \( a_{1}, a_{2}, \dots, a_{n} \in F  \), 
+        we have
+        \[  T \Big(  \sum_{ i=1 }^{ n } a_{i} x_{i}  \Big) = \sum_{ i=1 }^{ n } a_{i} T(x_{i}). \]
+        \begin{proof}
+        Suppose \( T  \) is linear. Let \( x_{1}, x_{2}, \dots, x_{n} \in V  \) and \( a_{1}, a_{2}, \dots, a_{n} \in F  \) such that
+        \[  v = \sum_{ i=1 }^{ n } a_{i} x_{i}. \]
+        Then observe that 
+        \[
+            T \Big( \sum_{ i=1 }^{ n } a_{i} x_{i} \Big) = \sum_{ i=1 }^{ n } T( a_{i} x_{i}) 
+                                                         = \sum_{ i=1 }^{ n } a_{i} T(x_{i}).
+        \]
+        Conversely, for \( i = 2  \) and denote \( a_{i} x_{i} = y_{i} \). Then
+        \[  T\Big(\sum_{ i=1 }^{ 2 } a_{i} x_{i} \Big) = T(a_{1} x_{1}) + T(a_{2} x_{2}) = T(y_{1}) + T(y_{2})  \]  
+        and so property 1 is satisfied. 
+        If \( i = 1  \), then 
+        \[  T \Big( \sum_{ i=1 }^{ 1 } a_{i}x_{i}  \Big) = a_{1} T(x_{1}) \]
+        and so property 2 is satisfied. Hence, \( T  \) is a linear transformation.
+        \end{proof}
+\end{enumerate}
