@@ -54,3 +54,28 @@ The following are a list of properties for linear functions:
         and so property 2 is satisfied. Hence, \( T  \) is a linear transformation.
         \end{proof}
 \end{enumerate}
+
+\begin{eg}
+   Define  
+   \begin{center}
+       \( T: \R^{2} \to \R^{2}  \) by \( T(a_{1}, a_{2}) = (2a_{1} + a_{2}, a_{1}) \).
+   \end{center}
+   Show that \( T  \) is linear. Let \( c \in \R  \) and \( x,y \in \R^{2} \), where \( x = (a_{1}, a_{2}) \) and \( y = (b_{1}, b_{2}) \). Then
+   \begin{align*}
+       cx + y &= c(a_{1}, a_{2}) + (b_{1}, b_{2})  \\
+              &=  (ca_{1}, ca_{2} ) + (b_{1}, b_{2}) \\
+              &=  (ca_{1} + b_{1} , ca_{2} + b_{2}).
+   \end{align*}
+   So, we have
+   \begin{align*}
+                                       T(cx + y)  &= T(ca_{1} + b_{1} , ca_{2} + b_{2})  \\
+                                         &= (2(ca_{1} + b_{1})  + ca_{2} + b_{2}, ca_{1} + b_{1} ) \\
+                                          &= ((2ca_{1} + ca_{2}) +  (2b_{1} + b_{2}), ca_{1} + b_{1}  ) \\
+                                          &= (2ca_{1} + ca_{2}, ca_{1}) + (2b_{1} + b_{2}, b_{1} ) \\
+                                          &= c(2a_{1} + a_{2}, a_{1}) + (2b_{1} + b_{2}, b_{1}) \\
+                                          &= cT(a_{1}, a_{2}) + T(b_{1}, b_{2}) \\
+                                          &= cT(x) + T(y).
+   \end{align*}
+   Hence, we have that \( T(cx + y) = cT(x) + T(y) \) so \( T: \R^{2} \to \R^{2}   \) is a linear.
+\end{eg}
+
