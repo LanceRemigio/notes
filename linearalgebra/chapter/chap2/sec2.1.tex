@@ -20,7 +20,7 @@ The following are a list of properties for linear functions:
         \begin{proof}
         Suppose \( T  \) is linear, then \( T(0 \cdot 0 ) = 0 T(0) = 0  \).
         \end{proof}
-    \item We have \( T  \) is linear if and only if \( T(cx+y) = cT(x) + T(y)  \) for all \( x,y \in V  \) and \( c \in F  \).
+    \item \label{Second Property of Linearity} We have \( T  \) is linear if and only if \( T(cx+y) = cT(x) + T(y)  \) for all \( x,y \in V  \) and \( c \in F  \).
         \begin{proof}
         Suppose \( T  \) is linear. Let \( x,y \in V  \) and \( c \in F  \). Then 
         \[  T(cx+y) = T(cx) + T(y) = cT(x) + T(y). \]
@@ -78,4 +78,77 @@ The following are a list of properties for linear functions:
    \end{align*}
    Hence, we have that \( T(cx + y) = cT(x) + T(y) \) so \( T: \R^{2} \to \R^{2}   \) is a linear.
 \end{eg}
+
+\subsection{Examples of Linear Transformations}
+
+The most common linear transformations come from geometry:
+\begin{itemize}
+    \item Rotations: \( T_{\theta}(a_{1}, a_{2}) = (a_{1}, a_{2}) \) by performing a counter-clockwise rotation by an angle \( \theta \) if \( (a_{1}, a_{2}) \neq (0,0) \). This is called \textbf{rotation by \( \theta \)} and \( T_{\theta}(0,0) = (0,0) \) otherwise.
+    \item Reflections about the \( x- \)axis: \( T(a_{1}, a_{2}) = (a_{1}, - a_{2}) \).
+    \item Projections on the \( x- \)axis: \( T(a_{1}, a_{2}) = (a_{1}, 0 ) \).
+\end{itemize}
+
+\begin{eg}[Rotations]
+    Define the rotation transformation above by \( T_{\theta}: \R^{2} \to \R^{2}  \) by \( T_{\theta}(a_{1}, a_{2}) \) where it is described as above. Our goal in this example is to define an explicit formula of this transformation. Let us fix a nonzero vector \( (a_{1}, a_{2}) \in \R^{2} \). Let \( \alpha  \) be the angle such that \( (a_{1}, a_{2})\) makes with the positive \( x-\)axis, and let \( r = \sqrt{ a_{1}^{2} + a_{2}^{2}  }  \). Then using some trigonometry, we get that \( a_{1} = r \cos(\alpha)  \) and \( a_{2} = r \sin(\alpha) \). Note that \( T_{\theta}(a_{1}, a_{2}) \) has length \( r  \) and makes an angle \( \alpha + \theta  \) with the positive \( x- \)axis. Using some trigonometric identities, we get that
+    \begin{align*}
+        T_{\theta}(a_{1}, a_{2}) &= (r\cos(\alpha + \theta), r \sin(\alpha + \theta)) \\
+                                 &= (r \cos(\alpha) \cos(\theta) - r \sin(\alpha ) \sin(\theta) , r \cos(\alpha) \sin(\theta) + r \sin(\alpha) \cos(\theta) ) \\
+                                 &= (a_{1} \cos(\theta) - a_{2} \sin(\theta) , a_{1} \sin(\theta) + a_{2} \cos(\theta)).  \\
+    \end{align*}
+    Observe that this formula holds for \( (a_{1}, a_{2}) = (0,0) \). One can show that \( T_{\theta}  \) is linear.
+\end{eg}
+
+\begin{eg}[Transpose]
+    Define \( T: M_{m \times n } (F) \to M_{n \times m}(F) \) by \( T(A) = A^{t}  \), where \( A^{t} \) is the {\hyperref[Transpose]{transpose}}  of \( A  \), defined in Section 1.3. 
+\end{eg}
+
+\begin{eg}[Derivatives of Polynomials]
+    Define \( T: P_{n}(\R) \to P_{n-1}(\R) \) by \( T(f(x)) = f'(x)  \), where \( f'(x)  \) denotes the derivative of \( f(x)  \). We can show that \( T  \) is linear. Let \( g(x) , h(x) \in P_{n}(\R) \) and \( a \in \R  \).Assuming that the differentiation rules holds for any \( T  \), we have
+    \begin{align*}
+        T(ag(x) + h(x)) &= (ag(x) + h(x))' \\
+                        &= ag'(x) + h'(x) \\
+                        &= a T(g(x)) + T(h(x)).
+    \end{align*}
+    By the {\hyperref[Second Property of Linearity]{second property of linearity}} , we have that \( T  \) is linear.
+\end{eg}
+
+\begin{eg}[Integrals]\label{Integrals are Linear}
+    Let \( V = C(\R) \) be the vector space of continuous real-valued functions on \( \R \). Let \( a,b \in \R  \), \( a < b  \). Define \( T: V \to \R  \) by
+    \[  T(f) = \int_{ a }^{ b }  f(t) \ dt  \] for all \( f \in V  \). We know that \( T  \) is a linear transformation because the definite integral of a linear combination of functions is the same as the linear combination of the definite integrals of the functions; that is, 
+    \[  \int_{ a }^{ b } \sum_{ i=1 }^{ n } \gamma_{i} f(t_{i}) \ dt = \sum_{ i=1 }^{ n } \gamma_{i} \int_{ a }^{ b } f(t_{i})   \ dt = \sum_{ i=1 }^{ n } \gamma_{i} T(f_i)  \]
+    for scalars \( \gamma_{i}  \) where \( 1 \leq i \leq n\) and  
+    \[  T(f_i) =  \int_{ a }^{ b } f(t_{i}) \ dt.  \]
+\end{eg}
+
+
+\subsection{Identity and Zero Transformations}
+
+\begin{remark}
+   Two very important examples of linear transformations are the \textbf{identity and zero transformations}. 
+\end{remark}
+
+\begin{definition}[Identity Transformation]\label{Identity Transformation}
+    The \textbf{identity transformation} is denoted by \( I_{V}: V \to V  \) by \( I_{V}(x) = x  \) for all \( x \in V  \). From now on, we will denote this transformation as \( I  \) instead of \( I_{V} \).
+\end{definition}
+
+\begin{definition}[Zero Transformation]\label{Zero Transformation}
+    The \textbf{zero transformation} is denoted by \( T_{0}: V \to W  \) by \( T_{0}(x) = 0  \) for all \( x \in V  \).
+\end{definition}
+
+\subsection{Range and Null Spaces}
+
+The \textit{Range} and \textit{Null} spaces give us important insights on the intrinsic properties of a linear transformation.
+
+
+
+\begin{definition}[Null Space]\label{Null Spaces}
+    Let \( V  \) and \( W  \) be vector spaces, and let \( T: V \to W  \) be linear. 
+   The \textbf{null space} (or \textbf{kernel}), denoted by \( N(T) \) of \( T  \), is the set of all vectors \( x \in V  \) such that \( T(x) = 0  \); that is, \( N(T) = \{ x \in V : T(x) = 0  \}  \). 
+\end{definition}
+
+\begin{definition}[Range]\label{Range}
+    Let \( V  \) and \( W  \) be vector spaces, and let \( T: V \to W  \) be linear. 
+   The \textbf{range} (or \textbf{image}) \( R(T)  \) of \( T  \) is the subset of \( W  \) consisting of all images (under \( T \)) of vectors in \( V  \); that is, \( R(T) = \{ T(x) : x \in V  \}  \).
+\end{definition}
+
 
