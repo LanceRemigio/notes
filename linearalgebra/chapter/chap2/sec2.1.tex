@@ -151,4 +151,32 @@ The \textit{Range} and \textit{Null} spaces give us important insights on the in
    The \textbf{range} (or \textbf{image}) \( R(T)  \) of \( T  \) is the subset of \( W  \) consisting of all images (under \( T \)) of vectors in \( V  \); that is, \( R(T) = \{ T(x) : x \in V  \}  \).
 \end{definition}
 
+\begin{eg}
+    Let \( V  \) and \( W  \) be vector spaces, and let \( I: V \to V  \) and \( T_{0}: V \to W  \) be the identity and zero transformations, respectively. Then \( N(I) = \{ 0  \}  \), \( R(I) = V  \), \( N(T_{0}) = V  \), and \( R(T_{0}) = \{ 0 \}  \).
+\end{eg}
 
+
+\begin{eg}
+    Let \( T: \R^{3} \to \R^{2}  \) be the linear transformation defined by  
+    \[  T(a_{1}, a_{2}, a_{3}) = (a_{1} - a_{2}, 2a_{3} ). \]
+    One can verify that 
+    \begin{center}
+        \( N(T) = \{ (a,a,0) : a \in \R  \}  \) and \( R(T) = \R^{2} \).
+    \end{center}
+\end{eg}
+
+
+\begin{theorem}[ ]
+    Let \( V  \) and \( W  \) be vector spaces and \( T: V \to W  \) be linear. Then \( N(T) \) and \( R(T) \) are subspaces of \( V  \) and \( W  \), respectively.
+\end{theorem}
+\begin{proof}
+    First, we show that \( N(T) \) is a subspace of \( V  \). 
+    \begin{enumerate}
+        \item[(a)] Note that \( 0_{V} \in V  \) implies that \( T(0_{V}) = 0_{V} \) by definition of the null space. Hence, \( 0_{V} \in N(T)  \).
+        \item[(b)] Let \( x, y \in V \). By definition, of the null space we have \( T(x) = 0_{V}  \) and \( T(y) = 0_{V} \). Since \( T  \) is linear, we get that
+            \[  T(x+y) = T(x) + T(y) = 0_{V} + 0_{V} = 0_{V} \in N(T). \]
+        Hence, \( N(T) \) is closed under addition.
+        \item[(c)] Let \( x \in V  \) and let \( c \in F  \). 
+            \[ T(cx) = cT(x) = c 0_{V} = O_{V}.  \]
+    \end{enumerate}
+\end{proof}
