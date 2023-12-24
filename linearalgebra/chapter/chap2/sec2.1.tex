@@ -170,13 +170,93 @@ The \textit{Range} and \textit{Null} spaces give us important insights on the in
     Let \( V  \) and \( W  \) be vector spaces and \( T: V \to W  \) be linear. Then \( N(T) \) and \( R(T) \) are subspaces of \( V  \) and \( W  \), respectively.
 \end{theorem}
 \begin{proof}
-    First, we show that \( N(T) \) is a subspace of \( V  \). 
+    Let \( T: V \to W   \) be linear. First, we show that \( N(T) \) is a subspace of \( V  \). 
     \begin{enumerate}
-        \item[(a)] Note that \( 0_{V} \in V  \) implies that \( T(0_{V}) = 0_{V} \) by definition of the null space. Hence, \( 0_{V} \in N(T)  \).
-        \item[(b)] Let \( x, y \in V \). By definition, of the null space we have \( T(x) = 0_{V}  \) and \( T(y) = 0_{V} \). Since \( T  \) is linear, we get that
-            \[  T(x+y) = T(x) + T(y) = 0_{V} + 0_{V} = 0_{V} \in N(T). \]
+        \item[(a)] Note that \( 0_{V} \in V  \) implies that \( T(0_{V}) = 0_{W}  \) since \( T  \) is linear (property (1) of linearity). Hence, \( 0_{V} \in N(T)  \).
+        \item[(b)] Let \( x, y \in N(T) \). By definition, of the null space we have \( T(x) = 0_{W}  \) and \( T(y) = 0_{W} \). Since \( T  \) is linear, we get that
+            \[  T(x+y) = T(x) + T(y) = 0_{W} + 0_{W} = 0_{W} \in N(T). \]
         Hence, \( N(T) \) is closed under addition.
-        \item[(c)] Let \( x \in V  \) and let \( c \in F  \). 
-            \[ T(cx) = cT(x) = c 0_{V} = O_{V}.  \]
+        \item[(c)] Let \( x \in N(T)  \) and let \( c \in F  \). Then 
+            \[ T(cx) = cT(x) = c 0_{V} = 0_{W} \in N(T).  \]
     \end{enumerate}
+    Hence, {\hyperref[Subspaces]{Theorem 1.3}} tells us that \( N(T) \) is a subspace of \( V  \).
+    Now, we will show that \( R(T) \) is a subspace of \( W  \).
+    \begin{enumerate}
+        \item[(a)] Note that \( 0_{V} \in V  \) implies that \( T(0_{V}) = 0_{W} \in R(T) \) by property (1) of linearity. So, \( 0_{W} \in R(T) \).
+        \item[(b)] Now let \( x,y \in R(T)  \). Then there exists elements \( z, w \in W   \) such that \( T(x) = z  \) and \( T(y) = w  \). Then by linearity, we have \( T(x+y) = T(x) + T(y) = z + y \in W   \). Hence, we must have \( x + y \in R(T) \) and thus \( R(T)  \) is closed under addition.
+        \item[(c)] Let \( x \in R(T)  \) and \( c \in F \). Then we have \( T(cx) = c T(x) \in W  \) since \( T(x) \in W  \). Hence, \( cx \in R(T) \).
+    \end{enumerate}
+    Thus, {\hyperref[Subspaces]{Theorem 1.3}} also tells us that \( R(T)  \) is a subspace of \( W  \).
+\end{proof}
+
+The next theorem allows us to find a spanning set for the range of a linear transformation.
+
+\begin{theorem}[Spanning Set for a Linear Transformation]\label{Spanning set for R(T)}
+    Let \( V  \) and \( W  \) be vector spaces, and let \( T:V \to W  \) be linear. If \( \beta = \{ v_{1}, v_{2}, \dots v_{n} \}  \) is a basis for \( V  \), then   
+    \[  R(T) = \text{span}(T(\beta)) = \text{span}(\{ T(v_{1}), T(v_{2}) , \dots, T(v_{n}) \} ). \]
+\end{theorem}
+
+\begin{proof}
+Let \( T: V \to W  \) be linear where \( V  \) and \( W  \) are vector spaces. To show that \( T(\beta) \) generates \( R(T) \); we need to show that  
+\begin{center}
+    \( \text{span}(T(\beta)) \subseteq R(T) \) and \( R(T) \subseteq \text{span}(T(\beta)) \).
+\end{center}
+    Observe that \( T(v_{i}) \in R(T) \) for all \( i  \). Hence, \( T(\beta) \subseteq R(T) \). By theorem 1.5, we know that \( R(T) \) also contains the span of \( T(\beta) \). Hence, \( \text{span}(T(\beta)) \subseteq R(T) \). 
+
+    Let \( w \in R(T) \). Then for some \( v \in W  \), we have \( T(v) = w \). Since \( \beta \) is a basis for \( V  \), we choose scalars \( \alpha_{1}, \alpha_{2}, \dots, \alpha_{n} \) such that 
+    \[  v  = \sum_{ i=1 }^{ n } \alpha_{i} v_{i}. \]
+    Since \( T  \) is linear, we have that
+    \[  w = T(v) = T \Big( \sum_{ i=1 }^{ n } a_{i} v_{i} \Big) = \sum_{ i=1 }^{ n } a_{i} T(v_{i}). \]
+    This tells us that \( v \in \text{span}(T(\beta)) \). Hence, \( T(\beta) \) generates \( R(T) \).
+\end{proof}
+
+\begin{eg}
+    Define the linear transformation \( T: P_{2}(\R) \to M_{2 \times 2}(\R) \) by 
+    \[  T(f(x)) = \begin{pmatrix}
+        f(1) - f(2) & 0 \\
+        0 & f(0)
+    \end{pmatrix}. \]
+    Note that 
+    \begin{center}
+        \( \beta = \{ 1,x, x^{2} \}  \) is a basis for \( P_{2}(\R)  \) and \( T(\beta) = \{ T(1), T(x), T(x^{2}) \}. \)
+    \end{center}
+    Then observe that
+    \begin{align*}
+        R(T) &= \text{span}(T(\beta)) \\
+             &= \text{span}\Big( \Big\{ \begin{pmatrix}
+                         0 & 0 \\
+                         0 & 1 
+             \end{pmatrix}, \begin{pmatrix}
+                         -1 & 0 \\
+                         0 & 0 
+             \end{pmatrix}, \begin{pmatrix}
+                         -3 & 0 \\ 
+                         0 & 0 
+             \end{pmatrix} \Big\}  \Big).
+    \end{align*}
+    This tells us that \( R(T) \) contains the basis found in the second equality above. Hence, we must have \( \text{dim}(R(T)) = 2  \). 
+\end{eg}
+
+Just like how the 'size' of a given subspace is denoted by its dimension, we can also determine the size of a null spaces and ranges. However, we will attach some special names associated with these sets.
+\begin{definition}[Nullity]\label{Nullity}
+    Let \( V  \) and \( W  \) be vector spaces, and let \( T: V \to W  \) be linear. If \( N(T)  \) is finite-dimensional, then we define \textbf{nullity} of \( T  \) by \( \text{nullity}(T)  \) to be the dimension of \( N(T) \).
+\end{definition}
+
+\begin{definition}[Rank]\label{Rank}
+    Let \( V  \) and \( W  \) be vector spaces, and let \( T: V \to W  \). If \( R(T)  \) is finite-dimensional, then we denote the \textbf{rank} of \( T  \) by \( \text{rank}(T) \) to be the dimension of \( R(T) \). 
+\end{definition}
+
+From these definitions, we can intuit the following relationships between Nullity and Rank of a linear transformation:
+\begin{itemize}
+    \item The larger the nullity, the smaller the rank of a linear transformation.
+    \item the larger the rank, the smaller the nullity.
+\end{itemize}
+This relationship between the two spaces is encompassed in the next theorem.
+
+\begin{theorem}[Dimension Theorem]\label{Dimension Theorem}
+   Let \( V  \) and \( W  \) be vector spaces, and let \( T: V \to W  \) be linear. If \( V  \) is finite-dimensional, then  
+   \[ \text{nullity}(T) + \text{rank}(T) = \text{dim}(V).  \]
+\end{theorem}
+\begin{proof}
+
 \end{proof}
