@@ -258,5 +258,28 @@ This relationship between the two spaces is encompassed in the next theorem.
    \[ \text{nullity}(T) + \text{rank}(T) = \text{dim}(V).  \]
 \end{theorem}
 \begin{proof}
+Suppose \( \text{dim}(V) = n  \) and \( \text{dim}(N(T)) = k  \), and \( \{ u_{1}, u_{2}, \dots, u_{k } \}  \) is a basis for \( N(T) \). By {\hyperref[Corollary to Theorem 1.11]{corollary to Theorem 1.11}} \( \beta \) can be extended to be a basis for \( V  \). Denote this basis as 
+\[ \{ u_{1}, u_{2}, \dots, u_{n} \}.  \]
+We claim that that \( S = \{ T(u_{k+1}), T(u_{k+2}), \dots, T(u_{n})  \}  \) is a basis for \( R(T) \).
+First, we show that \( S  \) generates \( R(T) \). Using The {\hyperref[Spanning set for R(T)]{Theorem 2.1}} and the fact that \( T(u_{i}) = 0  \) for \( 1 \leq i \leq k  \), we get that 
+\begin{align*}
+    R(T) &= \text{span}(\{ T(u_{1}), T(u_{2}), \dots, T(u_{n}) \} ) \\
+         &= \text{span}(\{T(u_{k+1}), T(u_{k+2}), \dots, T(u_{n})  \} )\\
+         &= \text{span}(T(S)) .
+\end{align*}
+Hence, \( S  \) generates \( R(T) \).
 
+Now, we want to show that \( S \) is linearly independent. Then choose scalars \( \alpha_{k+1}, \alpha_{k+2}, \dots, \alpha_{n} \) such that 
+\[  \sum_{ i=k+1 }^{ n } \alpha_{i} T(u_{i}) = 0.  \tag{1} \]
+Since \( T  \) is linear, we can re-write (1) into the following form
+\[  T \Big( \sum_{ i= k+1  }^{ n } \alpha_{i} u_{i} \Big) = 0.  \]
+Hence, we find that
+\[  \sum_{ i=k+1 }^{ n }\alpha_{i} u_{i} \in N(T).\tag{2} \]
+Since \( N(T) \) contains \( \{ u_{1}, u_{2}, \dots, u_{k} \}  \) as a basis, we can express (2) as a linear combination of vectors in this set. Hence, we have
+\[  \sum_{ i=k+1 }^{ n } \alpha_{i} u_{i} = \sum_{ i=1 }^{ k  } \beta_{i} u_{i} \tag{3} \]
+for some scalars \( \beta_{1}, \beta_{2}, \dots, \beta_{k} \).
+Now, we have
+\[  \sum_{ i=k+1 }^{ n } \alpha_{i} u_{i} - \sum_{ i=1 }^{ k  } \beta_{i} u_{i} = 0. \]
+Since \( \{ u_{1}, u_{2}, \dots, u_{n}  \}   \) is linearly independent, we find that both \( \alpha_{i} \)'s and \( \beta_{i} \)'s are all zero. Hence, \( S  \) is also linearly independent. Thus, \( S  \) is a basis for \( R(T) \) and that \( \text{rank}(T) = n - k  \) and so we get our desired result
+\[  \text{dim}(V) = \text{rank}(T) + \text{nullity}(T). \]
 \end{proof}
