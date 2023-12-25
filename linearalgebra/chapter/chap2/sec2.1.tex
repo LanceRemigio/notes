@@ -166,7 +166,7 @@ The \textit{Range} and \textit{Null} spaces give us important insights on the in
 \end{eg}
 
 
-\begin{theorem}[ ]
+\begin{theorem}
     Let \( V  \) and \( W  \) be vector spaces and \( T: V \to W  \) be linear. Then \( N(T) \) and \( R(T) \) are subspaces of \( V  \) and \( W  \), respectively.
 \end{theorem}
 \begin{proof}
@@ -237,6 +237,17 @@ Let \( T: V \to W  \) be linear where \( V  \) and \( W  \) are vector spaces. T
     This tells us that \( R(T) \) contains the basis found in the second equality above. Hence, we must have \( \text{dim}(R(T)) = 2  \). 
 \end{eg}
 
+\begin{eg}\label{Example 9}
+    Let \( T: \R^{3} \to \R^{2}  \) be the linear transformation defined by 
+    \[  T(a_{1}, a_{2}, a_{3}) = (a_{1} - a_{2}, 2a_{3}). \]
+    One can show that 
+    \begin{center}
+        \( N(T) = \{ (a, a, 0) \}: a \in \R   \) and \( R(T) = \R^{2} \).
+    \end{center}
+\end{eg}
+
+
+
 Just like how the 'size' of a given subspace is denoted by its dimension, we can also determine the size of a null spaces and ranges. However, we will attach some special names associated with these sets.
 \begin{definition}[Nullity]\label{Nullity}
     Let \( V  \) and \( W  \) be vector spaces, and let \( T: V \to W  \) be linear. If \( N(T)  \) is finite-dimensional, then we define \textbf{nullity} of \( T  \) by \( \text{nullity}(T)  \) to be the dimension of \( N(T) \).
@@ -252,6 +263,8 @@ From these definitions, we can intuit the following relationships between Nullit
     \item the larger the rank, the smaller the nullity.
 \end{itemize}
 This relationship between the two spaces is encompassed in the next theorem.
+
+\subsection{Dimension Theorem}
 
 \begin{theorem}[Dimension Theorem]\label{Dimension Theorem}
    Let \( V  \) and \( W  \) be vector spaces, and let \( T: V \to W  \) be linear. If \( V  \) is finite-dimensional, then  
@@ -283,3 +296,120 @@ Now, we have
 Since \( \{ u_{1}, u_{2}, \dots, u_{n}  \}   \) is linearly independent, we find that both \( \alpha_{i} \)'s and \( \beta_{i} \)'s are all zero. Hence, \( S  \) is also linearly independent. Thus, \( S  \) is a basis for \( R(T) \) and that \( \text{rank}(T) = n - k  \) and so we get our desired result
 \[  \text{dim}(V) = \text{rank}(T) + \text{nullity}(T). \]
 \end{proof}
+
+Applying the dimension theorem to {\hyperref[Example 9]{example 9}} allows us to conclude that
+\( \text{nullity}(T) + 2 = 3   \) implies \( \text{nullity}(T) = 1  \).
+
+
+Before we move on, let us recall two key definitions needed for the next topic.
+
+\begin{definition}[Injective Functions]\label{One-to-one}
+    Let \( f: A \to B  \) and \( x,y \in A  \). We call \( f \) \textbf{one-to-one} if \( f(x) = f(y)  \) implies \( x = y  \) or, equivalently, if \( x \neq y  \) implies \( f(x) \neq f(y) \) (this latter part is the contrapositive of the definition).
+\end{definition}
+
+\begin{definition}[Surjective Functions]
+    Let \( f: A \to B  \). We call \( f \) \textbf{onto} if \( f(A) = B  \); that is, for any \( y \in B  \), there exists an \( x \in A  \) such that \( f(x) = y  \).
+\end{definition}
+
+As we will see, these two definitions will give insights into the nullity and rank of linear transformations.
+
+\begin{theorem}\label{Theorem 2.5}
+   Let \( V  \) and \( W  \) be vector spaces, and let \( T: V \to W  \) be linear. Then \( T   \) is {\hyperref[One-to-one]{\textbf{one-to-one}}} if and only if \( N(T) = \{ 0 \}  \).  
+\end{theorem}
+\begin{proof}
+    (\( \Rightarrow \)) Suppose \( T  \) is injective. Let \( x \in V  \) be arbitrary. Then \( T(x) = T(0_{V})  \) implies \( x = 0_{V} \). This tells us that \( N(T) = \{ 0 \}   \).
+    (\( \Leftarrow \)) Conversely, let \( N(T) = \{ 0 \}  \). Let \( x,y \in V  \) be arbitrary and assume \( T(x) = T(y)  \). By using linearity, we have
+    \begin{align*}
+        T(x) = T(y) &\iff T(x) - T(y) = 0_{W} \\
+                    &\iff T(x-y) = 0_{W} \\
+    \end{align*}
+    Since \( x - y \in N(T)  \) and \( N(T) = \{ 0 \}  \), we have \( x - y = 0  \) if and only if \( x = y  \). Hence, \( T  \) is an injective transformation.
+\end{proof}
+
+Referring back to {\hyperref[Example 9]{example 9}}, we find that \( \text{nullity}(T) = 1  \)implies that example 9 is not injective.
+
+\begin{theorem}
+    Let \( V  \) and \( W  \) be vector spaces of equal (finite) dimension, and let \( T : V \to W  \) be linear. Then the following are equivalent.
+    \begin{enumerate}
+        \item[(a)] \( T  \) is injective.
+        \item[(b)] \( T \) is surjective.
+        \item[(c)] \( \text{rank}(T) = \text{dim}(V) \).
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Using the dimension theorem, we have
+    \[ \text{nullity}(T) + \text{rank}(T) = \text{dim}(V).  \]
+    By {\hyperref[Theorem 2.5]{theorem 2.5}}, We know that \( T  \) is injective if and only if \( N(T) = \{ 0  \}  \). By definition, we have  \( \text{nullity}(T) = 0  \). By the {\hyperref[Dimension Theorem]{dimension theorem}}, this is true if and only if 
+    \[ \text{rank}(T) = \text{dim}(V) \iff \text{rank}(T) = \text{dim}(W) \]
+    where \( V  \) and \( W  \) have equal dimensions.
+    This is true if and only if \( \text{dim}(R(T)) = \text{dim}(W ) \). This is true if and only if \( R(T) = W  \) by {\hyperref[Theorem 1.11]{theorem 1.11}}. By definition, we know that \( T \) is surjective. 
+\end{proof}
+
+\begin{remark}
+    If \( V  \) is not finite-dimensional then we find that neither (a) nor (b) follows from each other.
+\end{remark}
+
+\begin{eg}
+    Let \( T: P_{2}(\R) \to P_{3}(\R)  \) be the linear transformation defined by 
+    \[  T(f(x)) = 2 f'(x) + \int_{ 0 }^{ x }  3f(t)  \ dt. \]
+    Observe that
+    \begin{center}
+        \( R(T) = \text{span}(T(1), T(x), T(x^{2})) = \text{span}(\{ 3x, 2 + \frac{ 3 }{ 2 } x^{2} , 4x + x^{3} \} ). \)
+    \end{center}
+    One can show that the set \( \{ 3x, 2 + \frac{ 3 }{ 2 } x^{2} , 4x + x^{3} \}  \) is linearly independent and that \( \text{rank}(T) = 3  \). Since \( \text{rank}(T) \neq \text{dim}(P_{3}(\R)) \), we have that \( T  \) is not surjective. Since \( \text{dim}(P_{2}(\R)) = 3  \), we know that
+    \[   \text{rank}(T) = \text{dim}(P_{2}(\R)) \]
+    by the Dimension Theorem. Thus, \( \text{nullity}(T) = \{ 0 \}  \) and hence \( T  \) is injective.
+\end{eg}
+
+\begin{eg}
+    Let \( T: F^{2} \to F^{2}  \) be the linear transformation defined by 
+    \[ T(a_{1}, a_{2}) = (a_{1} + a_{2}, a_{1}).  \]
+    One can show that \( T  \) is injective so that \( N(T) = \{ 0 \}  \). The dimension theorem tells us that \( T  \) must also be onto.
+\end{eg}
+
+\begin{eg}
+    Let \( T: P_{2}(\R) \to \R^{3} \) be the linear transformation defined by 
+    \[  T(a_{0} + a_{1}x + a_{2} x^{2}) = (a_{0}, a_{1}, a_{2}). \]
+    One can easily show that \( T  \) is linear and one-to-one. We find that \( S = \{ 2 - x + 3x^{2} , x + x^{2} , 1 - 2x^{2} \}  \) is linearly independent in \( P_{2}(\R) \) since 
+    \[  T(S) = \{ (2,-1,3), (0,1,1), (1,0,-2) \}  \] is linearly independent in \( \R^{3} \).
+\end{eg}
+
+\begin{theorem}\label{Theorem 2.6}
+    Let \( V  \) and \( W  \) be vector spaces over \( F  \), and suppose that \( \{ v_{1}, v_{2}, \dots, v_{n} \}   \) is a basis for \( V  \). For \( w_{1}, w_{2},  \dots, w_{n} \in W   \), there exists exactly one linear transformation \( T: V \to W  \) such that \( T(v_{i}) = w_{i}  \) for all \( 1 \leq i \leq n  \). 
+\end{theorem}
+
+\begin{proof}
+Let \( x \in V  \). Since \( \{ v_{1}, v_{2}, \dots, v_{n} \}  \) is a basis for \( V  \), we have
+\[  \sum_{ i=1 }^{ n } \gamma_{i} v_{i}  \] for some scalars \( \gamma_{1}, \gamma_{2}, \dots, \gamma_{n}  \). Define the map \( T: V \to W  \) by
+\[  T(x) = \sum_{ i=1 }^{ n } \gamma_{i} w_{i}  \]
+for \( w_{i} \in W  \) and \( x \in V  \). 
+
+First, we show that \( T  \) is linear. Let \( x,y \in V  \). Then 
+\[ x =  \sum_{ i=1 }^{ n } \gamma_{i} v_{i}  \] and 
+\[ y =  \sum_{ i=1 }^{ n } \delta_{i} v_{i}  \] for some scalars \( \gamma_{i}  \) and \( \delta_{i}  \) for all \( 1 \leq i \leq n \). Then by definition of \( T  \), we get that 
+\[  T(x) = \sum_{ i=1 }^{ n } \gamma_{i} w_{i}  \] and 
+\[ T(y) = \sum_{ i=1 }^{ n } \delta_{i} w_{i}. \]
+By definition of \( T  \), we get that  
+\[  T(x+y) = \sum_{ i=1 }^{ n } (\gamma_{i} + \delta_{i}) w_{i} = \sum_{ i=1 }^{ n } \gamma_{i} w_{i} + \sum_{ i=1 }^{ n } \delta_{i} w_{i} = T(x) + T(y).  \]
+Hence, the first property of linearity holds. For the second property, let \( c \in F  \) and observe that
+\[  T(cx) = \sum_{ i=1 }^{ n } \gamma_{i} (cw_{i}) = c \sum_{ i=1 }^{ n } \gamma_{i} w_{i} = c T(x). \]
+Hence, the second property of linearity holds. We conclude that \( T  \) is linear and that \( T(u_{i}) = w_{i}  \) for all \( 1 \leq i \leq n \).
+
+Now suppose there exists another linear map \( U: V \to W  \) such that \( U(v_{i}) = w_{i}  \) for all \( 1 \leq i \leq n \) defined by.
+\[ U(x) = \sum_{i =1  }^{ n } \gamma_{i} U(v_{i}).  \]
+Then observe that
+\[ U(x) = \sum_{ i=1 }^{ n } \gamma_{i} U(v_{i}) = \sum_{ i=1 }^{ n } \gamma_{i} w_{i} = T(x). \]
+Thus, \( U = T  \) for all \( x \in V  \) and so, we conclude that \( T  \) is a unique linear map.
+\end{proof}
+
+\begin{corollary}
+  Let \( V  \) and \( W  \) be vector spaces, and suppose that \( V  \) has a finite basis \( \{ v_{1}, v_{2}, \dots, v_{n} \}  \). If \( U,T : V \to W  \) are linear and \( U(v_{i}) = T(v_{i}) \) for all \( 1 \leq i \leq n \), then \( U = T  \).  
+\end{corollary}
+
+\begin{eg}
+    Let \( T : \R^{2} \to \R^{2}  \) be the linear transformation defined by 
+    \[  T(a_{1}, a_{2}) = (2a_{2} - a_{1}, 3a_{1}) \]
+    and suppose that \( U: \R^{2} \to \R^{2}  \) is linear. Let \( \{ (1,2), (1,1) \}  \) be a basis for \( \R^{2} \). If \( U(1,2) = (3,3)  \) and \( U(1,1) = (1,3)  \), then we find that \( U(x_{i}) = T(x_{i}) \) \( i = 1,2 \). Thus \( U = T  \) from the corollary to {\hyperref[Theorem 2.6]{theorem 2.6}}. 
+\end{eg}
+
