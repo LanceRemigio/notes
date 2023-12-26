@@ -14,14 +14,26 @@ Suppose we have a function \( T  \) with domain \( V  \) and codomain \( W  \) d
 \begin{remark}
     If \( F = \Q   \), then (a) implies (b) in the definition above. Otherwise, (a) and (b) are logically independent statements.  
 \end{remark}
+
 The following are a list of properties for linear functions:
+
+\begin{prop}
+    Let \( V  \) and \( W  \) be vector spaces (over \( F \)). If \( T: V \to W   \) is a \textbf{linear transformation from \( V \) to \( W  \)}, then the following properties hold:
+    \begin{enumerate}
+        \item[(a)] If \( T  \) is linear, then \( T(0) = 0  \). 
+        \item[(b)] \( T  \) is linear if and only if \( T(x+y) = T(x) + T(y) \) for all \( x,y \in V  \) and \( c \in F  \).
+        \item[(c)] If \( T  \) is linear, then \( T(x-y) = T(x) - T(y)  \) for all \( x,y \in V  \).
+        \item[(d)] \( T  \) is linear if and only if, for \( x_{1}, x_{2}, \dots, x_{n} \in V  \) and \( a_{1}, a_{2}, \dots, a_{n} \in F  \), we have
+            \[  T \Big( \sum_{ i=1 }^{ n }a_{i}x_{i}  \Big) = \sum_{ i=1 }^{ n } a_{i} T(x_{i}). \]
+    \end{enumerate}
+\end{prop}
+
+\begin{proof}
+    Let \( V  \) and \( W  \) be vector spaces such that \( T: V \to W  \).
 \begin{enumerate}
-    \item If \( T  \) is linear, then \( T(0) = 0  \).
-        \begin{proof}
+    \item[(a)] If \( T  \) is linear, then \( T(0) = 0  \).
         Suppose \( T  \) is linear, then \( T(0 \cdot 0 ) = 0 T(0) = 0  \).
-        \end{proof}
-    \item \label{Second Property of Linearity} We have \( T  \) is linear if and only if \( T(cx+y) = cT(x) + T(y)  \) for all \( x,y \in V  \) and \( c \in F  \).
-        \begin{proof}
+    \item[(b)] \label{Second Property of Linearity} We have \( T  \) is linear if and only if \( T(cx+y) = cT(x) + T(y)  \) for all \( x,y \in V  \) and \( c \in F  \).
         Suppose \( T  \) is linear. Let \( x,y \in V  \) and \( c \in F  \). Then 
         \[  T(cx+y) = T(cx) + T(y) = cT(x) + T(y). \]
         Conversely, if \( c = 1  \) then 
@@ -29,16 +41,12 @@ The following are a list of properties for linear functions:
         If  \( y = 0  \), then 
         \[ T(cx) = cT(x).  \]
         Hence, \( T  \) is a linear transformation.
-        \end{proof}
-    \item If \( T  \) is linear, then \( T(x-y) = T(x) - T(y)  \) for all \( x,y \in V  \).
-        \begin{proof}
+    \item[(c)] If \( T  \) is linear, then \( T(x-y) = T(x) - T(y)  \) for all \( x,y \in V  \).
         Let \( x,y \in V  \). Suppose \( T  \) is linear, then 
         \[ T(x - y) = T(x) + T(-y) = T(x) - T(y).  \]
-        \end{proof}
-    \item \( T  \) is linear if and only if, for \( x_{1}, x_{2} , \dots, x_{n} \in V  \) and \( a_{1}, a_{2}, \dots, a_{n} \in F  \), 
+    \item[(d)] \( T  \) is linear if and only if, for \( x_{1}, x_{2} , \dots, x_{n} \in V  \) and \( a_{1}, a_{2}, \dots, a_{n} \in F  \), 
         we have
         \[  T \Big(  \sum_{ i=1 }^{ n } a_{i} x_{i}  \Big) = \sum_{ i=1 }^{ n } a_{i} T(x_{i}). \]
-        \begin{proof}
         Suppose \( T  \) is linear. Let \( x_{1}, x_{2}, \dots, x_{n} \in V  \) and \( a_{1}, a_{2}, \dots, a_{n} \in F  \) such that
         \[  v = \sum_{ i=1 }^{ n } a_{i} x_{i}. \]
         Then observe that 
@@ -52,9 +60,8 @@ The following are a list of properties for linear functions:
         If \( i = 1  \), then 
         \[  T \Big( \sum_{ i=1 }^{ 1 } a_{i}x_{i}  \Big) = a_{1} T(x_{1}) \]
         and so property 2 is satisfied. Hence, \( T  \) is a linear transformation.
-        \end{proof}
 \end{enumerate}
-
+\end{proof}
 \begin{eg}
    Define  
    \begin{center}
@@ -166,7 +173,7 @@ The \textit{Range} and \textit{Null} spaces give us important insights on the in
 \end{eg}
 
 
-\begin{theorem}
+\begin{theorem}[The Null and Range are Both Subspaces]
     Let \( V  \) and \( W  \) be vector spaces and \( T: V \to W  \) be linear. Then \( N(T) \) and \( R(T) \) are subspaces of \( V  \) and \( W  \), respectively.
 \end{theorem}
 \begin{proof}
@@ -313,7 +320,7 @@ Before we move on, let us recall two key definitions needed for the next topic.
 
 As we will see, these two definitions will give insights into the nullity and rank of linear transformations.
 
-\begin{theorem}\label{Theorem 2.5}
+\begin{theorem}[Injectivity \( \iff \) Null Space is \( \{ 0\} \)]\label{Theorem 2.5}
    Let \( V  \) and \( W  \) be vector spaces, and let \( T: V \to W  \) be linear. Then \( T   \) is {\hyperref[One-to-one]{\textbf{one-to-one}}} if and only if \( N(T) = \{ 0 \}  \).  
 \end{theorem}
 \begin{proof}
@@ -328,7 +335,7 @@ As we will see, these two definitions will give insights into the nullity and ra
 
 Referring back to {\hyperref[Example 9]{example 9}}, we find that \( \text{nullity}(T) = 1  \)implies that example 9 is not injective.
 
-\begin{theorem}
+\begin{theorem}[Equal Finite Dimensions Between Vector Spaces]
     Let \( V  \) and \( W  \) be vector spaces of equal (finite) dimension, and let \( T : V \to W  \) be linear. Then the following are equivalent.
     \begin{enumerate}
         \item[(a)] \( T  \) is injective.
@@ -375,7 +382,7 @@ Referring back to {\hyperref[Example 9]{example 9}}, we find that \( \text{nulli
     \[  T(S) = \{ (2,-1,3), (0,1,1), (1,0,-2) \}  \] is linearly independent in \( \R^{3} \).
 \end{eg}
 
-\begin{theorem}\label{Theorem 2.6}
+\begin{theorem}[Unique Linear Transformations]\label{Theorem 2.6}
     Let \( V  \) and \( W  \) be vector spaces over \( F  \), and suppose that \( \{ v_{1}, v_{2}, \dots, v_{n} \}   \) is a basis for \( V  \). For \( w_{1}, w_{2},  \dots, w_{n} \in W   \), there exists exactly one linear transformation \( T: V \to W  \) such that \( T(v_{i}) = w_{i}  \) for all \( 1 \leq i \leq n  \). 
 \end{theorem}
 

@@ -22,7 +22,7 @@
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{10}{thmt@dummyctr.dummy.21}%
 \contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{10}{thmt@dummyctr.dummy.22}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{10}{thmt@dummyctr.dummy.23}%
-\contentsline {theorem}{\ifthmt@listswap Theorem\nobreakspace {}1.1.2\else \numberline {1.1.2}Theorem\fi }{11}{theorem.1.1.2}%
+\contentsline {theorem}{\ifthmt@listswap Theorem\nobreakspace {}1.1.2\else \numberline {1.1.2}Theorem\fi \thmtformatoptarg {Properties of a Vector Space}}{11}{theorem.1.1.2}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{11}{thmt@dummyctr.dummy.25}%
 \contentsline {definition}{\ifthmt@listswap Definition\nobreakspace {}1.2.1\else \numberline {1.2.1}Definition\fi \thmtformatoptarg {Subspaces}}{11}{definition.1.2.1}%
 \contentsline {theorem}{\ifthmt@listswap Theorem\nobreakspace {}1.2.1\else \numberline {1.2.1}Theorem\fi \thmtformatoptarg {Subspaces}}{11}{theorem.1.2.1}%
@@ -39,16 +39,16 @@
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}1.2.6\else \numberline {1.2.6}Example\fi }{13}{eg.1.2.6}%
 \contentsline {definition}{\ifthmt@listswap Definition\nobreakspace {}1.2.6\else \numberline {1.2.6}Definition\fi \thmtformatoptarg {Trace}}{14}{definition.1.2.6}%
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}1.2.7\else \numberline {1.2.7}Example\fi \thmtformatoptarg {Non-example}}{14}{eg.1.2.7}%
-\contentsline {theorem}{\ifthmt@listswap Theorem\nobreakspace {}1.2.2\else \numberline {1.2.2}Theorem\fi }{14}{theorem.1.2.2}%
+\contentsline {theorem}{\ifthmt@listswap Theorem\nobreakspace {}1.2.2\else \numberline {1.2.2}Theorem\fi \thmtformatoptarg {Intersection of Subspaces is a Subspace}}{14}{theorem.1.2.2}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{14}{thmt@dummyctr.dummy.42}%
 \contentsline {definition}{\ifthmt@listswap Definition\nobreakspace {}1.3.1\else \numberline {1.3.1}Definition\fi \thmtformatoptarg {Linear Combinations}}{14}{definition.1.3.1}%
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}1.3.1\else \numberline {1.3.1}Example\fi }{14}{eg.1.3.1}%
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}1.3.2\else \numberline {1.3.2}Example\fi }{15}{eg.1.3.2}%
 \contentsline {definition}{\ifthmt@listswap Definition\nobreakspace {}1.3.2\else \numberline {1.3.2}Definition\fi \thmtformatoptarg {Span}}{16}{definition.1.3.2}%
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}1.3.3\else \numberline {1.3.3}Example\fi }{16}{eg.1.3.3}%
-\contentsline {theorem}{\ifthmt@listswap Theorem\nobreakspace {}1.3.1\else \numberline {1.3.1}Theorem\fi }{16}{theorem.1.3.1}%
+\contentsline {theorem}{\ifthmt@listswap Theorem\nobreakspace {}1.3.1\else \numberline {1.3.1}Theorem\fi \thmtformatoptarg {The Span of Subset is a Subspace}}{16}{theorem.1.3.1}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{16}{thmt@dummyctr.dummy.49}%
-\contentsline {definition}{\ifthmt@listswap Definition\nobreakspace {}1.3.3\else \numberline {1.3.3}Definition\fi \thmtformatoptarg { }}{17}{definition.1.3.3}%
+\contentsline {definition}{\ifthmt@listswap Definition\nobreakspace {}1.3.3\else \numberline {1.3.3}Definition\fi \thmtformatoptarg {Generating/Spanning Sets}}{17}{definition.1.3.3}%
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}1.3.4\else \numberline {1.3.4}Example\fi \thmtformatoptarg {Vectors in \( \ensuremath {\mathbb {R}}^3 \)}}{17}{eg.1.3.4}%
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}1.3.5\else \numberline {1.3.5}Example\fi \thmtformatoptarg {Polynomials}}{17}{eg.1.3.5}%
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}1.3.6\else \numberline {1.3.6}Example\fi \thmtformatoptarg {Matrices}}{17}{eg.1.3.6}%
@@ -57,17 +57,17 @@
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}1.4.2\else \numberline {1.4.2}Example\fi }{19}{eg.1.4.2}%
 \contentsline {definition}{\ifthmt@listswap Definition\nobreakspace {}1.4.2\else \numberline {1.4.2}Definition\fi \thmtformatoptarg {Linear Independence}}{19}{definition.1.4.2}%
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}1.4.3\else \numberline {1.4.3}Example\fi \thmtformatoptarg {A Set of Vectors in \( \ensuremath {\mathbb {R}}^4 \)}}{19}{eg.1.4.3}%
-\contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}1.4.4\else \numberline {1.4.4}Example\fi }{19}{eg.1.4.4}%
-\contentsline {theorem}{\ifthmt@listswap Theorem\nobreakspace {}1.4.1\else \numberline {1.4.1}Theorem\fi }{20}{theorem.1.4.1}%
+\contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}1.4.4\else \numberline {1.4.4}Example\fi }{20}{eg.1.4.4}%
+\contentsline {theorem}{\ifthmt@listswap Theorem\nobreakspace {}1.4.1\else \numberline {1.4.1}Theorem\fi \thmtformatoptarg {Linearly Dependent Subsets}}{20}{theorem.1.4.1}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{20}{thmt@dummyctr.dummy.61}%
-\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{20}{thmt@dummyctr.dummy.62}%
+\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary\thmtformatoptarg {Linearly Independent Subsets}}{20}{thmt@dummyctr.dummy.62}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{20}{thmt@dummyctr.dummy.63}%
-\contentsline {theorem}{\ifthmt@listswap Theorem\nobreakspace {}1.4.2\else \numberline {1.4.2}Theorem\fi }{20}{theorem.1.4.2}%
+\contentsline {theorem}{\ifthmt@listswap Theorem\nobreakspace {}1.4.2\else \numberline {1.4.2}Theorem\fi \thmtformatoptarg {Adjoning Elements not in Linearly Independent Sets}}{20}{theorem.1.4.2}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{20}{thmt@dummyctr.dummy.65}%
 \contentsline {definition}{\ifthmt@listswap Definition\nobreakspace {}1.5.1\else \numberline {1.5.1}Definition\fi \thmtformatoptarg {Basis}}{21}{definition.1.5.1}%
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}1.5.1\else \numberline {1.5.1}Example\fi }{21}{eg.1.5.1}%
-\contentsline {theorem}{\ifthmt@listswap Theorem\nobreakspace {}1.5.1\else \numberline {1.5.1}Theorem\fi }{21}{theorem.1.5.1}%
-\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{21}{thmt@dummyctr.dummy.69}%
+\contentsline {theorem}{\ifthmt@listswap Theorem\nobreakspace {}1.5.1\else \numberline {1.5.1}Theorem\fi \thmtformatoptarg {Unique Linear Combinations from Bases}}{21}{theorem.1.5.1}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{22}{thmt@dummyctr.dummy.69}%
 \contentsline {theorem}{\ifthmt@listswap Theorem\nobreakspace {}1.5.2\else \numberline {1.5.2}Theorem\fi \thmtformatoptarg {Finite Spanning Set For a Vector Space}}{23}{theorem.1.5.2}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{23}{thmt@dummyctr.dummy.71}%
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}1.5.2\else \numberline {1.5.2}Example\fi }{23}{eg.1.5.2}%
@@ -92,43 +92,41 @@
 \addvspace {10\p@ }
 \contentsline {definition}{\ifthmt@listswap Definition\nobreakspace {}2.1.1\else \numberline {2.1.1}Definition\fi \thmtformatoptarg {Linear Transformation}}{29}{definition.2.1.1}%
 \contentsline {remark}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Remark}{29}{thmt@dummyctr.dummy.92}%
-\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{29}{thmt@dummyctr.dummy.93}%
+\contentsline {prop}{\ifthmt@listswap Proposition\nobreakspace {}2.1.1\else \numberline {2.1.1}Proposition\fi }{29}{prop.2.1.1}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{29}{thmt@dummyctr.dummy.94}%
-\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{29}{thmt@dummyctr.dummy.95}%
-\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{30}{thmt@dummyctr.dummy.96}%
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}2.1.1\else \numberline {2.1.1}Example\fi }{30}{eg.2.1.1}%
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}2.1.2\else \numberline {2.1.2}Example\fi \thmtformatoptarg {Rotations}}{31}{eg.2.1.2}%
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}2.1.3\else \numberline {2.1.3}Example\fi \thmtformatoptarg {Transpose}}{31}{eg.2.1.3}%
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}2.1.4\else \numberline {2.1.4}Example\fi \thmtformatoptarg {Derivatives of Polynomials}}{31}{eg.2.1.4}%
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}2.1.5\else \numberline {2.1.5}Example\fi \thmtformatoptarg {Integrals}}{31}{eg.2.1.5}%
-\contentsline {remark}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Remark}{31}{thmt@dummyctr.dummy.102}%
-\contentsline {definition}{\ifthmt@listswap Definition\nobreakspace {}2.1.2\else \numberline {2.1.2}Definition\fi \thmtformatoptarg {Identity Transformation}}{31}{definition.2.1.2}%
-\contentsline {definition}{\ifthmt@listswap Definition\nobreakspace {}2.1.3\else \numberline {2.1.3}Definition\fi \thmtformatoptarg {Zero Transformation}}{31}{definition.2.1.3}%
+\contentsline {remark}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Remark}{32}{thmt@dummyctr.dummy.100}%
+\contentsline {definition}{\ifthmt@listswap Definition\nobreakspace {}2.1.2\else \numberline {2.1.2}Definition\fi \thmtformatoptarg {Identity Transformation}}{32}{definition.2.1.2}%
+\contentsline {definition}{\ifthmt@listswap Definition\nobreakspace {}2.1.3\else \numberline {2.1.3}Definition\fi \thmtformatoptarg {Zero Transformation}}{32}{definition.2.1.3}%
 \contentsline {definition}{\ifthmt@listswap Definition\nobreakspace {}2.1.4\else \numberline {2.1.4}Definition\fi \thmtformatoptarg {Null Space}}{32}{definition.2.1.4}%
 \contentsline {definition}{\ifthmt@listswap Definition\nobreakspace {}2.1.5\else \numberline {2.1.5}Definition\fi \thmtformatoptarg {Range}}{32}{definition.2.1.5}%
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}2.1.6\else \numberline {2.1.6}Example\fi }{32}{eg.2.1.6}%
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}2.1.7\else \numberline {2.1.7}Example\fi }{32}{eg.2.1.7}%
-\contentsline {theorem}{\ifthmt@listswap Theorem\nobreakspace {}2.1.1\else \numberline {2.1.1}Theorem\fi }{32}{theorem.2.1.1}%
-\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{32}{thmt@dummyctr.dummy.110}%
+\contentsline {theorem}{\ifthmt@listswap Theorem\nobreakspace {}2.1.1\else \numberline {2.1.1}Theorem\fi \thmtformatoptarg {The Null and Range are Both Subspaces}}{32}{theorem.2.1.1}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{32}{thmt@dummyctr.dummy.108}%
 \contentsline {theorem}{\ifthmt@listswap Theorem\nobreakspace {}2.1.2\else \numberline {2.1.2}Theorem\fi \thmtformatoptarg {Spanning Set for a Linear Transformation}}{33}{theorem.2.1.2}%
-\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{33}{thmt@dummyctr.dummy.112}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{33}{thmt@dummyctr.dummy.110}%
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}2.1.8\else \numberline {2.1.8}Example\fi }{33}{eg.2.1.8}%
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}2.1.9\else \numberline {2.1.9}Example\fi }{33}{eg.2.1.9}%
 \contentsline {definition}{\ifthmt@listswap Definition\nobreakspace {}2.1.6\else \numberline {2.1.6}Definition\fi \thmtformatoptarg {Nullity}}{34}{definition.2.1.6}%
 \contentsline {definition}{\ifthmt@listswap Definition\nobreakspace {}2.1.7\else \numberline {2.1.7}Definition\fi \thmtformatoptarg {Rank}}{34}{definition.2.1.7}%
 \contentsline {theorem}{\ifthmt@listswap Theorem\nobreakspace {}2.1.3\else \numberline {2.1.3}Theorem\fi \thmtformatoptarg {Dimension Theorem}}{34}{theorem.2.1.3}%
-\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{34}{thmt@dummyctr.dummy.118}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{34}{thmt@dummyctr.dummy.116}%
 \contentsline {definition}{\ifthmt@listswap Definition\nobreakspace {}2.1.8\else \numberline {2.1.8}Definition\fi \thmtformatoptarg {Injective Functions}}{35}{definition.2.1.8}%
 \contentsline {definition}{\ifthmt@listswap Definition\nobreakspace {}2.1.9\else \numberline {2.1.9}Definition\fi \thmtformatoptarg {Surjective Functions}}{35}{definition.2.1.9}%
-\contentsline {theorem}{\ifthmt@listswap Theorem\nobreakspace {}2.1.4\else \numberline {2.1.4}Theorem\fi }{35}{theorem.2.1.4}%
+\contentsline {theorem}{\ifthmt@listswap Theorem\nobreakspace {}2.1.4\else \numberline {2.1.4}Theorem\fi \thmtformatoptarg {Injectivity \( \iff \) Null Space is \( \{ 0\} \)}}{35}{theorem.2.1.4}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{35}{thmt@dummyctr.dummy.120}%
+\contentsline {theorem}{\ifthmt@listswap Theorem\nobreakspace {}2.1.5\else \numberline {2.1.5}Theorem\fi \thmtformatoptarg {Equal Finite Dimensions Between Vector Spaces}}{35}{theorem.2.1.5}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{35}{thmt@dummyctr.dummy.122}%
-\contentsline {theorem}{\ifthmt@listswap Theorem\nobreakspace {}2.1.5\else \numberline {2.1.5}Theorem\fi }{35}{theorem.2.1.5}%
-\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{35}{thmt@dummyctr.dummy.124}%
-\contentsline {remark}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Remark}{35}{thmt@dummyctr.dummy.125}%
+\contentsline {remark}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Remark}{36}{thmt@dummyctr.dummy.123}%
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}2.1.10\else \numberline {2.1.10}Example\fi }{36}{eg.2.1.10}%
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}2.1.11\else \numberline {2.1.11}Example\fi }{36}{eg.2.1.11}%
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}2.1.12\else \numberline {2.1.12}Example\fi }{36}{eg.2.1.12}%
-\contentsline {theorem}{\ifthmt@listswap Theorem\nobreakspace {}2.1.6\else \numberline {2.1.6}Theorem\fi }{36}{theorem.2.1.6}%
-\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{36}{thmt@dummyctr.dummy.130}%
-\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{37}{thmt@dummyctr.dummy.131}%
+\contentsline {theorem}{\ifthmt@listswap Theorem\nobreakspace {}2.1.6\else \numberline {2.1.6}Theorem\fi \thmtformatoptarg {Unique Linear Transformations}}{36}{theorem.2.1.6}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{36}{thmt@dummyctr.dummy.128}%
+\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{37}{thmt@dummyctr.dummy.129}%
 \contentsline {eg}{\ifthmt@listswap Example\nobreakspace {}2.1.13\else \numberline {2.1.13}Example\fi }{37}{eg.2.1.13}%
