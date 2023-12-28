@@ -185,10 +185,39 @@ Now, we show \( S =  \{ x \in V : T(x) \in W_{1} \}  \) is a subspace of \( V  \
         \end{proof}
     \item[(b)] Prove that \( T \) is surjective, but not injective.
         \begin{proof}
-        
-        \end{proof}
+        Let \( \{ b_{n} \}  \in V  \). Define this sequence as 
+        \[  \{ b_{n} \}  =  (b_{1}, b_{2}, \dots ). \]
+        We can construct a sequence such that \( b_{i} = a_{i+1}  \) for \( i \in \N \). Hence, 
+        \[  (b_{1}, b_{2}, \dots)  = (a_{2}, a_{3}, \dots ).\]
+        By definition of \( T  \), we get that
+        \[  T(a_{1}, a_{2}, \dots ) = (a_{2}, a_{3}, \dots) = (b_{1}, b_{2}, \dots). \]
+        Since \( \{ b_{n} \} \in V  \), we get that \( T  \) is surjective. 
+
+        To see why \( T  \) is not injective, suppose we take two sequences distinct \( \{ x_{n} \} , \{ y_{n} \}  \in V  \) defined by
+        \begin{center}
+            \( \{ x_{n}  \}  = (a, 0, 0 , \dots ) \) and \( \{ y_{n} \}  = (b, 0, 0 , \dots ) \)
+        \end{center}
+        respectively. But we have \( T(\{ x_{n} \} ) = 0_{n} = T(\{ y_{n} \} ) \) where \( 0_{n}  \) is the sequence with all terms being zero. Hence, \( T  \) cannot be injective.
+    \end{proof}
     \item[(c)] Prove that \( U  \) is injective, but not surjective.
         \begin{proof}
-        
+        Let \( \{ a_{n} \} , \{ b_{n} \}  \in V  \) defined by 
+        \begin{center}
+            \( \{ a_{n} \} = (a_{1}, a_{2}, \dots )  \) and \( \{ b_{n} \}  = (b_{1}, b_{2}, \dots) \).
+        \end{center}
+        Then observe that
+        \begin{align*}
+           U(a_{1}, a_{2}, \dots ) &= U(b_{1}, b_{2}, \dots ) \\
+           (0, a_{1}, a_{2}, \dots ) &= (0, b_{1}, b_{2}, \dots ).
+        \end{align*}
+        Equating entries, we get that \( a_{i} = b_{i}   \) for all \( i \in \N  \) and so, \( \{ a_{n} \} = \{ b_{n} \}  \). Hence, \( U  \) is injective.
+
+         Observe that \( (x_{1}, 0, 0, \dots ) \in V  \) but there does not exists a sequence \( \{ x_{n} \} \in V  \) such that \( U(x_{1}, x_{2}, \dots ) = (x_{1}, 0, 0 ) \). Hence, \( U  \) is not surjective.
         \end{proof}
 \end{enumerate}
+
+\subsubsection{Exercise 2.1.22} Let \( T: \R^{3} \to \R  \) be linear. Show that there exist scalars \( a,b,  \) and \( c  \) such that  \( T(x,y,z) = ax + by + cz \) for all \( (x,y,z) \in \R^{3} \). Can you generalize this result for \( T: F^{n} \to F  \)? State and prove an analogous result for \( T: F^{n} \to F^{m} \).
+\begin{proof}
+
+\end{proof}
+
