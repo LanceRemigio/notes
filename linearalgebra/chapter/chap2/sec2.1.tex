@@ -181,10 +181,10 @@ The \textit{Range} and \textit{Null} spaces give us important insights on the in
     \begin{enumerate}
         \item[(a)] Note that \( 0_{V} \in V  \) implies that \( T(0_{V}) = 0_{W}  \) since \( T  \) is linear (property (1) of linearity). Hence, \( 0_{V} \in N(T)  \).
         \item[(b)] Let \( x, y \in N(T) \). By definition, of the null space we have \( T(x) = 0_{W}  \) and \( T(y) = 0_{W} \). Since \( T  \) is linear, we get that
-            \[  T(x+y) = T(x) + T(y) = 0_{W} + 0_{W} = 0_{W} \in N(T). \]
+            \[  T(x+y) = T(x) + T(y) = 0_{W} + 0_{W} = 0_{W} \implies x + y \in N(T). \]
         Hence, \( N(T) \) is closed under addition.
         \item[(c)] Let \( x \in N(T)  \) and let \( c \in F  \). Then 
-            \[ T(cx) = cT(x) = c 0_{V} = 0_{W} \in N(T).  \]
+            \[ T(cx) = cT(x) = c 0_{V} = 0_{W} \implies cx \in N(T).  \]
     \end{enumerate}
     Hence, {\hyperref[Subspaces]{Theorem 1.3}} tells us that \( N(T) \) is a subspace of \( V  \).
     Now, we will show that \( R(T) \) is a subspace of \( W  \).
