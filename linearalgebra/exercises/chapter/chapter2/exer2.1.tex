@@ -62,7 +62,7 @@ See proof in notes.
 
     Using the same process, we show that \( T: \R^{2} \to \R^{2}  \) defined by \( T(a_{1}, a_{2}) = (a_{1}, - a_{2})\) is linear. That is, we have
     \begin{align*}
-        T(cx + y) & (ca_{1} + b_{1}, - (ca_{2} + b_{2})) \\
+        T(cx + y) &= (ca_{1} + b_{1}, - (ca_{2} + b_{2})) \\
                   &= (ca_{1} + b_{1}, -ca_{2} - b_{2}) \\ 
                   &= c(a_{1}, -a_{2}) + (b_{1}, -b_{2}) \\
                   &= c T(a_{1}, a_{2}) + T(b_{1}, b_{2}) \\
@@ -302,6 +302,8 @@ for some scalars \( a_{1}, a_{2}, \dots ,a_{n} \in F  \) using the same argument
 
 \subsubsection{Exercise 2.1.23} Let \( T: \R^{3} \to \R  \) be linear. Describe geometrically the possibilities for the null space of \( T  \). 
 \begin{proof}
-
+    By definition of \( T  \) described in Exercise 2.1.22, the null space is the described as the set
+    \[ N(T) = \{ ax + by + cz = 0: a,b,c \in \R \ \text{and} \ (x,y,z) \in \R^{3} \}.   \]
+    This represents two vectors in \( \R^{3} \) where we fix \( (x,y,z) \in \R^{3}  \) such that  we find a \( (a,b,c) \in \R^{3} \) such that the two vectors are perpendicular to each other.
 \end{proof}
 
