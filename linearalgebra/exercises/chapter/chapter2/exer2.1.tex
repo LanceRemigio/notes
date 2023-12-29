@@ -1,5 +1,40 @@
 \section{Linear Transformations, Null spaces, and Ranges}
 
+\subsubsection{Exercise 2.1.1} Label the following statements as true or false. In each part, \( V  \) and \( W  \) are finite-dimensional vector spaces (over \( F \)), and \( T  \) is a function from \( V  \) to \( W  \).
+\begin{enumerate}
+    \item[(a)] If \( T  \) is linear, then \( T  \) preserves sums and scalar products.
+        \begin{solution}
+           True. This is by definition.
+        \end{solution}
+    \item[(b)] If \( T(x+y) = T(x) + T(y)   \), then \( T  \) is linear.
+        \begin{solution}
+            False. We also need to have \( T(cx) = cT(x)  \) where \( x \in V  \) and \( c \in F  \) in order for \( T  \) to be a linear map.
+        \end{solution}
+    \item[(c)] If \( T  \) is one-to-one if and only if the only vector \( x  \) such that \( T(x) = 0  \) is \( x = 0  \).
+        \begin{solution}
+            True. This is Theorem 2.2.
+        \end{solution}
+    \item[(d)] If \( T  \) is linear, then \( T(0_{V}) = 0_{W} \).
+        \begin{solution}
+            True by properties of linear maps.
+        \end{solution}
+    \item[(e)] If \( T  \) is linear, then \( \text{nullity}(T) + \text{rank}(T) = \text{dim}(W) \).
+        \begin{solution}
+         False. This only happens when \( V  \) and \( W  \) have equal equal dimensions.   
+        \end{solution}
+    \item[(f)] If \( T  \) is linear, then \( T  \) carries linearly independent subsets of \( V  \) onto linearly independent subsets of \( W  \).
+        \begin{solution}
+            False. We need \( T  \) to be injective in order to make this valid.
+        \end{solution} 
+    \item[(g)] If \( T,U  : V \to W  \) are both linear and agree on a basis for \( V  \), then \( T = U  \).
+        \begin{solution}
+            True by Corollary to Theorem 2.6.
+        \end{solution}
+    \item[(h)] Given \( x_{1}, x_{2} \in V  \) and \( y_{1}, y_{2} \in W  \), there exists a linear transformation \( T: V \to W  \) such that \( T(x_{1}) =y_{1}  \) and \( T(x_{2}) =y_{2} \). 
+        \begin{solution}
+           False. We need to have a basis for \( V  \). 
+        \end{solution}
+\end{enumerate}
 
 \subsubsection{Exercise 2.1.7} Prove properties \( 1,2,3, \) and \( 4 \) on page 65.
 \begin{proof}
@@ -36,6 +71,38 @@ See proof in notes.
     Hence, \( T  \) is also linear.
 \end{proof}
 
+\subsubsection{Exercise 2.1.10} Suppose that \( T: \R^{2} \to \R^{2} \) is linear, \( T(1,0) = (1,4) \), and \( T(1,1) = (2,5) \).
+\begin{solution}
+    First, observe that \( (2,3) \in \R^{2} \) can be expressed in terms of a linear combination of \( (1,0) \) and \( (1,1) \). Hence, we need to find scalars \( a,b \in \R  \) such that
+    \[  a(1,0) + b(1,1) = (2,3). \]
+    Solving for the scalars gives us the solutions \( a = - 1  \) and \( b = 3  \). Since \( T  \) is linear, we can now compute \( T(2,3)  \) by doing the following:
+    \begin{align*}
+        T(2,3) &= T(-(1,0) + 3(1,1)) \\
+               &= -T(1,0) + 3 T(1,1) \\
+               &= - (1,4) + 3(2,5) \\
+               &= (5,11).
+    \end{align*} 
+    Hence, we get that \( T(2,3) = (5,11) \). 
+
+    Note that the domain and codomain have equal finite dimensions. Hence, Theorem 2.5 tells us that \( T  \) must be one-to-one (injective).
+\end{solution} 
+
+\subsubsection{Exercise 2.1.11} Prove that there exists a linear transformation \( T: \R^{2} \to \R^{3} \) such that \( T(1,1) = (1,0,2) \) and \( T(2,3) = (1,-1,4) \). What is \( T(8,11)  \)?
+\begin{solution}
+    Note that \( \beta = \{ (1,0), (0,1) \}  \) is a basis for \( \R^{2} \). By Theorem 2.6, \( T \) being linear implies that there exists a unique linear transformation \( T: \R^{2} \to  \R^{3} \) such that \( T(1,1) = (1,0,2)  \) and \( T(2,3) = (1,-1,4) \). 
+
+    To compute \( T(8,11) \), we need to find scalars \( a,b \in \R  \) such that
+    \[  a(1,1) + b(2,3) = (8,11). \]
+    Solving for \( a  \) and \( b \) gives us the following linear combination:
+    \[ 2(1,1) + 3(2,3) = (8,11). \]
+    Since \( T  \) is linear, we find that
+    \begin{align*}
+       T(8,11) &= T( 2(1,1)  + 3(2,3) ) \\
+               &= 2T(1,1) + 3T(2,3) \\
+               &= 2(1,0,2) + 3(1,-1,4) \\
+               &= (5,-3, 16)
+    \end{align*}
+\end{solution}
 
 
 \subsubsection{Exercise 2.1.13} Let \( V  \) and \( W  \) be vector spaces, let \( T: V \to W  \) be linear, and let \( \{ w_{1}, w_{2}, \dots, w_{k } \}  \) be a linearly independent subset of \( R(T) \). If \( S = \{ v_{1}, v_{2}, \dots, v_{k} \}  \) is chosen so that \( T(v_{i}) \) for \( i = 1,2,\dots, k  \) then \( S  \) is linearly independent.
@@ -231,5 +298,10 @@ Since \( T: \R^{3} \to \R  \), we know that \( T(e_{1}), T(e_{2}), T(e_{3}) \in 
 Now for the \( n \)th case, our basis \( \beta  \) for \( F^{n} \) now contains \( n \). So, we have
 \[  T(x_{1}, x_{2}, x_{3}, \dots, x_{n} ) = a_{1} x_{1} + a_{2} x_{2} + \dots + a_{n} x_{n}   \]
 for some scalars \( a_{1}, a_{2}, \dots ,a_{n} \in F  \) using the same argument above.
+\end{proof}
+
+\subsubsection{Exercise 2.1.23} Let \( T: \R^{3} \to \R  \) be linear. Describe geometrically the possibilities for the null space of \( T  \). 
+\begin{proof}
+
 \end{proof}
 

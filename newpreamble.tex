@@ -2,7 +2,6 @@
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
 \usepackage{hyperref}
-% \usepackage{fourier}
 \usepackage[english]{babel}
 \usepackage{url}
 % \usepackage{hyperref}
@@ -156,15 +155,34 @@
     },
 ]{thmexplanationbox}
 
-\declaretheorem[style=thmgreenbox, numberwithin = section, name=Definition]{definition}
-\declaretheorem[style=thmbluebox, name=Example, numberwithin = section]{eg}
-\declaretheorem[style=thmredbox, numberwithin = section, name=Proposition]{prop}
+\declaretheorem[
+    style=thmgreenbox, 
+    numberwithin = section,
+    name=Definition]{definition}
+
+\declaretheorem[
+    style=thmbluebox, 
+    name=Example,
+    numberwithin = section]{eg}
+
+\declaretheorem[
+    style=thmredbox, 
+    numberwithin = section,
+    name=Proposition]{prop}
+
 \declaretheorem[style=thmredbox, numberwithin = section, name=Theorem]{theorem}
 \declaretheorem[style=thmredbox, numberwithin = section,  name=Lemma]{lemma}
 \declaretheorem[style=thmredbox, numberwithin = section,  numbered=no, name=Corollary]{corollary}
 
 
 \declaretheorem[style=thmproofbox, name=Proof]{replacementproof}
+
+\declaretheorem[style=thmproofbox, 
+name = Solution]{solution}
+
+
+
+
 \renewenvironment{proof}[1][\proofname]{\vspace{-10pt}\begin{replacementproof}}{\end{replacementproof}}
 
 
