@@ -218,6 +218,18 @@ Now, we show \( S =  \{ x \in V : T(x) \in W_{1} \}  \) is a subspace of \( V  \
 
 \subsubsection{Exercise 2.1.22} Let \( T: \R^{3} \to \R  \) be linear. Show that there exist scalars \( a,b,  \) and \( c  \) such that  \( T(x,y,z) = ax + by + cz \) for all \( (x,y,z) \in \R^{3} \). Can you generalize this result for \( T: F^{n} \to F  \)? State and prove an analogous result for \( T: F^{n} \to F^{m} \).
 \begin{proof}
+Let \( (x,y,z) \in \R^{3} \) arbitrary. Observe that 
+\[  (x,y,z) = (x,0,0) + (0,y,0) + (0,0,z) = x e_{1} + y e_{2} + z e_{3}.  \]
+since \( \beta = \{ e_{1}, e_{2}, e_{3} \}  \) is a basis for \( \R^{3} \). Since \( T  \) is linear, we know, by Theorem 2.2, that \( \text{span}(T(\beta)) = R(T) \). So, we have
+\begin{align*}
+    T(x,y,z) &= T( xe_{1} + ye_{2} + ze_{3}) \\
+             &= T(e_{1})x + T(e_{2})y  + T(e_{3})z .
+\end{align*}
+Since \( T: \R^{3} \to \R  \), we know that \( T(e_{1}), T(e_{2}), T(e_{3}) \in \R  \) are just scalars, so denote \( T(e_{1}) = a, T(e_{2}) = b, T(e_{3}) = c  \). Hence, we have
+\[  T(x,y,z) = ax + by + cz. \]
 
+Now for the \( n \)th case, our basis \( \beta  \) for \( F^{n} \) now contains \( n \). So, we have
+\[  T(x_{1}, x_{2}, x_{3}, \dots, x_{n} ) = a_{1} x_{1} + a_{2} x_{2} + \dots + a_{n} x_{n}   \]
+for some scalars \( a_{1}, a_{2}, \dots ,a_{n} \in F  \) using the same argument above.
 \end{proof}
 
