@@ -364,8 +364,22 @@ for some scalars \( a_{1}, a_{2}, \dots ,a_{n} \in F  \) using the same argument
     \item[(a)] If \( T(a,b,c) = (a,b,0)  \), show that \( T  \) is the projection on the \( xy- \)plane along the \( z- \)axis.
         \begin{solution}
         Observe that \( (a,b,c) \in \R^{3} \) can be written in the following form:
-        \[  (a,b,c) = \underbrace{(a,b, 0)}_{\in \R^{2}} + \underbrace{(0,0,z)}_{\text{z-axis}}. \]
+        \[  (a,b,c) = \underbrace{(a,b, 0)}_{\in \R^{2}} + \underbrace{(0,0,z)}_{\text{z-axis}}. \tag{1} \]
+        Since \( T(a,b,c) = (a,b,0)  \), we know that \( T  \) represents the projection on the \( xy- \)plane along the \( z- \)axis. 
         \end{solution}
+    \item[(b)] Find a formula for \( T(a,b,c) \), where \( T  \) represents the projection on the \( z- \)axis along the \( xy- \)plane.
+        \begin{solution}
+        Let \( (a,b,c) \in \R^{3}  \). Then the projection on the \( z- \)axis along the \( xy- \)plane should be \( T(a,b,c) = (0,0,c) \) since \( (a,b,c) = (a,b,0) + (0,0,c) \) where \( (a,b,0) \in \R^{2} \) and \( (0,0,c)  \) is a point on the \( z- \)axis.
+        \end{solution}
+    \item[(c)] If \( T(a,b,c) = (a-c,b,0) \), show that \( T  \) is the projection on the \( xy- \)plane along the line \( L = \{ (a,0,a) :  a \in \R  \}  \).
+        \begin{solution}
+        Let \( (a,b,c) \in \R^{3} \). Then we can write this vector in the following way:
+        \begin{align*}  
+        (a,b,c) &= (a,b,0) + (0,0,c) \\  
+                &=  (a -c + c , b , 0) + (0,0,c) \\ 
+                &= (a-c, b , 0 ) + (c, 0 , c ) 
+        \end{align*}
+        where \( (a-c,b,0) \in \R^{2}  \) and \( (c,0,c) \in L   \). Since \( T(a,b,c) = (a-c,b,0) \), \( T \) must be the projection on the \( xy- \)plane along the line \( L \).  
 \end{enumerate}
 
 
