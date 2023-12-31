@@ -380,6 +380,28 @@ for some scalars \( a_{1}, a_{2}, \dots ,a_{n} \in F  \) using the same argument
                 &= (a-c, b , 0 ) + (c, 0 , c ) 
         \end{align*}
         where \( (a-c,b,0) \in \R^{2}  \) and \( (c,0,c) \in L   \). Since \( T(a,b,c) = (a-c,b,0) \), \( T \) must be the projection on the \( xy- \)plane along the line \( L \).  
+    \end{solution}
 \end{enumerate}
 
+\subsubsection{Exercise 2.1.26} Using the notation in the definition above, assume that \( T: V \to V  \) is the projection on \( W_{1} \) along \( W_{2} \).
+\begin{enumerate}
+    \item[(a)] Prove that \( T  \) is linear and \( W_{1} = \{ x \in V : T(x) = x  \}  \).
+        \begin{proof}
+            Let \( x,y \in V  \). We need to show that \( T  \) is linear. Since \( T  \) is the projection on \( W_{1}  \) along \( W_{2} \), we must have \( x = x_{1} + x_{2}  \) and \( y = y_{1} + y_{2} \) with \( T(x) = x_{1}  \) and \( T(y) = y_{1} \) respectively. Hence,  
+            \[  T(cx+y) = cx_{1} + y_{1} = c T(x) + T(y)  \]
+            for \( c \in F  \). Hence, \( T  \) is linear.
 
+            Now, let's show that \( W_{1} = \{ x \in V : T(x) = x  \}  \). Denote \( S = \{ x \in V : T(x) = x  \}  \). Let \( x \in W_{1} \). Since \( T  \) is the projection on \( W_{1} \) along \( W_{2} \) and \( x = x + 0_{V} \), we have \( T(x) = x \). Hence, \( W_{1} \subseteq S   \). Conversely, let \( x \in S \). Then \( T(x)  = x  \). Since \( T  \) is the projection on \( W_{1} \) along \( W_{2} \), this would mean that \( x \in W_{1}  \). Hence, 
+            \[  W_{1} = \{ x \in V : T(x) = x  \}.  \]
+        \end{proof}
+    \item[(b)] Prove that \( W_{1} = R(T)  \) and \( W_{2} = N(T) \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(c)] Describe \( T  \) if \( W_{1} = V  \).
+        \begin{solution}
+        
+        \end{solution}
+    \item[(d)] Describe \( T  \) if \( W_{1}  \) is the zero subspace.
+
+\end{enumerate}
