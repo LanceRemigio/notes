@@ -387,21 +387,61 @@ for some scalars \( a_{1}, a_{2}, \dots ,a_{n} \in F  \) using the same argument
 \begin{enumerate}
     \item[(a)] Prove that \( T  \) is linear and \( W_{1} = \{ x \in V : T(x) = x  \}  \).
         \begin{proof}
-            Let \( x,y \in V  \). We need to show that \( T  \) is linear. Since \( T  \) is the projection on \( W_{1}  \) along \( W_{2} \), we must have \( x = x_{1} + x_{2}  \) and \( y = y_{1} + y_{2} \) with \( T(x) = x_{1}  \) and \( T(y) = y_{1} \) respectively. Hence,  
-            \[  T(cx+y) = cx_{1} + y_{1} = c T(x) + T(y)  \]
-            for \( c \in F  \). Hence, \( T  \) is linear.
+            Let \( x,y \in V  \). We need to show that \( T  \) is linear. Since \( T  \) is the projection on \( W_{1}  \) along \( W_{2} \), we must have \( x = x_{1} + x_{2}  \) and \( y = y_{1} + y_{2} \) with \( T(x) = x_{1}  \) and \( T(y) = y_{1} \) respectively. Observe that
+            \begin{align*}
+                cx  + y &= c(x_{1} + x_{2}) + (y_{1} + y_{2}) \\
+                        &= ( cx_{1} + y_{1} )  + (cx_{2} + y_{2}).
+            \end{align*}
+            Let \( c \in F  \). Since \( T: V \to V   \) is the projection on \( W_{1} \) along \( W_{2} \), we must have
+            \[  T(cx+y) = cx_{1} + y_{1} = c T(x) + T(y).  \]
+             Hence, \( T  \) is linear.
 
             Now, let's show that \( W_{1} = \{ x \in V : T(x) = x  \}  \). Denote \( S = \{ x \in V : T(x) = x  \}  \). Let \( x \in W_{1} \). Since \( T  \) is the projection on \( W_{1} \) along \( W_{2} \) and \( x = x + 0_{V} \), we have \( T(x) = x \). Hence, \( W_{1} \subseteq S   \). Conversely, let \( x \in S \). Then \( T(x)  = x  \). Since \( T  \) is the projection on \( W_{1} \) along \( W_{2} \), this would mean that \( x \in W_{1}  \). Hence, 
             \[  W_{1} = \{ x \in V : T(x) = x  \}.  \]
         \end{proof}
     \item[(b)] Prove that \( W_{1} = R(T)  \) and \( W_{2} = N(T) \).
         \begin{proof}
-        
+        Let's show that \( W_{1} = R(T) \). Let \( x \in W_{1} \). Since \( W_{1} \subseteq V  \), we know that \( x \in V  \) where \( x = x + 0_{V} \). Since \( T  \) is the projection on \( W_{1} \) along \( W_{2} \), we have that 
+        \( T(x) = x  \). Hence, \( x \in R(T) \). Conversely, \( x \in R(T) \). Then for some \( z \in V  \), we have \( T(x) = z  \). Since \( T  \) is the projection on \( W_{1}  \) along \( W_{2} \), we have that \( x  = z + 0_{V} \) implies that \( z \in W_{1} \). Thus, \( x \in W_{1} \) and so, 
+        \[  W_{1} = R(T). \]
+      
+        Now, let's show that \( W_{2} = N(T) \). Let \( x \in W_{2} \). Since \( T  \) is a projection on \( W_{1} \) along \( W_{2} \), we have \( x = 0_{V} + x \) implies \( T(x) = 0_{V} \). This tell us that \( x \in N(T) \). On the other hand, assume \( x \in N(T) \). Then \( T(x) = 0_{V} \).
+    Since \( x \in V  \) and \( W_{1} + W_{2} = V  \), we have \( x = x_{1} + x_{2}  \) with \( x_{1} \in W_{1} \) and \( x_{2} \in W_{2}  \). Since \( T(x) =  0_{V} \), either \( x_{1} = 0  \) or \( x_{2} = 0  \). Assume \( x_{2} = 0 \), then \( x = x_{1} \) and \(x \in W_{1}  \) which is a contradiction. If \( x_{1} = 0  \), then \( x_{2} = x  \), so \( T(x_{2}) = 0_{V}   \). Hence, \( x \in W_{2} \). Thus, 
+    \[ W_{2} = N(T). \]
         \end{proof}
+
     \item[(c)] Describe \( T  \) if \( W_{1} = V  \).
         \begin{solution}
-        
+        If \( W_{1} = V  \), then we simply have \( T(x) = x  \) as described in part (a). Moreover, \( N(T) = \{ 0 \}  \) since \( V  = W_{1} + W_{2}  \) implies \( N(T) = W_{2} = \{ 0 \}  \). Thus, \( T \) must be injective. 
         \end{solution}
     \item[(d)] Describe \( T  \) if \( W_{1}  \) is the zero subspace.
-
+        \begin{solution}
+        If \( W_{1}  \) is the zero subspace, then \( \text{dim}(W_{1}) = 0  \). This implies that \( \text{dim}(V) = \text{dim}(W_{1} + W_{2}) = \text{dim}(W_{1}) + \text{dim}(W_{2}) + \text{dim}(W_{1} \cap W_{2}) = \text{dim}(W_{2}) \) (note that \( \text{dim}(W_{1} \cap W_{2}) = 0  \)). So, \( \text{dim}(V) = \text{dim}(W_{2})  \) implies that \( V = W_{2} \). Since \( T  \) is a projection on \( W_{1} \) along \( W_{2} \), then \( T(x) = 0_{V}  \) for all \( x \in V  \).
+        \end{solution}
 \end{enumerate}
+
+\subsubsection{Exercise 2.1.27} Suppose that \( W  \) is a subspace of a finite-dimensional vector space \( V  \).
+\begin{enumerate}
+    \item[(a)] Prove that there exists a subspace \( W' \) and a function \( T: V \to V  \) such that \( T  \) is a projection on \( W  \) along \( W' \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Give an example of a subspace \( W  \) of a vector space \( V  \) such that there are two projections on \( W  \) along two (distinct) subspaces.
+       \begin{solution}
+       
+       \end{solution} 
+\end{enumerate}
+
+\begin{definition}[Invariance]
+    Let \( V  \) be a vector space, and let \( T: V \to V  \) be linear. A subspace \( W  \) of \( V  \) is said to be \textbf{\( T \)-invariant} if \( T(x) \in W  \) for every \( x \in W  \), that is, \( T(W) \subseteq W  \). If \( W  \) is  \( T- \)invariant, we define the \textbf{restriction of \( T \) on \( W  \)} to be the function \( T_{W} : W \to W  \) defined by \( T_{W}(x) = T(x) \) for all \( x \in W  \).
+\end{definition}
+
+
+Exercises 28-32 assume that \( W  \) is a subspace of a vector space \( V  \) and that \( T:V \to V  \) is linear. \textit{Warning:} Do not assume that \( W  \) is \( T- \)invariant or that \( T  \) is a projection unless explicitly stated. 
+
+\subsubsection{Exercise 2.1.28} Prove that the subspaces \( \{ 0 \} , V , R(T),  \) and \( N(T) \) are all \( T- \)invariant.
+\begin{proof}
+
+\end{proof}
+
+
