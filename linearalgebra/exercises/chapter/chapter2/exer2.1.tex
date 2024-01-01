@@ -424,8 +424,15 @@ for some scalars \( a_{1}, a_{2}, \dots ,a_{n} \in F  \) using the same argument
 \begin{enumerate}
     \item[(a)] Prove that there exists a subspace \( W' \) and a function \( T: V \to V  \) such that \( T  \) is a projection on \( W  \) along \( W' \).
         \begin{proof}
-        
+        Since \( V  \) is finite-dimensional and \( W  \) is a subspace of \( V  \), we know by Exercise 1.6.34 that there exists a subspace \( W' \) such that \( W_{1} \oplus  W_{2} = V  \). Note that any \( x \in V  \) can defined by \( x = x_{1} + x_{2} \) where \( x_{1} \in W  \) and \( x_{2} \in W' \). Define the function 
+        \begin{center}
+            \( T: V \to V  \) by  \( T(x) = x_{1} \).
+        \end{center} 
+        Since \( W + W' = V  \) and \( W \cap W' = \{ 0  \}  \), we get a unique representation of any \( x \in V  \). Thus, we have that \( T \) is well-defined and that \( T  \) is a projection on \( W  \) along \( W' \). 
         \end{proof}
+        \begin{remark}
+           I am not quite sure how to show that \( T  \) is a projection here. I am not sure if showing that \( T  \) is well-defined is enough to do it.
+        \end{remark}
     \item[(b)] Give an example of a subspace \( W  \) of a vector space \( V  \) such that there are two projections on \( W  \) along two (distinct) subspaces.
        \begin{solution}
        
@@ -441,6 +448,24 @@ Exercises 28-32 assume that \( W  \) is a subspace of a vector space \( V  \) an
 
 \subsubsection{Exercise 2.1.28} Prove that the subspaces \( \{ 0 \} , V , R(T),  \) and \( N(T) \) are all \( T- \)invariant.
 \begin{proof}
+\begin{enumerate}
+    \item[(a)] Let \( x \in \{ 0 \}  \). Since \( T  \) is linear, we must have \( x = 0_{V}  \) such that \( T(0_{V}) = 0_{V} \). Hence, \( \{ 0 \}  \) is \( T- \)invariant.
+    \item[(b)] Since \( V  \) is a subspace of itself, and \( T(x) \in V  \) for all \( x \in V  \), we have that \( V  \) is \( T- \)invariant. 
+    \item[(c)] Let \( x \in R(T) \). Then there exists \( w \in V  \) such that \( T(x) = w \in R(T)  \). Hence, \( R(T) \) is \( T- \)invariant.
+    \item[(d)] Let \( x \in N(T) \). Then by definition of \( N(T) \), we have \( T(x) = 0_{V} \in N(T) \). Hence, \( N(T) \) is \( T- \)invariant.
+\end{enumerate}
+\end{proof}
+
+
+\subsubsection{Exercise 2.1.29} If \( W  \) is \( T- \)invariant, prove that \( T_{W}  \) is linear.
+\begin{proof}
+Since \( W  \) is \( T- \)invariant, we have a restriction of \( T  \) on \( W  \) such that \( T_{W} : W \to W   \) is defined by \( T_{W}(x) = T(x)  \) for all \( x \in W  \). Let \( cx + y \in W  \). Since \( T  \) is linear, we know that 
+\begin{align*}
+    T_{W}(cx+y) &= T(cx+y) \\
+                &= cT(x) + T(y) \\
+                &= c T_{W}(x) + T_{W}(y).
+\end{align*}
+Hence, \( T_{W}  \) is linear.
 
 \end{proof}
 
