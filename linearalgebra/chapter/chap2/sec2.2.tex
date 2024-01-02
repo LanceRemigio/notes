@@ -1,1 +1,37 @@
 \section{The Matrix Representation of a Linear Transformation}
+
+In this section, we will develop a one-to-one correspondence between matrices and linear transformations so that we may study the properties of one utilizing the properties of another. Before we do this, we shall develop the concept of an \textit{ordered basis} for a vector space \( V  \).
+
+\begin{definition}[Ordered Bases]
+    Let \( V  \) be a finite-dimensional vector space. An \textbf{ordered basis} for \( V  \) is a basis for \( V  \) endowed with a specific order; that is, an ordered basis for \( V  \) is a finite sequence of linearly independent vectors in \( V  \) that generates \( V  \).
+\end{definition}
+
+\begin{eg}
+    In \( F^{3} \), let \( \beta = \{ e_{1}, e_{2}, e_{3} \}  \) be an ordered basis for \( F^{3} \). If we take another set, say, \( \gamma = \{ e_{2}, e_{1}, e_{3} \}  \), be a basis for \( F^{3} \), we will see that even though these two bases are equal in terms of the vectors within it, we still end up with different ORDERED bases.
+\end{eg}
+
+\begin{itemize}
+   \item Note that \( e_{i}  \) for all \( 1 \leq  i \leq n  \) are the \textbf{standard basis vectors} for \( F^{n} \). The set \( \{  e_{1}, e_{2}, \dots, e_{n} \}  \) in \( F^{n} \) is the \textbf{standard ordered basis} for \( F^{n} \). Likewise, \( \{ 1,x,\dots, x^{n} \}  \) is the \textbf{standard ordered basis} for \( P_{n}(F) \).
+    \item We can now identify vectors in some finite-dimensional vector space of dimension \( n  \) by using \( n- \)tuples.
+    \item This is done through what is called \textit{coordinate vectors}.
+\end{itemize}
+
+\begin{definition}[Coordinate Vectors]
+    Let \( \beta = \{ u_{1}, u_{2}, \dots, u_{n} \}  \) be an ordered basis for a finite-dimensional vector space \( V  \). For \( x \in V  \), let \( a_{1}, a_{2}, \dots, a_{n} \) be the unique scalars such that 
+    \[  x = \sum_{ i=1 }^{ n } a_{i} u_{i}. \]
+    We define the \textbf{coordinate vector of \( x \) relative to \( \beta \)}, denoted \( [x]_{\beta} \), by
+    \[ [x]_{\beta} = \begin{pmatrix}
+        a_{1} \\
+        a_{2} \\
+        \vdots \\
+        a_{n}
+    \end{pmatrix}. \]
+\end{definition}
+\begin{itemize}
+    \item In our definition of standard basis vectors, we see that \( [u_{i}]_{\beta} = e_{i}  \).
+    \item It is quite easy to show that \( x \to [x]_{\beta} \) provides us with a linear transformation from \( T: V \to F^{n} \).
+\end{itemize}
+
+
+
+
