@@ -480,14 +480,35 @@ for any arbitrary \( x \in W  \). Hence, we also have that \( T_{W} = I_{W} \).
 \begin{enumerate}
     \item[(a)] Prove that \( W \subseteq N(T) \). 
         \begin{proof}
-        
+        Let \( v \in V  \). Since \( V  \) is \( T- \)invariant, we must have \( T(v) \in V  \). Using the fact that \( V = R(T) \oplus W   \), and that \( W  \) is \( T- \)invariant, \( T(v) \) can be expressed in the following way:
+        \[  T(v) = T(y) + T(w) \tag{1} \]
+        with \( y \in V  \) and \( w \in W  \). Subtracting \( T(y)  \) on both sides and using the linearity of \( T \), we get that 
+        \[  T(v) - T(y) = T(w) \iff T(v-y) = T(w). \]
+        Note that \( T(v-y) \in R(t)  \) and \( T(w) \in  W  \). Since \( R(T) \cap W = \{ 0  \}  \), this means that \( T(w) = 0  \). Hence, \( W \subseteq N(T) \).
         \end{proof}
     \item[(b)] Show that if \( V  \) is finite-dimensional, then \( W = N(T) \).
         \begin{proof}
-        
+            Since \( V  \) is finite-dimensional, we can use the dimension theorem to write
+            \[  \text{nullity}(T) + \text{rank}(T) = \text{dim}(V). \]
+            Furthermore, we can use Exercise 1.6.29 to write that 
+            \begin{align*} 
+                \text{dim}(V) &= \text{dim}(R(T) + W) \\
+                              &= \text{rank}(T) + \text{dim}(W) - \text{dim}(R(T) \cap W) \\
+                              &= \text{rank}(T) + \text{dim}(W). \tag{\( \text{dim}(R(T) \cap W) = 0  \)}
+            \end{align*}
+            Equating both equations we find that
+            \[ \text{nullity}(T) + \text{rank}(T) = \text{rank}(T) + \text{dim}(W)  \]
+            which implies that
+            \[  \text{nullity}(T) = \text{dim}(W). \]
+            By theorem 1.11, we get that \( N(T) = W  \).
         \end{proof}
     \item[(c)] Show by example that the conclusion of (b) is not necessarily true if \( V  \) is not finite-dimensional.
         \begin{proof}
         
         \end{proof}
 \end{enumerate}
+
+\subsubsection{Exercise 2.1.32} Suppose that \( W  \) is \( T- \)invariant. Prove that \( N(T_{w}) = N(T) \cap W  \) and \( R(T_{W}) = T(W) \).
+\begin{proof}
+
+\end{proof}
