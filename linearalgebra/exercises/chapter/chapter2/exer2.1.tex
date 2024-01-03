@@ -15,7 +15,7 @@
             True. This is Theorem 2.2.
         \end{solution}
     \item[(d)] If \( T  \) is linear, then \( T(0_{V}) = 0_{W} \).
-        \begin{solution}
+       \begin{solution}
             True by properties of linear maps.
         \end{solution}
     \item[(e)] If \( T  \) is linear, then \( \text{nullity}(T) + \text{rank}(T) = \text{dim}(W) \).
@@ -482,9 +482,9 @@ for any arbitrary \( x \in W  \). Hence, we also have that \( T_{W} = I_{W} \).
         \begin{proof}
         Let \( v \in V  \). Since \( V  \) is \( T- \)invariant, we must have \( T(v) \in V  \). Using the fact that \( V = R(T) \oplus W   \), and that \( W  \) is \( T- \)invariant, \( T(v) \) can be expressed in the following way:
         \[  T(v) = T(y) + T(w) \tag{1} \]
-        with \( y \in V  \) and \( w \in W  \). Subtracting \( T(y)  \) on both sides and using the linearity of \( T \), we get that 
+        with \( T(y) \in R(T)  \) and \( T(w) \in W  \). Subtracting \( T(y)  \) on both sides and using the linearity of \( T \), we get that 
         \[  T(v) - T(y) = T(w) \iff T(v-y) = T(w). \]
-        Note that \( T(v-y) \in R(t)  \) and \( T(w) \in  W  \). Since \( R(T) \cap W = \{ 0  \}  \), this means that \( T(w) = 0  \). Hence, \( W \subseteq N(T) \).
+        Note that \( T(v-y) \in R(t)  \) and \( T(w) \in  W  \). Since \( R(T) \cap W = \{ 0  \}  \) and \( T(w) \in R(T) \cap W  \), this means that \( T(w) = 0  \). Hence, \( W \subseteq N(T) \).
         \end{proof}
     \item[(b)] Show that if \( V  \) is finite-dimensional, then \( W = N(T) \).
         \begin{proof}
