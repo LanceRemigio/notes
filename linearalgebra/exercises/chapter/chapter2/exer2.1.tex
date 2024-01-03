@@ -490,11 +490,11 @@ for any arbitrary \( x \in W  \). Hence, we also have that \( T_{W} = I_{W} \).
         \begin{proof}
             Since \( V  \) is finite-dimensional, we can use the dimension theorem to write
             \[  \text{nullity}(T) + \text{rank}(T) = \text{dim}(V). \]
-            Furthermore, we can use Exercise 1.6.29 to write that 
+            Furthermore, we can use Exercise 1.6.29 and that \( \text{dim}(R(T) \cap W) = 0  \) to write that 
             \begin{align*} 
                 \text{dim}(V) &= \text{dim}(R(T) + W) \\
                               &= \text{rank}(T) + \text{dim}(W) - \text{dim}(R(T) \cap W) \\
-                              &= \text{rank}(T) + \text{dim}(W). \tag{\( \text{dim}(R(T) \cap W) = 0  \)}
+                              &= \text{rank}(T) + \text{dim}(W). 
             \end{align*}
             Equating both equations we find that
             \[ \text{nullity}(T) + \text{rank}(T) = \text{rank}(T) + \text{dim}(W)  \]
@@ -508,7 +508,59 @@ for any arbitrary \( x \in W  \). Hence, we also have that \( T_{W} = I_{W} \).
         \end{proof}
 \end{enumerate}
 
-\subsubsection{Exercise 2.1.32} Suppose that \( W  \) is \( T- \)invariant. Prove that \( N(T_{w}) = N(T) \cap W  \) and \( R(T_{W}) = T(W) \).
+\subsubsection{Exercise 2.1.32} Suppose that \( W  \) is \( T- \)invariant. Prove that \( N(T_{W}) = N(T) \cap W  \) and \( R(T_{W}) = T(W) \).
+\begin{proof}
+    First, we show that \( N(T_{W}) = N(T) \cap W  \). Let \( x \in N(T_{W}) \). Then \( x \in W  \) implies that \( T_{W}(x) = 0_{W}  \) by definition of \( N(T_{W}) \). Since \( W  \) is \( T- \)invariant, we get that \( T_{W}(x) = T(x)  \). Since \( T(W) \subseteq W  \), this tells us that \( x \in W  \). But this also means that \( T(x) = 0_{W}   \). Hence, we must also have \( x \in N(T)  \). So, \( x \in N(T) \) and \( x \in W  \) implies that \( x \in N(T) \cap W   \) and thus \( N(T_{W}) \subseteq N(T) \cap W  \). Now, let \( x \in N(T) \cap W  \). Then \( x \in N(T)  \) and \( x \in W  \). Since \( x \in N(T)  \),  we must have \( T(x) = 0_{W} \). Since \( x \in W  \) and \( W  \) is \( T- \)invariant, we must also have \( T(x) = T_{W}(x) = 0_{W} \). Thus, \( x \in N(T_{W}) \) and we get that \( N(T) \cap W \subseteq N(T_{W}) \). We conclude that
+    \[ N(T_{W}) = N(T) \cap W.  \]
+
+
+    Now, let us show that \( R(T_{W}) = T(W) \). Let \( w \in R(T_{W}) \). Then there exists \( x \in W  \) such that \( T_{W}(x) = w  \). Since \( W  \) is \( T- \)invariant, we have \( T_{W}(x) = T(x)  \) and thus \( w \in T(W) \). Thus, \( R(T_{W}) \subseteq T(W)  \). Conversely, let \( w \in T(W) \). It follows immediately that \( w \in R(T) \). Then there exists \( x \in W  \) such that \( T(x) = w  \). Since \( W  \) is \( T- \)invariant, we must have \( T(x) = T_{W}(x) \). Hence, \( w \in R(T_{W}) \) and thus \( T(W) \subseteq R(T_{W})  \). Thus, we have
+    \[  R(T_{W}) = T(W). \]
+\end{proof}
+
+\subsubsection{Exercise 2.1.33} Prove Theorem 2.2 for the case that \( \beta  \) is infinite, that is, \( R(T) = \text{span}(\{ T(v) : v \in \beta  \} ) \).
 \begin{proof}
 
 \end{proof}
+
+\subsubsection{Exercise 2.1.34} Prove the following generalization of Theorem 2.6: Let \( V  \) and \( W  \) be vector spaces over a common field, and let \( \beta  \) be a basis for \( V  \). Then for any function \( f: \beta \to W  \) there exists exactly one linear transformation \( T: V \to W  \) such that \( T(x) = f(x)  \) for all \( x \in \beta  \).
+
+\begin{proof}
+    Let \( x \in V  \). Since \( \beta  \) is a basis for \( V  \), we can find \( a_{1}, a_{2}, a_{3} \in F  \) such that
+    \[  x = \sum_{i \geq 1 } a_{i} v_{i}  \] for \( v_{1}, v_{2}, v_{3}, \dots  \) in \( \beta  \). Let \( f: \beta \to W  \). Define the map \( T:V \to W  \) such that
+    \[  T(x) = \sum_{i \geq 1 } a_{i} f(v_{i})   \]
+    with \( f(v_{i}) \in W  \) for \( i \geq 1  \). We claim that \( T  \) is linear. Let \( cx+y \in V  \) with \( c \in F  \). Then using \( \beta  \) as a basis for \( V  \), we get that
+    \[  x = \sum_{i \geq 1 } a_{i} v_{i} \]
+    and 
+    \[  y = \sum_{i \geq 1 } b_{i} v_{i} \] for \( a_{i}, b_{i} \in F  \) for \( i \geq 1  \). Then observe that
+    \begin{align*}
+        T(cx+y)&= \sum _{i \geq 1 } (ca_{i} + b_{i}) f(x_{i}) \\
+               &= \sum _{i \geq 1 } (ca_{i}) f(v_{i}) + \sum_{i \geq 1} b_{i} f(v_{i}) \\
+               &= c \sum_{i \geq 1 } a_{i} f(v_{i}) + \sum_{i \geq 1} b_{i} f(v_{i}) \\
+               &= cT(x) + T(y).
+    \end{align*}
+    Hence, \( T  \) is linear. Now, we claim that \( T  \) is a unique linear transformation. Suppose there exists \( U: V \to W  \) defined by  
+    \[  U(x) = \sum _{i \geq 1} a_{i} w_{i}  \] with \( w_{i} \in W  \).
+    Note \( w_{i} \in W  \) implies that \( f(v_{i}) = w_{i} \) for \( i \geq 1  \). Thus, 
+    \[  U(x) = \sum _{i \geq 1 } a_{i} w_{i} = \sum _{i \geq 1} a_{i} f(v_{i}) = T(x).  \]
+    Since \( x \in V  \) is arbitrary, we must have \( U = T \). Hence, \( T  \) is unique.
+\end{proof}
+
+Exercises 35 and 36 assume the definition of \textit{direct sum} given in the exercises of Section 1.3.
+
+\subsubsection{Exercise 2.1.35} Let \( V  \) be a finite-dimensional vector space \( T : V \to V  \) be linear. 
+    \begin{enumerate}
+        \item[(a)] Suppose that \( V = R(T) + N(T) \). Prove that \( V = R(T) \oplus N(T) \).
+            \begin{proof}
+            
+            \end{proof}
+        \item[(b)] Suppose that \( R(T) \cap N(T) = \{ 0 \}  \). Prove that \( V = R(T) \oplus N(T) \).
+            \begin{proof}
+            
+            \end{proof}
+    \end{enumerate}
+Be careful to say in each part where finite-dimensional is used.
+
+
+
+
