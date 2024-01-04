@@ -259,7 +259,7 @@ First, we prove that \( T(V_{1}) \) is a subspace of \( W  \). Let \( x,y \in T(
 Now, we show \( S =  \{ x \in V : T(x) \in W_{1} \}  \) is a subspace of \( V  \). Since \( 0_{W} \in W_{1} \) (because \( W_{1}  \) is a subspace of \( W \)) and \( T \) is linear, we have that \( T(0_{V}) = 0_{W}. \) Hence, \( 0_{V} \in S  \). Now, let \( x,y \in S  \). Hence, \( T(x), T(y) \in W_{1} \) implies \( T(x) + T(y) \in W_{1} \) since \( W_{1} \) is a subspace of \( W \). Since \( T  \) is linear, we have \( T(x) + T(y) = T(x+y) \), and so \( x + y \in S \). Now, let \( c \in F  \) and \( x \in S  \). Again, \( W_{1} \) is a subspace so \( c T(x) \in W_{1} \). Thus, \( T \) being linear implies that \( cT(x) = T(cx)\). Hence, \( cx \in S  \). Thus, \( S  \) is a subspace of \( V  \).
 \end{proof}
 
-\subsubsection{Exercise 2.1.21} Let \( V  \) be the vector space of sequences described in Example 5 of Section 1.2. Define the functions \( T,U : V \to V  \) by 
+\subsubsection{Exercise 2.1.21}\label{Exercise 21} Let \( V  \) be the vector space of sequences described in Example 5 of Section 1.2. Define the functions \( T,U : V \to V  \) by 
 \[  T(a_{1}, a_{2}, \dots ) = (a_{2}, a_{3}, \dots ) \ \  \text{and} \ \ U(a_{1}, a_{2}, \dots ) = (0, a_{1}, a_{2}, \dots).  \]
 \( T \) and \( U  \) are called the \textbf{left shift} and \textbf{right shift} operators on \( V  \), respectively. 
 \begin{enumerate}
@@ -526,7 +526,7 @@ for any arbitrary \( x \in W  \). Hence, we also have that \( T_{W} = I_{W} \).
 \subsubsection{Exercise 2.1.34} Prove the following generalization of Theorem 2.6: Let \( V  \) and \( W  \) be vector spaces over a common field, and let \( \beta  \) be a basis for \( V  \). Then for any function \( f: \beta \to W  \) there exists exactly one linear transformation \( T: V \to W  \) such that \( T(x) = f(x)  \) for all \( x \in \beta  \).
 
 \begin{proof}
-    Let \( x \in V  \). Since \( \beta  \) is a basis for \( V  \), we can find \( a_{1}, a_{2}, a_{3} \in F  \) such that
+    Let \( x \in V  \). Since \( \beta  \) is a basis for \( V  \), we can find \( a_{1}, a_{2}, a_{3}, \dots  \in F  \) such that
     \[  x = \sum_{i \geq 1 } a_{i} v_{i}  \] for \( v_{1}, v_{2}, v_{3}, \dots  \) in \( \beta  \). Let \( f: \beta \to W  \). Define the map \( T:V \to W  \) such that
     \[  T(x) = \sum_{i \geq 1 } a_{i} f(v_{i})   \]
     with \( f(v_{i}) \in W  \) for \( i \geq 1  \). We claim that \( T  \) is linear. Let \( cx+y \in V  \) with \( c \in F  \). Then using \( \beta  \) as a basis for \( V  \), we get that
@@ -552,15 +552,48 @@ Exercises 35 and 36 assume the definition of \textit{direct sum} given in the ex
     \begin{enumerate}
         \item[(a)] Suppose that \( V = R(T) + N(T) \). Prove that \( V = R(T) \oplus N(T) \).
             \begin{proof}
-            
+            Since \( V  \) is finite-dimensional, the subspaces \( R(T)  \) and \( N(T) \) are finite-dimensional by Theorem 1.11. Using the Dimension Theorem and the fact that \( T  \) is linear, we can write
+            \begin{align*}
+                \text{dim}(V) &= \text{rank}(T) + \text{nullity}(T)   \\
+                              &= \text{dim}(R(T)) + \text{dim}(N(T)).
+            \end{align*}
+            Since \( V = R(T) + N(T) \), we can use Exercise 1.6.29 to conclude that
+            \[  V = R(T) \oplus N(T). \]
             \end{proof}
         \item[(b)] Suppose that \( R(T) \cap N(T) = \{ 0 \}  \). Prove that \( V = R(T) \oplus N(T) \).
             \begin{proof}
-            
+            Since \( V  \) is finite-dimensional and \( R(T) \) and \( N(T) \) are subspaces of \( V  \), we know by Theorem 1.11 that \( R(T) \) and \( N(T) \) are also finite-dimensional. Thus, \( R(T) + N(T) \) is subspace and is also finite-dimensional by part (a) of Exercise 1.6.29. Since \( R(T) \cap N(T) = \{ 0 \}  \), we can write 
+            \begin{align*}
+                \text{dim}(R(T) + N(T)) &= \text{dim}(R(T)) + \text{dim}(N(T)) - \text{dim}(R(T) \cap N(T)) \\
+                                        &= \text{rank}(T) + \text{nullity}(T). 
+            \end{align*}
+            Since \( V  \) is finite-dimensional and \( T  \) is linear, the Dimension Theorem states that
+            \[  \text{dim}(V) = \text{rank}(T) + \text{nullity}(T). \]
+            But this tells us that 
+            \[  \text{dim}(R(T) + N(T)) = \text{dim}(V).\]
+            This implies that \( R(T) + N(T) = V  \) by Theorem 1.11. Together with \( R(T) \cap N(T) = \{ 0  \}   \), we have that 
+            \[  V  = R(T) \oplus N(T). \]
             \end{proof}
     \end{enumerate}
 Be careful to say in each part where finite-dimensional is used.
 
+\subsubsection{Exercise 2.1.36} Let \( V  \) and \( T  \) be as defined in {\hyperref[Exercise 21]{Exercise 21}}.
+\begin{enumerate}
+    \item[(a)] Prove that \( V = R(T) + N(T)  \), but \( V  \) is not a direct sum of these two spaces. Thus the result of Exercise 35(a) above cannot be proved without assuming that \( V  \) is finite-dimensional.
+    \item[(b)] Find a linear operator \( T_{1}  \) on \( V  \) such that \( R(T_{1}) \cap N(T_{1}) = \{ 0  \}  \) but \( V  \) is not a direct sum of \( R(T_{1}) \) and \( N(T_{1})  \). Conclude that \( V  \) being finite-dimensional is also essential in Exercise 35(b).
+\end{enumerate}
 
+\begin{definition}[Additive]
+    A function \( T: V \to W  \) between vector spaces \( V  \) and \( W  \) is called \textbf{additive} if \( T(x+y) = T(x) + T(y) \) for all \( x,y \in V  \).
+\end{definition}
 
+\subsubsection{Exercise 2.1.37} Prove that if \( V  \) and \( W  \) are vector spaces over the field of rational numbers, then any additive function from \( V  \) into \( W  \) is a linear transformation. 
+\begin{proof}
+
+\end{proof}
+
+\subsubsection{Exercise 2.1.39} Let \( T: \C \to \C  \) be the function defined by \( T(z) = \overline{z} \). Prove that \( T  \) is additive but not linear.
+\begin{proof}
+
+\end{proof}
 
