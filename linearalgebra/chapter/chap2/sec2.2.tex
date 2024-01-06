@@ -111,12 +111,95 @@ Later on, we will prove a theorem about how associating matrices with linear tra
 These operations of addition and scalar multiplication lead to the preservation of linear transformations.
 
 \begin{theorem}
-   Let \( V  \) and \( W  \) be vector spaces over a field \( F  \), and let \( T,U: V \to W  \) be linear. 
+   Let \( V  \) and \( W  \) be vector spaces over a field \( F  \), and let \( T,U: V \to W  \) be linear. Then we have
    \begin{enumerate}
        \item[(a)] For all \( a \in F  \), \( aT + U  \) is linear.
        \item[(b)] Using the operations of addition and scalar multiplication in the preceding definition, the collection of all linear transformations from \( V  \) to \( W  \) is a vector space over \( F  \).
    \end{enumerate}
 \end{theorem}
 \begin{proof}
-
+    \begin{enumerate}
+        \item[(a)] To show linearity of \( aT + U  \),  let \( x,y \in V  \) and \( a \in F  \). Then the linearity of \( T  \) and \( U  \) implies that 
+    \begin{align*}
+        (aT + U)(x+y) &= (aT)(x+y) + U(x+y)  \\
+                      &= (aT)(x) + (aT)(y)  + U(x) + U(y) \\
+                      &= (aT)(x) + U(x) + (aT)(y) + U(y) \\
+                      &= (aT+U)(x) + (aT +  U)(y). 
+    \end{align*}
+    Let \( c \in F  \). Then 
+    \begin{align*}
+        (c(aT+U))(x) &= (caT + cU)(x) \\
+                     &= (caT)(x) + (cU)(x) \\
+                     &= c((aT)(x) + cU(x) \\
+                     &= c ((aT)(x) + U(x)) \\
+                     &= c (aT + U)(x).
+    \end{align*}
+    Hence, we can see that \( T  \) is linear.
+\item[(b)] Let \( S  \) denote the collection of all linear transformations from \( V  \) to \( W  \). Note that the zero transformation \( {T}_{0} \) is in \( S  \). The vector axioms follow from \( S  \) being closed under addition and scalar multiplication; that is, 
+    \begin{center}
+       \( U + T \in S  \) and \( cT \in S  \). 
+    \end{center}
+    Hence, \( S  \) is a vector space over a field \( F  \).
+    \end{enumerate}
 \end{proof}
+
+\begin{definition}
+    Let \( V  \) and \( W  \) be vector spaces over \( F  \). We denote the vector space of all linear transformations from \( V  \) into \( W   \) by \( \mathcal{L}(V,W)  \). In the case that \( V = W  \), we write \( \mathcal{L}(V)  \) instead of \( \mathcal{L}(V,W) \). 
+\end{definition}
+
+\begin{theorem}
+   Let \( V  \) and \( W \) be finite-dimensional vector spaces with ordered bases \( \beta  \) and \( \gamma \), respectively, and let \( T,U : V \to W  \) be linear transformations. Then 
+   \begin{enumerate}
+       \item[(a)] \( [T+U]_{\beta}^{\gamma}  = [T]_{\beta}^{\gamma} + [U]_{\beta}^{\gamma}  \) and
+        \item[(b)]\( [aT]_{\beta}^{\gamma}  = a [T]_{\beta}^{\gamma}  \) for all scalars \( a  \).
+   \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item[(a)] 
+    Let \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{m} \}  \) and \( \gamma = \{ {w}_{1}, {w}_{2}, \dots, {w}_{n} \}  \). There exists unique scalars \( {a}_{ij}  \) and \( {b}_{ij}  \) with \( 1 \leq i \leq m  \) and \( 1 \leq j \leq n  \) such that
+    \[  T({v}_{j}) = \sum_{ i=1 }^{ m } {a}_{ij} {w}_{i} \ \text{ and } \ U({v}_{j}) = \sum_{ i=1 }^{ m } {b}_{ij} {w}_{i} \ \text{ for } 1 \leq j \leq n.   \]
+    Observe that 
+    \begin{align*}
+        (T + U)({v}_{j}) &= \sum_{ i=1 }^{ m } ({a}_{ij} + {b}_{ij}) {w}_{i} \\
+        &= \sum_{ i=1 }^{ m } {a}_{ij} {w}_{i} + \sum_{ i=1 }^{ m } {b}_{ij} {w}_{i} \\
+        &= T({v}_{j}) + U({v}_{j}).
+    \end{align*}
+    Hence, we can write that 
+    \[ {([T+U]_{\beta}^{\gamma} )}_{ij} = {a}_{ij} + {b}_{ij} = {([T]_{\beta}^{\gamma} + [U]_{\beta}^{\gamma} )}_{ij}   \]
+
+\item[(b)] Using the same bases as above, the matrix representation of \( [aT]_{\beta}^{\gamma}  \) is written as 
+    \[  (aT)({v}_{j}) = \sum_{ i=1 }^{ n } ({ca}_{ij}) {w}_{i} = c \sum_{ i=1 }^{ n } {a}_{ij} {w}_{i} = cT({v}_{j}) \ \text{ for } \ 1 \leq j \leq n. \]
+    Hence, we can write
+    \[  ({[aT]_{\beta}^{\gamma} })_{ij} = a {([T]_{\beta}^{\gamma} )}_{ij}. \]
+    \end{enumerate}
+\end{proof}
+
+\begin{eg}
+    Let \( T: \R^{2} \to \R^{3}  \) and \( U: \R^{2} \to \R^{3} \) be the linear transformations respectively defined by 
+    \begin{center}
+        \( T({a}_{1},{a}_{2}) = ({a}_{1} + {3a}_{2}, {2a}_{1} - {4a}_{2}) \) and \( U({a}_{1}, {a}_{2}) = ({a}_{1} - {a}_{2}, {2a}_{1}, {3a}_{1} + {2a}_{2}) \).
+    \end{center}
+    Let \( \beta \) and \( \gamma \) be the standard ordered bases of \( \R^{2}  \) and \( \R^{3}  \), respectively. Computing \( [T]_{\beta}^{\gamma}  \), we get
+    \[ [T]_{\beta}^{\gamma}  = \begin{pmatrix}
+        1 & 3 \\
+        0 & 0 \\
+        2 & -4 
+    \end{pmatrix},  \]
+    and 
+    \[ [U]_{\beta}^{\gamma}  = \begin{pmatrix}
+        1 & -1 \\
+        2 & 0 \\
+        3 & 2
+    \end{pmatrix}.  \]
+    Since \( T + U  \) is linear, we can write 
+    \[  (T+U)({a}_{1}, {a}_{2}) = ({2a}_{1} + {2a}_{2} , {2a}_{1}, {5a}_{1} - {2a}_{2}) \]
+    and so we can write
+    \[  [T+U]_{\beta}^{\gamma}  = \begin{pmatrix}
+        2 & 2 \\
+        2 & 0 \\
+        5 & -2 
+    \end{pmatrix} \]
+    using Theorem 2.8.
+\end{eg}
+
