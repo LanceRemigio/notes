@@ -510,7 +510,7 @@ for any arbitrary \( x \in W  \). Hence, we also have that \( T_{W} = I_{W} \).
 
 \subsubsection{Exercise 2.1.32} Suppose that \( W  \) is \( T- \)invariant. Prove that \( N(T_{W}) = N(T) \cap W  \) and \( R(T_{W}) = T(W) \).
 \begin{proof}
-    First, we show that \( N(T_{W}) = N(T) \cap W  \). Let \( x \in N(T_{W}) \). Then \( x \in W  \) implies that \( T_{W}(x) = 0_{W}  \) by definition of \( N(T_{W}) \). Since \( W  \) is \( T- \)invariant, we get that \( T_{W}(x) = T(x)  \). Since \( T(W) \subseteq W  \), this tells us that \( x \in W  \). But this also means that \( T(x) = 0_{W}   \). Hence, we must also have \( x \in N(T)  \). So, \( x \in N(T) \) and \( x \in W  \) implies that \( x \in N(T) \cap W   \) and thus \( N(T_{W}) \subseteq N(T) \cap W  \). Now, let \( x \in N(T) \cap W  \). Then \( x \in N(T)  \) and \( x \in W  \). Since \( x \in N(T)  \),  we must have \( T(x) = 0_{W} \). Since \( x \in W  \) and \( W  \) is \( T- \)invariant, we must also have \( T(x) = T_{W}(x) = 0_{W} \). Thus, \( x \in N(T_{W}) \) and we get that \( N(T) \cap W \subseteq N(T_{W}) \). We conclude that
+    First, we show that \( N(T_{W}) = N(T) \cap W  \). Let \( x \in N(T_{W}) \). Then \( x \in W  \) implies that \( T_{W}(x) = 0_{W}  \) by definition of \( N(T_{W}) \). Since \( W  \) is \( T- \)invariant, we get that \( T_{W}(x) = T(x)  \). Since \( T(W) \subseteq W  \), this tells us that \( x \in W  \). But note that \( T(x) = 0_{W}   \). Hence, we must also have \( x \in N(T)  \). So, \( x \in N(T) \) and \( x \in W  \) implies that \( x \in N(T) \cap W   \) and thus \( N(T_{W}) \subseteq N(T) \cap W  \). Now, let \( x \in N(T) \cap W  \). Then \( x \in N(T)  \) and \( x \in W  \). Since \( x \in N(T)  \),  we must have \( T(x) = 0_{W} \). Since \( x \in W  \) and \( W  \) is \( T- \)invariant, we must also have \( T(x) = T_{W}(x) = 0_{W} \). Thus, \( x \in N(T_{W}) \) and we get that \( N(T) \cap W \subseteq N(T_{W}) \). We conclude that
     \[ N(T_{W}) = N(T) \cap W.  \]
 
 
@@ -520,7 +520,18 @@ for any arbitrary \( x \in W  \). Hence, we also have that \( T_{W} = I_{W} \).
 
 \subsubsection{Exercise 2.1.33} Prove Theorem 2.2 for the case that \( \beta  \) is infinite, that is, \( R(T) = \text{span}(\{ T(v) : v \in \beta  \} ) \).
 \begin{proof}
+    We will show that 
+    \[ R(T) = \text{span}(\{ T(v) : v \in \beta \} );  \]
+    that is, we will show that both \( R(T) \subseteq \text{span}(\{ T(v) : v \in \beta  \} )  \) and \( \text{span}(\{ T(v) : v \in \beta  \} ) \subseteq R(T)\). Since \( T(v) \in R(T)   \) for every \( v \in \beta  \), we have that \( R(T) \) must also contain the span of \( \{ T(v) : v \in \beta  \}   \) by Theorem 1.5. Hence, we have \( \text{span}(\{ T(v) : v \in \beta  \} ) \subseteq R(T)  \).
 
+    On the other hand, let \( x \in R(T) \). Then there exists some \( v \in R(T) \) such that \( T(v) = x  \). Since \( \beta  \) is a basis for \( V  \), we can write \( x \in V   \) as a linear combination of vectors in \( \beta  \); that is, we can choose scalars \( {a}_{1}, {a}_{2}, {a}_{3}, \dots   \) such that 
+    \[  v = \sum_{i \geq 1} {a}_{i} {v}_{i}   \]
+    where \( {v}_{i} \in \beta  \) for \( i \geq 1 \). Since \( T  \) is linear, we can write
+   \begin{align*}
+       T(v) &= T \Big(  \sum_{ i \geq 1  }^{  } {a}_{i} {v}_{i}  \Big) \\
+            &=  \sum_{ i \geq 1  }^{  } {a}_{i} T({v}_{i}). 
+   \end{align*} 
+   But this tells us that \( w \in \text{span}(\{ T(v) : v \in \beta \} ) \) and thus we have  \( R(T) \subseteq \text{span}(\{ T(v) : v \in \beta  \} ) \).
 \end{proof}
 
 \subsubsection{Exercise 2.1.34} Prove the following generalization of Theorem 2.6: Let \( V  \) and \( W  \) be vector spaces over a common field, and let \( \beta  \) be a basis for \( V  \). Then for any function \( f: \beta \to W  \) there exists exactly one linear transformation \( T: V \to W  \) such that \( T(x) = f(x)  \) for all \( x \in \beta  \).
@@ -589,11 +600,64 @@ Be careful to say in each part where finite-dimensional is used.
 
 \subsubsection{Exercise 2.1.37} Prove that if \( V  \) and \( W  \) are vector spaces over the field of rational numbers, then any additive function from \( V  \) into \( W  \) is a linear transformation. 
 \begin{proof}
-
+Let \( T: V \to W  \) be an additive function from \( V  \) into \( W  \) where \( V  \) and \( W  \) are vector spaces over \( \Q \). Let \( c \in \Q  \) and let \( x,y \in V  \). Then we can find \( u = T(cx)  \) and \( v = T(x) \) such that 
+\[  c = \frac{ u }{ v }  = \frac{ T(cx) }{ T(x) } \iff cT(x) = T(cx) \]
+with \( v  \neq  0  \). Using the additivity of \( T  \), we can write
+\begin{align*}
+    T(cx+y) &=  T(cx) + T(y) \\
+            &= cT(x) + T(y).
+\end{align*}
+Hence, \( T  \) is linear.
 \end{proof}
 
 \subsubsection{Exercise 2.1.39} Let \( T: \C \to \C  \) be the function defined by \( T(z) = \overline{z} \). Prove that \( T  \) is additive but not linear.
 \begin{proof}
+Let \( x,y \in \C   \) such that \( x = \delta_{1} + \delta_{2}i  \) and \( y = \epsilon_{1} + \epsilon_{2} i  \) for \( \delta_{1}, \delta_{2}, \epsilon_{1}, \epsilon_{2} \in \R \). By definition of \( T  \), we know that
+\[  T(x) = \overline{x} = \delta _{1} - \delta_{2}i \]
+and 
+\[ T(y) = \overline{y} = \epsilon_{1} - \epsilon_{2}i. \]
+Note that 
+\[  x + y = (\delta_{1} + \epsilon _{1}    ) + (\delta_{2} + \epsilon_{2} )i. \]
+By definition of \( T  \), we have that
+\begin{align*} 
+T(x+y) &= (\delta _{1} + \epsilon _{1}) - (\delta _{2} + \epsilon _{2} )i \\
+       &= (\delta _{1} - \delta _{2}i ) + (\epsilon _{1} - \epsilon _{2} i) \\
+       &= T(x) + T(y).
+\end{align*}
+Hence, \( T  \) is an additive function.
 
+Let \( z \in \C  \) where \( z = a + bi  \). Observe that \( \overline{z} = a - bi  \). Then 
+\[  f(z \overline{z}) = f(a^{2} + b^{2}) = a^{2} + b^{2}  \]
+but
+\[  z f(\overline{z}) = (a+bi)^{2} = a^{2} + 2abi - b^{2}. \]
+Hence, \( f(z \overline{z}) \neq z f(\overline{z}) \) implies that \( f \) is not linear.
 \end{proof}
+
+\subsubsection{Exercise 2.1.40} Let \( V  \) be a vector space and \( W  \) be a subspace of \( V  \). Define the mapping \( \eta : V \to V /  W  \) by \( \eta(v) = v + W  \) for \( v \in V  \).
+\begin{enumerate}
+    \item[(a)] Prove that \( \eta  \) is a linear transformation from \( V  \) onto \( V / W  \) and that \( N(\eta) = W  \).
+        \begin{proof}
+            Let us first show that \( \eta : V \to V / W   \) is a linear transformation. Let \( cx  + y \in V  \). By the operations defined on \( \eta \), we must have
+            \begin{align*}
+                \eta(cx+y) &= (cx+y) + W  \\
+                           &= (cx+W) + (y + W) \\
+                           &= c(x+W) + (y+W) \\
+                           &= c \eta(x) + \eta(y).
+            \end{align*}
+            Hence, \( \eta \) is a linear transformation.
+
+            Now, let us show that \( \eta  \) is onto. Observe that \( R(\eta) \subseteq V / W  \). Let \( x \in V / W  \). Then \( x = v + W  \) for \( v \in V  \). By definition of \( \eta: V \to V / W   \), we have \( \eta(v) = v + W  \). This means that \( \eta(v) = x  \) which tells us that \( x \in R(\eta) \). Hence, we conclude that \( R(\eta) = V / W   \) and hence \( \eta  \) is onto.
+
+            Lastly, we will prove that \( N(\eta) =  W  \). Let \( x \in N(\eta) \). Then \( \eta(x) = W  \). By definition of \( \eta \), we must have that \( \eta(x) = x + W \). Hence, \( x + W = W  \). By Exercise 1.3.31, we get that \( x \in W  \). Thus, \( N(\eta) \subseteq W  \). On the other hand, \( x \in W  \) implies that \( W = x + W  \). By definition of \( \eta  \), we get that \( \eta(x) = W  \). Since \( W   \) is the zero vector defined on \( V / W  \), we must have \( x \in N(\eta) \) and hence \( W \subseteq N(\eta) \). Thus, \( N(\eta) = W  \).
+        \end{proof}
+    \item[(b)] Suppose that \( V  \) is finite-dimensional. Use (a) and the dimension theorem to derive a formula relating \( \text{dim}(V) \), \( \text{dim}(W) \), and \( \text{dim}(V / W ) \).
+        \begin{proof}
+        Since \( V  \) is finite-dimensional, we can write
+        \[  \text{dim}(V) = \text{rank}(\eta) + \text{nullity}(\eta). \tag{1}  \] 
+        Since \( \eta  \) is an onto function by part (a), we have \( R(\eta) = V /W   \) implies \( \text{rank}(\eta) =  \text{dim}(V /W ) \) by Theorem 1.11. Furthermore, \( N(\eta) = W  \) implies that \( \text{nullity}(\eta) = \text{dim}(W) \). Hence, (1) can be re-written in the following way:
+        \[  \text{dim}(V) = \text{dim}(V/W) + \text{dim}(W). \]
+        Thus, we have our desired result
+        \[  \text{dim}(V /W ) = \text{dim}(V) - \text{dim}(W). \] 
+        \end{proof}
+\end{enumerate}
 

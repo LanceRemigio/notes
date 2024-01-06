@@ -133,3 +133,10 @@
 \contentsline {definition}{\ifthmt@listswap Definition~2.2.1\else \numberline {2.2.1}Definition\fi \thmtformatoptarg {Ordered Bases}}{41}{definition.2.2.1}%
 \contentsline {eg}{\ifthmt@listswap Example~2.2.1\else \numberline {2.2.1}Example\fi }{41}{eg.2.2.1}%
 \contentsline {definition}{\ifthmt@listswap Definition~2.2.2\else \numberline {2.2.2}Definition\fi \thmtformatoptarg {Coordinate Vectors}}{41}{definition.2.2.2}%
+\contentsline {eg}{\ifthmt@listswap Example~2.2.2\else \numberline {2.2.2}Example\fi }{42}{eg.2.2.2}%
+\contentsline {definition}{\ifthmt@listswap Definition~2.2.3\else \numberline {2.2.3}Definition\fi \thmtformatoptarg {Matrix Representation of \( T \)}}{42}{definition.2.2.3}%
+\contentsline {eg}{\ifthmt@listswap Example~2.2.3\else \numberline {2.2.3}Example\fi }{42}{eg.2.2.3}%
+\contentsline {eg}{\ifthmt@listswap Example~2.2.4\else \numberline {2.2.4}Example\fi }{43}{eg.2.2.4}%
+\contentsline {definition}{\ifthmt@listswap Definition~2.2.4\else \numberline {2.2.4}Definition\fi }{43}{definition.2.2.4}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~2.2.1\else \numberline {2.2.1}Theorem\fi }{43}{theorem.2.2.1}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{43}{thmt@dummyctr.dummy.140}%

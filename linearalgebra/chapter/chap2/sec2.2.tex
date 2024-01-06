@@ -2,6 +2,8 @@
 
 In this section, we will develop a one-to-one correspondence between matrices and linear transformations so that we may study the properties of one utilizing the properties of another. Before we do this, we shall develop the concept of an \textit{ordered basis} for a vector space \( V  \).
 
+\subsection{Ordered Bases}
+
 \begin{definition}[Ordered Bases]
     Let \( V  \) be a finite-dimensional vector space. An \textbf{ordered basis} for \( V  \) is a basis for \( V  \) endowed with a specific order; that is, an ordered basis for \( V  \) is a finite sequence of linearly independent vectors in \( V  \) that generates \( V  \).
 \end{definition}
@@ -32,6 +34,89 @@ In this section, we will develop a one-to-one correspondence between matrices an
     \item It is quite easy to show that \( x \to [x]_{\beta} \) provides us with a linear transformation from \( T: V \to F^{n} \).
 \end{itemize}
 
+\begin{eg}
+    Let \( V = {P}_{2}(\R) \) and let \( \beta  = \{ 1 , x , x^{2} \}  \) be the standard ordered basis for \( V  \). If \( f(x) = 4 + 6x - 7 x^{2} \), then 
+    \[  {[f]}_{\beta} = \begin{pmatrix}
+        4 \\
+        6 \\
+        -7
+    \end{pmatrix}. \]
+\end{eg}
+    
+Suppose that \( V  \) and \( W  \) are finite-dimensional vector spaces with ordered bases 
+    \( \beta = \{  {v}_{1}, {v}_{2}, \dots , {v}_{n} \}  \) and \( \gamma = \{ {w}_{1}, {w}_{2}, \dots, {w}_{m} \} \), respectively. Let \( T : V \to W  \) be linear. Then for each \( j  \), \( 1 \leq j \leq n  \), there exists unique scalars ({\hyperref[Unique combinations from bases]{Theorem 1.5.1}}) \( {a}_{ij} \in F  \), \( 1 \leq i \leq m  \) such that
+    \[  T({v}_{j}) = \sum_{ i=1 }^{ m } {a}_{ij} {w}_{i} \ \ \text{for} \ \ 1 \leq j \leq n. \]
 
+\subsection{Matrix Representations}
 
+\begin{definition}[Matrix Representation of \( T  \)]
+    Using the notation above, we call the \( m \times n  \) matrix \( A  \) defined by \( {A}_{ij} = {a}_{ij} \), the \textbf{matrix representation of \( T  \) in the ordered bases \( \beta  \) and \( \gamma \) } and write \( A = {[T]}_{\beta}^{\gamma}  \). If \( V = W  \) and \( \beta = \gamma  \), then we write \( A = [T]_{\beta}^{}  \).
+\end{definition}
 
+\begin{itemize}
+    \item The \( j \)th column of \( A  \) is just \( {[T({v}_{j})]}_{\gamma} \). 
+    \item If \( U: V \to W  \) is linear such that \( {[U]}_{\beta}^{\gamma} = [T]_{\beta}^{\gamma}  \), then \( U = T  \) by {\hyperref[Theorem 2.6]{corollary to Theorem 2.6.}}.
+\end{itemize}
+
+\subsection{Examples of Computing Matrix Representations}
+
+\begin{eg}
+   Let \( T: \R^{2} \to \R^{3}  \) be the linear transformation defined by  
+   \[  T({a}_{1}, {a}_{2}) = ({a}_{1} + {3a}_{2}, 0 , {2a}_{1} - {4a}_{2}) \] 
+   Let \(  \beta  \) and \( \gamma  \) be the standard ordered bases for \( \R^{2}  \) and \( \R^{3}  \), respectively. Now, 
+   \[  T(1,0) = (1,0,2) = {1e}_{1} + {0e}_{2} + {2e}_{3}  \]
+    and 
+    \[  T(0,1) = (3,0,-4) = {3e}_{1} + {0e}_{2} - {4e}_{3}. \]
+    Hence, we have
+    \[  [T]_{\beta}^{\gamma}  = \begin{pmatrix}
+        1 & 3 \\
+        0 & 0 \\
+        2 & -4
+    \end{pmatrix}. \]
+    Suppose we re-ordered our basis \( \gamma \) to be the basis \( \gamma' = \{ {e}_{3} , {e}_{2}, {e}_{1} \}  \). Then we will see that
+    \[  [T]_{\beta}^{\gamma'} = \begin{pmatrix}
+        2 & -4 \\ 
+        0 & 0 \\ 
+        1 & 3 
+    \end{pmatrix}.  \]
+\end{eg}
+
+The example serves to demonstrate how different orderings of bases can lead to different matrix representations.
+
+\begin{eg}
+    Let \( T: {P}_{3}(\R) \to {P}_{2}(\R) \) be the linear transformation defined by \( T(f(x)) = f'(x) \). Let \( \beta \) and \( \gamma  \) be the standard ordered bases for \( {P}_{3}(\R) \) and \( {P}_{2}(\R) \), respectively. Since \( \beta = \{ 1, x , x^{2}, x^{3} \}  \) is a basis for \( {P}_{3}(\R) \) and \( \gamma = \{ 1,x,x^{2} \}  \) for \( {P}_{2}(\R) \) , observe that
+    \begin{align*}
+        T(1) &= 0 \cdot 1 + 0 \cdot x + 0 \cdot x^{2} \\
+        T(x) &= 1 \cdot 1 + 0 \cdot x + 0 \cdot x^{2} \\
+        T(x^{2}) &= 0 \cdot 1 + 2 \cdot x + 0 \cdot x^{2} \\
+        T(x^{3}) &= 0 \cdot 1 + 0 \cdot x + 2 \cdot x^{2}.
+    \end{align*}
+    So, 
+    \[  [T]_{\beta}^{\gamma}  = \begin{pmatrix}
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 2 & 0 \\
+        0 & 0 & 0 & 3
+    \end{pmatrix}. \]
+    Observe that writing \( T(x^{j}) \) is written as a linear combination of the vectors of \( \gamma  \), its coefficients give the entries of the \( j \)th column of \( {[T]}_{\beta}^{\gamma} \).
+\end{eg}
+
+Later on, we will prove a theorem about how associating matrices with linear transformations leads to preservation of addition and scalar multiplication. 
+
+\subsection{Addition and Scalar Multiplication of Matrix Representations}
+
+\begin{definition}
+   Let \( T, U: V \to W  \) be arbitrary functions, where \( V  \) and \( W  \) are vector spaces over \( F  \), and let \( a \in F  \). We define \( T + U : V \to W  \) by \( (T+U)(x) =  T(x) + U(x)   \) for all \( x \in V  \), and \( aT: V \to W  \) by \( (aT)(x) = aT(x) \) for all \( x \in V  \). 
+\end{definition}
+
+These operations of addition and scalar multiplication lead to the preservation of linear transformations.
+
+\begin{theorem}
+   Let \( V  \) and \( W  \) be vector spaces over a field \( F  \), and let \( T,U: V \to W  \) be linear. 
+   \begin{enumerate}
+       \item[(a)] For all \( a \in F  \), \( aT + U  \) is linear.
+       \item[(b)] Using the operations of addition and scalar multiplication in the preceding definition, the collection of all linear transformations from \( V  \) to \( W  \) is a vector space over \( F  \).
+   \end{enumerate}
+\end{theorem}
+\begin{proof}
+
+\end{proof}
