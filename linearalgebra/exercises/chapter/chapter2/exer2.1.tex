@@ -50,7 +50,6 @@ For Exercises 2 through 6, prove that \( T  \) is a linear transformation, and f
                &= cT(x) + T(y).
   \end{align*}
   Hence, \( T  \) is linear.
-
   Now, let's compute the bases for both \( N(T)  \) and \( R(T) \). To compute \( N(T) \), we need to have all the solutions needed for
   \[ T(a_{1}, a_{2}, a_{3}) = (a_{1} - a_{2}, 2a_{3}) = 0   \]
   to hold. Solving the equation above gives us the following solutions
@@ -64,7 +63,17 @@ For Exercises 2 through 6, prove that \( T  \) is a linear transformation, and f
 
 \subsubsection{Exercise 2.1.8} \( T: \R^{2} \to \R^{3}  \) defined by \( T(a_{1},a_{2}) = (a_{1} + a_{2}, 0, 2a_{1} - a_{2}) \).
 \begin{solution}
-   First, we show that \( T  \) is linear.     
+   First, we show that \( T  \) is linear. Let \( x,y \in \R^{2}  \) defined by \( x = ({a}_{1}, {a}_{2}) \) and \( y = ({b}_{1}, {b}_{2}) \). Let \( c \in \R  \). Note that 
+   \[  cx + y = ({ca}_{1} + {b}_{1}, {ca}_{2} + {b}_{2}). \]
+   Then observe that
+   \begin{align*}
+       T(cx + y)  &= \Big( ({ca}_{1} + {b}_{1}) + ({ca}_{2} + {b}_{2}), 0, 2({ca}_{1} + {b}_{1}) - ({ca}_{2} + {b}_{2}) \Big)  \\
+                  &=  \Big( c({a}_{1} + {a}_{2}) + ({b}_{1} + {b}_{2}), 0, c ({2a}_{1} - {a}_{2}) + ({b}_{1} - {b}_{2}) \Big) \\
+                  &=  (c({a}_{1} + {a}_{2}), c({2a}_{1} - {a}_{2})) + ({b}_{1} + {b}_{2}, {2b}_{1} - {b}_{2}) \\
+                  &= c({a}_{1} + {a}_{2}, {2a}_{1} - {a}_{2}) + ({b}_{1} + {b}_{2}, {2b}_{1} - {b}_{2}) \\
+                  &= cT(x) + T(y).
+   \end{align*}
+   Hence, \( T  \) is linear.
 \end{solution}
 
 
@@ -102,6 +111,22 @@ See proof in notes.
                   &= cT(x) + T(y).
     \end{align*}
     Hence, \( T  \) is also linear.
+
+    Now, let's compute \( N(T) \). We need to find solutions to the scalars \( {a}_{1}  \) and \( {a}_{2} \) such that 
+    \[  ({a}_{1} + {a}_{2}, 0, {2a}_{1} -{a}_{2}) = (0,0,0). \]
+    Equating entries, we get the following system of linear equations:
+    \begin{align*}
+        {a}_{1} + {a}_{2} &= 0 \\ 
+        {2a}_{1} - {a}_{2} &= 0.
+    \end{align*}
+    Using elimination, we get that \( {a}_{1} = 0  \) and \( {a}_{2} = 0  \). This tells us that \( N(T) = \{  0  \}  \) and that \( T \) is injective by Theorem 2.4. Note that \( \emptyset \) is a basis for \( N(T) \). Furthermore, \( N(T) = \{ 0  \}   \) tells us that \( \text{nullity}(T) = 0  \). Using the dimension theorem, this means that \( \text{rank}(T) = 2  \). 
+
+    To find the basis of \( R(T) \), note that \( \beta = \{ (1,0), (0,1) \}  \) is a basis for \( \R^{2} \) and that \( T(\beta)  \) generates \( R(T) \). Thus, 
+    \[  T(\beta) = \{  (1,0,2), (1,0,-1) \} \]
+    which solving the following equation
+    \[  a(1,0,2) + b(1,0,-1) = (0,0,0) \]
+    for scalars \( a  \) and \( b \) yields \( a = 0  \) and \( b = 0  \). Hence, \( T(\beta) \) is a basis for \( R(T) \).
+    
 \end{proof}
 
 \subsubsection{Exercise 2.1.10} Suppose that \( T: \R^{2} \to \R^{2} \) is linear, \( T(1,0) = (1,4) \), and \( T(1,1) = (2,5) \).
@@ -153,7 +178,15 @@ See proof in notes.
 \begin{enumerate}
     \item[(a)] Prove that \( T \) is injective if and only if \( T  \) carries linearly independent subsets of \( V  \) onto linearly independent subsets of \( W  \).
         \begin{proof}
-            (\( \Rightarrow \)) Define \( T: S \to \mathcal{W} \) where \( S  \) and \( \mathcal{W} \) are linearly independent subsets of \( V \) and \( W  \) respectively. Since \( T  \) is injective, we have that \( T  \) is an onto map by Theorem 2.5. 
+            (\( \Rightarrow \)) Let \( T \) be injective. Since \( \mathcal{W} \) is a linearly independent subset of \( W  \), we have \( {w}_{1}, {w}_{2}, \dots, {w}_{n} \in \mathcal{W}  \) and scalars \( {a}_{1}, {a}_{2}, \dots, {a}_{n} \in F \) such that 
+            \[  \sum_{ i=1 }^{ n } {a}_{i} {w}_{i} = 0. \]
+            Since \( T({v}_{i}) = {w}_{i}  \) and \( T  \) is linear, we have
+            \[ \sum_{ i=1 }^{ n } {a}_{i}T({v}_{i}) = 0 \iff T \Big( \sum_{ i=1 }^{ n } {a}_{i}{v}_{i} \Big) = 0  \]
+            with \( {v}_{i} \in S  \) being linearly independent.
+            Since \( T  \) is injective, we must have
+            \[  \sum_{ i=1 }^{ n } {a}_{i} {v}_{i} = 0  \]
+            with \( {v}_{i} \in S  \) being linearly independent.
+            Hence, \( T  \) carries \( S  \) onto \( \mathcal{W} \).
 
             (\( \Leftarrow \)) Suppose \( T  \) carries linearly independent subsets of \( V  \) onto linearly independent subsets of \( W  \). Our goal is to show that \( T \) is injective. Suppose  
             \[  T \Big( \sum_{ i=1 }^{ n } a_{i} v_{i}  \Big) = T \Big( \sum_{ i=1 }^{ n } b_{i} v_{i} \Big) \tag{1} \]
@@ -254,7 +287,7 @@ Hence, \( T  \) is an injective map. To see why \( T  \) fails to be surjective,
 
 \subsubsection{Exercise 2.1.20} Let \( V  \) and \( W \) be vector spaces with subspaces \( V_{1}  \) and \( W_{1}  \), respectively. If \( T:V \to W  \) is linear, prove that \( T(V_{1})  \) is a subspace of \( W  \) and that \( \{ x \in V : T(x) \in W_{1} \}   \) is a subspace of \( V  \).
 \begin{proof}
-First, we prove that \( T(V_{1}) \) is a subspace of \( W  \). Let \( x,y \in T(V_{1}) \) and \( c \in F  \). Since \( V_{1}  \) is a subspace of \( V  \), we know that \( 0_{V} \in V_{1} \), \( x + y \in V_{1} \), and \( cx \in V_{1} \). Observe that \( T(0_{V}) = 0_{W} \) since \( T \) is linear. Hence, \( 0_{W} \in T(V_{1})\). Let \( x,y \in T(V_{1}) \). Since \( T  \) is linear and \( x + y \in V_{1} \), we have \( T(x+y) = T(x) + T(y) \). Hence, we must have \( x + y \in T(V_{1})  \). Now, \( cx \in V_{1} \) implies \( T(cx) = c T(x)    \). Hence, \( cx \in T(V_{1}) \). This tells us that \( T(V_{1}) \) is a subspace of \( W  \).
+    First, we prove that \( T(V_{1}) \) is a subspace of \( W  \). Let \( x,y \in T(V_{1}) \) and \( c \in F  \). Since \( V_{1}  \) is a subspace of \( V  \), we know that \( 0_{V} \in V_{1} \), \( x + y \in V_{1} \), and \( cx \in V_{1} \). Observe that \( T(0_{V}) = 0_{W} \) since \( T \) is linear. Hence, \( 0_{W} \in T(V_{1})\). Let \( x,y \in T(V_{1}) \). There exists \( z, w \in {V}_{1} \) such that \( x = T(z)  \) and \( y = T(w) \). Since \( z + w \in {V}_{1} \) and \( T  \) is linear, we must have \( T(z+w) = T(z) + T(w) = x + y. \) This tells us that \( x + y \in T({V}_{1}) \). Now, let \( c \in F  \). Since \( cz \in {V}_{1} \) and \( T  \) is linear, we must have \( T(cz) = cT(z) = cx \). Hence, \( cx \in T({V}_{1}) \). Thus, \( T({V}_{1}) \) is a subspace of \( W  \).
 
 Now, we show \( S =  \{ x \in V : T(x) \in W_{1} \}  \) is a subspace of \( V  \). Since \( 0_{W} \in W_{1} \) (because \( W_{1}  \) is a subspace of \( W \)) and \( T \) is linear, we have that \( T(0_{V}) = 0_{W}. \) Hence, \( 0_{V} \in S  \). Now, let \( x,y \in S  \). Hence, \( T(x), T(y) \in W_{1} \) implies \( T(x) + T(y) \in W_{1} \) since \( W_{1} \) is a subspace of \( W \). Since \( T  \) is linear, we have \( T(x) + T(y) = T(x+y) \), and so \( x + y \in S \). Now, let \( c \in F  \) and \( x \in S  \). Again, \( W_{1} \) is a subspace so \( c T(x) \in W_{1} \). Thus, \( T \) being linear implies that \( cT(x) = T(cx)\). Hence, \( cx \in S  \). Thus, \( S  \) is a subspace of \( V  \).
 \end{proof}
@@ -610,7 +643,7 @@ with \( v  \neq  0  \). Using the additivity of \( T  \), we can write
 Hence, \( T  \) is linear.
 \end{proof}
 
-\subsubsection{Exercise 2.1.39} Let \( T: \C \to \C  \) be the function defined by \( T(z) = \overline{z} \). Prove that \( T  \) is additive but not linear.
+\subsubsection{Exercise 2.1.38}\label{Exercise 2.1.38} Let \( T: \C \to \C  \) be the function defined by \( T(z) = \overline{z} \). Prove that \( T  \) is additive but not linear.
 \begin{proof}
 Let \( x,y \in \C   \) such that \( x = \delta_{1} + \delta_{2}i  \) and \( y = \epsilon_{1} + \epsilon_{2} i  \) for \( \delta_{1}, \delta_{2}, \epsilon_{1}, \epsilon_{2} \in \R \). By definition of \( T  \), we know that
 \[  T(x) = \overline{x} = \delta _{1} - \delta_{2}i \]
