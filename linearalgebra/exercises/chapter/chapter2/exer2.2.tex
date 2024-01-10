@@ -40,17 +40,135 @@ See proof in notes.
 
 \subsubsection{Exercise 2.2.8} Let \( V  \) be an \( n \)-dimensional vector space with an ordered basis \( \beta \). Define \( T: V \to F^{n} \) by \( T(x) = [x]_{\beta}^{}  \). Prove that \( T  \) is linear.
 \begin{proof}
+    Let \( x,y \in V  \). Since \( \beta \) is an ordered basis for \( V  \), we have distinct vectors \( {v}_{1}, {v}_{2}, \dots, {v}_{n} \in \beta \) where
+    \[  x = \sum_{ i=1 }^{ n }{a}_{i} {v}_{i} \]
+    and
+    \[  y = \sum_{ i=1 }^{ n } {b}_{i} {v}_{i} \] for scalars \( {a}_{1}, {a}_{2}, \dots, {a}_{n}  \) and \( {b}_{1}, {b}_{2}, \dots, {b}_{n}  \), respectively. Let \( c \in F  \). Then we have \( cx + y \in V  \) implies
+    \[  cx + y = \sum_{ i=1 }^{ n } (c{a}_{i} + {b}_{i}) {v}_{i}. \]
+    By definition \( T  \), we must have 
+    \begin{align*}
+        T(cx+y) &= [cx+y]_{\beta}^{}  \\
+                &= \begin{pmatrix}
+                    {ca}_{1} + {b}_{1} \\
+                    {ca}_{2} + {b}_{2} \\ 
+                    \vdots \\
+                    {ca}_{n} + {b}_{n}
+                \end{pmatrix} \\
+                &= c\begin{pmatrix}
+                    {a}_{1} \\
+                    {a}_{2} \\
+                    \vdots \\
+                    {a}_{n}
+                \end{pmatrix} + \begin{pmatrix}
+                    {b}_{1} \\
+                    {b}_{2} \\
+                    \vdots \\
+                    {b}_{n}
+                \end{pmatrix} \\
+                &= c {[x]}_{\beta} + {[y]}_{\beta} \\
+                &= cT(x) + T(y).
+    \end{align*}
+    Hence, \( T  \) is a linear map.
 
 \end{proof}
 
-\subsubsection{Exercise 2.1.9} Let \( V  \) be the vector space of complex numbers over the field \( \R \). Define \( T: V \to V  \) by \( T(z) = \overline{z} \), where \( \overline{z} \) is the complex conjugate of \( z  \). Prove that \( T  \) is linear, and compute \( [T]_{\beta}^{}  \), where \( \{ 1,i  \} \). (Compare this to {\hyperref[Exercise 2.1.38]{Exercise 2.1.38}} )
+\subsubsection{Exercise 2.2.9} Let \( V  \) be the vector space of complex numbers over the field \( \R \). Define \( T: V \to V  \) by \( T(z) = \overline{z} \), where \( \overline{z} \) is the complex conjugate of \( z  \). Prove that \( T  \) is linear, and compute \( [T]_{\beta}^{}  \), where \( \{ 1,i  \} \). (Compare this to {\hyperref[Exercise 2.1.38]{Exercise 2.1.38}} )
 \begin{proof}
-
+Let \( cx + y \in \C  \) where \( c \in \R  \) and \( x,y \in \C  \). Observe that 
+\begin{center}
+    \( x = a + bi  \) and \( y = v + wi \)
+\end{center}
+for \( a,b,v,w \in \R  \). So,  
+\[ cx + y = (ca + v) + (cb + w)i   \]
+Furthermore, 
+By definition of \( T \) and definition of conjugate, we write
+\begin{align*}
+    T(cx +y) &= \overline{cx+y} \\
+             &= (ca+v) - (cb + w)i \\
+             &= c(a - bi) + (v - wi) \\
+             &= c \overline{x} + \overline{y} \\ 
+             &= c T(x) + T(y).
+\end{align*}
+Hence, \( T  \) is linear. 
+Now, let's compute \( [T]_{\beta}^{}   \) with \( \beta = \{ 1,i \}  \) as our ordered basis for \( \C  \). So, 
+\begin{center}
+    \( T(1) = 1 = 1 \cdot 1 + 0 \cdot i \) and \( T(i) = -i = 0 \cdot 1 - 1 \cdot i  \).
+\end{center}
+Hence, 
+\[  [T]_{\beta}^{} = \begin{pmatrix}
+    1 & 0 \\
+    0 & -1 
+\end{pmatrix}. \]
 \end{proof}
 
-\subsubsection{Exercise 2.1.10} Let \( V  \) be a vector space with the ordered basis \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}.  \) Define \( {v}_{0} = 0  \). By Theorem 2.6, there exists a linear transformation \( T: V \to V  \) such that \( T({v}_{j}) = {v}_{j} - {v}_{j-1}  \) for \( j = 1, 2, \dots, n \). Compute \( [T]_{\beta}^{}  \).
+\subsubsection{Exercise 2.2.10} Let \( V  \) be a vector space with the ordered basis \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}.  \) Define \( {v}_{0} = 0  \). By Theorem 2.6, there exists a linear transformation \( T: V \to V  \) such that \( T({v}_{j}) = {v}_{j} - {v}_{j-1}  \) for \( j = 1, 2, \dots, n \). Compute \( [T]_{\beta}^{}  \).
+\begin{solution}
+For \( 1 \leq j \leq n  \), we see that 
+\begin{align*}
+    T({v}_{1}) &= {v}_{1} - {v}_{0} \\
+    T({v}_{2}) &= {v}_{2} - {v}_{1} \\ 
+    T({v}_{3}) &= {v}_{3} - {v}_{2} \\
+               &\vdots \\
+    T({v}_{n}) &= {v}_{n} - {v}_{n-1}.
+\end{align*}
+Then we have
+\[ {[T]}_{\beta} = \begin{pmatrix}
+    1 & -1 & 0 & \cdots & 0 \\
+    0 & 1 & -1 & \cdots & 0 \\
+    0 & 0 & 1 & \cdots & 0 \\
+    \vdots & \vdots & \ddots  & \ddots & \vdots \\
+    0 & 0 &  \cdots & \ddots  &   - 1 \\
+    0 & 0 & \cdots & 0 & 1 
+\end{pmatrix}.  \]
+\end{solution}
+
+
+\subsubsection{Exercise 2.2.11} Let \( V  \) be an \( n- \)dimensional vector space, and let \( T: V \to V  \) be a linear transformation. Suppose that \( W  \) is a {\hyperref[Invariance]{\( T- \)invariant}} subspace of \( V  \) having dimension \( k  \). Show that there is a basis \( \beta  \) for \( V  \) such that \( [T]_{\beta}^{}   \) has the form 
+\[  \begin{pmatrix}
+    A & B \\
+    O & C 
+\end{pmatrix}, \]
+where \( A  \) is a \( k \times k  \) matrix and \( O  \) is the \( (n-k) \times k  \) zero matrix.
+\begin{proof}
+    Let \( \text{dim}(V) = n  \). Since \( W  \) is a subspace of \( V  \), let \( \alpha = \{ {w}_{1}, {w}_{2}, \dots, {w}_{k}   \}  \) be a basis for \( W  \). By corollary to Theorem 1.11, we extend \( \alpha  \) to a basis for \( V  \) by adding distinct and linear independent vectors \( {w}_{k+1}, {w}_{k+2}, \dots, {w}_{n} \). Denote this basis for \( V \) as \( \beta \) with 
+    \[  \beta = \{ {w}_{1}, {w}_{2}, \dots, {w}_{n} \}.  \]
+    Hence, for \( 1 \leq i \leq n  \) we have
+    \[  T({w}_{j}) = \sum_{ i=1 }^{ n } {a}_{ij} {w}_{i} \ \text{ for } 1 \leq j \leq n. \]
+    Since \( W  \) is \( T- \)invariant, we know that \( T({w}_{j}) \) for every \( {w}_{j} \in W  \) with \( 1 \leq j \leq k  \). Hence, \( T({w}_{j}) \) for \( 1 \leq j \leq  k  \) can be written as a linear combination of vectors in \( \alpha  \); that is, 
+    \[  T({w}_{j}) = \sum_{ i=1 }^{ k } {a}_{ij} {w}_{i} \ \text{ for } 1 \leq j \leq k.  \]
+    Since \( \beta  \) is a basis for \( V  \), we know that for \( k +1 \leq i \leq  n  \), we know that
+    \[  T({w}_{j}) = \sum_{ i=1 }^{ k  } {a}_{ij} {w}_{i} + \sum_{ i=k+1 }^{ n  } {a}_{ij} {w}_{i} = \sum_{ i=1 }^{ k  } {a}_{ij} {w}_{i} + 0.  \] where \( {a}_{ij} = 0  \) for \( k+ 1 \leq i \leq n  \). Notice that the second term above, represents the O matrix that \( (n-k) \times  k  \). On the other hand, for \( 1 \leq i \leq k  \) and \( 1 \leq j \leq k   \) we can see that \( T: W \to W  \) (since \( W  \) is \( T- \)invariant) can be represented as the matrix \( A  \) that is \( k \times  k  \). Then for \( 1 \leq i \leq n  \) and \( 1 \leq j \leq k  \), we get that
+    \[ [T({w}_{j})]_{\beta} = \begin{pmatrix}
+        A \\
+        O 
+    \end{pmatrix}. \]
+    Now, if we let \( k + 1 \leq j \leq n \), then we would see that \( T({w}_{j}) \) can be written as 
+    \[  T({w}_{j}) = \sum_{ i=1 }^{ n } {a}_{ij} {w}_{i}. \]
+Together with \( 1 \leq i \leq n  \) and \( k+1 \leq j \leq n   \) where 
+\[  [T({w}_{j})]_{\beta} = \begin{pmatrix}
+    T({w}_{k+1}) & T({w}_{k+2}) & \cdots & T({w}_{n})
+\end{pmatrix}  \]
+which can be denoted with \( B  \) as a \( k \times (n-k)  \) matrix and \( C  \) as a \( (n-k) \times (n-k)  \) matrix where  
+    \[ 
+        [T({w}_{j})]_{\beta} = \begin{pmatrix}
+            B \\
+            C
+        \end{pmatrix}
+    \]
+Hence, \( {[T]}_{\beta} \) has the following matrix form
+\[  \begin{pmatrix}
+    A & B \\
+    O & C 
+\end{pmatrix}. \]
+ \end{proof}
+
+\subsubsection{Exercise 2.2.12} Let \( V  \) be a finite-dimensional vector space and \( T \) be the projection on \( W  \) along \( W' \), where \( W  \) and \( W'  \) are subspaces of \( V  \). Find an ordered basis \( \beta  \) for \( V  \) such that \( [T]_{\beta}^{}   \) is a diagonal matrix.
 \begin{solution}
 
 \end{solution}
 
+\subsubsection{Exercise 2.2.13} Let \( V  \) and \( W  \) be vector spaces, and let \( T  \) and \( U  \) be nonzero linear transformations from \( V  \) to \( W  \). If \( R(T) \cap R(U) = \{ 0  \}   \), prove that \( \{ T, U  \}   \) is a linearly independent subset of \( \mathcal{L}(V, W ) \).
+\begin{proof}
+
+\end{proof}
 
