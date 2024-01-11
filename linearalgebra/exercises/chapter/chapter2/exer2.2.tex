@@ -164,11 +164,59 @@ Hence, \( {[T]}_{\beta} \) has the following matrix form
 
 \subsubsection{Exercise 2.2.12} Let \( V  \) be a finite-dimensional vector space and \( T \) be the projection on \( W  \) along \( W' \), where \( W  \) and \( W'  \) are subspaces of \( V  \). Find an ordered basis \( \beta  \) for \( V  \) such that \( [T]_{\beta}^{}   \) is a diagonal matrix.
 \begin{solution}
-
+    Let \( \text{dim}(V) = n  \) since \( V \) is a finite-dimensional vector space. Since \( W \subseteq V  \) is a subspace, we know that \( W  \) must be finite-dimensional as well. Let \( \text{dim}(W) = k  \) and let \( \lambda = \{ {w}_{1}, {w}_{2}, \dots, {w}_{k } \}  \) be a basis for \( W  \). By corollary to Theorem 1.11, we can extend \( \lambda  \) to be a basis for \( V  \) by adding \( {w}_{k+1}, {w}_{k+2}, \dots, {w}_{n} \in W  \) into \( \lambda \). Denote this ordered basis for \( V  \) as \( \beta  \) where 
+    \[  \beta = \{ {w}_{1}, {w}_{2}, \dots, {w}_{n} \}. \]
+    Since \( W  \) is a \( T: V \to V  \) is a projection on \( W  \) along \( W' \) (\( W' \) is also a subspace), then
+    \[ {w}_{j} =  T({w}_{j}) = \sum_{ i=1 }^{ n } {a}_{ij} {w}_{i} \ \text{ for } 1 \leq j \leq n  \]
+    for every \( {w}_{j} \in W  \). This tells us that each \( {w}_{j}  \) can be expressed a linear combination if and only if \( {a}_{ij} = 1  \) whenever \( i = j  \) and \( {a}_{ij} = 0  \) otherwise. Hence, \( [T]_{\beta}^{}  \) is a diagonal matrix.  
 \end{solution}
 
 \subsubsection{Exercise 2.2.13} Let \( V  \) and \( W  \) be vector spaces, and let \( T  \) and \( U  \) be nonzero linear transformations from \( V  \) to \( W  \). If \( R(T) \cap R(U) = \{ 0  \}   \), prove that \( \{ T, U  \}   \) is a linearly independent subset of \( \mathcal{L}(V, W ) \).
 \begin{proof}
+Let \( T \) and \( U  \) be nonzero linear transformations from \( V  \) to \( W  \). For \( a,b \in F  \), we need to show that 
+\[  aT + bU = {T}_{0} \] with \( a  \) and \( b  \) both zero. Note that \( {T}_{0} \) is the zero linear transformation. Let \( x \in V  \). Then we have
+\begin{align*}
+    (aT + bU)(x) &= {T}_{0}(x)  \\
+    (aT)(x) + (bU)(x) &= 0. 
+\end{align*}
+Hence, we have
+\[  (aT)(x) = -(bU)(x).  \]
+Since \( (aT)(x) \in R(T) \cap R(U) \) where \( R(T) \cap R(U) = \{ 0  \}   \) by assumption, we get that
+\[  (aT)(x) = 0 \iff aT(x) = 0. \]
+Since \( T(x) \neq 0  \), we must have that \( a = 0  \) when dividing \( T(x)  \) on both sides on the equation above. This also implies that \( b = 0  \) since \( U(x) \neq 0  \) and so \( \{ T, U  \}  \) must be linearly independent.
+\end{proof}
+
+\subsubsection{Exercise 2.2.14} Let \( V = P(\R) \), and for \( j \geq 1   \) define \( {T}_{j}(f(x)) = f^{(j)}(x)  \), where \( f^{(j)}(x) \) is the \( j \)th derivative of \( f(x) \). Prove that the set \( \{ {T}_{1}, {T}_{2}, \dots, {T}_{n} \}  \) is a linearly independent subset of \( \mathcal{L}(V) \) for any positive integer \( n \).
+\begin{proof}
 
 \end{proof}
 
+\subsubsection{Exercise 2.2.15} Let \( V  \) and \( W  \) be vector spaces, and let \( S  \) be a subset of \( V  \). Define \( S^{0} = \{ T \in \mathcal{L}(V,W) : T(x) = 0 \ \text{ for all } x \in S  \}  \). Prove the following statements.
+\begin{enumerate}
+    \item[(a)] \( S^{0}  \) is a subspace of \( \mathcal{L}(V,W) \).
+        \begin{proof}
+        \begin{enumerate}
+            \item[(i)] Note that \( {T}_{0} \in S^{0} \) since \( {T}_{0}(x) = 0  \) for all \( x \in S  \).
+            \item[(ii)] Let \( T, U \in S^{0} \). Then \( T(x) = 0  \) and \( U(x) = 0  \) for all \( x \in S  \). Then 
+                \[ (T+U)(x) = T(x) + U(x) = 0 + 0 = 0. \]
+                So \( T + U \in S^{0} \).
+            \item[(iii)] Let \( c \in F  \) and \( T \in S^{0} \). Then \( T(x) = 0  \) for all \( x \in S  \). Thus, 
+                \[  (cT)(x) = c T(x) = c \cdot 0 = 0. \]
+                So, \( cT \in S^{0} \).
+        \end{enumerate} 
+        Hence, \( S^{0} \) is a subspace of \( \mathcal{L}(V,W) \).
+        \end{proof}
+    \item[(b)] If \( {S}_{1} \) and \( {S}_{2} \) are subsets of \( V  \) and \( {S}_{1} \subseteq {S}_{2} \), then \( {S}_{2}^{0} \subseteq {S}_{1}^{0} \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(c)] If \( {V}_{1} \) and \( {V}_{2} \) are subspaces of \( V  \), then \( ({V}_{1} + {V}_{2})^{0} = {V}_{1}^{0} \cap V_{2}^{0} \).
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
+\subsubsection{Exercise 2.2.16} Let \( V  \) and \( W  \) be vector spaces such that \( \text{dim}(V) = \text{dim}(W) \), and let \( T: V \to W  \) be linear. Show that there exists ordered bases \( \beta  \) and \( \gamma \) for \( V  \) and \( W  \), respectively, such that \( [T]_{\beta}^{\gamma}  \) is a diagonal matrix.
+\begin{proof}
+
+\end{proof}
