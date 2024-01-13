@@ -188,7 +188,14 @@ Since \( T(x) \neq 0  \), we must have that \( a = 0  \) when dividing \( T(x)  
 
 \subsubsection{Exercise 2.2.14} Let \( V = P(\R) \), and for \( j \geq 1   \) define \( {T}_{j}(f(x)) = f^{(j)}(x)  \), where \( f^{(j)}(x) \) is the \( j \)th derivative of \( f(x) \). Prove that the set \( \{ {T}_{1}, {T}_{2}, \dots, {T}_{n} \}  \) is a linearly independent subset of \( \mathcal{L}(V) \) for any positive integer \( n \).
 \begin{proof}
-
+Let \( j \geq 1  \). We want to show that for scalars \( {a}_{1}, {a}_{2}, \dots, {a}_{n} \in \R  \), we have
+\[  {a}_{1} {T}_{1} + {a}_{2} {T}_{2} + \cdots + {a}_{n} {T}_{n} = {T}_{0}. \]
+Let \( f(x) \in P(\R) \) be arbitrary. Since each \( {T}_{j} \) is linear, we have that
+\[  {a}_{1} {T}_{1}(f(x)) + {a}_{2} {T}_{2}(f(x)) + \cdots + {a}_{n} {T}_{n}(f(x)) = 0 \]
+which can re-written to be
+\[  {a}_{1} f^{(1)}(x) + {a}_{2} f^{(2)}(x) + \cdots + {a}_{n} f^{(n)}(x) = 0 \tag{1} \]
+with each \( f^{(j)}(x) \) being the \( j \)th derivative of \( f(x) \).Since no two polynomials in the set \( \{ f^{(1)}(x), f^{(2)}(x), \dots, f^{(n)}(x) \}  \) have the same degree, we know that the representation in (1) contains the trivial solution; that is, \( {a}_{i} = 0  \) for any \( n \in \N   \). Hence, the set \[  \{ {T}_{1}, {T}_{2}, \dots, {T}_{n} \}  \] must be linearly independent by Exercise 1.5.18.
+% Correct the proof in Exercise 1.5.18.
 \end{proof}
 
 \subsubsection{Exercise 2.2.15} Let \( V  \) and \( W  \) be vector spaces, and let \( S  \) be a subset of \( V  \). Define \( S^{0} = \{ T \in \mathcal{L}(V,W) : T(x) = 0 \ \text{ for all } x \in S  \}  \). Prove the following statements.
@@ -208,15 +215,29 @@ Since \( T(x) \neq 0  \), we must have that \( a = 0  \) when dividing \( T(x)  
         \end{proof}
     \item[(b)] If \( {S}_{1} \) and \( {S}_{2} \) are subsets of \( V  \) and \( {S}_{1} \subseteq {S}_{2} \), then \( {S}_{2}^{0} \subseteq {S}_{1}^{0} \).
         \begin{proof}
-        
+        Let \( {x}_{1} \in {S}_{1} \). Since \( {S}_{1} \subseteq {S}_{2}  \), we have that \( {x}_{1} \in {S}_{2} \). If \( T \in {S}_{2}^{0}  \), then \( T({x}_{1}) = 0  \) for \( {x}_{1} \in {S}_{2} \). Since \( {x}_{1} \in {S}_{1} \), we must also have \( T \in {S}_{1}^{0}  \). Hence, \( {S}_{2}^{0} \subseteq {S}_{1}^{0}\).
         \end{proof}
     \item[(c)] If \( {V}_{1} \) and \( {V}_{2} \) are subspaces of \( V  \), then \( ({V}_{1} + {V}_{2})^{0} = {V}_{1}^{0} \cap V_{2}^{0} \).
         \begin{proof}
-        
+        Since \( {V}_{1} + {V}_{2}  \) and \( {V}_{1} \cap {V}_{2} \) are subsets of \( V  \) and that \(  {V}_{1} \cap {V}_{2} \subseteq {V}_{1} + {V}_{2}  \), we know that \( ({V}_{1} + {V}_{2})^{0} \subseteq {V}_{1}^{0} \cap {V}_{2}^{0} \).
+
+        Now, let \( T \in {V}_{1}^{0} \cap V_{2}^{0} \). Then \( T \in {V}_{1}^{0} \) and \( T \in {V}_{2}^{0} \) implies \( T({x}_{1}) = 0  \) and \( T({x}_{2}) = 0  \) for all \( {x}_{1} \in {V}_{1} \) and \( {x}_{2} \in {V}_{2} \). Since \( T  \) is linear, we must have 
+        \[   0 = 0 + 0 =  T({x}_{1}) + T({x}_{2}) = T({x}_{1} + {x}_{2}).  \]
+        Hence, \( T \in ({V}_{1} + {V}_{2})^{0}  \) and so \( {V}_{1}^{0} \cap V_{2}^{0} \subseteq ({V}_{1} + {V}_{2})^{0} \). Thus, 
+        \[ ({V}_{1} + {V}_{2})^{0} = {V}_{1}^{0} \cap {V}_{2}^{0}. \]
         \end{proof}
 \end{enumerate}
 
 \subsubsection{Exercise 2.2.16} Let \( V  \) and \( W  \) be vector spaces such that \( \text{dim}(V) = \text{dim}(W) \), and let \( T: V \to W  \) be linear. Show that there exists ordered bases \( \beta  \) and \( \gamma \) for \( V  \) and \( W  \), respectively, such that \( [T]_{\beta}^{\gamma}  \) is a diagonal matrix.
 \begin{proof}
-
+Let \( \text{dim}(V) = n  \) where \( \text{dim}(V) = \text{dim}(W) \). This implies that \( V  \) contains a basis \( \beta \) defined by    
+\[ \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}.    \]
+Likewise, \( W  \) contains a basis \( \gamma \) such that 
+\[  \gamma = \{ {w}_{1}, {w}_{2}, \dots, {w}_{n} \}. \]
+Let \( \beta  \) and \( \gamma \) be our ordered basis on \( V  \) and \( W  \) respectively. Since \( T  \) is linear, we must have
+\[  T({v}_{j}) = \sum_{ i=1 }^{ n } {a}_{ij} {w}_{i} \ \text{ for } \ 1 \leq j \leq n \tag{1} \]
+with \( T({v}_{j}) = {w}_{j}  \). So, we have
+\[  {w}_{j} = \sum_{ i=1 }^{ n } {a}_{ij} {w}_{i}. \tag{2} \]
+Note that (2) holds only if \( {a}_{ij} = 1   \) whenever \( i = j  \) and \( {a}_{ij} = 0  \) otherwise.
+ Hence, the matrix representation \( [T]_{\beta}^{\gamma}   \) must be a diagonal matrix. 
 \end{proof}
