@@ -1,0 +1,39 @@
+\section{Composition of Linear Transformations and Matrix Multiplication}
+In the last section, we learned that
+\begin{itemize}
+    \item Linear Transformations as well as their operations such as sums and scalar multiplications can represented in terms of matrices.
+    \item The set of all linear transformations from \( V  \) to \( W  \) forms a vector space over some field \( F   \).
+\end{itemize}
+
+The main goal in this section is to describe how to represent the multiplication of two linear transformations and thus the multiplication of two matrices. The notation \( UT \) is used in replacement of \( U \circ T  \) for the composite of linear transformations of \( U  \) and \( T  \).
+
+Our first goal is to prove that the composite of linear transformations is linear.
+
+\begin{theorem}\label{Composition is Linear}
+   Let \( V, W,   \) and \( Z  \) be vector spaces over the same field \( F  \), and let \( T: V \to W  \) and \( U: W \to Z  \) be linear. Then \( UT: V \to Z  \) is linear.
+\end{theorem}
+\begin{proof}
+    Suppose \( T: V \to W   \) and \( U: W \to Z  \) are linear. Let \( cx + y \in V  \). Note that \( T(cx+y) \in W  \) and \( U(T(cx+y)) \in Z \). So, 
+    \begin{align*}
+        (UT)(cx+y) &= U(T(cx+y)) \tag{Definition of Composition} \\
+                   &= U(cT(x) + T(y)) \tag{\( T \) linear} \\
+                   &= c U(T(x)) + U(T(y)) \tag{\( U \) linear} \\
+                   &=  c (UT)(x) + (UT)(y). 
+    \end{align*}
+    Hence, \( UT  \) is linear.
+\end{proof} 
+
+The following are a list of properties of the composition of linear transformations.
+
+\begin{theorem}\label{Properties of Compositions}
+    Let \( V  \) be a vector space. Let \( T, {U}_{1}, {U}_{2} \in \mathcal{L}(V) \). Then 
+    \begin{enumerate}
+        \item[(a)] \( T({U}_{1} + {U}_{2}) = {TU}_{1} + {TU}_{2}  \) and \( ({U}_{1} + {U}_{2}) T = {U}_{1} T + {U}_{2} T  \).
+        \item[(b)] \( T({U}_{1} {U}_{2}) = ({TU}_{1}){U}_{2} \).
+        \item[(c)] \( TI = IT = T  \).
+        \item[(d)] \( a({U}_{1}{U}_{2}) = ({aU}_{1}) {U}_{2} = {U}_{1} ({aU}_{2}) \) for all scalars \( a \). 
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+
+\end{proof}

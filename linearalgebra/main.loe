@@ -144,3 +144,7 @@
 \contentsline {theorem}{\ifthmt@listswap Theorem~2.2.2\else \numberline {2.2.2}Theorem\fi }{44}{theorem.2.2.2}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{44}{thmt@dummyctr.dummy.143}%
 \contentsline {eg}{\ifthmt@listswap Example~2.2.5\else \numberline {2.2.5}Example\fi }{45}{eg.2.2.5}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~2.3.1\else \numberline {2.3.1}Theorem\fi }{46}{theorem.2.3.1}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{46}{thmt@dummyctr.dummy.146}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~2.3.2\else \numberline {2.3.2}Theorem\fi }{46}{theorem.2.3.2}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{46}{thmt@dummyctr.dummy.148}%
