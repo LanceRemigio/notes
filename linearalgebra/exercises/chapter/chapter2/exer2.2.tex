@@ -105,19 +105,19 @@ Hence,
 \begin{solution}
 For \( 1 \leq j \leq n  \), we see that 
 \begin{align*}
-    T({v}_{1}) &= {v}_{1} - {v}_{0} \\
-    T({v}_{2}) &= {v}_{2} - {v}_{1} \\ 
-    T({v}_{3}) &= {v}_{3} - {v}_{2} \\
+    T({v}_{1}) &= {v}_{1} + {v}_{0} = {v}_{1}  \\
+    T({v}_{2}) &= {v}_{2} + {v}_{1} \\ 
+    T({v}_{3}) &= {v}_{3} + {v}_{2} \\
                &\vdots \\
-    T({v}_{n}) &= {v}_{n} - {v}_{n-1}.
+    T({v}_{n}) &= {v}_{n} + {v}_{n-1}.
 \end{align*}
 Then we have
 \[ {[T]}_{\beta} = \begin{pmatrix}
-    1 & -1 & 0 & \cdots & 0 \\
-    0 & 1 & -1 & \cdots & 0 \\
+    1 & 1 & 0 & \cdots & 0 \\
+    0 & 1 & 1 & \cdots & 0 \\
     0 & 0 & 1 & \cdots & 0 \\
     \vdots & \vdots & \ddots  & \ddots & \vdots \\
-    0 & 0 &  \cdots & \ddots  &   - 1 \\
+    0 & 0 &  \cdots & \ddots  &    1 \\
     0 & 0 & \cdots & 0 & 1 
 \end{pmatrix}.  \]
 \end{solution}
@@ -194,7 +194,7 @@ Let \( f(x) \in P(\R) \) be arbitrary. Since each \( {T}_{j} \) is linear, we ha
 \[  {a}_{1} {T}_{1}(f(x)) + {a}_{2} {T}_{2}(f(x)) + \cdots + {a}_{n} {T}_{n}(f(x)) = 0 \]
 which can re-written to be
 \[  {a}_{1} f^{(1)}(x) + {a}_{2} f^{(2)}(x) + \cdots + {a}_{n} f^{(n)}(x) = 0 \tag{1} \]
-with each \( f^{(j)}(x) \) being the \( j \)th derivative of \( f(x) \).Since no two polynomials in the set \( \{ f^{(1)}(x), f^{(2)}(x), \dots, f^{(n)}(x) \}  \) have the same degree, we know that the representation in (1) contains the trivial solution; that is, \( {a}_{n} = 0  \) for any \( n \in \N   \). Hence, the set \[  \{ {T}_{1}, {T}_{2}, \dots, {T}_{n} \}  \] must be linearly independent by Exercise 1.5.18.
+with each \( f^{(j)}(x) \) being the \( j \)th derivative of \( f(x) \). Since no two polynomials in the set \( \{ f^{(1)}(x), f^{(2)}(x), \dots, f^{(n)}(x) \}  \) have the same degree, we know that the representation in (1) contains the trivial solution; that is, \( {a}_{n} = 0  \) for any \( n \in \N   \). Hence, the set \[  \{ {T}_{1}, {T}_{2}, \dots, {T}_{n} \}  \] must be linearly independent by Exercise 1.5.18.
 % Correct the proof in Exercise 1.5.18.
 \end{proof}
 
