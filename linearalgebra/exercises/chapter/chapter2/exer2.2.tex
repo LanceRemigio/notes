@@ -230,14 +230,21 @@ with each \( f^{(j)}(x) \) being the \( j \)th derivative of \( f(x) \). Since n
 
 \subsubsection{Exercise 2.2.16} Let \( V  \) and \( W  \) be vector spaces such that \( \text{dim}(V) = \text{dim}(W) \), and let \( T: V \to W  \) be linear. Show that there exists ordered bases \( \beta  \) and \( \gamma \) for \( V  \) and \( W  \), respectively, such that \( [T]_{\beta}^{\gamma}  \) is a diagonal matrix.
 \begin{proof}
-Let \( \text{dim}(V) = n  \) where \( \text{dim}(V) = \text{dim}(W) \). This implies that \( V  \) contains a basis \( \beta \) defined by    
-\[ \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}.    \]
-Likewise, \( W  \) contains a basis \( \gamma \) such that 
-\[  \gamma = \{ {w}_{1}, {w}_{2}, \dots, {w}_{n} \}. \]
-Let \( \beta  \) and \( \gamma \) be our ordered basis on \( V  \) and \( W  \) respectively. Since \( T  \) is linear, we must have
-\[  T({v}_{j}) = \sum_{ i=1 }^{ n } {a}_{ij} {w}_{i} \ \text{ for } \ 1 \leq j \leq n \tag{1} \]
-with \( T({v}_{j}) = {w}_{j}  \). So, we have
-\[  {w}_{j} = \sum_{ i=1 }^{ n } {a}_{ij} {w}_{i}. \tag{2} \]
-Note that (2) holds only if \( {a}_{ij} = 1   \) whenever \( i = j  \) and \( {a}_{ij} = 0  \) otherwise.
- Hence, the matrix representation \( [T]_{\beta}^{\gamma}   \) must be a diagonal matrix. 
+    Using the same process found in the dimension theorem, let \( \lambda = \{ {v}_{1}, {v}_{2}, \dots, {v}_{k } \}   \) be a basis for \( N(T) \). We can extend \( \lambda  \) into a basis for \( V  \) by adding distinct linearly independent vectors \( {v}_{k+1}, {v}_{k+2}, \dots, {v}_{n}   \) into \( \lambda \). Denote this new basis as \( \beta  \) where
+\[  \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}. \]
+Since \( \text{dim}(V) = \text{dim}(W) \), we get that
+\[  \text{dim}(W) = \text{dim}(N(T)) + \text{dim}(R(T)). \tag{1} \] 
+Note that \( \{ T({v}_{k+1}), T({v}_{k+2}), \dots, T({v}_{n}) \}  \) is a basis for \( R(T) \) which can be extended to be a basis for \( W  \). Hence, we have \( \gamma \) defined by
+\[  \gamma = \{ T({v}_{1}), T({v}_{2}) , \dots,  T({v}_{n})\}  \]
+with \( T({v}_{i}) = {w}_{i} \) for \( 1 \leq i \leq n \) to a basis for \( W  \). Now, note that for \( 1 \leq j \leq n \), we have 
+\[  T({v}_{j}) = \sum_{ i=1 }^{ n } {a}_{ij} {w}_{i} = \sum_{ i=1 }^{ k  } {a}_{ij} {w}_{i} + \sum_{ i=k+1 }^{ n }{a}_{ij} {w}_{i}.  \]  
+By definition of \( N(T) \), we know that for \( 1 \leq j \leq k  \) and \( 1 \leq i \leq k  \) that  
+\[  0 = \sum_{ i=1 }^{ k  } {a}_{ij} {w}_{i}. \]
+For \( k +1 \leq i \leq  n \) and \( k + 1 \leq j \leq n  \), 
+\[  {w}_{j} = T({v}_{j}) = \sum_{ i=k+1 }^{ n } {a}_{ij} {w}_{i} \] so we have \( {a}_{ij} = 1  \) whenever \( i = j  \) and \( {a}_{ij} = 0  \) otherwise. So, the matrix representation of \( T  \) can be written as 
+\[  [T]_{\beta}^{\gamma}  = \begin{pmatrix}
+    O & O \\
+    O & I 
+\end{pmatrix} \] where \( I  \) is the \( (n-k) \times (n-k ) \) matrix. Thus, we can see that \( [T]_{\beta}^{\gamma}  \) is a diagonal matrix. 
 \end{proof}
+
