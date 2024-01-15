@@ -1,4 +1,5 @@
 \section{Composition of Linear Transformations and Matrix Multiplication}
+\subsection{Compositions}
 In the last section, we learned that
 \begin{itemize}
     \item Linear Transformations as well as their operations such as sums and scalar multiplications can represented in terms of matrices.
@@ -35,5 +36,69 @@ The following are a list of properties of the composition of linear transformati
     \end{enumerate}
 \end{theorem}
 \begin{proof}
-
+    Let \( T, {U}_{1}, {U}_{2} \in \mathcal{V} \) with vector space \( V  \). 
+    \begin{enumerate}
+        \item[(a)] Then for \( x \in V  \), we have
+    \begin{align*}
+        T({U}_{1} + {U}_{2})(x) &= T \Big( ({U}_{1} + {U}_{2})(x) \Big) \tag{Def of Composition}   \\
+                             &= T \Big( {U}_{1}(x) + {U}_{2}(x) \Big) \tag{\( \mathcal{L}(V) \) V.S} \\
+                             &= T \Big( {U}_{1}(x) \Big) + T \Big( {U}_{2}(x) \Big) \tag{\( T \) is linear} \\  
+                             &= ({TU}_{1})(x) +  ({TU}_{2})(x) \tag{Def of Composition} \\
+    \end{align*}
+    Hence, \( T({U}_{1} + {U}_{2}) = {TU}_{1} + {TU}_{2} \).
+        
+    Let \( x \in V  \) again. Then
+    \begin{align*}
+        \Big( ({U}_{1} + {U}_{2})T \Big) (x)  &= ({U}_{1} + {U}_{2})(T(x))   \tag{Def of Composition}  \\
+                                              &= {U}_{1}(T(x)) + {U}_{2}(T(x)) \tag{\( \mathcal{L}(V) \) V.S} \\
+                                              &= ({U}_{1}T)(x) + ({U}_{2}T)(x). \tag{Def of Composition}
+    \end{align*}
+    Hence, \( ({U}_{1}  + {U}_{2})T = ({U}_{1} T)  + {U}_{2}T  \).
+    \item[(b)] Let \( x \in V  \). Then using the definition of composition, we have
+    \begin{align*}
+        T({U}_{1}{U}_{2})(x) &= T \Big( ({U}_{1} {U}_{2})(x) \Big) \\
+                             &=  T \Big( {U}_{1} ({U}_{2}(x)) \Big) \\
+                             &= ({TU}_{1})({U}_{2}(x)) \\
+                             &= ({TU}_{1}){U}_{2}(x).
+    \end{align*}
+    Hence, \( T({U}_{1}{U}_{2}) = {TU}_{1} \).
+    \item[(c)] Let \( x \in V  \). Using the definition of composition, we get
+        \[  (TI)(x) = T(I(x)) = T(x) = I(T(x)) = (IT)(x). \]
+        Hence, \( TI = IT = T \).
+    \item[(d)] Let \( a \in F  \) and \( v \in V \). Then using the definition of composition and operations of \( \mathcal{L}(V) \), we must have
+        \begin{align*}
+            a({U}_{1} {U}_{2})(x) &= a {U}_{1}({U}_{2}(x)) \\
+                                  &= ({aU}_{1})({U}_{2}(x)) \\
+                                  &= ({U}_{1}a)({U}_{2}(x)) \\
+                                  &= {U}_{1}( {aU}_{2}(x)) \\
+                                  &= {U}_{1} ({aU}_{2})(x).
+        \end{align*}
+        Hence, we have \( a({U}_{1}{U}_{2}) = {U}_{1} ({aU}_{2}) \).
+    \end{enumerate}
 \end{proof}
+
+We can also prove a more general result when \( T: V \to W   \) where  \( \text{dim}(V) \neq \text{dim}(W) \).
+
+\subsection{Matrix Products}
+
+\begin{definition}[Matrix Representation of the Composition]
+    Let \( T: V \to W  \) and \( U: W \to Z  \) be linear transformations and let \( A = [U]_{\beta}^{\gamma}  \) and \( B = [T]_{\alpha}^{\beta}  \) where \( \alpha = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n}  \}, \beta = \{ {w}_{1}, {w}_{2}, \dots, {w}_{m} \},   \) and \( \gamma = \{ {z}_{1}, {z}_{2}, \dots,  {z}_{p} \}  \) are ordered bases for \( V, W  \) and \( Z  \), respectively. Define the product \( AB \) of two matrices so that \( AB = [UT]_{\alpha}^{\gamma}  \). 
+\end{definition}
+
+\subsection{Summation Formula for Matrix Representation of Composition}
+For \( 1 \leq j \leq n \), we have
+\begin{align*}
+    (UT)({v}_{j}) &= U(T({v}_{j})) \tag{Definition of Composition} \\
+              &= U \Big( \sum_{ k=1 }^{ m } {B}_{kj} {w}_{k } \Big) \tag{\( [T]_{\alpha}^{\beta}\) for \( 1 \leq j \leq n  \)} \\
+              &= \sum_{ k=1 }^{ m } {B}_{kj} U({w}_{k }) \tag{Linearity of \( U \)}  \\
+              &= \sum_{ k=1 }^{ m } {B}_{k j} \Big( \sum_{ i=1 }^{ p } {A}_{i k } {z}_{i} \Big) \tag{\( [U]_{\beta}^{\gamma}  \) for \( 1 \leq k \leq m  \)} \\  
+              &= \sum_{ i=1 }^{ p  } \Big( \sum_{ k=1 }^{ m } {A}_{ik } {B}_{kj} \Big) {z}_{i} \tag{Finite Sums are Interchangeable} \\
+              &= \sum_{ i=1  }^{ p } {C}_{ij} {z}_{i}
+\end{align*}
+where 
+\[  {C}_{ij} = \sum_{ k=1 }^{ m } {A}_{ik } {B}_{kj}. \]
+
+\begin{definition}[Product of Two Matrices]
+    Let \( A  \) be an \( m \times n  \) matrix and \( B  \) be an \( n \times p  \) matrix. We define the \textbf{product} of \( A  \) and \( B  \), denoted \( AB  \), to be the \( m \times p  \) matrix such that 
+    \[  {(AB)}_{ij} = \sum_{ k=1 }^{ n } {A}_{ik } {B}_{kj } \ \text{ for } \ 1 \leq i \leq m , \  1 \leq j \leq p   \]
+\end{definition}
