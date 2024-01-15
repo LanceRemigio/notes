@@ -150,3 +150,7 @@
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{46}{thmt@dummyctr.dummy.148}%
 \contentsline {definition}{\ifthmt@listswap Definition~2.3.1\else \numberline {2.3.1}Definition\fi \thmtformatoptarg {Matrix Representation of the Composition}}{47}{definition.2.3.1}%
 \contentsline {definition}{\ifthmt@listswap Definition~2.3.2\else \numberline {2.3.2}Definition\fi \thmtformatoptarg {Product of Two Matrices}}{48}{definition.2.3.2}%
+\contentsline {eg}{\ifthmt@listswap Example~2.3.1\else \numberline {2.3.1}Example\fi }{48}{eg.2.3.1}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~2.3.3\else \numberline {2.3.3}Theorem\fi }{49}{theorem.2.3.3}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{49}{thmt@dummyctr.dummy.153}%
+\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{49}{thmt@dummyctr.dummy.154}%

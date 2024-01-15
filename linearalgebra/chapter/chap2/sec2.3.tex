@@ -102,3 +102,46 @@ where
     Let \( A  \) be an \( m \times n  \) matrix and \( B  \) be an \( n \times p  \) matrix. We define the \textbf{product} of \( A  \) and \( B  \), denoted \( AB  \), to be the \( m \times p  \) matrix such that 
     \[  {(AB)}_{ij} = \sum_{ k=1 }^{ n } {A}_{ik } {B}_{kj } \ \text{ for } \ 1 \leq i \leq m , \  1 \leq j \leq p   \]
 \end{definition}
+
+\begin{itemize}
+    \item In order for the product \( AB  \) to be defined, where \( A  \) is an \( m \times n  \) matrix and \( B  \) is a \( n \times  p  \), the two inner dimensions must be equal (in this case \( n  \)).
+    \item Subsequently, the two outer dimensions (namely, \( m \) and \( p \)) determine the size of the resulting matrix.
+\end{itemize}
+
+\begin{eg}
+    We have
+    \[  \begin{pmatrix}
+        1 & 2 & 1 \\
+        0 & 4 & -1
+    \end{pmatrix} \begin{pmatrix}
+        4 \\
+        2 \\
+        5 
+    \end{pmatrix} = \begin{pmatrix}
+        1 \cdot 4 + 2 \cdot 2 + 1 \cdot 5 \\
+        0 \cdot 4 + 4 \cdot 2 + (-1) \cdot 5
+    \end{pmatrix} = \begin{pmatrix}
+        13 \\
+        3
+    \end{pmatrix}. \]
+    Notice how the number of columns of the first matrix matches the number of rows on the second.
+\end{eg}
+
+ Matrix multiplication is not commutative; that is, it is not always the case that \( AB =  BA  \).If \( A  \) and \( B  \) have corresponding inner dimensions; that is, if \( A  \) is an \( m \times n  \) matrix and \( B  \) is an \( n \times p  \) matrix, then \( (AB)^{t} = B^{t} A^{t} \)since
+ \[  (AB)^{t}_{ij} = (AB)_{ji} = \sum_{ k=1 }^{ n } {A}_{jk } {B}_{ki} \] 
+ and 
+ \[  {(B^{t}A^{t})}_{ij} = \sum_{ k=1 }^{ n } (B^{t})_{ik} {(A)^{t}}_{kj } = \sum_{ k=1 }^{ n } {B}_{ki} {A}_{jk }.  \]
+
+\begin{theorem}
+    Let \( V,W,   \) and \( Z  \) be finite-dimensional vector spaces with ordered bases \( \alpha , \beta ,  \) and \( \gamma \) respectively. Let \( T: V \to W  \) and \( U : W \to Z  \) be linear transformations. Then
+    \[  [UT]_{\alpha}^{\gamma} = [U]_{\beta}^{\gamma} [T]_{\alpha}^{\beta}. \]
+\end{theorem} 
+\begin{proof}
+This fact follows immediately from our definition of matrix products.
+\end{proof}
+
+\begin{corollary}
+    Let \( V  \) be a finite-dimensional vector space with an ordered basis \( \beta  \). Let \( T,U \in \mathcal{L}(V) \). Then \( [UT]_{\beta}^{}  = [U]_{\beta}^{}  [T]_{\beta}^{}  \).
+\end{corollary}
+ 
+
