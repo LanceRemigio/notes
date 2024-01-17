@@ -143,5 +143,136 @@ This fact follows immediately from our definition of matrix products.
 \begin{corollary}
     Let \( V  \) be a finite-dimensional vector space with an ordered basis \( \beta  \). Let \( T,U \in \mathcal{L}(V) \). Then \( [UT]_{\beta}^{}  = [U]_{\beta}^{}  [T]_{\beta}^{}  \).
 \end{corollary}
- 
+
+\begin{eg}
+    Let \( U: {P}_{3}(\R) \to {P}_{2}(\R) \) and \( T: {P}_{2}(\R) \to {P}_{3}(\R) \) be the linear transformations respectively defined by
+    \[ U(f(x)) = f'(x)  \ \text{ and } \ T(f(x)) = \int_{ 0 }^{ x } f(t) \ dt.  \]
+    Let \( \alpha  \) and \( \beta  \) be the standard ordered bases of \( {P}_{3}(\R) \) and \( {P}_{2}(\R) \), respectively. We claim that \( UT = I \). To see why this is the case, observe that
+    \[ [UT]_{\beta}^{}  = [U]_{\alpha}^{\beta}  [T]_{\beta}^{\alpha} = \begin{pmatrix}
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 2 & 0 \\
+        0 & 0 & 0 & 3
+        \end{pmatrix} \begin{pmatrix}
+            0 & 0 & 0 \\
+            1 & 0 & 0 \\
+            0 & \frac{ 1 }{ 2 } & 0 \\
+            0 & 0 & \frac{ 1 }{ 3 }  
+            \end{pmatrix}  = \begin{pmatrix}
+            1 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 0 & 1 
+    \end{pmatrix} = [I]_{\beta}^{}.  \]
+\end{eg}
+
+
+\begin{definition}[Kronecker Delta]
+    We define the \textbf{Kronecker delta} \( {\delta}_{ij} \) by \( {\delta}_{ij} = 1  \) if \( i = j  \) and \( {\delta}_{ij} = 0  \) if \( i \neq j  \). 
+\end{definition}
+
+\begin{definition}[Identity Matrix]
+   The \( n \times n  \) \textbf{identity matrix} \( {I}_{n} \) is defined by \( {({I}_{n})}_{ij} = {\delta}_{ij} \). 
+\end{definition}
+
+In other words, the identity matrix is made up of the Kronecker delta constants where entries along the diagonal are equal to 1 and 0 otherwise.
+
+\begin{theorem}[Properties of Matrices]
+    Let \( A  \) be an \( m \times n  \) matrix, \( B  \) and \(  C  \) be \( n \times p  \) matrices, and \( D  \) and \( E  \) be \( q \times  m  \) matrices. Then
+    \begin{enumerate}
+        \item[(a)] \( A(B+C) = AB + AC  \) and \( (D+E) A = DA + EA  \).
+        \item[(b)] \( a(AB) = (aA)B  = A(aB)\) for any scalar \( a  \).
+        \item[(c)] \( {I}_{m} A = A = A {I}_{n} \).
+        \item[(d)] If \( V  \) is an \( n- \)dimensional vector space with an ordered basis \( \beta  \), then \( [{I}_{V}]_{\beta}^{}  = {I}_{n} \).
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Let \( A  \) be an \( m \times n  \) matrix, \( B  \) and \(  C  \) be \( n \times p  \) matrices, and \( D  \) and \( E  \) be \( q \times  m  \) matrices. Then
+\begin{enumerate}
+    \item[(a)] Let \( 1 \leq i \leq m  \) and \( 1 \leq j \leq p  \). By definition of the product of two matrices, we have 
+        \begin{align*}
+        A(B+C) &= \sum_{ k=1 }^{ n } {A}_{ik } {(B+C)}_{kj} \\ 
+               &= \sum_{ k=1 }^{ n } {A}_{ik } ({B}_{kj} + {C}_{kj} ) \\
+               &= \sum_{ k=1 }^{ n } {A}_{ik } {B}_{kj} + \sum_{ k=1 }^{ n } {A}_{ik} {C}_{kj} \\ 
+               &= AB + AC.    
+        \end{align*}
+        Hence, \( A(B+C) = AB + AC  \).
+        
+        Now, let \( 1 \leq i \leq q  \) and \( 1 \leq j \leq n  \). For the second formula, we can use the same definition to write
+    \begin{align*}
+        (D+E) A &= \sum_{ k=1 }^{ m } {(D+E)}_{ik} {A}_{kj}    \\
+                &= \sum_{ k=1 }^{ m } ({D}_{ik } + {E}_{ik }) {A}_{kj} \\
+                &= \sum_{ k=1 }^{ m } {D}_{ik} {A}_{kj } + \sum_{ i=1 }^{ m   } {E}_{ik } {A}_{kj} \\
+                &= DA + EA.
+    \end{align*}
+    Hence, \( (D+E) A = DA + EA \).
+    \item[(b)] Let \(  1 \leq i \leq m  \) and \( 1 \leq j \leq p  \). Let \( a \in F  \). Then using the definition of the product once again, we have
+        \begin{align*}
+            a (AB) &= a \sum_{ k=1 }^{ n } {A}_{ik } {B}_{kj} \\
+                   &= \sum_{ k=1 }^{ n } a ({A}_{ik } {B}_{kj }) \\
+                   &= \sum_{ k=1 }^{ n } ({aA}_{ik}) {B}_{kj } \\
+                   &= \sum_{ k=1 }^{ n } {(aA)}_{ik } {B}_{kj} \\
+                   &= (aA)B.
+        \end{align*}
+    Then observe that 
+    \begin{align*}  
+        (aA)B &= \sum_{ k = 1  }^{ n  } (a {A}_{ik } ) {B}_{kj} \\ 
+    &= \sum_{ k=1 }^{ n } ({A}_{ik } a ) {B}_{kj}  \\
+    &= \sum_{ k=1 }^{ n } {A}_{ik } (a {B}_{kj})  \\
+    &= \sum_{ k=1 }^{ n } {A}_{ik } {(aB)}_{kj} \\
+    &= A (aB).
+    \end{align*}
+    Hence, \( (aA)B = A(aB) \). Thus, we conclude that
+    \[ a(AB) = (aA)B = A(aB).  \]
+\item[(c)] Let \(   1 \leq i \leq m  \) and \(  1 \leq j \leq n  \). Since \( {\delta}_{ik} = 1   \) only when \( i = k  \) and \( 0  \) otherwise, we must have
+    \begin{align*}
+        ({I}_{m} A)_{ij} &= \sum_{ k=1  }^{ m  } {\delta}_{ik } {A}_{kj}  = {A}_{ij }. \\
+    \end{align*}
+    Likewise, 
+    \[  {(A {I}_{n} )}_{ij } = \sum_{ k= 1  }^{ n  } {A}_{ik } {\delta}_{k j } = {A}_{ij }  \] by the same reasoning. Hence, we have
+    \[  {I}_{m} A = A = A {I}_{n}. \]
+    \item[(d)] Let \( V  \) be an \( n- \)dimensional vector space with \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) as an ordered basis. Since \( {I}_{V}({v}_{j}) = {v}_{j }  \) for all \( 1 \leq j \leq n  \), we must have
+        \[  {v}_{j} = {I}_{V}({v}_{j}) = \sum_{ i=1 }^{ n } {a}_{ij} {v}_{i}   \]
+        which holds only if \(  {a}_{ij} = 1  \) for all \( i = j  \) and \( 0  \) otherwise. But this means that \( {a}_{ij} = {\delta}_{ij}  \), so \( [{I}_{V}]_{\beta}^{}  = {I}_{n} \).
+        
+\end{enumerate}
+\end{proof}
+
+\begin{corollary}
+    Let \( A  \) be an \( m \times n  \) matrix, \( {B}_{1}, {B}_{2}, \dots, {B}_{k } \) be \( n \times  p  \) matrices, \( {C}_{1}, {C}_{2}, \dots ,{C}_{k }  \) be \( q \times  m  \) matrices, and \( {a}_{1}, {a}_{2}, \dots, {a}_{k }  \) be scalars. Then 
+    \[  A \Big( \sum_{ i=1 }^{ k  } {a}_{i} {B}_{i}  \Big) = \sum_{ i=1  }^{  k  } {a}_{i} {AB}_{i} \]
+    and
+    \[ \Big( \sum_{ i=1 }^{ k  } {a}_{i} {C}_{i}  \Big) A = \sum_{ i=1 }^{ k  } {a}_{i} {C}_{i} A. \]
+\end{corollary}
+
+\begin{proof}
+Let \( A  \) be an \( m \times n  \) matrix and \( {B}_{1}, {B}_{2}, \dots, {B}_{k } \) be \( n \times p  \) matrices. Let \( 1 \leq \ell \leq m  \) and \( 1 \leq s  \leq p  \). Then
+\begin{align*}
+    \Big[ A \Big( \sum_{ i=1 }^{ k  } {a}_{i} {B}_{i} \Big) \Big]_{\ell s } &= \sum_{ \lambda = 1  }^{ n } {A}_{ \ell \lambda }  \Big( \sum_{ i=1 }^{ k  } {a}_{i} {B}_{i} \Big)_{\lambda s }  \\
+                                                                        &= \sum_{ \lambda = 1  }^{ n  } {A}_{ \ell \lambda } \Big(  \sum_{ i=1  }^{  k  } {({a}_{i} {B}_{i})}_{\lambda s } \Big)  \\
+                                                                        &=  \sum_{ \lambda = 1  }^{ n  } {A}_{ \ell \lambda } \Big( \sum_{ i=1 }^{ k  } {a}_{i} ({B}_{i})_{\lambda s } \Big) \\
+                                                                        &= \sum_{ i=1  }^{ k  } {a}_{i} \Big( \sum_{ \lambda =1  }^{ n  } {A}_{ \ell \lambda } ({B}_{i})_{\lambda s } \Big) \tag{part (a) of Theorem 2.12}  .  
+\end{align*}
+Hence, we have
+\[  A \Big( \sum_{ i=1 }^{ k  } {a}_{i} {B}_{i}  \Big) = \sum_{ i=1  }^{  k  } {a}_{i} {AB}_{i}.\]
+
+To show the second formula, let \( 1 \leq \ell \leq q  \) and \( 1 \leq  s  \leq n   \). Then
+\begin{align*}
+    \Big[ \Big( \sum_{ i=1 }^{ k  } {a}_{i} {C}_{i}  \Big) A  \Big]_{\ell \lambda }  &= \sum_{ \lambda = 1  }^{ n   } \Big( \sum_{ i=1 }^{ k  } {a}_{i} {C}_{i} \Big)_{\ell \lambda } {A}_{\lambda s }  \\
+                                                                                     &= \sum_{ \lambda = 1  }^{ n } \Big( \sum_{ i=1 }^{  k   } ({a}_{i} {C}_{i})_{\ell \lambda }  \Big) {A}_{\lambda s } \\
+                                                                                     &= \sum_{ \lambda = 1  }^{ n } \Big( \sum_{ i=1 }^{  k   } {a}_{i} ({C}_{i})_{\ell \lambda }  \Big) {A}_{\lambda s } \\
+                                                                                     &= \sum_{ i =1  }^{ k  } {a}_{i} \Big( \sum_{ i=1  }^{ k  } {({C}_{i})}_{\ell \lambda } {A}_{\lambda s }  \Big) \tag{part (a) of Theorem 2.12}  .
+\end{align*}
+Hence, we have
+\[  \Big( \sum_{ i=1  }^{  k  } {a}_{i} {C}_{i}  \Big) A = \sum_{ i=1  }^{ k  } {a}_{i} {C}_{i} A. \]
+\end{proof}
+
+
+
+\begin{theorem} 
+   Let \( A  \) be an \( m \times n  \) matrix and \( B  \) be an \( n \times p  \) matrix. For each \( j  \) (\( 1 \leq j \leq p  \)) let \( {u}_{j}  \) and \(  {v}_{j}  \) denote the \( j \)th columns of \( AB  \) and \( B  \) respectively. Then
+    \begin{enumerate}
+        \item[(a)]  \( {u}_{j} = A {v}_{j}  \)
+        \item[(b)] \( {v}_{j} = B {e}_{j }  \), where \( {e}_{j}  \) is the \( j \)th standard vector of \( F^{p} \).
+    \end{enumerate}
+\end{theorem}
+
 
