@@ -275,4 +275,63 @@ Hence, we have
     \end{enumerate}
 \end{theorem}
 
+\begin{proof}
+Let \( 1 \leq j \leq p  \). Then we have
+\begin{align*}
+    {u}_{j} &= \begin{pmatrix}
+        {(AB)}_{1j } \\
+        {(AB)}_{2j } \\
+        \vdots \\
+        {(AB)}_{mj} 
+    \end{pmatrix} = \begin{pmatrix}
+        \sum_{ k=1 }^{ n } {A}_{1k} {B}_{kj} \\
+        \sum_{ k=1  }^{  n } {A}_{2k } {B}_{kj } \\
+        \vdots \\
+        \sum_{ k=1 }^{ n } {A}_{mk } {B}_{kj }
+    \end{pmatrix} =  A \begin{pmatrix}
+        {B}_{1j } \\
+        {B}_{2j } \\
+        \vdots \\
+        {B}_{nj}
+    \end{pmatrix} =  A {v}_{j }.
+\end{align*}
+To show the other equation, we apply part (c) of Theorem 2.12, to write
+\begin{align*}
+   {v}_{j}  &= \begin{pmatrix}
+       {B}_{1j } \\
+       {B}_{2j } \\
+       \vdots \\
+       {B}_{nj } 
+   \end{pmatrix} = 
+   \begin{pmatrix}
+        (B {I}_{p})_{1j} \\  
+        {(B{I}_{p})}_{2j} \\
+        \vdots \\
+        {(B {I}_{p})}_{nj}
+   \end{pmatrix} = \begin{pmatrix}
+       \sum_{ k=1  }^{ n } {B}_{1k} {\delta}_{kj} \\
+       \sum_{ k=1  }^{ n } {B}_{2k} {\delta}_{kj } \\
+       \vdots \\
+       \sum_{ k=1  }^{ n } {B}_{nk} {\delta}_{kj } 
+       \end{pmatrix} = B \begin{pmatrix}
+       {\delta}_{1j } \\
+       {\delta}_{2j } \\
+       \vdots \\
+       {\delta}_{pj } 
+   \end{pmatrix} = B {e}_{j}
+\end{align*}
+where \( {\delta}_{1j} \) are the Kronecker delta constants.
+\end{proof}
 
+\begin{itemize}
+    \item This result gives us the ability to write columns of \( AB  \) (that is, the \( j \)th column of \( AB \)) as a linear combination of the columns of \( A  \) with the coefficients being entries of column \( j  \) of \( B  \).
+    \item In the case for rows, the \( i \)th row of \( AB  \) can be written as a linear combination of the rows of \( B  \) with coefficients being entries from \( i \)th row in \( A  \).
+\end{itemize}
+
+\begin{theorem}
+    Let \( V  \) and \( W  \) be finite-dimensional vector spaces having ordered bases \( \beta  \) and \( \gamma  \), respectively, and let \( T: V \to W  \) be linear. Then, for each \( u \in V  \), we have
+    \[  [T(u)]_{\gamma}^{}  = [T]_{\beta}^{\gamma}  [u]_{\beta}^{}. \]
+\end{theorem}
+\begin{proof}
+    Fix \( u \in V  \), and define the linear transformations \( f: F \to V  \) by \( f(a) = au  \) and \( g: F \to W  \) by \( g(a) = a T(u) \) for all \( a \in F  \). Let \( \alpha = \{ 1 \}  \) be the standard ordered bases for \( F  \). Note that \( g = T f  \). Identifying column vectors as matrices and using Theorem 2.11, we obtain 
+\end{proof}
