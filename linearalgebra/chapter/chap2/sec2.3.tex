@@ -175,7 +175,7 @@ This fact follows immediately from our definition of matrix products.
 
 In other words, the identity matrix is made up of the Kronecker delta constants where entries along the diagonal are equal to 1 and 0 otherwise.
 
-\begin{theorem}[Properties of Matrices]
+\begin{theorem}[Properties of Matrices]\label{prop of matrices}
     Let \( A  \) be an \( m \times n  \) matrix, \( B  \) and \(  C  \) be \( n \times p  \) matrices, and \( D  \) and \( E  \) be \( q \times  m  \) matrices. Then
     \begin{enumerate}
         \item[(a)] \( A(B+C) = AB + AC  \) and \( (D+E) A = DA + EA  \).
@@ -333,5 +333,134 @@ where \( {\delta}_{1j} \) are the Kronecker delta constants.
     \[  [T(u)]_{\gamma}^{}  = [T]_{\beta}^{\gamma}  [u]_{\beta}^{}. \]
 \end{theorem}
 \begin{proof}
-    Fix \( u \in V  \), and define the linear transformations \( f: F \to V  \) by \( f(a) = au  \) and \( g: F \to W  \) by \( g(a) = a T(u) \) for all \( a \in F  \). Let \( \alpha = \{ 1 \}  \) be the standard ordered bases for \( F  \). Note that \( g = T f  \). Identifying column vectors as matrices and using Theorem 2.11, we obtain 
+    Let \( \beta \) and \( \gamma \) be ordered bases for \( V  \) and \( W  \) respectively. Fix \( u \in V  \), and define the linear transformations 
+    \begin{center}
+        \( f: F \to V  \) by \( f(a) = au  \) and \( g: F \to W  \) by \( g(a) = aT(u) \) for all \( a \in F  \). 
+    \end{center}
+    Let \( \alpha = \{  1  \}  \) be the standard ordered basis for \( F  \). Note that 
+    \[  T(u) = 1 \cdot T(u) = g(1) = g = Tf  \]
+    since \( f = f(1)  = 1 \cdot u = u\). Using Theorem 2.11, we can write
+    \begin{align*}
+        [T(u)]_{\gamma}  = [g(1)]_{\gamma} &= [g]_{\alpha}^{\gamma}  \\
+                                                 &= [Tf]_{\alpha}^{\gamma} \\
+                                                 &= [T]_{\beta}^{\gamma} [f]_{\alpha}^{\beta} \\
+                                                 &= [T]_{\beta}^{\gamma}  [f(1)]_{\beta}  \\
+                                                 &= [T]_{\beta}^{\gamma}  [u]_{\beta}.
+    \end{align*}
+    Hence, we have
+    \[  [T(u)]_{\gamma} = [T]_{\beta}^{\gamma}  [u]_{\beta}. \]
 \end{proof}
+
+\begin{eg}
+    Let \( T: {P}_{3}(\R) \to {P}_{2}(\R) \) be the linear transformation defined by 
+    \[  T(f(x)) = f'(x), \]
+    and let \( \beta \) and \( \gamma \) be the standard ordered bases for \( {P}_{3}(\R) \) and \( {P}_{2}(\R) \), respectively. Let \( A = [T]_{\beta}^{\gamma}  \), then we have
+    \[ A  = \begin{pmatrix}
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 2 & 0 \\
+        0 & 0 & 0 & 3
+    \end{pmatrix} \]
+    from {\hyperref[Example 4 of Section 2.2]{Example 4 of Section 2.2}}. Utilizing {\hyperref[Theorem 2.3.6]{Theorem 2.3.6}}, we can verify that  
+    \[  [T(p(x))]_{\gamma} = [T]_{\beta}^{\gamma}  [p(x)]_{\beta} \]
+    where \( p(x) \in {P}_{3}(\R) \) is the polynomial defined by
+     \[  p(x) = 2 - 4x + x^{2} + 3x^{3}. \]
+     Hence, we have
+     \[ [T(p(x))]_{\gamma} = [q(x)]_{\gamma} = \begin{pmatrix}
+         -4 \\
+         2 \\
+         9
+     \end{pmatrix},  \]
+     and
+     \[ [T]_{\beta}^{\gamma}  [p(x)]_{\beta} = A [p(x)]_{\beta} = \begin{pmatrix}
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 2 & 0 \\
+        0 & 0 & 0 & 3
+    \end{pmatrix} \begin{pmatrix}
+        2 \\
+        -4 \\
+        1 \\
+        3
+    \end{pmatrix} = \begin{pmatrix}
+        -4 \\
+        2 \\
+        9 
+    \end{pmatrix}.   \]
+\end{eg}
+
+\begin{definition}[Left Multiplication Transformation]\label{LMT}
+   Let \( A  \) be an \( m \times n  \) matrix with entries from a field \( F  \). We denote by \( {L}_{A} \) the mapping \( {L}_{A} : F^{n} \to F^{m } \) defined by \( {L}_{A} (x) = Ax \) (the matrix product of \( A  \) and \( x \)) for each column vector \( x \in F^{n} \). We call \( {L}_{A} \) a \textbf{left-multiplication transformation}.
+\end{definition} 
+
+\begin{eg}
+    Let 
+    \[  A = \begin{pmatrix}
+        1 & 2 & 1 \\
+        0 & 1 & 2 
+    \end{pmatrix}. \]
+    Then \( A \in {M}_{2 \times 3 }(\R) \) and \( {L}_{A}: \R^{3} \to \R^{2} \). If 
+    \[  x = \begin{pmatrix}
+        1  \\
+        3  \\
+        -1 
+    \end{pmatrix}, \]
+    then
+    \[  {L}_{A}(x) = Ax = \begin{pmatrix}
+        1 & 2 & 1 \\
+        0 & 1 & 2 
+    \end{pmatrix} \begin{pmatrix}
+        1 \\
+        3 \\
+        -1 
+    \end{pmatrix} = \begin{pmatrix}
+        6 \\
+        1 
+    \end{pmatrix}.  \]
+\end{eg}
+
+\begin{remark}
+   It is relatively straight forward to show that \( {L}_{A} \) is linear. 
+\end{remark}
+
+\begin{theorem}[Properties of Left-Multiplication Transformations]\label{Prop of LMT}
+   Let \( A  \) be an \( m \times n  \) matrix with entries from \( F  \). Then the left-multiplication transformation \( {L}_{A}: F^{n} \to F^{m}  \) is linear. Furthermore, if \( B  \) is any other \( m \times n  \) matrix (with entries from \( F  \)) and \( \beta \) and \( \gamma \) are the standard ordered bases for \( F^{n}  \) and \( F^{m}  \), respectively, then we have the following properties.
+   \begin{enumerate}
+       \item[(a)] \( [{L}_{A}]_{\beta}^{\gamma}  = A  \). 
+        \item[(b)] \( {L}_{A} = {L}_{B} \) if and only if \( A = B  \).
+        \item[(c)] \( {L}_{A + B } = {L}_{A } + {L}_{B} \) and \( {L}_{aA} = a {L}_{A} \) for all \( a \in F  \).
+        \item[(d)] If \( T: F^{n} \to F^{m} \) is linear, then there exists a unique \( m \times n  \) matrix \( C  \) such that \( T = {L}_{C}  \). In fact, \( C = [T]_{\beta}^{\gamma}  \).
+        \item[(e)] If \( E  \) is an \( n \times p  \) matrix, then \( {L}_{AE} = {L}_{A} {L}_{E} \).
+        \item[(f)] If \( m = n  \), then \( {L}_{{I}_{n}} = {I}_{F^{n}}  \)Transformation.
+   \end{enumerate}
+\end{theorem}
+\begin{proof}
+First, we show that \( {L}_{A} \) is linear. Let \( A  \) be an \( m \times n  \) matrix and \( L_{A} : F^{n} \to F^{m} \). Given an arbitrary \( c \in F  \) and \( cx + y \in  F^{n}  \), we can write
+   \begin{align*}
+       {L}_{A}(cx+y) &= A(cx+y)    \\
+                     &= A(cx) + A(y) \tag{{\hyperref[prop of matrices]{Part (a) of Property of Matrices}} } \\
+                     &= c(A(x)) + A(y) \tag{{\hyperref[prop of matrices]{Part (b) of Property of Matrices}} } \\
+                     &=  c {L}_{A}(x) + {L}_{A}(y). 
+   \end{align*} 
+   Hence, \( {L}_{A} \) is a linear transformation. Now, let's show properties (a)-(f) 
+   \begin{enumerate}
+       \item[(a)] Let \( 1 \leq j \leq n  \) and \( A  \) be an \( m \times n  \) matrix. Observe that 
+           \[  ([{L}_{A}]_{\beta}^{\gamma} )_{j} = {L}_{A}({e}_{j}) = A {e}_{j} = {u}_{j}  \]
+           where \( {u}_{j}  \) is the \( j \)th column of \( A  \). Hence, we have 
+           \[ [{L}_{A}]_{\beta}^{\gamma} = A.    \]
+        \item[(b)] Suppose \( {L}_{A} = {L}_{B} \). By part (a), we get that
+            \[  A = [{L}_{A}]_{\beta}^{\gamma} = [{L}_{B}]_{\beta}^{\gamma}  = B. \]
+            Conversely, suppose \( A = B  \). Let \( x \in F^{n} \). Then performing left-multiplication, we have
+            \[  {L}_{A}(x) =  Ax = Bx = {L}_{B}(x).  \]
+            Hence, we have \( {L}_{A} = {L}_{B} \).
+        \item[(c)] Let \( x \in F^{n} \). Using the {\hyperref[prop of matrices]{Part (a) of Property of Matrices}}, we must have
+            \[  {L}_{A+B}(x) = (A+B)(x) = A(x) + B(x) = {L}_{A}(x) + {L}_{B}(x). \]
+            Hence, \( {L}_{A+B} = {L}_{A} + {L}_{B} \). Now, let \( a \in F  \). Using the same reasoning, we have  
+            \[  {L}_{aA}(x) = (aA)(x) = a (A(x)) = a {L}_{A}(x).  \]
+            Hence, \( {L}_{aA} = a{L}_{A}. \)
+        \item[(d)] Let \( c = [T]_{\beta}^{\gamma}  \). Since \( T: F^{n} \to F^{m} \), we see that 
+            \[  [T(x)]_{\gamma} = [T]_{\beta}^{\gamma} [x]_{\beta}      \]
+            or 
+            \[  T(x) = C(x) = {L}_{C}(x) \]
+            where \( x \in F^{n} \). Hence, \( T = {L}_{C} \).
+   \end{enumerate}
+\end{proof}
+

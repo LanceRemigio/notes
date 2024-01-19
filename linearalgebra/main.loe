@@ -165,3 +165,9 @@
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{52}{thmt@dummyctr.dummy.163}%
 \contentsline {theorem}{\ifthmt@listswap Theorem~2.3.6\else \numberline {2.3.6}Theorem\fi }{53}{theorem.2.3.6}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{53}{thmt@dummyctr.dummy.165}%
+\contentsline {eg}{\ifthmt@listswap Example~2.3.3\else \numberline {2.3.3}Example\fi }{54}{eg.2.3.3}%
+\contentsline {definition}{\ifthmt@listswap Definition~2.3.5\else \numberline {2.3.5}Definition\fi \thmtformatoptarg {Left Multiplication Transformation}}{54}{definition.2.3.5}%
+\contentsline {eg}{\ifthmt@listswap Example~2.3.4\else \numberline {2.3.4}Example\fi }{54}{eg.2.3.4}%
+\contentsline {remark}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Remark}{54}{thmt@dummyctr.dummy.169}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~2.3.7\else \numberline {2.3.7}Theorem\fi \thmtformatoptarg {Properties of Left-Multiplication Transformations}}{55}{theorem.2.3.7}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{55}{thmt@dummyctr.dummy.171}%
