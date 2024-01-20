@@ -480,6 +480,16 @@ First, we show that \( {L}_{A} \) is linear. Let \( A  \) be an \( m \times n  \
 Let \( A, B  \) and \( C  \) be matrices such that \( A(BC) \) is defined. Then \( (AB)C  \) is also defined and \( A(BC) = (AB)C  \); that is, matrix multiplication is associative.    
 \end{theorem}
 \begin{proof}
-
+Let \( A  \) be an \( m \times n  \) matrix, \( B  \) an \(  n \times p  \) matrix, and C \( p \times \ell  \) matrix so \( (AB)C \) be defined with dimension \( m \times \ell  \). So, let \( {L}_{(AB)C}: F^{\ell} \to F^{m}   \) be the left multiplication transformation. Our goal is to show that
+\[ {L}_{(AB)C} = {L}_{A(BC)}. \]
+Using the properties of compositions and left-multiplication transformations, we write 
+\begin{align*} 
+    {L}_{(AB)C}                  &= ({L}_{AB}) {L}_{C} \tag{{\hyperref[LMT]{Def of Left-Multiplication}} }   \\
+                                 &= ( {L}_{A} {L}_{B} )  {L}_{C} \tag{{\hyperref[Prop of LMT]{Prop of Left-Multiplication}}} \\ 
+                                 &= {L}_{A} ({L}_{B} {L}_{C}) \tag{{\hyperref[Properties of Compositions]{Prop of Compositions}} } \\ 
+                                 &= {L}_{A} ({L}_{BC}) \tag{{\hyperref[Prop of LMT]{Prop of Left-Multiplication}}} \\ 
+                                 &=  {L}_{A(BC)} \tag{{\hyperref[LMT]{Def of Left-Multiplication}}}.       
+\end{align*}
+Hence, we conclude that \( {L}_{(AB)C} = {L}_{A(BC)} \).
 \end{proof}
 
