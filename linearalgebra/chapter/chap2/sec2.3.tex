@@ -189,36 +189,36 @@ In other words, the identity matrix is made up of the Kronecker delta constants 
 \begin{enumerate}
     \item[(a)] Let \( 1 \leq i \leq m  \) and \( 1 \leq j \leq p  \). By definition of the product of two matrices, we have 
         \begin{align*}
-        A(B+C) &= \sum_{ k=1 }^{ n } {A}_{ik } {(B+C)}_{kj} \\ 
+            (A(B+C))_{ij} &= \sum_{ k=1 }^{ n } {A}_{ik } {(B+C)}_{kj} \\ 
                &= \sum_{ k=1 }^{ n } {A}_{ik } ({B}_{kj} + {C}_{kj} ) \\
                &= \sum_{ k=1 }^{ n } {A}_{ik } {B}_{kj} + \sum_{ k=1 }^{ n } {A}_{ik} {C}_{kj} \\ 
-               &= AB + AC.    
+               &= (AB)_{ij} + (AC)_{ij}.    
         \end{align*}
         Hence, \( A(B+C) = AB + AC  \).
         
         Now, let \( 1 \leq i \leq q  \) and \( 1 \leq j \leq n  \). For the second formula, we can use the same definition to write
     \begin{align*}
-        (D+E) A &= \sum_{ k=1 }^{ m } {(D+E)}_{ik} {A}_{kj}    \\
+        (D+E)_{ij} A_{ij} &= \sum_{ k=1 }^{ m } {(D+E)}_{ik} {A}_{kj}    \\
                 &= \sum_{ k=1 }^{ m } ({D}_{ik } + {E}_{ik }) {A}_{kj} \\
                 &= \sum_{ k=1 }^{ m } {D}_{ik} {A}_{kj } + \sum_{ i=1 }^{ m   } {E}_{ik } {A}_{kj} \\
-                &= DA + EA.
+                &= (DA)_{ij} + (EA)_{ij}.
     \end{align*}
     Hence, \( (D+E) A = DA + EA \).
     \item[(b)] Let \(  1 \leq i \leq m  \) and \( 1 \leq j \leq p  \). Let \( a \in F  \). Then using the definition of the product once again, we have
         \begin{align*}
-            a (AB) &= a \sum_{ k=1 }^{ n } {A}_{ik } {B}_{kj} \\
+            a (AB)_{ij} &= a \sum_{ k=1 }^{ n } {A}_{ik } {B}_{kj} \\
                    &= \sum_{ k=1 }^{ n } a ({A}_{ik } {B}_{kj }) \\
                    &= \sum_{ k=1 }^{ n } ({aA}_{ik}) {B}_{kj } \\
                    &= \sum_{ k=1 }^{ n } {(aA)}_{ik } {B}_{kj} \\
-                   &= (aA)B.
+                   &= ((aA)B)_{ij}.
         \end{align*}
     Then observe that 
     \begin{align*}  
-        (aA)B &= \sum_{ k = 1  }^{ n  } (a {A}_{ik } ) {B}_{kj} \\ 
+        ((aA)B)_{ij} &= \sum_{ k = 1  }^{ n  } (a {A}_{ik } ) {B}_{kj} \\ 
     &= \sum_{ k=1 }^{ n } ({A}_{ik } a ) {B}_{kj}  \\
     &= \sum_{ k=1 }^{ n } {A}_{ik } (a {B}_{kj})  \\
     &= \sum_{ k=1 }^{ n } {A}_{ik } {(aB)}_{kj} \\
-    &= A (aB).
+    &= (A (aB))_{ij}.
     \end{align*}
     Hence, \( (aA)B = A(aB) \). Thus, we conclude that
     \[ a(AB) = (aA)B = A(aB).  \]
@@ -249,17 +249,19 @@ Let \( A  \) be an \( m \times n  \) matrix and \( {B}_{1}, {B}_{2}, \dots, {B}_
     \Big[ A \Big( \sum_{ i=1 }^{ k  } {a}_{i} {B}_{i} \Big) \Big]_{\ell s } &= \sum_{ \lambda = 1  }^{ n } {A}_{ \ell \lambda }  \Big( \sum_{ i=1 }^{ k  } {a}_{i} {B}_{i} \Big)_{\lambda s }  \\
                                                                         &= \sum_{ \lambda = 1  }^{ n  } {A}_{ \ell \lambda } \Big(  \sum_{ i=1  }^{  k  } {({a}_{i} {B}_{i})}_{\lambda s } \Big)  \\
                                                                         &=  \sum_{ \lambda = 1  }^{ n  } {A}_{ \ell \lambda } \Big( \sum_{ i=1 }^{ k  } {a}_{i} ({B}_{i})_{\lambda s } \Big) \\
-                                                                        &= \sum_{ i=1  }^{ k  } {a}_{i} \Big( \sum_{ \lambda =1  }^{ n  } {A}_{ \ell \lambda } ({B}_{i})_{\lambda s } \Big) \tag{part (a) of Theorem 2.12}  .  
+                                                                        &= \sum_{ i=1  }^{ k  } {a}_{i} \Big( \sum_{ \lambda =1  }^{ n  } {A}_{ \ell \lambda } ({B}_{i})_{\lambda s } \Big) \tag{part (a) of Theorem 2.12}  \\
+                                                                        &= \sum_{ i=1  }^{ k  } {a}_{i}  (A {B}_{i})_{\ell s } .
 \end{align*}
 Hence, we have
 \[  A \Big( \sum_{ i=1 }^{ k  } {a}_{i} {B}_{i}  \Big) = \sum_{ i=1  }^{  k  } {a}_{i} {AB}_{i}.\]
 
 To show the second formula, let \( 1 \leq \ell \leq q  \) and \( 1 \leq  s  \leq n   \). Then
 \begin{align*}
-    \Big[ \Big( \sum_{ i=1 }^{ k  } {a}_{i} {C}_{i}  \Big) A  \Big]_{\ell \lambda }  &= \sum_{ \lambda = 1  }^{ n   } \Big( \sum_{ i=1 }^{ k  } {a}_{i} {C}_{i} \Big)_{\ell \lambda } {A}_{\lambda s }  \\
+    \Big[ \Big( \sum_{ i=1 }^{ k  } {a}_{i} {C}_{i}  \Big) A  \Big]_{\ell s }  &= \sum_{ \lambda = 1  }^{ n   } \Big( \sum_{ i=1 }^{ k  } {a}_{i} {C}_{i} \Big)_{\ell \lambda } {A}_{\lambda s }  \\
                                                                                      &= \sum_{ \lambda = 1  }^{ n } \Big( \sum_{ i=1 }^{  k   } ({a}_{i} {C}_{i})_{\ell \lambda }  \Big) {A}_{\lambda s } \\
                                                                                      &= \sum_{ \lambda = 1  }^{ n } \Big( \sum_{ i=1 }^{  k   } {a}_{i} ({C}_{i})_{\ell \lambda }  \Big) {A}_{\lambda s } \\
-                                                                                     &= \sum_{ i =1  }^{ k  } {a}_{i} \Big( \sum_{ i=1  }^{ k  } {({C}_{i})}_{\ell \lambda } {A}_{\lambda s }  \Big) \tag{part (a) of Theorem 2.12}  .
+                                                                                     &= \sum_{ i =1  }^{ k  } {a}_{i} \Big( \sum_{ i=1  }^{ k  } {({C}_{i})}_{\ell \lambda } {A}_{\lambda s }  \Big) \tag{part (a) of Theorem 2.12}   \\
+                                                                                     &= \sum_{ i=1  }^{ k  } {a}_{i} ({C}_{i} A  )_{\ell s }.
 \end{align*}
 Hence, we have
 \[  \Big( \sum_{ i=1  }^{  k  } {a}_{i} {C}_{i}  \Big) A = \sum_{ i=1  }^{ k  } {a}_{i} {C}_{i} A. \]
@@ -471,7 +473,10 @@ First, we show that \( {L}_{A} \) is linear. Let \( A  \) be an \( m \times n  \
             \end{align*}
             Hence, we have \( {L}_{AE} = {L}_{A} {L}_{E} \).
         \item[(f)] Let \( 1 \leq j \leq n  \). Then
-            \[  {L}_{{I}_{n}}({e}_{j}) = {I}_{n}({e}_{j}) = {e}_{j} = {I}_{F^{n}}({e}_{j}). \]
+                \begin{align*}  {L}_{{I}_{n}}({e}_{j}) = {I}_{n}({e}_{j}) 
+                &= {e}_{j} \\ 
+                &= {I}_{F^{n}}({e}_{j}) \tag{{\hyperref[prop of matrices]{Part (d) of Theorem 2.3.4}}}. 
+                \end{align*}
             Hence, \( {L}_{{I}_{n}} = {I}_{F^{n}} \).
    \end{enumerate}
 \end{proof}
