@@ -171,3 +171,5 @@
 \contentsline {remark}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Remark}{54}{thmt@dummyctr.dummy.169}%
 \contentsline {theorem}{\ifthmt@listswap Theorem~2.3.7\else \numberline {2.3.7}Theorem\fi \thmtformatoptarg {Properties of Left-Multiplication Transformations}}{55}{theorem.2.3.7}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{55}{thmt@dummyctr.dummy.171}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~2.3.8\else \numberline {2.3.8}Theorem\fi \thmtformatoptarg {Associativity of Left-Multiplication Transformations}}{56}{theorem.2.3.8}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{56}{thmt@dummyctr.dummy.173}%

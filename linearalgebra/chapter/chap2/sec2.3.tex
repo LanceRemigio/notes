@@ -267,7 +267,7 @@ Hence, we have
 
 
 
-\begin{theorem} 
+\begin{theorem}\label{Theorem 2.13} 
    Let \( A  \) be an \( m \times n  \) matrix and \( B  \) be an \( n \times p  \) matrix. For each \( j  \) (\( 1 \leq j \leq p  \)) let \( {u}_{j}  \) and \(  {v}_{j}  \) denote the \( j \)th columns of \( AB  \) and \( B  \) respectively. Then
     \begin{enumerate}
         \item[(a)]  \( {u}_{j} = A {v}_{j}  \)
@@ -461,6 +461,25 @@ First, we show that \( {L}_{A} \) is linear. Let \( A  \) be an \( m \times n  \
             or 
             \[  T(x) = C(x) = {L}_{C}(x) \]
             where \( x \in F^{n} \). Hence, \( T = {L}_{C} \).
+        \item[(e)] Let \( 1 \leq j \leq  p  \). Applying {\hyperref[Theorem 2.13]{Theorem 2.13}} several times so we may note that \( (AE){e}_{j}  \) is the \( j \)th column of \( AE  \) and that the \( j \)th column of \( AE \) is also equal to \( A(E {e}_{j}) \); that is, 
+            \[  (AE){e}_{j} = A(E {e}_{j}). \]
+            Hence, we have
+            \begin{align*}  {L}_{AE}({e}_{j}) = (AE) {e}_{j} &= A(E({e}_{j})) \\ 
+            &= {L}_{A}(E({e}_{j})) \\ 
+            &= {L}_{A} ({L}_{E}({e}_{j})) \\ 
+            &= ({L}_{A}{L}_{E})({e}_{j}).
+            \end{align*}
+            Hence, we have \( {L}_{AE} = {L}_{A} {L}_{E} \).
+        \item[(f)] Let \( 1 \leq j \leq n  \). Then
+            \[  {L}_{{I}_{n}}({e}_{j}) = {I}_{n}({e}_{j}) = {e}_{j} = {I}_{F^{n}}({e}_{j}). \]
+            Hence, \( {L}_{{I}_{n}} = {I}_{F^{n}} \).
    \end{enumerate}
+\end{proof}
+
+\begin{theorem}[Associativity of Left-Multiplication Transformations]
+Let \( A, B  \) and \( C  \) be matrices such that \( A(BC) \) is defined. Then \( (AB)C  \) is also defined and \( A(BC) = (AB)C  \); that is, matrix multiplication is associative.    
+\end{theorem}
+\begin{proof}
+
 \end{proof}
 
