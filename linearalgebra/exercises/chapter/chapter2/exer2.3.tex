@@ -3,26 +3,133 @@
 
 \subsection*{Exercise 2.3.5} Complete the proof of Theorem 2.12 and its corollary. 
 \begin{proof}
-
+See proof in notes.
 \end{proof}
 
 \subsection*{Exercise 2.3.6} Prove (b) of Theorem 2.13.
 \begin{proof}
-
+See proof in notes.
 \end{proof}
 
 \subsection*{Exercise 2.3.7} Prove (c) and (f) of Theorem 2.15.
 \begin{proof}
-
+See proof in notes.
 \end{proof}
 
 \subsection*{Exercise 2.3.8} Prove Theorem 2.10. Now state and prove a more general result involving linear transformations with domains unequal to their codomains.
+\begin{prop}
+    Let \( V , W, Y,  \) and \( Z  \) be vector spaces. Then we have the following properties:
+    \begin{enumerate}
+        \item[(a)] Let \( U, {U}_{1}, {U}_{2} \in \mathcal{L}(V,W)  \) and \( T, {T}_{1}, {T}_{2} \in \mathcal{L}(W,Z) \). Then we have
+            \begin{center}
+                \( T({U}_{1} + {U}_{2}) = {TU}_{1} + {TU}_{2}  \) and \( ({T}_{1} + {T}_{2}) U = {T}_{1} U + {T}_{2} U  \).
+            \end{center}
+        \item[(b)] Let \( U \in \mathcal{L}(Y,Z),  {T}_{1} \in \mathcal{L}(W,Y) , {T}_{2} \in \mathcal{L}(V,W)   \). Then we have
+            \[  U({T}_{1} {T}_{2}) = (U {T}_{1}){T}_{2}. \]
+        \item[(c)] Let \( I \in \mathcal{L}(V,V)  \) and \( I \in \mathcal{L}(W,W)  \). Then \( T \in \mathcal{L}(V,W)  \) implies that 
+            \[  TI = IT = T. \]
+        \item[(d)] Let \( a \in F  \) and let \( {U}_{1}, {U}_{2} \in \mathcal{L}(V,W) \). Then
+            \[  a({U}_{1} {U}_{2}) = ({aU}_{1}) {U}_{2} = {U}_{1} ({aU}_{2}). \]
+    \end{enumerate}
+\end{prop}
 \begin{proof}
-
+The proof is similar in the notes.
 \end{proof}
 
 \subsection*{Exercise 2.3.10} Let \( A  \) be an \( n \times n  \) matrix. Prove that \( A  \) is a diagonal matrix if and only if \( {A}_{ij} = {\delta}_{ij} {A}_{ij}  \) for all \( i  \) and \( j \).
 \begin{proof}
+For the forwards direction, suppose \( A  \) is a diagonal matrix. Let \( 1 \leq j \leq  n   \) and \(  1 \leq i \leq  n  \). Since \( A  \) is a diagonal matrix, we know that \( {A}_{ij} = 0  \) whenever \( i \neq j  \). Furthermore, we have that \( {\delta}_{ij} = 1  \) whenever \( i  = j  \) and \(  0  \) otherwise. Hence, we have \( A = IA  \) by Theorem 2.12 which implies 
+\[  {A}_{ij} = {({I}_{n} A )}_{ij} = \sum_{ k=1}^{ n } {\delta}_{ik } {A}_{kj } = {\delta}_{ij} {A}_{ij} \]
+for \( 1 \leq j \leq n \) and \( 1 \leq j \leq n \).
+
+For the backwards direction, assume \( {A}_{ij} = {\delta}_{ij} {A}_{ij}  \). Since \( {\delta}_{ij} = 1   \) whenever \( i = j  \) and \( 0  \) whenever \(  i \neq j  \), we get that  \( {A}_{ij} = {A}_{ij}  \) and \( {A}_{ij} = 0  \) respectively. Hence, \( A  \) is a diagonal matrix.
 
 \end{proof}
 
+\subsection*{Exercise 2.3.11} Let \( V  \) be a vector space, and let \( T: V \to V  \) be linear. Prove that \( T^{2} = {T}_{0} \) if and only if \( R(T) \subseteq N(T) \).
+\begin{proof}
+For the forwards direction, let \( T^{2} = {T}_{0}  \). Let \( y \in R(T)  \). Then for some \( x \in V  \), we have \( y = T(x) \). Then we have
+\[
+    T(y) = T(T(x)) 
+         = T^{2}(x) 
+         = {T}_{0}(x) 
+         = 0.
+\]
+Hence, \( y \in N(T) \).
+
+For the backwards direction, let \( x \in V  \). Then we have 
+\[  T^{2}(x) = T(T(x)). \]
+Note that \( T(x) \in R(T)   \) and \( R(T) \subseteq N(T)  \) implies that \( T^{2}(x) = 0  \). But this also means that \( {T}_{0}(x) = 0  \). Hence, we have \( T^{2}(x) = {T}_{0}(x) \).
+
+
+\end{proof}
+
+\subsection*{Exercise 2.3.12} Let \( V, W,  \) and \( Z  \) be vector spaces, and let \( T:  V \to W  \) and \( U: W \to Z  \) be linear.
+\begin{enumerate}
+    \item[(a)] Prove that if \( UT \) is injective, then \( T  \) is injective. Must \( U  \) also be injective?
+        \begin{proof}
+        Suppose for sake of contradiction that \( T \) is not injective. Then there exists \( x,y \in V  \) such that \( x \neq y  \) implies \( T(x) = T(y) \). But \( UT  \) being injective must imply that for any \( x,y \in V  \), we have \(  UT(x) = UT(y)  \) implies \( x = y  \) which is a contradiction. Hence, \( T  \) must be injective. Note that \( U  \) need not be injective in this case.
+        \end{proof}
+    \item[(b)] Prove that if \( UT  \) is surjective, then \( U  \) is surjective. Must \( T  \) also be surjective? 
+        \begin{proof}
+        Suppose that \( UT  \) is surjective. Let \( y \in R(UT) \). By default, we know that \( R(U) \subseteq Z) \). Then for some \( x \in V  \), we have 
+        \[  y = UT(x) = U(T(x)). \]
+      Hence, \( y \in R(U) \) as well which implies that \( Z \subseteq R(U) \). Thus, \( U  \) must be surjective. Notice that \( T  \) need not be surjective for the equation above to be true.
+        \end{proof}
+    \item[(c)] Prove that if \( U  \) and \( T  \) are injective and surjective, then \( UT  \) is also.
+        \begin{proof}
+            First, we show that \( UT  \) is injective. Let \( x,y \in V  \). Then
+            \begin{align*}
+                UT(x) &= UT(y) \\
+                U(T(x)) &= U(T(y)).
+            \end{align*}
+            But \( U  \) being injective, implies that \( T(x) = T(y)  \). Since \( T  \) is also injective, we must have \( x = y  \). Hence, \( UT  \) is injective. 
+
+            Now, we show that \( UT  \) is surjective. Let \( z \in R(U)  \). Since \( U  \) is surjective, we have that for some \( y \in W   \), 
+            \[  z = U(y). \]
+            Since \( T  \) is also surjective, we have that \( y \in W  \) implies that \( T(x) = y  \) for some \( x \in V  \). Hence, we have
+            \[  z = U(y) = U(T(x)) = UT(x) \]
+            and so we have \( UT  \) surjective.
+            
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 2.3.13} Let \( A  \) and \( B  \) be \( n \times n  \) matrices. Recall that the trace of \( A  \) is defined by
+\[  \text{tr}(A) = \sum_{ i=1  }^{ n } {A}_{ii}. \]
+Prove that \( \text{tr}(AB) = \text{tr}(BA) \) and \( \text{tr}(A) = \text{tr}(A^{t}) \).
+\begin{proof}
+    Let \( 1 \leq i \leq n \). Observe that
+    \begin{align*}
+        \text{tr}(AB) &= \sum_{ i=1  }^{ n } {(AB)}_{ii} \\
+                      &= \sum_{ i=1  }^{ n } \Big( \sum_{ k=1  }^{ n } {A}_{ik } {B}_{ki} \Big) \\
+                      &= \sum_{ k=1  }^{ n } \Big( \sum_{ i=1  }^{ n } {B}_{ki } {A}_{ik } \Big) \\
+                      &= \sum_{ k=1  }^{ n } {(BA)}_{k k } \\
+                      &= \text{tr}(BA).
+    \end{align*}
+    Hence, \( \text{tr}(AB) = \text{tr}(BA ) \).
+
+   For the second formula, observe that
+   \[  \text{tr}(A^{t}) = \sum_{ i=1  }^{ n   } {(A^{t})}_{ii} = \sum_{ i=1  }^{ n } {A}_{ii} = \text{tr}(A). \]
+\end{proof}
+
+\subsection*{Exercise 2.3.14} Assume the notation in Theorem 2.13.
+\begin{enumerate}
+    \item[(a)] Suppose that \( z  \) is a (column) vector in \( F^{p} \). Use Theorem 2.13(b) to prove that \( Bz  \) is a linear combination of the columns of \( B  \). In particular, if \( z = ({a}_{1}, {a}_{2}, \dots, {a}_{p})^{t} \), then show that  
+        \[  Bz = \sum_{ j=1  }^{ p  } {a}_{j} {v}_{j}. \]
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Extend (a) to prove that column \( j  \) of \( AB  \) is a linear combination of the columns of \( A  \) with coefficients in the linear combination being entries of column \( j  \) of \(  B \). 
+        \begin{proof}
+        
+        \end{proof}
+    \item[(c)] For any row vector \( w \in F^{m} \), prove that \( wA  \) is a linear combination of the rows of \( A  \) with the coefficients in the linear combination being the coordinates of \( w  \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(d)] Prove the analogous result to (b) about rows: Row \( i \) of \( AB  \) is a linear combination of the rows of \( B  \) with the coefficients in the linear combination being the entries of row \( i  \) of \( A  \).
+        \begin{proof}
+        
+        \end{proof}
+
+\end{enumerate}
