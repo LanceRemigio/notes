@@ -117,15 +117,54 @@ Prove that \( \text{tr}(AB) = \text{tr}(BA) \) and \( \text{tr}(A) = \text{tr}(A
     \item[(a)] Suppose that \( z  \) is a (column) vector in \( F^{p} \). Use Theorem 2.13(b) to prove that \( Bz  \) is a linear combination of the columns of \( B  \). In particular, if \( z = ({a}_{1}, {a}_{2}, \dots, {a}_{p})^{t} \), then show that  
         \[  Bz = \sum_{ j=1  }^{ p  } {a}_{j} {v}_{j}. \]
         \begin{proof}
-        
+        Note that \( B  \) is an \( n \times  p  \) matrix and that 
+        \[  z = ({a}_{1}, {a}_{2}, \dots, {a}_{p})^{t} = \begin{pmatrix}
+            {a}_{1} \\
+            {a}_{2} \\
+            \vdots \\
+            {a}_{p}
+        \end{pmatrix}. \]
+        Observe that \( z  \) can be re-written in the following way:
+        \begin{align*}
+            z = {a}_{1} {e}_{1} + {a}_{2} {e}_{2} + \cdots + {a}_{p} {e}_{p}  
+              = \sum_{ j=1  }^{ p  } {a}_{j } {e}_{j }.
+        \end{align*}
+        Using theorem 2.13, we find that
+        \begin{align*}
+            Bz = B \Big( \sum_{ j=1  }^{ p } {a}_{j} {e}_{j} \Big)
+               = \sum_{ j=1  }^{ p } {a}_{j} (B {e}_{j}) 
+               =  \sum_{ j=1  }^{ p } {a}_{j} {v}_{j}.
+        \end{align*}
+        Hence, we have
+        \[  Bz = \sum_{ j=1  }^{ p } {a}_{j} {v}_{j}. \]
+
+
         \end{proof}
     \item[(b)] Extend (a) to prove that column \( j  \) of \( AB  \) is a linear combination of the columns of \( A  \) with coefficients in the linear combination being entries of column \( j  \) of \(  B \). 
         \begin{proof}
-        
+        Denote the column vectors of \( A  \) as \( {x}_{i} \) with \( 1 \leq i \leq n  \) and note that \( A  \) is an \( m \times n  \) matrix. Observe that the \( j \)th column of \( B  \) can be written as
+        \[  {v}_{j} = \sum_{ i=1  }^{ n } {B}_{ij} {e}_{i} \]
+        for \( 1 \leq j \leq p  \). Using Theorem 2.13 again, we find that
+        \begin{align*}
+            {u}_{j}  = A {v}_{j}  &= A \Big( \sum_{ i=1  }^{ n } {B}_{ij} {e}_{i} \Big) \\
+                                  &= \sum_{ i=1  }^{ n } {B}_{ij} ({Ae}_{i}) \\
+                                  &= \sum_{ i=1  }^{ n } {B}_{ij} {x}_{i}
+        \end{align*}
+        where \( {x}_{i}  \) is a column vector in \( F^{m} \) with entries in \(  A  \). 
+
+        \[  {u}_{j} = \sum_{ i=1  }^{ n } {B}_{ij} {x}_{i} \ \text{ for } 1 \leq j \leq p. \]
         \end{proof}
     \item[(c)] For any row vector \( w \in F^{m} \), prove that \( wA  \) is a linear combination of the rows of \( A  \) with the coefficients in the linear combination being the coordinates of \( w  \).
         \begin{proof}
-        
+        Let \( w \in F^{m} \) be a row vector with entries \( {b}_{j}  \) for \(  1 \leq j \leq m  \). Denote \( {x}_{j}  \) as the \( j \)th column of \( A  \) which is an \(  m \times n  \) matrix. Using the properties of transpose, we write
+        \begin{align*}
+            wA = (A^{t} w^{t})^{t} &= \Big( \sum_{ j=1 }^{ m } {b}_{j} {x}^{t}_{j}  \Big)^{t} \\
+                                   &= \sum_{ j=1  }^{ m } ({b}_{j} {x}^{t}_{j})^{t} \\
+                                   &= \sum_{ j=1  }^{ m } {b}_{j} {x}_{j}.
+        \end{align*}
+        Hence, 
+        \[  wA = \sum_{ j=1  }^{ m } {b}_{j} {x}_{j}. \]
+
         \end{proof}
     \item[(d)] Prove the analogous result to (b) about rows: Row \( i \) of \( AB  \) is a linear combination of the rows of \( B  \) with the coefficients in the linear combination being the entries of row \( i  \) of \( A  \).
         \begin{proof}
@@ -133,3 +172,26 @@ Prove that \( \text{tr}(AB) = \text{tr}(BA) \) and \( \text{tr}(A) = \text{tr}(A
         \end{proof}
 
 \end{enumerate}
+
+
+\subsection*{Exercise 2.3.15} Let \( M  \) and \( A  \) be matrices for which the product matrix \( MA  \) is defined. If the \( j \)th column of \( A  \) is a linear combination of a set of columns of \( A  \), prove that the \( j \)th column of \( MA  \) is a linear combination of the corresponding columns of \( MA  \) with the same corresponding coefficients.
+\begin{proof}
+
+\end{proof}
+
+\subsection*{Exercise 2.3.16} Let \( V  \) be finite-dimensional vector space, and let \( T: V \to V  \) be linear.
+\begin{enumerate}
+    \item[(a)] If \( \text{rank}(T) = \text{rank}(T^{2}) \), prove that \( R(T) \cap N(T) = \{ 0  \}   \). Deduce that \( V = R(T) \oplus N(T)  \) (see the exercises of Section 1.3).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Prove that \( V = R(T^{k }) \oplus N(T^{k }) \) for some positive integer \( k  \).
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 2.3.18} Using only the definition of matrix multiplication, prove that multiplication of matrices is associative. 
+\begin{proof}
+
+\end{proof}
