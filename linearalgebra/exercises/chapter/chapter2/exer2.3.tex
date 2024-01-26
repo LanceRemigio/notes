@@ -194,7 +194,19 @@ Prove that \( \text{tr}(AB) = \text{tr}(BA) \) and \( \text{tr}(A) = \text{tr}(A
 
 \subsection*{Exercise 2.3.15} Let \( M  \) and \( A  \) be matrices for which the product matrix \( MA  \) is defined. If the \( j \)th column of \( A  \) is a linear combination of a set of columns of \( A  \), prove that the \( j \)th column of \( MA  \) is a linear combination of the corresponding columns of \( MA  \) with the same corresponding coefficients.
 \begin{proof}
-
+   Let \( M  \) be an \( m \times n  \) matrix. Let \( {x}_{j}  \) be the \( j \)th column of \( A  \) where \( A  \) is an \( n \times p  \) matrix. Let \( {u}_{j}  \) be the \( j \)th column of \( MA  \) where \( MA  \) is an \( m \times p  \) matrix. Define this \( j \)th column vector as 
+   \[  {u}_{j} = M {x}_{j} \]
+   by Theorem 2.13. Note that
+   \[  {x}_{j} = \begin{pmatrix}
+       {A}_{1j } \\
+       {A}_{2j } \\
+       \vdots \\
+       {A}_{nj}
+   \end{pmatrix} = \sum_{ i=1  }^{ n } {A}_{ij} {e}_{i} \]
+   where \( {e}_{i}  \) is the standard basis vector for \( F^{n} \). We can see by Corollary to Theorem 2.12 that
+   \[  {u}_{j} = M {x}_{j} = M \Big( \sum_{ i=1  }^{ n } {A}_{ij} {e}_{i}  \Big) = \sum_{ i=1  }^{ n } {A}_{ij} (M {e}_{i}). \]
+   Note that \( {e}_{i}  \) is an \( n \times 1  \) matrix and \( M  \) is an \( m \times n  \) matrix. This means that \( M {e}_{i} \) is in \( F^{m} \). Denote this column vector as \( {v}_{i} = M {e}_{i}  \) where \( i  \) is the \( i \)th column of \( M  \). Hence, we have
+   \[  {u}_{j} = \sum_{ i=1  }^{ n } {A}_{ij} {v}_{i} \ \text{for} \ 1 \leq j \leq  p. \]
 \end{proof}
 
 \subsection*{Exercise 2.3.16} Let \( V  \) be finite-dimensional vector space, and let \( T: V \to V  \) be linear.
@@ -207,9 +219,15 @@ Prove that \( \text{tr}(AB) = \text{tr}(BA) \) and \( \text{tr}(A) = \text{tr}(A
             \[  \text{dim}(V) = \text{nullity}(T^{2}) + \text{rank}(T^{2}). \tag{2} \]
             Equating (1) and (2) together, we get that
             \[  \text{nullity}(T) + \text{rank}(T) = \text{nullity}(T^{2}) + \text{rank}(T^{2}). \]
-            Since \( \text{rank}(T) = \text{rank}(T^{2} )  \), we find that \( \text{nullity}(T) = \text{nullity}(T^{2}) \). Let \( x \in N(T)  \) be arbitrary. Then we have 
+            Since \( \text{rank}(T) = \text{rank}(T^{2} )  \), we find that \( \text{nullity}(T) = \text{nullity}(T^{2}) \). Let \( x \in N(T)  \) be arbitrary. Then we have that \( T(x) = 0  \) with \( x \in N(T)  \) implying \( x = 0  \). But since \( x \in N(T^{2}) \) as well, we have that
+            \[  T^{2}(x) = 0. \]
+    Note that 
             \[  T^{2}(x) = 0 \iff T(T(x)) = 0  \]
-            with \( T(x) \in N(T)  \) implying \( T(x) = 0  \) since \( T  \) is injective. But since \( T(x) \in R(T)  \), we must have \( R(T) \cap N(T) = \{ 0  \}  \). By the dimension theorem and Exercise 1.6.29, we have
+            with \( T(x) \in N(T)  \) implying \( T(x) = 0  \) since \( T  \) is injective. Note that 
+            \[  T(x) = x = 0  \]
+            where \( T(x) \in R(T)  \) and \( x \in N(T)  \). Hence, \( R(T) \cap N(T) = \{ 0  \}   \).
+
+            By the dimension theorem and Exercise 1.6.29, we have
             \begin{align*}
                 \text{dim}(R(T) + N(T)) &= \text{dim}(R(T)) + \text{dim}(N(T)) - \text{dim}(R(T) \cap N(T)) \\
                                         &=  \text{dim}(R(T)) + \text{dim}(N(T)) \\
@@ -218,18 +236,35 @@ Prove that \( \text{tr}(AB) = \text{tr}(BA) \) and \( \text{tr}(A) = \text{tr}(A
 Hence, \( V = R(T) + N(T)  \) by Theorem 1.11. Thus, we have
 \[  V = R(T) \oplus N(T). \]
         \end{proof}
+
     \item[(b)] Prove that \( V = R(T^{k }) \oplus N(T^{k }) \) for some positive integer \( k  \).
-        \begin{proof}
+            \begin{proof}
+            
             Pick a positive integer \( k  \) such that \( \text{rank}(T^{k }) = \text{rank}(T^{k+1})  \). By dimension theorem, we can write 
             \[  \text{dim}(V) = \text{rank}(T^{k }) + \text{nullity}(T^{k }). \tag{1}\] By the same reasoning, we also have
             \[  \text{dim}(V) = \text{rank}(T^{k+1}) + \text{nullity}(T^{k + 1 }). \tag{2} \] By setting (1) and (2) equal to each other and using the fact that \( \text{rank}(T^{k } ) = \text{rank}(T^{k+1}) \), we have
             \[  \text{nullity}(T^{k }) = \text{nullity}(T^{k+1}).  \]
             Thus, \( N(T^{k }) = N(T^{k+1}) \) by Theorem 1.11. Now, let \( x \in N(T^{k+1})  \). Then we have \( T^{k+1}(x) = 0  \). Since \( x \in N(T^{k }) \), we also have \( T^{k } (x) = 0  \). But note that 
             \[  T^{k+1}(x) = T^{k }(T(x)) = 0. \]
+            So, we have
+            \[  T^{k}(T(x)) = T^{k}(x) = 0.  \]
+            Since \( {T}_{k} \) is injective, we know that 
+            \[  T(x) = x = 0.   \]
+            But note that \( T(x) \in R(T^{k})  \) and \( x \in N(T^{k}) \). Hence, \( R(T^{k}) \cap N(T^{k}) = \{ 0  \}  \).
+            To show that \( V = R(T^{k}) + N(T^{k })   \), we can just follow the same process shown in part (a). Hence, we have 
+            \[  V = R(T^{k }) \oplus N(T^{k }). \]
         \end{proof}
-\end{enumerate}
+        \end{enumerate}
 
 \subsection*{Exercise 2.3.18} Using only the definition of matrix multiplication, prove that multiplication of matrices is associative. 
 \begin{proof}
-
+   Define \( A, B    \) and \( C  \) as \( m \times n  \), \( n \times p  \), and \( p \times \ell  \) matrices respectively. This establishes that \( (AB) C  \) is an \( m \times \ell  \) matrix. Using the definition of matrix multiplication, we get that 
+   \begin{align*}
+       \Big( (AB) C  \Big)_{ij} &= \sum_{ k=1  }^{ p  } {(AB)}_{ik } {C}_{kj }  \\
+                                &= \sum_{ k=1  }^{ p  } \Big( \sum_{ \lambda = 1  }^{ n } {A}_{i \lambda } {B}_{\lambda k  } \Big) {C}_{kj} \\
+                                &= \sum_{ \lambda = 1  }^{ n  } {A}_{i \lambda } \Big( \sum_{ k=1  }^{ p  } {B}_{\lambda k } {C}_{ k j } \Big) \\
+                                &= \sum_{ \lambda = 1  }^{ n  } {A}_{i \lambda } {(BC)}_{\lambda j } \\
+                                &= \Big( A(BC)  \Big)_{ij}
+   \end{align*}
+   where \( 1 \leq i \leq m  \) and \( 1 \leq j \leq \ell  \). Hence, we have \( (AB)C = A(BC) \).
 \end{proof}
