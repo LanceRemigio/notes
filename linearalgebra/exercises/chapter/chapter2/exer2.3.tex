@@ -3,17 +3,129 @@
 
 \subsection*{Exercise 2.3.5} Complete the proof of Theorem 2.12 and its corollary. 
 \begin{proof}
-See proof in notes.
+    Let \( A  \) be an \( m \times n  \) matrix, \( B  \) and \(  C  \) be \( n \times p  \) matrices, and \( D  \) and \( E  \) be \( q \times  m  \) matrices. Then
+\begin{enumerate}
+    \item[(a)] Let \( 1 \leq i \leq m  \) and \( 1 \leq j \leq p  \). By definition of the product of two matrices, we have 
+        \begin{align*}
+            (A(B+C))_{ij} &= \sum_{ k=1 }^{ n } {A}_{ik } {(B+C)}_{kj} \\ 
+               &= \sum_{ k=1 }^{ n } {A}_{ik } ({B}_{kj} + {C}_{kj} ) \\
+               &= \sum_{ k=1 }^{ n } {A}_{ik } {B}_{kj} + \sum_{ k=1 }^{ n } {A}_{ik} {C}_{kj} \\ 
+               &= (AB)_{ij} + (AC)_{ij}.    
+        \end{align*}
+        Hence, \( A(B+C) = AB + AC  \).
+        
+        Now, let \( 1 \leq i \leq q  \) and \( 1 \leq j \leq n  \). For the second formula, we can use the same definition to write
+    \begin{align*}
+        ((D+E) A)_{ij} &= \sum_{ k=1 }^{ m } {(D+E)}_{ik} {A}_{kj}    \\
+                &= \sum_{ k=1 }^{ m } ({D}_{ik } + {E}_{ik }) {A}_{kj} \\
+                &= \sum_{ k=1 }^{ m } {D}_{ik} {A}_{kj } + \sum_{ i=1 }^{ m   } {E}_{ik } {A}_{kj} \\
+                &= (DA)_{ij} + (EA)_{ij}.
+    \end{align*}
+    Hence, \( (D+E) A = DA + EA \).
+    \item[(b)] Let \(  1 \leq i \leq m  \) and \( 1 \leq j \leq p  \). Let \( a \in F  \). Then using the definition of the product once again, we have
+        \begin{align*}
+            a (AB)_{ij} &= a \sum_{ k=1 }^{ n } {A}_{ik } {B}_{kj} \\
+                   &= \sum_{ k=1 }^{ n } a ({A}_{ik } {B}_{kj }) \\
+                   &= \sum_{ k=1 }^{ n } ({aA}_{ik}) {B}_{kj } \\
+                   &= \sum_{ k=1 }^{ n } {(aA)}_{ik } {B}_{kj} \\
+                   &= ((aA)B)_{ij}.
+        \end{align*}
+    Then observe that 
+    \begin{align*}  
+        ((aA)B)_{ij} &= \sum_{ k = 1  }^{ n  } (a {A}_{ik } ) {B}_{kj} \\ 
+    &= \sum_{ k=1 }^{ n } ({A}_{ik } a ) {B}_{kj}  \\
+    &= \sum_{ k=1 }^{ n } {A}_{ik } (a {B}_{kj})  \\
+    &= \sum_{ k=1 }^{ n } {A}_{ik } {(aB)}_{kj} \\
+    &= (A (aB))_{ij}.
+    \end{align*}
+    Hence, \( (aA)B = A(aB) \). Thus, we conclude that
+    \[ a(AB) = (aA)B = A(aB).  \]
+\item[(c)] Let \(   1 \leq i \leq m  \) and \(  1 \leq j \leq n  \). Since \( {\delta}_{ik} = 1   \) only when \( i = k  \) and \( 0  \) otherwise, we must have
+    \begin{align*}
+        ({I}_{m} A)_{ij} &= \sum_{ k=1  }^{ m  } {\delta}_{ik } {A}_{kj}  = {A}_{ij }. \\
+    \end{align*}
+    Likewise, 
+    \[  {(A {I}_{n} )}_{ij } = \sum_{ k= 1  }^{ n  } {A}_{ik } {\delta}_{k j } = {A}_{ij }  \] by the same reasoning. Hence, we have
+    \[  {I}_{m} A = A = A {I}_{n}. \]
+    \item[(d)] Let \( V  \) be an \( n- \)dimensional vector space with \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) as an ordered basis. Since \( {I}_{V}({v}_{j}) = {v}_{j }  \) for all \( 1 \leq j \leq n  \), we must have
+        \[  {v}_{j} = {I}_{V}({v}_{j}) = \sum_{ i=1 }^{ n } {a}_{ij} {v}_{i}   \]
+        which holds only if \(  {a}_{ij} = 1  \) for all \( i = j  \) and \( 0  \) otherwise. But this means that \( {a}_{ij} = {\delta}_{ij}  \), so \( [{I}_{V}]_{\beta}^{}  = {I}_{n} \).
+        
+\end{enumerate}
 \end{proof}
+
+\begin{proof}
+Let \( A  \) be an \( m \times n  \) matrix and \( {B}_{1}, {B}_{2}, \dots, {B}_{k } \) be \( n \times p  \) matrices. Let \( 1 \leq \ell \leq m  \) and \( 1 \leq s  \leq p  \). Then
+\begin{align*}
+    \Big[ A \Big( \sum_{ i=1 }^{ k  } {a}_{i} {B}_{i} \Big) \Big]_{\ell s } &= \sum_{ \lambda = 1  }^{ n } {A}_{ \ell \lambda }  \Big( \sum_{ i=1 }^{ k  } {a}_{i} {B}_{i} \Big)_{\lambda s }  \\
+                                                                        &= \sum_{ \lambda = 1  }^{ n  } {A}_{ \ell \lambda } \Big(  \sum_{ i=1  }^{  k  } {({a}_{i} {B}_{i})}_{\lambda s } \Big)  \\
+                                                                        &=  \sum_{ \lambda = 1  }^{ n  } {A}_{ \ell \lambda } \Big( \sum_{ i=1 }^{ k  } {a}_{i} ({B}_{i})_{\lambda s } \Big) \\
+                                                                        &= \sum_{ i=1  }^{ k  } {a}_{i} \Big( \sum_{ \lambda =1  }^{ n  } {A}_{ \ell \lambda } ({B}_{i})_{\lambda s } \Big) \tag{part (a) of Theorem 2.12}  \\
+                                                                        &= \sum_{ i=1  }^{ k  } {a}_{i}  (A {B}_{i})_{\ell s } .
+\end{align*}
+Hence, we have
+\[  A \Big( \sum_{ i=1 }^{ k  } {a}_{i} {B}_{i}  \Big) = \sum_{ i=1  }^{  k  } {a}_{i} {AB}_{i}.\]
+
+To show the second formula, let \( 1 \leq \ell \leq q  \) and \( 1 \leq  s  \leq n   \). Then
+\begin{align*}
+    \Big[ \Big( \sum_{ i=1 }^{ k  } {a}_{i} {C}_{i}  \Big) A  \Big]_{\ell s }  &= \sum_{ \lambda = 1  }^{ n   } \Big( \sum_{ i=1 }^{ k  } {a}_{i} {C}_{i} \Big)_{\ell \lambda } {A}_{\lambda s }  \\
+                                                                                     &= \sum_{ \lambda = 1  }^{ n } \Big( \sum_{ i=1 }^{  k   } ({a}_{i} {C}_{i})_{\ell \lambda }  \Big) {A}_{\lambda s } \\
+                                                                                     &= \sum_{ \lambda = 1  }^{ n } \Big( \sum_{ i=1 }^{  k   } {a}_{i} ({C}_{i})_{\ell \lambda }  \Big) {A}_{\lambda s } \\
+                                                                                     &= \sum_{ i =1  }^{ k  } {a}_{i} \Big( \sum_{ i=1  }^{ k  } {({C}_{i})}_{\ell \lambda } {A}_{\lambda s }  \Big) \tag{part (a) of Theorem 2.12}   \\
+                                                                                     &= \sum_{ i=1  }^{ k  } {a}_{i} ({C}_{i} A  )_{\ell s }.
+\end{align*}
+Hence, we have
+\[  \Big( \sum_{ i=1  }^{  k  } {a}_{i} {C}_{i}  \Big) A = \sum_{ i=1  }^{ k  } {a}_{i} {C}_{i} A. \]
+\end{proof}
+
+
 
 \subsection*{Exercise 2.3.6} Prove (b) of Theorem 2.13.
 \begin{proof}
-See proof in notes.
+To show the other equation, we apply part (c) of Theorem 2.12, to write
+\begin{align*}
+   {v}_{j}  &= \begin{pmatrix}
+       {B}_{1j } \\
+       {B}_{2j } \\
+       \vdots \\
+       {B}_{nj } 
+   \end{pmatrix} = 
+   \begin{pmatrix}
+        (B {I}_{p})_{1j} \\  
+        {(B{I}_{p})}_{2j} \\
+        \vdots \\
+        {(B {I}_{p})}_{nj}
+   \end{pmatrix} = \begin{pmatrix}
+       \sum_{ k=1  }^{ n } {B}_{1k} {\delta}_{kj} \\
+       \sum_{ k=1  }^{ n } {B}_{2k} {\delta}_{kj } \\
+       \vdots \\
+       \sum_{ k=1  }^{ n } {B}_{nk} {\delta}_{kj } 
+       \end{pmatrix} = B \begin{pmatrix}
+       {\delta}_{1j } \\
+       {\delta}_{2j } \\
+       \vdots \\
+       {\delta}_{pj } 
+   \end{pmatrix} = B {e}_{j}
+\end{align*}
+where \( {\delta}_{1j} \) are the Kronecker delta constants.
 \end{proof}
 
 \subsection*{Exercise 2.3.7} Prove (c) and (f) of Theorem 2.15.
 \begin{proof}
-See proof in notes.
+\begin{enumerate}
+    \item[(c)] Using the sum rule for matrices, we must have
+            \[  {L}_{A+B}(x) = (A+B)(x) = A(x) + B(x) = {L}_{A}(x) + {L}_{B}(x). \]
+            Hence, \( {L}_{A+B} = {L}_{A} + {L}_{B} \). Now, let \( a \in F  \). Using the same reasoning, we have  
+            \[  {L}_{aA}(x) = (aA)(x) = a (A(x)) = a {L}_{A}(x).  \]
+            Hence, \( {L}_{aA} = a{L}_{A}. \)
+        \item[(f)] Let \( 1 \leq j \leq n  \). Then
+                \begin{align*}  {L}_{{I}_{n}}({e}_{j}) = {I}_{n}({e}_{j}) 
+                &= {e}_{j} \\ 
+                &= {I}_{F^{n}}({e}_{j}) \tag{Part (d) of Theorem 2.3.4}.
+                \end{align*}
+            Hence, \( {L}_{{I}_{n}} = {I}_{F^{n}} \).
+
+\end{enumerate}
 \end{proof}
 
 \subsection*{Exercise 2.3.8} Prove Theorem 2.10. Now state and prove a more general result involving linear transformations with domains unequal to their codomains.

@@ -173,3 +173,10 @@
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{55}{thmt@dummyctr.dummy.171}%
 \contentsline {theorem}{\ifthmt@listswap Theorem~2.3.8\else \numberline {2.3.8}Theorem\fi \thmtformatoptarg {Associativity of Left-Multiplication Transformations}}{56}{theorem.2.3.8}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{56}{thmt@dummyctr.dummy.173}%
+\contentsline {definition}{\ifthmt@listswap Definition~2.4.1\else \numberline {2.4.1}Definition\fi \thmtformatoptarg {Invertibility of Linear Maps}}{57}{definition.2.4.1}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~2.4.1\else \numberline {2.4.1}Theorem\fi \thmtformatoptarg {Dimension Theorem In Terms of Invertibility}}{57}{theorem.2.4.1}%
+\contentsline {eg}{\ifthmt@listswap Example~2.4.1\else \numberline {2.4.1}Example\fi }{57}{eg.2.4.1}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~2.4.2\else \numberline {2.4.2}Theorem\fi \thmtformatoptarg {Inverses Of Linear Maps Are Linear}}{58}{theorem.2.4.2}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{58}{thmt@dummyctr.dummy.178}%
+\contentsline {definition}{\ifthmt@listswap Definition~2.4.2\else \numberline {2.4.2}Definition\fi \thmtformatoptarg {Invertibility of Matrices}}{58}{definition.2.4.2}%
+\contentsline {lemma}{\ifthmt@listswap Lemma~2.4.1\else \numberline {2.4.1}Lemma\fi }{58}{lemma.2.4.1}%

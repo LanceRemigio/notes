@@ -1,0 +1,73 @@
+\section{Invertibility and Isomorphisms}
+
+\subsection{Inverses of Linear Maps}
+\begin{itemize}
+    \item We will see in this section that inverses of linear maps are linear.
+    \item Inverses of linear maps allow us to gain insight on properties of inverted matrices.
+    \item Many of the results found in this section are applied to concept of \textit{isomorphisms}. 
+\end{itemize}
+
+\begin{definition}[Invertibility of Linear Maps]
+    Let \( V  \) and \( W  \) be vector spaces, and let \( T: V \to W  \) be linear. A function \( U: W \to V  \) is said to be an \textbf{inverse} of \( T  \) if \( TU = {I}_{W} \) and \( UT = {I}_{V} \). If \( T  \) has an inverse, then \( T  \) is said to be \textbf{invertible}. As noted in Appendix \( B  \), if \( T  \) is invertible, then the inverse of \( T  \) is unique and is denoted by \( T^{-1} \). 
+\end{definition}
+
+The following facts hold for invertible functions \( T  \) and \( U  \).
+\begin{enumerate}
+    \item \( (TU)^{-1} = U^{-1} T^{-1} \).
+    \item \( (T^{-1})^{-1} = T  \); in particular, \( T^{-1}  \) is invertible.
+\end{enumerate}
+
+\begin{itemize}
+    \item We often refer to functions being invertible if and only if they are both injective and surjective. This allows us to restate Dimension Theorem when applied to two equal finite-dimensional vector spaces.
+\end{itemize}
+
+\begin{theorem}[Dimension Theorem In Terms of Invertibility]
+  Let \( T: V \to W  \) be a linear transformation, where \( V  \) and \( W  \) are finite-dimensional spaces of equal dimension. Then \( T  \) is invertible if and only if \( \text{rank}(T) = \text{dim}(V ) \).  
+\end{theorem}
+
+\begin{eg}
+    Let \( T: {P}_{1}(\R) \to \R^{2}  \) be the linear transformation defined by
+    \[  T(a+bx) = (a, a+b). \]
+    One can verify directly that \( T^{-1}: \R^{2} \to {P}_{1}(\R) \) is defined by 
+    \[  T^{-1}(c,d) = c + (d-c)x \]
+    and that \( T^{-1} \) is also linear.
+\end{eg}
+
+\begin{theorem}[Inverses Of Linear Maps Are Linear]
+    Let \( V  \) and \( W  \) be vector spaces, and let \( T: V \to W  \) be linear and invertible. Then \( T^{-1}: W \to V  \) is linear.
+\end{theorem}
+\begin{proof}
+Let \( {y}_{1}, {y}_{2} \in W  \) and \( c \in F  \). Since \( T  \) is surjective and injective, there exists unique vectors \( {x}_{1}  \) and \( {x}_{2}  \) such that \( T({x}_{1}) = {y}_{1}  \) and \( T({x}_{2}) = {y}_{2} \). Thus, we have \( {x}_{1} = T^{-1}({y}_{1})  \) and \( {x}_{2} = T^{-1}({y}_{2}) \). Since \( T  \) is linear, we must have that
+\begin{align*}
+    T^{-1}( c {y}_{1} + {y}_{2}) &= T^{-1}( c T({x}_{1}) + T({x}_{2})) \\
+                                 &= T^{-1}( T(c {x}_{1}) + T({x}_{2})) \\
+                                 &= T^{-1}(T({cx}_{1} + {x}_{2})) \\
+                                 &= T^{-1}T({cx}_{1} + {x}_{2}) \\
+                                 &= {I}_{V}({cx}_{1} + {x}_{2}) \\
+                                 &= {cx}_{1} + {x}_{2} \\
+                                 &= c T^{-1}({y}_{1}) + T^{-1}({y}_{2}).
+\end{align*}
+Hence, \( T^{-1} \) is a linear map.
+\end{proof}
+
+\begin{itemize}
+    \item This tells us that the notions of invertibility, injectivity, and surjectivity in {\hyperref[Theorem 2.5]{Theorem 2.5}} are all equivalent. 
+\end{itemize}
+
+\subsection{Inverse of a Matrix}
+
+\begin{definition}[Invertibility of Matrices]
+   Let \( A  \) be an \( n \times n  \) matrix. Then \( A  \) is \textbf{invertible} if there exists an \( n \times n  \) matrix \( B  \) such that \( AB = BA = I  \).
+\end{definition}
+
+\begin{itemize}
+    \item When \( A  \) is invertible, the matrix \( B  \) and its product \( AB  \) can be written in the following way:
+        \[  AB = BA = I. \]
+    \item If \( C  \) was another such matrix such that the above is true (replace \( B  \) with \( C  \)), then we can write 
+        \[  C = CI = C(AB) = (CA)B = IB = B.   \]
+    \item The matrix \( B  \), in this case, is called the \textbf{inverse} of \( A  \) and is denoted by \( A^{-1} \). 
+\end{itemize}
+
+\begin{lemma}
+   Let \( T \) be an invertible linear transformation from \( V  \) to \( W  \). Then \( V  \) is finite-dimensional if and only if \( W  \) is finite-dimensional. In this case, \( \text{dim}(V ) = \text{dim}(W) \). 
+\end{lemma}
