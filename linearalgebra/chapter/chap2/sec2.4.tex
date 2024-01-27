@@ -71,3 +71,34 @@ Hence, \( T^{-1} \) is a linear map.
 \begin{lemma}
    Let \( T \) be an invertible linear transformation from \( V  \) to \( W  \). Then \( V  \) is finite-dimensional if and only if \( W  \) is finite-dimensional. In this case, \( \text{dim}(V ) = \text{dim}(W) \). 
 \end{lemma}
+\begin{proof}
+    Suppose that \( V  \) is finite-dimensional. Let \( \beta = \{  {x}_{1}, {x}_{2}, \dots, {x}_{n} \}  \) be a basis for \( V  \). By {\hyperref[Spanning set for R(T)]{Theorem 2.2}}, we get that \( \text{span}(T(\beta)) = R(T) \). Since \( T  \) is invertible, we know that \( T  \) is also surjective. Hence, \( \text{span}(T(\beta)) = R(T) = W  \) and so \( W  \) is finite-dimensional by {\hyperref[Theorem 1.9]{Theorem 1.9}}. Conversely, suppose that \( W  \) is finite-dimensional. So, let \( \gamma = \{ {y}_{1}, {y}_{2}, \dots, {y}_{n} \}   \) be a basis for \( W  \). Since \( T  \) is surjective, we know that for each \( {y}_{i} \) in \( \gamma \) that \( {y}_{i} = T({x}_{i}) \) for each \( i  \). Hence, we have that \( T^{-1}({y}_{i}) = {x}_{i} \) for all \( i \). By Theorem 2.2 again, we know that \( T^{-1}(\gamma) \) spans \( R(T^{-1}) \) where \( R(T^{-1}) = V  \) since \( T^{-1}  \) is surjective. Hence, \( V  \) is finite-dimensional.
+    
+    Now, suppose that both \( V  \) and \( W  \) are finite-dimensional. Since \( T  \) is injective and surjective, we must have that
+    \begin{center}
+        \( \text{nullity}(T) = 0  \) and \( \text{rank}(T) = \text{dim}(R(T)) = \text{dim}(W) \).
+    \end{center}
+    By the {\hyperref[Dimension Theorem]{Dimension Theorem}}, we have that \( \text{rank}(T) = \text{dim}(V) \) which implies that 
+    \[  \text{dim}(V) = \text{dim}(W). \]
+\end{proof}
+
+\begin{theorem}
+   Let \( V  \) and \( W  \) be finite-dimensional vector spaces with ordered bases \( \beta \) and \( \gamma  \), respectively. Let \( T: V \to W  \) be linear. Then \( T  \) is invertible if and only if \( [T]_{\beta}^{\gamma}   \) is invertible. Furthermore, \( [T^{-1}]_{\gamma}^{\beta}  = ([T]_{\beta}^{\gamma} )^{-1} \).
+\end{theorem}
+\begin{proof}
+Let \( V  \) and \( W  \) be vector spaces with ordered bases \( \beta  \) and \( \gamma \) respectively. Let \( T  \) be linear. Suppose \( T  \) is invertible. Then there exists a unique linear transformation \( T^{-1}: W \to V  \) by definition. Hence, observe that 
+\[  [T^{-1}]_{\gamma}^{\beta}  [T]_{\beta}^{\gamma}  = [T^{-1}T ]_{\beta} = [{I}_{V}]_{\beta} = {I}_{n}  \]
+and similarly
+\[ [T]_{\beta}^{\gamma}  [T^{-1}]_{\gamma}^{\beta}  = [T T^{-1}]_{\beta} = [{I}_{V}]_{\beta} = {I}_{n}.        \]
+Hence, \( [T]_{\beta}^{\gamma}  \) is invertible and that 
+\[ [T^{-1}]_{\gamma}^{\beta}  = ([T]_{\beta}^{\gamma} )^{-1}.  \]
+
+Conversely, suppose that \( [T]_{\beta}^{\gamma}  \) is invertible. Since \( V \) and \( W  \) are finite-dimensional vector spaces where  \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) and \( \gamma = \{ {w}_{1}, {w}_{2}, \dots, {w}_{n} \}  \) are ordered bases for \( V  \) and \( W  \), respectively. Hence, we know by Theorem 2.6 there exists a unique linear transformation \( U: W \to V  \) such that 
+\[  U({w}_{j}) = \sum_{ i = 1   }^{ n } {B}_{ij} {v}_{i}    \]
+where \( {v}_{i} \in \beta \). Since \( [T]_{\beta}^{\gamma} = A   \) is invertible, we know that 
+\[  AB = BA = I_n.  \] We want to show that \( UT = {I}_{V}  \) and \( TU = {I}_{W} \). Define the matrix representation \( [U]_{\gamma}^{\beta}  \). We need to show that \(  U = T^{-1} \). Hence, we have
+\[  [UT]_{\beta} = [U]_{\gamma}^{\beta} [T]_{\beta}^{\gamma} = BA = {I}_{n} = [{I}_{V}]_{\beta}      \]
+and 
+\[ [TU]_{\gamma} = [T]_{\beta}^{\gamma} [U]_{\gamma}^{\beta} = AB = {I}_{n} = [{I}_{W}]_{\gamma}      \]
+by Theorem 2.11. Hence, we have \( UT = {I}_{V}  \) and \( TU = {I}_{W} \). Thus, \( T  \) is invertible.
+\end{proof}

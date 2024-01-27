@@ -180,3 +180,6 @@
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{58}{thmt@dummyctr.dummy.178}%
 \contentsline {definition}{\ifthmt@listswap Definition~2.4.2\else \numberline {2.4.2}Definition\fi \thmtformatoptarg {Invertibility of Matrices}}{58}{definition.2.4.2}%
 \contentsline {lemma}{\ifthmt@listswap Lemma~2.4.1\else \numberline {2.4.1}Lemma\fi }{58}{lemma.2.4.1}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{58}{thmt@dummyctr.dummy.181}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~2.4.3\else \numberline {2.4.3}Theorem\fi }{59}{theorem.2.4.3}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{59}{thmt@dummyctr.dummy.183}%
