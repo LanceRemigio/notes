@@ -10,7 +10,7 @@ The main goal in this section is to describe how to represent the multiplication
 
 Our first goal is to prove that the composite of linear transformations is linear.
 
-\begin{theorem}\label{Composition is Linear}
+\begin{theorem}[Compositions are Linear]\label{Composition is Linear}
    Let \( V, W,   \) and \( Z  \) be vector spaces over the same field \( F  \), and let \( T: V \to W  \) and \( U: W \to Z  \) be linear. Then \( UT: V \to Z  \) is linear.
 \end{theorem}
 \begin{proof}
@@ -26,7 +26,7 @@ Our first goal is to prove that the composite of linear transformations is linea
 
 The following are a list of properties of the composition of linear transformations.
 
-\begin{theorem}\label{Properties of Compositions}
+\begin{theorem}[Properties of Compositions in \( \mathcal{L}(V) \)]\label{Properties of Compositions}
     Let \( V  \) be a vector space. Let \( T, {U}_{1}, {U}_{2} \in \mathcal{L}(V) \). Then 
     \begin{enumerate}
         \item[(a)] \( T({U}_{1} + {U}_{2}) = {TU}_{1} + {TU}_{2}  \) and \( ({U}_{1} + {U}_{2}) T = {U}_{1} T + {U}_{2} T  \).
@@ -132,7 +132,7 @@ where
  and 
  \[  {(B^{t}A^{t})}_{ij} = \sum_{ k=1 }^{ n } (B^{t})_{ik} {(A)^{t}}_{kj } = \sum_{ k=1 }^{ n } {B}_{ki} {A}_{jk }.  \]
 
-\begin{theorem}
+ \begin{theorem}[Compositions Represented by Product of Matrix Multiplication]
     Let \( V,W,   \) and \( Z  \) be finite-dimensional vector spaces with ordered bases \( \alpha , \beta ,  \) and \( \gamma \) respectively. Let \( T: V \to W  \) and \( U : W \to Z  \) be linear transformations. Then
     \[  [UT]_{\alpha}^{\gamma} = [U]_{\beta}^{\gamma} [T]_{\alpha}^{\beta}. \]
 \end{theorem} 
@@ -269,7 +269,7 @@ Hence, we have
 
 
 
-\begin{theorem}\label{Theorem 2.13} %Theorem 2.13
+\begin{theorem}[Marix Products Represented by Column Vectors]\label{Theorem 2.13} %Theorem 2.13
    Let \( A  \) be an \( m \times n  \) matrix and \( B  \) be an \( n \times p  \) matrix. For each \( j  \) (\( 1 \leq j \leq p  \)) let \( {u}_{j}  \) and \(  {v}_{j}  \) denote the \( j \)th columns of \( AB  \) and \( B  \) respectively. Then
     \begin{enumerate}
         \item[(a)]  \( {u}_{j} = A {v}_{j}  \)
@@ -330,7 +330,7 @@ where \( {\delta}_{1j} \) are the Kronecker delta constants.
     \item In the case for rows, the \( i \)th row of \( AB  \) can be written as a linear combination of the rows of \( B  \) with coefficients being entries from \( i \)th row in \( A  \).
 \end{itemize}
 
-\begin{theorem}
+\begin{theorem}[Linear Maps and Matrix Products]
     Let \( V  \) and \( W  \) be finite-dimensional vector spaces having ordered bases \( \beta  \) and \( \gamma  \), respectively, and let \( T: V \to W  \) be linear. Then, for each \( u \in V  \), we have
     \[  [T(u)]_{\gamma}^{}  = [T]_{\beta}^{\gamma}  [u]_{\beta}^{}. \]
 \end{theorem}

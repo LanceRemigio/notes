@@ -138,20 +138,20 @@
 \contentsline {eg}{\ifthmt@listswap Example~2.2.3\else \numberline {2.2.3}Example\fi }{42}{eg.2.2.3}%
 \contentsline {eg}{\ifthmt@listswap Example~2.2.4\else \numberline {2.2.4}Example\fi }{43}{eg.2.2.4}%
 \contentsline {definition}{\ifthmt@listswap Definition~2.2.4\else \numberline {2.2.4}Definition\fi }{43}{definition.2.2.4}%
-\contentsline {theorem}{\ifthmt@listswap Theorem~2.2.1\else \numberline {2.2.1}Theorem\fi }{43}{theorem.2.2.1}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~2.2.1\else \numberline {2.2.1}Theorem\fi \thmtformatoptarg {The Set of Linear Maps Over \( V \) is a Vector Space}}{43}{theorem.2.2.1}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{43}{thmt@dummyctr.dummy.140}%
 \contentsline {definition}{\ifthmt@listswap Definition~2.2.5\else \numberline {2.2.5}Definition\fi }{44}{definition.2.2.5}%
-\contentsline {theorem}{\ifthmt@listswap Theorem~2.2.2\else \numberline {2.2.2}Theorem\fi }{44}{theorem.2.2.2}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~2.2.2\else \numberline {2.2.2}Theorem\fi \thmtformatoptarg {Addition and Scalar Mulitplication of Matrix Representations}}{44}{theorem.2.2.2}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{44}{thmt@dummyctr.dummy.143}%
 \contentsline {eg}{\ifthmt@listswap Example~2.2.5\else \numberline {2.2.5}Example\fi }{45}{eg.2.2.5}%
-\contentsline {theorem}{\ifthmt@listswap Theorem~2.3.1\else \numberline {2.3.1}Theorem\fi }{46}{theorem.2.3.1}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~2.3.1\else \numberline {2.3.1}Theorem\fi \thmtformatoptarg {Compositions are Linear}}{46}{theorem.2.3.1}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{46}{thmt@dummyctr.dummy.146}%
-\contentsline {theorem}{\ifthmt@listswap Theorem~2.3.2\else \numberline {2.3.2}Theorem\fi }{46}{theorem.2.3.2}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~2.3.2\else \numberline {2.3.2}Theorem\fi \thmtformatoptarg {Properties of Compositions in \( \mathcal {L}(V) \)}}{46}{theorem.2.3.2}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{46}{thmt@dummyctr.dummy.148}%
 \contentsline {definition}{\ifthmt@listswap Definition~2.3.1\else \numberline {2.3.1}Definition\fi \thmtformatoptarg {Matrix Representation of the Composition}}{47}{definition.2.3.1}%
 \contentsline {definition}{\ifthmt@listswap Definition~2.3.2\else \numberline {2.3.2}Definition\fi \thmtformatoptarg {Product of Two Matrices}}{48}{definition.2.3.2}%
 \contentsline {eg}{\ifthmt@listswap Example~2.3.1\else \numberline {2.3.1}Example\fi }{48}{eg.2.3.1}%
-\contentsline {theorem}{\ifthmt@listswap Theorem~2.3.3\else \numberline {2.3.3}Theorem\fi }{49}{theorem.2.3.3}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~2.3.3\else \numberline {2.3.3}Theorem\fi \thmtformatoptarg {Compositions Represented by Product of Matrix Multiplication}}{49}{theorem.2.3.3}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{49}{thmt@dummyctr.dummy.153}%
 \contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{49}{thmt@dummyctr.dummy.154}%
 \contentsline {eg}{\ifthmt@listswap Example~2.3.2\else \numberline {2.3.2}Example\fi }{49}{eg.2.3.2}%
@@ -161,9 +161,9 @@
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{49}{thmt@dummyctr.dummy.159}%
 \contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{51}{thmt@dummyctr.dummy.160}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{52}{thmt@dummyctr.dummy.161}%
-\contentsline {theorem}{\ifthmt@listswap Theorem~2.3.5\else \numberline {2.3.5}Theorem\fi }{52}{theorem.2.3.5}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~2.3.5\else \numberline {2.3.5}Theorem\fi \thmtformatoptarg {Marix Products Represented by Column Vectors}}{52}{theorem.2.3.5}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{53}{thmt@dummyctr.dummy.163}%
-\contentsline {theorem}{\ifthmt@listswap Theorem~2.3.6\else \numberline {2.3.6}Theorem\fi }{53}{theorem.2.3.6}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~2.3.6\else \numberline {2.3.6}Theorem\fi \thmtformatoptarg {Linear Maps and Matrix Products}}{53}{theorem.2.3.6}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{53}{thmt@dummyctr.dummy.165}%
 \contentsline {eg}{\ifthmt@listswap Example~2.3.3\else \numberline {2.3.3}Example\fi }{54}{eg.2.3.3}%
 \contentsline {definition}{\ifthmt@listswap Definition~2.3.5\else \numberline {2.3.5}Definition\fi \thmtformatoptarg {Left Multiplication Transformation}}{54}{definition.2.3.5}%
@@ -181,5 +181,5 @@
 \contentsline {definition}{\ifthmt@listswap Definition~2.4.2\else \numberline {2.4.2}Definition\fi \thmtformatoptarg {Invertibility of Matrices}}{58}{definition.2.4.2}%
 \contentsline {lemma}{\ifthmt@listswap Lemma~2.4.1\else \numberline {2.4.1}Lemma\fi }{58}{lemma.2.4.1}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{58}{thmt@dummyctr.dummy.181}%
-\contentsline {theorem}{\ifthmt@listswap Theorem~2.4.3\else \numberline {2.4.3}Theorem\fi }{59}{theorem.2.4.3}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~2.4.3\else \numberline {2.4.3}Theorem\fi \thmtformatoptarg {Invertibility of Linear Maps \( \iff \) Invertibility of Matrices}}{59}{theorem.2.4.3}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{59}{thmt@dummyctr.dummy.183}%
