@@ -25,7 +25,7 @@ The following facts hold for invertible functions \( T  \) and \( U  \).
   Let \( T: V \to W  \) be a linear transformation, where \( V  \) and \( W  \) are finite-dimensional spaces of equal dimension. Then \( T  \) is invertible if and only if \( \text{rank}(T) = \text{dim}(V ) \).  
 \end{theorem}
 
-\begin{eg}
+\begin{eg}\label{Eg 2.4.1}
     Let \( T: {P}_{1}(\R) \to \R^{2}  \) be the linear transformation defined by
     \[  T(a+bx) = (a, a+b). \]
     One can verify directly that \( T^{-1}: \R^{2} \to {P}_{1}(\R) \) is defined by 
@@ -68,7 +68,7 @@ Hence, \( T^{-1} \) is a linear map.
     \item The matrix \( B  \), in this case, is called the \textbf{inverse} of \( A  \) and is denoted by \( A^{-1} \). 
 \end{itemize}
 
-\begin{lemma}
+\begin{lemma}\label{Invertibility Implies dim V = dim W}
    Let \( T \) be an invertible linear transformation from \( V  \) to \( W  \). Then \( V  \) is finite-dimensional if and only if \( W  \) is finite-dimensional. In this case, \( \text{dim}(V ) = \text{dim}(W) \). 
 \end{lemma}
 \begin{proof}
@@ -102,3 +102,107 @@ and
 \[ [TU]_{\gamma} = [T]_{\beta}^{\gamma} [U]_{\gamma}^{\beta} = AB = {I}_{n} = [{I}_{W}]_{\gamma}      \]
 by Theorem 2.11. Hence, we have \( UT = {I}_{V}  \) and \( TU = {I}_{W} \). Thus, \( T  \) is invertible.
 \end{proof}
+
+\begin{eg}
+    Let \( \beta  \) and \( \gamma  \) be the standard ordered bases of \( {P}_{1}(\R)  \) and \( \R^{2} \), respectively. For \( T  \) as in {\hyperref[Eg 2.4.1]{Example 1}}, we have  
+    \[  [T]_{\beta}^{\gamma} = \begin{pmatrix}
+        1 & 0 \\
+        1 & 1 
+    \end{pmatrix}  \ \text{ and } \ [T^{-1}]_{\gamma}^{\beta} = \begin{pmatrix}
+        1 & 0 \\
+        -1 & 1 
+    \end{pmatrix}.\]
+    We can verify via matrix multiplication that both matrices are inverses of each other.
+\end{eg}
+
+\begin{corollary}
+    Let \( V  \) be a finite-dimensional vector space with an ordered basis \( \beta \), and let \( T: V \to V  \) be linear. Then \( T  \) is invertible if and only if \( [T]_{\beta}   \) is invertible. Furthermore, \( [T^{-1}]_{\beta} = ([T]_{\beta})^{-1} \).
+\end{corollary}
+\begin{proof}
+    Let \( T: V \to V  \) be linear and let \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}   \) be an ordered basis for \( V  \). Suppose \( T  \) is invertible. Then there exists a unique linear transformation denoted by \( T^{-1}: V \to V  \) such that 
+    \[
+         TT^{-1} = T^{-1}T = {I}_{V}. 
+    \]
+    By using the Corollary to Theorem 2.11 and part (d) of Theorem 2.12, we must have that
+    \[ [T]_{\beta} [T^{-1}]_{\beta} = [T T^{-1}]_{\beta} = [{I}_{V}]_{\beta} = {I}_{n}  \]
+    and similarly,
+    \[  [T^{-1}]_{\beta} [T]_{\beta} = [T^{-1} T]_{ \beta} = [{I}_{V}]_{\beta} = {I}_{n}. \]
+    This tells us that \( [T]_{\beta}  \) is invertible and that 
+    \[  [T^{-1}]_{\beta} = ([T]_{\beta})^{-1}. \]
+
+   For the backwards direction, the ordered basis \( \beta \) defined earlier implies that there exists a unique linear transformation \( U: V \to V  \) defined by  
+   \[  U({v}_{j}) = \sum_{ i=1  }^{ n } {A}_{ij} {v}_{i} \ \text{for} \ 1 \leq j \leq n. \]
+   We need to show that \( U = T^{-1} \). Using the fact that \( [T]_{\beta} \) is invertible, we can write
+   \[  [T U]_{\beta} = [T]_{\beta} [U]_{\beta} = {I}_{n} = [{I}_{V}]_{\beta}  \]
+   and similarly
+   \[  [UT]_{\beta} = [U]_{\beta} [T]_{\beta} = {I}_{n} = [{I}_{V}]_{\beta}.  \]
+   But this tells us that \( UT = TU  = {I}_{V} \). So, \( U = T^{-1}  \) and that \( T \) is invertible.
+\end{proof}
+
+\begin{corollary}
+    Let \( A  \) be an \( n \times n  \) matrix. Then \( A  \) is invertible if and only if \( {L}_{A} \) is invertible. Furthermore, \( ({L}_{A})^{-1} = {L}_{A^{-1}} \).
+\end{corollary}
+\begin{proof}
+Let \( {L}_{A}: F^{n} \to F^{n} \). Let \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) be a basis for \( F^{n} \). By part (a) of {\hyperref[Prop of LMT]{Theorem 2.15}}, we have that \( [{L}_{A}]_{\beta} = A   \). Since \( A \) is invertible, we know that \( {L}_{A} \) must also be invertible by Corollary to Theorem 2.18. Furthermore, we have that \( {L}_{A} {L}_{A^{-1}} = I   \) implies that 
+\[  {L}_{A^{-1}} = ({L}_{A})^{-1}.  \]
+
+Conversely, \( {L}_{A} \) invertible implies that \( [{L}_{A}]_{\beta}  \) is invertible by Corollary to Theorem 2.18. By Theorem 2.15, we must have that \( [L_{A}]_{\beta}  = A  \). But this means that \( A  \) is invertible.
+\end{proof}
+
+\begin{definition}[Isomorphisms]
+   Let \( V  \) and \( W  \) be vector spaces. We say that \( V  \) is \textbf{isomorphic} to \( W  \) if there exists a linear transformation \( T: V \to W  \) that is invertible. Such a linear transformation is called an \textbf{isomorphism} from \( V  \) to \( W  \). 
+\end{definition}
+
+\begin{theorem}[Isomorphisms \( \iff \) Equal Finite-Dimensions]
+   Let \( V  \) and \( W  \) be finite-dimensional vector spaces (over the same field). Then \( V  \) is isomorphic to \( W  \) if and only if \( \text{dim}(V) = \text{dim}(W) \).  
+\end{theorem}
+\begin{proof}
+    Suppose that \( V  \) is isomorphic to \( W  \) and \( T: V \to W  \) is an isomorphism from \( V  \) to \( W  \). By the {\hyperref[Invertibility Implies dim V = dim W]{lemma}} preceding Theorem 2.18, we have that \( \text{dim}(V) = \text{dim}(W) \).
+
+    Now, suppose that \( \text{dim}(V) = \text{dim}(W) \), and let \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \} \) and \( \gamma = \{ {w}_{1}, {w}_{2}, \dots, {w}_{n} \}  \). By Theorem 2.6, there exists a unique linear transformation \( T: V \to W  \) such that \( T({v}_{i}) = {w}_{i} \) for all \( i \). Then by Theorem 2.2, we must have that 
+    \[  R(T) = \text{span}(T(\beta)) = \text{span}(\gamma) = W. \]
+    Hence, \( T  \) is onto. By Theorem 2.5, we must also have that \( T  \) is one-to-one. Hence, \( T  \) is an isomorphism.
+\end{proof}
+
+\begin{remark}
+    Using the lemma to Theorem 2.18, we find that \( V  \) and \( W  \) are finite-dimensional or infinite-dimensional when they are isomorphic to each other.  
+\end{remark}
+
+\begin{corollary}
+    Let \( V  \) be a vector space over \( F  \). Then \( V  \) is isomorphic to \( F^{n}  \) if and only if \( \text{dim}(V) = n  \).
+\end{corollary}
+
+We are now in the position to show that the collection of all linear transformations between two vector spaces, say \( V  \) and \( W  \) with different dimensions \( m  \) and \( n \), can be identified with the appropriate vector space of \( m \times n  \) matrices.
+
+\begin{theorem}[Isomorphism Between Linear Transformations and Matrices]
+    Let \( V  \) and \( W  \) be finite-dimensional vector spaces \( F  \) of dimensions \( n  \) and \( m  \), respectively, and let \( \beta  \) and \( \gamma  \) be ordered bases for \( V  \) and \( W  \) respectively. Then the function \( \Phi: \mathcal{L}(V,W) \to {M}_{m \times n}(F)   \), defined by  
+    \begin{center}
+        \( \Phi(T) = [T]_{\beta}^{\gamma}  \) for \( T \in \mathcal{L}(V,W) \)
+    \end{center}
+    is an isomorphism.
+\end{theorem}
+\begin{proof}
+First, we show that \( \Phi  \) is linear. Using Theorem 2.8, we find that 
+\begin{align*}
+    \Phi (aT+U) &= [aT + U]_{\beta}^{\gamma}  \\
+                &= a [T]_{\beta}^{\gamma}  + [U]_{\beta}^{\gamma} \\
+                &= a \Phi(T) + \Phi(U).
+\end{align*}
+Hence, \( \Phi  \) is linear.
+
+In order to show that \( \Phi  \) is isomorphic, it suffices to show that \( \Phi  \) is both injective and surjective. Clearly, \( \Phi  \) is injective since for every \( T,U \in \mathcal{L}(V,W) \), we have \( \Phi(T) = \Phi(U)  \) implies \( [T]_{\beta}^{\gamma}  = [U]_{\beta}^{\gamma} \implies T = U   \). For surjectivity, let \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) and \( \gamma = \{ {w}_{1}, {w}_{2}, \dots, {w}_{m} \}  \) be ordered bases for \( V  \) and \( W \) respectively, and let \( A  \) be a given \( m \times n  \) matrix. By Theorem 2.6, there exists a unique linear transformation \( T: V \to W  \) such that 
+\[  T({v}_{j}) = \sum_{ i=1 }^{ m  } {A}_{ij} {A}_{ij} {w}_{i}, \ \text{for} \ 1 \leq j \leq n. \]
+But then we have  \( [T]_{\beta}^{\gamma} = A  \) or \( \Phi(T) = A  \). Hence, \( \Phi  \) is an isomorphism. 
+\end{proof}
+
+\begin{corollary}
+    Let \( V  \) and \( W  \) be finite-dimensional vector spaces of dimensions \( n  \) and \( m  \), respectively. Then \( \mathcal{L}(V,W) \) is finite-dimensional of dimension \( mn  \).
+\end{corollary} 
+\begin{proof}
+    By Theorem 2.20, \( \Phi: \mathcal{L}(V,W) \to {M}_{m \times n}(F) \) is an isomorphism. Then we have \( \mathcal{L}(V,W) \) finite-dimensional with  \( \text{dim}(\mathcal{L}(V,W)) = \text{dim}({M}_{m \times n }(F)) = mn  \) by Theorem 2.19.
+\end{proof}
+
+\begin{definition}[Standard Representation of \( V  \)]
+    Let \( \beta \) be an ordered basis for an \( n- \)dimensional vector space \( V  \) over the field \( F \). The \textbf{standard representation of \( V \) with respect to} \( \beta  \) is the function \( {\phi}_{\beta}: V \to F^{n} \) defined by \( {\phi}_{\beta}(x) = [x]_{\beta} \) for each \( x \in V  \) .    
+\end{definition}
+

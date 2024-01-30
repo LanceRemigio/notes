@@ -183,3 +183,18 @@
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{58}{thmt@dummyctr.dummy.181}%
 \contentsline {theorem}{\ifthmt@listswap Theorem~2.4.3\else \numberline {2.4.3}Theorem\fi \thmtformatoptarg {Invertibility of Linear Maps \( \iff \) Invertibility of Matrices}}{59}{theorem.2.4.3}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{59}{thmt@dummyctr.dummy.183}%
+\contentsline {eg}{\ifthmt@listswap Example~2.4.2\else \numberline {2.4.2}Example\fi }{59}{eg.2.4.2}%
+\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{60}{thmt@dummyctr.dummy.185}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{60}{thmt@dummyctr.dummy.186}%
+\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{60}{thmt@dummyctr.dummy.187}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{60}{thmt@dummyctr.dummy.188}%
+\contentsline {definition}{\ifthmt@listswap Definition~2.4.3\else \numberline {2.4.3}Definition\fi \thmtformatoptarg {Isomorphisms}}{60}{definition.2.4.3}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~2.4.4\else \numberline {2.4.4}Theorem\fi \thmtformatoptarg {Isomorphisms \( \iff \) Equal Finite-Dimensions}}{61}{theorem.2.4.4}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{61}{thmt@dummyctr.dummy.191}%
+\contentsline {remark}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Remark}{61}{thmt@dummyctr.dummy.192}%
+\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{61}{thmt@dummyctr.dummy.193}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~2.4.5\else \numberline {2.4.5}Theorem\fi \thmtformatoptarg {Isomorphism Between Linear Transformations and Matrices}}{61}{theorem.2.4.5}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{61}{thmt@dummyctr.dummy.195}%
+\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{62}{thmt@dummyctr.dummy.196}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{62}{thmt@dummyctr.dummy.197}%
+\contentsline {definition}{\ifthmt@listswap Definition~2.4.4\else \numberline {2.4.4}Definition\fi \thmtformatoptarg {Standard Representation of \( V \)}}{62}{definition.2.4.4}%
