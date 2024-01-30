@@ -142,12 +142,15 @@ by Theorem 2.11. Hence, we have \( UT = {I}_{V}  \) and \( TU = {I}_{W} \). Thus
 \begin{corollary}
     Let \( A  \) be an \( n \times n  \) matrix. Then \( A  \) is invertible if and only if \( {L}_{A} \) is invertible. Furthermore, \( ({L}_{A})^{-1} = {L}_{A^{-1}} \).
 \end{corollary}
+
 \begin{proof}
 Let \( {L}_{A}: F^{n} \to F^{n} \). Let \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) be a basis for \( F^{n} \). By part (a) of {\hyperref[Prop of LMT]{Theorem 2.15}}, we have that \( [{L}_{A}]_{\beta} = A   \). Since \( A \) is invertible, we know that \( {L}_{A} \) must also be invertible by Corollary to Theorem 2.18. Furthermore, we have that \( {L}_{A} {L}_{A^{-1}} = I   \) implies that 
 \[  {L}_{A^{-1}} = ({L}_{A})^{-1}.  \]
 
 Conversely, \( {L}_{A} \) invertible implies that \( [{L}_{A}]_{\beta}  \) is invertible by Corollary to Theorem 2.18. By Theorem 2.15, we must have that \( [L_{A}]_{\beta}  = A  \). But this means that \( A  \) is invertible.
 \end{proof}
+
+\subsection{Isomorphisms}
 
 \begin{definition}[Isomorphisms]
    Let \( V  \) and \( W  \) be vector spaces. We say that \( V  \) is \textbf{isomorphic} to \( W  \) if there exists a linear transformation \( T: V \to W  \) that is invertible. Such a linear transformation is called an \textbf{isomorphism} from \( V  \) to \( W  \). 
@@ -202,7 +205,30 @@ But then we have  \( [T]_{\beta}^{\gamma} = A  \) or \( \Phi(T) = A  \). Hence, 
     By Theorem 2.20, \( \Phi: \mathcal{L}(V,W) \to {M}_{m \times n}(F) \) is an isomorphism. Then we have \( \mathcal{L}(V,W) \) finite-dimensional with  \( \text{dim}(\mathcal{L}(V,W)) = \text{dim}({M}_{m \times n }(F)) = mn  \) by Theorem 2.19.
 \end{proof}
 
+\subsection{Standard Representation of Vector Spaces}
+
 \begin{definition}[Standard Representation of \( V  \)]
     Let \( \beta \) be an ordered basis for an \( n- \)dimensional vector space \( V  \) over the field \( F \). The \textbf{standard representation of \( V \) with respect to} \( \beta  \) is the function \( {\phi}_{\beta}: V \to F^{n} \) defined by \( {\phi}_{\beta}(x) = [x]_{\beta} \) for each \( x \in V  \) .    
 \end{definition}
 
+\begin{eg}
+    Let \( \beta = \{ (1,0), (0,1) \}  \) and \( \gamma = \{ (1,2), (3,4) \}  \). It is easily observed that \( \beta  \) and \( \gamma  \) are ordered bases for \( \R^{2} \). For \( x = (1,-2) \), we have
+    \[  {\phi}_{\beta}(x) = [x]_{\beta} = \begin{pmatrix}
+        1 \\
+        -2
+        \end{pmatrix} \ \text{and} \ {\phi}_{\gamma}(x) = [x]_{\gamma} = \begin{pmatrix}
+        -5 \\
+        2 
+    \end{pmatrix}.  \]
+\end{eg}
+
+In the last two sections, we showed that \( {\phi}_{\beta} \) is a linear transformation. 
+
+\begin{theorem}
+    For any finite-dimensional vector space \( V  \) with ordered basis \( \beta  \), \( {\phi}_{\beta}  \) is an isomorphism.
+\end{theorem}
+\begin{proof}
+    Let \( \text{dim}(V) = n  \). Let \( \beta = \{ {v}_{1}, { v }_{2}, \dots, {v}_{n} \}   \) be an ordered basis for \( V  \). We can show that \( {\phi}_{\beta}(y)  \) is an isomorphism by showing that \( {\phi}_{\beta} \) is a surjective and injective linear map. Suppose \( {\phi}_{\beta}(x) = {\phi}_{\beta} \). Then by definition of \( {\phi}_{\beta} \), we must have that \( [x]_{\beta} = [y]_{\beta} \) which further implies that \( x = y  \). Now, let \( y \in V  \). Since \( \beta \) is an ordered basis for \( V  \), we can find scalars \( {\delta}_{1}, {\delta}_{2}, \dots, {\delta}_{n} \) such that 
+    \[  y = \sum_{ i=1  }^{ n } {\delta}_{i} {v}_{i}. \]
+    This implies that we have constructed a coordinate vector such that \( [y]_{\beta} = {\phi}_{\beta}(y)\). Hence, \( {\phi}_{\beta} \) is surjective. Thus, we find that \( {\phi}_{\beta} \) is an isomorphism.
+\end{proof}
