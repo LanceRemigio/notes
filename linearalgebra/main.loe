@@ -201,3 +201,4 @@
 \contentsline {eg}{\ifthmt@listswap Example~2.4.3\else \numberline {2.4.3}Example\fi }{62}{eg.2.4.3}%
 \contentsline {theorem}{\ifthmt@listswap Theorem~2.4.6\else \numberline {2.4.6}Theorem\fi }{62}{theorem.2.4.6}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{62}{thmt@dummyctr.dummy.201}%
+\contentsline {eg}{\ifthmt@listswap Example~2.4.4\else \numberline {2.4.4}Example\fi }{63}{eg.2.4.4}%

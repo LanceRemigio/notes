@@ -194,7 +194,7 @@ First, we show that \( \Phi  \) is linear. Using Theorem 2.8, we find that
 Hence, \( \Phi  \) is linear.
 
 In order to show that \( \Phi  \) is isomorphic, it suffices to show that \( \Phi  \) is both injective and surjective. Clearly, \( \Phi  \) is injective since for every \( T,U \in \mathcal{L}(V,W) \), we have \( \Phi(T) = \Phi(U)  \) implies \( [T]_{\beta}^{\gamma}  = [U]_{\beta}^{\gamma} \implies T = U   \). For surjectivity, let \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) and \( \gamma = \{ {w}_{1}, {w}_{2}, \dots, {w}_{m} \}  \) be ordered bases for \( V  \) and \( W \) respectively, and let \( A  \) be a given \( m \times n  \) matrix. By Theorem 2.6, there exists a unique linear transformation \( T: V \to W  \) such that 
-\[  T({v}_{j}) = \sum_{ i=1 }^{ m  } {A}_{ij} {A}_{ij} {w}_{i}, \ \text{for} \ 1 \leq j \leq n. \]
+\[  T({v}_{j}) = \sum_{ i=1 }^{ m  }A_{ij} {w}_{i}, \ \text{for} \ 1 \leq j \leq n. \]
 But then we have  \( [T]_{\beta}^{\gamma} = A  \) or \( \Phi(T) = A  \). Hence, \( \Phi  \) is an isomorphism. 
 \end{proof}
 
@@ -232,3 +232,49 @@ In the last two sections, we showed that \( {\phi}_{\beta} \) is a linear transf
     \[  y = \sum_{ i=1  }^{ n } {\delta}_{i} {v}_{i}. \]
     This implies that we have constructed a coordinate vector such that \( [y]_{\beta} = {\phi}_{\beta}(y)\). Hence, \( {\phi}_{\beta} \) is surjective. Thus, we find that \( {\phi}_{\beta} \) is an isomorphism.
 \end{proof}
+
+
+\begin{itemize}
+    \item Given finite-dimensional vector spaces \( V  \) and \( W  \) with corresponding bases \( \beta \) and \( \gamma \) respectively, we can use \( {\phi}_{\beta} \) and \( {\phi}_{\gamma} \) to map \( V  \) to \( F^{n}  \) and \( W \) to \( F^{m} \) respectively by the Theorem above.
+    \item Let \( T: V \to W  \) be a linear transformation. We can map \( V  \) into \( W  \) using \( T  \) and use \( {\phi}_{\gamma} \) to map \( W  \) onto \( F^{m} \).
+    \item Likewise, let \( A = [T]_{\beta}^{\gamma}  \). Then mapping \( V  \) onto \( F^{n} \) using \( {\phi}_{\beta} \) allows us to map the result onto \( F^{m} \) using \( {L}_{A}: F^{n} \to F^{m} \) which produces the same vector in \( F^{m} \) as the transformation above.
+    \item We can conclude, using {\hyperref[Theorem 2.14]{Theorem 2.14}}, that 
+        \[  {L}_{A} {\phi}_{\beta} = {\phi}_{\gamma}T. \]
+    \item Since \( V \) and \( W  \) are associated with \( F^{n} \) and \( F^{m} \) respectively, we can now 'identify' \( T \) with \( {L}_{A} \).
+
+\end{itemize}
+
+\begin{eg}
+    Suppose we have the linear transformation \( T: {P}_{3}(\R) \to {P}_{2}(\R) \) defined by
+    \[  T(f(x)) = f'(x). \]
+    Let \( \beta \) and \( \gamma \) be the standard ordered bases for \( {P}_{3}(\R) \) and \( {P}_{2}(\R) \), respectively. Let \( {\phi}_{\beta} : {P}_{3}(\R) \to \R^{4} \) and \( {\phi}_{\gamma}: {P}_{2}(\R) \to R^{3} \) be the corresponding standard representations of \( {P}_{3}(\R) \) and \( {P}_{2}(\R) \). If \( A = [T]_{\beta}^{\gamma}  \), then
+    \[  A = \begin{pmatrix}
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 2 & 0 \\
+        0 & 0 & 0 & 3
+    \end{pmatrix}. \]
+    Consider the polynomial \( p(x) = 2 + x - 3x^{2} + 5x^{3}. \) We will show that 
+    \[  {L}_{A}{\phi}_{\beta}(p(x)) = {\phi}_{\gamma}T(p(x)). \]
+    Using standard matrix operations, we get
+    \[  {L}_{A}{\phi}_{\beta}(p(x)) = \begin{pmatrix}
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 2 & 0 \\
+        0 & 0 & 0 & 3
+    \end{pmatrix} \begin{pmatrix}
+        2 \\
+        1 \\
+        -3 \\
+        5
+    \end{pmatrix} = \begin{pmatrix}
+        1 \\
+        -6 \\
+        15
+    \end{pmatrix}. \]
+    But notice that by the same operations, we have
+    \[  {\phi}_{\gamma}T(p(x)) = \begin{pmatrix}
+        1 \\
+        -6 \\
+        15
+    \end{pmatrix}. \]
+    So \( {L}_{A}{\phi}_{\beta}(p(x)) = {\phi}_{\gamma}T(p(x)). \)
+\end{eg}
