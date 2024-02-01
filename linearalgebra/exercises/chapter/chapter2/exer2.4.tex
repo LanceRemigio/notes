@@ -2,28 +2,134 @@
 
 \subsection*{Exercise 2.4.4} Let \( A  \) and \( B  \) be \( n \times n  \) invertible matrices. Prove that \( AB  \) is invertible and \( (AB)^{-1} = B^{-1} A^{-1} \).
 \begin{proof}
-
+Let \( A  \) and \( B  \) be \( n \times n  \) invertible matrices. We need to show that \( (AB)B^{-1}A^{-1} = {I}_{n} \) and \( B^{-1} A^{-1} (AB) = {I}_{n} \). Observe that
+\begin{align*}
+    B B^{-1} = {I}_{n}   &\iff A(B B^{-1}) = A   \\
+                         &\iff  (AB) B^{-1} = A  \\
+                         &\iff (AB) B^{-1}A^{-1} = A A^{-1} \\ 
+                         &\iff (AB) B^{-1} A^{-1} = {I}_{n}.
+\end{align*}
+Similarly, we have 
+\begin{align*}
+     A^{-1} A  = {I}_{n} &\iff B^{-1}(A^{-1} A ) = B^{-1}  \\
+                         &\iff (B^{-1} A^{-1}) A = B^{-1} \\ 
+                         &\iff (B^{-1} A^{-1}) AB = B^{-1}B \\
+                         &\iff (B^{-1}A^{-1}) AB = {I}_{n}.
+\end{align*}
+This tells us that \( AB  \) is invertible and that  
+\[  B^{-1}A^{-1} = (AB)^{-1}. \]
 \end{proof}
 
 \subsection*{Exercise 2.4.5} Let \( A  \) be invertible. Prove that \( A^{t}  \) is invertible and \( (A^{t})^{-1} = (A^{-1})^{t} \).
 \begin{proof}
-
+Let \( A   \) be an invertible. Observe that \( (A^{t})^{t} = A  \). Thus, we have
+\[  {I}_{n} = A A^{-1} = (A^{t})^{t} A^{-1} = \Big( (A^{-1})^{t} A^{t} \Big)^{t}. \]
+Taking the transpose on both sides gives us the following equation
+\[  (A^{-1})^{t} A^{t} = {I}_{n} \] where \( ({I}_{n})^{t} = {I}_{n} \).
+Similarly, we have
+\[  {I}_{n} =  A^{-1} A = A^{-1} (A^{t})^{t} = \Big( A^{t} (A^{-1})^{t} \Big)^{t}  \]
+which implies
+\[ \Big( A^{t} (A^{-1})^{t} \Big)^{t} = {I}_{n}.  \]
+Taking the transpose again then gives us
+\[  A^{t} (A^{-1})^{t} = {I}_{n}. \]
+Therefore, \( A^{t} \) is invertible and that 
+% \[  (A^{-1})^{t} = (A^{t})^{-1}. \]
 \end{proof}
 
 \subsection*{Exercise 2.4.6} Prove that if \( A  \) is invertible and \( AB = O  \), then \( B = O  \).
 \begin{proof}
-
+Suppose that \( A  \) is an invertible matrix. Let \( AB  \) be a defined matrix product where \( AB = O  \). Since \( A  \) is invertible, we have \( A^{-1}A = A A^{-1} = I \). Thus, we have
+\begin{align*}
+    AB = O &\implies A^{-1}(AB) = A^{-1}O   \\
+           &\implies (A^{-1}A)B = O \\
+           &\implies IB = O \\
+           &\implies B = O. 
+\end{align*}
+Hence, we have \( B = O  \).
 \end{proof}
 
 \subsection*{Exercise 2.4.7} Let \( A  \) be an \( n \times n  \) matrix.
 \begin{enumerate}
     \item[(a)] Suppose that \( A^{2} = O  \). Prove that \( A  \) is not invertible.
         \begin{proof}
-        
+        Let \( A^{2} = O  \) where \( A  \) is an \( n \times n  \) matrix. Suppose for sake of contradiction that \( A  \) is invertible. Thus, we have \( A A^{-1} = A^{-1} A = {I}_{n}  \). Now, observe that multiplying \( A^{-1}  \) on the left side of \( A^{2} = O  \) produces the following  
+        \begin{align*}
+            A^{-1} (A^{2}) = A^{-1}O &\implies A^{-1}(AA ) = O       \\
+                                     &\implies (A^{-1}A)A = O  \\ 
+                                     &\implies {I}_{n}A = O \\ 
+                                     &\implies A = O.
+        \end{align*}
         \end{proof}
     \item[(b)] Suppose that \( AB = O  \) for some nonzero \( n \times n  \) matrix \( B  \). Could \( A  \) be invertible? Explain.
         \begin{solution}
-        
+        The matrix \( A  \) cannot be invertible in this case since the nonzero matrix \( B   \) implies that \( A = O   \) for \( AB = O  \) to hold and that we know that the zero matrix \( O  \) cannot be invertible.
         \end{solution}
 \end{enumerate}
+
+\subsection*{Exercise 2.4.8} Prove Corollaries 1 and 2 of Theorem 2.18.
+\begin{proof}
+    Let \( T: V \to V  \) be linear and let \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}   \) be an ordered basis for \( V  \). Suppose \( T  \) is invertible. Then there exists a unique linear transformation denoted by \( T^{-1}: V \to V  \) such that 
+    \[
+         TT^{-1} = T^{-1}T = {I}_{V}. 
+    \]
+    By using the Corollary to Theorem 2.11 and part (d) of Theorem 2.12, we must have that
+    \[ [T]_{\beta} [T^{-1}]_{\beta} = [T T^{-1}]_{\beta} = [{I}_{V}]_{\beta} = {I}_{n}  \]
+    and similarly,
+    \[  [T^{-1}]_{\beta} [T]_{\beta} = [T^{-1} T]_{ \beta} = [{I}_{V}]_{\beta} = {I}_{n}. \]
+    This tells us that \( [T]_{\beta}  \) is invertible and that 
+    \[  [T^{-1}]_{\beta} = ([T]_{\beta})^{-1}. \]
+
+   For the backwards direction, the ordered basis \( \beta \) defined earlier implies that there exists a unique linear transformation \( U: V \to V  \) defined by  
+   \[  U({v}_{j}) = \sum_{ i=1  }^{ n } {A}_{ij} {v}_{i} \ \text{for} \ 1 \leq j \leq n. \]
+   We need to show that \( U = T^{-1} \). Using the fact that \( [T]_{\beta} \) is invertible, we can write
+   \[  [T U]_{\beta} = [T]_{\beta} [U]_{\beta} = {I}_{n} = [{I}_{V}]_{\beta}  \]
+   and similarly
+   \[  [UT]_{\beta} = [U]_{\beta} [T]_{\beta} = {I}_{n} = [{I}_{V}]_{\beta}.  \]
+   But this tells us that \( UT = TU  = {I}_{V} \). So, \( U = T^{-1}  \) and that \( T \) is invertible.
+\end{proof}
+
+\begin{proof}
+Let \( {L}_{A}: F^{n} \to F^{n} \). Let \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) be a basis for \( F^{n} \). By part (a) of {\hyperref[Prop of LMT]{Theorem 2.15}}, we have that \( [{L}_{A}]_{\beta} = A   \). Since \( A \) is invertible, we know that \( {L}_{A} \) must also be invertible by Corollary to Theorem 2.18. Furthermore, we have that \( {L}_{A} {L}_{A^{-1}} = I   \) implies that 
+\[  {L}_{A^{-1}} = ({L}_{A})^{-1}.  \]
+
+Conversely, \( {L}_{A} \) invertible implies that \( [{L}_{A}]_{\beta}  \) is invertible by Corollary to Theorem 2.18. By Theorem 2.15, we must have that \( [L_{A}]_{\beta}  = A  \). But this means that \( A  \) is invertible.
+\end{proof}
+
+\subsection*{Exercise 2.4.9} Let \( A  \) and \( B  \) be \( n \times n \) matrices such that \( AB  \) is invertible. Prove that \( A  \) and \( B  \) are invertible. Given an example to show that arbitrary matrices \( A  \) and \( B  \) need not be invertible if \( AB  \) is invertible.
+\begin{proof}
+
+\end{proof}
+
+\subsection*{Exercise 2.4.10} Let \( A  \) and \( B  \) be \( n \times n  \) matrices such that \( AB = {I}_{n} \). 
+\begin{enumerate}
+    \item[(a)] Use Exercise 9 to conclude that \(  A  \) and \( B  \) are invertible.
+        \begin{solution}
+        
+        \end{solution}
+    \item[(b)] Prove \( A = B^{-1} \) (and hence \( B = A^{-1} \)).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(c)] State and prove analogous results for linear transformations defined on finite-dimensional vector spaces.
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 2.4.11} Verify that the transformation in Example 5 is injective.
+\begin{proof}
+Since \( \text{dim}({P}_{3}(\R)) = \text{dim}({M}_{2 \times 2}(\R)) \), we must have that \( {P}_{3}(\R)  \) is isomorphic to \( {M}_{2 \times 2}(\R) \) by Theorem 2.19. By definition, this means that \( T  \) is invertible which further implies that \( T  \) is injective.
+\end{proof}
+
+\subsection*{Exercise 2.4.12} Prove Theorem 2.21.
+\begin{proof}
+    Let \( \text{dim}(V) = n  \). Let \( \beta = \{ {v}_{1}, { v }_{2}, \dots, {v}_{n} \}   \) be an ordered basis for \( V  \). We can show that \( {\phi}_{\beta}(y)  \) is an isomorphism by showing that \( {\phi}_{\beta} \) is a surjective and injective linear map. Suppose \( {\phi}_{\beta}(x) = {\phi}_{\beta} \). Then by definition of \( {\phi}_{\beta} \), we must have that \( [x]_{\beta} = [y]_{\beta} \) which further implies that \( x = y  \). Now, let \( y \in V  \). Since \( \beta \) is an ordered basis for \( V  \), we can find scalars \( {\delta}_{1}, {\delta}_{2}, \dots, {\delta}_{n} \) such that 
+    \[  y = \sum_{ i=1  }^{ n } {\delta}_{i} {v}_{i}. \]
+    This implies that we have constructed a coordinate vector such that \( [y]_{\beta} = {\phi}_{\beta}(y)\). Hence, \( {\phi}_{\beta} \) is surjective. Thus, we find that \( {\phi}_{\beta} \) is an isomorphism.
+\end{proof}
+
+\subsection*{Exercise 2.4.13} Let \( \sim \) mean "is isomorphic to." Prove that \(  \sim \) is an equivalence relation on the class of vector spaces over \( F  \). 
+\begin{proof}
+
+\end{proof}
 
