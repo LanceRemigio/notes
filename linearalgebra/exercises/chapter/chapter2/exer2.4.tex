@@ -104,15 +104,32 @@ Conversely, \( {L}_{A} \) invertible implies that \( [{L}_{A}]_{\beta}  \) is in
 \begin{enumerate}
     \item[(a)] Use Exercise 9 to conclude that \(  A  \) and \( B  \) are invertible.
         \begin{solution}
-        
+        Apply Exercise 9.
         \end{solution}
     \item[(b)] Prove \( A = B^{-1} \) (and hence \( B = A^{-1} \)).
         \begin{proof}
-        
+        Since \( A  \) is an \( n \times n  \) invertible matrix, we can write that
+        \begin{align*}
+            AB = {I}_{n} &\implies A^{-1}(AB) = A^{-1} \\
+                         &\implies (A^{-1}A)B = A^{-1} \\
+                         &\implies {I}_{n}B = A^{-1} \\
+                         &\implies B = A^{-1}.
+        \end{align*}
+        Likewise, \( B  \) being an \(  n \times n  \) invertible matrix implies that
+        \begin{align*}
+            AB = {I}_{n} &\implies (AB)B^{-1} = B^{-1}k \\
+                         &\implies A(B B^{-1}) = B^{-1} \\
+                         &\implies A {I}_{n} = {B}^{-1} \\
+                         &\implies A = B^{-1}.
+        \end{align*}
         \end{proof}
     \item[(c)] State and prove analogous results for linear transformations defined on finite-dimensional vector spaces.
         \begin{proof}
-        
+        Define \( T: V \to V  \) and \( U: V \to V  \) with \( V  \) being an arbitrary finite-dimensional vector space. Let \( \beta = \{ {v}_{1}, {v}_{2}, \dots ,{v}_{n} \}   \) be an ordered basis for \( V  \) such that \( [T]_{\beta}  \) and \( [U]_{\beta} \) are properly defined and that \( [T]_{\beta} [U]_{\beta} = {I}_{n} \). Then we have
+       \begin{center}
+           \( [T]_{\beta} = ([U]_{\beta})^{-1} \) and \( [U]_{\beta} = ([T]_{\beta})^{-1} \).
+       \end{center} 
+       To prove this, we can let \( A = [T]_{\beta} \) and \( B = [U]_{\beta} \) and use parts (a) and (b) to get our desired result.
         \end{proof}
 \end{enumerate}
 
@@ -133,3 +150,12 @@ Since \( \text{dim}({P}_{3}(\R)) = \text{dim}({M}_{2 \times 2}(\R)) \), we must 
 
 \end{proof}
 
+\subsection*{Exercise 2.4.15} Let \( V  \) and \( W  \) be finite-dimensional vector spaces, and let \( T: V \to W  \) be a linear transformation. Suppose that \( \beta \) is a basis for \( V  \). Prove that \( T  \) is an isomorphism if and only if \( T(\beta)  \) is a basis for \( W  \).
+\begin{proof}
+
+\end{proof}
+
+\subsection*{Exercise 2.4.16} Let \( B  \) be an \( n \times n  \) invertible matrix. Define \( \Phi: {M}_{n \times n}(F) \to {M}_{n \times n }(F) \) by \( \Phi(A) = B^{-1} A B  \). Prove that \( \Phi  \) is an isomorphism.
+\begin{proof}
+
+\end{proof}
