@@ -218,6 +218,48 @@ Notice that \( U  \) is an injective map which tells us that \( T(x) = T(y) \). 
         \end{proof}
     \item[(b)] Prove that \( \text{dim}({V}_{0}) = \text{dim}(T({V}_{0})) \).
         \begin{proof}
+        Since \( V  \) and \( W  \) are finite-dimensional vector spaces and that \( {V}_{0} \) and \( T({V}_{0}) \) are subspaces of \( V  \) and \( W  \) respectively, we must have that \( {V}_{0}\) and \( T({V}_{0}) \) be both finite-dimensional by Theorem 1.11. Let \( T({V}_{0}) = {W}_{0} \). Since \( T  \) is an isomorphism, we know that \( T \) must be injective and surjective. So, the Dimension Theorem implies that   
+        \[ \text{dim}({V}_{0}) = \text{dim}(N(T)) + \text{dim}(R(T)) = \text{dim}({W}_{0}).\]
+        Hence, \( \text{dim}({V}_{0}) = \text{dim}({W}_{0}) \).
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 2.4.20} Let \( T: V \to W  \) be a linear transformation from an \( n- \)dimensional vector space \( V  \) to an \( m- \)dimensional vector space \( W  \). Let \( \beta  \) and \( \gamma  \) be ordered bases for \( V  \) and \( W  \), respectively. Prove that \( \text{rank}(T) = \text{rank}({L}_{A}) \) and that \( \text{nullity}(T) = \text{nullity}({L}_{A}) \), where \( A = [T]_{\beta}^{\gamma}  \). 
+\begin{proof}
+    Observe that \( R(T)  \) is a subspace of \( W  \) and \( R({L}_{A})  \) is a subspace \( F^{m} \). Since \( {\phi}_{\gamma}: W \to F^{m} \) is an isomorphism by Theorem 2.21 (that is, \( \text{dim}(W) = \text{dim}(F^{m}) \)), we can use Exercise 17 to state that \( \text{rank}(T) = \text{rank}({L}_{A}) \). Similarly, \( N(T)  \) and \( N({L}_{A}) \) are subspaces of \( V  \) and \( F^{n} \), respectively. Hence, \( {\phi}_{\beta}: V \to F^{n} \) (that is, \( \text{dim}(V) = \text{dim}(F^{n}) \)) being an isomorphism implies that \( \text{nullity}(T) = \text{nullity}({L}_{A})\). 
+\end{proof}
+
+\subsection*{Exercise 2.4.21} Let \( V  \) and \( W  \) be finite-dimensional vector spaces with ordered bases \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) and \( \gamma = \{ {w}_{1}, {w}_{2}, \dots, {w}_{n} \}  \), respectively. By Theorem 2.6, there exists linear transformations \( {T}_{ij}: V \to W  \) such that
+\[  {T}_{ij}({v}_{k }) = 
+\begin{cases}
+    {w}_{i} &\text{if } k = j \\
+    0 &\text{if } k \neq j. 
+\end{cases} \]
+First prove that \( \{ {T}_{ij} : 1 \leq i \leq m, 1 \leq j \leq n  \}  \) is a basis for \( \mathcal{L}(V,W)  \). Then let \( M^{ij}  \) be the \( m \times n  \) matrix with \( 1  \) in the \( i \)th row and \( j \)th column and \( 0  \) elsewhere, and prove that \( [{T}_{ij}]_{\beta}^{\gamma}  = M^{ij}  \). Again by Theorem 2.6, there exists a linear transformation \( \Phi: \mathcal{L}(V,W) \to {M}_{m \times n}(F)   \) such that \( \Phi({T}_{ij}) = M^{ij} \). Prove that \( \Phi  \) is an isomorphism.
+\begin{proof}
+
+\end{proof}
+
+\subsection*{Exercise 2.4.24} Let \( T: V \to Z  \) be a linear transformation of a vector space \( V  \) onto a vector space \( Z  \). Define the mapping
+\[  \overline{T}: V / N(T) \to Z \ \text{by} \ \overline{T}(v + N(T)) = T(v)  \] 
+for any coset \( v + N(T)  \) in \( V / N(T) \).
+\begin{enumerate}
+    \item[(a)] Prove that \( \overline{T} \) is well-defined; that is, prove that if \( v + N(T) = v' + N(T)  \), then \( T(v) = T(v')  \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Prove that \( \overline{T}  \) is linear.
+        \begin{proof}
+        
+        \end{proof}
+    \item[(c)] Prove that \( \overline{T}  \) is an isomorphism.
+        \begin{proof}
+        
+        \end{proof}
+    \item[(d)] Prove that the diagram shown in Figure 2.3 commutes; that is, prove that \( T = \overline{T} \eta \).
+        \begin{proof}
         
         \end{proof}
 \end{enumerate}
+
+
