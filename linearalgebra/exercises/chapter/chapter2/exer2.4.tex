@@ -147,15 +147,72 @@ Since \( \text{dim}({P}_{3}(\R)) = \text{dim}({M}_{2 \times 2}(\R)) \), we must 
 
 \subsection*{Exercise 2.4.13} Let \( \sim \) mean "is isomorphic to." Prove that \(  \sim \) is an equivalence relation on the class of vector spaces over \( F  \). 
 \begin{proof}
+Let \( S  \) be the class of vector spaces over \( F \). Let \( V \in S  \). Notice that \( V  \) is isomorphic to itself since the identity linear transformation \( {I}_{V}: V \to V  \) is invertible. Thus, \( V \sim V  \) .
 
+Let \( V, W \in S \). Suppose that \( V \sim W  \). Then there exists an invertible linear map \(  T: V \to W   \). This means that \( T  \) contains an inverse \( T^{-1}: W \to V  \) such that \( T T^{-1} = {I}_{W} \) and \( T^{-1}T = {I}_{V} \). Note that \( T^{-1}  \) is linear and that \( T^{-1}  \) is also invertible since \( T  \) is its inverse. Thus, \( W \sim V  \).
+
+Let \( V, W, Z \in S   \). Now, suppose that \( V \sim W  \) and \( W \sim V  \). This means that there exists invertible linear maps \( T: V \to W  \) and \( U: W \to Z  \). Let \( L: V \to Z  \) be defined by \( L = UT  \). Let \( x,y \in V  \). Suppose \( L(x) = L(y)  \). Then
+\begin{align*}
+    L(x) &= L(y) \\
+    UT(x) &= UT(y) \\
+    U(T(x)) &= U(T(y)). 
+\end{align*}
+Notice that \( U  \) is an injective map which tells us that \( T(x) = T(y) \). But \( T  \) is also injective, so we must have \( x = y \). Hence, \( L  \) is an injective map.
+
+    Now, let \( z \in Z  \). Since \( U  \) is surjective, we must have \( z = U(y) \) for some \( y \in W    \). But note that \( T \) is surjective implies that \( y = T(x)  \) for some \( x \in V  \). But this tells us that  
+    \[  z = U(y) = U(T(x)) = UT(x) = L(x). \]
+    Hence, \( L  \) is a surjective map and that \( L  \) is an invertible map. Thus, \( V \sim Z  \). 
 \end{proof}
 
 \subsection*{Exercise 2.4.15} Let \( V  \) and \( W  \) be finite-dimensional vector spaces, and let \( T: V \to W  \) be a linear transformation. Suppose that \( \beta \) is a basis for \( V  \). Prove that \( T  \) is an isomorphism if and only if \( T(\beta)  \) is a basis for \( W  \).
 \begin{proof}
+    For the forwards direction, suppose \( T: V \to W   \) is an isomorphism where \( V  \) and \( W  \) are finite-dimensional vector spaces. Hence, \( T  \) is invertible by definition. Let \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) be an ordered basis for \( V  \). Since \( T  \) is also injective and that \( \beta \) is a linearly independent subset of \( V  \), we know that \( T(\beta) \) is a linearly independent subset of \( W  \) by {\hyperref[Exercise 2.1.14]{part (b) of Exercise 2.1.14}}. Furthermore, \( \beta  \) being a basis for \( V  \) implies that \( \text{span}(T(\beta)) = R(T)  \) by Theorem 2.2. But notice that \( T  \) is also surjective since it is an isomorphism. Hence, we must have that  \( R(T) = W  \) and that \( T(\beta) \) spans \( W  \). Thus, we have that \( T(\beta) \) is a basis for \( W  \).
 
+    For the backwards direction, assume \( T(\beta) \) is a basis for \( W  \). In order to show that \( T  \) is an isomorphism, we must show that \( T  \) is a bijective linear map. Let \( x,y \in V  \). Since \( \beta \) is a basis for \( V  \), we must have
+    \[  x = \sum_{ i=1  }^{ n } {a}_{i} {v}_{i} \ \text{and} \ y = \sum_{ i=1 }^{ n }{b}_{i} {v}_{i} \]
+    for some scalars \( {a}_{1}, {a}_{2}, \dots, {a}_{n} \) and \( {b}_{1}, {b}_{2}, \dots, {b}_{n} \). Suppose \( T(x) = T(y) \). Then observe that \( T  \) being linear implies that
+    \begin{align*}
+        T(x) &= T(y) \\
+        T \Big( \sum_{ i=1 }^{ n } {a}_{i} {v}_{i}  \Big) &= T \Big( \sum_{ i=1 }^{ n }{b}_{i} {v}_{i} \Big) \\
+                                             \sum_{ i=1 }^{ n } {a}_{i} T({v}_{i})   &= \sum_{ i=1 }^{ n } {b}_{i} T({v}_{i})
+    \end{align*}
+    which subsequently leads to 
+    \[  \sum_{ i=1 }^{ n } ({a}_{i} - {b}_{i}) T({v}_{i}) = 0 \iff {a}_{i} = {b}_{i} \ \text{for all} \ i  \]
+    since \( T(\beta) \) is a linearly independent subset of \( W  \). Hence, \( x = y  \) and that \( T  \) is injective.
+
+    Now, let \( y \in W  \). Since \( T(\beta) \) is a basis for \( W  \) and \( T  \) linear, we know that there exists scalars \( {a}_{1},{a}_{2}, \dots, {a}_{n} \) such that 
+    \[  y = \sum_{ i=1 }^{ n } {a}_{i} T({v}_{i})  = T \Big( \sum_{ i=1 }^{ n } {a}_{i} {b}_{i} \Big).  \]
+    But this means that
+    \[ x = \sum_{ i=1 }^{ n } {a}_{i} {b}_{i}   \]
+    for some \( x \in V  \). Hence, \( T  \) is surjective and thus \( T  \) is an isomorphism.
 \end{proof}
 
 \subsection*{Exercise 2.4.16} Let \( B  \) be an \( n \times n  \) invertible matrix. Define \( \Phi: {M}_{n \times n}(F) \to {M}_{n \times n }(F) \) by \( \Phi(A) = B^{-1} A B  \). Prove that \( \Phi  \) is an isomorphism.
 \begin{proof}
-
+    Let \( B  \) be an \( n \times n  \) matrix. First, we show that \( \Phi: {M}_{n \times n}(F) \to {M}_{n \times n}(F)   \) is linear. 
+    Let \( a \in F  \) and \( D, C \in {M}_{n \times n}(F) \). Then by using the algebraic properties of matrices, we must have
+    \begin{align*}
+        \Phi(aC + D) &= B^{-1}(aC + D)B \\
+                  &=  \Big( B^{-1}(aC) + B^{-1}D \Big) B \\ 
+                  &= B^{-1}(aC)B + B^{-1} D B \\
+                  &= a (B^{-1} C B) + B^{-1}D B \\
+                  &= a\Phi(C) + \Phi(D)
+    \end{align*}
+    Hence, \( \Phi  \) is a linear map. Let \( A \in {M}_{n \times n }(F) \). By definition of \( \Phi  \), we know that 
+    \[  \Phi(A) = B^{-1}A B. \]
+    Since \( B  \) is invertible, we can write 
+    \[ B \Phi(A) B^{-1}  = B(B^{-1}AB)B^{-1} = A.  \]
+    So, define the linear map \( \Theta: {M}_{n \times n}(F) \to {M}_{n \times n}(F) \) by \( \Theta(A) = B A B^{-1} \).
 \end{proof}
+
+\subsection*{Exercise 2.4.17} Let \( V  \) and \( W  \) be finite-dimensional vector spaces and \( T: V \to W  \) be an isomorphism. Let \( {V}_{0} \) be a subspace of \( V  \).
+\begin{enumerate}
+    \item[(a)] Prove that \( T({V}_{0})  \) is a subspace of \( W  \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Prove that \( \text{dim}({V}_{0}) = \text{dim}(T({V}_{0})) \).
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
