@@ -202,7 +202,7 @@ Notice that \( U  \) is an injective map which tells us that \( T(x) = T(y) \). 
     \[  \Phi(A) = B^{-1}A B. \]
     So, define the linear map \( U: {M}_{n \times n}(F) \to {M}_{n \times n}(F) \) by \( U(A) = B A B^{-1} \).
     Notice that \( B  \) is invertible, so we can write
-    \[  B (B^{-1} A B) B^{-1}  = B^{-1} (B A B^{-1}) B = I \] where \( I  \) is the identity linear map for \( {M}_{n \times n } \).
+    \[  B (B^{-1} A B) B^{-1}  = B^{-1} (B A B^{-1}) B = IA = AI = A  \] where \( I  \) is the identity linear map for \( {M}_{n \times n } \).
     Hence, we have \( \Phi U = U \Phi = I  \). Hence, \( \Phi  \) is an invertible map and thus \( \Phi  \) is an isomorphism.
 \end{proof}
 
@@ -217,8 +217,7 @@ Notice that \( U  \) is an injective map which tells us that \( T(x) = T(y) \). 
             with \( cx \in {V}_{0} \). Hence, \( cy \in T({V}_{0})\).
         \end{proof}
     \item[(b)] Prove that \( \text{dim}({V}_{0}) = \text{dim}(T({V}_{0})) \).
-        \begin{proof}
-        Since \( V  \) and \( W  \) are finite-dimensional vector spaces and that \( {V}_{0} \) and \( T({V}_{0}) \) are subspaces of \( V  \) and \( W  \) respectively, we must have that \( {V}_{0}\) and \( T({V}_{0}) \) be both finite-dimensional by Theorem 1.11. Let \( T({V}_{0}) = {W}_{0} \). Since \( T  \) is an isomorphism, we know that \( T \) must be injective and surjective. So, the Dimension Theorem implies that   
+        \begin{proof} Since \( V  \) and \( W  \) are finite-dimensional vector spaces and that \( {V}_{0} \) and \( T({V}_{0}) \) are subspaces of \( V  \) and \( W  \) respectively, we must have that \( {V}_{0}\) and \( T({V}_{0}) \) be both finite-dimensional by Theorem 1.11. Let \( T({V}_{0}) = {W}_{0} \). Since \( T  \) is an isomorphism, we know that \( T \) must be injective and surjective. So, the Dimension Theorem implies that   
         \[ \text{dim}({V}_{0}) = \text{dim}(N(T)) + \text{dim}(R(T)) = \text{dim}({W}_{0}).\]
         Hence, \( \text{dim}({V}_{0}) = \text{dim}({W}_{0}) \).
         \end{proof}
@@ -229,7 +228,7 @@ Notice that \( U  \) is an injective map which tells us that \( T(x) = T(y) \). 
     Observe that \( R(T)  \) is a subspace of \( W  \) and \( R({L}_{A})  \) is a subspace \( F^{m} \). Since \( {\phi}_{\gamma}: W \to F^{m} \) is an isomorphism by Theorem 2.21 (that is, \( \text{dim}(W) = \text{dim}(F^{m}) \)), we can use Exercise 17 to state that \( \text{rank}(T) = \text{rank}({L}_{A}) \). Similarly, \( N(T)  \) and \( N({L}_{A}) \) are subspaces of \( V  \) and \( F^{n} \), respectively. Hence, \( {\phi}_{\beta}: V \to F^{n} \) (that is, \( \text{dim}(V) = \text{dim}(F^{n}) \)) being an isomorphism implies that \( \text{nullity}(T) = \text{nullity}({L}_{A})\). 
 \end{proof}
 
-\subsection*{Exercise 2.4.21} Let \( V  \) and \( W  \) be finite-dimensional vector spaces with ordered bases \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) and \( \gamma = \{ {w}_{1}, {w}_{2}, \dots, {w}_{n} \}  \), respectively. By Theorem 2.6, there exists linear transformations \( {T}_{ij}: V \to W  \) such that
+\subsection*{Exercise 2.4.21} Let \( V  \) and \( W  \) be finite-dimensional vector spaces with ordered bases \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) and \( \gamma = \{ {w}_{1}, {w}_{2}, \dots, {w}_{m} \}  \), respectively. By Theorem 2.6, there exists linear transformations \( {T}_{ij}: V \to W  \) such that
 \[  {T}_{ij}({v}_{k }) = 
 \begin{cases}
     {w}_{i} &\text{if } k = j \\
@@ -237,7 +236,11 @@ Notice that \( U  \) is an injective map which tells us that \( T(x) = T(y) \). 
 \end{cases} \]
 First prove that \( \{ {T}_{ij} : 1 \leq i \leq m, 1 \leq j \leq n  \}  \) is a basis for \( \mathcal{L}(V,W)  \). Then let \( M^{ij}  \) be the \( m \times n  \) matrix with \( 1  \) in the \( i \)th row and \( j \)th column and \( 0  \) elsewhere, and prove that \( [{T}_{ij}]_{\beta}^{\gamma}  = M^{ij}  \). Again by Theorem 2.6, there exists a linear transformation \( \Phi: \mathcal{L}(V,W) \to {M}_{m \times n}(F)   \) such that \( \Phi({T}_{ij}) = M^{ij} \). Prove that \( \Phi  \) is an isomorphism.
 \begin{proof}
-
+    First, we need to show that \( S = \{ {T}_{ij}: 1 \leq i \leq m, 1 \leq j \leq n  \}  \) is a basis for \( \mathcal{L}(V,W) \); that is, we need to show that
+    \[  \sum_{ i=1  }^{ m } {a}_{ij} T_{ij}({v}_{k})= 0 \ \text{ for } \ 1 \leq j \leq n. \tag{1}  \]
+    for some scalars \( {a}_{ij}  \). By definition of \( {T}_{ij}  \), observe that for \( 1 \leq j \leq n   \) we have \( j = k  \) such that \( {T}_{ij}({v}_{k }) = {w}_{i} \). So, (1) can be re-written as 
+    \[ \sum_{ i=1  }^{ m  } {a}_{ij} {w}_{i} = 0.  \]
+    Now, we can use the linear independence of \( \gamma = \{ {w}_{1}, {w}_{2}, \dots, {w}_{m} \}  \) to conclude that \( {a}_{ij} = 0  \) for all \( 1 \leq i \leq m  \). But this means that \( S  \) must be linearly independent. Let \( {T}_{ij} \in \mathcal{L}(V,W)  \) but not in \( S  \). Then adjoining \( {T}_{ij}  \) to \( S  \) produces a linearly dependent set such that \( {T}_{ij} \in \text{span}(S)  \) by Theorem 1.7. Hence, \( S  \) is a basis for \( \mathcal{L}(V,W) \).
 \end{proof}
 
 \subsection*{Exercise 2.4.24} Let \( T: V \to Z  \) be a linear transformation of a vector space \( V  \) onto a vector space \( Z  \). Define the mapping
@@ -246,19 +249,50 @@ for any coset \( v + N(T)  \) in \( V / N(T) \).
 \begin{enumerate}
     \item[(a)] Prove that \( \overline{T} \) is well-defined; that is, prove that if \( v + N(T) = v' + N(T)  \), then \( T(v) = T(v')  \).
         \begin{proof}
-        
+        Suppose \( v + N(T) = v' + N(T) \). Then 
+        \begin{align*}
+            T(v) &= \overline{T}(v + N(T)) \\
+                 &= \overline{T}(v' + N(T)) \\
+                 &= T(v').
+        \end{align*}
+        Hence, \( \overline{T}  \) is well-defined map.
         \end{proof}
     \item[(b)] Prove that \( \overline{T}  \) is linear.
         \begin{proof}
-        
+        Let \( a \in F  \) and \( v + N(T), u + N(T) \in V / N(T) \). Then using the operations defined in {\hyperref[Exercise 1.3.31]{Exercise 1.3.31}} and the fact that \( T  \) is linear, we have 
+        \begin{align*}
+            \overline{T}\Big(a(v + N(T)) + (u + N(T))\Big) &= \overline{T} \Big(  (av + N(T)) + (u + N(T)) \Big) \\
+                                                           &= \overline{T}( (av + u) + N(T)) \\
+                                                           &= T(av + u) \\
+                                                           &= aT(v) + T(u) \\
+                                                           &= a \overline{T}(v + N(T)) + \overline{T}(u + N(T)).
+        \end{align*}
+    Thus, \( \overline{T} \) is linear.
         \end{proof}
     \item[(c)] Prove that \( \overline{T}  \) is an isomorphism.
         \begin{proof}
-        
+            First, we show that \( \overline{T} \) is an injective map. Let \( x + N(T), y + N(T) \in V / N(T) \). Then observe that
+            \begin{align*}
+                \overline{T}(x + N(T)) &= \overline{T}(y + N(T)) \\
+                T(x) &= T(y). 
+            \end{align*}
+            Since \( T  \) is linear, we can write
+            \[  T(x) = T(y) \iff T(x-y) = 0. \]
+            Hence, \( x - y \in N(T) \). Since \( N(T)  \) is a subspace of \( V  \), we have \( x + N(T) = y + N(T)  \) by Exercise 1.3.31. This implies that \( \overline{T}  \) is injective. 
+
+            Now, we will show that \( \overline{T}  \) is a surjective map. Since \( T  \) is a linear transformation from \( V  \) onto \( Z  \), we know that any arbitrary \( y \in Z  \) can be written as \( T(x) = y  \) for some \( x \in V  \). By definition of \( \overline{T} \), we have
+            \[  y = T(x) = \overline{T}(x + N(T)) \] where \( x + N(T) \in V / N(T) \).
+            Hence, \( \overline{T} \) is a surjective linear map. Thus, \( \overline{T} \) is an isomorphism.
         \end{proof}
     \item[(d)] Prove that the diagram shown in Figure 2.3 commutes; that is, prove that \( T = \overline{T} \eta \).
         \begin{proof}
-        
+        Let \( v \in V  \). Since \( \eta: V \to V / N(T) \) is defined by \( \eta(v) = v + N(T) \), we can write that
+        \begin{align*}
+            T(v) &= \overline{T}(v + N(T)) \\
+                 &= \overline{T}(\eta(v)) \\
+                 &= \overline{T}\eta(v).
+        \end{align*}
+        Since \( v \in V  \) is arbitrary, we know that \( T = \overline{T}\eta \).
         \end{proof}
 \end{enumerate}
 
