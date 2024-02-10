@@ -240,7 +240,21 @@ First prove that \( \{ {T}_{ij} : 1 \leq i \leq m, 1 \leq j \leq n  \}  \) is a 
     \[  \sum_{ i=1  }^{ m } {a}_{ij} T_{ij}({v}_{k})= 0 \ \text{ for } \ 1 \leq j \leq n. \tag{1}  \]
     for some scalars \( {a}_{ij}  \). By definition of \( {T}_{ij}  \), observe that for \( 1 \leq j \leq n   \) we have \( j = k  \) such that \( {T}_{ij}({v}_{k }) = {w}_{i} \). So, (1) can be re-written as 
     \[ \sum_{ i=1  }^{ m  } {a}_{ij} {w}_{i} = 0.  \]
-    Now, we can use the linear independence of \( \gamma = \{ {w}_{1}, {w}_{2}, \dots, {w}_{m} \}  \) to conclude that \( {a}_{ij} = 0  \) for all \( 1 \leq i \leq m  \). But this means that \( S  \) must be linearly independent. Let \( {T}_{ij} \in \mathcal{L}(V,W)  \) but not in \( S  \). Then adjoining \( {T}_{ij}  \) to \( S  \) produces a linearly dependent set such that \( {T}_{ij} \in \text{span}(S)  \) by Theorem 1.7. Hence, \( S  \) is a basis for \( \mathcal{L}(V,W) \).
+    Now, we can use the linear independence of \( \gamma = \{ {w}_{1}, {w}_{2}, \dots, {w}_{m} \}  \) to conclude that \( {a}_{ij} = 0  \) for all \( 1 \leq i \leq m  \). But this means that \( S  \) must be linearly independent. Let \( {T}_{ij} \in \mathcal{L}(V,W)  \) but not in \( S  \). Then adjoining \( {T}_{ij}  \) to \( S  \) produces a linearly dependent set such that \( {T}_{ij} \in \text{span}(S)  \) by Theorem 1.7. Hence, \( S  \) is a basis for \( \mathcal{L}(V,W) \). 
+
+    Using the fact that \( S  \) is a basis for \( \mathcal{L}(V,W) \), we can now write that
+    \[  {w}_{i} = {T}_{ij}({v}_{j}) = \sum_{ i=1  }^{ m } {a}_{ij} {w}_{i} \ \text{ for } 1 \leq j \leq n. \tag{2} \] We can see that for \( 1 \leq j \leq n  \) that the matrix representation \( [{T}_{ij}]_{\beta}^{\gamma} \) contains entries \( {a}_{ij} = 1  \) whenever \( i = j  \) and \( 0  \) otherwise. But observe that this is just \( M^{ij} \) and hence \( [{T}_{ij}]_{\beta}^{\gamma} = M^{ij}  \). 
+    By Theorem 2.6, we can see that there exists a linear transformation \( \Phi : \mathcal{L}(V,W) \to {M}_{n\times n}(F) \) such that \( \Phi({T}_{ij}) = M^{ij} \). Our goal now is to show that \( \Phi  \) is an isomorphism. That is, we will show that \( \Phi  \) is both injective and surjective. Let \( {T}_{ij}, {U}_{ij} \in \mathcal{L}(V,W)  \). Assume \( \Phi({T}_{ij}) = \Phi({U}_{ij}) \). Then we can write
+    \begin{align*}
+        \Phi({T}_{ij}) &= \Phi({U}_{ij})   \\
+        M^{ij} &= N^{ij} \\
+        [{T}_{ij}]_{\beta}^{\gamma} &= [{U}_{ij}]_{\beta}^{\gamma}.
+    \end{align*}
+    Notice that the last equality implies that \( {T}_{ij} = {U}_{ij} \) by corollary to Theorem 2.6. Hence, \( \Phi  \) is an injective map.
+
+    Let \( {U}_{ij} \in \mathcal{L}(V,W) \). Using ordered bases \( \beta \) and \( \gamma \) and the fact that \( S  \) is a basis for \( \mathcal{L}(V,W) \), we can construct \( [{U}_{ij}]_{\beta}^{\gamma} \) such that
+    \[ {w}_{i} = {U}_{ij}({v}_{j}) = \sum_{ i=1  }^{ m } {B}_{ij} {w}_{i} \ \text{ for } \ 1 \leq j \leq n.  \]
+    Observe that \(  [{U}_{ij}]_{\beta}^{\gamma} =  N^{ij} = \Phi({U}_{ij})   \) and thus \( \Phi  \) is surjective. We can conclude that \( \Phi  \) is an isomorphism.
 \end{proof}
 
 \subsection*{Exercise 2.4.24} Let \( T: V \to Z  \) be a linear transformation of a vector space \( V  \) onto a vector space \( Z  \). Define the mapping
@@ -295,5 +309,6 @@ for any coset \( v + N(T)  \) in \( V / N(T) \).
         Since \( v \in V  \) is arbitrary, we know that \( T = \overline{T}\eta \).
         \end{proof}
 \end{enumerate}
+
 
 

@@ -1,2 +1,200 @@
 \section{The Change of Coordinate Matrix}
 
+\begin{theorem}[Properties of Change of Coordinates Matrix]
+   Let \( \beta  \) and \( \beta'  \) be two ordered bases for a finite-dimensional vector space \( V  \), and let \( Q = [{I}_{V}]_{\beta'}^{\beta}  \). Then
+   \begin{enumerate}
+       \item[(a)] \( Q  \) is invertible.
+        \item[(b)] For any \( v \in V  \), \( [v]_{\beta} = Q [v]_{\beta'} \).
+   \end{enumerate}
+\end{theorem}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Since \( {I}_{V}  \) is invertible, \( Q \) is also invertible by {\hyperref[Theorem 2.18]{Theorem 2.18}}. 
+    \item[(b)] Let \( v \in V  \). Since \( {I}_{V}(v) = v  \) and that \( \beta  \) and \( \beta' \) are ordered bases for \( V  \), we can write that
+        \[  [v]_{\beta} = [{I}_{V}(v)]_{\beta} = [{I}_{V}]_{\beta'}^{\beta} [v]_{\beta'} = Q [v]_{\beta'}    \]
+        by using {\hyperref[Theorem 2.14]{Theorem 2.14}} .
+\end{enumerate}
+\end{proof}
+
+\begin{itemize}
+    \item The matrix \( Q = [{I}_{V}]_{\beta'}^{\beta}  \) is the \textbf{Change of Coordinate Matrix}. 
+    \item In the theorem above, part (b) states \( Q  \) is what allows us to change from one set of coordinates to another.
+    \item Letting \( \beta = \{ {x}_{1}, {x}_{2}, \dots, {x}_{n} \}  \) and \( \beta' = \{ {x}_{1}', {x}_{2}', \dots, {x}_{n}' \}  \), then
+        \[  {x}_{j}' = \sum_{ i=1 }^{ n } {Q}_{ij} {x}_{i} \ \text{ for } \ 1 \leq j \leq n  \]
+        where the \(j  \)th column of \( Q  \) is \(  [{x}_{j}']_{\beta}\).
+    \item Since \( Q  \) is invertible, we can say that \( Q^{-1} \) is its inverse and that \( Q^{-1} \) changes \( \beta  \) coordinates back into \( \beta'  \) coordinates.
+\end{itemize}
+
+\begin{eg}\label{Example 2.5.1}
+    In \(  \R^{2} \), let \( \beta = \{ (1,1), (1,-1) \}  \) and \( \beta' = \{ (2,4), (3,1) \}  \). We can express each basis vector of \( \beta'  \) as a linear combination of vectors from \( \beta \); that is, 
+    \begin{center}
+        \( (2,4) = 3(1,1) - 1(1,-1) \) and \( (3,1) = 2(1,1) + 1(1,-1), \)
+    \end{center} the matrix that changes \( \beta'- \)coordinates into \( \beta- \)coordinates is 
+    \[ Q = \begin{pmatrix}
+        3 & 2 \\
+        -1 & 1 
+    \end{pmatrix}.  \]
+    Now, using part (b) of the above the theorem before this, we get that
+    \[  [(2,4)]_{\beta} = Q [(2,4)]_{\beta'} = Q \begin{pmatrix}
+        1 \\
+        0
+    \end{pmatrix} = \begin{pmatrix}
+    3 & 2 \\
+    -1 & 1 
+    \end{pmatrix} \begin{pmatrix}
+        1 \\
+        0
+    \end{pmatrix} = \begin{pmatrix}
+        3 \\
+        -1
+    \end{pmatrix}. \]
+\end{eg}
+
+For the remainder of this section, we consider only linear transformations that map a vector space \( V  \) into itself. 
+
+\begin{definition}[Linear Operators]
+    Let \( V  \) be a vector space. A linear transformation \( T \) that maps \( V  \) into \( V  \) is called a \textbf{Linear Operator} on \( V  \).
+\end{definition}
+
+If \( V  \) is finite-dimensional such that \( \beta \) and \( \beta'  \) are ordered bases for \( V  \), then \( V  \) can be represented in terms of the matrix representations \( [T]_{\beta} \) and \( [T]_{\beta'} \). Our goal for the rest of section is to find the relationship between these two matrices. Indeed, the next theorem answers this question using the help of coordinate matrices.
+
+\begin{theorem}
+   Let \( T  \) be a linear operator on a finite-dimensional vector space \( V  \), and let \( \beta \) and \( \beta'  \) be ordered bases for \( V  \). Suppose that \( Q  \) is the change of coordinate matrix that changes \( \beta' - \)coordinates into \( \beta- \)coordinates. Then  
+   \[  [T]_{\beta'} = Q^{-1} [T]_{\beta} Q. \]
+\end{theorem}
+\begin{proof}
+Let \( {I}_{V}  \) be the identity transformation on \( V  \) and note that \( Q = [{I}_{V}]_{\beta'}^{\beta}  \) is invertible. Then \( T = {I}_{V}T = T {I}_{V}  \) and thus Theorem 2.11 implies that
+\begin{align*}
+    [T]_{\beta'} &= [T {I}_{V}]_{\beta'} \\
+                 &=  [T]_{\beta} [{I}_{V}]_{\beta'}^{\beta}  \\
+                 &= [T]_{\beta} Q \\
+                 &= [{I}_{V} T ]_{\beta} Q \\
+                 &= [{I}_{V}]_{\beta}^{\beta'} [T]_{\beta} Q  \\
+                 &= Q^{-1} [T]_{\beta} Q.
+\end{align*}
+Thus, we have \( [T]_{\beta'} = Q^{-1} [T]_{\beta} Q \).
+\end{proof}
+
+\begin{eg}
+    Let \( T  \) be the linear operator on \( \R^{2}  \) defined by 
+    \[  T \begin{pmatrix}
+        a \\
+        b
+    \end{pmatrix} = \begin{pmatrix}
+        3a -b \\
+        a + 3b
+    \end{pmatrix} \]
+    and let \( \beta \) and \( \beta'  \) be the ordered bases as defined in {\hyperref[Example 2.5.1]{Example 1}}. One can easily verify that 
+    \[  [T]_{\beta} =  \begin{pmatrix}
+        3 & 1 \\
+        -1 & 3 
+    \end{pmatrix}.\]
+Using the change of coordinate matrix that changes \( \beta'  -\)coordinates into \( \beta- \)coordinates found in Example 1
+\[ Q = \begin{pmatrix}
+    3  & 2 \\
+    -1 & 1 
+\end{pmatrix}  \]
+and 
+\[ Q^{-1} = \frac{ 1 }{ 5 }  \begin{pmatrix}
+    1 & - 2 \\
+    1 & 3 
+\end{pmatrix}.  \]
+By using Theorem 2.23, we have 
+\[  [T]_{\beta'} = Q^{-1} [T]_{\beta} Q = \begin{pmatrix}
+    4 & 1 \\
+    -2 & 2 
+\end{pmatrix}. \]
+To show that this is, indeed, the correct matrix, we can verify that the image under \( T  \) of each vector of \( \beta'  \) can be expressed as the linear combination of the vectors of \( \beta'  \) with the entries of the corresponding column as its coefficients. That is, the image of the second vector in \( \beta'  \) is 
+\[  T \begin{pmatrix}
+    3 \\
+    1 
+\end{pmatrix} = \begin{pmatrix}
+    8 \\
+    6 
+\end{pmatrix} = 1 \begin{pmatrix}
+    2 \\
+    4
+\end{pmatrix} + 2 \begin{pmatrix}
+    3 \\
+    1
+\end{pmatrix} \]
+and likewise the first vector of \( \beta'  \) can be written as
+\[ T \begin{pmatrix}
+    2 \\
+    4
+\end{pmatrix} = \begin{pmatrix}
+    2 \\
+    14
+\end{pmatrix} = 4 \begin{pmatrix}
+    2 \\
+    4
+\end{pmatrix} - 2 \begin{pmatrix}
+    3 \\
+    1
+\end{pmatrix}.  \]
+\end{eg}
+
+\begin{eg}
+In this example, we wish to find an expression for \( T(a,b)  \) for any \( (a,b) \in \R^{2} \). Note that \( T  \) being linear implies that its values can be determined on a basis for \( \R^{2} \). Observe from Figure 2.5 that \( T(1,2) = (1,2)  \) and that \( T(-2,1) = - (-2,1) = (2,-1) \). If we let 
+\[  \beta' = \Big\{ \begin{pmatrix}
+    1 \\
+    2 
+\end{pmatrix} , \begin{pmatrix}
+    -2 \\
+    1 
+\end{pmatrix} \Big\},  \]
+then \( \beta'  \) is an ordered basis for \( \R^{2}  \) and that 
+\[ [T]_{\beta'} = \begin{pmatrix}
+    1 & 0 \\
+    0 & -1 
+\end{pmatrix}.  \]
+Let \( \beta  \) be the standard basis for \( \R^{2}  \), and let \( Q  \) be the matrix that changes \( \beta'- \)coordinates into \( \beta- \)coordinates. Then
+\[  Q = \begin{pmatrix}
+    1 & -2 \\
+    2 & 1 
+\end{pmatrix} \] and \( Q^{-1} [T]_{\beta} Q = [T]_{\beta'} \). We can solve this equation for \( [T]_{\beta}  \) to obtain that \( [T]_{\beta} = Q [T]_{\beta'} Q^{-1} \). Since 
+\[  Q^{-1} = \frac{ 1 }{ 5 }  \begin{pmatrix}
+    1 & 2 \\
+    -2 & 1 
+\end{pmatrix}, \]
+we can easily verify that 
+\[  [T]_{\beta} = \frac{ 1 }{ 5 } \begin{pmatrix}
+    -3 & 4 \\
+    4 & 3 
+\end{pmatrix}. \]
+Since \( \beta \) is the standard ordered basis, it follows that \( T  \) is left-multiplication by \( [T]_{\beta}  \). Hence, for any \( (a,b) \in \R^{2} \), we have
+\[ T \begin{pmatrix}
+    a \\
+    b
+\end{pmatrix} = \frac{ 1 }{ 5 }  \begin{pmatrix}
+-3 & 4 \\
+4 & 3 
+\end{pmatrix} \begin{pmatrix}
+    a \\
+    b 
+\end{pmatrix} = \frac{ 1 }{ 5 }  \begin{pmatrix}
+    -3a + 4b \\
+    4a + 3b
+\end{pmatrix}.  \]
+
+\end{eg}
+\begin{corollary}
+   Let \( A \in {M}_{n \times n}(F) \), and let \( \gamma  \) be an ordered basis for \( F^{n}  \). Then \( [{L}_{A}]_{\gamma} = Q^{-1} A Q \) where \( Q  \) is the \( n \times n  \) matrix whose \( j \)th column is the \( j \)th column is the \( j \)th vector of \( \gamma \).
+\end{corollary} 
+\begin{proof}
+Observe that part (a) of Theorem 2.15 implies that \( [{L}_{A}]_{\gamma} = A  \). Note that \( Q = [{I}_{F^{n}}]_{\gamma} \) and that \( {I}_{F^{n}}{L}_{A} = {L}_{A} {I}_{F^{n}}  \) so we write
+\begin{align*}
+    Q [{L}_{A}]_{\gamma} &= [{I}_{F^{n}}]_{\gamma} [{L}_{A}]_{\gamma}  \\
+                         &= [{I}_{F^{n}} {L}_{A}]_{ \gamma} \\
+                         &=  [{L}_{A} {I}_{F^{n}}]_{\gamma} \\
+                         &=  [{L}_{A}]_{\gamma} [{I}_{F^{n}}]_{\gamma} \\
+                         &= AQ.
+\end{align*} 
+Hence, we have \[ Q [{L}_{A}]_{\gamma} = AQ \tag{1} \]. Since \( Q  \) is invertible, we can do left-multiplication of \( Q^{-1} \) on both sides of (1) to get our desired result
+\[  [{L}_{A}]_{\gamma} = Q^{-1} A Q. \]
+\end{proof}
+
+
+\begin{definition}[Similar Matrices]
+    Let \( A  \) and \( B  \) be matrices in \( {M}_{n \times n }(F)  \). We say that \( B  \) is \textbf{similar} to \( A  \) if there exists an invertible matrix \( Q  \) such that \( B = Q^{-1}A Q  \). 
+\end{definition}
