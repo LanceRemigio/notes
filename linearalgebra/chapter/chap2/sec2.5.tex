@@ -1,5 +1,11 @@
 \section{The Change of Coordinate Matrix}
 
+\subsection{The Change of Coordinate Matrix}
+
+\begin{definition}[Change of Coordinate Matrix]
+    Let \( \beta \) and \( \beta'  \) be two ordered bases for a finite-dimensional vector space \( V  \). The matrix \( Q = [{I}_{V}]_{\beta'}^{\beta}  \) is the \textbf{Change of Coordinate Matrix}.
+\end{definition}
+
 \begin{theorem}[Properties of Change of Coordinates Matrix]
    Let \( \beta  \) and \( \beta'  \) be two ordered bases for a finite-dimensional vector space \( V  \), and let \( Q = [{I}_{V}]_{\beta'}^{\beta}  \). Then
    \begin{enumerate}
@@ -52,13 +58,15 @@
 
 For the remainder of this section, we consider only linear transformations that map a vector space \( V  \) into itself. 
 
+\subsection{Properties of Change of Coordinate Matrices}
+
 \begin{definition}[Linear Operators]
     Let \( V  \) be a vector space. A linear transformation \( T \) that maps \( V  \) into \( V  \) is called a \textbf{Linear Operator} on \( V  \).
 \end{definition}
 
 If \( V  \) is finite-dimensional such that \( \beta \) and \( \beta'  \) are ordered bases for \( V  \), then \( V  \) can be represented in terms of the matrix representations \( [T]_{\beta} \) and \( [T]_{\beta'} \). Our goal for the rest of section is to find the relationship between these two matrices. Indeed, the next theorem answers this question using the help of coordinate matrices.
 
-\begin{theorem}
+\begin{theorem}\label{Theorem 2.23}
    Let \( T  \) be a linear operator on a finite-dimensional vector space \( V  \), and let \( \beta \) and \( \beta'  \) be ordered bases for \( V  \). Suppose that \( Q  \) is the change of coordinate matrix that changes \( \beta' - \)coordinates into \( \beta- \)coordinates. Then  
    \[  [T]_{\beta'} = Q^{-1} [T]_{\beta} Q. \]
 \end{theorem}
@@ -194,7 +202,52 @@ Hence, we have \[ Q [{L}_{A}]_{\gamma} = AQ \tag{1} \]. Since \( Q  \) is invert
 \[  [{L}_{A}]_{\gamma} = Q^{-1} A Q. \]
 \end{proof}
 
+\begin{eg}
+    Let 
+    \[  A = \begin{pmatrix}
+        2 & 1 & 0 \\
+        2 & 1 & 3 \\
+        0 & -1 & 0 
+    \end{pmatrix} \]
+    and let 
+    \[  \gamma = \Bigg\{ \begin{pmatrix}
+        -1 \\
+        0 \\
+        0
+    \end{pmatrix}, \begin{pmatrix}
+        2 \\
+        1 \\
+        0
+    \end{pmatrix}, \begin{pmatrix}
+        1 \\
+        1 \\
+        1 
+    \end{pmatrix} \Bigg\}, \] which is an ordered basis for \( \R^{3}  \). Let \( Q  \) be the \( 3 \times 3  \) matrix whose \( j \)th column is the \( j \)th vector of \( \gamma \). Then
+    \[ Q = \begin{pmatrix}
+        -1 & 2 & 1 \\
+        0 & 1 & 1 \\
+        0 & 0 & 1 
+    \end{pmatrix} \ \text{ and } \ Q^{-1} = \begin{pmatrix}
+        -1 & 2 & -1 \\
+        0 & 1 & -1 \\
+        0 & 0 & 1 
+    \end{pmatrix}.    \]
+    Using the Corollary to Theorem 2.23, we can see that
+    \[  [{L}_{A}]_{\gamma} = Q^{-1} A Q = \begin{pmatrix}
+        0 & 2 & 8 \\
+        -1 & 4 & 6 \\
+        0 & -1 & -1 
+    \end{pmatrix}. \]
+\end{eg}
+
+\subsection{Similar Matrices}
 
 \begin{definition}[Similar Matrices]
     Let \( A  \) and \( B  \) be matrices in \( {M}_{n \times n }(F)  \). We say that \( B  \) is \textbf{similar} to \( A  \) if there exists an invertible matrix \( Q  \) such that \( B = Q^{-1}A Q  \). 
 \end{definition}
+
+\begin{itemize}
+    \item Similarity, just as the notion of the isomorphism seen in the last section, is an equivalence relation. 
+    \item  In the context of {\hyperref[Theorem 2.23]{Theorem 2.23}}, if \( T  \) is a linear operator on a finite-dimensional vector space \( V  \), and if \( \beta \) and \( \beta'  \) are any ordered bases for \( V  \), then \( [T]_{\beta'} \) is similar to \( [T]_{\beta} \).
+    \item We can also extend Theorem 2.23 to allow linear maps such as \( T: V \to W   \) with distinct vector spaces  \( V  \) and \( W  \).
+\end{itemize}

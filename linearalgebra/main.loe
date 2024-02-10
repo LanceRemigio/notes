@@ -202,14 +202,16 @@
 \contentsline {theorem}{\ifthmt@listswap Theorem~2.4.6\else \numberline {2.4.6}Theorem\fi }{62}{theorem.2.4.6}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{62}{thmt@dummyctr.dummy.201}%
 \contentsline {eg}{\ifthmt@listswap Example~2.4.4\else \numberline {2.4.4}Example\fi }{63}{eg.2.4.4}%
+\contentsline {definition}{\ifthmt@listswap Definition~2.5.1\else \numberline {2.5.1}Definition\fi \thmtformatoptarg {Change of Coordinate Matrix}}{63}{definition.2.5.1}%
 \contentsline {theorem}{\ifthmt@listswap Theorem~2.5.1\else \numberline {2.5.1}Theorem\fi \thmtformatoptarg {Properties of Change of Coordinates Matrix}}{63}{theorem.2.5.1}%
-\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{63}{thmt@dummyctr.dummy.204}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{63}{thmt@dummyctr.dummy.205}%
 \contentsline {eg}{\ifthmt@listswap Example~2.5.1\else \numberline {2.5.1}Example\fi }{64}{eg.2.5.1}%
-\contentsline {definition}{\ifthmt@listswap Definition~2.5.1\else \numberline {2.5.1}Definition\fi \thmtformatoptarg {Linear Operators}}{64}{definition.2.5.1}%
+\contentsline {definition}{\ifthmt@listswap Definition~2.5.2\else \numberline {2.5.2}Definition\fi \thmtformatoptarg {Linear Operators}}{64}{definition.2.5.2}%
 \contentsline {theorem}{\ifthmt@listswap Theorem~2.5.2\else \numberline {2.5.2}Theorem\fi }{64}{theorem.2.5.2}%
-\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{64}{thmt@dummyctr.dummy.208}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{65}{thmt@dummyctr.dummy.209}%
 \contentsline {eg}{\ifthmt@listswap Example~2.5.2\else \numberline {2.5.2}Example\fi }{65}{eg.2.5.2}%
-\contentsline {eg}{\ifthmt@listswap Example~2.5.3\else \numberline {2.5.3}Example\fi }{65}{eg.2.5.3}%
-\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{66}{thmt@dummyctr.dummy.211}%
-\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{66}{thmt@dummyctr.dummy.212}%
-\contentsline {definition}{\ifthmt@listswap Definition~2.5.2\else \numberline {2.5.2}Definition\fi \thmtformatoptarg {Similar Matrices}}{66}{definition.2.5.2}%
+\contentsline {eg}{\ifthmt@listswap Example~2.5.3\else \numberline {2.5.3}Example\fi }{66}{eg.2.5.3}%
+\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{66}{thmt@dummyctr.dummy.212}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{66}{thmt@dummyctr.dummy.213}%
+\contentsline {eg}{\ifthmt@listswap Example~2.5.4\else \numberline {2.5.4}Example\fi }{67}{eg.2.5.4}%
+\contentsline {definition}{\ifthmt@listswap Definition~2.5.3\else \numberline {2.5.3}Definition\fi \thmtformatoptarg {Similar Matrices}}{67}{definition.2.5.3}%
