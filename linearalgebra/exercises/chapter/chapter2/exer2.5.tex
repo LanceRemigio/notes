@@ -6,8 +6,7 @@ Our goal is to show that
 \[  P [T]_{\beta'}^{\gamma'} = [T]_{\beta}^{\gamma} Q \tag{1} \]
 where \( P = [{I}_{W}]_{\gamma'}^{\gamma}  \) and \( Q = [{I}_{V}]_{\beta'}^{\beta}  \). Using Theorem 2.11, we can write that
 \begin{align*}
-    P [T]_{\beta'}^{\gamma'} &= [{I}_{W}]_{\gamma'}^{\gamma} [T]_{\beta'}^{\gamma'}  \\
-                             &= [{I}_{W} T]_{\beta'}^{\gamma}  \\
+    P [T]_{\beta'}^{\gamma'} = [{I}_{W}]_{\gamma'}^{\gamma} [T]_{\beta'}^{\gamma'}  &= [{I}_{W} T]_{\beta'}^{\gamma}  \\
                              &= [T]_{\beta'}^{\gamma}  \\
                              &= [T {I}_{V}]_{\beta'}^{\gamma}  \\
                              &= [T]_{\beta}^{\gamma} [{I}_{V}]_{\beta'}^{\beta} \\
@@ -66,11 +65,22 @@ where \( (LP)^{-1} = Q^{-1} \) and \( LP = Q  \). Hence, \( A \sim C  \).
 \begin{enumerate}
     \item[(a)] Prove that if \( Q  \) and \( R  \) are the change of coordinate matrices that change \( \alpha- \)coordinates into \( \beta- \)coordinates and \( \beta- \)coordinates into \( \gamma- \)coordinates, respectively, then \( RQ  \) is the change of coordinate matrix that changes \( \alpha-  \)coordinates into \( \gamma- \)coordinates. 
         \begin{proof}
-        
+        Since \( Q  \) is the matrix that changes \( \alpha-\) coordinates into \( \beta- \)coordinates, we have \( Q = [{I}_{V}]_{\alpha}^{\beta}  \). Likewise, \( R  \) is the matrix that changes \( \beta - \)coordinates into \( \gamma-\) coordinates. So, \( R = [{I}_{V}]_{\beta}^{\gamma}  \). Thus, we have
+        \begin{align*}
+            RQ &= [{I}_{V}]_{\alpha}^{\beta} [{I}_{V}]_{\beta}^{\gamma}  \\
+               &= [{I}_{V}]_{\alpha}^{\gamma} 
+        \end{align*}
+        by Theorem 2.11. Thus, \( RQ  \) is the change of coordinate matrix that changes \( \alpha-  \)coordinates into \( \gamma- \)coordinates
         \end{proof}
     \item[(b)] Prove that if \( Q  \) changes \( \alpha- \)coordinates into \( \beta- \)coordinates, then \( Q^{-1} \) changes \( \beta-  \)coordinates into \( \alpha- \)coordinates.
         \begin{proof}
-        
+            Suppose \( Q  \) changes \( \alpha- \)coordinates into \( \beta- \)coordinates, we have for any \( v \in V  \) that
+            \[  [v]_{\alpha} = Q [v]_{\beta}. \tag{1} \]
+            Since \( Q  \) is invertible, we have
+            \begin{align*} Q^{-1} (Q [v]_{\alpha}) = Q^{-1} [v]_{\alpha} &\implies (Q^{-1}Q) [v]_{\beta} = Q^{-1} [v]_{\alpha} \\
+            &\implies [v]_{\beta} = Q^{-1} [v]_{\alpha} \\
+            \end{align*}
+            Hence, \( Q^{-1} \) changes \( \beta- \)coordinates into \( \alpha - \)coordinates.
         \end{proof}
 \end{enumerate}
 
@@ -92,5 +102,26 @@ Hence, we have \[ Q [{L}_{A}]_{\gamma} = AQ \tag{1} \]. Since \( Q  \) is invert
 \[  {x}_{j}' = \sum_{ i=1  }^{ n  } {Q}_{ij} {x}_{i} \ \text{ for } \ 1 \leq j \leq n, \]
 and set \( \beta' = \{ {x}_{1}', {x}_{2}', \dots, {x}_{n}' \}  \). Prove that \( \beta'  \) is a basis for \( V  \) and hence that \( Q  \) is the change of coordinate matrix changing \( \beta'-  \)coordinates into \( \beta- \)coordinates.
 \begin{proof}
+Let \( 1 \leq j \leq n \). First, we need to show that \( \beta'  \) is linearly independent; that is, there exists scalars \( {a}_{1}, {a}_{2}, \dots, {a}_{n}  \) such that
+\[  \sum_{ j=1  }^{ n } {a}_{j} {x}_{j} = 0 \tag{1}  \]
+    where \( {a}_{j} = 0   \) for all \( j\).
+Since   
+\[  {x}_{j}' = \sum_{ i=1 }^{ n } {Q}_{ij} {x}_{i}, \]
+we can re-write the left side of (1) into
+\[  \sum_{ j=1  }^{ n } {a}_{j} \Big( \sum_{ i=1 }^{ n } {Q}_{ij} {x}_{i} \Big) = \sum_{ i=1  }^{ n } \Big( \sum_{ j=1 }^{ n } {a}_{j} {Q}_{ij} \Big) {x}_{i}.   \]
+But since \( \beta = \{ {x}_{1}, {x}_{2}, \dots, {x}_{n} \}   \) is linearly independent, we have that
+\[  \sum_{ j=1  }^{ n } {a}_{j} {Q}_{ij} = 0 \iff {a}_{j} Q = O \]
+where \( O  \) is the zero-matrix. Since \( Q  \) is an invertible \( n \times n  \) matrix, we can multiply \( Q^{-1} \) on both sides of \( {a}_{j} Q = O  \), to write
+\begin{align*}
+    ({a}_{j}Q) Q^{-1} &= {a}_{j} (Q Q^{-1}) \\
+                      &= {a}_{j} {I}_{n}
+\end{align*}
+Thus, \( {a}_{j} {I}_{n} = O  \) implies that \( {a}_{j} = 0  \) for all \( 1 \leq j \leq n \). Hence, \( \beta'  \) is linearly independent. Now, let \( v \in V   \) but not in \( \beta'  \). Then adjoining \( v  \) into \( \beta'  \) will produce a linearly dependent set. Thus, Theorem 2.2 implies that \( \text{span}(\beta') = V  \). So, \( \beta'  \) is a basis for \( V  \).
+\end{proof}
+
+\subsection*{Exercise 2.5.14} Prove the converse of Exercise 8: If \( A  \) and \( B  \) are each \( m \times n  \) matrices with entries from a field \( F \), and if there exists invertible \( m \times m  \) and \( n \times n  \) matrices \( P  \) and \( Q  \), respectively, such that \( B = P^{-1} A Q  \), then there exist an \( n- \)dimensional vector space \( V  \) and an \( m- \)dimensional vector space \( W  \) (both over \( F \)), ordered bases \( \beta \) and \( \beta'  \) for \( V  \) and \( \gamma \) and \( \gamma'  \) for \( W  \), and a linear transformation \( T: V \to W  \) such that
+\[  A = [T]_{\beta}^{\gamma}  \ \text{ and } \ B = [T]_{\beta'}^{\gamma'}. \]
+\begin{proof}
 
 \end{proof}
+
