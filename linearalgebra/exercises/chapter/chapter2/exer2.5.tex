@@ -1,0 +1,96 @@
+\section{The Change of Coordinate Matrix}
+
+\subsection*{Exercise 2.5.8} Prove the following generalization of Theorem 2.23. Let \( T : V \to W  \) be a linear transformation from a finite-dimensional vector space \( V  \) to a finite-dimensional vector space \( W  \). Let \( \beta  \) and \( \beta'  \) be ordered bases for \( V  \), and let \( \gamma  \) and \( \gamma'  \) be ordered bases for \( W  \). Then \(  [T]_{\beta'}^{\gamma'} = P^{-1} [T]_{\beta}^{\gamma} Q  \) where \( Q  \) is the matrix that changes \( \beta'- \)coordinates into \( \beta- \)coordinates and \( P  \) is the matrix that changes \( \gamma'-  \)coordinates into \( \gamma- \)coordinates. 
+\begin{proof}
+Our goal is to show that 
+\[  P [T]_{\beta'}^{\gamma'} = [T]_{\beta}^{\gamma} Q \tag{1} \]
+where \( P = [{I}_{W}]_{\gamma'}^{\gamma}  \) and \( Q = [{I}_{V}]_{\beta'}^{\beta}  \). Using Theorem 2.11, we can write that
+\begin{align*}
+    P [T]_{\beta'}^{\gamma'} &= [{I}_{W}]_{\gamma'}^{\gamma} [T]_{\beta'}^{\gamma'}  \\
+                             &= [{I}_{W} T]_{\beta'}^{\gamma}  \\
+                             &= [T]_{\beta'}^{\gamma}  \\
+                             &= [T {I}_{V}]_{\beta'}^{\gamma}  \\
+                             &= [T]_{\beta}^{\gamma} [{I}_{V}]_{\beta'}^{\beta} \\
+                             &= [T]_{\beta}^{\gamma} Q.
+\end{align*}
+Hence, we have
+\[  P [T]_{\beta'}^{\gamma'} = [T]_{\beta}^{\gamma} Q. \]
+Since \( P  \) is invertible (by Theorem 2.22), we can do a left-multiplication of \( P^{-1} \) on both sides of (1) to get our desired result
+\[  [T]_{\beta'}^{\gamma'} = P^{-1} [T]_{\beta}^{\gamma} Q. \]
+\end{proof}
+
+\subsection*{Exercise 2.5.9} Prove that "is similar to" is an equivalence relation on \( {M}_{n \times n }(F) \).
+\begin{proof}
+Let \( A \in {M}_{n \times n }(F)  \). Note that
+\[  AI = IA = A  \] and that \( I   \) is invertible. Thus, we have
+\[  A = I^{-1} A I \]
+and that \( A \sim A  \). 
+
+Let \( A, B \in {M}_{n \times n }(F) \). Suppose \( A \sim B  \). Then there exists an invertible matrix \( Q  \) such that 
+\[  A = Q^{-1} B Q. \] Using the invertibility of \( Q  \), we get our desired result
+\[  B = Q A Q^{-1} = P^{-1} A P  \]
+where \( Q = P^{-1} \) and \( Q^{-1} = P  \). Hence, \( B \sim A  \).
+
+Now, let \( A, B , C \in {M}_{n \times n}(F) \). Suppose \( A \sim B  \) and \( B \sim C  \). We want to show that \( A  \sim C  \); that is, we want to show that there exists an invertible \( Q \in {M}_{n \times n}(F)  \) such that
+\[ A = Q^{-1} C Q.   \]
+Since \( A \sim B  \), there exists an invertible matrix \( P  \) such that
+\[ A = P^{-1} B P.   \]
+Likewise, \( B \sim C  \) implies that there exists an invertible matrix \( L  \) such that
+\[  B = L^{-1} C L. \]
+Using {\hyperref[Exercise 2.4.4]{Exercise 2.4.4}}, we can write that
+\begin{align*}
+    A &= P^{-1} B P  \\
+      &= P^{-1} (L^{-1} C L) P \\ 
+      &= (LP)^{-1} C (LP) \\
+      &= Q^{-1} C Q
+\end{align*}
+where \( (LP)^{-1} = Q^{-1} \) and \( LP = Q  \). Hence, \( A \sim C  \).
+\end{proof}
+
+\subsection*{Exercise 2.5.10} Prove that if \( A  \) and \( B  \) are similar \( n \times n  \) matrices, then \( \text{tr}(A) = \text{tr}(B) \).
+\begin{proof}
+    Suppose \( A  \) and \( B  \) are similar \( n \times n \) matrices. Then there exists an invertible matrix \( Q  \) such that
+    \[  A = Q^{-1} B Q. \]
+    Using the fact that \( \text{tr}(AB) = \text{tr}(BA) \) and that matrix multiplication is associative, we can write that
+    \begin{align*}
+        \text{tr}(A) &= \text{tr}((Q^{-1}B) Q) \\
+                     &= \text{tr}(Q (Q^{-1}B)) \\
+                     &= \text{tr}((Q Q^{-1})B) \\ 
+                     &= \text{tr}({I}_{n}B ) \\
+                     &=  \text{tr}(B). 
+    \end{align*}
+    Hence, we have that \( \text{tr}(A ) = \text{tr}(B) \).
+\end{proof}
+
+\subsection*{Exercise 2.5.11} Let \( V  \) be a finite-dimensional vector space with ordered bases \( \alpha, \beta  \) and \( \gamma \).
+\begin{enumerate}
+    \item[(a)] Prove that if \( Q  \) and \( R  \) are the change of coordinate matrices that change \( \alpha- \)coordinates into \( \beta- \)coordinates and \( \beta- \)coordinates into \( \gamma- \)coordinates, respectively, then \( RQ  \) is the change of coordinate matrix that changes \( \alpha-  \)coordinates into \( \gamma- \)coordinates. 
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Prove that if \( Q  \) changes \( \alpha- \)coordinates into \( \beta- \)coordinates, then \( Q^{-1} \) changes \( \beta-  \)coordinates into \( \alpha- \)coordinates.
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 2.5.12} Prove the corollary to Theorem 2.23.
+\begin{proof}
+Observe that part (a) of Theorem 2.15 implies that \( [{L}_{A}]_{\gamma} = A  \). Note that \( Q = [{I}_{F^{n}}]_{\gamma} \) and that \( {I}_{F^{n}}{L}_{A} = {L}_{A} {I}_{F^{n}}  \) so we write
+\begin{align*}
+    Q [{L}_{A}]_{\gamma} &= [{I}_{F^{n}}]_{\gamma} [{L}_{A}]_{\gamma}  \\
+                         &= [{I}_{F^{n}} {L}_{A}]_{ \gamma} \\
+                         &=  [{L}_{A} {I}_{F^{n}}]_{\gamma} \\
+                         &=  [{L}_{A}]_{\gamma} [{I}_{F^{n}}]_{\gamma} \\
+                         &= AQ.
+\end{align*} 
+Hence, we have \[ Q [{L}_{A}]_{\gamma} = AQ \tag{1} \]. Since \( Q  \) is invertible, we can do left-multiplication of \( Q^{-1} \) on both sides of (1) to get our desired result
+\[  [{L}_{A}]_{\gamma} = Q^{-1} A Q. \]
+\end{proof}
+
+\subsection*{Exercise 2.5.13} Let \( V  \) be a finite-dimensional vector space over a field \( F  \), and let \( \beta = \{ {x}_{1}, {x}_{2}, \dots, {x}_{n} \}  \) be an ordered basis for \( V  \). Let \( Q  \) be an \( n \times n \) invertible matrix with entries from \( F  \). Define 
+\[  {x}_{j}' = \sum_{ i=1  }^{ n  } {Q}_{ij} {x}_{i} \ \text{ for } \ 1 \leq j \leq n, \]
+and set \( \beta' = \{ {x}_{1}', {x}_{2}', \dots, {x}_{n}' \}  \). Prove that \( \beta'  \) is a basis for \( V  \) and hence that \( Q  \) is the change of coordinate matrix changing \( \beta'-  \)coordinates into \( \beta- \)coordinates.
+\begin{proof}
+
+\end{proof}
