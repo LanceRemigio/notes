@@ -1,0 +1,53 @@
+\section{Determinants of Order 2}
+
+This section will go over the definition of the determinant of \( 2 \times 2  \) matrices and its geometric significance in terms of area and orientation.
+
+\begin{definition}[Determinants]
+   If  
+   \[  A = \begin{pmatrix}
+       a & b \\
+       c & d 
+   \end{pmatrix} \] is a \( 2 \times 2  \) matrix with entries from a field \( F  \), then we define the \textbf{determinant} of \( A  \), denoted \( \text{det}(A)  \) or \( | A  |  \), to be the scalar \( ad - bc  \).
+\end{definition}
+
+\begin{eg}
+    For the matrices
+    \[  A = \begin{pmatrix}
+        1 & 2 \\
+        3 & 4 
+    \end{pmatrix} \ \text{ and } \ B = \begin{pmatrix}
+        3 & 2 \\
+        6 & 4 
+    \end{pmatrix} \] in \( {M}_{2 \times 2}(\R) \), the determinant of these two matrices are
+    \begin{center}
+        \( \text{det}(A) = 1 \cdot 4 - 2 \cdot 3 = -2  \) and \( \text{det}(B) = 3 \cdot 4 - 2 \cdot 6 = 0   \)
+    \end{center}
+\end{eg}
+
+A common intuition that we have about determinants is that we think that
+\[  \text{det}(A + B) = \text{det}(A) + \text{det}(B)  \]
+which is NOT generally true. Keep in mind that the mapping \( \text{det} : {M}_{2 \times 2}(F) \to F   \) is NOT a linear transformation, but it does posses an important linearity property which will presented below.
+
+\begin{theorem}
+    The function \( \text{det}: {M}_{2 \times 2}(F) \to F  \) is a linear function of each row of a \( 2 \times 2  \) matrix when the other row is held fixed. That is, if \( u,v  \) and \( w  \) are in \( F^{2} \) and \( k  \) is some scalar, then
+    \[  \text{det}\begin{pmatrix}
+        u + kv \\
+        w 
+    \end{pmatrix} = \text{det}\begin{pmatrix}
+        u \\
+        w 
+    \end{pmatrix}  + k \begin{pmatrix}
+        u \\
+        w 
+    \end{pmatrix}  \] and 
+    \[  \text{det} \begin{pmatrix}
+        w \\
+        u + kv
+    \end{pmatrix} = \text{det}\begin{pmatrix}
+        w \\
+        u 
+    \end{pmatrix} + k \text{det}\begin{pmatrix}
+        w \\
+        v
+    \end{pmatrix}. \]
+\end{theorem}

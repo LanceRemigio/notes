@@ -215,3 +215,7 @@
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{66}{thmt@dummyctr.dummy.213}%
 \contentsline {eg}{\ifthmt@listswap Example~2.5.4\else \numberline {2.5.4}Example\fi }{67}{eg.2.5.4}%
 \contentsline {definition}{\ifthmt@listswap Definition~2.5.3\else \numberline {2.5.3}Definition\fi \thmtformatoptarg {Similar Matrices}}{67}{definition.2.5.3}%
+\addvspace {10\p@ }
+\contentsline {definition}{\ifthmt@listswap Definition~3.1.1\else \numberline {3.1.1}Definition\fi \thmtformatoptarg {Determinants}}{69}{definition.3.1.1}%
+\contentsline {eg}{\ifthmt@listswap Example~3.1.1\else \numberline {3.1.1}Example\fi }{69}{eg.3.1.1}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~3.1.1\else \numberline {3.1.1}Theorem\fi }{69}{theorem.3.1.1}%

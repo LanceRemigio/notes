@@ -122,6 +122,25 @@ Thus, \( {a}_{j} {I}_{n} = O  \) implies that \( {a}_{j} = 0  \) for all \( 1 \l
 \subsection*{Exercise 2.5.14} Prove the converse of Exercise 8: If \( A  \) and \( B  \) are each \( m \times n  \) matrices with entries from a field \( F \), and if there exists invertible \( m \times m  \) and \( n \times n  \) matrices \( P  \) and \( Q  \), respectively, such that \( B = P^{-1} A Q  \), then there exist an \( n- \)dimensional vector space \( V  \) and an \( m- \)dimensional vector space \( W  \) (both over \( F \)), ordered bases \( \beta \) and \( \beta'  \) for \( V  \) and \( \gamma \) and \( \gamma'  \) for \( W  \), and a linear transformation \( T: V \to W  \) such that
 \[  A = [T]_{\beta}^{\gamma}  \ \text{ and } \ B = [T]_{\beta'}^{\gamma'}. \]
 \begin{proof}
+    Since \( A  \) and \( B  \) are \( m \times n  \) with entries from a field \( F  \), let \( V = F^{n} \) and \( W = F^{m} \). Since \( V \) and \( W  \) are finite-dimensional, they contain ordered bases \( \beta =  \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \} \) and \( \gamma = \{ {w}_{1}, {w}_{2}, \dots, {w}_{m} \}   \). By Theorem 2.6, there must exists a linear transformation \( T: V \to W  \) such that 
+    \[  T({v}_{j}) = \sum_{ i=1  }^{ m } {A}_{ij} {w}_{i} \ \text{ for } \ 1 \leq j \leq n. \]
+    Since \( V = F^{n} \) and \( W = F^{m} \), let \( T = {L}_{A} \). Hence, we have
+    \[  [T]_{\beta}^{\gamma} = [{L}_{A}]_{\beta}^{\gamma} = A  \]
+    by part (a) of Theorem 2.15.
+    
+    Now, define ordered bases \( \beta' = \{ {x}_{1}', {x}_{2}', \dots, {x}_{n}' \}  \) and \( \gamma' = \{ {w}_{1}', {w}_{2}', \dots, {w}_{m}' \}  \) for \( V  \) and \( W  \), respectively. Since there exists invertible \( n \times n \) and \( m \times m  \) matrices \( Q  \) and \( P  \) respectively, we can apply the result from Exercise 2.5.13 to imply that
+    \[  {x}_{j }' = \sum_{ i=1  }^{ n } {Q}_{ij} {x}_{i} \ \text{ for } \ 1 \leq j \leq n  \] and 
+    \[  {w}_{j}' = \sum_{ i=1  }^{ m } {P}_{ij} {w}_{i} \ \text{ for } \ 1 \leq j \leq n ,  \]
+    implying that \( Q  \) and \( P  \) are change of coordinate matrices that changes \( \beta'- \)coordinates to \( \beta- \)coordinates and \( \gamma'-\)coordinates to \( \gamma- \)coordinates, respectively. 
 
+    Finally, we show that \( B = [T]_{\beta'}^{\gamma'}  \). Using Theorem 2.11, we can write
+    \begin{align*}
+        B = P^{-1} A Q &= [{I}_{V}]_{\gamma}^{\gamma'} [T]_{\beta}^{\gamma} [{I}_{W}]_{\beta'}^{\beta}    \\
+                       &= [{I}_{V} T ]_{\beta}^{\gamma'} [{I}_{W}]_{\beta'}^{\beta}  \\
+                       &= [T]_{\beta}^{\gamma'} [{I}_{W}]_{\beta'}^{\beta}  \\
+                       &= [T {I}_{W}]_{\beta'}^{\gamma'}  \\
+                       &= [T]_{\beta'}^{\gamma'}.
+    \end{align*}
+    Hence, \( B = [T]_{\beta'}^{\gamma'}  \) and we are done.
 \end{proof}
 
