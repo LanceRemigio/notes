@@ -51,3 +51,97 @@ which is NOT generally true. Keep in mind that the mapping \( \text{det} : {M}_{
         v
     \end{pmatrix}. \]
 \end{theorem}
+
+\begin{proof}
+ Let \( u,v,w \in F^{2} \) be defined by \( u = ({a}_{1}, {a}_{2}) \), \( v  = ({b}_{1}, {b}_{2}) \), and \( w = ({c}_{1}, {c}_{2}) \). Using the definition of determinant, we have that
+ \begin{align*}
+     \text{det} \begin{pmatrix}
+         u \\
+         w 
+     \end{pmatrix}  + k \text{det} \begin{pmatrix}
+         v \\ 
+         w 
+     \end{pmatrix} &=  \text{det} \begin{pmatrix}
+     {a}_{1} & {a}_{2} \\
+     {c}_{1} & {c}_{2} 
+     \end{pmatrix} + k \text{det} \begin{pmatrix}
+     {b}_{1} & {b}_{2} \\
+     {c}_{1} & {c}_{2} 
+     \end{pmatrix}  \\
+     &= ({a}_{1}{c}_{2} -  {a}_{2} {c}_{1}) + k ({b}_{1} {c}_{2} - {b}_{2} {c}_{1}) \\
+     &=  ({a}_{1} + k {b}_{1}) {c}_{2} - ({a}_{2} + {kb}_{2}) {c}_{1} \\
+     &=  \text{det} \begin{pmatrix}
+         {a}_{1} + {kb}_{1} & {a}_{2} + {kb}_{2} \\
+         {c}_{1} & {c}_{2}
+     \end{pmatrix} \\ &= \text{det} \begin{pmatrix}
+        ({a}_{1}, {a}_{2}) + k({b}_{1},{b}_{2}) \\ 
+        ({c}_{1}, {c}_{2})
+     \end{pmatrix}  \\
+     &= \text{det} \begin{pmatrix}
+         u + kv \\
+         w 
+     \end{pmatrix}.
+ \end{align*}
+ The proof for the other equation is similar.
+\end{proof}
+
+\begin{itemize}
+    \item In Example 1, notice how \( A  \) is invertible and \( B  \) is not. 
+    \item Also, \( A  \) contains a nonzero determinant and \( B  \) has a zero determinant.
+    \item It turns our the invertibility is tied to nonzero determinants which will be presented in the next theorem.
+\end{itemize}
+
+\begin{theorem}
+    Let \( A \in {M}_{2 \times 2}(F) \). Then the determinant of \( A  \) is nonzero if and only if \( A  \) is invertible. Moreover, if \( A  \) is invertible, then
+    \[  A^{-1} = \frac{ 1 }{ \text{det}(A) } \begin{pmatrix}
+        {A}_{22} & - {A}_{12} \\
+        - {A}_{21} & {A}_{11}
+    \end{pmatrix}. \]
+\end{theorem}
+\begin{proof}
+Suppose \( \text{det}(A) \neq  0  \), then we can define a matrix
+\[  M = \frac{ 1 }{ \text{det}(A) }  \begin{pmatrix}
+    {A}_{22} & - {A}_{12} \\
+    - {A}_{21} & {A}_{11}
+\end{pmatrix}. \]
+Thus, all we need to show is that \( MA = AM = I  \). Observe that
+\begin{align*}
+    AM &= \begin{pmatrix}
+        {A}_{11} & {A}_{12} \\
+        {A}_{21} & {A}_{22} 
+    \end{pmatrix} \frac{ 1 }{ \text{det}(A) }  \begin{pmatrix}
+        {A}_{22} & - {A}_{12} \\
+        - {A}_{21} & {A}_{11}
+    \end{pmatrix} \\
+       &= \frac{ 1 }{ \text{det}(A) } \begin{pmatrix}
+            {A}_{11} {A}_{22} - {A}_{12} & - {A}_{11}{A}_{12} + {A}_{12} {A}_{11} \\
+            {A}_{22} {A}_{21} - {A}_{21}{A}_{22} & {A}_{11} {A}_{22} - {A}_{12} {A}_{21}
+       \end{pmatrix} \\
+       &= \frac{ 1 }{ \text{det}(A) }  \begin{pmatrix}
+           \text{det}(A) & 0 \\ 
+           0 & \text{det}(A) 
+       \end{pmatrix} \\
+       &= \begin{pmatrix}
+           1 & 0 \\ 
+           0 & 1 
+       \end{pmatrix} \\
+       &= I.
+\end{align*}
+Hence, \( AM = I  \) and a similar computation proves that \( MA = I  \). Hence, \( A  \) is invertible and that \( M = A^{-1} \).
+
+ Conversely, suppose that \( A  \) is invertible. Using the remark found in page 152, we have that the rank of 
+ \[ A = \begin{pmatrix}
+     {A}_{11} & {A}_{12} \\
+     {A}_{21} & {A}_{22}
+ \end{pmatrix}  \] must be \( 2  \). Hence, \( {A}_{11} \neq  0  \) or \( {A}_{21} \neq 0  \). If \( {A}_{11} \neq 0  \), then add \( - {A}_{21} / {A}_{11} \) times row \( 1  \) of \( A  \) to row \( 2 \) to obtain the matrix
+ \[  \begin{pmatrix}
+     {A}_{11} & {A}_{12} \\
+     0 & {A}_{22} - \frac{ {A}_{12} {A}_{21}  }{ {A}_{11} } 
+ \end{pmatrix}. \]
+ Since elementary row operations are rank-preserving by the corollary to Theorem 3.4, it follows that
+ \[  {A}_{22} - \frac{ {A}_{12} {A}_{21}  }{  {A}_{11} }  \neq  0 \implies {A}_{11} {A}_{22} - {A}_{12} {A}_{21} \neq 0.  \]
+ Now, suppose \( {A}_{21} \neq  0  \), we can see that \( \text{det}(A) \neq  0  \) by adding \( - {A}_{11} / {A}_{21} \) times row \( 2  \) of \( A  \) to row \( 1  \) and applying a similar argument. Thus, in either case, \( \text{det}(A) \neq  0 \).
+ 
+\end{proof}
+
+In the upcoming sections, we will generalize the definition of the determinant to \( n \times n  \) matrices and show that the theorem above holds for these more general matrices.

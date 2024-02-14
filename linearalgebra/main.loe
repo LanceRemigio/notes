@@ -216,6 +216,14 @@
 \contentsline {eg}{\ifthmt@listswap Example~2.5.4\else \numberline {2.5.4}Example\fi }{67}{eg.2.5.4}%
 \contentsline {definition}{\ifthmt@listswap Definition~2.5.3\else \numberline {2.5.3}Definition\fi \thmtformatoptarg {Similar Matrices}}{67}{definition.2.5.3}%
 \addvspace {10\p@ }
-\contentsline {definition}{\ifthmt@listswap Definition~3.1.1\else \numberline {3.1.1}Definition\fi \thmtformatoptarg {Determinants}}{69}{definition.3.1.1}%
-\contentsline {eg}{\ifthmt@listswap Example~3.1.1\else \numberline {3.1.1}Example\fi }{69}{eg.3.1.1}%
+\contentsline {definition}{\ifthmt@listswap Definition~3.1.1\else \numberline {3.1.1}Definition\fi \thmtformatoptarg {Elementary Row (Column) Operations}}{69}{definition.3.1.1}%
+\contentsline {definition}{\ifthmt@listswap Definition~3.1.2\else \numberline {3.1.2}Definition\fi \thmtformatoptarg {Elementary Matrix}}{69}{definition.3.1.2}%
 \contentsline {theorem}{\ifthmt@listswap Theorem~3.1.1\else \numberline {3.1.1}Theorem\fi }{69}{theorem.3.1.1}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~3.1.2\else \numberline {3.1.2}Theorem\fi \thmtformatoptarg {Elementary Matrices are Invertible}}{69}{theorem.3.1.2}%
+\addvspace {10\p@ }
+\contentsline {definition}{\ifthmt@listswap Definition~4.1.1\else \numberline {4.1.1}Definition\fi \thmtformatoptarg {Determinants}}{71}{definition.4.1.1}%
+\contentsline {eg}{\ifthmt@listswap Example~4.1.1\else \numberline {4.1.1}Example\fi }{71}{eg.4.1.1}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~4.1.1\else \numberline {4.1.1}Theorem\fi }{71}{theorem.4.1.1}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{72}{thmt@dummyctr.dummy.223}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~4.1.2\else \numberline {4.1.2}Theorem\fi }{72}{theorem.4.1.2}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{72}{thmt@dummyctr.dummy.225}%

@@ -1,0 +1,30 @@
+\section{Matrix Operations and Matrices}
+
+\begin{definition}[Elementary Row (Column) Operations]
+    Let \( A  \) be an \( m \times n  \) matrix. Any one of the following three operations on the rows [columns] of \( A  \) is called an \textbf{elementary row [column] operation}:
+    \begin{enumerate}
+        \item[(1)] Interchanging any two rows [columns] of \( A \);
+        \item[(2)] Multiplying any row [column] of \( A  \) by a nonzero scalar;
+        \item[(3)] Adding any scalar multiple of a row [column] of \( A  \) to another row [column].
+    \end{enumerate}
+    Any of these operations is called an \textbf{elementary operation}. Elementary operations of \textbf{type 1, type 2,} or \textbf{type 3} depending on whether they are obtained by (1), (2), (3).
+\end{definition}
+
+If a matrix \( Q  \) can be obtained from a matrix \( P  \) via an elementary row operation, then \( P  \) can be obtained from \( Q  \) via an elementary row operation of the same type.
+
+\begin{definition}[Elementary Matrix]
+    An \( n \times n  \) \textbf{elementary matrix} is a matrix obtained by performing an elementary operation on \( {I}_{n} \). The elementary matrix is said to be of \textbf{type 1, 2,} or \textbf{3} according to whether the elementary operation performed on \( {I}_{n} \) is a type 1,2, or 3 operation, respectively.
+\end{definition}
+
+The next theorem shows that performing an elementary row operation on a matrix is equivalent to multiplying the matrix by an elementary matrix.
+
+\begin{theorem}
+    Let \( A \in {M}_{m \times n}(F)  \), and suppose that \( B  \) is obtained from \( A  \) by performing an elementary row [column] operation. Then there exists an \( m \times m  \) [\( n \times n \)] elementary matrix \( E  \) such that \(  B = EA [B = AE] \). In fact, \( E  \) is obtained from \( {I}_{m}  \) [\( {I}_{n} \)] by performing the same elementary row [column] operation as that which was performed on \( A  \) to obtain \( B \). Conversely, if \( E \) is an elementary \( m \times m  \) [\( n \times n \)] matrix, then \( EA [AE]  \) is the matrix obtained from \( A  \) by performing the same elementary row [column] operation as that which produces \( E  \) from \( {I}_{m} [{I}_{n}]  \). 
+\end{theorem}
+
+\begin{theorem}[Elementary Matrices are Invertible]
+    Elementary matrices are invertible, and the inverse of an elementary matrix is an elementary matrix of the same type.
+\end{theorem}
+\begin{proof}
+Let \( E  \) be an elementary \( n \times n  \) matrix. Then \( E  \) can be obtained by an elementary row operation on \( {I}_{n} \). By reversing the steps used to transform \( {I}_{n}  \) into \( E  \), we can transform \( E  \) back into \( {I}_{n} \).
+\end{proof}
