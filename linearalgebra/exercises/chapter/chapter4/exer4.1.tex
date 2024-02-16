@@ -151,5 +151,55 @@ Prove that
 \end{enumerate}
 Prove that \( \delta(A) = \text{det}(A)  \) for all \( A \in {M}_{2 \times 2}(F)  \). 
 \begin{proof}
-
+Let \( A \in {M}_{2 \times 2}(F)  \). Let the vectors \( u,v \in F^{2} \) for an ordered basis \( \beta \) for \( F^{2}  \). Define the row vectors of \( A  \) by \( u = ({A}_{11}, {A}_{12}) \) and \( v = ({A}_{21}, {A}_{22}) \). Note that
+\[  A = \begin{pmatrix} 
+           u \\
+           v
+          \end{pmatrix} \]
+          and that
+          \[   \delta \begin{pmatrix} 
+                    u \\ 
+                    v
+                    \end{pmatrix} = O \begin{pmatrix}
+                        u \\
+                        v
+                    \end{pmatrix} \cdot A \begin{pmatrix}
+                        u \\
+                        v
+                    \end{pmatrix}  \]
+    where \( O  \) is the \textbf{orientation} of \( \beta \) and \( A  \) is the are of the parallelogram formed by \( u \) and \( v \).
+    Since
+    \[  A = \Big| \text{det} \begin{pmatrix} 
+               u \\
+               v
+              \end{pmatrix}  \Big|,    \]
+              and definition of \( O  \), we find that
+   \begin{align*}
+      \delta(A)  = \delta \begin{pmatrix} 
+                 u \\
+                 v
+                \end{pmatrix} &= O \begin{pmatrix} 
+                           u \\
+                           v
+                          \end{pmatrix} \cdot  A \begin{pmatrix} 
+                                     u \\
+                                     v
+                                    \end{pmatrix}  \\
+                                    &= \frac{ \text{det} \begin{pmatrix} 
+                                               u \\
+                                               v
+                                              \end{pmatrix}  }{ \Big| \text{det} \begin{pmatrix} 
+                                                         u \\
+                                                         v
+                                                        \end{pmatrix}  \Big|  } \cdot  \Big| \text{det}\begin{pmatrix} 
+                                                                   u \\
+                                                                   v
+                                                                  \end{pmatrix}  \Big| \\ 
+                                    &= \text{det} \begin{pmatrix} 
+                                               u \\
+                                               v
+                                              \end{pmatrix} \\
+                                    &= \text{det}(A).
+   \end{align*}
+   Hence, \( \delta(A) = \text{det}(A) \).
 \end{proof}

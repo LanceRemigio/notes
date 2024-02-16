@@ -220,10 +220,13 @@
 \contentsline {definition}{\ifthmt@listswap Definition~3.1.2\else \numberline {3.1.2}Definition\fi \thmtformatoptarg {Elementary Matrix}}{69}{definition.3.1.2}%
 \contentsline {theorem}{\ifthmt@listswap Theorem~3.1.1\else \numberline {3.1.1}Theorem\fi }{69}{theorem.3.1.1}%
 \contentsline {theorem}{\ifthmt@listswap Theorem~3.1.2\else \numberline {3.1.2}Theorem\fi \thmtformatoptarg {Elementary Matrices are Invertible}}{69}{theorem.3.1.2}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{70}{thmt@dummyctr.dummy.220}%
 \addvspace {10\p@ }
 \contentsline {definition}{\ifthmt@listswap Definition~4.1.1\else \numberline {4.1.1}Definition\fi \thmtformatoptarg {Determinants}}{71}{definition.4.1.1}%
 \contentsline {eg}{\ifthmt@listswap Example~4.1.1\else \numberline {4.1.1}Example\fi }{71}{eg.4.1.1}%
 \contentsline {theorem}{\ifthmt@listswap Theorem~4.1.1\else \numberline {4.1.1}Theorem\fi }{71}{theorem.4.1.1}%
-\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{72}{thmt@dummyctr.dummy.223}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{72}{thmt@dummyctr.dummy.224}%
 \contentsline {theorem}{\ifthmt@listswap Theorem~4.1.2\else \numberline {4.1.2}Theorem\fi }{72}{theorem.4.1.2}%
-\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{72}{thmt@dummyctr.dummy.225}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{72}{thmt@dummyctr.dummy.226}%
+\contentsline {definition}{\ifthmt@listswap Definition~4.1.2\else \numberline {4.1.2}Definition\fi \thmtformatoptarg {Angle}}{73}{definition.4.1.2}%
+\contentsline {definition}{\ifthmt@listswap Definition~4.1.3\else \numberline {4.1.3}Definition\fi \thmtformatoptarg {Orientation}}{73}{definition.4.1.3}%

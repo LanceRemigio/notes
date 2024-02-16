@@ -2,6 +2,8 @@
 
 This section will go over the definition of the determinant of \( 2 \times 2  \) matrices and its geometric significance in terms of area and orientation.
 
+\subsection{Basic Properties of Determinants}
+
 \begin{definition}[Determinants]
    If  
    \[  A = \begin{pmatrix}
@@ -145,3 +147,25 @@ Hence, \( AM = I  \) and a similar computation proves that \( MA = I  \). Hence,
 \end{proof}
 
 In the upcoming sections, we will generalize the definition of the determinant to \( n \times n  \) matrices and show that the theorem above holds for these more general matrices.
+
+\subsection{The Area of a Parallelogram}
+
+This section will cover the geometric significance of the determinant of a \( 2 \times 2  \) matrix. First, we start off by defining the notion of an angle in \( \R^{2} \).
+
+\begin{definition}[Angle]
+    Define \textbf{angle} between two vectors \( u,v \in \R^{2} \) as the measure \( \theta  \) (\( 0 \leq \theta \leq \pi \)) that is formed by the vectors having the same magnitude and direction as the given vectors but emanating from the origin.
+\end{definition}
+
+\begin{definition}[Orientation]
+    If \( \beta = \{ u,v \}  \) is an ordered basis for \( \R^{2}  \), we define the \textbf{orientation} of \( \beta \) to be the real number 
+    \[  O \begin{pmatrix}
+        u \\
+        v
+    \end{pmatrix} = \frac{ \text{det} \begin{pmatrix}
+        u \\
+        v
+    \end{pmatrix}  }{  \Big| \text{det} \begin{pmatrix}
+        u \\
+        v
+    \end{pmatrix} \Big|   }. \]
+\end{definition}
