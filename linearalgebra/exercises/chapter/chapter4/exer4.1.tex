@@ -2,27 +2,84 @@
 
 \subsection*{Exercise 4.1.5} Prove that if \( B   \) is the matrix obtained by interchanging the rows of a \( 2 \times 2  \) matrix \( A  \), then \( \text{det}(B) = - \text{det}(A) \).
 \begin{proof}
-
+Suppose \( B \in {M}_{2 \times 2}(F)  \) can be obtained by interchanging the rows of \( A \in {M}_{2 \times 2}(F)  \) where  
+\[  A = \begin{pmatrix}
+    {A}_{11} & {A}_{12} \\
+    {A}_{21} & {A}_{22}
+\end{pmatrix} \ \text{ and } \ B = \begin{pmatrix}
+    {A}_{21} & {A}_{22} \\
+    {A}_{11} & {A}_{12}
+\end{pmatrix}. \]
+Applying the definition of determinant for \( 2 \times 2  \) matrices, we get that
+\begin{align*}
+    \text{det}(B) &= {A}_{12} {A}_{21} - {A}_{11} {A}_{22} \\
+                  &= - ({A}_{11}{A}_{22} - {A}_{12} {A}_{21}) \\
+                  &= - \text{det}(A).
+\end{align*}
+Hence, we have that \( \text{det}(B) = - \text{det}(A) \).
 \end{proof}
 
 \subsection*{Exercise 4.1.6} Prove that if the two columns of \( A \in {M}_{2 \times 2}(F)  \) are identical, then \( \text{det}(A) = 0  \).
 \begin{proof}
-
+Let \( A \in {M}_{2 \times 2}(F)  \) be defined as
+\[  A = \begin{pmatrix}
+    {A}_{11} & {A}_{12} \\
+    {A}_{21} & {A}_{22}
+\end{pmatrix} \] 
+with \( {A}_{11} = {A}_{12}  \) and \( {A}_{21} = {A}_{22} \) by assumption. Applying the definition of the determinant gives us \( \text{det}(A) = 0  \).
 \end{proof}
 
-\subsection*{Exercise 4.1.7} Prove that \( \text{det}(A^{t}) = \text{det}(A) \)for any \( A \in {M}_{2 \times 2}(F)  \).
+\subsection*{Exercise 4.1.7} Prove that \( \text{det}(A^{t}) = \text{det}(A) \) for any \( A \in {M}_{2 \times 2}(F)  \).
 \begin{proof}
-
+Let \( A \in {M}_{2 \times 2} (F) \) where 
+\[  A = \begin{pmatrix}
+    {A}_{11} & {A}_{12} \\
+    {A}_{21} & {A}_{22}
+\end{pmatrix} \ \text{ and } \ A^{t} = \begin{pmatrix}
+    {A}_{11} & {A}_{21} \\
+    {A}_{12} & {A}_{22}
+\end{pmatrix}. \]
+Applying the determinant to \( A  \) and \( A^{t} \), we can see that
+\[  \text{det}(A) = {A}_{11} {A}_{22} - {A}_{12} {A}_{21} = \text{det}(A^{t}). \]
 \end{proof}
 
 \subsection*{Exercise 4.1.8} Prove that if \( A \in {M}_{2 \times 2}(F) \) is upper triangular, then \( \text{det}(A) \) equals the product of diagonal entries of \( A  \).
 \begin{proof}
-
+Let \( A \in {M}_{2 \times 2}(F)  \) be an upper triangular matrix. Then we have
+\[  A = \begin{pmatrix}
+    {A}_{11} & {A}_{12} \\
+    0 & {A}_{22}
+\end{pmatrix}. \]
+Using the definition of determinant, we have 
+\[  \text{det}(A) = {A}_{11}{A}_{22} - 0 {A}_{12} = {A}_{11} {A}_{22}. \]
+Hence, \( \text{det}(A)  \) equals the product of diagonal entries of \( A  \).
 \end{proof}
 
 \subsection*{Exercise 4.1.9} Prove that \( \text{det}(AB) = \text{det}(A) \text{det}(B) \) for any \( A,B \in {M}_{2 \times 2}(F) \).
 \begin{proof}
-
+Let \( A,B \in {M}_{2 \times 2}(F) \) with 
+\[  A = \begin{pmatrix}
+    {A}_{11} & {A}_{12} \\
+    {A}_{21} & {A}_{22}
+\end{pmatrix} \ \text{ and } \ B = \begin{pmatrix}
+    {B}_{11} & {B}_{12} \\ 
+    {B}_{21} & {B}_{22}
+\end{pmatrix}. \]
+Using the definition of the matrix product, we have that
+\[  AB = \begin{pmatrix}
+    {A}_{11}{B}_{11} + {A}_{12}{B}_{21} & {A}_{11} {B}_{12} + {A}_{12} {B}_{22} \\
+    {A}_{21} {B}_{11} + {A}_{22} {B}_{21} & {A}_{21} {B}_{12} + {A}_{22} {B}_{22} 
+\end{pmatrix}. \]
+By definition of the determinant, we have
+\begin{align*}
+    \text{det}(AB) &= ({A}_{11}{B}_{11} + {A}_{12}{B}_{21})({A}_{21}{B}_{12} + {A}_{22} {B}_{22}) \\ 
+                   &- ({A}_{21} {B}_{11} + {A}_{22} {B}_{21}) ({A}_{11} {B}_{12} + {A}_{12} {B}_{22}) \\
+                   &=  {A}_{11}{A}_{21} {B}_{11}{B}_{12} + {A}_{12}{A}_{21}{B}_{12}{B}_{21} \\ &+ {A}_{12}{A}_{22}{B}_{21}{B}_{22} + {A}_{12}{A}_{21} {B}_{11} {B}_{22} \\
+                   &= ({A}_{11}{A}_{22} - {A}_{12}{A}_{21}) {B}_{11}{B}_{22} - ({A}_{11}{A}_{22} - {A}_{12} {A}_{21}){B}_{12}{B}_{21} \\
+                   &= ({A}_{11}{A}_{22} - {A}_{12} {A}_{21})({B}_{11}{B}_{22} - {B}_{12}{B}_{21}) \\
+                   &= \text{det}(A) \text{det}(B).
+\end{align*}
+Hence, we have that \( \text{det}(AB) = \text{det}(A) \text{det}(B) \).
 \end{proof}
 
 \subsection*{Exercise 4.1.10} The \textbf{classical adjoint} of a \( 2 \times 2  \) matrix \( A \in {M}_{2 \times 2}(F)  \) is the matrix 
@@ -38,6 +95,61 @@ Prove that
     \item[(d)] If \( A  \) is invertible, then \( A^{-1} = [\text{det}(A)]^{-1} C \).
 \end{enumerate}
 
+\begin{proof}
+    Let \( A, C \in {M}_{2 \times 2}(F)  \)  where \( C  \) is the classical adjoint of \( A  \).
+\begin{enumerate}
+    \item[(a)] We show that \( CA = [\text{det}(A)]I  \). Applying the definition of the matrix product, we get that
+        \begin{align*}
+            CA &= \begin{pmatrix}
+                {A}_{22} & - {A}_{12} \\
+                -{A}_{21} & {A}_{11}
+            \end{pmatrix} \begin{pmatrix} 
+                {A}_{11} & {A}_{12} \\ 
+                {A}_{21} & {A}_{22}
+                      \end{pmatrix}  \\
+               &= \begin{pmatrix}
+                   {A}_{11}{A}_{22} - {A}_{12} & {A}_{22}{A}_{12} - {A}_{12}{A}_{22} \\
+                   {A}_{11}{A}_{21} -{A}_{11}{A}_{21} & {A}_{11}{A}_{22} - {A}_{12}{A}_{21} 
+               \end{pmatrix} \\
+               &= \begin{pmatrix} 
+                   \text{det}(A) & 0 \\
+                   0 & \text{det}(A)
+                         \end{pmatrix} \\
+               &= [\text{det}(A)] I.
+        \end{align*}
+        Note that proving \( AC = [\text{det}(A)] I  \) is a similar process as above. Hence, we have \( AC = CA = [\text{det}(A)] I  \)
+    \item[(b)] Applying the definition of determinant gives us
+        \[  \text{det}(C) = {A}_{11}{A}_{22} - {A}_{12}{A}_{21} = \text{det}(A). \]
+    \item[(c)] Note that the transpose of \( A \in {M}_{2 \times 2 }(F) \) is
+        \[  A^{t} = \begin{pmatrix}
+            {A}_{11} & {A}_{21} \\ 
+            {A}_{12} & {A}_{22}
+        \end{pmatrix} \]
+        where the classical adjoint of \( A^{t}  \) is
+        \[  W = \begin{pmatrix}
+            {A}_{22} &  - {A}_{21} \\
+            - {A}_{12} & {A}_{11}
+        \end{pmatrix}. \]
+        But note that this is just the transpose of \( C  \) which was defined earlier. So, we have \( W = C^{t} \) is the classical adjoint of \( A^{t} \). 
+    \item[(d)] Since \( A \) is an invertible \( 2 \times 2 \) matrix, we can write
+        \begin{align*}
+            A^{-1} &= \frac{ 1 }{ \text{det}(A) } \begin{pmatrix}
+                {A}_{22} & - {A}_{12} \\
+                -{A}_{21} & {A}_{11}
+            \end{pmatrix} \\
+                   &= [\text{det}(A)]^{-1} C 
+        \end{align*}
+        by Theorem 4.2.
+\end{enumerate}
+\end{proof}
+
+\subsection*{Exercise 4.1.11} Let \( \delta: {M}_{2 \times 2}(F) \to F  \) be a function with the following three properties.
+\begin{enumerate}
+    \item[(i)] \( \delta \) is a linear function of each row of the matrix when the other row is held fixed.
+    \item[(ii)] If the two rows of \( A \in {M}_{2 \times 2}(F)  \) are identical \( \delta(A) = 0  \).
+    \item[(iii)] If \( I  \) is the \( 2 \times 2  \) identity matrix, then \( \delta(I) = 1  \).
+\end{enumerate}
+Prove that \( \delta(A) = \text{det}(A)  \) for all \( A \in {M}_{2 \times 2}(F)  \). 
 \begin{proof}
 
 \end{proof}
