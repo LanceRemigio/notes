@@ -221,12 +221,25 @@
 \contentsline {theorem}{\ifthmt@listswap Theorem~3.1.1\else \numberline {3.1.1}Theorem\fi }{69}{theorem.3.1.1}%
 \contentsline {theorem}{\ifthmt@listswap Theorem~3.1.2\else \numberline {3.1.2}Theorem\fi \thmtformatoptarg {Elementary Matrices are Invertible}}{69}{theorem.3.1.2}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{70}{thmt@dummyctr.dummy.220}%
+\contentsline {definition}{\ifthmt@listswap Definition~3.2.1\else \numberline {3.2.1}Definition\fi \thmtformatoptarg {Rank}}{70}{definition.3.2.1}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~3.2.1\else \numberline {3.2.1}Theorem\fi }{70}{theorem.3.2.1}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{70}{thmt@dummyctr.dummy.223}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~3.2.2\else \numberline {3.2.2}Theorem\fi }{70}{theorem.3.2.2}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{70}{thmt@dummyctr.dummy.225}%
+\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{71}{thmt@dummyctr.dummy.226}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{71}{thmt@dummyctr.dummy.227}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~3.2.3\else \numberline {3.2.3}Theorem\fi }{71}{theorem.3.2.3}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{71}{thmt@dummyctr.dummy.229}%
+\contentsline {eg}{\ifthmt@listswap Example~3.2.1\else \numberline {3.2.1}Example\fi }{72}{eg.3.2.1}%
+\contentsline {remark}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Remark}{72}{thmt@dummyctr.dummy.231}%
+\contentsline {eg}{\ifthmt@listswap Example~3.2.2\else \numberline {3.2.2}Example\fi }{72}{eg.3.2.2}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~3.2.4\else \numberline {3.2.4}Theorem\fi }{72}{theorem.3.2.4}%
 \addvspace {10\p@ }
-\contentsline {definition}{\ifthmt@listswap Definition~4.1.1\else \numberline {4.1.1}Definition\fi \thmtformatoptarg {Determinants}}{71}{definition.4.1.1}%
-\contentsline {eg}{\ifthmt@listswap Example~4.1.1\else \numberline {4.1.1}Example\fi }{71}{eg.4.1.1}%
-\contentsline {theorem}{\ifthmt@listswap Theorem~4.1.1\else \numberline {4.1.1}Theorem\fi }{71}{theorem.4.1.1}%
-\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{72}{thmt@dummyctr.dummy.224}%
-\contentsline {theorem}{\ifthmt@listswap Theorem~4.1.2\else \numberline {4.1.2}Theorem\fi }{72}{theorem.4.1.2}%
-\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{72}{thmt@dummyctr.dummy.226}%
-\contentsline {definition}{\ifthmt@listswap Definition~4.1.2\else \numberline {4.1.2}Definition\fi \thmtformatoptarg {Angle}}{73}{definition.4.1.2}%
-\contentsline {definition}{\ifthmt@listswap Definition~4.1.3\else \numberline {4.1.3}Definition\fi \thmtformatoptarg {Orientation}}{73}{definition.4.1.3}%
+\contentsline {definition}{\ifthmt@listswap Definition~4.1.1\else \numberline {4.1.1}Definition\fi \thmtformatoptarg {Determinants}}{73}{definition.4.1.1}%
+\contentsline {eg}{\ifthmt@listswap Example~4.1.1\else \numberline {4.1.1}Example\fi }{73}{eg.4.1.1}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~4.1.1\else \numberline {4.1.1}Theorem\fi }{73}{theorem.4.1.1}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{74}{thmt@dummyctr.dummy.237}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~4.1.2\else \numberline {4.1.2}Theorem\fi }{74}{theorem.4.1.2}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{74}{thmt@dummyctr.dummy.239}%
+\contentsline {definition}{\ifthmt@listswap Definition~4.1.2\else \numberline {4.1.2}Definition\fi \thmtformatoptarg {Angle}}{75}{definition.4.1.2}%
+\contentsline {definition}{\ifthmt@listswap Definition~4.1.3\else \numberline {4.1.3}Definition\fi \thmtformatoptarg {Orientation}}{75}{definition.4.1.3}%
