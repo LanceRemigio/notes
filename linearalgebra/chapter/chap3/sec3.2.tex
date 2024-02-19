@@ -98,16 +98,87 @@ Observe that for each \( 1 \leq j \leq n \) that
         1 & 0 & 3 \\
         1 & 1 & 2 
               \end{pmatrix}. \]
+              Observe that
+              \begin{align*}
+                  A = \begin{pmatrix}
+                      1 & 2 & 1 \\
+                      1 & 0 & 3 \\
+                      1 & 1 & 2 
+                      \end{pmatrix} &\xrightarrow{{R}_{2} - R_{1} \text{ and } {R}_{3} - {R}_{1}  } \begin{pmatrix}
+                  1 & 2 & 1 \\
+                  0 & -2 & 2 \\
+                  0 & -1 & 1 
+                  \end{pmatrix}. \\
+              \end{align*}
+              Then we have
+              \begin{align*}
+                  \begin{pmatrix} 
+                      1 & 2 & 1 \\
+                      0 & -2 & 2 \\
+                      0 & -1 & 1 
+                  \end{pmatrix} &\xrightarrow{{R}_{2} - {2R}_{1} \text{ and } {R}_{3} - {2R}_{1}} \begin{pmatrix}
+                  1 &  0 & 0  \\
+                  0 & -2 & 2 \\
+                  0 & -1 & 1 
+                  \end{pmatrix}
+              \end{align*}
+              for which we can see that the maximum number of linearly independent columns of \( A  \) is \( 2  \) (again this fact is possible since our operations are rank preserving). Hence, the rank of \( A  \) is \( 2  \).
 \end{eg}
 
-\begin{theorem}
-    Let \( A  \) be an \( n \times n  \) matrix of rank \( r  \). Then \( r \leq m, r \leq n  \), and, y means of a finite number of elementary row and column operations, \( A  \) can be transformed into the matrix 
+These set of operations to convert a given matrix into a simpler form is used to prove the following fact.
+
+\begin{theorem}[Echelon Row (Column) Reduction]
+    Let \( A  \) be an \( m \times n  \) matrix of rank \( r  \). Then \( r \leq m, r \leq n  \), and, y means of a finite number of elementary row and column operations, \( A  \) can be transformed into the matrix 
     \[  D = \begin{pmatrix}
         {I}_{r} & {O}_{1} \\
         {O}_{2} & {O}_{3}
     \end{pmatrix} \]
     where \( {O}_{1}, {O}_{2}, \dots, {O}_{3} \) are zero matrices. Thus, \( {D}_{ii} = 1  \) for \( i \leq r  \) and \( {D}_{ij} = 0  \) otherwise.
 \end{theorem}
+\begin{proof}
+If \( A  \) is the zero matrix, then we have \( r = 0  \) by Exercise 3. Hence, we have \( D = A  \). 
+    Otherwise, suppose \( A \neq  O  \) and \( r = \text{rank}(A ) \). So, \( r > 0  \). Let us proceed with induction on \(  m  \), the number of rows of \( A  \). Let \( m = 1  \) be our base case. Using at most one type 1 column operation and at most one type 2 column operation, \( A  \) can be transformed into a matrix with a \( 1  \) in the \( 1,1  \) position. By means of at most \( n - 1  \) type 3 column operations, \( A  \) can be turned into the following matrix
+    \[  \begin{pmatrix} 
+        1 & 0 & \cdots & 0 
+              \end{pmatrix}. \]
+              Thus, we can see that the first column is a (the only) linearly independent column in \( D  \). Since the rank of \( A  \) is preserved, we get that \( \text{rank}(D) = \text{rank}(A) = 1  \) by Theorem 3.4. Hence, this ends our base case.
 
+              Assume that this theorem holds for any matrix with at most \( m - 1  \) rows (that is, for some \( m > 0  \)). Our goal is to show that the theorem holds for any matrix with \( m  \) rows.
 
+    Suppose that \( A  \) is any \( m \times n  \) matrix. Suppose \( n = 1  \). Then Theorem 3.6 can be shown in similarly as we have done wen we fixed \(  m =1  \). Otherwise, let \(  n > 1  \). Since \( A \neq O  \), we must have that \( {A}_{ij} \neq 0  \) for some \( i,j  \). 
 
+    Utilizing both at most one elementary row and at most elementary column operation (both of each are type 1 operations), we can move the nonzero entry to the \( 1,1 \) position. Now, an additional type 2 operation can ensure a \( 1  \) in the \( 1,1  \) position. This has an effect of creating the following matrix
+    \[  B = \begin{pmatrix} 
+        {I}_{r} & 0 & \cdots & 0  \\
+        0  &  \\
+        \vdots & & B' &   \\
+        0 &    &
+              \end{pmatrix} \]
+where \( B'  \) has a rank of one less than \( B  \). Since \( \text{rank}(A ) = \text{rank}(B)  \), we mus have \( \text{rank}(B') = r - 1  \). Hence, \( r -1 \leq m - 1  \) and \( r - 1 \leq n - 1  \) by the induction hypothesis. Thus, we have \( r \leq  m  \) and \( r \leq n \).
+    
+Using the induction hypothesis again, \( B' \) can be transformed into 
+\[  D' = \begin{pmatrix} 
+    {I}_{r-1} & {O}_{4} \\
+    {O}_{5} & {O}_{6}
+          \end{pmatrix}  \] (an \( (m-1) \times (n-1) \) matrix) via a finite number of elementary row and column operations. Note that \( {O}_{4}, {O}_{5},  \) and \( {O}_{6} \) are zero matrices and that \( D'  \) contains \( r - 1  \) diagonal entries containing \( 1  \) and everywhere else containing \( 0  \). Thus, we have 
+          \[  D = \begin{pmatrix} 
+        {I}_{r} & 0 & \cdots & 0  \\
+        0  &  \\
+        \vdots & & D' &   \\
+        0 &    &
+                    \end{pmatrix}.   \]
+                    We can show through a repeated set of applications involving elementary row and column operations that \( D  \) can be obtained from \( B  \) (Exercise 12). Since \( A  \) can be transformed into \( B  \) and \( B  \) can be transformed into \( D  \) through a finite number of elementary operations, \( A  \) can be transformed into \( D  \) by a finite number of elementary operations.
+
+    Since \( D'  \) contains ones in its first \( r - 1  \) diagonal entries, we can see that \( D  \) contains ones in its first \( r  \) diagonal entires and zeros elsewhere. This establishes the theorem.
+\end{proof}
+
+\begin{corollary}
+    Let \( A  \) be an \( m \times n  \) matrix of \( \text{rank}(A) = r \). Then there exist invertible matrices \( B  \) and \( C  \) of sizes \( m \times m  \) and \( n \times n  \), respectively, such that \( D = BAC  \), where 
+    \[  D = \begin{pmatrix} 
+        {I}_{r} & {O}_{1} \\
+        {O}_{2} & {O}_{3}
+              \end{pmatrix}  \] is the \( m \times n  \) matrix in which \( {O}_{1}, {O}_{2},  \) and \( {O}_{3}  \) are zero matrices.
+\end{corollary}
+\begin{proof}
+
+\end{proof}
