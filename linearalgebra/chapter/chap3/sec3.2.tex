@@ -1,5 +1,6 @@
 \section{The Rank Of A Matrix And Matrix Inverses}
 
+\subsection{Defining the Rank of a Matrix}
 In this section, we will
 \begin{itemize}
     \item Define the \textit{rank} of a matrix. 
@@ -200,7 +201,7 @@ for each elementary row and column operation done on \( A  \) to convert it into
             {I}_{r} & {O}_{1} \\
             {O}_{2} & {O}_{3}
                   \end{pmatrix}  \] is an \( m \times n  \) matrix with the conditions satisfied in the Corollary. Taking the transpose of both sides of \( D = BAC \), we get that
-                  \[  D^{t} = (BAC)^{t} = {C}_{t} A^{t} B^{t}. \]
+                  \[  D^{t} = (BAC)^{t} = {C}^{t} A^{t} B^{t}. \]
                   Note that \( B^{t}  \) and \( C^{t} \) are invertible by Exercise 5 of Section 2.4. So, {\hyperref[Theorem 3.4]{Theorem 3.4}} implies that  
                   \[  \text{rank}(A^{t}) = \text{rank}(C^{t} A^{t} B^{t}) = \text{rank}(D^{t}). \]
                   Since \( \text{rank}(A) = r  \), we know that \( D^{t} \) is an \( n \times n  \) matrix with the form found as in \( D  \) in Corollary 1, and thus \( \text{rank}(D^{t})  \) must also have the same rank by Theorem 3.5. Hence, we have
@@ -229,6 +230,37 @@ where \(B^{-1} = {E}_{1} {E}_{2} \cdots {E}_{p-1}{E}_{p} \) and \( C^{-1} = {G}_
     \end{enumerate}
 \end{theorem}
 \begin{proof}
-
+\begin{enumerate}
+    \item[(a)] Note that \( R(T) \subseteq W  \). So, we must have
+        \[  R(UT) = UT(V) = U(T(V)) = U(R(T)) \subseteq U(W) = R(U). \]
+        We can see by Theorem 1.11 that \( R(UT) \subseteq R(U)  \) implies that  \( \text{rank}(UT) \leq \text{rank}(U) \).
+    \item[(c)] Observe that
+        \begin{align*}
+            \text{rank}(AB) = \text{rank}({L}_{AB}) &= \text{rank}({L}_{A} {L}_{B}) \\
+                                                    &\leq  \text{rank}({L}_{A}) \tag{By part (a)} \\
+                                                    &= \text{rank}(A).
+        \end{align*}
+        Thus, \( \text{rank}(AB) \leq \text{rank}(A) \).
+    \item[(d)] Observe that \( (AB)^{t} = B^{t} A^{t} \). So, we have
+        \[  \text{rank}((AB)^{t}) = \text{rank}(B^{t} A^{t}) \leq \text{rank}(B^{t}). \]
+By {\hyperref[Corollary 3 to Theorem 3.6]{Corollary 3 to Theorem 3.6}}, we must have \( \text{rank}(B^{t}) = \text{rank}(B) \) and that \( \text{rank}((AB)^{t}) = \text{rank}(AB) \). Thus, we have that \( \text{rank}(AB) \leq \text{rank}(B) \).
+    \item[(b)] Let \( \alpha, \beta,  \) and \( \gamma \) be ordered bases for \( V, W  \) and \( Z  \), respectively. Thus, \( [T]_{\alpha}^{\beta}, [U]_{\beta}^{\gamma} \) and \( [UT]_{\alpha}^{\gamma}   \) are defined. Since these are just matrices, we can see that
+        \begin{align*}
+            \text{rank}(UT) &= \text{rank}([UT]_{\alpha}^{\gamma} ) \\
+                            &= \text{rank}([U]_{\beta}^{\gamma}  [T]_{\alpha}^{\beta} ) \tag{{\hyperref[Theorem 2.11]{Theorem 2.11}}} \\
+                            &\leq \text{rank}([T]_{\alpha}^{\beta}) \tag{part (d)} \\
+                            &= \text{rank}(T).
+        \end{align*}
+        Hence, we have \( \text{rank}(UT) \leq \text{rank}(T) \).
+\end{enumerate}
 \end{proof}
+\begin{eg}
+    
+\end{eg}
+
+\subsection{The Inverse of a Matrix}
+
+\begin{definition}[Augmented Matrices]
+   Let \( A  \) and \( B  \) be \( m \times n  \) and \( m \times p  \) matrices, respectively. By the \textbf{augmented matrix} \( (A|B)  \), we mean the \( m \times (n + p)  \) matrix \( (A|B)  \), that is, the matrix who first \( n  \) columns are the columns of \( A  \), and whose last \( p  \) columns are the columns of \( B  \). 
+\end{definition}
 
