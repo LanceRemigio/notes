@@ -254,13 +254,31 @@ By {\hyperref[Corollary 3 to Theorem 3.6]{Corollary 3 to Theorem 3.6}}, we must 
         Hence, we have \( \text{rank}(UT) \leq \text{rank}(T) \).
 \end{enumerate}
 \end{proof}
-\begin{eg}
-    
-\end{eg}
 
 \subsection{The Inverse of a Matrix}
 
 \begin{definition}[Augmented Matrices]
-   Let \( A  \) and \( B  \) be \( m \times n  \) and \( m \times p  \) matrices, respectively. By the \textbf{augmented matrix} \( (A|B)  \), we mean the \( m \times (n + p)  \) matrix \( (A|B)  \), that is, the matrix who first \( n  \) columns are the columns of \( A  \), and whose last \( p  \) columns are the columns of \( B  \). 
+   Let \( A  \) and \( B  \) be \( m \times n  \) and \( m \times p  \) matrices, respectively. By the \textbf{augmented matrix} \( (A|B)  \), we mean the \( m \times (n + p)  \) matrix \( (A|B)  \), that is, the matrix who first \( n  \) columns are the columns of \( A  \), and whose last \( p  \) columns are the columns of \( B  \).
 \end{definition}
+We can see that performing a left-multiplication by an elementary matrix creates a matrix via an elementary row operation ({\hyperref[Theorem 3.1]{See Theorem 3.1}}). This tells us the following important fact:
+\begin{prop}
+    If \( A  \) is an invertible \( n \times n  \) matrix, then it is possible to transform the matrix \( (A| {I}_{n})  \) into the matrix \( ({I}_{n} | A^{-1}) \) by means of a finite number of elementary row operations. Conversely, if for some \( n \times n  \) matrix \( B  \), the matrix \( (A | {I}_{n}) \) can be transformed into the matrix \( ({I}_{n} | B ) \) by a finite number of elementary row operations, then \( B = A^{-1} \).
+\end{prop}
+\begin{proof}
+Suppose \( A  \) is an invertible \( n \times n  \) matrix. Consider the augmented matrix \( C = (A | {I}_{n}) \). Using Exercise 15, we can see that
+\[  A^{-1} C = (A^{-1} A | A^{-1} {I}_{n}) = ({I}_{n} | A^{-1}). \]
+Using {\hyperref[Corollary 3 to Theorem 3.6]{Corollary 3 to Theorem 3.6}}, we can see that \( A^{-1} \) is the product of elementary matrices, say \( A^{-1} = {E}_{p} {E}_{p-1} \cdots {E}_{2} {E}_{1}  \). Thus, we have that
+\[  {E}_{p} {E}_{p-1} \cdots {E}_{1} (A| {I}_{n}) = A^{-1} C = ({I}_{n} | A^{-1}) \]
+and we are done.
+Conversely, suppose that \( A  \) is invertible and that, for some \(  n \times n  \) matrix \( B  \), the matrix \( (A | {I}_{n}) \) can be transformed into the matrix \( ({I}_{n} | B ) \) by a finite number of elementary row operations. Let \( {E}_{1}, {E}_{2}, \dots, {E}_{p} \) be elementary matrices associated with elementary row operations found in {\hyperref[Theorem 3.1]{Theorem 3.1}}. Then we see that
+\[ {E}_{p } {E}_{p-1} \dots {E}_{1} (A | {I}_{n}) = ({I}_{n} | B).  \]
+Letting \( M = {E}_{p} {E}_{p-1} \cdots {E}_{1} \), we have from the equation above that
+\[  (MA | M) = M(A | {I}_{n}) = ({I}_{n} | B). \]
+Thus, we can see that \( MA = {I}_{n} \) and \( M = B  \). Since \( A  \) is invertible, this must mean that \( M = A^{-1} \) and that \( B = A^{-1} \). 
+\end{proof}
 
+\begin{itemize}
+    \item If \( A  \) is \( n \times n \) matrix not invertible, then it is not possible to transform \( (A|{I}_{n}) \) into \( ({I}_{n} | B ) \). 
+    \item We also have that \( \text{rank}(A) < n \).
+    \item An attempt to transform \( (A | {I}_{n})  \) into \( (B | {I}_{n}) \) will produce a row that contains zeros in the first \( n  \) entries.
+\end{itemize}

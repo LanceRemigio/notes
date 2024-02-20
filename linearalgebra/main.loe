@@ -234,23 +234,24 @@
 \contentsline {remark}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Remark}{72}{thmt@dummyctr.dummy.231}%
 \contentsline {eg}{\ifthmt@listswap Example~3.2.2\else \numberline {3.2.2}Example\fi }{72}{eg.3.2.2}%
 \contentsline {theorem}{\ifthmt@listswap Theorem~3.2.4\else \numberline {3.2.4}Theorem\fi \thmtformatoptarg {Echelon Row (Column) Reduction}}{72}{theorem.3.2.4}%
-\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{72}{thmt@dummyctr.dummy.234}%
-\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{73}{thmt@dummyctr.dummy.235}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{73}{thmt@dummyctr.dummy.234}%
+\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{74}{thmt@dummyctr.dummy.235}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{74}{thmt@dummyctr.dummy.236}%
 \contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{74}{thmt@dummyctr.dummy.237}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{74}{thmt@dummyctr.dummy.238}%
-\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{74}{thmt@dummyctr.dummy.239}%
+\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{75}{thmt@dummyctr.dummy.239}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{75}{thmt@dummyctr.dummy.240}%
 \contentsline {theorem}{\ifthmt@listswap Theorem~3.2.5\else \numberline {3.2.5}Theorem\fi }{75}{theorem.3.2.5}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{75}{thmt@dummyctr.dummy.242}%
-\contentsline {eg}{\ifthmt@listswap Example~3.2.3\else \numberline {3.2.3}Example\fi }{76}{eg.3.2.3}%
 \contentsline {definition}{\ifthmt@listswap Definition~3.2.2\else \numberline {3.2.2}Definition\fi \thmtformatoptarg {Augmented Matrices}}{76}{definition.3.2.2}%
+\contentsline {prop}{\ifthmt@listswap Proposition~3.2.1\else \numberline {3.2.1}Proposition\fi }{76}{prop.3.2.1}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{76}{thmt@dummyctr.dummy.245}%
 \addvspace {10\p@ }
-\contentsline {definition}{\ifthmt@listswap Definition~4.1.1\else \numberline {4.1.1}Definition\fi \thmtformatoptarg {Determinants}}{77}{definition.4.1.1}%
-\contentsline {eg}{\ifthmt@listswap Example~4.1.1\else \numberline {4.1.1}Example\fi }{77}{eg.4.1.1}%
-\contentsline {theorem}{\ifthmt@listswap Theorem~4.1.1\else \numberline {4.1.1}Theorem\fi }{77}{theorem.4.1.1}%
-\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{78}{thmt@dummyctr.dummy.248}%
-\contentsline {theorem}{\ifthmt@listswap Theorem~4.1.2\else \numberline {4.1.2}Theorem\fi }{78}{theorem.4.1.2}%
-\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{78}{thmt@dummyctr.dummy.250}%
-\contentsline {definition}{\ifthmt@listswap Definition~4.1.2\else \numberline {4.1.2}Definition\fi \thmtformatoptarg {Angle}}{79}{definition.4.1.2}%
-\contentsline {definition}{\ifthmt@listswap Definition~4.1.3\else \numberline {4.1.3}Definition\fi \thmtformatoptarg {Orientation}}{79}{definition.4.1.3}%
+\contentsline {definition}{\ifthmt@listswap Definition~4.1.1\else \numberline {4.1.1}Definition\fi \thmtformatoptarg {Determinants}}{79}{definition.4.1.1}%
+\contentsline {eg}{\ifthmt@listswap Example~4.1.1\else \numberline {4.1.1}Example\fi }{79}{eg.4.1.1}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~4.1.1\else \numberline {4.1.1}Theorem\fi }{79}{theorem.4.1.1}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{80}{thmt@dummyctr.dummy.249}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~4.1.2\else \numberline {4.1.2}Theorem\fi }{80}{theorem.4.1.2}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{80}{thmt@dummyctr.dummy.251}%
+\contentsline {definition}{\ifthmt@listswap Definition~4.1.2\else \numberline {4.1.2}Definition\fi \thmtformatoptarg {Angle}}{81}{definition.4.1.2}%
+\contentsline {definition}{\ifthmt@listswap Definition~4.1.3\else \numberline {4.1.3}Definition\fi \thmtformatoptarg {Orientation}}{81}{definition.4.1.3}%
