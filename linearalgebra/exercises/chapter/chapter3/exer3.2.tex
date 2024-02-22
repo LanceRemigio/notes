@@ -1,0 +1,106 @@
+\section{The Rank of a Matrix and Matrix Inverses}
+
+\subsection*{Exercise 3.2.7} Express the invertible matrix 
+\[ 
+    \begin{pmatrix}
+        1 & 2 & 1 \\
+        1 & 0 & 1 \\
+        1 & 1 & 2
+    \end{pmatrix}
+\]
+as a product of elementary matrices.
+\begin{proof}
+
+\end{proof}
+
+\subsection*{Exercise 3.2.8} Let \( A  \) be an \( m \times n  \) matrix. Prove that if \( c  \) is any nonzero scalar, then \( \text{rank}(cA) = \text{rank}(A) \).
+\begin{proof}
+Let \( A  \) be an \( m \times n  \) matrix. Assume that the rank of \( A  \) is \( n \neq 0  \). Let \( \beta \) be the standard ordered basis for \( F^{n} \). For any scalar \( c \neq 0  \), we can use Theorem 3.5 to write
+    \begin{align*}
+        \text{rank}(cA) &= \text{rank}({L}_{cA}) \\
+                        &= \text{rank}(c {L}_{A}) \tag{Part (c) of Theorem 2.15} \\
+                        &= \text{dim}(R(c {L}_{A})) \\
+                        &= \text{dim}\Big(\text{span}\big(c {L}_{A} (\beta)\big)\Big). \tag{1}
+    \end{align*}
+    Note that 
+    \[ {cL}_{A}({e}_{j}) = c (A {e}_{j}) = c {a}_{j} \]
+    for \(  1 \leq j \leq n  \) where \( {a}_{j}  \) is the \( j  \)th column of \( A  \). Thus, we ave
+    \[  {L}_{cA}(\beta) = c {L}_{A}(\beta) = \{ {ce}_{j} : 1 \leq  j \leq n \ \text{ for } \ c \neq 0  \}.  \]
+    Note that the dimension of the span of this set is equivalent to \( \text{rank}(A) \) and thus we have
+    \[  \text{rank}(cA) = \text{rank}(A).  \]
+\end{proof}
+
+\subsection*{Exercise 3.2.9} Complete the proof of the corollary to Theorem 3.4 by showing that elementary column operations preserve rank.
+\begin{proof}
+If \( B  \) is obtained from a matrix \( A  \) via an elementary column operation, then there exists an elementary matrix \( E  \) such that \( B = AE  \). Using Theorem 3.2, we can see that \( E  \) is invertible and that 
+\[  \text{rank}(B) = \text{rank}(AE) = \text{rank}(A) \] by part (a) of Theorem 3.4.
+Hence, elementary column operations preserve rank.
+\end{proof}
+
+\subsection*{Exercise 3.2.10} Prove Theorem 3.6 for the case that \( A  \) is an \( m \times 1  \) matrix.
+\begin{proof}
+
+\end{proof}
+
+\subsection*{Exercise 3.2.13} Prove (b) and (c) of Corollary 2 to Theorem 3.6.
+\begin{proof}
+
+\end{proof}
+
+\subsection*{Exercise 3.2.14} Let \( T, U : V \to W  \) be linear transformations.
+\begin{enumerate}
+    \item[(a)] Prove that \( R(T+U) \subseteq R(T) + R(U)  \). (See the definition of the sum of subsets of a vector space in Section 1.3).
+        \begin{proof}
+        Let \( y \in R(T+U)  \). Then for some \( x \in V  \), we know that \( (T+U)(x) = y  \). Since \( U  \) and \( T  \) are both linear, we have that
+        \[  y = (T+U)(x) = T(x) + U(x). \]
+        But note that \( T(x) \in R(T)  \) and \( U(x) \in R(U)  \). Thus, \( y \in R(T) + R(U) \) and so \( R(T+U) \subseteq R(T) + R(U) \).
+        \end{proof}
+    \item[(b)] Prove that if \( W  \) is finite-dimensional, then \( \text{rank}(T+U) \leq \text{rank}(T) + \text{rank}(U) \).
+        \begin{proof}
+        Let \( W  \) be a finite-dimensional vector space. Since \( R(T+U)  \) and \( R(T) + R(U)  \) are subspaces of \( W  \), we know that these subspaces are also finite-dimensional vector spaces by Theorem 1.11. By part (a), we can see that
+        \begin{align*}
+            \text{rank}(T+U)  &= \text{dim}(R(T+U))  \\
+                              &\leq \text{dim}(R(T) + R(U)) \\
+                              &= \text{dim}(R(T)) + \text{dim}(R(U)) - \text{dim}(R(T) \cap R(U)) \\
+                              &\leq \text{dim}(R(T)) + \text{dim}(R(U)) \\
+                              &= \text{rank}(T) + \text{rank}(U).
+        \end{align*}
+        Thus, we have that
+        \[  \text{rank}(T+U) \leq \text{rank}(T) + \text{rank}(U). \]
+        \end{proof}
+    \item[(c)] Deduce from (b) that \( \text{rank}(A+B) \leq \text{rank}(A) + \text{rank}(B) \) for any \( m \times n  \) matrices \( A  \) and \( B  \).
+        \begin{proof}
+        Observer that
+        \begin{align*}
+            \text{rank}(A+B)   &= \text{rank}({L}_{A+B}) \\
+                               &= \text{rank}({L}_{A} + {L}_{B}) \tag{part (c) of Theorem 2.15} \\
+                               &\leq \text{rank}({L}_{A}) + \text{rank}({L}_{B}) \tag{part (b)} \\
+                               &= \text{rank}(A) + \text{rank}(B).
+        \end{align*}
+        Hence, we can see that \( \text{rank}(A+B) \leq \text{rank}(A) + \text{rank}(B) \).
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 3.2.15} Suppose that \( A   \) and \( B  \) are matrices having \( n  \) rows. Prove that \( M(A|B) = (MA|MB) \) for any \( m \times n  \) matrices \( M  \).
+\begin{proof}
+Let \( A  \) and \( B  \) be \( n \times p  \) and \( n \times \ell  \) matrices, respectively. Suppose \( M  \) be is an arbitrary \( m \times n  \) matrix. Then define the product \( M (A | B ) \) as 
+\[  M (A|B) = \sum_{ k =1  }^{ n  } {M}_{ik } (A | B)_{kj} \tag{1} \]
+for \( 1 \leq i \leq m  \) and \( 1 \leq j \leq  p + \ell  \). For \( 1 \leq j \leq p  \), we can see that product in (1) can be re-written as
+\[  M (A|B) = \sum_{ k= 1  }^{ n } {M}_{ik } {A}_{kj} = MA. \tag{2} \]
+For \( p \leq j \leq \ell  \), (1) can be re-written into
+\[  M (A|B) = \sum_{ k=1  }^{ n } {M}_{ik } {B}_{kj} = MB. \tag{3} \]
+So, with (2) and (3) we can write that
+\[  M (A|B) = (MA | MB). \]
+\end{proof}
+
+\subsection*{Exercise 3.2.16} Supply the details to the proof of (b) of Theorem 3.4.
+\begin{proof}
+Observe that
+\begin{align*}
+   R({L}_{PA}) &= R({L}_{P} {L}_{A}) \\
+               &=  {L}_{P} {L}_{A}(F^{n}) \\
+               &= {L}_{P} \Big( {L}_{A} (F^{n}) \Big) \\
+               &= {L}_{P} \Big(  R( {L}_{A}) \Big). \tag{1}
+\end{align*}
+Note that \( R({L}_{A})  \) is a subspace of \( F^{m} \). By exercise 17 of Section 2.4, we can see that the invertibility of \( {L}_{P} \) also implies that \( {L}_{P}\Big(R({L}_{A})\Big) \) is also a subspace of \( F^{m} \). Thus, we have that \( \text{dim}(R({L}_{A})) = \text{dim}({L}_{P}({R}({L}_{A}))) \) implies \( R({L}_{A}) = {L}_{P}(R({L}_{A})) \) by Theorem 1.11. So (1) implies that \( R({L}_{PA}) = R({L}_{A})   \) and thus \[ \text{rank}(PA) = \text{rank}(A) \].
+\end{proof}
