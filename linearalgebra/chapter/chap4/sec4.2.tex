@@ -1,0 +1,32 @@
+\section{Determinants of Order \( n \)}
+
+Before introducing the definition of the determinant for \( n \times n  \) matrices for \( n  \geq 3 \), we will give a definition of deleting rows in a given matrix \( A  \).
+
+Suppose we have 
+\[  A = \begin{pmatrix} 
+    1 & 2 & 3 \\
+    4 &  5 & 6 \\ 
+    7 & 8 & 9 
+          \end{pmatrix}  \in {M}_{3 \times 3 }(\R). \]
+          Denote the \( (n-1) \times (n-1) \) matrix obtained from \( A \) by deleting row \( i  \) and column \( j  \) by \( \tilde{A}_{ij} \). Then we have
+          \[  \tilde{A}_{11} = \begin{pmatrix} 
+              5 & 6 \\
+              8 & 9 
+                    \end{pmatrix} , \ \ {\tilde{A}}_{13} = \begin{pmatrix}
+              4 & 5 \\
+              7 & 8 
+          \end{pmatrix}, \ \ \text{and} \ \ {\tilde{A}}_{32} = \begin{pmatrix} 
+              1 & 3 \\
+              4 & 6 
+                    \end{pmatrix}.   \]
+
+\begin{definition}
+    Let \( A \in {M}_{n \times n}(F)  \). If \( n =1  \), so that \( A = ({A}_{11}) \), we define \( \text{det}(A) = {A}_{11}  \). For \( n \geq 2  \), we define \( \text{det}(A) \) recursively as 
+    \[  \text{det}(A) = \sum_{ j=1  }^{  n } (-1)^{1 + j} {A}_{1j} \cdot \text{det}(\tilde{A}_{1j}). \]
+    The scalar \( \text{det}(A) \) is called the \textbf{determinant} of \( A  \) and is also denoted by \( | A |  \). The scalar 
+    \[ (-1)^{i + j} \text{det}(\tilde{A}_{ij})   \] is called the \textbf{cofactor} of the entry of \( A  \) in row \( i  \), column \( j  \).
+\end{definition}
+We can re-write the cofactor of the row \( i \), column \( j \) entry of \( A  \) as 
+\[  {c}_{ij} = (-1)^{i+j} \text{det}(\tilde{A}_{ij}) \] so that we can express the formula given in the definition above as 
+\[  \text{det}(A) = {A}_{11}{c}_{11} + {A}_{12} {c}_{12} + \cdots + {A}_{1n}{c}_{1n}. \]
+The formula above is denoted as the \textbf{cofactor expansion along the first row} of \( A  \). If \(  n = 2  \), then this formula corresponds with the definition given in section 4.1.

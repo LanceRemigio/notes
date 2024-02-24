@@ -1,5 +1,22 @@
 \section{The Rank of a Matrix and Matrix Inverses}
 
+\subsection*{Exercise 3.2.3} Prove that for any \( m \times n  \) matrix \( A  \), \( \text{rank}(A) = 0  \) if and only if \( A  \) is the zero matrix.
+\begin{proof}
+Let \( A  \) be an \( m \times n  \) matrix. Notice that \( \text{rank}(A) =  \text{dim}(R({L}_{A})) \). By the Dimension Theorem, we can see that \( \text{rank}(A) = 0  \) implies that
+\[  \text{dim}(F^{n}) = \text{dim}(R({L}_{A})) + \text{dim}(N({L}_{A})) = \text{dim}(N({L}_{A})).  \]
+Let \( \beta = \{ {e}_{1}, {e}_{2}, \dots, {e}_{n} \}  \) is the standard ordered basis of \( F^{n} \). Since \( \text{dim}(F^{n}) = \text{dim}(N({L}_{A})) = n \), we know that 
+\[  {L}_{A}({e}_{j}) = {a}_{j} = 0 \ \text{ for all } \ 1 \leq j \leq n  \]
+where \( {a}_{j} \) is the \( j \)th column of \( A  \). Thus, \( A  \) must be the zero matrix.
+
+Conversely, suppose that \( A  \) is the zero matrix. Then we can see that 
+\[   {a}_{j} = 0 \ \text{ for all } \ 1 \leq j \leq n.  \]
+Using Theorem 3.5, we can see that
+\[  R({L}_{A}) = \text{span}(\{ {a}_{j} : 1 \leq j \leq n  \} ) = \text{span}(\{ 0 \} ). \] 
+Hence, we have
+\[  \text{rank}(A) = \text{dim}(R({L}_{A})) = \text{dim}(\text{span}(\{ 0 \} )) = 0. \]
+Thus, \( \text{rank}(A) = 0  \).
+\end{proof}
+
 \subsection*{Exercise 3.2.7} Express the invertible matrix 
 \[ 
     \begin{pmatrix}
@@ -25,7 +42,7 @@ Let \( A  \) be an \( m \times n  \) matrix. Assume that the rank of \( A  \) is
     Note that 
     \[ {cL}_{A}({e}_{j}) = c (A {e}_{j}) = c {a}_{j} \]
     for \(  1 \leq j \leq n  \) where \( {a}_{j}  \) is the \( j  \)th column of \( A  \). Thus, we ave
-    \[  {L}_{cA}(\beta) = c {L}_{A}(\beta) = \{ {ce}_{j} : 1 \leq  j \leq n \ \text{ for } \ c \neq 0  \}.  \]
+    \[  {L}_{cA}(\beta) = c {L}_{A}(\beta) = \{ {ca}_{j} : 1 \leq  j \leq n \ \text{ for } \ c \neq 0  \}.  \]
     Note that the dimension of the span of this set is equivalent to \( \text{rank}(A) \) and thus we have
     \[  \text{rank}(cA) = \text{rank}(A).  \]
 \end{proof}
@@ -91,9 +108,31 @@ Solving for \( \text{rank}(B') \), we get our desired result that
         0 &    &
               \end{pmatrix}.   \]
               Prove that if \( B'  \) can be transformed into \( D'  \) by an elementary row [column] operation, then \( B  \) can be transformed into \( D  \) by an elementary row [column] operation.
-              \begin{proof}
-
-              \end{proof}
+\begin{proof}
+    If \( B'  \) can be transformed into \( D'  \) by an elementary row operation, then there exists an invertible matrix \( E'  \) such that \( D' = E'B'  \). Observe that
+    \[ D = \begin{pmatrix} 
+        1 & 0 & \cdots & 0  \\
+        0  &  \\
+        \vdots & & D' &   \\
+        0 &    &
+    \end{pmatrix} =  \begin{pmatrix}
+        1 & 0 & \cdots & 0  \\
+        0  &  \\
+        \vdots & & E'B' &   \\
+        0 &    &
+    \end{pmatrix}.
+\]
+Now, let's apply an elementary row operation on \( D  \) so that \( D  \) can be written as 
+\[  \begin{pmatrix} 
+        1 & 0 & \cdots & 0  \\
+        0  &  \\
+        \vdots & & B' &   \\
+        0 &    &
+          \end{pmatrix}.  \]
+          But this tells us that there exists some invertible matrix \( E  \) such that \[ B = ED.   \tag{1}\] Since \( E  \) is invertible, we can apply its inverse \( E^{-1} \) on the left side of (1) to get that
+          \[  D = E^{-1} B. \]
+          Thus, \( D  \) can be obtained from \( B  \) via an elementary row operation.
+\end{proof}
 
 
 \subsection*{Exercise 3.2.13} Prove (b) and (c) of Corollary 2 to Theorem 3.6.

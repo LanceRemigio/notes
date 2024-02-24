@@ -255,3 +255,4 @@
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{80}{thmt@dummyctr.dummy.251}%
 \contentsline {definition}{\ifthmt@listswap Definition~4.1.2\else \numberline {4.1.2}Definition\fi \thmtformatoptarg {Angle}}{81}{definition.4.1.2}%
 \contentsline {definition}{\ifthmt@listswap Definition~4.1.3\else \numberline {4.1.3}Definition\fi \thmtformatoptarg {Orientation}}{81}{definition.4.1.3}%
+\contentsline {definition}{\ifthmt@listswap Definition~4.2.1\else \numberline {4.2.1}Definition\fi }{82}{definition.4.2.1}%
