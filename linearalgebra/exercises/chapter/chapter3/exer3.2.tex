@@ -32,21 +32,15 @@ as a product of elementary matrices.
 
 \subsection*{Exercise 3.2.8} Let \( A  \) be an \( m \times n  \) matrix. Prove that if \( c  \) is any nonzero scalar, then \( \text{rank}(cA) = \text{rank}(A) \).
 \begin{proof}
-Let \( A  \) be an \( m \times n  \) matrix. Assume that the rank of \( A  \) is \( n \neq 0  \). Let \( \beta \) be the standard ordered basis for \( F^{n} \). For any scalar \( c \neq 0  \), we can use Theorem 3.5 to write
-    \begin{align*}
-        \text{rank}(cA) &= \text{rank}({L}_{cA}) \\
-                        &= \text{rank}(c {L}_{A}) \tag{Part (c) of Theorem 2.15} \\
-                        &= \text{dim}(R(c {L}_{A})) \\
-                        &= \text{dim}\Big(\text{span}\big(c {L}_{A} (\beta)\big)\Big). \tag{1}
-    \end{align*}
-    Note that 
-    \[ {cL}_{A}({e}_{j}) = c (A {e}_{j}) = c {a}_{j} \]
-    for \(  1 \leq j \leq n  \) where \( {a}_{j}  \) is the \( j  \)th column of \( A  \). Thus, we ave
-    \[  {L}_{cA}(\beta) = c {L}_{A}(\beta) = \{ {ca}_{j} : 1 \leq  j \leq n \ \text{ for } \ c \neq 0  \}.  \]
-    Note that the dimension of the span of this set is equivalent to \( \text{rank}(A) \) and thus we have
-    \[  \text{rank}(cA) = \text{rank}(A).  \]
+Let \( A  \) be an \( m \times n \) matrix. Our goal is to show that
+\[  R({L}_{cA}) = R({L}_{A}). \] Let \( y \in R({L}_{cA}) \). Then for some \( x \in F^{n} \), we have that 
+\[ y = {L}_{cA}(x) = c {L}_{A}(x) = A(cx) = {L}_{A}(cx).   \] via part (c) of Theorem 2.15. Hence, \( y \in R({L}_{A}) \). Now, let \( y \in R({L}_{A}) \). Then for some \( x \in F^{n} \), we have \( y = {L}_{A}(x) \). But note that this can be re-written in the following form 
+\[  y = {L}_{A}(x) = c {L}_{A} \Big( \frac{ 1 }{ c }  x  \Big) = {L}_{cA} \Big( \frac{ 1 }{ c } x \Big)  \]
+via part (c) of Theorem 2.15.
+Thus, we can see that \( y \in R({L}_{A}) \). This tells us that \( R({L}_{cA}) = R({L}_{A}) \) and that we have
+\[  \text{rank}(cA) = \text{dim}(R({L}_{cA})) = \text{dim}(R({L}_{A})) = \text{rank}(A) \]
+by theorem 1.11.
 \end{proof}
-
 \subsection*{Exercise 3.2.9} Complete the proof of the corollary to Theorem 3.4 by showing that elementary column operations preserve rank.
 \begin{proof}
 If \( B  \) is obtained from a matrix \( A  \) via an elementary column operation, then there exists an elementary matrix \( E  \) such that \( B = AE  \). Using Theorem 3.2, we can see that \( E  \) is invertible and that 
