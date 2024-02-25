@@ -30,3 +30,79 @@ We can re-write the cofactor of the row \( i \), column \( j \) entry of \( A  \
 \[  {c}_{ij} = (-1)^{i+j} \text{det}(\tilde{A}_{ij}) \] so that we can express the formula given in the definition above as 
 \[  \text{det}(A) = {A}_{11}{c}_{11} + {A}_{12} {c}_{12} + \cdots + {A}_{1n}{c}_{1n}. \]
 The formula above is denoted as the \textbf{cofactor expansion along the first row} of \( A  \). If \(  n = 2  \), then this formula corresponds with the definition given in section 4.1.
+
+\begin{eg}
+    We will show that the \( n \times n  \) identity matrix is \( 1  \). We prove this assertion by using induction on \( n  \). This result holds for our base case of \( n = 1  \) by definition of the determinant. Assume that the determinant of the \( (n-1) \times (n-1) \) identity matrix is \( 1  \) for some \( n \geq 2  \), and let \( I  \) denote the \( n \times n \). Using cofactor expansion along the first row of \( I  \), we can write
+    \begin{align*}
+        \text{det}(I) &= (-1)^{2} (1) \cdot \text{det}({\tilde{I}}_{11} + (-1)^{3} (0) \cdot \text{det}({\tilde{I}}_{12})) + \cdots  \\
+                      &+ (-1)^{1+n}(0) \cdot \text{det}({\tilde{I}}_{1n}) \\
+                      &= 1(1) + 0 + \cdots + 0 \\
+                      &= 1
+    \end{align*}
+    since \( {\tilde{I}}_{11} \) is the \( (n-1) \times (n-1) \) identity matrix. This shows that the determinant of the \( n \times n  \) matrix is \( 1  \), and so the determinant of any identity matrix is \( 1  \) by the principle of mathematical induction.
+\end{eg}
+
+\begin{itemize}
+    \item As one can see, the operations involved when computing determinants using the recursive definition can be quite tedious.
+    \item From here on, we will try to develop a more efficient method for computing them using the linearity property of determinants (not to mistaken linearity that we have been going over in this book).
+\end{itemize}
+
+\begin{theorem}
+    The determinant of an \( n \times n  \) matrix is a linear function of each row when the remaining rows are held fixed. That is, for \( 1 \leq r \leq n  \), we have 
+    \[  \text{det} \begin{pmatrix} 
+               {a}_{1} \\
+               \vdots \\ 
+               {a}_{r-1} \\
+               u + kv \\
+               {a}_{r+1} \\
+               \vdots \\
+               {a}_{n}
+              \end{pmatrix} = \text{det}\begin{pmatrix} 
+                         {a}_{1} \\
+                         \vdots \\
+                         {a}_{r-1} \\
+                         u \\ 
+                         {a}_{r+1} \\
+                         \vdots \\
+                         {a}_{n}
+                        \end{pmatrix}  + k \text{det} \begin{pmatrix} 
+                                   {a}_{1} \\
+                                   \vdots \\
+                                   {a}_{r-1} \\
+                                   v \\
+                                   {a}_{r+1} \\
+                                   \vdots \\
+                                   {a}_{n}
+                                  \end{pmatrix}   \]
+whenever \( k  \) is a scalar and \( u,v, \) and each \( {a}_{i} \) are row vectors in \( F^{n} \).
+\end{theorem}
+\begin{proof}
+We proceed by mathematical induction on \( n  \). The result is immediate if \( n = 1  \). Assume that for some integer \( n \geq 2  \) the determinant of any \( (n-1) \times (n-1) \) matrix is a linear function of each row when the remaining rows are held fixed. Let \( A  \) be an \( n \times n  \) matrix with rows \( {a}_{1}, {a}_{2}, \dots, {a}_{n} \), respectively, and suppose that for some \( r (1 \leq r \leq n) \), we have \( {a}_{r} = u + kv  \) for some \( u,v \in F^{n} \) and some scalar \( k  \). Let \( u = ({b}_{1}, {b}_{2}, \dots, {b}_{n}) \) and \( v = ({c}_{1}, {c}_{2}, \dots, {c}_{n}) \), and let \( B  \) and \( C \) be the matrices obtained from \( A  \) by replacing row \( r  \) of \( A  \) by \( u \) and \( v  \), respectively.
+
+We must prove that \( \text{det}(A) = \text{det}(B) + k \text{det}(C) \). The proof for the case that \( r = 1  \) is left to the reader. For \( r > 1  \) and \( 1 \leq j \leq  n \), the rows of the deleted matrices \( {\tilde{A}}_{1j}, {\tilde{B}}_{1j},  \) and \( {\tilde{C}}_{1j} \) are the same except for row \( r - 1  \). Moreover, row \( r - 1  \) of \( {\tilde{A}}_{1j}  \) is 
+\[ ({b}_{1} + {kc}_{1}, \dots, {b}_{j-1} + {kc}_{j-1}, {b}_{j+1} + {kc}_{j+1}, \dots, {b}_{n} + {kc}_{n}), \]
+which is the sum of row \( r - 1  \) of \( {\tilde{B}}_{1j} \) and \( k  \) times row \( r -1  \) of \( {\tilde{C}}_{1j} \). Since \( {\tilde{B}}_{1j} \) and \( {\tilde{C}}_{1j} \) are \( (n-1) \times (n-1) \) matrices, we have
+\[  \text{det}({\tilde{A}}_{1j}) = \text{det}({\tilde{B}}_{1j}) + k \text{det}({\tilde{C}}_{1j}) \]
+by induction hypothesis. Using the recursive definition for the determinant and the fact that \( {A}_{1j} = {B}_{1j} = {C}_{1j} \), we write
+\begin{align*}
+    \text{det}(A) & = \sum_{ j=1 }^{ n } (-1)^{1 +j} {A}_{1j} \cdot \text{det}({\tilde{A}}_{1j}) \\
+                  &= \sum_{ j=1 }^{ n } (-1)^{1+j} {A}_{1j} \cdot \Big[ \text{det}({\tilde{B}}_{1j}) + k \text{det}({\tilde{C}}_{1j}) \Big] \\
+                  &= \sum_{ j=1 }^{ n } (-1)^{1+j} {A}_{1j} \cdot \text{det}({\tilde{B}}_{1j}) + k \sum_{ j=1 }^{ n } (-1)^{1+j} {A}_{1j} \cdot \text{det}({\tilde{C}}_{1j})\\
+                  &= \sum_{ j=1 }^{ n } (-1)^{1+j} {B}_{1j} \cdot \text{det}({\tilde{B}}_{1j}) + k \sum_{ j=1 }^{ n } (-1)^{1+j} {C}_{1j} \cdot \text{det}({\tilde{C}}_{1j})\\
+                  &= \text{det}(B) + k \text{det}(C).
+\end{align*}
+Hence, this shows that the theorem is true for \( n \times n  \) matrices, and so the theorem is true for all square matrices by mathematical induction. 
+\end{proof}
+
+\begin{corollary}
+    If \( A \in {M}_{n \times n }(F) \) has a row consisting entirely of zeros, then \( \text{det}(A) =  0  \).
+\end{corollary}
+\begin{proof}
+
+\end{proof}
+
+The next theorem will show that the determinant of any square matrix can be computed using cofactor expansion along any row. Before we proceed with the proof of this fact, we need to prove a preliminary result.
+
+\begin{lemma}
+    Let \( B \in {M}_{n \times n}(F)  \), where \( n \geq 2 \). If row \( i  \) of \( B  \) equals \( {e}_{k } \) for some \( k (1 \leq k \leq n) \), then \( \text{det}(B) = (-1)^{i+k } \text{det}({\tilde{B}}_{1k }) \).
+\end{lemma}
