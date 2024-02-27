@@ -47,7 +47,7 @@ The formula above is denoted as the \textbf{cofactor expansion along the first r
     \item From here on, we will try to develop a more efficient method for computing them using the linearity property of determinants (not to mistaken linearity that we have been going over in this book).
 \end{itemize}
 
-\begin{theorem}
+\begin{theorem}\label{Theorem 4.3}
     The determinant of an \( n \times n  \) matrix is a linear function of each row when the remaining rows are held fixed. That is, for \( 1 \leq r \leq n  \), we have 
     \[  \text{det} \begin{pmatrix} 
                {a}_{1} \\
@@ -79,7 +79,7 @@ whenever \( k  \) is a scalar and \( u,v, \) and each \( {a}_{i} \) are row vect
 \begin{proof}
 We proceed by mathematical induction on \( n  \). The result is immediate if \( n = 1  \). Assume that for some integer \( n \geq 2  \) the determinant of any \( (n-1) \times (n-1) \) matrix is a linear function of each row when the remaining rows are held fixed. Let \( A  \) be an \( n \times n  \) matrix with rows \( {a}_{1}, {a}_{2}, \dots, {a}_{n} \), respectively, and suppose that for some \( r (1 \leq r \leq n) \), we have \( {a}_{r} = u + kv  \) for some \( u,v \in F^{n} \) and some scalar \( k  \). Let \( u = ({b}_{1}, {b}_{2}, \dots, {b}_{n}) \) and \( v = ({c}_{1}, {c}_{2}, \dots, {c}_{n}) \), and let \( B  \) and \( C \) be the matrices obtained from \( A  \) by replacing row \( r  \) of \( A  \) by \( u \) and \( v  \), respectively.
 
-We must prove that \( \text{det}(A) = \text{det}(B) + k \text{det}(C) \). The proof for the case that \( r = 1  \) is left to the reader. For \( r > 1  \) and \( 1 \leq j \leq  n \), the rows of the deleted matrices \( {\tilde{A}}_{1j}, {\tilde{B}}_{1j},  \) and \( {\tilde{C}}_{1j} \) are the same except for row \( r - 1  \). Moreover, row \( r - 1  \) of \( {\tilde{A}}_{1j}  \) is 
+For \( r > 1  \) and \( 1 \leq j \leq  n \), the rows of the deleted matrices \( {\tilde{A}}_{1j}, {\tilde{B}}_{1j},  \) and \( {\tilde{C}}_{1j} \) are the same except for row \( r - 1  \). Moreover, row \( r - 1  \) of \( {\tilde{A}}_{1j}  \) is 
 \[ ({b}_{1} + {kc}_{1}, \dots, {b}_{j-1} + {kc}_{j-1}, {b}_{j+1} + {kc}_{j+1}, \dots, {b}_{n} + {kc}_{n}), \]
 which is the sum of row \( r - 1  \) of \( {\tilde{B}}_{1j} \) and \( k  \) times row \( r -1  \) of \( {\tilde{C}}_{1j} \). Since \( {\tilde{B}}_{1j} \) and \( {\tilde{C}}_{1j} \) are \( (n-1) \times (n-1) \) matrices, we have
 \[  \text{det}({\tilde{A}}_{1j}) = \text{det}({\tilde{B}}_{1j}) + k \text{det}({\tilde{C}}_{1j}) \]
@@ -94,11 +94,22 @@ by induction hypothesis. Using the recursive definition for the determinant and 
 Hence, this shows that the theorem is true for \( n \times n  \) matrices, and so the theorem is true for all square matrices by mathematical induction. 
 \end{proof}
 
+\begin{remark}
+   For \( r = 1  \), notice that \( {a}_{1} = u + kv  \) with \( u,v \in F^{n} \) as defined as before where \( k  \) is a non-zero scalar. Furthermore, we have that the rows of the deleted matrices \( {\tilde{A}}_{1j}, {\tilde{B}}_{1j},  \) and \( {\tilde{C}}_{1j} \) are all equal to each other except for \( r = 1  \). Using the recursive definition of the determinant of \( A  \) and that \( {A}_{1j} = {b}_{j} + k {v}_{j} \), we get that
+   \begin{align*}
+       \text{det}(A) &= \sum_{ j=1 }^{ n } (-1)^{1+j} {A}_{1j} \cdot \text{det}({\tilde{A}}_{1j}) \\
+                     &= \sum_{ j=1 }^{ n } (-1)^{1+j} ({b}_{j} + {kc}_{j}) \text{det}({\tilde{A}}_{1j}) \\
+                     &= \sum_{ j=1 }^{ n } (-1)^{1+j} {b}_{j} \cdot \text{det}({\tilde{A}}_{1j}) + k \sum_{ j=1 }^{ n } (-1)^{1+j}{c}_{j} \cdot \text{det} ({\tilde{A}}_{1j}) \\
+                     &= \sum_{ j=1 }^{ n } (-1)^{1+j} {B}_{1j} \cdot \text{det}({\tilde{B}}_{1j}) + k \sum_{ j=1 }^{ n } (-1)^{1+j}{C}_{1j} \cdot \text{det} ({\tilde{C}}_{1j}) \\
+                     &= \text{det}(A) + k \text{det}(C).
+   \end{align*}
+\end{remark}
+
 \begin{corollary}
     If \( A \in {M}_{n \times n }(F) \) has a row consisting entirely of zeros, then \( \text{det}(A) =  0  \).
 \end{corollary}
 \begin{proof}
-
+Left to the reader as an exercise (of course).
 \end{proof}
 
 The next theorem will show that the determinant of any square matrix can be computed using cofactor expansion along any row. Before we proceed with the proof of this fact, we need to prove a preliminary result.
@@ -106,3 +117,191 @@ The next theorem will show that the determinant of any square matrix can be comp
 \begin{lemma}
     Let \( B \in {M}_{n \times n}(F)  \), where \( n \geq 2 \). If row \( i  \) of \( B  \) equals \( {e}_{k } \) for some \( k (1 \leq k \leq n) \), then \( \text{det}(B) = (-1)^{i+k } \text{det}({\tilde{B}}_{1k }) \).
 \end{lemma}
+\begin{proof}
+We proceed by performing mathematical induction on \( n  \). The lemma can be easily proved for \( n = 2  \). Assume that for some integer \( n \geq 3  \), the lemma is true for \( (n-1) \times (n-1) \) matrices, and let \( B  \) be an \( n \times n  \) matrix in which row \( i  \) of \( B  \) equals \( {e}_{k}  \) for some \(  k \  (1 \leq k \leq n) \). The result follows immediately from the definition of the determinant if \( i =1  \).
+
+
+    Suppose therefore that \( 1 < i \leq  n \). For each \( j \neq k  \ (1 \leq j \leq n )\), let \( {C}_{ij} \) denote the \( (n-2) \times (n-2) \) matrix obtained from \( B  \) by deleting rows \( 1  \) and \( i  \) and columns \( j  \) and \( k  \). For each \( j \), row \( i - 1  \) of \( {\tilde{B}}_{1j} \) is the following vector in \( F^{n-1} \):
+    \[  
+    \begin{cases}
+        {e}_{k-1}  &\text{if} \ j < k \\ 
+        0  &\text{if} \  j = k \\
+        {e}_{k}  &\text{if} \ j > k. 
+    \end{cases} \]
+    Using the induction hypothesis and the corollary to Theorem 4.3, we can write
+    \[  \text{det}({\tilde{B}}_{1j}) = 
+    \begin{cases}
+        (-1)^{(i-1) + (k-1)} \text{det}({C}_{ij}) &\text{if } j < k \\ 
+        0  &\text{if } j = k \\
+        (-1)^{(i-1) + k} \text{det}({C}_{ij}) &\text{if } j > k.
+    \end{cases} \]
+    Then we can see that
+    \begin{align*}
+        \text{det}(B) &= \sum_{ j=1 }^{ n } (-1)^{1+j} {B}_{1j} \cdot \text{det}({\tilde{B}}_{1j}) \\
+                      &= \sum_{ j < k  }^{  } (-1)^{1+j} {B}_{1j} \cdot \text{det}({\tilde{B}}_{1j}) + \sum_{ j > k  }^{  } (-1)^{1+j} {B}_{1j} \cdot \text{det}({\tilde{B}}_{1j}) \\ 
+                      &= \sum_{ j < k  }^{  } (-1)^{1+j} {B}_{1j} \cdot \Big[ (-1)^{(i-1) + (k-1)} \text{det}({C}_{ij})\Big] \\
+                      &+ \sum_{ j > k  }^{  } (-1)^{1+j} {B}_{1j} \cdot  \Big[ (-1)^{(i-1) + k } \text{det}({C}_{ij})\Big] \\
+                      &=  (-1)^{i+k} \Bigg[ \sum_{ j < k  }^{  } (-1)^{1 + j} {B}_{1j} \cdot \text{det}({C}_{ij}) \\ 
+                      &+ \sum_{ j > k  }^{  } (-1)^{1 + (j-1)}  {B}_{1j} \cdot \text{det}({C}_{ij})\Bigg].
+    \end{align*}
+    Note that the expression on the inside of the last equality is just the cofactor expansion of \( {\tilde{B}}_{ik} \) along the first row, it follows that
+    \[  \text{det}(B) = (-1)^{i + k} \text{det}({\tilde{B}}_{ik}) \]
+    which ends our induction argument on why this lemma holds for all \( n \times n  \) matrices.
+\end{proof}
+
+Now, this gives us the machinery to be able to use cofactor expansion along any row which is the basis for our next theorem.
+
+\begin{theorem}\label{Theorem 4.4}
+    The determinant of a square matrix can be evaluated by cofactor expansion along any row. That is, if \( A \in {M}_{n \times n}(F) \), then for any integer \( i \ (1 \leq i \leq n ) \), 
+    \[  \text{det}(A) = \sum_{ j=1 }^{ n } (-1)^{i +j} {A}_{ij} \cdot \text{det}({\tilde{A}}_{ij}). \]
+\end{theorem}
+\begin{proof}
+Let \( i = 1  \). Using cofactor along the \( i = 1  \) row gives us the determinant of \( A  \) by definition. Fix \( i > 1  \). Note that the \( i  \)th row of \( A  \) can be written as \( \sum_{ j=1  }^{ n } {A}_{ij} {e}_{j} \). For \( 1 \leq j \leq n  \), replace the \( i \)th row of \( A  \) by \( {e}_{j} \) to obtain \( {B}_{j} \). Using Theorem 4.3 and lemma, we have 
+\[  \text{det}(A) = \sum_{ j=1 }^{ n } {A}_{ij} \text{det}({B}_{j}) = \sum_{ j=1 }^{ n } (-1)^{i +j} {A}_{ij} \cdot \text{det}({\tilde{A}}_{ij}). \]
+\end{proof}
+
+\begin{corollary}\label{Corollary to Theorem 4.4}
+    If \( A \in {M}_{n \times n}(F) \) has two identical rows, then \( \text{det}(A) = 0  \).
+\end{corollary}
+\begin{proof}
+We proceed the proof via mathematical induction on \( n  \). The proof for the case that \( n = 2  \) is proved in Exercise 6 of Section 4.1. Now, assume that for some integer \( n \geq 3  \), it is true for \( (n-1) \times (n-1) \) matrices, and let rows \( r  \) and \( s  \) of \( A \in {M}_{n \times n}(F) \) be identical for \( r \neq s  \). Since \( n \geq 3  \), we can choose an integer \( i  \ (1 \leq i \leq n ) \) other than \( r  \) and \( s  \). Using Theorem 4.4, we can see that
+\[  \text{det}(A) = \sum_{ j=1  }^{ n } (-1)^{i + j } {A}_{ij} \cdot \text{det}({\tilde{A}}_{ij}). \]
+Since \( {\tilde{A}}_{ij} \) is an \( (n-1) \times (n-1) \) matrix with two identical rows, our induction hypothesis tells us that for each \( \text{det}({\tilde{A}}_{ij}) = 0  \), and thus we have \( \text{det}(A) = 0  \). This completes the induction proof for \( n \times n  \) matrices, and so the lemma must be true for all square matrices.
+\end{proof}
+
+Now, we will investigate what the behavior of the determinant will be if we were to perform type 1 operations on a matrix; that is, exchanging rows in a matrix. 
+
+\begin{theorem}
+    If \( A \in {M}_{n \times n}(F) \) and \( B  \) is a matrix obtained from \( A  \) by interchanging any two rows of \( A  \), then \( \text{det}(B) = -\text{det}(A) \).
+\end{theorem}
+\begin{proof}
+Let the rows of \( A \in {M}_{n \times n}(F) \) be \( {a}_{1}, {a}_{2}, \dots, {a}_{n} \), and let \( B  \) be the matrix obtained from \( A  \) by interchanging rows \( r  \) and \( s  \), where \( r < s  \). Thus, we have
+\[  A = \begin{pmatrix} 
+           {a}_{1} \\
+           \vdots \\
+           {a}_{r} \\
+           \vdots \\
+           {a}_{s} \\
+           \vdots \\
+           {a}_{n}
+       \end{pmatrix} \ \text{and} \ B = \begin{pmatrix} 
+                 {a}_{1} \\ 
+                 \vdots \\
+                 {a}_{s} \\
+                 \vdots \\
+                 {a}_{r} \\
+                 \vdots \\
+                 {a}_{n}
+                 \end{pmatrix}. \]
+Suppose we replaced rows \( r  \) and \( s  \) of \( A  \) by \( {a}_{r} + {a}_{s} \). Then by {\hyperref[Corollary to Theorem 4.4]{Corollary to Theorem 4.4}} and {\hyperref[Theorem 4.3]{Theorem 4.3}}, we have
+\begin{align*}
+    0 &= \text{det} \begin{pmatrix} 
+               {a}_{1} \\
+               \vdots \\
+               {a}_{r} + {a}_{s} \\
+               \vdots \\
+               {a}_{r} + {a}_{s} \\
+               \vdots \\
+               {a}_{n}
+              \end{pmatrix} 
+              = \text{det} \begin{pmatrix} 
+                         {a}_{1} \\
+                         \vdots \\
+                         {a}_{r} \\
+                         \vdots \\
+                         {a}_{r} + {a}_{s} \\
+                         \vdots \\
+                         {a}_{n}
+                          \\
+                        \end{pmatrix} + \text{det}\begin{pmatrix} 
+                                   {a}_{1} \\
+                                   \vdots \\
+                                   {a}_{s} \\
+                                   \vdots \\
+                                   {a}_{r} + {a}_{s} \\
+                                   \vdots \\
+                                   {a}_{n}
+                                  \end{pmatrix} \\
+                            &= \text{det} \begin{pmatrix} 
+                                       {a}_{1} \\
+                                       \vdots \\
+                                       {a}_{r} \\
+                                       \vdots \\
+                                       {a}_{r} \\
+                                       \vdots \\
+                                       {a}_{n}
+                                      \end{pmatrix} + \text{det} \begin{pmatrix} 
+                                                 {a}_{1} \\
+                                                  \vdots \\ 
+                                                  {a}_{r} \\
+                                                  \vdots \\
+                                                  {a}_{s} \\
+                                                  \vdots \\
+                                                  {a}_{n}
+                                                \end{pmatrix} +  \text{det} \begin{pmatrix} 
+                                                          {a}_{1} \\ 
+                                                          \vdots \\
+                                                          {a}_{s} \\
+                                                          \vdots \\
+                                                          {a}_{r} \\
+                                                          \vdots \\
+                                                          {a}_{n}
+                                                          \end{pmatrix} 
+                                                          +  det \begin{pmatrix} 
+                                                                     {a}_{1} \\
+                                                                     \vdots \\ 
+                                                                     {a}_{s} \\
+                                                                     \vdots \\ 
+                                                                     {a}_{s} \\
+                                                                     \vdots \\
+                                                                     {a}_{n}
+                                                                    \end{pmatrix} \\
+                                    &= 0 + \text{det}(A) + \text{det}(B) + 0. 
+\end{align*}
+Solving for \( \text{det}(B) \) now gives us the following result
+\[  \text{det}(B) = - \text{det}(A). \]
+\end{proof}
+
+Next, we show that performing a type 3 elementary row operation does not change the determinant of a matrix.
+
+\begin{theorem}
+    Let \( A \in {M}_{n \times n}(F) \), and let \( B  \) be a matrix obtained by adding a multiple of one row of \( A  \). Then \( \text{det}(B) = \text{det}(A) \).
+\end{theorem}
+\begin{proof}
+Suppose that \( B  \) is the \( n \times n \) matrix obtained from \( A  \) by adding \( k  \) times row \( r  \) to row \( s  \), where \( r  \neq s   \). Let the rows of \( A  \) be \( {a}_{1}, {a}_{2}, \dots , {a}_{n} \), and the rows of B \( {b}_{1}, {b}_{2}, \dots, {b}_{n}  \). Then \( {a}_{i} = {b}_{i} \) except for when \( i = s  \) and \( {b}_{s} = {a}_{s} + {ka}_{r} \). Suppose we replace row \( s  \) with \( {a}_{r} \) to create a matrix \( C  \). Then using {\hyperref[Theorem 4.3]{Theorem 4.3}} leads to 
+\begin{align*}
+    \text{det}(B) = \text{det } \begin{pmatrix} 
+               {b}_{1} \\
+               {b}_{2} \\
+               \vdots \\
+               {a}_{s} + {ka}_{r} \\
+               \vdots \\
+               {b}_{n}
+              \end{pmatrix} 
+                 &= \text{det} \begin{pmatrix} 
+               {b}_{1} \\
+               {b}_{2} \\
+               \vdots \\
+               {a}_{s} \\
+               \vdots \\
+               {b}_{n}
+              \end{pmatrix} + k \text{det}\begin{pmatrix} 
+                         {a}_{1} \\
+                         {a}_{2} \\
+                         \vdots \\
+                         {a}_{r} \\
+                         \vdots \\
+                         {a}_{n}
+                        \end{pmatrix}    \\
+            &= \text{det}(A) + k \text{det}(C) \\
+            &= \text{det}(A) + 0 \tag{Corollary to Theorem 4.4}
+\end{align*}
+which implies that \( \text{det}(B) = \text{det}(A) \).
+\end{proof}
+
+\begin{corollary}
+    If \( A \in {M}_{n \times n}(F) \) has rank less than \( n  \), then \( \text{det}(A) = 0  \).
+\end{corollary}
+\begin{proof}
+
+\end{proof}

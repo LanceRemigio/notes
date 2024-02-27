@@ -259,6 +259,18 @@
 \contentsline {eg}{\ifthmt@listswap Example~4.2.1\else \numberline {4.2.1}Example\fi }{82}{eg.4.2.1}%
 \contentsline {theorem}{\ifthmt@listswap Theorem~4.2.1\else \numberline {4.2.1}Theorem\fi }{83}{theorem.4.2.1}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{83}{thmt@dummyctr.dummy.257}%
-\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{84}{thmt@dummyctr.dummy.258}%
-\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{84}{thmt@dummyctr.dummy.259}%
+\contentsline {remark}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Remark}{83}{thmt@dummyctr.dummy.258}%
+\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{84}{thmt@dummyctr.dummy.259}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{84}{thmt@dummyctr.dummy.260}%
 \contentsline {lemma}{\ifthmt@listswap Lemma~4.2.1\else \numberline {4.2.1}Lemma\fi }{84}{lemma.4.2.1}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{84}{thmt@dummyctr.dummy.262}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~4.2.2\else \numberline {4.2.2}Theorem\fi }{85}{theorem.4.2.2}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{85}{thmt@dummyctr.dummy.264}%
+\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{85}{thmt@dummyctr.dummy.265}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{85}{thmt@dummyctr.dummy.266}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~4.2.3\else \numberline {4.2.3}Theorem\fi }{86}{theorem.4.2.3}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{86}{thmt@dummyctr.dummy.268}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~4.2.4\else \numberline {4.2.4}Theorem\fi }{87}{theorem.4.2.4}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{87}{thmt@dummyctr.dummy.270}%
+\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{87}{thmt@dummyctr.dummy.271}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{87}{thmt@dummyctr.dummy.272}%
