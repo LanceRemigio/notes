@@ -1,5 +1,7 @@
 \section{Determinants of Order \( n \)}
 
+
+\subsection{Cofactor Expansions}
 Before introducing the definition of the determinant for \( n \times n  \) matrices for \( n  \geq 3 \), we will give a definition of deleting rows in a given matrix \( A  \).
 
 Suppose we have 
@@ -46,6 +48,9 @@ The formula above is denoted as the \textbf{cofactor expansion along the first r
     \item As one can see, the operations involved when computing determinants using the recursive definition can be quite tedious.
     \item From here on, we will try to develop a more efficient method for computing them using the linearity property of determinants (not to mistaken linearity that we have been going over in this book).
 \end{itemize}
+
+\subsection{The Determinant is a Linear Function}
+
 
 \begin{theorem}\label{Theorem 4.3}
     The determinant of an \( n \times n  \) matrix is a linear function of each row when the remaining rows are held fixed. That is, for \( 1 \leq r \leq n  \), we have 
@@ -112,8 +117,8 @@ Hence, this shows that the theorem is true for \( n \times n  \) matrices, and s
 Left to the reader as an exercise (of course).
 \end{proof}
 
+\subsection{Cofactor Expansion Along Any Row}
 The next theorem will show that the determinant of any square matrix can be computed using cofactor expansion along any row. Before we proceed with the proof of this fact, we need to prove a preliminary result.
-
 \begin{lemma}
     Let \( B \in {M}_{n \times n}(F)  \), where \( n \geq 2 \). If row \( i  \) of \( B  \) equals \( {e}_{k } \) for some \( k (1 \leq k \leq n) \), then \( \text{det}(B) = (-1)^{i+k } \text{det}({\tilde{B}}_{1k }) \).
 \end{lemma}
@@ -169,6 +174,7 @@ We proceed the proof via mathematical induction on \( n  \). The proof for the c
 Since \( {\tilde{A}}_{ij} \) is an \( (n-1) \times (n-1) \) matrix with two identical rows, our induction hypothesis tells us that for each \( \text{det}({\tilde{A}}_{ij}) = 0  \), and thus we have \( \text{det}(A) = 0  \). This completes the induction proof for \( n \times n  \) matrices, and so the lemma must be true for all square matrices.
 \end{proof}
 
+\subsection{Effect of Elementary Operations on Determinant}
 Now, we will investigate what the behavior of the determinant will be if we were to perform type 1 operations on a matrix; that is, exchanging rows in a matrix. 
 
 \begin{theorem}
@@ -303,5 +309,60 @@ which implies that \( \text{det}(B) = \text{det}(A) \).
     If \( A \in {M}_{n \times n}(F) \) has rank less than \( n  \), then \( \text{det}(A) = 0  \).
 \end{corollary}
 \begin{proof}
-
+If \( \text{rank}(A) < n  \), then the rows \( {a}_{1}, {a}_{2}, \dots, {a}_{n} \) of \( A  \) are linearly dependent. Using Exercise 14 of Section 1.5, we know that some row of \( A  \), say row \( r  \), is a linear combination of the other rows. Hence, there must exist scalars \( {c}_{i} \) such that
+\[  {a}_{r} = {c}_{1} {a}_{1} + \cdots + {c}_{r-1} {a}_{r-1} + {c}_{r+1} {a}_{r+1} + \cdots + {c}_{n} {a}_{n}.  \]
+Let \( B  \) be the matrix obtained from \( A  \) by adding \( - {c}_{i} \) times row \( i  \) to row \( r \) for each \( i \neq r  \). Then row \( r \) of \( B  \) consists entirely of zeros, and so \( \text{det}(B) = 0  \). Now, {\hyperref[Theorem 4.6]{Theorem 4.6}} tells us that \( \text{det}(B) = \text{det}(A) \) and that \( \text{det}(A)  = 0  \).
 \end{proof}
+
+Now, we summarize the effect that specific elementary operations have on the determinant of a matrix.
+\begin{enumerate}
+    \item[(a)] Interchanging any two rows of \( A  \) implies \( \text{det}(B) = - \text{det}(A) \).
+    \item[(b)] Scaling any row of \( A \) by some non-zero scalar implies that \( \text{det}(B) = k \text{det}(A) \).
+    \item[(c)] Adding a multiple of one row of \( A  \) to another row of \( A  \) leaves the determinant of a matrix unchanged; that is, \( \text{det}(B) = \text{det}(A) \).
+\end{enumerate}
+
+Let 
+\[  A = \begin{pmatrix} 
+    1 & 3 & -3 \\
+    -3 & -5 & 2 \\
+    -4 & 4 & -6
+          \end{pmatrix}. \]
+
+Adding \( 3  \) times row \( 1  \) of \( A  \) to row \( 2  \) and 4 times row \( 1  \) to row \( 3 \), we obtain 
+\[  M = \begin{pmatrix} 
+    1 & 4 & -3 \\
+    0 & 4 & -7 \\
+    0 & 16 & -18
+          \end{pmatrix} . \]
+Since we obtained \( M  \) via type 3 elementary row operations, we see that \( \text{det}(A) = \text{det}(M) \). We can use cofactor expansion along the first row to give us 
+\begin{align*}
+    \text{det}(M) &= (-1)^{1+1} \cdot \text{det}({\tilde{M}}_{11}) + (-1)^{1+2} \cdot \text{det}({\tilde{M}}_{12})  \\
+                  &+ (-1)^{1+3} (-3) \cdot \text{det}({\tilde{M}}_{13}).
+\end{align*}
+
+Notice how \( {\tilde{M}}_{12} \) and \( {\tilde{M}}_{13} \) contain a column that consists entirely of zeros, and so we must have \( \text{det}({\tilde{M}}_{12}) = \text{det}({\tilde{M}}_{13}) = 0  \) by corollary to Theorem 4.6. Hence, we can write
+\begin{align*}
+    \text{det}(M) &= (-1)^{1+1} (1) \cdot \text{det}({\tilde{M}}_{11}) \\
+                  &=  (-1)^{1+1} (1) \cdot \text{det} \begin{pmatrix} 
+                      4 & -7 \\
+                      16 & -18
+                            \end{pmatrix} \\
+                  &= 1 [ 4(-18) - (-7)(16)] = 40.
+\end{align*}
+We can make this even easier by turning \( M  \) into an upper triangular matrix so that computing the determinant is a matter of just taking the product of the diagonal entries of \( M  \). Adding \( -4  \) times row \( 2  \) of \( M  \) to row \( 3  \) (type 3 elementary row operation), we obtain 
+\[  P = \begin{pmatrix} 
+    1 & 4 & -3 \\
+    0 & 4 & -7 \\
+    0 & 0 & 10
+          \end{pmatrix}. \]
+Taking the cofactor expansion of the first row, we find that
+\begin{align*}
+    \text{det}(P) &= (-1)^{1+1} (1) \cdot \text{det}({\tilde{P}}_{11}) \\
+                  &= (-1)^{1+1} (1) \cdot \text{det} \begin{pmatrix} 
+                      4 & - 7 \\
+                      0 & 10
+                            \end{pmatrix}  \\
+                        &= 1 \cdot 4 \cdot 10 = 40.
+\end{align*}
+So, we have \( \text{det}(A) = \text{det}(M) = \text{det}(P) = 40  \) and thus \( \text{det}(A) = 40 \)
+
