@@ -205,17 +205,51 @@ Note that \( R({L}_{A})  \) is a subspace of \( F^{m} \). By exercise 17 of Sect
 
 \subsection*{Exercise 3.2.17} Prove that if \( B  \) is a \( 3 \times 1  \) matrix and \( C  \) is a \( 1 \times 3 \) matrix, then the \( 3 \times 3 \) matrix \( BC  \) has rank at most \( 1  \). Conversely, show that if \( A  \) is any \( 3 \times 3  \) matrix having rank \( 1  \), then there exists a \( 3 \times 1  \) matrix \( B  \) and a \( 1 \times 3  \) matrix \( C  \) such that \( A = BC  \).
 \begin{proof}
+Suppose \( B  \) is a \( 3 \times 1  \) matrix and \( C  \) is a \( 1 \times 3  \) matrix where 
+\[  B = \begin{pmatrix} 
+           {B}_{11} \\
+           {B}_{21} \\
+           {B}_{31}
+          \end{pmatrix} \]
+          and 
+          \[ C = \begin{pmatrix} 
+              {C}_{11} & {C}_{12} & {C}_{13} 
+                    \end{pmatrix}.  \]
+            Computing \( BC  \) gives us
+            \[  BC = \begin{pmatrix} 
+                {B}_{11} {C}_{11} & {B}_{11} {C}_{12} & {B}_{11} {C}_{13} \\
+                {B}_{21}{C}_{11} & {B}_{21} {C}_{12} & {B}_{21} {C}_{13} \\
+                {B}_{31} {C}_{11} & {B}_{31}{C}_{12} & {B}_{31} {C}_{13}
+                      \end{pmatrix}.  \]
+                Observe that each column vector of this matrix is just \( B  \) scaled by entries in \( C \); that is, \( {u}_{j}  = B {C}_{1j}  \) for \( 1 \leq j \leq n  \) where \( {u}_{j} \) has a rank of \( 1  \) and \( {u}_{j} \) is \( j \)th column vector of \( BC \). Thus, \( BC \) has a rank of at most \( 1  \).
 
+                Conversely, let \( A \in {M}_{3 \times 3}(F)  \) with \( \text{rank}(A) = 1  \) and let \( {u}_{j} \) for \( 1 \leq j \leq 3  \) denote the \( j \)th column vector of \( A  \). Since \( \text{rank}(A) = 1  \), there exists only one linearly independent column, say \( {u}_{1} \). This tells us that the other two columns, namely \( {u}_{2} \) and \( {u}_{3} \), are scalar multiples of \( {u}_{1} \). Hence, for some nonzero \( k \) and \( c \) in \( F  \), we have that
+                \begin{center}
+                    \( {u}_{2} = k {u}_{1} \) and \( {u}_{3} = c {u}_{1}  \).
+                \end{center}
+                Now we can write \( A \) in the following way
+                \[  A = \begin{pmatrix} 
+                    {u}_{1} & {ku}_{1} & {cu}_{1}
+                          \end{pmatrix} = {u}_{1} \begin{pmatrix} 
+                    1 & k & c 
+                                    \end{pmatrix} \]
+                                    where
+                    \[  {u}_{1} = B \ \text{and} \ C = \begin{pmatrix} 
+                        1 & k & c 
+                              \end{pmatrix} \]
+                              both having rank \( 1 \).
 \end{proof}
 
 \subsection*{Exercise 3.2.18} Let \( A  \) be an \( m \times n  \) matrix and \( B  \) be an \( n \times p  \) matrix. Prove that \( AB  \) can be written as a sum of \( n  \) matrices of rank one.
 \begin{proof}
-
+Let \( {u}_{j} \) be the \( j \)th column vector of \( AB  \). By part (b) {\hyperref[Exercise 2.3.14]{Exercise 2.3.14}}, we can see that \( {u}_{j} \) can be written in terms of a linear combination of column vectors of \( A  \) and entries from \( B \) as coefficients. In other words, we have   
+\[ {u}_{j} = \sum_{ i=1 }^{ n } {B}_{ij} {x}_{i} \ \text{for } \ 1 \leq j \leq p    \]
+where \( 1 \leq i \leq n  \) and \( {x}_{i} \) is the \( i \)th column vector of \( A \) and that each \( {x}_{i} \) has a rank of \( 1 \). 
 \end{proof}
 
 \subsection*{Exercise 3.2.19} Let \( A  \) be an \( m \times n  \) matrix with rank \(  m  \) and \( B  \) be an \( n \times p  \) matrix with rank \( n  \). Determine the rank of \( AB  \). Justify your answer.
 \begin{proof}
-
+    We determine that \( \text{rank}(AB)   \) can be at most \( n  \) by Theorem 3.7. 
 \end{proof}
 
 \subsection*{Exercise 3.2.21} Let \( A  \) be an \( m \times n  \) matrix with \( \text{rank}(A) = m  \). Prove that there exists an \( n \times m  \) matrix \( B  \) such that \( AB = {I}_{m} \).
