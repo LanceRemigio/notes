@@ -254,7 +254,9 @@ where \( 1 \leq i \leq n  \) and \( {x}_{i} \) is the \( i \)th column vector of
 
 \subsection*{Exercise 3.2.21} Let \( A  \) be an \( m \times n  \) matrix with \( \text{rank}(A) = m  \). Prove that there exists an \( n \times m  \) matrix \( B  \) such that \( AB = {I}_{m} \).
 \begin{proof}
-
+Observe that \( \text{rank}(A) = \text{rank}(A^{t}) = m  \). This tells us that \( A^{t} \) is an invertible matrix. By Theorem 3.4, we can write that \( \text{rank}(A A^{t}) = \text{rank}(A) = m \). Hence, we have that \( AA^{t}  \) is an invertible matrix and thus there must exist a matrix \( B'  \) such that 
+\[  (A A^{t})B' = {I}_{m} \iff A (A^{t} B') = {I}_{m} \]
+where \( A^{t} B' = B   \) is an \( n \times m  \) matrix.
 \end{proof}
 
 \subsection*{Exercise 3.2.22} Let \( B  \) be an \( n \times m  \) matrix with \( \text{rank}(B) = m  \). Prove that there exists an \( m \times n \) matrix \( A  \) such that \( AB = {I}_{m} \).

@@ -1,7 +1,5 @@
 # Textbook Notes and Solutions to Select Exercises
 
-Hi there! Here are some of my textbook notes and solutions to (most) exercises. The purpose of this repo is to be remote backup for these notes as well as document my journey in learning more math.
-
 ## Analysis
 
 ![Analysis](./png/Analysis.png)
