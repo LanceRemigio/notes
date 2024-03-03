@@ -2,12 +2,42 @@
 
 \subsection*{Exercise 4.2.23} Prove that the determinant of an upper triangular matrix is the product of its diagonal entries.
 \begin{proof}
+We proceed by inducting on \( n  \). The result easily follows from cases \( n = 1  \) and \( n = 2  \), with the former leading to just the single entry itself and the latter being easily shown by applying the determinant formula found in Section 4.1 for \( 2 \times 2  \) upper triangular matrices.
 
+Let \( A \in {M}_{n \times n}(F) \) be upper triangular. Now, assume the result holds for \( (n-1) \times (n-1)  \) upper triangular matrices and that \( n \geq 3  \) and \(  1 \leq j \leq n  \). We can obtain a new matrix \( D  \) by performing a finite number of type 3 row operations on \( A  \) to convert the entries found in the first row and columns \( 1 < j \leq n    \) into zeroes. Using cofactor expansion along the first row, we find that  
+\begin{align*}
+    \text{det}(D) &= \sum_{ j=1 }^{ n } (-1)^{1+j} {D}_{1j} \cdot \text{det}({\tilde{D}}_{1j}) \\
+                  &=  (-1)^{1+1} {D}_{11} \cdot \text{det}({\tilde{D}}_{11}) + (-1)^{1+2}{D}_{12} \cdot \text{det}({\tilde{D}}_{12}) + \cdots \\ 
+                  &+ (-1)^{1+n} {D}_{1n} \cdot \text{det}({\tilde{D}}_{1n}) \\ 
+                  &= (-1)^{1+1} {D}_{11} \cdot \text{det}({\tilde{D}}_{11}) + (-1)^{1+2} (0) \cdot \text{det}({\tilde{D}}_{12}) + \cdots \\ 
+                  &+ (-1)^{1+n }(0) \cdot \text{det}({\tilde{D}}_{1n}) \\ 
+                  &= (-1)^{1+1} {D}_{11} \cdot \text{det}({\tilde{D}}_{11}).
+\end{align*}
+Since \( {\tilde{D}}_{11} \) is an \( (n-1) \times (n-1) \) matrix, we can apply the induction to hypothesis to write that
+\[  \text{det}({\tilde{D}}_{11}) = \prod_{i=2}^{n} {D}_{ii}.  \]
+Thus, we must have that
+\[  \text{det}(D) = (-1)^{1+1} {D}_{11} \cdot \text{det}({\tilde{D}}_{11}) = \prod_{i=1}^{n} {D}_{ii}.    \]
+Note that \( \text{det}(A) = \text{det}(D) \) by Theorem 4.6 and that \( {D}_{ii} = {A}_{ii} \) since we only changed the entries in the first row (that were not \( {A}_{11} \)). Thus, the result holds for \( n \times n  \) upper triangular matrices. 
 \end{proof}
 
 \subsection*{Exercise 4.2.24} Prove the corollary to Theorem 4.3.
 \begin{proof}
-
+We proceed by inducting on \( n  \). Let \( {A} \in M_{n \times n}(F) \). If \( n = 1  \), then
+we simply have \( {A}_{11} = 0  \) and the result follows immediately. If \( n = 2  \), then the result follows from applying the formula for \( 2 \times 2  \) determinants and choosing either the \( i=1  \) or \( i = 2  \) as the rows with all zeros. Now, assume that the corollary holds for \( (n-1) \times (n-1) \) matrices. Let \( n \geq 3  \) and \( 1 \leq j \leq n  \). Let \( r  \) represent the selected row of all zero entries. Suppose that for some \( r  \ (1 \leq r \leq n) \), we have \( {a}_{r} = u + kv  \) for some \( u,v \in F^{n} \) and \( k \in F  \). Let \( u = ({b}_{1}, {b}_{2}, \dots, {b}_{n}) \) and \( v = ({c}_{1}, {c}_{2}, \dots, {c}_{n}) \), and let \( B  \) and \( C  \) be the matrices obtained from \( A  \) by replacing row \( r  \) of \( A  \) by \( u \) and \( v  \), respectively. Furthermore, let the row \( r - 1  \) be defined as in the proof for Theorem 4.3. If \( r = 1  \), then by cofactor expansion along the first row, we have 
+\begin{align*}  
+    \text{det}(A) &= \sum_{ j=1 }^{ n } (-1)^{1+j} {A}_{1j} \cdot \text{det}({\tilde{A}}_{1j}) \\  
+                  &= (-1)^{1+1} (0) \cdot \text{det}({\tilde{A}}_{11}) + (-1)^{1+2} (0) \cdot \text{det}({\tilde{A}}_{12}) + \cdots \\  
+                  &+ (-1)^{1+n} (0) \cdot \text{det}({\tilde{A}}_{1n}) \\
+                  &= 0. 
+\end{align*}
+Now, suppose \( r > 1  \). Then by Theorem 4.3, we get
+\begin{align*}
+    \text{det}(A) &= \text{det}(B) + k \text{det}(C)  \\
+                  &= \sum_{ j=1 }^{ n }(-1)^{1+j} {B}_{1j} \cdot \text{det}({\tilde{B}}_{1j}) + k \sum_{ j=1 }^{ n } (-1)^{1+j} {C}_{1j} \cdot \text{det}({\tilde{C}}_{1j}).
+\end{align*}
+Note that \( {A}_{1j} = {B}_{1j} = {C}_{ij}  \) and that \( {\tilde{A}}_{1j} = {\tilde{B}}_{1j} = {\tilde{C}}_{1j}\) except for row \( r - 1  \). Since \( {\tilde{B}}_{1j}  \) and \( {\tilde{C}}_{1j} \) are \( (n-1) \times (n-1) \) matrices, we find that \( \text{det}({\tilde{B}}_{1j}) = 0  \) and \( \text{det}({\tilde{C}}_{1j}) = 0  \) by our induction hypothesis.  So, we get that
+\[  \text{det}(A) = \text{det}(B) + k \text{det}(C) = 0 + 0 = 0 \]
+and thus \( \text{det}(A) = 0  \). Hence, we can see that the corollary holds for all \( n \times n  \) matrices.
 \end{proof}
 
 \subsection*{Exercise 4.2.25} Prove that \( \text{det}(kA) = k^{n} \text{det}(A) \) for any \( A \in {M}_{n \times n}(F) \).

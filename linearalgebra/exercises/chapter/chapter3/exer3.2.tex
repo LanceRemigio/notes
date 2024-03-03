@@ -261,6 +261,10 @@ where \( A^{t} B' = B   \) is an \( n \times m  \) matrix.
 
 \subsection*{Exercise 3.2.22} Let \( B  \) be an \( n \times m  \) matrix with \( \text{rank}(B) = m  \). Prove that there exists an \( m \times n \) matrix \( A  \) such that \( AB = {I}_{m} \).
 \begin{proof}
-
+Observe that \( \text{rank}(B) = \text{rank}(B^{t}) = m  \) by Corollary 2 to Theorem 3.6. By Corollary 2 to Theorem 2.18 and fact 3 found in page 103, \( \text{rank}(B^{t}) = m  \) implies that \( B^{t} \) is invertible. This implies that    
+\[  \text{rank}(B^{t}B) = \text{rank}(B) = m \]
+by Corollary 2 to Theorem 3.6. Again, \( B^{t} B  \) is also invertible and thus there exist a matrix \( A'  \) such that 
+\[  A' (B^{t}B) = {I}_{m} \iff (A' B^{t}) B = {I}_{m}  \]
+where \( A = A'B^{t}  \) is an \( m \times n  \) matrix.
 \end{proof}
 
