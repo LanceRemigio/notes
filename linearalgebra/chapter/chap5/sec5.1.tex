@@ -1,0 +1,33 @@
+\section{Eigenvalues and Eigenvectors}
+
+Our goal in this section is to find a basis \( \beta'  \) for which the matrix representation of a linear operator \( T   \) is a diagonal matrix.
+
+\begin{definition}[Diagonalization]
+    A linear operator \( T  \) on a finite-dimensional vector space \( V  \) is called \textbf{diagonalizable} if there is an ordered basis \( \beta  \) for \( V  \) such that \( [T]_{\beta} \) is a diagonal matrix. A square matrix \( A  \) is called \textbf{diagonalizable} if \( {L}_{A} \) is diagonalizable.
+\end{definition}
+
+Given a finite-dimensional vector space \( V  \), we can find an ordered basis \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) for \( V  \) such that the linear operator \( T \) acting on \( V  \) contains a matrix representation that is diagonal. If this is accomplished, then \( D = [T]_{\beta} \) is a diagonal matrix where for each \( {v}_{j} \in \beta \), we have
+\[  T({v}_{j}) = \sum_{ i=1 }^{ n } {D}_{ij} {v}_{i} = {D}_{jj} = {\lambda}_{j} {v}_{j}. \]
+Conversely, the ordered basis \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}   \) is an ordered basis for \( V  \) where \( T({v}_{j}) = {\lambda}_{j} {v}_{j} \) for some scalars \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{n}  \). Thus, the matrix representation is  
+\[ [T]_{\beta} = \begin{pmatrix} 
+    {\lambda}_{1} & 0 & \cdots & 0 \\ 
+    0 & {\lambda}_{2} & \cdots & 0 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & \cdots & {\lambda}_{n}
+          \end{pmatrix}. \]
+
+Note that each vector \( v \in \beta  \) satisfies the condition that \( T(v) = \lambda v  \) for some scalar \( \lambda \). Since \( v \in \beta  \), we also get that \( v \neq 0  \).
+
+\begin{definition}[Eigenvectors and Eigenvalues]
+    Let \( T  \) be a linear operator on a vector space \( V  \). A nonzero vector \( v \in V  \) is called an \textbf{eigenvector} of \( T  \) if there exists a scalar \( \lambda  \) such that \( T(v) = \lambda v  \). The scalar \( \lambda  \) is called the \textbf{eigenvalue} corresponding to the eigenvector \( v  \). 
+
+    Let \( A \in {M}_{n \times n}(F)  \). A nonzero vector \( v \in F^{n} \) is called an \textbf{eigenvector} of \( A  \) if \( v  \) is an eigenvector of \( {L}_{A} \); that is, if \( Av = \lambda v  \) for some scalar \( \lambda \). The scalar \( \lambda  \) is called the \textbf{eigenvalue} of \( A  \) corresponding to the eigenvector \( v  \).
+\end{definition}
+
+\begin{theorem}
+    A linear operator \( T  \) on a finite-dimensional vector space \( V  \) is diagonalizable if and only if there exists an ordered basis \( \beta  \) for \( V  \) consisting of eigenvectors of \( T  \). Furthermore, if \( T  \) is diagonalizable, \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) is an ordered basis of eigenvectors of \( T  \), and \( D = [T]_{\beta} \), then \( D  \) is a diagonal matrix and \( {D}_{jj}  \) is the eigenvalue corresponding to \( {v}_{j} \) for \( 1 \leq j \leq n \).
+\end{theorem}
+
+\begin{corollary}
+    A matrix \( A \in {M}_{n \times n}(F) \) is diagonalizable if and only if there exists an ordered basis for \( F^{n} \) consisting of eigenvectors of \( A  \). Furthermore, if \( \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}   \) is an ordered basis for \( F^{n} \) consisting of eigenvectors of \( A  \) and \( Q  \) is the \( n \times n \) matrix whose \( j \)th column is \( {v}_{j} \) for \( j = 1,2, \dots, n,  \), then \( D = Q^{-1} A Q  \) is a diagonal matrix such that \( {D}_{jj }  \) is the eigenvalue of \( A  \) corresponding to \( {v}_{j} \). Hence, \( A  \) is diagonalizable if and only if it is similar to a diagonal matrix.  
+\end{corollary}

@@ -42,27 +42,44 @@ and thus \( \text{det}(A) = 0  \). Hence, we can see that the corollary holds fo
 
 \subsection*{Exercise 4.2.25} Prove that \( \text{det}(kA) = k^{n} \text{det}(A) \) for any \( A \in {M}_{n \times n}(F) \).
 \begin{proof}
+Let \( A \in {M}_{n \times n}(F) \) and \( k \in F  \) be nonzero. We proceed by inducting on \( n  \). If \( n = 1  \), then the result follows immediately. If \( n = 2  \), then apply the formula found in section 4.1 for \( 2 \times 2  \) matrices to \( A  \) to get \( \text{det}(kA) = k^{2} \text{det}(A) \). 
 
+Suppose \( n > 2  \) and suppose the result holds for \( (n-1) \times (n-1) \) matrices. Since \( {\tilde{A}}_{1j} \) is an \( (n-1) \times (n-1)  \) matrix, we must have \( \text{det}({k\tilde{A}}_{1j}) = k^{n-1} \text{det}({\tilde{A}}_{1j})  \). Using cofactor expansion along the first row, we get that 
+\begin{align*}
+    \text{det}(A) &= \sum_{ j=1 }^{ n } (-1)^{1 + j} {kA}_{1j} \cdot \text{det}(k {\tilde{A}}_{1j})  \\
+                  &= k \sum_{ j=1 }^{ n } (-1)^{1+j } {A}_{1j} \cdot k^{n-1} \text{det}({\tilde{A}}_{1j}) \\
+                  &=  k \cdot k^{n-1} \sum_{ j=1 }^{ n }(-1)^{1+j} {A}_{1j} \cdot \text{det}({\tilde{A}}_{1j}) \\
+                  &= k^{n} \text{det}(A).
+\end{align*}
 \end{proof}
 
 \subsection*{Exercise 4.2.26} Let \( A \in {M}_{n \times n}(F) \). Under what conditions is \( \text{det}(-A) = \text{det}(A) \).
 \begin{proof}
-
+In order for \( \text{det}(-A) = \text{det}(A) \), \( A  \) must be an even matrix.
 \end{proof}
 
 \subsection*{Exercise 4.2.27} Prove that if \( A \in {M}_{n \times n}(F) \) has two identical columns, then \( \text{det}(A) = 0  \).
 \begin{proof}
+    Let \( A \in {M}_{n \times n}(F) \). Suppose that \( A  \) contains two identical columns at row \( r  \) and row \( s  \) where \( r \neq s  \). Let \( {u}_{1}, {u}_{2}, \dots, {u}_{n}  \) be the columns of \( A \). Note that these are the rows of \( A^{t} \). Observe that \( {u}_{r} = {u}_{s} \) for \( r \neq s  \), we can apply the Corollary to Theorem 4.4 to write  
+    \[  \text{det}(A^{t}) = 0.  \]
+    Since \( \text{rank}(A) = \text{rank}(A^{t}) \), we get that \( \text{det}(A) = \text{det}(A^{t}) = 0  \). Hence, \( \text{det}(A) = 0 \) for all \( A \in {M}_{n \times n}(F)  \).
+\end{proof}
+\begin{proof}
+Let \( A \in {M}_{n \times n}(F) \). We proceed by inducting on \( n \geq 2  \). For \( n = 2  \), let \( {u}_{1} = ({A}_{11}, {A}_{21}) \) and \( {u}_{2} = ({A}_{12}, {A}_{22} ) \) denote the two columns that make up \( A  \). By Exercise 4.1.6, we get that \( \text{det}(A) = 0  \).     
 
+Now, suppose \( n > 2  \) and that the result holds for \( (n-1) \times (n-1)  \) matrices. Let \( 1 \leq j \leq n \). Using cofactor expansion along any row \( i \), we get that 
+\[  \text{det}(A) = \sum_{ j=1 }^{ n } (-1)^{i + j} {A}_{ij} \cdot \text{det}({\tilde{A}}_{1j}) \tag{1} \] by Theorem 4.4.
+Since \( {\tilde{A}}_{ij} \) is an \( (n-1) \times (n-1)  \) matrix, we know that \( {\tilde{A}}_{1j} \) contains identical columns \( {u}_{r}   \) and \( {u}_{s} \) where \( r \neq s  \). Thus, we have that \( \text{det}({\tilde{A}}_{1j}) = 0  \) by our induction hypothesis. Thus, (1) implies that \( \text{det}(A) = 0  \) which ends our induction argument. 
 \end{proof}
 
 \subsection*{Exercise 4.2.28} Compute \( \text{det}({E}_{i})  \) if \( {E}_{i} \) is an elementary matrix of type \( i  \).
 \begin{proof}
-
+Let \( {E}_{i} \) be an elementary matrix of type \( i \).
 \end{proof}
 
 \subsection*{Exercise 4.2.29} Prove that if \( E  \) is an elementary matrix, then \( \text{det}(E^{t}) = \text{det}(E) \).
 \begin{proof}
-
+Suppose that \( E  \) is an \( n \times n \) elementary matrix. By Theorem 3.2, \( E  \) is an invertible matrix. Thus, \( \text{rank}(E) = n  \) and is equivalent to the rank of \( E^{t}   \) by Corollary to Theorem 3.6. Thus, we must have that \( \text{det}(E) = \text{det}(E^{t}) \).
 \end{proof}
 
 

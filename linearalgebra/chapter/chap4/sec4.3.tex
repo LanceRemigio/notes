@@ -1,0 +1,26 @@
+\section{Summary}
+For the matrices that are mentioned, we assume all of them are square matrices.
+\subsection{Basics}
+\begin{itemize}
+    \item The \textbf{Determinant} is a function that takes in square matrices and outputs a scalar in \( F  \), denoted by \( \text{det}(A) \) or \( | A |  \). 
+    \item If \( A  \) is \( n \times n \) matrix for \( n > 2  \), we can evaluate \( \text{det}(A) \) by \textit{cofactor expansion along row \( i \)} as 
+        \[  \text{det}(A) = \sum_{ j=1 }^{ n  } (-1)^{i+j} \cdot \text{det}({\tilde{A}}_{ij}). \]
+    \item Likewise, we can use \textit{cofactor expansion} along column \( j  \) as
+        \[  \text{det}(A) = \sum_{ i=1 }^{ n } (-1)^{i + j} {A}_{ij} \cdot \text{det}({\tilde{A}}_{ij}). \]
+    \item In both cases, the \textit{deleted matrix} \( {\tilde{A}}_{ij} \) is an order of \( n - 1 \) and can be obtained by deleting row \(  i  \) and column \(  j  \) from \( A  \).
+\end{itemize}
+It is advantageous to simplify a given square matrix as much as possible to reduce the number of computations to calculate \( \text{det}(A) \). The following are important operations that one can perform to do this and how it effects the determinant.
+\subsection{Properties of Determinant}
+\begin{itemize}
+    \item If \( B  \) is a matrix obtained by interchanging any two rows or interchanging any two columns of an \( n \times n  \) matrix \( A  \), then \( \text{det}(B) = - \text{det}(A) \).
+    \item If \( B  \) is a matrix obtained by multiplying each entry of some row or column of an \( n \times n  \) matrix \( A  \) by a scalar \( k \), then \( \text{det}(B) = k \cdot \text{det}(A) \).
+    \item If \( B  \) is a matrix obtained from an \( n \times n  \) matrix \( A  \) by adding a multiple of row \( i  \) to row \( j  \) or a multiple of column \( i  \) to column \( j  \) for \( i \neq j  \), then \( \text{det}(A) = \text{det}(B) \).
+    \item The determinant of an upper triangular matrix is the product of its diagonal entries. Note that \( \text{det}(I) = 1  \).
+    \item If a given square matrix consists of two rows or two columns that are identical, then the determinant of that matrix is zero.
+    \item \( \text{det}(AB) = \text{det}(A) \text{det}(B) \).
+    \item An \( n \times n   \) matrix \( A  \) is invertible if and only if \( \text{det}(A) \neq 0  \). Furthermore, if \( A  \) is invertible, then we find that 
+        \[  \text{det}(A^{-1}) = \frac{ 1 }{ \text{det}(A) }. \]
+    \item For any \( n \times n \) matrix \( A  \), the determinants of \( A  \) and \( A^{t} \) are equal.
+    \item If \( A,B \in {M}_{n \times n}(F) \) are similar, then \( \text{det}(A) = \text{det}(B) \).
+ \end{itemize}
+

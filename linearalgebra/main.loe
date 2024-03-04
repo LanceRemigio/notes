@@ -274,3 +274,8 @@
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{87}{thmt@dummyctr.dummy.270}%
 \contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{87}{thmt@dummyctr.dummy.271}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{87}{thmt@dummyctr.dummy.272}%
+\addvspace {10\p@ }
+\contentsline {definition}{\ifthmt@listswap Definition~5.1.1\else \numberline {5.1.1}Definition\fi \thmtformatoptarg {Diagonalization}}{91}{definition.5.1.1}%
+\contentsline {definition}{\ifthmt@listswap Definition~5.1.2\else \numberline {5.1.2}Definition\fi \thmtformatoptarg {Eigenvectors and Eigenvalues}}{91}{definition.5.1.2}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~5.1.1\else \numberline {5.1.1}Theorem\fi }{91}{theorem.5.1.1}%
+\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{92}{thmt@dummyctr.dummy.276}%
