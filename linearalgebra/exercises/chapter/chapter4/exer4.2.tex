@@ -79,7 +79,14 @@ Let \( {E}_{i} \) be an elementary matrix of type \( i \).
 
 \subsection*{Exercise 4.2.29} Prove that if \( E  \) is an elementary matrix, then \( \text{det}(E^{t}) = \text{det}(E) \).
 \begin{proof}
-Suppose that \( E  \) is an \( n \times n \) elementary matrix. By Theorem 3.2, \( E  \) is an invertible matrix. Thus, \( \text{rank}(E) = n  \) and is equivalent to the rank of \( E^{t}   \) by Corollary to Theorem 3.6. Thus, we must have that \( \text{det}(E) = \text{det}(E^{t}) \).
+Suppose that \( E  \) is an elementary matrix. Using cofactor expansion along the first row, we see that 
+\begin{align*}
+    \text{det}(E) &= \sum_{ j=1 }^{ n } (-1)^{1 + j} {E}_{1j} \cdot \text{det}({\tilde{E}}_{1j}) \\
+                  &= \sum_{ j=1 }^{ n } (-1)^{1 + j} (E^{t})_{j1} \cdot \text{det}({\tilde{E}}_{j1}) \\
+                  &= \text{det}(E^{t}).
+\end{align*}
+Note that the second equality above is just a cofactor expansion along the first column. Hence, 
+\[  \text{det}(E) = \text{det}(E^{t}). \]
 \end{proof}
 
 
