@@ -73,16 +73,16 @@ Since \( {\tilde{A}}_{ij} \) is an \( (n-1) \times (n-1)  \) matrix, we know tha
 \end{proof}
 
 \subsection*{Exercise 4.2.28} Compute \( \text{det}({E}_{i})  \) if \( {E}_{i} \) is an elementary matrix of type \( i  \).
-\begin{proof}
-Let \( {E}_{i} \) be an elementary matrix of type \( i \).
-\end{proof}
+\begin{solution}
+Let \( {E}_{i} \) be an elementary matrix of type \( i \) where \( 1 \leq i \leq n  \). Computing \( \text{det}({E}_{i}) \) depends on the type of elementary operations we perform on \( {E}_{i} \). If we interchange any two rows or columns of \( {E}_{i}\), then we would find that \( \text{det}({E}_{i}) = - 1 = - \text{det}({I}_{i}) \). If we add a scalar multiple \( k  \) to \( {E}_{i} \), then we would find that \( \text{det}({E}_{i}) = c = c \text{det}({I}_{i})  \). Lastly, performing any type 3 elementary operation on \( {E}_{i} \) gives us \( \text{det}({E}_{i}) = 1 = \text{det}({I}_{i})   \).
+\end{solution}
 
 \subsection*{Exercise 4.2.29} Prove that if \( E  \) is an elementary matrix, then \( \text{det}(E^{t}) = \text{det}(E) \).
 \begin{proof}
-Suppose that \( E  \) is an elementary matrix. Using cofactor expansion along the first row, we see that 
+Suppose that \( E  \) is an \( n \times n \) elementary matrix. Observe that \( {E}_{1j} = {E^{t}}_{j1} \) and so using cofactor expansion along the first row, of \( E  \), we see that 
 \begin{align*}
     \text{det}(E) &= \sum_{ j=1 }^{ n } (-1)^{1 + j} {E}_{1j} \cdot \text{det}({\tilde{E}}_{1j}) \\
-                  &= \sum_{ j=1 }^{ n } (-1)^{1 + j} (E^{t})_{j1} \cdot \text{det}({\tilde{E}}_{j1}) \\
+                  &= \sum_{ j=1 }^{ n } (-1)^{1 + j} (E^{t})_{j1} \cdot \text{det}({\tilde{E}^t}_{j1}) \\
                   &= \text{det}(E^{t}).
 \end{align*}
 Note that the second equality above is just a cofactor expansion along the first column. Hence, 
