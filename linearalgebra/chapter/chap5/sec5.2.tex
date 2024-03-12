@@ -1,0 +1,42 @@
+\section{Diagonalizability}
+Our goals in this section is to: 
+\begin{itemize}
+    \item Create a simple test to determine whether an operator or a matrix can be diagonalized.
+    \item Develop a method for finding a basis of eigenvectors.
+\end{itemize}
+
+The next theorem that any constructed set that consists of eigenvectors is linearly independent.
+
+\begin{theorem}\label{Theorem 5.5}
+    Let \( T  \) be a linear operator on a vector space \( V  \), and let \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{k} \) be distinct eigenvalues of \( T  \). If \( {v}_{1}, {v}_{2}, \dots, {v}_{k} \) are eigenvectors of \( T  \) such that \( {\lambda}_{i} \) corresponds to \( {v}_{i} \) (\( 1 \leq i \leq k  \)), then \( \{ {v}_{1}, {v}_{2}, \dots, {v}_{k } \}  \) is linearly independent.
+\end{theorem}
+\begin{proof}
+We proceed via mathematical induction on \( k  \). Suppose that \( k = 1  \). Let \( \lambda_1  \) be an eigenvalue corresponding to \( {v}_{1} \). Since \( {v}_{1} \neq 0  \), we have that \( \{ {v}_{1} \}  \) is linearly independent. Now, assume that the theorem holds for \( k - 1  \) case. Note that \( k - 1 \geq 1  \). Our goal is to show that for some scalars \( {a}_{1}, {a}_{2}, \dots, {a}_{k}  \), we have  
+\[  {a}_{1} {v}_{1} + {a}_{2} {v}_{2} + \cdots + {a}_{k} {v}_{k} = 0 \tag{1}  \]
+where \( {a}_{1} = {a}_{2} = \cdots = {a}_{k} = 0  \). Applying \( T - {\lambda}_{k} I  \) on both sides of (1), we have
+\[ (T - {\lambda}_{k} I) ({a}_{1} {v}_{1} + {a}_{2} {v}_{2} + \cdots + {a}_{k} {v}_{k} ) = 0   \]
+implies
+\[  {a}_{1} ({\lambda}_{1} - {\lambda}_{k}) {v}_{1} + {a}_{2} ({\lambda}_{2} - {\lambda}_{k}) {v}_{2} + \cdots + {a}_{k-1} ({\lambda}_{k-1} - {\lambda}_{k}) {v}_{k-1} = 0.  \]
+Using our induction hypothesis, we have that \( \{ {v}_{1}, {v}_{2}, \dots, {v}_{k-1} \}  \) implies that 
+\[  {a}_{1} ({\lambda}_{1} - {\lambda}_{k}) = {a}_{2} ({\lambda}_{2} - {\lambda}_{k})  = \cdots + {a}_{k-1} ( {\lambda}_{k-1} - {\lambda}_{k} ) = 0.\]
+Since \( {\lambda}_{i}  \) for \( 1 \leq i \leq k   \) is distinct, we have that \( {\lambda}_{i-1} - \lambda_{i} \neq  0   \) for all \( 1 \leq i \leq k - 1  \). Consequently, this results in \( {a}_{i} = 0  \) for all \( 1 \leq i \leq k - 1 \) which leaves us with \( {a}_{k} {v}_{k} = 0  \). Since \( {v}_{k} \) is an eigenvector, we have \( {v}_{k} \neq  0  \) so \( {a}_{k} = 0  \). Thus, we have \( {a}_{1} = {a}_{2} = \cdots = {a}_{k-1} = {a}_{k} = 0  \) implies that \( \{ {v}_{1}, {v}_{2}, \dots, {v}_{k} \}   \) is a linearly independent set.   
+\end{proof}
+
+\begin{corollary}
+  Let \( T  \) be a linear operator on an \( n- \)dimensional  vector space \( V  \). If \( T  \) has \( n  \) distinct eigenvalues, then \( T  \) is diagonalizable.  
+\end{corollary}
+\begin{proof}
+Suppose that \( T  \) has \( n  \) distinct eigenvalues \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{n} \). We can choose an eigenvalue \( {\lambda}_{i} \) for each corresponding eigenvector \( {v}_{i} \) for all \( i  \). Note that each \( {\lambda}_{i} \) is distinct. Using {\hyperref[Theorem 5.5]{Theorem 5.5}}, the set \( \{ {v}_{1}, \dots, {v}_{n} \}  \) is linearly independent. Since \( \text{dim}(V) = n  \), this set is a basis for \( V  \). Thus, \( T  \) is diagonalizable via Theorem 5.1. 
+\end{proof}
+
+\begin{definition}[Splits Over]
+   A polynomial \( f(t)  \) in \( P(F)  \) \textbf{splits over} \( F  \) if there are scalars \( c, {a}_{1}, {a}_{2}, \dots, {a}_{n} \) (not necessarily distinct) in \( F  \) such that 
+   \[  f(t) = c(t- {a}_{1})(t - {a}_{2})\cdots (t - {a}_{n}). \]
+\end{definition}
+
+\begin{theorem}
+   The characteristic polynomial of any diagonalizable linear operator splits.
+\end{theorem}
+\begin{proof}
+
+\end{proof}

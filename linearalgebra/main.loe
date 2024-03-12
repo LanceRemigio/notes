@@ -290,3 +290,13 @@
 \contentsline {theorem}{\ifthmt@listswap Theorem~5.1.4\else \numberline {5.1.4}Theorem\fi \thmtformatoptarg {Determining Eigenvectors via Eigenvalues}}{93}{theorem.5.1.4}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{93}{thmt@dummyctr.dummy.286}%
 \contentsline {eg}{\ifthmt@listswap Example~5.1.2\else \numberline {5.1.2}Example\fi }{93}{eg.5.1.2}%
+\contentsline {prop}{\ifthmt@listswap Proposition~5.1.1\else \numberline {5.1.1}Proposition\fi }{94}{prop.5.1.1}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{94}{thmt@dummyctr.dummy.289}%
+\contentsline {eg}{\ifthmt@listswap Example~5.1.3\else \numberline {5.1.3}Example\fi }{94}{eg.5.1.3}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~5.2.1\else \numberline {5.2.1}Theorem\fi }{96}{theorem.5.2.1}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{96}{thmt@dummyctr.dummy.292}%
+\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{97}{thmt@dummyctr.dummy.293}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{97}{thmt@dummyctr.dummy.294}%
+\contentsline {definition}{\ifthmt@listswap Definition~5.2.1\else \numberline {5.2.1}Definition\fi \thmtformatoptarg {Splits Over}}{97}{definition.5.2.1}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~5.2.2\else \numberline {5.2.2}Theorem\fi }{97}{theorem.5.2.2}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{97}{thmt@dummyctr.dummy.297}%

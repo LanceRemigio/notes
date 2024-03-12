@@ -179,8 +179,99 @@ Note that this is true if and only if \( v \in N(T - \lambda I)  \). We can reve
         \[  x = t \begin{pmatrix} 
                    1 \\
                    2 
-               \end{pmatrix} \ \ \text{for some} t \neq 0. \]
+               \end{pmatrix} \ \ \text{for some} \  t \neq 0. \]
 \end{eg}
 
+Suppose that \( \beta  \) is a basis for \( F^{n} \) consisting of eigenvectors of \( A  \). We can use the corollary to Theorem 2.23 to say that if \( Q \) is the \( n \times n  \) matrix where \( Q's \) column vectors are vectors of \( \beta \), then \(Q^{-1} A Q    \) is a diagonal matrix. Extending the example above, the \( 2 \times 2  \) matrix
+\[  Q = \begin{pmatrix} 
+    1 & 1 \\
+    2 & -2 
+          \end{pmatrix} \]
+     implies            
+     \[  Q^{-1}A Q = \begin{pmatrix} 
+         3 & 0 \\
+         0 & -1 
+               \end{pmatrix} \]
+               where the diagonal entries of this matrix are the eigenvalues of \( A  \) that are associated with to the respective columns of \( Q  \).
 
+\begin{prop}
+    Let \( T: V \to V  \), \( \beta \) be an ordered basis for \( V  \) and \( A = [T]_{\beta}  \). Then \( v \in V  \) is an eigenvector of \( T  \) corresponding to \( \lambda  \) if and only if \( {\phi}_{\beta}(v) \) is an eigenvector of \( A  \) corresponding to \( \lambda  \). 
+\end{prop}
+\begin{proof}
+Suppose that \( v  \) is an eigenvector of \( T  \) corresponding to \( \lambda  \). So, \( T(v) = \lambda v  \). We need to show that \( A {\phi}_{\beta}(v) = \lambda {\phi}_{\beta}(v) \). 
+\[  A {\phi}_{\beta}(v) = {L}_{A}{\phi}_{\beta}(v) = {\phi}_{\beta}T(v) = {\phi}_{\beta} (\lambda v) = \lambda {\phi}_{\beta}(v).      \]
+Now we have \( {\phi}_{\beta}(v) \neq 0  \), since \( {\phi}_{\beta} \) is an isomorphism and thus \( {\phi}_{\beta}(v)  \) is an eigenvector of \( A  \). Note that this argument is reversible, and we are done.
+\end{proof}
 
+\begin{eg}
+    Let \( T  \) be the linear operator on \( {P}_{2}(\R) \) defined by \( T(f(x)) = f(x) + (x+1) f'(x) \) and let \( \beta  \) be the standard ordered basis for \( {P}_{2}(\R) \). Since \( T  \) contains eigenvalues \( 1,2,  \) and \( 3  \) and that
+    \[  A = [T]_{\beta} = \begin{pmatrix} 
+        1 & 1 & 0 \\
+        0 & 2 & 2 \\
+        0 & 0 & 3 
+              \end{pmatrix}. \]
+        We will consider each eigenvalue separately. Now, let \( {\lambda}_{1} = 1  \). Then 
+        \[  {B}_{1} = A - {\lambda}_{1} I = \begin{pmatrix} 
+            0 & 1 & 0 \\
+            0 & 1 & 2 \\
+            0 & 0 & 2 
+                  \end{pmatrix}. \]
+Then we can find the eigenvector
+\[  x = \begin{pmatrix} 
+           {x}_{1} \\
+           {x}_{2} \\
+           {x}_{3}
+          \end{pmatrix} \in \R^{3} \] 
+ corresponding to \( {\lambda}_{1} \) if and only \( x \neq  0  \) and \( x \in N({L}_{{B}_{1}}) \); that is, \( x \neq 0   \) is a solution to the system  
+ \begin{align*}
+     {x}_{2} &= 0   \\
+     {x}_{2} + {2x}_{3} &= 0 \\
+     {2x}_{3} &= 0.
+ \end{align*}
+ Observe that \( {x}_{2} =    {x}_{3} = 0  \) and \( {x}_{1}  \) is free, so assign \( {x}_{1} = a  \). Thus, \( x  \) can be written in the following form
+ \[  a \begin{pmatrix} 
+            1 \\
+            0 \\
+            0 
+        \end{pmatrix} = a {e}_{1} \ \ \text{for} \ a \neq 0. \]
+    Consequently, the eigenvectors of \( T  \) corresponding to \( {\lambda}_{1} = 1  \) are of the form
+    \[  {\phi}_{\beta}^{-1} (a {e}_{1}) = a {\phi}_{\beta}^{-1} ({e}_{1}) = a \cdot 1 = a  \]
+    Next, let \( {\lambda}_{2} = 2  \), and define 
+    \[  {B}_{2} = A - {\lambda}_{2} I = \begin{pmatrix} 
+        -1 & 1 & 0 \\
+        0 & 0 & 2 \\
+        0 & 0 & 1 
+              \end{pmatrix}. \]
+        We can easily get that
+        \[  N({L}_{{B}_{2}}) = \Bigg\{ a \begin{pmatrix} 
+                1 \\
+                1 \\
+                0 
+                  \end{pmatrix} : a \in \R \Bigg\}. \]
+        We can do the same process with \( {\lambda}_{3} = 3  \) and obtain 
+        \[  {B}_{3} = A - {\lambda}_{3}I = \begin{pmatrix} 
+            -2 & 1 & 0 \\
+            0 & -1 & 2 \\
+            0 & 0 & 0 
+                  \end{pmatrix} \]
+            where 
+            \[  N({L}_{{B}_{3}}) = \Bigg\{ a \begin{pmatrix} 
+                       1 \\
+                       2 \\
+                       1 
+                      \end{pmatrix} : a \in \R \Bigg\}. \]
+            We can see that the eigenvectors of \( T  \) corresponding to \( {\lambda}_{3} = 3  \) are of the form 
+            \[  {\phi}_{\beta}^{-1} \Bigg( a \begin{pmatrix} 
+                       1 \\
+                       2 \\
+                       1
+                      \end{pmatrix}    \Bigg) = a {\phi}_{\beta}^{-1} ({e}_{1} + {2e}_{2} + {e}_{3}) = a (1 + 2x + x^{2}) \] for \( a \neq 0  \). Thus, we can assemble a new ordered basis \( \gamma  \) for \( {P}_{2}(\R) \) such that 
+                      \[  \gamma = \{  1, 1 + x, 1 + 2x, 1 + 2x + x^{2} \} \]
+Hence, we have that \( T  \) is a diagonalizable, and  
+\[  [T]_{\gamma} = \begin{pmatrix} 
+    1 & 0 & 0 \\
+    0 & 2 & 0 \\
+    0 & 0 & 3 
+          \end{pmatrix}. \]
+
+\end{eg}

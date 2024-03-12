@@ -1,0 +1,248 @@
+\section{Eigenvalues and Eigenvectors}
+
+\subsection*{Exercise 5.1.6} Let \( T  \) be a linear operator on a finite-dimensional vector space \( V  \), and let \( \beta  \) be an ordered basis for \( V  \). Prove that \( \lambda  \) is an eigenvalue of \( T  \) if and only if \( \lambda  \) is an eigenvalue of \( [T]_{\beta} \).
+\begin{proof}
+Suppose \( \lambda  \) is an eigenvalue of \( T  \). Since \( \beta  \) is an ordered basis for \( V  \) (suppose \( \text{dim}(V) = n  \)) and \( T(v) = \lambda v  \) for \( v \neq 0  \), we have that
+\[ [T(v)]_{\beta} =  [\lambda v ]_{\beta} = \lambda [v]_{\beta}  \]
+by Theorem 2.8. Using Theorem 2.14, we can write 
+\begin{align*}
+    [T(v)]_{\beta } = \lambda [v]_{\beta} &\implies [T]_{\beta } [v]_{\beta } = \lambda [v]_{\beta}  \\
+                                          &\implies ([T]_{\beta} - \lambda {I}_{n}) [v]_{\beta} = 0 \\
+\end{align*}
+This implies that \( [T]_{\beta} - \lambda {I}_{n} \) is not invertible for all \( [v]_{\beta} \). So, \( \text{det}([T]_{\beta} - \lambda {I}_{n}) = 0  \) which is true if and only if \( \lambda  \) is an eigenvalue of \( [T]_{\beta} \) by Theorem 5.2. This argument can be reversed to show that \( \lambda  \) is an eigenvalue of \( T  \).
+\end{proof}
+
+\subsection*{Exercise 5.1.7} Let \( T  \) be a linear operator on a finite-dimensional vector space \( V  \). We define the \textbf{determinant} of \( T  \), denoted \( \text{det}(T) \), as follows: Choose any ordered basis \( \beta  \) for \( V  \), and define \( \text{det}(T) = \text{det}([T]_{\beta}) \).
+\begin{enumerate}
+    \item[(a)] Prove that the preceding definition is independent of the choice of an ordered basis for \( V  \), then \( \text{det}([T]_{\beta}) = \text{det}([T]_{\gamma}) \).
+        \begin{proof}
+        If \( \beta  \) and \( \gamma \) are two ordered bases for \( V  \), then we must have \( \text{det}(T) = \text{det}([T]_{\beta}) \) and \( \text{det}(T) = \text{det}([T]_{\beta}) \). This implies that \( \text{det}([T]_{\beta}) = \text{det}([T]_{\gamma}) \).
+        \end{proof}
+    \item[(b)] Prove that \( T  \) is invertible if and only if \( \text{det}(T) \neq 0  \).
+        \begin{proof}
+        We have \( T  \) is invertible if and only if \( [T]_{\beta} \) is invertible by Corollary 1 to Theorem 2.18. This is true if and only if \( \text{det}([T]_{\beta}) \neq 0  \) by Corollary to Theorem 4.7. Thus, we have \( \text{det}(T) = \text{det}([T]_{\beta}) \neq 0  \). Note that this argument is reversible. 
+        \end{proof}
+    \item[(c)] Prove that if \( T  \) is invertible, then \( \text{det}(T^{-1}) = [\text{det}(T)]^{-1}.\)
+        \begin{proof}
+        Suppose \( T  \) is invertible. By part (b) and Theorem 2.18, we can see that \( \text{det}([T]_{\beta}) \neq  0  \) and that \( ([T]_{\beta})^{-1} = [T^{-1}]_{\beta} \). Thus,  
+        \[  \text{det}(T^{-1}) = \text{det}([T^{-1}]_{\beta}) = \text{det} \Big(  ([T]_{\beta})^{-1} \Big). \]
+        \end{proof}
+    \item[(d)] Prove that if \( U  \) is also a linear operator on \( V  \), then \( \text{det}(TU) = \text{det}(T) \cdot \text{det}(U) \).
+        \begin{proof}
+        Let \( \beta  \) be an ordered basis for \( V  \) and let \( TU  \) and \( [TU]_{\beta} \) and \( [T]_{\beta} [U]_{\beta}  \) be defined. Then we have
+        \begin{align*}
+            \text{det}(TU) &= \text{det}([TU]_{\beta}) \\
+                           &= \text{det}([T]_{\beta} [U]_{\beta}) \tag{Corollary to Thereom 2.11}  \\
+                           &=  \text{det}([T]_{\beta}) \text{det}([U]_{\beta}) \tag{Corollary to Theorem 4.7} \\
+                           &= \text{det}(T) \text{det}(U).
+        \end{align*}
+        Thus, we have \( \text{det}(TU) = \text{det}(T) \text{det}(U) \).
+        \end{proof}
+    \item[(e)] Prove that \( \text{det}(T - \lambda {I}_{V} ) = \text{det}([T]_{\beta} - \lambda I ) \) for any scalar \( \lambda  \) and any ordered basis \( \beta  \) for \( V  \).
+        \begin{proof}
+        Let \( \lambda \in F  \) and let \( \beta  \) be an ordered basis for \( V  \). Then we have
+        \begin{align*}
+            \text{det}(T - \lambda {I}_{V} ) &= \det([T - \lambda {I}_{V} ]_{\beta}) \\
+                                             &= \text{det}( [T]_{\beta} - \lambda [{I}_{V}]_{\beta} ) \tag{parts (a) and (b) of Theorem 2.8} \\
+                                             &= \text{det}([T]_{\beta} - \lambda I)
+        \end{align*}
+        where \( I  \) is the matrix representation of \( {I}_{V} \).
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 5.1.8} 
+\begin{enumerate}
+    \item[(a)] Prove that a linear operator \( T  \) on a finite-dimensional vector space is invertible if and only if zero is not an eigenvalue of \( T  \).
+        \begin{proof}
+        Suppose \( T \) is an invertible linear operator. Suppose for sake of contradiction that \( \lambda = 0   \) is an eigenvalue of \( T  \). Using Theorem 5.2, we write 
+        \[  \text{det}([T]_{\beta} - \lambda I) = \text{det} ([T]_{\beta}) = 0.  \]
+        Note that \( \text{det}([T]_{\beta}) \neq  0  \) since \( T  \) is invertible which is a contradiction. Thus, \( \lambda = 0 \) cannot be an eigenvalue of \( T  \) if \( T  \) is invertible.
+
+        For the backwards direction, we proceed via proving the contrapositive. Let \( \lambda = 0  \). Observe that \( \text{det}([T]_{\beta})  \) can be written in the following way:
+        \[  \text{det}([T]_{\beta}) = \text{det}([T]_{\beta} - \lambda I).  \]
+        Since \( T  \) is not invertible, we have \( \text{det}([T]_{\beta}) = 0  \) implies \( \text{det}([T]_{\beta} - \lambda I ) = 0  \). Thus, \( \lambda = 0  \) is an eigenvalue of \( T  \).
+        \end{proof}
+    \item[(b)] Let \( T  \) be an invertible linear operator. Prove that a scalar \( \lambda  \) is an eigenvalue of \( T  \) if and only if \( \lambda^{-1}  \) is an eigenvalue of \( T^{-1} \).
+        \begin{proof}
+        Suppose \( \lambda  \) is an eigenvalue of \( T  \). Then for \( v \neq 0  \) we have \( T(v) = \lambda v  \). Since \( T  \) is an invertible linear operator, we have \( \lambda \neq 0  \) (by part (a)) implies
+        \begin{align*}
+            T(v) = \lambda v &\implies T^{-1}(T(v)) = T^{-1} (\lambda v)  \\
+                             &\implies T^{-1} T (v) = T^{-1}(\lambda v ) \\
+                             &\implies {I}_{V}(v) = \lambda T^{-1}(v) \\
+                             &\implies \lambda^{-1} v = T^{-1}(v).
+        \end{align*}
+        Thus, \( \lambda^{-1} \) is an eigenvalue of \( T^{-1} \). To prove the backwards direction, we can just reverse the argument written above.
+        \end{proof}
+    \item[(c)] State and prove results analogous to (a) and (b) for matrices.
+        \begin{proof}
+        Let \( A \in {M}_{n \times n}(F) \). The analogous results to (a) and (b) are
+        \begin{center}
+            \( A  \) is invertible if and only if \( 0  \) is not an eigenvalue of \( A  \)
+        \end{center}
+        and 
+        \begin{center}
+           If \( {L}_{A} \) is an invertible linear operator, then \( \lambda  \) is an eigenvalue of \( A   \) if and only if \( \lambda^{-1} \) is an eigenvalue of \( {L}_{A}^{-1} \).
+        \end{center}
+        To prove the two results above, apply parts (a) and (b) to the linear operator \( {L}_{A} \).
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 5.1.9} Prove that the eigenvalues of an upper triangular matrix \( M  \) are the diagonal entries of \( M  \).
+\begin{proof}
+Let \( M  \) be an upper triangular matrix. Let \( \lambda_j \in F   \) be the eigenvalues of \( M  \) and \( {v}_{j}  \) be the corresponding eigenvectors. By Theorem 5.4, we see that    
+\end{proof}
+
+\subsection*{Exercise 5.1.10} Let \( V  \) be a finite-dimensional vector space, and let \( \lambda  \) be any scalar.
+\begin{enumerate}
+    \item[(a)] For any ordered basis \( \beta \) for \( V  \), prove that \( [\lambda {I}_{V}]_{\beta} = \lambda I  \).
+        \begin{proof}
+        Let \( \beta \) be an ordered basis for \( V  \). Using part (b) of Theorem 2.8, ewe obtain
+        \[  [\lambda {I}_{V}]_{\beta} = \lambda [{I}_{V}]_{\beta} = \lambda I  \]
+        where \( I  \) is the identity matrix. 
+        \end{proof}
+    \item[(b)] Compute the characteristic polynomial of \( \lambda {I}_{V} \). 
+        \begin{solution}
+        The characteristic polynomial of \( \lambda {I}_{V} \) is 
+        \[ f(t) = \text{det}( \lambda {I}_{V} - \lambda {I}_{V}) = \text{det}(O) = 0  \]
+        where \( O  \) is the zero matrix.
+        \end{solution}
+    \item[(c)] Show that \( {\lambda I }_{V} \) is diagonalizable and has only one eigenvalue.
+        \begin{proof}
+        Since \( V  \) is a finite-dimensional vector space, let \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}   \) be an ordered basis for \( V  \). Thus, we have 
+        \[ \lambda {I}_{V}({v}_{j}) = \lambda {v}_{j} \ \text{for all} \ 1 \leq j \leq n.    \]
+        Since each \( {v}_{j} \) is linearly independent, we have that each column of \( [\lambda {I}_{V}]_{\beta} \) is linearly independent where \( {\lambda}_{j} = ([\lambda {I}_{V}]_{\beta})_{ij} = \lambda \) for \( i = j  \) and \( 0  \) elsewhere. Thus, we have that \( \lambda {I}_{V} \) is diagonalizable by Theorem 5.1 and that \( \lambda  \) is its only eigenvalue.
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 5.1.11} A \textbf{scalar matrix} is a square matrix of the form \( \lambda I  \) for some scalar \( \lambda  \); that is, a scalar matrix is a diagonal matrix in which all the diagonal entries are equal.
+\begin{enumerate}
+    \item[(a)] Prove that if a square matrix \( A  \) is similar to a scalar matrix \( \lambda I  \), then \( A = \lambda I  \).
+        \begin{proof}
+         Suppose \( A  \) is a square matrix that is similar to a scalar matrix \( \lambda I  \). Then there exists an invertible square matrix \( Q  \) such that \( A = Q^{-1} \lambda I Q  \). Observe that
+         \[  A = \lambda (Q^{-1} I Q) = \lambda (Q^{-1}Q) = \lambda I \]
+         by part (b) of Theorem 2.15.
+        \end{proof}
+    \item[(b)] Show that a diagonalizable matrix having only one eigenvalue is a scalar matrix.
+        \begin{proof}
+            Let \( \beta  \) be an ordered basis for \( F^{n} \). Since \( A = \lambda  I  \) by part (a), and that \( \lambda I_{F^{n}} \) is a diagonalizable and has only one eigenvalue, then \( A = [\lambda {I}_{F^{n}}]_{\beta}  \) must be a diagonal matrix where the all the diagonal entries are equal to each other. 
+        \end{proof}
+    \item[(c)] Prove that \( \begin{pmatrix} 
+            1 & 1 \\
+            0 & 1 
+              \end{pmatrix}  \) is not diagonalizable.
+            \begin{proof}
+            Note that \( A = \begin{pmatrix} 
+                1 & 1 \\
+                0 & 1 
+                      \end{pmatrix}  \) is not a diagonal matrix since \( {A}_{12} = 1 \neq  0  \). Thus, \( \begin{pmatrix} 
+                1 & 1 \\
+                0 & 1 
+                                \end{pmatrix}  \) is not diagonalizable.
+            \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 5.1.12} 
+\begin{enumerate}
+    \item[(a)] Prove that similar matrices have the same characteristic polynomial.
+        \begin{proof}
+        Let \( A, B  \) be square matrices. Let the characteristic polynomials of \( A  \) and \( B  \) be
+        \begin{center}
+            \( f(t) = \text{det}(A - t I ) \) and \( g(t) = \text{det}(B - t I) \)
+        \end{center}
+        respectively.
+        We claim that \( A - t {I}_{n} \) is similar to \( B - t {I}_{n} \) which will allow us to show that \( \text{det}(A - t I) = \text{det}(B - t I )  \). Since \( A \sim B  \), there exists an invertible square matrix \( Q  \) such that \( A = Q^{-1} B Q  \). Then observe using Theorem 2.12, we can write 
+        \begin{align*}
+            A - \lambda I  &= Q^{-1} B Q - t (Q^{-1}Q ) \\
+                           &= Q^{-1} B Q - Q^{-1} t  I  Q \\ 
+                           &= Q^{-1}(B - t I ) Q.
+        \end{align*}
+        Thus, \( A - t I \sim B - t I   \) and so, \( f(t) =  \text{det}(A - t I ) = \text{det}(B - t I ) = g(t) \).
+        \end{proof}
+    \item[(b)] Show that the definition of the characteristic polynomial of a linear operator on a finite-dimensional vector space \( V  \) is independent of the choice of basis for \( V  \). 
+        \begin{proof}
+        Let \( \beta \) and \( \gamma \) be two ordered bases for \(  V  \) and let \( [T]_{\beta} \) and \( [T]_{\gamma} \) be defined. Using part (e) of Exercise 7, we obtain 
+        \[ \text{det}([T]_{\beta} - \lambda I ) =   \text{det}(T - \lambda {I}_{V} ) = \text{det}([T]_{\gamma} - \lambda {I}_{V}). \]
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 5.1.13} Let \( T  \) be a linear operator on a finite-dimensional vector space \( V  \) over a field \( F \), let \( \beta  \) be an ordered basis for \( V  \), and let \( A = [T]_{\beta} \). In reference, to figure 5.1, prove the following.
+\begin{enumerate}
+    \item[(a)] If \( v \in V  \) and \( {\phi}_{\beta}(v)  \) is an eigenvector of \( A  \) corresponding to the eigenvalue \( \lambda  \), then \( v  \) is an eigenvector of \( T  \) corresponding to \( \lambda  \).
+        \begin{proof}
+        Suppose \( v \in V  \) and \( {\phi}_{\beta}(v)  \) is an eigenvector of \( A  \) corresponding to \( \lambda  \). By the linearity of \( {\phi}_{\beta} \), we have that
+        \[  {L}_{A}{\phi}_{\beta}(v) = \lambda {\phi}_{\beta}(v) = {\phi}_{\beta}(\lambda v ).  \]
+        Since \( {L}_{A} {\phi}_{\beta} = {\phi}_{\beta}T  \) (by Figure 5.1) and \( {\phi}_{\beta} \) is an injective map, we obtain  
+        \begin{align*}
+            {L}_{A} {\phi}_{\beta} (v) &= {\phi}_{\beta}T(v) \\
+            \lambda {\phi}_{\beta}(v) &= {\phi}_{\beta} T(v) \\
+            {\phi}_{\beta}(\lambda v ) &= {\phi}_{\beta}(T(v))
+        \end{align*}
+        which implies that \( T(v) = \lambda v  \) where \( v \neq 0  \). Hence, \( v  \) is an eigenvector of \( T  \) corresponding to \( \lambda  \).
+        \end{proof}
+    \item[(b)] If \( \lambda  \) is an eigenvalue of \( A  \) (and hence of \( T \)), then a vector \( y \in F^{n} \) is an eigenvector of \( A  \) corresponding to \( \lambda  \) if and only if \( {\phi}_{\beta}^{-1}(y)  \) is an eigenvector of \( T  \) corresponding to \( \lambda  \).
+        \begin{proof}
+        Suppose that \( y \in F^{n} \) is an eigenvector of \( A  \) corresponding to \( \lambda  \). By definition, we have 
+        \[ {L}_{A}(y) = \lambda y. \tag{1}\]
+        Since \( {\phi}_{\beta} \) is a surjective mapping, we know that \( y = {\phi}_{\beta}(x)  \) for some \( x \in F^{n} \). This tell us that \( x  \) is an eigenvector of \( T  \) corresponding to \( \lambda  \) by part (a). Since \( {\phi}_{\beta} \) is also invertible, we have that \( x = {\phi}_{\beta}^{-1}(y) \) implies 
+        \[  T( {\phi}_{\beta}^{-1}(y)) = \lambda {\phi}_{\beta}^{-1}(y). \]
+        Thus, \( {\phi}_{\beta}^{-1}(y)  \) is the eigenvector of \( T  \) corresponding to \( \lambda  \). 
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 5.1.14} For any square matrix \( A  \), prove that \( A  \) and \( A^{t} \) have the same characteristic polynomial (and hence the same eigenvalues).
+\begin{proof}
+
+\end{proof}
+
+\subsection*{Exercise 5.1.15} 
+\begin{enumerate}
+    \item[(a)] Let \( T  \) be a linear operator on a vector space \( V  \), and let \( x  \) be an eigenvector of \( T  \) corresponding to the eigenvalue \( \lambda  \). For any positive integer \( m  \), prove that \( x  \) is an eigenvalue of \( T^{m} \) corresponding to the eigenvalue \( \lambda^{m} \).
+        \begin{proof}
+            
+        \end{proof}
+    \item[(b)] State and prove the analogous result for matrices.
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise  5.1.17} Let \( T  \) be the linear operator on \( {M}_{n \times n}(\R ) \) defined by \( T(A) = A^{t} \).
+\begin{enumerate}
+    \item[(a)] Show that \( \pm 1  \) are the only eigenvalues of \( T  \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Describe the eigenvectors corresponding to each eigenvalue of \( T  \).
+        \begin{solution}
+        
+        \end{solution}
+    \item[(c)] Find an ordered basis \( \beta  \) for \( {M}_{2 \times 2 }(\R ) \) such that \( [T]_{\beta} \) is a diagonal matrix.
+        \begin{solution}
+        
+        \end{solution}
+    \item[(d)] Find an ordered basis \( \beta  \) for \( {M}_{n \times n}(\R) \) such that \( [T]_{\beta} \) is a diagonal matrix.
+        \begin{solution}
+        
+        \end{solution}
+\end{enumerate}
+
+\subsection*{Exercise 5.1.19} Let \( A  \) and \( B  \) be similar \( n \times n  \) matrices. Prove that there exists an \( n- \)dimensional vector space \( V  \), a linear operator \( T  \) on \( V  \), and ordered bases \( \beta  \) and \( \gamma \) for \( V  \) such that \( A = [T]_{\beta}  \) and \( B = [T]_{\gamma} \). % this is just a change of coordinates where gamma is essentially just \beta'.
+\begin{proof}
+
+\end{proof}
+
+\subsection*{Exercise 5.1.20} Let \( A  \) be an \( n \times n  \) matrix with characteristic polynomial 
+\[  f(t) = (-1)^{n} t^{n} + {a}_{n-1} t^{n-1} + \cdots + {a}_{1} t + {a}_{0}. \]
+Prove that \( f(0) = {a}_{0} = \text{det}(A) \). Deduce that \( A  \) is invertible if and only if \( {a}_{0} \). % can probably use exercise 8 part (a)
+\begin{proof}
+
+\end{proof}
+
+\subsection*{Exercise 5.1.21} Let \( A  \) and \( f(t)  \) be as in Exercise 20.
+\begin{enumerate}
+    \item[(a)] Prove that \( f(t) = ({A}_{11} - t)({A}_{22} - t) \cdots ({A}_{n n } - t) \\cdots ({A}_{n n } - t) + q(t) \) is a polynomial of degree at most \( n - 2  \). 
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Show that \( \text{tr}(A) = (-1)^{n-1} {a}_{n-1} \).
+\end{enumerate}
