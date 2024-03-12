@@ -46,7 +46,7 @@ Using {\hyperref[Exercise 2.4.4]{Exercise 2.4.4}}, we can write that
 where \( (LP)^{-1} = Q^{-1} \) and \( LP = Q  \). Hence, \( A \sim C  \).
 \end{proof}
 
-\subsection*{Exercise 2.5.10} Prove that if \( A  \) and \( B  \) are similar \( n \times n  \) matrices, then \( \text{tr}(A) = \text{tr}(B) \).
+\subsection*{Exercise 2.5.10}\label{Exercise 2.5.10} Prove that if \( A  \) and \( B  \) are similar \( n \times n  \) matrices, then \( \text{tr}(A) = \text{tr}(B) \).
 \begin{proof}
     Suppose \( A  \) and \( B  \) are similar \( n \times n \) matrices. Then there exists an invertible matrix \( Q  \) such that
     \[  A = Q^{-1} B Q. \]
@@ -119,7 +119,7 @@ where \( O  \) is the zero-matrix. Since \( Q  \) is an invertible \( n \times n
 Thus, \( {a}_{j} {I}_{n} = O  \) implies that \( {a}_{j} = 0  \) for all \( 1 \leq j \leq n \). Hence, \( \beta'  \) is linearly independent. Now, let \( v \in V   \) but not in \( \beta'  \). Then adjoining \( v  \) into \( \beta'  \) will produce a linearly dependent set. Thus, Theorem 2.2 implies that \( \text{span}(\beta') = V  \). So, \( \beta'  \) is a basis for \( V  \).
 \end{proof}
 
-\subsection*{Exercise 2.5.14} Prove the converse of Exercise 8: If \( A  \) and \( B  \) are each \( m \times n  \) matrices with entries from a field \( F \), and if there exists invertible \( m \times m  \) and \( n \times n  \) matrices \( P  \) and \( Q  \), respectively, such that \( B = P^{-1} A Q  \), then there exist an \( n- \)dimensional vector space \( V  \) and an \( m- \)dimensional vector space \( W  \) (both over \( F \)), ordered bases \( \beta \) and \( \beta'  \) for \( V  \) and \( \gamma \) and \( \gamma'  \) for \( W  \), and a linear transformation \( T: V \to W  \) such that
+\subsection*{Exercise 2.5.14}\label{Exercise 2.5.14} Prove the converse of Exercise 8: If \( A  \) and \( B  \) are each \( m \times n  \) matrices with entries from a field \( F \), and if there exists invertible \( m \times m  \) and \( n \times n  \) matrices \( P  \) and \( Q  \), respectively, such that \( B = P^{-1} A Q  \), then there exist an \( n- \)dimensional vector space \( V  \) and an \( m- \)dimensional vector space \( W  \) (both over \( F \)), ordered bases \( \beta \) and \( \beta'  \) for \( V  \) and \( \gamma \) and \( \gamma'  \) for \( W  \), and a linear transformation \( T: V \to W  \) such that
 \[  A = [T]_{\beta}^{\gamma}  \ \text{ and } \ B = [T]_{\beta'}^{\gamma'}. \]
 \begin{proof}
     Since \( A  \) and \( B  \) are \( m \times n  \) with entries from a field \( F  \), let \( V = F^{n} \) and \( W = F^{m} \). Since \( V \) and \( W  \) are finite-dimensional, they contain ordered bases \( \beta =  \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \} \) and \( \gamma = \{ {w}_{1}, {w}_{2}, \dots, {w}_{m} \}   \). By Theorem 2.6, there must exists a linear transformation \( T: V \to W  \) such that 

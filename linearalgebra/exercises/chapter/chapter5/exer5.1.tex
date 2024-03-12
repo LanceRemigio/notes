@@ -1,5 +1,16 @@
 \section{Eigenvalues and Eigenvectors}
 
+\subsection*{Exercise 5.1.5} Prove Theorem 5.4. 
+\begin{proof}
+Let \( v \in V  \) be an eigenvector of \( T  \) corresponding to \( \lambda  \). Since \( \lambda  \) is an eigenvalue of \( T \), we know that \( T(v) = \lambda v  \) where \( v \neq 0  \). Hence,  
+\begin{align*}
+    T(v) = \lambda v &\iff T(v) - \lambda v = 0  \\
+                     &\iff (T - \lambda I)(v) = 0. 
+\end{align*}
+Note that this is true if and only if \( v \in N(T - \lambda I)  \). We can reverse this argument to show that \( v \in V  \) is an eigenvector of \( T  \) corresponding to \( \lambda  \).
+\end{proof}
+
+
 \subsection*{Exercise 5.1.6} Let \( T  \) be a linear operator on a finite-dimensional vector space \( V  \), and let \( \beta  \) be an ordered basis for \( V  \). Prove that \( \lambda  \) is an eigenvalue of \( T  \) if and only if \( \lambda  \) is an eigenvalue of \( [T]_{\beta} \).
 \begin{proof}
 Suppose \( \lambda  \) is an eigenvalue of \( T  \). Since \( \beta  \) is an ordered basis for \( V  \) (suppose \( \text{dim}(V) = n  \)) and \( T(v) = \lambda v  \) for \( v \neq 0  \), we have that
@@ -229,6 +240,23 @@ By Theorem 4.8, we obtain that \( \text{det}(A - \lambda I) = \text{det}(A - \la
         \end{proof}
 \end{enumerate}
 
+\subsection*{Exercise 5.1.16} 
+\begin{enumerate}
+    \item[(a)] Prove that similar matrices have the same trace.
+        \begin{proof}
+         See {\hyperref[Exercise 2.5.10]{Exercise 2.5.10}}.  
+        \end{proof}
+    \item[(b)] How would you define the trace of a linear operator on a finite-dimensional vector space? Justify that your definition is well-defined.
+        \begin{proof}
+        I would define the trace of a linear operator by the following notation:
+        \[  \text{tr}(T) = \text{tr}([T]_{\beta}). \]
+        Since \( V  \) is a finite-dimensional vector space, let \( \beta \) and \( \gamma \) be two ordered bases such that \( [T]_{\beta} \) and \( [T]_{\gamma} \) are defined. Observe that
+        \[  \text{tr}([T]_{\beta}) = \text{tr}(T) = \text{tr}([T]_{\gamma}). \]
+        \end{proof}
+\end{enumerate}
+
+
+
 \subsection*{Exercise  5.1.17} Let \( T  \) be the linear operator on \( {M}_{n \times n}(\R ) \) defined by \( T(A) = A^{t} \).
 \begin{enumerate}
     \item[(a)] Show that \( \pm 1  \) are the only eigenvalues of \( T  \).
@@ -251,18 +279,30 @@ By Theorem 4.8, we obtain that \( \text{det}(A - \lambda I) = \text{det}(A - \la
 
 \subsection*{Exercise 5.1.19} Let \( A  \) and \( B  \) be similar \( n \times n  \) matrices. Prove that there exists an \( n- \)dimensional vector space \( V  \), a linear operator \( T  \) on \( V  \), and ordered bases \( \beta  \) and \( \gamma \) for \( V  \) such that \( A = [T]_{\beta}  \) and \( B = [T]_{\gamma} \). % this is just a change of coordinates where gamma is essentially just \beta'.
 \begin{proof}
-
+Let \( A,B \in {M}_{n \times n}(F) \). Since \( A  \) and \( B  \) are similar matrices, there exists an invertible \( n \times n  \) matrix \( Q  \) such that
+\[  A = Q^{-1} B Q. \]
+By {\hyperref[Exercise 2.5.14]{Exercise 2.5.14}}, there exists an \( n  \) dimensional vector space \( V  \), ordered bases \( \beta \) and \( \gamma \) for \( V  \), and a linear operator \( T: V \to V  \) such that  
+\[  A = [T]_{\beta} \ \text{and} \ B = [T]_{\gamma}. \]
 \end{proof}
 
 \subsection*{Exercise 5.1.20} Let \( A  \) be an \( n \times n  \) matrix with characteristic polynomial 
 \[  f(t) = (-1)^{n} t^{n} + {a}_{n-1} t^{n-1} + \cdots + {a}_{1} t + {a}_{0}. \]
-Prove that \( f(0) = {a}_{0} = \text{det}(A) \). Deduce that \( A  \) is invertible if and only if \( {a}_{0} \). % can probably use exercise 8 part (a)
+Prove that \( f(0) = {a}_{0} = \text{det}(A) \). Deduce that \( A  \) is invertible if and only if \( {a}_{0} \neq  0 \). 
 \begin{proof}
-
+The characteristic polynomial of \( A  \) is just
+\[  f(t) = \text{det}(A - t I) = (-1)^{n} t^{n} + {a}_{n-1} t^{n-1} + \cdots + {a}_{1} t + {a}_{0}.  \]
+Letting \( t = 0  \), we obtain
+\begin{align*}
+    f(t) = \text{det}(A - 0 \cdot I ) 
+         &= \text{det}(A) \\
+         &=  (-1)^{n} (0)^{n} + {a}_{n-1}(0)^{n-1} + \cdots + {a}_{1} (0) + {a}_{0} \\
+         &= {a}_{0}.
+\end{align*}
+Suppose that \( A  \) is an invertible matrix. Using the corollary to Theorem 4.7, we know that this is true if and only if \( \text{det}(A) \neq  0 \). So, \( \text{det}(A) = {a}_{0} \neq 0  \).
 \end{proof}
 
 \subsection*{Exercise 5.1.21} Let \( A  \) and \( f(t)  \) be as in Exercise 20.
-\begin{enumerate}
+\begin{enumerate} % Look over division algorithm for polynomials
     \item[(a)] Prove that \( f(t) = ({A}_{11} - t)({A}_{22} - t) \cdots ({A}_{n n } - t) \cdots ({A}_{n n } - t) + q(t) \) is a polynomial of degree at most \( n - 2  \). 
         \begin{proof}
         
