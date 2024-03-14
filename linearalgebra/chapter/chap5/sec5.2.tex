@@ -122,4 +122,21 @@ where \( g(t) = \text{det}(C - {tI}_{n-p}) \) is a polynomial. Thus \( (\lambda 
     then \( {v}_{i} = 0  \) for all \( i \).
 \end{lemma}
 
+The last two examples illustrate that operators whose characteristic polynomial splits is diagonalizable if and only if the multiplicity of \( \lambda \) is equal to the dimension its corresponding eigenspace \( {E}_{\lambda} \).
 
+\begin{proof}
+Suppose otherwise. By renumbering if necessary, suppose that, for \( 1 \leq m \leq k  \), we have \( {v}_{i} \neq 0  \) for \( 1 \leq i \leq m \), and \( {v}_{i} = 0  \) for \( i > m  \). Then, for each \( i \leq m  \), \( {v}_{i} \) is an eigenvector of \( T \) corresponding to \( {\lambda}_{i} \) and  
+\[ {v}_{1} + {v}_{2} + \cdots + {v}_{m} = 0. \]
+But this contradicts Theorem 5.5, which states that all \( {v}_{i} \)'s are linearly independent. Thus, we should have \( {v}_{i} = 0  \) for all \( i \).
+\end{proof}
+
+\begin{theorem}
+   Let \( T \) be a linear operator on a vector space \( V  \), and let \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{k } \) be distinct eigenvalues of \( T  \). For each \( i = 1,2, \dots, k  \), let \( {S}_{i} \) be a finite linearly independent subset of the eigenspace \( {E}_{{\lambda}_{i}}  \). Then \( S = {S}_{1} \cup {S}_{2} \cup \cdots \cup {S}_{k} \) is a linearly independent subset of \( V  \). 
+\end{theorem}
+\begin{proof}
+Suppose that for each \( i  \) 
+\[  {S}_{i} = \{ {v}_{i1}, {v}_{i2}, \dots, {v}_{i {n}_{i}} \}. \]
+Then \( S = \{ {v}_{ij} : 1 \leq j \leq {n}_{i}, \ \text{and} \ 1 \leq i \leq k  \}. \) Consider any scalars \( \{ {a}_{ij} \}  \) such that 
+\[  \sum_{ i=1 }^{ k  } \sum_{ j=1 }^{ {n}_{i} } {a}_{ij } {v}_{ij} = 0.  \]
+For each \( i  \), let 
+\end{proof}
