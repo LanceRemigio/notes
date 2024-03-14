@@ -305,3 +305,4 @@
 \contentsline {definition}{\ifthmt@listswap Definition~5.2.3\else \numberline {5.2.3}Definition\fi \thmtformatoptarg {Eigenspace}}{98}{definition.5.2.3}%
 \contentsline {theorem}{\ifthmt@listswap Theorem~5.2.3\else \numberline {5.2.3}Theorem\fi }{98}{theorem.5.2.3}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{98}{thmt@dummyctr.dummy.302}%
+\contentsline {lemma}{\ifthmt@listswap Lemma~5.2.1\else \numberline {5.2.1}Lemma\fi }{99}{lemma.5.2.1}%

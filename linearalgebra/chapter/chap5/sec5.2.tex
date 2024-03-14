@@ -99,6 +99,27 @@ It can easily be proven that \( {E}_{\lambda} \) is a subspace of \( V  \). The 
     Let \( T  \) be a linear operator on a finite-dimensional vector space \( V  \), and let \( \lambda  \) be an eigenvalue of \( T  \) having multiplicity \(  m  \). Then \( 1 \leq \text{dim}({E}_{\lambda}) \leq  m \).
 \end{theorem} 
 \begin{proof}
-
+    Choose an ordered basis \( \{ {v}_{1}, {v}_{2}, \dots, {v}_{p} \}   \) for \( {E}_{\lambda} \) and extend this basis into \( \beta = \{ {v}_{1}, {v}_{2}, \dots ,{v}_{p}, {v}_{p+1}, \dots, {v}_{n} \}   \) for \( V  \), and let \( A = [T]_{\beta} \). Observe that \( {v}_{i} \ (1 \leq i \leq p ) \) is an eigenvector of \( T  \) corresponding to \( \lambda  \), and therefore 
+    \[  A = \begin{pmatrix} 
+        \lambda {I}_{p} & B \\
+        O & C 
+              \end{pmatrix}.   \]
+By Exercise 21 of Section 4.3, the characteristic polynomial of \( T  \) is
+\begin{align*}
+    f(t) = \text{det}(A - t {I}_{n}) &= \text{det}\begin{pmatrix} 
+        (\lambda - t){I}_{p} & B  \\
+        O & C - t {I}_{n-p}
+              \end{pmatrix}  \\
+              &= \text{det}((\lambda -t){I}_{p}) \text{det}(C - {tI}_{n-p}) \\
+              &= (\lambda - t)^{p} g(t)
+\end{align*}
+where \( g(t) = \text{det}(C - {tI}_{n-p}) \) is a polynomial. Thus \( (\lambda - t)^{p} \) is a factor of \( f(t)  \), and hence the multiplicity of \( \lambda  \) is at least \( p  \). However, \( \text{dim}({E}_{\lambda}) = p  \), and so \( \text{dim}({E}_{\lambda}) \leq m \).
 \end{proof}
+
+\begin{lemma}
+    Let \( T  \) be a linear operator, and let \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{k} \) be distinct eigenvalues of \( T  \). For each \( i = 1,2,\dots,k  \), and let \( {v}_{i} \in {E}_{{\lambda}_{i}}  \), the eigenspace corresponding to \( {\lambda}_{i} \). If
+    \[  {v}_{1} + {v}_{2} + \cdots + {v}_{k} = 0, \]
+    then \( {v}_{i} = 0  \) for all \( i \).
+\end{lemma}
+
 

@@ -303,9 +303,28 @@ Suppose that \( A  \) is an invertible matrix. Using the corollary to Theorem 4.
 
 \subsection*{Exercise 5.1.21} Let \( A  \) and \( f(t)  \) be as in Exercise 20.
 \begin{enumerate} % Look over division algorithm for polynomials
-    \item[(a)] Prove that \( f(t) = ({A}_{11} - t)({A}_{22} - t) \cdots ({A}_{n n } - t) + q(t) \) is a polynomial of degree at most \( n - 2  \). 
+    \item[(a)] Prove that \( f(t) = ({A}_{11} - t)({A}_{22} - t) \cdots ({A}_{n n } - t) + q(t) \) where \( q(t) \) is a polynomial of degree at most \( n - 2  \). 
         \begin{proof}
-        
+        We proceed via induction on \( n \geq 2  \). If \( n = 2  \), then we have
+        \begin{align*}
+            f(t) = \text{det}(A - t I ) &= \text{det} \begin{pmatrix} 
+                {A}_{11} - t & {A}_{12} \\
+                {A}_{21} & {A}_{22} - t 
+                      \end{pmatrix}  \\
+                                        &= ({A}_{11} -t)({A}_{22} - t) - {A}_{12} {A}_{21}
+        \end{align*}
+        where \( q(t) = {A}_{21} {A}_{21} \) is a polynomial of degree \( 0  \).
+
+        Assume the result holds for polynomials with degree less than \( n \). Note that \( ({A}_{n n  } - t ) \) divides \( f(t)  \) is true if and only if \( f({A}_{n n}) = 0  \) by Corollary to the Division Algorithm for polynomials. Thus, there exists a polynomial \( g(t)  \) such that \( f(t) = ({A}_{n n } - t)g(t) \).
+Since \( g(t)  \) is a polynomial with degree less than \( n  \), we have
+        \[  g(t) = ({A}_{11} - t)({A}_{22} - t) \cdots ({A}_{n-1 n-1} - t) + \phi(t) \]
+        with \( \phi(t) \) with degree \( n -1  \) by the induction hypothesis. Thus, we can see that
+        \begin{align*}
+            f(t) = ({A}_{n n } - t)g(t)  
+                 &= ({A}_{11} - t)({A}_{22} -t)\cdots({A}_{n n } -t) + ({A}_{n n } - t) \phi(t) \\
+                 &=  ({A}_{11} - t)({A}_{22} -t)\cdots({A}_{n n } -t) + q(t) 
+        \end{align*}
+        with \( q(t) = ({A}_{n n } - t)\phi(t)  \) having a degree less than \( n -2  \). This ends our induction argument.
         \end{proof}
     \item[(b)] Show that \( \text{tr}(A) = (-1)^{n-1} {a}_{n-1} \).
         \begin{proof}
@@ -331,3 +350,8 @@ Suppose that \( A  \) is an invertible matrix. Using the corollary to Theorem 4.
               
               \end{solution}
 \end{enumerate}
+
+\subsection*{Exercise 5.1.23} Use Exercise 22 to prove that if \( f(t)  \) is the characteristic polynomial of a diagonalizable linear opearator \( T  \), then \( f(T) = {T}_{0} \), the zero operator. 
+\begin{proof}
+
+\end{proof}
