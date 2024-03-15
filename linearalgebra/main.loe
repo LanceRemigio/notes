@@ -309,3 +309,5 @@
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{99}{thmt@dummyctr.dummy.304}%
 \contentsline {theorem}{\ifthmt@listswap Theorem~5.2.4\else \numberline {5.2.4}Theorem\fi }{99}{theorem.5.2.4}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{99}{thmt@dummyctr.dummy.306}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~5.2.5\else \numberline {5.2.5}Theorem\fi }{100}{theorem.5.2.5}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{100}{thmt@dummyctr.dummy.308}%

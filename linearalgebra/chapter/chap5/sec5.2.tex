@@ -95,7 +95,7 @@ We can investigate the exact amount of independent eigenvectors that are associa
 
 It can easily be proven that \( {E}_{\lambda} \) is a subspace of \( V  \). The maximum number of linearly independent eigenvectors that correspond to a given eigenvalue can therefore be seen by taking the dimension of the given eigenspace.
 
-\begin{theorem}
+\begin{theorem}\label{Theorem 5.7}
     Let \( T  \) be a linear operator on a finite-dimensional vector space \( V  \), and let \( \lambda  \) be an eigenvalue of \( T  \) having multiplicity \(  m  \). Then \( 1 \leq \text{dim}({E}_{\lambda}) \leq  m \).
 \end{theorem} 
 \begin{proof}
@@ -139,4 +139,35 @@ Suppose that for each \( i  \)
 Then \( S = \{ {v}_{ij} : 1 \leq j \leq {n}_{i}, \ \text{and} \ 1 \leq i \leq k  \}. \) Consider any scalars \( \{ {a}_{ij} \}  \) such that 
 \[  \sum_{ i=1 }^{ k  } \sum_{ j=1 }^{ {n}_{i} } {a}_{ij } {v}_{ij} = 0.  \]
 For each \( i  \), let 
+\[  {w}_{i} = \sum_{ j=1  }^{ {n}_{i} } {a}_{ij} {v}_{ij}. \]
+Then \( {w}_{i} \in {E}_{\lambda}  \), for each \( i \), and 
+\[  {w}_{1} + {w}_{2} + \cdots + {w}_{k} = 0. \]
+Thus, we must have \( {w}_{i} = 0  \) for all \( i  \) by the lemma. Since each \( {S}_{i} \) is linearly independent, we must have that \( {a}_{ij} = 0  \) for each \( 1 \leq j \leq {n}_{i}  \). Thus, \( S  \) is linearly independent.
 \end{proof}
+
+The consequence of this theorem is that it creates a procedure for constructing a linearly independent subset of eigenvectors via collecting bases for individual eigenspaces. The following theorem allows us to determine when the resulting set becomes a basis for the entire space.
+
+\begin{theorem}
+    Let \( T  \) be a linear operator on a finite-dimensional vector space \( V  \) such that the characteristic polynomial of \( T  \) splits. Let \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{k} \) be the distinct eigenvalues of \( T  \). Then
+    \begin{enumerate}
+        \item[(a)] \( T  \) is diagonalizable if and only if the multiplicity of \( {\lambda}_{i} \) is equal to \( \text{dim}({E}_{{\lambda}_{i}}) \) for all \( i  \).
+        \item[(b)] If \( T  \) is diagonalizable and \( {\beta}_{i} \) is an ordered basis for \( {E}_{{\lambda}_{i}} \) for each \( i  \), then \( \beta = {\beta}_{1} \cup {\beta}_{2} \cup \cdots \cup {\beta}_{k} \) is an ordered basis for \( V  \) consisting of eigenvectors of \( T  \).
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+For each \( i \), let \( {m}_{i} \) denote the multiplicity of \( {\lambda}_{i} \), \( {d}_{i} = \text{dim}({E}_{{\lambda}_{i}}) \), and \( n = \text{dim}(V) \). 
+
+Suppose that \( T  \) is diagonalizable. Let \( \beta \) be a basis for \( V  \) consisting of eigenvectors of \( T  \). For each \( i \), let 
+\[  {\beta}_{i} = \beta \cap {E}_{{\lambda}_{i}} \] be the set of vectors in \( \beta  \) that are eigenvectors corresponding to \( \lambda_{i} \), and let \( {n}_{i} \) denote the number of vectors in \( {\beta}_{i} \). Since each \( {\beta}_{i} \subseteq {E}_{{\lambda}_{i}} \) and that each \( {\beta}_{i} \) is linearly independent (Note that each \( {E}_{{\lambda}_{i}} \) is a subspace), we have \( {n}_{i} \leq {d}_{i} \). By {\hyperref[Theorem 5.7]{Theorem 5.7}}, we have \( {d}_{i} \leq {m}_{i} \). 
+
+Notice how all the \( {n}_{i} \)'s sum to \( n  \) because \( \beta \) contains \( n  \) vectors. At the same time, all the \( {m}_{i} \)'s must also sum up to \( n  \) since the degree of the characteristic polynomial of \( T  \) must be \( n  \) which is also equal to the sum of all the multiplicities of the eigenvalues. Thus, we must have
+\[  n = \sum_{ i=1 }^{ k  } {n}_{i} \leq \sum_{ i=1 }^{ k  } {d}_{i} \leq \sum_{ i=1 }^{ k  } {m}_{i} = n \]
+which implies that
+\[  \sum_{ i=1 }^{ k  } {n}_{i} - {m}_{i} = 0. \]
+Since \( {m}_{i} - {d}_{i} \geq 0  \) for all \( i  \), we must have that \( {m}_{i} = {d}_{i} \) for all \( i \).
+
+Conversely, suppose that \( {d}_{i} = {m}_{i} \) for all \( i  \). We will show that \( T  \) is diagonalizable and prove (b). For each \( {\beta}_{i} \) is an ordered basis for \( {E}_{{\lambda}_{i}} \) and let \( \beta = {\beta}_{1} \cup {\beta}_{2} \cup \cdots \cup {\beta}_{k } \). Using Theorem 5.8, we can see that \( \beta \) is linearly independent. Since \( {d}_{i} = {m}_{i} \) for all \( i \), \( \beta \) contains
+\[  \sum_{ i=1 }^{ k  } {d}_{i} = \sum_{ i=1 }^{ k  } = n \]
+vectors. Since \( \beta \) is a linearly independent subset of \( V  \) that contains equals \(  n  \) vectors, we must have that \( \beta \) spans \( V  \) via {\hyperref[2nd Corollary to RT]{2nd Corollary to the Replacement Theorem}} and thus \( \beta \) is an ordered basis for \( V  \) consisting of eigenvectors of \( T  \) corresponding to each \( {\lambda}_{i} \). But this also means that \( T  \) is diagonalizable by {\hyperref[Theorem 5.1]{Theorem 5.1}}.
+\end{proof}
+

@@ -217,7 +217,7 @@ Let \( A  \) be an arbitrary square matrix. Let \( f(t) = \text{det}(A - \lambda
 By Theorem 4.8, we obtain that \( \text{det}(A - \lambda I) = \text{det}(A - \lambda I )^{t} = \text{det}(A^{t} - \lambda I ) \). Thus, we have \( g(t) = f(t) \) and we are done.
 \end{proof}
 
-\subsection*{Exercise 5.1.15} 
+\subsection*{Exercise 5.1.15}\label{Exercise 5.1.15} 
 \begin{enumerate}
     \item[(a)] Let \( T  \) be a linear operator on a vector space \( V  \), and let \( x  \) be an eigenvector of \( T  \) corresponding to the eigenvalue \( \lambda  \). For any positive integer \( m  \), prove that \( x  \) is an eigenvalue of \( T^{m} \) corresponding to the eigenvalue \( \lambda^{m} \).
         \begin{proof}
@@ -336,22 +336,94 @@ Since \( g(t)  \) is a polynomial with degree less than \( n  \), we have
 \begin{enumerate}
     \item[(a)] Let \( T  \) be a linear operator on a vector space \( V  \) over the field \( F  \), and let \( g(t) \) be a polynomial with coefficients from \( F  \). Prove that if \( x  \) is an eigenvector of \( T  \) with corresponding eigenvalue \( \lambda  \), then \( g(T)(x) = g(\lambda)(x) \). That is, \( x  \) in an eigenvector of \( g(T) \) with corresponding \( g(\lambda) \).
         \begin{proof}
-        
+        Suppose \( x  \) is an eigenvector of \( T  \) with corresponding eigenvalue \( \lambda  \). Using part (a) of {\hyperref[Exercise 5.1.15]{Exercise 5.1.15}}, we obtain 
+        \begin{align*}
+            g(T)(x) &= ({a}_{n} T^{n} + {a}_{n-1} T^{n-1} + \cdots + {a}_{1} T + {a}_{0} I )(x) \\
+                    &= {a}_{n} T^{n}(x) + {a}_{n-1} T^{n-1}(x) + \cdots + {a}_{1} T(x) + {a}_{0} I(x) \\
+                    &= {a}_{n} \lambda^{n}(x) + {a}_{n-1} \lambda^{n-1} (x) + \cdots + {a}_{1} \lambda x + {a}_{0} x \\
+                    &=  ({a}_{n} \lambda^{n} + {a}_{n-1} \lambda^{n-1} + \cdots + {a}_{1} \lambda + {a}_{0})(x) \\
+                    &= g(\lambda)(x).
+        \end{align*}
+        Thus, we have \( g(T)(x) = g(\lambda)(x) \).
         \end{proof}
     \item[(b)] State and prove a comparable result for matrices.
         \begin{proof}
-        
+        Replace \( T  \) with \( {L}_{A} \) and apply part (a).
         \end{proof}
     \item[(c)] Verify (b) for the matrix \( A  \) in Exercise 4(a) with polynomial \( g(t) = 2 t^{2} - t + 1  \), eigenvector \( x = \begin{pmatrix} 
                2 \\
                3
               \end{pmatrix}  \), and corresponding eigenvalue \( \lambda = 4  \).
               \begin{solution}
-              
+              Let \( \lambda = 4  \), 
+              \begin{center}
+                  \( A = \begin{pmatrix} 
+                      1 & 2 \\
+                      3 & 2 
+                            \end{pmatrix}  \) and \( x = \begin{pmatrix} 
+                                       2 \\
+                                       3
+                                      \end{pmatrix} \).
+              \end{center}
+              First, we will compute \( g(\lambda)(x) \). Observe that
+              \begin{align*}
+                  g(4)(x) &= (2 (4)^{2} - 4 + 1  )(x) \\
+                          &= 29 \begin{pmatrix} 
+                                     2 \\
+                                     3 
+                                    \end{pmatrix} \\
+                          &= \begin{pmatrix} 
+                                     58 \\
+                                     87
+                                    \end{pmatrix}.
+              \end{align*}
+            Now, we will compute \( g({L}_{A})(x)  \). Observe that \( A^{2} = \begin{pmatrix} 
+                       32 \\
+                       48
+                      \end{pmatrix}  \). Thus, we have
+            \begin{align*}
+                g({L}_{A})(x) &= (2 {L}_{A}^{2} - {L}_{A} + 1 I)(x)  \\
+                        &= 2 A^{2}(x) - A(x) - I(x) \\
+                        &= 2 \begin{pmatrix} 
+                                   32 \\
+                                   48
+                                  \end{pmatrix} - \begin{pmatrix} 
+                                             8 \\
+                                             12
+                                            \end{pmatrix} + \begin{pmatrix} 
+                                                       2 \\
+                                                       3
+                                                      \end{pmatrix} \\
+                                &= \begin{pmatrix} 
+                                           56 \\
+                                           84
+                                          \end{pmatrix} + \begin{pmatrix} 
+                                                     2 \\
+                                                     3
+                                                    \end{pmatrix} \\
+                                &= \begin{pmatrix} 
+                                           58 \\
+                                           57
+                                          \end{pmatrix}. 
+            \end{align*}
+            Thus, we get that \( g(A)(x) = g(\lambda)(x) \).
               \end{solution}
 \end{enumerate}
 
-\subsection*{Exercise 5.1.23} Use Exercise 22 to prove that if \( f(t)  \) is the characteristic polynomial of a diagonalizable linear opearator \( T  \), then \( f(T) = {T}_{0} \), the zero operator. 
-\begin{proof}
+\subsection*{Exercise 5.1.23} Use Exercise 22 to prove that if \( f(t)  \) is the characteristic polynomial of a diagonalizable linear operator \( T  \), then \( f(T) = {T}_{0} \), the zero operator. 
 
+\begin{proof}
+Since the linear operator \( T \) is diagonalizable, there exists an ordered basis \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) for \( V  \) consisting of eigenvectors \( {v}_{j} \) of \( T  \) corresponding to eigenvalues \( {\lambda}_{j} \). Denote the characteristic polynomial \( f(t)  \) of a diagonalizable linear operator \( T  \) by
+\[  f(t) = \text{det}([T]_{\beta} - t {I}_{n} ). \]
+Observe that for every \( {\lambda}_{j} \), we have \( f(\lambda_{j}) = 0  \) by Theorem 5.2. Thus, using Exercise 22 we obtain the following:
+\begin{align*}
+    f(T)({v}_{j}) = f({\lambda}_{j})({v}_{j}) 
+                  = {T}_{0}({v}_{j}).
+\end{align*}
+Therefore, we have \( f(T) = {T}_{0} \).
+\end{proof}
+
+\subsection*{Exercise 5.1.24} Use Exercise 21 (a) to prove Theorem 5.3
+\begin{proof}
+Let \( f(t)  \) be the characteristic polynomial of \( A  \) and let \( A  \) be defined as in Exercises 20 and 21. Observe that exercise 20 and exercise 21 part (a) proves part (a) of Theorem 5.3. Since the characteristic polynomial of \( A  \) is of degree \( n  \), its characteristic polynomial contains at most \( n  \) distinct zeros by Corollary 1 to the Division Algorithm for Polynomials.  But this can only happen if and only if \( t  \) is an eigenvalue of \( A  \). Thus, \( A  \) must have \( n  \) distinct eigenvalues. This proves part (b).
 \end{proof}
