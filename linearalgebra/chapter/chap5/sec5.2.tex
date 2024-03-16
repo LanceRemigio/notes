@@ -147,7 +147,7 @@ Thus, we must have \( {w}_{i} = 0  \) for all \( i  \) by the lemma. Since each 
 
 The consequence of this theorem is that it creates a procedure for constructing a linearly independent subset of eigenvectors via collecting bases for individual eigenspaces. The following theorem allows us to determine when the resulting set becomes a basis for the entire space.
 
-\begin{theorem}
+\begin{theorem}\label{Theorem 5.9}
     Let \( T  \) be a linear operator on a finite-dimensional vector space \( V  \) such that the characteristic polynomial of \( T  \) splits. Let \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{k} \) be the distinct eigenvalues of \( T  \). Then
     \begin{enumerate}
         \item[(a)] \( T  \) is diagonalizable if and only if the multiplicity of \( {\lambda}_{i} \) is equal to \( \text{dim}({E}_{{\lambda}_{i}}) \) for all \( i  \).
@@ -171,3 +171,90 @@ Conversely, suppose that \( {d}_{i} = {m}_{i} \) for all \( i  \). We will show 
 vectors. Since \( \beta \) is a linearly independent subset of \( V  \) that contains equals \(  n  \) vectors, we must have that \( \beta \) spans \( V  \) via {\hyperref[2nd Corollary to RT]{2nd Corollary to the Replacement Theorem}} and thus \( \beta \) is an ordered basis for \( V  \) consisting of eigenvectors of \( T  \) corresponding to each \( {\lambda}_{i} \). But this also means that \( T  \) is diagonalizable by {\hyperref[Theorem 5.1]{Theorem 5.1}}.
 \end{proof}
 
+\subsection{Test for Diagonalization}
+
+\begin{prop}
+    Let \( T  \) be a linear operator on an \( n- \)dimensional vector space \( V  \). Then \( T  \) is diagonalizable if and only if both of the following conditions hold:
+    \begin{enumerate}
+        \item[(a)] The characteristic polynomial of \( T  \) splits.
+        \item[(b)] For each eigenvalue \( \lambda  \) of \( T  \), the multiplicity of \( \lambda  \) equals \( n - \text{rank}(T - \lambda I ) \).
+    \end{enumerate}
+\end{prop}
+\begin{itemize}
+    \item We can also apply these conditions to any square matrix \( A  \) since testing whether \( A  \) is diagonalizable is just a matter of determining if the linear operator \( {L}_{A} \) is diagonalizable.
+    \item If \( T  \) is a diagonalizable operator and \( {\beta}_{1}, {\beta}_{2}, \dots, {\beta}_{k}  \) are ordered bases each eigenspace of \( T  \), then the union \( \beta = {\beta}_{1} \cup {\beta}_{2} \cup \cdots \cup {\beta}_{k } \) is an ordered basis for \( V  \) consisting of eigenvectors of \( T  \), and hence \( [T]_{\beta} \) is a diagonal matrix via Theorem 5.1.
+    \item To check whether a linear operator is diagonalizable, choose a suitable basis \( \alpha \) and work with \( B = [T]_{\alpha} \).
+    \item Then check whether its characteristic polynomial splits and then check the second condition for each \textit{repeated} eigenvalue of \( B  \). If a given eigenvalue \( \lambda    \) contains a multiplicity of \( 1  \) then the second condition is automatically satisfied. Thus, only check for multiplicity that is greater than \( 1  \). 
+    \item Given an \( n \times n \) diagonalizable matrix, the corollary to Theorem 2.23 allows us to find an invertible \( n \times n  \) matrix \( Q  \) and a diagonal \( n \times n  \) matrix \( D  \) such that  
+        \[  Q^{-1}A Q = D.  \]
+    \item The matrix \( Q  \) contains the basis of eigenvectors of \( A  \), while \( D  \) contains the eigenvalue corresponding to the \( j \)th column of \( Q  \).
+\end{itemize}
+
+\subsection{Direct Sums}
+
+\begin{definition}[Sum of Subspaces]
+    Let \( {W}_{1}, {W}_{2}, \dots, {W}_{k} \) be subspaces of a vector space \( V  \). We define the \textbf{sum} of these subspaces to be the set 
+    \[  \{ {v}_{1} + {v}_{2} + \cdots + {v}_{k } : {v}_{i} \in {W}_{i} \ \text{for} \ 1 \leq i \leq k  \}, \]
+    which we denote by \( {W}_{1} + {W}_{2} + \cdots + {W}_{k} \) or \( \sum_{ i=1 }^{ k  } {W}_{i} \).
+\end{definition}
+
+\begin{prop}
+    The sum of subspaces of a vector space \( V  \) is also subspace.
+\end{prop}
+
+\begin{proof}
+Exercise
+\end{proof}
+
+\begin{definition}[Direct Sum of Subspaces]
+    Let \( {W}_{1}, {W}_{2}, \dots, {W}_{k} \) be subspaces of a vector space \( V  \). We call \( V  \) the \textbf{direct sum} of the subspaces \( {W}_{1}, {W}_{2}, \dots, {W}_{k } \) and write \( V = {W}_{1} \oplus {W}_{2} \oplus \cdots \oplus {W}_{k} \), if 
+    \[  V = \sum_{ i=1  }^{  k  } {W}_{i} \]
+    and 
+    \[  {w}_{j} \cap \sum_{ i \neq j  }^{  }{W}_{i} = \{ 0  \} \ \text{for} \ (1 \leq j \leq k ). \]
+\end{definition}
+
+\begin{theorem}
+    Let \( {W}_{1}, {W}_{2}, \dots, {W}_{k} \) be subspaces of a finite-dimensional vector space \( V  \). The following conditions are equivalent. 
+    \begin{enumerate}
+        \item[(a)] \( V = {W}_{1} \oplus {W}_{2} \oplus \cdots \oplus {W}_{k}  \).
+        \item[(b)] \( V = \sum_{ i = 1  }^{ k  } {W}_{i}  \) and, for any vectors       \( {v}_{1}, {v}_{2}, \dots, {v}_{k } \) such that \( {v}_{i} \in {W}_{i} \) for \( 1 \leq i \leq k  \), if \( {v}_{1} + {v}_{2} + \cdots + {v}_{k } = 0  \), then \( {v}_{i} = 0  \) for all \( i \).
+        \item[(c)] Each vector \( v \in V  \) can be uniquely written as \( v = {v}_{1} + {v}_{2} + \cdots + {v}_{k } \), where \( {v}_{i} \in {W}_{i} \).
+        \item[(d)] If \( {\gamma}_{i} \) is an ordered basis for \( {W}_{i}  \) for \( 1 \leq i \leq k  \), then \( {\gamma}_{1} \cup {\gamma}_{2} \cup \cdots \cup {\gamma}_{k}  \) is an ordered basis for \( V  \).
+        \item[(e)] For each \( i = 1, 2 , \dots, k  \), there exists an ordered basis \({\gamma}_{i} \) for \( {W}_{i} \) such that \( {\gamma}_{1} \cup {\gamma}_{2} \cup \cdots \cup {\gamma}_{k} \) is an ordered basis for \( V  \).
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+\begin{enumerate}
+    \item[(b)] Suppose that \( V = {W}_{1} \oplus {W}_{2} \oplus \cdots \oplus {W}_{k}   \). Let \( {v}_{1}, {v}_{2}, \dots, {v}_{k } \) such that \( {v}_{i} \in {W}_{i} \) for \( 1 \leq i \leq k  \). Suppose 
+        \[  \sum_{ i=1  }^{ k  } {v}_{i} = 0. \]
+         Choose \( i \neq j  \) such that 
+        \[  -{v}_{j} = \sum_{ i \neq j }^{  } {v}_{i} \in {W}_{i}.  \]
+        But notice that \( -{v}_{j} \in {W}_{j} \) and so we must have
+        \[  {-v}_{j} \in {W}_{j} \cap \sum_{ i \neq j  }^{  }{W}_{i} = \{ 0  \}. \]
+        Thus, \( {v}_{j} = 0  \) which subsequently proves that \( {v}_{i} = 0  \) for all \( 1 \leq i \leq k  \).
+    \item[(c)] Assume (b). Let \( v \in V  \). Then there exists vectors \( {v}_{1}, {v}_{2}, \dots, {v}_{k} \) such that 
+        \[  v = \sum_{ i=1  }^{ k  } {v}_{i}. \tag{1} \]
+    Suppose that there also exists vectors \( {w}_{1}, {w}_{2}, \dots, {w}_{k } \) such that
+    \[  v = \sum_{ i=1  }^{ k  } {w}_{i}. \tag{2} \]
+    Then equating (1) and (2) and subtracting each \( {w}_{i}  \) on both sides, we obtain
+    \[  \sum_{ i=1  }^{ k  } ({v}_{i} - {w}_{i}) = 0.   \]
+    By part (b), we must have \( {v}_{i} - {w}_{i} = 0  \) which subsequently leads to \( {v}_{i} = {w}_{i} \) for all \( 1 \leq i \leq k  \). Thus, the representation \( v  \) is unique.
+    \item[(d)] Suppose (c). 
+\end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    A linear operator \( T  \) on a finite-dimensional vector space \( V  \) is diagonalizable if and only if \( V  \) is the direct sum of the eigenspaces of \( T  \).
+\end{theorem}
+\begin{proof}
+    Let \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{k} \) be the distinct eigenvalues of \( T  \).
+    
+    For the forwards direction, suppose that \( T  \) is diagonalizable. For each \( i  \), choose an ordered basis \( {\gamma}_{i} \) for each eigenspace \( {E}_{{\lambda}_{i}} \). Using {\hyperref[Theorem 5.9]{Theorem 5.9}}, we know that 
+    \[  \gamma = \bigcup_{ i=1  }^{ k  }  {\gamma}_{i}   \]
+    is a basis for for \( V  \), and hence \( V  \) is a direct sum of each eigenspace \( {E}_{{\lambda}_{i}}  \) of \( T  \) by Theorem 5.10.
+
+    For the backwards direction, suppose that \( V  \) is a direct sum of the eigenspaces of \( T  \). For each \( i  \), choose an ordered basis \( {\gamma}_{i}  \) for each \( {E}_{{\lambda}_{i}}  \). Using Theorem 5.10,  
+    we have that
+    \[  \gamma = \bigcup_{ i=1  }^{ k  }  {\gamma}_{i}   \]
+    is a basis for \( V  \) consisting of eigenvectors of \( T  \). Thus, \( T  \) is diagonalizable by {\hyperref[Theorem 5.1]{Theorem 5.1}} .
+\end{proof}

@@ -311,3 +311,12 @@
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{99}{thmt@dummyctr.dummy.306}%
 \contentsline {theorem}{\ifthmt@listswap Theorem~5.2.5\else \numberline {5.2.5}Theorem\fi }{100}{theorem.5.2.5}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{100}{thmt@dummyctr.dummy.308}%
+\contentsline {prop}{\ifthmt@listswap Proposition~5.2.1\else \numberline {5.2.1}Proposition\fi }{100}{prop.5.2.1}%
+\contentsline {definition}{\ifthmt@listswap Definition~5.2.4\else \numberline {5.2.4}Definition\fi \thmtformatoptarg {Sum of Subspaces}}{101}{definition.5.2.4}%
+\contentsline {prop}{\ifthmt@listswap Proposition~5.2.2\else \numberline {5.2.2}Proposition\fi }{101}{prop.5.2.2}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{101}{thmt@dummyctr.dummy.312}%
+\contentsline {definition}{\ifthmt@listswap Definition~5.2.5\else \numberline {5.2.5}Definition\fi \thmtformatoptarg {Direct Sum of Subspaces}}{101}{definition.5.2.5}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~5.2.6\else \numberline {5.2.6}Theorem\fi }{101}{theorem.5.2.6}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{102}{thmt@dummyctr.dummy.315}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~5.2.7\else \numberline {5.2.7}Theorem\fi }{102}{theorem.5.2.7}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{103}{thmt@dummyctr.dummy.317}%
