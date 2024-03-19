@@ -328,8 +328,31 @@ Since \( g(t)  \) is a polynomial with degree less than \( n  \), we have
         \end{proof}
     \item[(b)] Show that \( \text{tr}(A) = (-1)^{n-1} {a}_{n-1} \).
         \begin{proof}
-        
-        \end{proof}
+        Let \( A  \) be defined as in Exercise 20. If \( n = 2  \), then part (a) implies that 
+        \[  f(t) = \text{det}(A - t I) = t^{2} - ({A}_{11} + {A}_{22})t - ({A}_{11} {A}_{22} + {A}_{12} {A}_{21}) \]
+        where \( \text{tr}(A) = {A}_{11} + {A}_{22} \). Then equating coefficients with the way \( f(t) \) is defined in Exercise 20, we obtain that \( \text{tr}(A) = (-1)^{2-1} {a}_{1} \). A similar process is done when \( n = 3  \) where we get \( \text{tr}(A) = (-1)^{3-1} {a}_{2} \). If we continue this pattern then we will find that \( \text{tr}(A) = (-1)^{n-1}{a}_{n-1} \).
+
+        We can show this via an induction argument. We claim that \( f(t) \) can be expanded into 
+        \[  f(t) = (-1)^{n} t^{n} + (-1)^{n-1} \text{tr}(A) t^{n-1} + \phi(t) \]
+        where \( \phi(t) \) is a polynomial of degree less than \( n  \).
+        Suppose the argument above holds for \( (n - 1) \times (n-1)  \) matrices. If \( ({A}_{n n } - t) \) divides \( f(t) \), we get that \( f(t) = ({A}_{n n } - t) g(t) \) where \( g(t) \) is some polynomial of degree \( n - 1 \). Using our induction hypothesis, \( g(t) \) can be expanded into 
+        \[  g(t) = (-1)^{n-1} t^{n-1} + (-1)^{n-2} \text{tr}(A) t^{n-2} + \phi(t). \]
+        Distributing through by \( ({A}_{n n } -t) \), we get that
+        \begin{align*}
+            f(t) &= ({A}_{n n } - t) [(-1)^{n-1} t^{n-1} + (-1)^{n-2} \text{tr}(A) t^{n-2} + \phi(t)] \\
+                 &= ({A}_{n n } -t) (-1)^{n-1} t^{n-1} + (-1)^{n-2}  \text{tr}(A) t^{n-2} ({A}_{n n} -t) + ({A}_{n n} -t)\phi(t) \\
+                 &= (-1)^{n} t^{n} + (\text{tr}(A) + {A}_{nn}) (-1)^{n-1}t^{n-1} + (-1)^{n-2}\text{tr}(A) t^{n-2} + ({A}_{nn} - t) \phi(t) \\
+                 &= (-1)^{n} t^{n} + (-1)^{n-1}\Big( \sum_{ i=1 }^{ n } {A}_{ii} \Big) t^{n-1} + (-1)^{n-2} \text{tr}(A) t^{n-2} + ({A}_{nn} -t)\phi(t) \\
+                 &= (-1)^{n} t^{n} + (-1)^{n-1} \Big( \sum_{ i=1 }^{ n } {A}_{ii} \Big) t^{n-1} + r(t)
+        \end{align*}
+        where
+        \[ r(t) = (-1)^{n-2}\text{tr}(A) t^{n-2} + ({A}_{nn} -t)\phi(t). \]
+        Equating coefficients with \( f(t) \), we get that 
+        \[  {a}_{n-1} = (-1)^{n-1} \Big( \sum_{ i=1 }^{ n } {A}_{ii} \Big) \]
+        which implies that
+        \[ \sum_{ i=1 }^{ n } {A}_{ii} = \text{tr}(A) = (-1)^{n-1}{a}_{n-1}  \]
+        which ends our induction argument.
+\end{proof}
 \end{enumerate}
 
 \subsection*{Exercise 5.1.22}
