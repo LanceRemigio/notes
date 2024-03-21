@@ -1,0 +1,71 @@
+
+There is a special space for notions such as distance or length which we will study in this section. We denote this space as the \textit{inner product space}. This structure is what allows us to solve problems in geometry, physics, and other such fields that use the notion of distance or length.  
+
+
+\section{Inner Products and Norms}
+
+Geometric notions such as angle, length, and perpendicularity can be viewed more abstractly and generally through our study of the \textit{inner product}.
+
+\begin{definition}[Inner Product]
+    Let \( V  \) be a vector space over \( F  \). An \textbf{inner product} on \( V  \) is a function that assigns, to every ordered pair of vectors \( x \) and \( y  \) in \( V  \), a scalar in \( F  \), denoted \(\langle x,y \rangle\), such that for all \( x,y,z \in V  \) and all \( c \in F  \), the following hold:
+    \begin{enumerate}
+        \item[(a)] \( \langle x + z , y  \rangle = \langle x,y  \rangle + \langle  z,y  \rangle  \). 
+        \item[(b)] \( \langle cx, y \rangle = c \langle x,y  \rangle \).
+        \item[(c)] \( \overline{\langle x,y \rangle} = \langle y,x \rangle \) where the bar denotes complex conjugation.
+        \item[(d)] \( \langle x,x \rangle > 0  \) if \( x \neq  0  \). 
+    \end{enumerate}
+\end{definition}
+
+\begin{itemize}
+    \item If \( F = \R  \), then (c) reduces to \( \langle x,y  \rangle = \langle  y , x  \rangle  \).
+    \item The first two parts (a) and (b) require linearity in the first component.
+    \item Part (a) can be extended to an \( n \) number of summations; that is, for every \( {a}_{1}, {a}_{2}, \dots, {a}_{n} \in F  \) and \( y, {v}_{1}, {v}_{2}, \dots, {v}_{n} \in V  \), then 
+        \[  \Big\langle \sum_{ i=1 }^{ n } {a}_{i} {v}_{i}, y   \Big\rangle = \sum_{ i=1 }^{n} {a}_{i} \langle {v}_{i}, y \rangle.  \]
+\end{itemize}
+
+\begin{eg}
+    For \( x = ({a}_{1}, {a}_{2}, \dots, {a}_{n}) \) and \( y = ({b}_{1}, {b}_{2}, \dots, {b}_{n}) \) in \( F^{n} \), define 
+    \[  \langle x,y \rangle = \sum_{ i=1 }^{ n } {a}_{i} \overline{{b}_{i}}. \]
+It is relatively straightforward to show conditions (a) through (d). Thus, the formula above defines an inner product over \( F^{n} \).
+\end{eg}
+
+\begin{remark}
+ We can see the inner product above is just the \textbf{standard inner product} on \( F^{n} \). If \( F = \R  \), then the conjugations are not needed and the product gets defined as \( x \cdot y  \) instead of \( \langle  x,y  \rangle \).
+\end{remark}
+
+The following is a non-example.
+
+\begin{eg}
+    Suppose we have any inner product \( \langle  x,y  \rangle \) on a vector space \( V  \) and \( r > 0  \) defined by the rule
+    \[  \langle x,y \rangle' = r \langle x,y \rangle.  \]
+    Note that if \( r \leq  0  \), then part (d) of our definition does not hold; that is, we have \( \langle x,x \rangle = r \langle x,x \rangle < 0  \).
+\end{eg}
+
+\begin{eg}
+    Let \( V = C([0,1]) \) be the vector space of real-valued continuous functions on \( [0,1] \). For \( f,g \in V  \), define 
+    \[ \langle f,g \rangle = \int_{ 0 }^{ 1 } f(t) g(t) \ dt \]. 
+    We can see that parts (a) through (c) are relatively straightforward to show. To show (d), suppose \( f \neq 0  \). Then we have that \( f^{2} \) is bounded away from zero on some subinterval of \( [0,1] \) (the notion of continuity from real analysis is used here), and hence we have
+    \[  \langle f,f \rangle = \int_{ 0 }^{ 1 }  [f(t)]^{2} \ dt > 0. \]
+\end{eg}
+
+\begin{definition}[Conjugate Transpose/Adjoint of a Matrix]
+    Let \( A \in {M}_{m \times n}(F) \). We define the \textbf{conjugate transpose} or \textbf{adjoint} of \( A  \) to be the \( n \times m  \) matrix \( A^*  \) such that \( {(A^*)}_{ij} = \overline{{A}_{ji}} \) for all \( i,j  \).
+\end{definition}
+
+\begin{eg}
+    Let 
+    \[  A = \begin{pmatrix} 
+        i & 1 + 2i \\
+        2 & 3 + 4i 
+              \end{pmatrix}. \]
+    Then
+        \[  A^{*} = \begin{pmatrix} 
+                   -i & 2 \\
+                   1 - 2i & 3 - 4i 
+                  \end{pmatrix}. \]
+\end{eg}
+
+\begin{itemize}
+    \item If \( x,y \in F^{n} \) are column vectors, then \( \langle x,y \rangle = y^{*}x  \).
+    \item If \( F = \R  \) and \( A \in {M}_{m \times n}(F) \), then the adjoint of \( A  \) is just its transpose.
+\end{itemize}

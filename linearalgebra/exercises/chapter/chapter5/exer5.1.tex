@@ -341,12 +341,13 @@ Since \( g(t)  \) is a polynomial with degree less than \( n  \), we have
         \begin{align*}
             f(t) &= ({A}_{n n } - t) [(-1)^{n-1} t^{n-1} + (-1)^{n-2} \text{tr}(A) t^{n-2} + \phi(t)] \\
                  &= ({A}_{n n } -t) (-1)^{n-1} t^{n-1} + (-1)^{n-2}  \text{tr}(A) t^{n-2} ({A}_{n n} -t) + ({A}_{n n} -t)\phi(t) \\
-                 &= (-1)^{n} t^{n} + (\text{tr}(A) + {A}_{nn}) (-1)^{n-1}t^{n-1} + (-1)^{n-2}\text{tr}(A) t^{n-2} + ({A}_{nn} - t) \phi(t) \\
-                 &= (-1)^{n} t^{n} + (-1)^{n-1}\Big( \sum_{ i=1 }^{ n } {A}_{ii} \Big) t^{n-1} + (-1)^{n-2} \text{tr}(A) t^{n-2} + ({A}_{nn} -t)\phi(t) \\
+                 &= (-1)^{n} t^{n} + (\text{tr}(A) + {A}_{nn}) (-1)^{n-1}t^{n-1} + (-1)^{n-2} {A}_{nn} \text{tr}(A) t^{n-2} + ({A}_{nn} - t) \phi(t) \\
+                 &= (-1)^{n} t^{n} + (-1)^{n-1}\Big( \sum_{ i=1 }^{ n } {A}_{ii} \Big) t^{n-1} + (-1)^{n-2} \text{tr}(A) {A}_{nn} t^{n-2} + ({A}_{nn} -t)\phi(t) \\
                  &= (-1)^{n} t^{n} + (-1)^{n-1} \Big( \sum_{ i=1 }^{ n } {A}_{ii} \Big) t^{n-1} + r(t)
         \end{align*}
         where
-        \[ r(t) = (-1)^{n-2}\text{tr}(A) t^{n-2} + ({A}_{nn} -t)\phi(t). \]
+        \[ r(t) = (-1)^{n-2}\text{tr}(A) t^{n-2} + ({A}_{nn} -t)\phi(t) \]
+        is a polynomial of degree less than \( n  \).
         Equating coefficients with \( f(t) \), we get that 
         \[  {a}_{n-1} = (-1)^{n-1} \Big( \sum_{ i=1 }^{ n } {A}_{ii} \Big) \]
         which implies that

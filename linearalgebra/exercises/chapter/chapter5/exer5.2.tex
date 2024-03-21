@@ -2,48 +2,60 @@
 
 \subsection*{Exercise 5.2.5} State and prove the matrix version of Theorem 5.6.
 \begin{proof}
-
+Let \( A \in {M}_{n \times n}(F) \) and let \( f(t) = \text{det}(A - tI) \) is the characteristic polynomial of \( A \). Suppose \( {L}_{A} \) is diagonalizable. The proof is the same except \( T  \) is replaced with \( {L}_{A} \) instead. Thus, the characteristic polynomial \( f(t)  \) of \( A  \) splits over \( F  \).
 \end{proof}
 
 \subsection*{Exercise 5.2.8} Suppose that \( A \in {M}_{n \times n }(F) \) has two distinct eigenvalues \( {\lambda}_{1} \) and \( {\lambda}_{2} \) and that \( \text{dim}({E}_{{\lambda}_{1}}) = n - 1  \). Prove that \( A  \) is diagonalizable.
 \begin{proof}
-
+    Let \( A \in {M}_{n \times n}(F) \) and \( {\lambda}_{1} \) and \( {\lambda}_{2} \) be two distinct eigenvalues where \( {E}_{{\lambda}_{1}} \) and \( {E}_{{\lambda}_{2}} \) are the eigenspaces associated with these eigenvalues (related to the linear operator \( {L}_{A} \)). Let \( \beta_{1} \) be a basis for \( {E}_{\lambda_{1}} \). Since \( \text{dim}({E}_{\lambda_{1}}) = n - 1  \), we have
+    \[  {\beta}_{1} = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n-1} \}.   \]
+    Note that the dimensions of \( {E}_{{\lambda}_{1}} \) and \( {E}_{{\lambda}_{2}}  \) must sum to \( n \). Thus, we must have \( \text{dim}({E}_{{\lambda}_{2}}) = 1  \) and let \( {\beta}_{2} = \{ v'  \}  \) be the basis for \( {E}_{{\lambda}_{2}} \) where \( v' \neq 0  \). So, extend \( {\beta}_{1} \) to a basis \( \beta  \) for \( V  \) taking the union of \(  {\beta}_{2}   \) with this basis. Since \( \beta = {\beta}_{1} \cup {\beta}_{2} \) is a set that contains exactly \( n  \) linearly independent vectors that are eigenvectors of \( {L}_{A} \) corresponding to eigenvalues \( {\lambda}_{1} \) and \( {\lambda}_{2} \), we have that \( {L}_{A} \) must be diagonalizable by part (b) of Theorem 5.9. Thus, \( A  \) must be diagonalizable.
 \end{proof}
 
 \subsection*{Exercise 5.2.9} Let \( T \) be a linear operator on a finite-dimensional vector space \( V  \), and suppose there exists an ordered basis for \( V  \) such that \( [T]_{\beta} \) is an upper triangular matrix.  
 \begin{enumerate}
     \item[(a)] Prove that the characteristic polynomial for \( T  \) splits.
         \begin{proof}
-        
+        Let 
+        \[  f(t) = \text{det}([T]_{\beta} - tI) \]
+        be the characteristic polynomial of \( [T]_{\beta}  \). By Exercise 23 of Section 4.2, we can see that the determinant of this upper triangular matrix is just the product of its diagonal entries. Thus, we have 
+        \[  f(t) = (-1)^{n} ({[T]_{\beta}}_{11} - t)({[T]_{\beta}}_{22} - t) \cdots ({[T]_{\beta}}_{nn}  - t). \]
+        Hence, \( f(t)  \) splits.
         \end{proof}
     \item[(b)] State and prove an analogous result for matrices.
         \begin{proof}
-        
+        Substitute \( {L}_{A} \) in place of \( T  \) and apply part (a).
         \end{proof}
 \end{enumerate}
 
 \subsection*{Exercise 5.2.10} Let \( T  \) be a linear operator on a finite-dimensional vector space \( V  \) with the distinct eigenvalues \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{k} \) and corresponding multiplicities \( {m}_{1}, {m}_{2}, \dots, {m}_{k}  \). Suppose that \( \beta \) is a basis for \( V  \) such that \( [T]_{\beta} \) is an upper triangular matrix. Prove that the diagonal entries of \( [T]_{\beta} \) are \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{k} \) and that each \( {\lambda}_{i} \) occurs \( {m}_{i} \) times (\( 1 \leq i \leq k  \)).
 \begin{proof}
-
+Let \( [T]_{\beta} = A  \) and \(  \text{dim}(V) = n \). Since \( A  \) is an upper triangular matrix, we know that the characteristic polynomial of \( A  \) splits by Exercise 5.2.10. Thus, we have
+\begin{align*}
+    f(t) &= \text{det}(A - tI) \\
+         &= (-1)^{n} ({A}_{11} - t)({A}_{22} - t) \cdots ({A}_{nn} -t).
+\end{align*}
+By Theorem 5.3, \( f(t) \) contains at most \( n   \) distinct eigenvalues. So, we must have \( f(t) = 0  \) if and only if \( \lambda = {A}_{11}, {A}_{22}, \dots, {A}_{nn} \). But this means that each \( {A}_{ii} \) for \( 1 \leq i \leq n  \) is an eigenvalue of \( A  \) by Theorem 5.2. Thus, the eigenvalues of \(T\) must occur on the diagonals of \( A  \). But we only have distinct eigenvalues \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{k }  \) of \( T  \) with corresponding multiplicities \( {m}_{1}, {m}_{2}, \dots, {m}_{k } \) where \( k \leq n  \). So, each \( {m}_{i} \) corresponding to each \( {\lambda}_{i} \) for \( 1 \leq i \leq k  \) must sum up to \( n  \) since \( f(t) \) is an \( n \)th degree polynomial and there must be \( n  \) solutions to \( f(t) = 0  \). Thus, each \( {\lambda}_{i} \) must occur \( {m}_{i} \) times along the diagonal of \( A  \). 
 \end{proof}
 
 \subsection*{Exercise 5.2.11} Let \( A  \) be an \( n \times n  \) matrix that is similar to an upper triangular matrix and has the distinct eigenvalues \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{k} \) with corresponding multiplicities \( {m}_{1}, {m}_{2}, \dots, {m}_{k } \). Prove the following statements. 
 \begin{enumerate}
     \item[(a)] \( \text{tr}(A) = \sum_{ i=1  }^{ k  } {m}_{i} {\lambda}_{i} \).
         \begin{proof}
-        
+            Let \( A \in {M}_{n \times n}(F) \). Let \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{k } \) be the eigenvalues with corresponding multiplicities \( {m}_{1}, {m}_{2}, \dots, {m}_{k } \). Since these eigenvalues must occur on the diagonal of \( A  \) (by Exercise 5.2.10) where each \( {\lambda}_{i} \) occurs \( {m}_{i}  \) times, we can take the sum of our diagonal entries to get
+            \[  \text{tr}(A) = \sum_{ i=1 }^{ k   } {m}_{i} {\lambda}_{i}. \]
         \end{proof}
     \item[(b)] \( \text{det}(A) = ({\lambda}_{1})^{{m}_{1}} ({\lambda}_{2})^{{m}_{2}} \cdots ({\lambda}_{k})^{{m}_{k}} \).
         \begin{proof}
-        
+        Since \( A  \)
         \end{proof}
 \end{enumerate}
 
 \subsection*{Exercise 5.2.12} Let \( T  \) be an invertible linear operator on a finite-dimensional vector space \( V  \). 
 \begin{enumerate}
-    \item[(a)] Recall that for any eigenvalue of \( T  \), \( \lambda^{-1} \) is an eigenvalue of \( T^{-1} \) (Exercise 8 of Section 5.1). Prove that the eigenspace of \( T  \) corresponding to \( \lambda  \) is the same as the eigenspace of \( T^{-1} \) corresponding to \( \lambda^{-1} \).
+    \item[(a)] Recall that for any eigenvalue of \( T  \), \( \lambda^{-1} \) is an eigenvalue of \( T^{-1} \) (Exercise 8 of Section 5.1). Prove that the eigenspace of \( T  \) corresponding to \( \lambda  \) is the same as the eigenspace of \( T^{-1} \) corresponding to \( \lambda^{-1} \). % Show that \( dim(E_{\lambda}) = dim(E_{\lambda^{-1}})  \)
         \begin{proof}
-        
+
         \end{proof}
     \item[(b)] Prove that if \( T  \) is diagonalizable, then \( T^{-1} \) is diagonalizable.
         \begin{proof}
@@ -62,6 +74,22 @@
         
         \end{proof}
     \item[(c)] Prove that if \( A  \) is diagonalizable, then \( A^{t}  \) is diagonalizable.
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
+\begin{definition}[Simultaneously Diagonalizable]
+    Two linear operators \( T  \) and \( U  \) on a finite-dimensional vector space \( V  \) are called \textbf{simultaneously diagonalizable} if there exists an ordered basis \( \beta \) for \( V  \) such that both \( [T]_{\beta} \) and \( [U]_{\beta} \) are diagonal matrices. Similarly, \( A,B \in {M}_{n \times n}(F) \) are called \textbf{simultaneously diagonalizable} if there exists an invertible matrix \( Q \in {M}_{n \times n}(F) \) such that both \( Q^{-1} A Q  \) and \( Q^{-1} B Q   \) are diagonal matrices.
+\end{definition} 
+
+\subsection*{Exercise 5.2.17} 
+\begin{enumerate}
+    \item[(a)] Prove that if \( T  \) and \( U  \) are simultaneously diagonalizable linear operators on a finite-dimensional vector space \( V  \), then the matrices \( [T]_{\beta} \) and \( [U]_{\beta} \) are simultaneously diagonalizable for any ordered basis \( \beta \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Prove that if \( A  \) and \( B  \) are simultaneously diagonalizable matrices, then \( {L}_{A} \) and \( {L}_{B} \) are simultaneously diagonalizable linear operators.
         \begin{proof}
         
         \end{proof}
