@@ -239,7 +239,39 @@ Exercise
     Then equating (1) and (2) and subtracting each \( {w}_{i}  \) on both sides, we obtain
     \[  \sum_{ i=1  }^{ k  } ({v}_{i} - {w}_{i}) = 0.   \]
     By part (b), we must have \( {v}_{i} - {w}_{i} = 0  \) which subsequently leads to \( {v}_{i} = {w}_{i} \) for all \( 1 \leq i \leq k  \). Thus, the representation \( v  \) is unique.
-    \item[(d)] Suppose (c). 
+    \item[(d)] Suppose (c). For each \( i  \), let \( {\gamma}_{i} \) be an ordered basis for \( {W}_{i} \). Since  
+        \[  V = \sum_{ i=1 }^{ k  }{W}_{i} \]
+        by (c), it follows that \( {\gamma}_{1} \cup {\gamma}_{2} \cup \cdots \cup {\gamma}_{k} \) generates \( V  \). Now, we will show that
+        \[  \gamma =  {\gamma}_{1} \cup {\gamma}_{2} \cup \cdots \cup {\gamma}_{k}  \]
+        is linearly independent. Thus, consider vectors \( {v}_{ij} \in {\gamma}_{i} \) where \( 1 \leq j \leq {m}_{i} \) (the number of elements in each \( {\gamma}_{i} \)) and scalars \( {a}_{ij} \) such that
+        \[  \sum_{ i,j }^{  } {a}_{ij} {v}_{ij} = 0. \]
+        For each \( i  \), set
+        \[  {w}_{i} = \sum_{ j=1 }^{ {m}_{i} } {a}_{ij} {v}_{ij}. \]
+        Since each \( {\gamma}_{i}  \) is a basis for each \( {W}_{i}  \), we have \( {w}_{i} \in \text{span}({\gamma}_{i}) \) and that 
+        \[  {w}_{1} + {w}_{2} + \cdots + {w}_{k} = \sum_{ i,j }^{  } {a}_{ij} {v}_{ij} = 0. \]
+        Since each \( 0 \in {W}_{i} \), for each \( i  \) and 
+        \[  0 + 0 + \cdots + 0 = {w}_{1} + {w}_{2} + \cdots {w}_{k}, \]
+        (b) and (c) implies that \( {w}_{i} = 0  \) for all \( i  \). Thus,  
+        \[  0 = {w}_{i} = \sum_{ j=1 }^{ {m}_{i} } {a}_{ij} {v}_{ij} \]
+        for each \( i  \). Since each \( {\gamma}_{i} \) is linearly independent, we must have each \( {a}_{ij} = 0  \) for all \( i  \) and \( j  \). Thus, \( \gamma \) is linearly independent and therefore is a basis for \( V  \).
+    \item[(e)] This follows immediately from (d).
+    \item[(a)] Assume (e). For each \( i \), let \( {\gamma}_{i} \) be an ordered basis for \( {W}_{i} \) such that    
+        \[  \gamma = {\gamma}_{1} \cup {\gamma}_{2} \cup \cdots \cup {\gamma}_{k} \]
+        is an ordered basis for \( V  \). Thus, we have \( \text{span}(\gamma) = V  \). By repeated applications of Exercise 14 from Section 1.4, we get that
+        \begin{align*}
+            V &= \text{span}({\gamma}_{1} \cup {\gamma}_{2} \cup \cdots \cup {\gamma}_{k}) \\
+              &= \text{span}({\gamma}_{1}) + \text{span}({\gamma}_{2}) + \cdots + \text{span}({\gamma}_{k}) \\
+              &=  {W}_{1} + {W}_{2} + \cdots + {W}_{k}  \\
+              &= \sum_{ i=1 }^{ k  }{W}_{i}.
+        \end{align*}
+        Now, suppose for sake of contradiction that we fix some \( j  \) in \( 1 \leq j \leq k  \), such that for some nonzero vector \( v \in V  \), we have
+        \[  v \in {W}_{j} \cap \sum_{ i \neq j  }^{  } {W}_{i}. \]
+        Then we have both
+        \[  v \in {W}_{j} = \text{span}({\gamma}_{j}) \ \ \text{and} \ \ v \in \sum_{ i \neq j  }^{ {W}_{i} } = \text{span}\Big( \bigcup_{ i \neq j  }^{  }  {\gamma}_{i} \Big). \]
+        But this implies that \( v  \) can be written in a non-unique way, contradicting the result found in {\hyperref[Unique combinations from bases]{Theorem 1.8}}. Thus, we must have  
+        \[  {W}_{j} \cap \sum_{ i \neq j  }^{  }{W}_{i} = \{ 0  \} \]
+        thereby showing that 
+        \[ V = {\bigoplus}_{i=1}^{k} {W}_{i}.  \]
 \end{enumerate}
 \end{proof}
 

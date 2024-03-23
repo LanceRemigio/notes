@@ -23,7 +23,7 @@ Geometric notions such as angle, length, and perpendicularity can be viewed more
         \[  \Big\langle \sum_{ i=1 }^{ n } {a}_{i} {v}_{i}, y   \Big\rangle = \sum_{ i=1 }^{n} {a}_{i} \langle {v}_{i}, y \rangle.  \]
 \end{itemize}
 
-\begin{eg}
+\begin{eg}\label{Standard Inner Product}
     For \( x = ({a}_{1}, {a}_{2}, \dots, {a}_{n}) \) and \( y = ({b}_{1}, {b}_{2}, \dots, {b}_{n}) \) in \( F^{n} \), define 
     \[  \langle x,y \rangle = \sum_{ i=1 }^{ n } {a}_{i} \overline{{b}_{i}}. \]
 It is relatively straightforward to show conditions (a) through (d). Thus, the formula above defines an inner product over \( F^{n} \).
@@ -48,6 +48,22 @@ The following is a non-example.
     \[  \langle f,f \rangle = \int_{ 0 }^{ 1 }  [f(t)]^{2} \ dt > 0. \]
 \end{eg}
 
+\begin{eg}[Frobenius Inner Product]\label{Frobenius Inner Product}
+    Let \( V = {M}_{n \times n}(F) \), and define 
+    \[ \langle A,B  \rangle = \text{tr}(B^{*} A) \text{ for }  A,B \in V  \]
+    We will verify parts (a) and (d) of the definition of inner products. We leave parts (b) and (c) to the reader to prove. Let \( A, B, C \in V  \). Using Exercise 6 from Section 1.3, we have
+    \begin{align*}
+        \langle A + B , C  \rangle &= \text{tr}(C^{*}(A+B)) = \text{tr}(C^{*} + C^{*}B) \\
+                                   &= \text{tr}(C^{*}A) + \text{tr}(C^{*} B) = \langle A,V  \rangle + \langle  B, C  \rangle.
+    \end{align*}
+    Also
+    \begin{align*}
+        \langle A, A  \rangle &= \text{tr}(A^{*} A ) = \sum_{ i=1 }^{ n } (A^{*} A)_{ii} = \sum_{ i=1 }^{ n } \sum_{ k=1 }^{ n } {(A^{*})}_{ik} {A}_{ki} \\
+                              &= \sum_{ i=1 }^{ n } \sum_{ k=1 }^{ n } \overline{{A}_{ki}} {A}_{ki} = \sum_{ i=1 }^{ n } \sum_{ j=1 }^{ n } | {A}_{ki} | ^{2}.
+    \end{align*}
+    If \( A \neq O  \), then \( {A}_{ki} \neq  0  \) for some \( k  \) and \( i  \). So we must have \( \langle A,A  \rangle > 0  \).
+\end{eg}
+
 \begin{definition}[Conjugate Transpose/Adjoint of a Matrix]
     Let \( A \in {M}_{m \times n}(F) \). We define the \textbf{conjugate transpose} or \textbf{adjoint} of \( A  \) to be the \( n \times m  \) matrix \( A^*  \) such that \( {(A^*)}_{ij} = \overline{{A}_{ji}} \) for all \( i,j  \).
 \end{definition}
@@ -69,3 +85,150 @@ The following is a non-example.
     \item If \( x,y \in F^{n} \) are column vectors, then \( \langle x,y \rangle = y^{*}x  \).
     \item If \( F = \R  \) and \( A \in {M}_{m \times n}(F) \), then the adjoint of \( A  \) is just its transpose.
 \end{itemize}
+
+\begin{definition}[Inner Product Spaces]
+A vector space over \( F  \) endowed with a specific inner product is called an \textbf{inner product space}. If \( F = \C  \), we call \( V  \) a \textbf{complex inner product space}, whereas if \( F = \R  \), we call \( V  \) a \textbf{real inner product space}.    
+\end{definition}
+
+\begin{remark}
+    If \( V  \) contains an inner product \( \langle x,y \rangle \) and \( W  \) is a subspace of \( V  \), then \( W  \) contains the same inner product space with the same function \( \langle x,y \rangle \) restricted to vectors \( x,y \in W  \).
+\end{remark}
+
+\begin{itemize}
+    \item We will let \( F^{n} \) be endowed with the {\hyperref[Standard Inner Product]{Standard Inner Product}} as defined in the first example.
+    \item In a similar manner, the vector space \( {M}_{n \times n}(F) \) denotes the inner product space with the {\hyperref[Frobenius Inner Product]{Frobenius Inner Product}}. 
+    \item Two distinct inner products defined on the same vector space can yield two different inner product spaces.
+\end{itemize}
+
+\begin{theorem}[Properties of Inner Product Spaces]
+   Let \( V  \) be an inner product space. Then for \( x,y,z \in V  \) and \( c \in F  \), the following statements are true. 
+   \begin{enumerate}
+       \item[(a)] \( \langle x, y  + z  \rangle = \langle x,y \rangle + \langle  x,z \rangle \).
+       \item[(b)] \( \langle x, cy  \rangle = \overline{c} \langle  x,y \rangle \).
+        \item[(c)] \( \langle x,0 \rangle = \langle 0,x \rangle = 0  \).
+        \item[(d)] \( \langle x,x \rangle = 0  \) if and only if \( x = 0  \).
+        \item[(e)] If \( \langle x,y \rangle = \langle x,z \rangle \) for all \( x \in V  \), then \( y = z  \).
+   \end{enumerate}
+\end{theorem}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Let \( x,y,z \in V  \). By the linearity of the first component of the inner product, we must have
+        \begin{align*}
+            \langle x, y  + z  \rangle &= \overline{\langle y + z , x  \rangle} \\ 
+                                       &= \overline{\langle y, x  \rangle + \langle  z, x  \rangle}  \\ 
+                                       &=  \overline{\langle y,x \rangle} + \overline{\langle z,x \rangle} \\
+                                       &= \langle x,y \rangle + \langle x,z \rangle.
+        \end{align*}
+    \item[(b)] Let \( x,y \in V  \). Using the linearity of the first component, we must have 
+        \begin{align*}
+            \langle x, cy \rangle &= \overline{\langle cy, x  \rangle} \\
+                                  &= \overline{c \langle y,x \rangle} \\ 
+                                  &= \overline{c} \overline{\langle y,x \rangle} \\
+                                  &= \overline{c} \langle  x,y  \rangle.
+        \end{align*}
+    \item[(c)] Let \( x \in V  \). Note that for any \( v \in V   \), we have \( 0 \cdot v = 0  \). So, we have
+        \begin{align*}
+            \langle x,0 \rangle &= \langle x, 0 \cdot v  \rangle = \overline{0} \langle x , v  \rangle  = 0 \langle x, v  \rangle = 0  
+        \end{align*}
+        Likewise, we have
+        \[  \langle 0,x  \rangle = \langle  0 \cdot v , x  \rangle =  0 \langle v , x  \rangle = 0. \]
+        Thus, we have \( \langle x,0  \rangle = \langle 0, x  \rangle = 0  \).
+    \item[(d)] Suppose \( \langle x,x \rangle = 0  \). By part (c), we can see that 
+        \[  \langle x , x \rangle = \langle 0  , x  \rangle = \langle x , 0  \rangle = 0    \]
+        which is true if and only if \( x = 0  \). The converse is trivial.
+    \item[(e)] Suppose \( \langle x , y \rangle = \langle x , z \rangle  \) for all \( x \in V  \). Then observe that 
+        \begin{align*}
+            \langle x , y \rangle  = \langle x , z \rangle &\implies \langle x , y \rangle - \langle x , z \rangle = 0   \\
+                                                           &\implies \langle 0  ,  y -z  \rangle = 0.
+        \end{align*}
+        By part (c), we know that the above is true if and only if \( y - z = 0  \). So, we have \( y = z  \).
+\end{enumerate}
+\end{proof}
+
+\begin{itemize}
+    \item Notice how parts (a) and (b) of the theorem above demonstrates \textbf{conjugate linearity} of the second component.
+    \item Generalizing the inner product to \( \R^{3} \), we can see that 
+        \[  \sqrt{ \langle x , x \rangle }  = \sqrt{ a^{2} + b^{2} + c^{2} }. \]
+\end{itemize}
+
+\begin{definition}[Norm/Length]
+    Let \( V  \) be an inner product space. For \( x \in V  \), we define the \textbf{norm} or \textbf{length} of \( x  \) by \( \|x\| = \sqrt{\langle x , x \rangle }   \).
+\end{definition}
+
+\begin{eg}
+    Let \( V = F^{n} \). If \( x = ({a}_{1}, {a}_{2}, \dots, {a}_{n}) \), then 
+    \[  \|x\| = \|({a}_{1}, {a}_{2}, \dots, {a}_{n})\| = \Big[ \sum_{ i=1 }^{ n } | {a}_{i} |^{2}\Big]^{1/2}  \]
+    is the Euclidean definition of length. If \( n = 1  \), then we just have \( \|a\| = a  \).
+\end{eg}
+
+\begin{theorem}[Properties of Norm]
+    Let \( V  \) be an inner product space over \( F  \). Then for all \( x,y \in V  \) and \( c \in F  \), the following statements are true.
+    \begin{enumerate}
+        \item[(a)] \( \|cx\| = | c  |  \cdot \|x\| \).
+        \item[(b)] \( \|x\| = 0  \) if and only if \( x = 0 \). In any case, \( \|x\| \geq 0  \).
+        \item[(c)] \textit{(Cauchy-Schwarz Inequality)} \( | \langle x , y \rangle | \leq \|x \| \cdot \| y\|. \) 
+        \item[(d)] \textit{(Triangle Inequality)} \( \|x + y \| \leq \| x \| + \| y \|  \).
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Let \( x \in V  \) and \( c \in F  \). Observe that
+        \begin{align*}
+            \| cx \| = \sqrt{ \langle  cx , cx \rangle }  
+                   &= \sqrt{c \langle x , cx \rangle }  \\
+                   &= \sqrt{ c \overline{c} \langle x , x \rangle } \\
+                   &= \sqrt{ | c |^{2} \cdot \langle x , x \rangle } \\
+                   &= | c |  \cdot \sqrt{ \langle x , x \rangle } \\
+                   &= | c |  \cdot \| x \|.
+        \end{align*}
+        Thus, we have that \( \| cx \| = | c  |  \cdot \| x \| \).
+    \item[(b)] Let \( x \in V  \). Suppose \( \| x \| = 0   \). Then by definition of norm, we have
+        \[ \| x \| = \sqrt{ \langle x , x \rangle } = 0. \]
+        Squaring both sides, we can see that 
+        \[  \| x \|^{2} = \langle  x , x \rangle = 0. \]
+        This is true if and only if \( x = 0  \) by part (d) of Theorem 6.1. Conversely, suppose \( x = 0   \). So by definition of norm and part (d) of Theorem 6.1, we have  
+        \[  \sqrt{ \langle x , x \rangle }  = 0 \iff \| x \| = 0. \]
+    \item[(c)] Observe that if \( y = 0 \) then the result immediately follows. Suppose \( y \neq 0  \). Let \( c \in F  \). By part (d) of the definition of inner product, we have  
+        \begin{align*}
+            0 \leq \| x - cy \|^{2} &= \langle x - cy , x-cy \rangle = \langle x  ,  x - cy  \rangle - c \langle  y  ,  x - cy \rangle \\ 
+                                    &= \langle x , x \rangle - \overline{c} \langle  x, y  \rangle - c \langle y , x \rangle + c \overline{c} \langle y , y \rangle. 
+        \end{align*}
+        We can set 
+        \[  c = \frac{ \langle x , y \rangle }{ \langle y , y \rangle }. \]
+        Then observe that
+        \begin{align*}
+            \| x - cy \|^{2} &= \langle x , x \rangle - \overline{c} \langle  x , y \rangle - c \langle  y , x \rangle + c \overline{c} \langle y , y \rangle \\
+                             &= \|x\|^{2} - \frac{ 2\overline{\langle x , y \rangle} \langle x , y \rangle }{ \|y\|^{2}  } + \frac{ \overline{\langle x , y \rangle} \langle x , y \rangle }{ \|y\|^{2} } \\   
+                             &= \|x\|^{2} - \frac{ | \langle x , y \rangle |^{2} }{ \|y\|^{2} }.
+        \end{align*}
+        Now, we can re-write the inequality we had at the beginning to obtain
+        \[  0 \leq \frac{ \|x\|^{2} \|y\|^{2} - | \langle x , y \rangle |^{2}  }{ \|y\|^{2} }.    \]
+        Then multiplying \( \|y\|^{2} \), adding \( | \langle x , y \rangle |^{2} \), and then squaring both sides allows us to get
+        \[  | \langle x , y \rangle | \leq \|x\| \|y\|  \]
+        which is our desired result.
+
+\end{enumerate}
+\end{proof}
+
+\begin{definition}[Orthogonality of Vectors]
+   Let \( V  \) be an inner product space. Vectors \( x  \) and \( y  \) in \( V  \) are \textbf{orthogonal (perpendicular)} if \( \langle x , y \rangle = 0  \). A subset \( S  \) of \( V  \) is \textbf{orthogonal} if any two distinct vectors in \( S  \) are orthogonal. A vector \( x  \) in \( V  \) is a \textbf{unit vector} if \( \| x \| = 1  \). Finally, a subset \( S  \) of \( V  \) is \textbf{orthonormal} if \( S  \) is orthogonal and consists entirely of unit vectors.  
+\end{definition}
+
+If \( S = \{ {v}_{1}, {v}_{2}, \dots  \}  \), then \( S  \) is orthonormal if and only if \( \langle {v}_{i} ,  {v}_{j} \rangle = {\delta}_{ij} \) where \( {\delta}_{ij}  \) denotes the {\hyperref[Kronecker Delta]{Kronecker Delta}}.
+
+\begin{definition}[Normalizing]
+    The process of multiplying a nonzero vector by the reciprocal of its length is called \textbf{normalizing}.
+\end{definition}
+
+\begin{eg}
+    Suppose our inner product is defined by the space of continuous complex-valued functions defined on the interval \( [0, 2 \pi] \) with the inner product
+    \[  \langle f , g \rangle = \frac{ 1 }{ 2 \pi  }  \int_{ 0 }^{ 2 \pi  } f(t) \overline{g(t)} \ dt. \]
+    Define \( S = \{ {f}_{n} : n \in \Z  \}  \) where \( {f}_{n}(t) = e^{i n t} \), where \( 0 \leq t \leq 2 \pi \) (recall that \( e^{i n t } = \cos(nt) + i \sin(nt) \). We easily see that \( S \subseteq H   \). By using the property that \( \overline{e^{it  }} = e^{-it  } \) for every real number \( t  \), we have, for \( m \neq n  \)
+    \begin{align*}
+        \langle {f}_{m}  , {f}_{n} \rangle &= \frac{ 1 }{ 2 \pi  } \int_{ 0  }^{  2 \pi  } e^{imt} e^{\overline{i n t }}  \ dt = \frac{ 1 }{ 2 \pi  }  \int_{ 0 }^{ 2 \pi  } e^{i (n-t) t } \ dt \\
+                                           &= \frac{ 1 }{ 2 \pi (m-n) }  e^{i (m-n) t } \Big|_{0}^{2\pi} = 0
+    \end{align*}
+    and that 
+    \[  \langle {f}_{n} , {f}_{n} \rangle = \frac{ 1 }{ 2 \pi  }  \int_{ 0 }^{ 2 \pi } e^{i(n-n)t}  \ dt = \frac{ 1 }{ 2\pi } \int_{ 0 }^{ 2 \pi  }  1  \ dt = 1. \]
+    From this, we can see that \( \langle {f}_{m} , {f}_{n} \rangle =  {\delta}_{mn} \).
+\end{eg}

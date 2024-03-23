@@ -42,12 +42,14 @@ By Theorem 5.3, \( f(t) \) contains at most \( n   \) distinct eigenvalues. So, 
 \begin{enumerate}
     \item[(a)] \( \text{tr}(A) = \sum_{ i=1  }^{ k  } {m}_{i} {\lambda}_{i} \).
         \begin{proof}
-            Let \( A \in {M}_{n \times n}(F) \). Let \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{k } \) be the eigenvalues with corresponding multiplicities \( {m}_{1}, {m}_{2}, \dots, {m}_{k } \). Since these eigenvalues must occur on the diagonal of \( A  \) (by Exercise 5.2.10) where each \( {\lambda}_{i} \) occurs \( {m}_{i}  \) times, we can take the sum of our diagonal entries to get
-            \[  \text{tr}(A) = \sum_{ i=1 }^{ k   } {m}_{i} {\lambda}_{i}. \]
+            Let \( A \in {M}_{n \times n}(F) \). Suppose \( A  \) is similar to some upper triangular matrix \( B  \). Let \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{k } \) be the eigenvalues with corresponding multiplicities \( {m}_{1}, {m}_{2}, \dots, {m}_{k } \) of \( B  \). Since these eigenvalues must occur on the diagonal of \( A  \) (by Exercise 5.2.10) where each \( {\lambda}_{i} \) occurs \( {m}_{i}  \) times along with \( \text{tr}(A) = \text{tr}(B) \) (since \( A  \) is similar to \( B \)), we can take the sum of our diagonal entries to get
+            \[  \text{tr}(A) = \text{tr}(B) =  \sum_{ i=1 }^{ k   } {m}_{i} {\lambda}_{i}. \]
         \end{proof}
     \item[(b)] \( \text{det}(A) = ({\lambda}_{1})^{{m}_{1}} ({\lambda}_{2})^{{m}_{2}} \cdots ({\lambda}_{k})^{{m}_{k}} \).
         \begin{proof}
-        Since \( A  \)
+        Since \( A  \) is similar to \( B  \), we know that \( \text{det}(A) = \text{det}(B) \) by {\hyperref[Exercise 2.5.10]{Exercise 2.5.10}}. Since \( B  \) is upper triangular, we know that by {\hyperref[Exercise 4.2.23]{Exercise 4.2.23}} that the determinant of \( B  \) is just the product of its diagonal entries. Since the diagonal entries of \( B  \) consists of eigenvalues \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{k} \) corresponding to multiplicities \( {m}_{1}, {m}_{2}, \dots, {m}_{k} \), we have  
+        \[  \text{det}(A) = \text{det}(B) = \prod_{i=1}^{k} ({\lambda}_{i})^{{m}_{i}}  \]
+        which is our desired result.
         \end{proof}
 \end{enumerate}
 
@@ -55,11 +57,13 @@ By Theorem 5.3, \( f(t) \) contains at most \( n   \) distinct eigenvalues. So, 
 \begin{enumerate}
     \item[(a)] Recall that for any eigenvalue of \( T  \), \( \lambda^{-1} \) is an eigenvalue of \( T^{-1} \) (Exercise 8 of Section 5.1). Prove that the eigenspace of \( T  \) corresponding to \( \lambda  \) is the same as the eigenspace of \( T^{-1} \) corresponding to \( \lambda^{-1} \). % Show that \( dim(E_{\lambda}) = dim(E_{\lambda^{-1}})  \)
         \begin{proof}
-
+            Let \( \lambda  \) be an eigenvalue of \( T  \). Denote the eigenspaces \( {E}_{\lambda} \) and \( {E}_{\lambda^{-1}} \) of \( T  \) and \( T^{-1} \) respectively. We need to show that \( {E}_{\lambda} = {E}_{\lambda^{-1}} \). Note that \( {E}_{\lambda} = N(T - \lambda I ) \) by definition.  Let \( x \in {E}_{\lambda}  \). Then this is true if and only if \( x \neq 0    \) is an eigenvector of \( T  \) corresponding to \( \lambda \) by Theorem 5.4. By {\hyperref[Exercise 5.1.8]{Exercise 5.1.8}}, this is true if and only if \( x  \) is an eigenvector of \( T^{-1} \) corresponding to \( \lambda^{-1} \). By Theorem 5.4 again, this is true if and only if \( x \in N(T^{-1} - \lambda^{-1}I) \). So, \( x \in {E}_{\lambda^{-1}} \) and thus \( {E}_{\lambda} \subseteq {E}_{\lambda^{-1}} \). We can reverse this argument to get the other containment. Thus, \( {E}_{\lambda^{-1}} \subseteq {E}_{\lambda} \) and so we conclude that \( {E}_{\lambda} = {E}_{\lambda^{-1}} \).
         \end{proof}
     \item[(b)] Prove that if \( T  \) is diagonalizable, then \( T^{-1} \) is diagonalizable.
         \begin{proof}
-        
+        Let \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{k} \) be the eigenvalues of \( T  \) corresponding to multiplicities \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{k} \). Suppose that \( T  \) is diagonalizable. By Theorem 5.9, the multiplicity of each \( {\lambda}_{i} \) is equal to \( \text{dim}({E}_{{\lambda}_{i}}) \) for all \(1 \leq  i  \leq k \). Using part (a), we obtain
+        \[  {m}_{i} = \text{dim}({E}_{\lambda_i}) = \text{dim}({E}_{\lambda^{-1}_{i}}) \ \text{for all} \ 1 \leq i \leq k.   \]
+        Since each \( {\lambda}_{i}^{-1} \) is an eigenvalue of \( T^{-1} \) and \( \text{dim}({E}_{{\lambda}_{i}^{-1}}) = {m}_{i} \), \( T^{-1} \) must be diagonalizable by part (a) of Theorem 5.9.
         \end{proof}
 \end{enumerate}
 
@@ -71,11 +75,13 @@ By Theorem 5.3, \( f(t) \) contains at most \( n   \) distinct eigenvalues. So, 
         \end{solution}
     \item[(b)] Prove that for any eigenvalue \( \lambda  \), \( \text{dim}({E}_{\lambda}) = \text{dim}({E}_{\lambda}') \).
         \begin{proof}
-        
+        Let \( A \in {M}_{n \times n}(F) \) and denote \( {E}_{\lambda} = N({L}_{A} - \lambda I) \). Let \( x \in {E}_{\lambda}  \). By Theorem 5.9, \( x \neq 0  \) is an eigenvector of \( {L}_{A} \) corresponding to the eigenvalue \( \lambda  \). So, \( \lambda  \) must be an eigenvalue of \( A  \) by definition. By Theorem 5.2, we must have \( \text{det}(A - \lambda I ) = 0  \). By {\hyperref[Exercise 5.1.14]{Exercise 5.1.14}}, we have   
+        \[ \text{det}(A - \lambda I ) = \text{det}(A^{t} - \lambda I ) = 0.  \]
+        Thus, \( \lambda  \) is an eigenvalue of \( A^{t} \) by Theorem 5.2 and so \( \lambda  \) is corresponding to the eigenvector \( x  \) of \( L_{A^{t}} \). By Theorem 5.4 again, we can see that \( x \in {E}'_{\lambda} \). Thus, \( {E}_{\lambda} \subseteq {E}'_{\lambda} \). We can reverse this argument to show the other containment. Thus, \( {E}'_{\lambda} \subseteq {E}_{\lambda} \) and so we conclude that \( {E}_{\lambda} = E'_{\lambda} \).
         \end{proof}
     \item[(c)] Prove that if \( A  \) is diagonalizable, then \( A^{t}  \) is diagonalizable.
         \begin{proof}
-        
+        Apply the same argument in part (b) of Exercise 5.2.12 and part (a) of this exercise to show that \( A^{t} \) is diagonalizable.
         \end{proof}
 \end{enumerate}
 
@@ -87,10 +93,43 @@ By Theorem 5.3, \( f(t) \) contains at most \( n   \) distinct eigenvalues. So, 
 \begin{enumerate}
     \item[(a)] Prove that if \( T  \) and \( U  \) are simultaneously diagonalizable linear operators on a finite-dimensional vector space \( V  \), then the matrices \( [T]_{\beta} \) and \( [U]_{\beta} \) are simultaneously diagonalizable for any ordered basis \( \beta \).
         \begin{proof}
-        
+        Let \( T, U  \) be simultaneously diagonalizable linear operators. Since \( V  \) is finite-dimensional let \( \beta'  \) be another ordered basis for \( V  \) (that is distinct from \( \beta \)). Using Theorem 2.23, we have
+        \[  [T]_{\beta'} = Q^{-1} [T]_{\beta} Q \]
+        where \( Q^{-1}, Q  \) are invertible and diagonal where 
+        \begin{center}
+            \( Q = [{I}_{V}]_{\beta'}^{\beta}  \) and \( Q^{-1} = [{I}_{V}]_{\beta}^{\beta'}  \).
+        \end{center}
+        Since \( [T]_{\beta} \) is diagonal, \( [T]_{\beta'}  \) is diagonal as well. We can apply this same argument to \( U  \) to show that \( P^{-1} [U]_{\beta} P   \) for invertible \( P \).
         \end{proof}
     \item[(b)] Prove that if \( A  \) and \( B  \) are simultaneously diagonalizable matrices, then \( {L}_{A} \) and \( {L}_{B} \) are simultaneously diagonalizable linear operators.
+        \begin{proof}
+        Let \( T = {L}_{A} \) and \( U = {L}_{B} \). Apply part (a) to show that \( {L}_{A} \) and \( {L}_{B} \) are also simultaneously diagonalizable linear operators. 
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 5.2.18} 
+\begin{enumerate}
+    \item[(a)] Prove that if \( T  \) and \( U  \) are simultaneously diagonalizable operators, then \( T  \) and \( U  \) commute (i.e., \( TU = UT \)). 
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Show that if \( A  \) and \( B  \) are simultaneously diagonalizable matrices, then \( A  \) and \( B  \) commute.
         \begin{proof}
         
         \end{proof}
 \end{enumerate}
+
+\subsection*{Exercise 5.2.19} Let \( T  \) be a diagonalizable linear operator on a finite-dimensional vector space, and let \( m  \) be any positive integer. Prove that \( T  \) and \( T^{m} \) are simultaneously diagonalizable.
+\begin{proof}
+
+\end{proof}
+
+\subsection*{Exercise 5.2.20} Let \( {W}_{1}, {W}_{2}, \dots, {W}_{k} \) be subspaces of a finite-dimensional vector space \( V  \) such that 
+\[  \sum_{ i=1 }^{ k  } {W}_{i} = V. \]
+Prove that \( V  \) is the direct sum of \( {W}_{1}, {W}_{2}, \dots, {W}_{k} \) if and only if 
+\[  \text{dim}(V) = \sum_{ i=1 }^{ k } \text{dim}({W}_{i}). \]
+\begin{proof}
+
+\end{proof}
+
+
