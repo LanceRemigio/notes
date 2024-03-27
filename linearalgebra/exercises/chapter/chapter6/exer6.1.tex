@@ -1,0 +1,220 @@
+\section{Inner Products and Norms}
+
+\subsection*{Exercise 6.1.6} Complete the proof of Theorem 6.1.
+\begin{proof}
+See proof in notes.
+\end{proof}
+
+\subsection*{Exercise 6.1.7} Complete the proof of Theorem 6.2.
+\begin{proof}
+See proof in notes.
+\end{proof}
+
+\subsection*{Exercise 6.1.9} Let \( \beta \) be a basis for a finite-dimensional inner product space.
+\begin{enumerate}
+    \item[(a)] Prove that if \( \langle x , z \rangle = 0  \) for all \( z \in \beta  \), then \( x = 0  \).
+        \begin{proof}
+            Let \( z \in \beta  \) where \( z \neq 0  \). By part (c) of the definition of inner product, \( \langle x , z \rangle = 0  \) if and only if \( x = 0  \).
+        \end{proof}
+    \item[(b)] Prove that if \( \langle x , z \rangle = \langle y , z \rangle \) for all \( z \in \beta  \), then \( x = y  \).
+        \begin{proof}
+        Let \( z \in \beta  \). Observe that
+        \begin{align*}
+            \langle x , z \rangle = \langle y , z \rangle &\iff \langle  x - y  , z  \rangle = 0.
+        \end{align*}
+        By part (a), we find that \( x - y = 0  \) if and only if \( x = y  \).
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 6.1.10} Let \( V  \) be an inner product space, and suppose that \( x  \) and \( y  \) are orthogonal vectors in \( V  \). Prove that \( \| x + y \|^{2} = \|x\|^{2} + \|y\|^{2}. \) Deduce the Pythagorean Theorem in \( \R^{2} \).
+\begin{proof}
+Let \( x,y \in V  \) be orthogonal. Thus, \( \langle x , y \rangle = 0 \) implies that
+\begin{align*}
+    \|x + y\|^{2}  &= \|x\|^{2} +  \langle y , x \rangle + \langle x , y \rangle + \|y\|^{2} \\
+                  &= \|x\|^{2} + \overline{\langle x , y \rangle} + \langle x , y \rangle + \|y\|^{2} \\
+                  &= \|x\|^{2} + \|y\|^{2}
+\end{align*}
+which is our desired result. Let \( x' = (x,0)  \) and \( y' = (0,y)  \) where \( x',y' \in \R^{2}  \). Denote \( \| x' + y' \| = z  \). Using the Euclidean definition of length along with our result, we find that 
+\begin{align*}
+    z^{2} = \| x' + y'\|^{2} &= \|x'\|^{2} + \|y'\|^{2}  \\
+          &= | x |^{2} + | y |^{2} \\ 
+          &= x^{2} + y^{2}.
+\end{align*}
+Thus, we have obtained the Pythagorean Theorem in \( \R^{2} \).
+\end{proof}
+
+\subsection*{Exercise 6.1.11} Prove the \textit{parallelogram law} on an inner product space \( V  \); that is, show that
+\[  \|x + y \|^{2} + \|x - y \|^{2} = 2 \|x\|^{2} + 2 \|y\|^{2} \ \ \text{for all} \ \ x,y \in V. \]
+\begin{proof}
+Let \( x,y \in V  \). Using the definition of norm and properties of inner product, we get that
+\begin{align*}
+    \|x + y\|^{2} + \|x - y\|^{2} &= \langle x + y  ,  x + y  \rangle + \langle x -y  , x - y  \rangle \\
+                                  &= \langle x + y  , x  \rangle + \langle x + y  , y \rangle + \langle x - y  , x  \rangle + \langle x - y  , -y  \rangle \\
+                                  &= \langle x  , x \rangle + \langle y , x \rangle + \langle x  , y \rangle + \langle y  , y \rangle + \langle x  , x \rangle - \langle y , x \rangle \\
+                                  &+ - \langle x , y \rangle + \langle y , y \rangle \\
+                                  &= 2 \langle x , x \rangle + 2 \langle y , y \rangle \\
+                                  &= 2 \|x\|^{2} + 2 \|y\|^{2}.
+\end{align*}
+Thus, we obtain
+\[  \|x + y \|^{2} + \|x - y\|^{2} = 2 \|x\|^{2} + 2 \|y\|^{2}. \]
+\end{proof}
+
+\subsection*{Exercise 6.1.12} Let \( \{ {v}_{1}, {v}_{2}, \dots, {v}_{k} \}  \) be an orthogonal set in \( V  \), and let \( {a}_{1}, {a}_{2}, \dots, {a}_{k }  \) be scalars. Prove that
+\[  \Big\| \sum_{ i=1 }^{ k  } {a}_{i} {v}_{i} \Big\|^{2} = \sum_{ i=1 }^{ k  } | {a}_{i} |^{2} \|{v}_{i}\|^{2}. \]
+\begin{proof}
+Let \( \{ {v}_{1}, {v}_{2}, \dots, {v}_{k } \}  \) be an orthogonal set in \( V  \) and let \( {a}_{1}, {a}_{2}, \dots, {a}_{k} \) be scalars. By the linearity in the first component and conjugate linearity in the second component, we obtain
+\begin{align*}
+    \Big\| \sum_{ i=1  }^{ k   } {a}_{i} {v}_{i} \Big\|^{2} &= \Big\langle \sum_{ i=1  }^{ k  } {a}_{i} {v}_{i}  ,  \sum_{ j=1  }^{ k  } {a}_{j} {v}_{j} \Big\rangle \\
+                                                        &= \sum_{ i=1  }^{ k  } {a}_{i} \Big\langle  {v}_{i}  , \sum_{ j=1  }^{ k  } {a}_{j} {v}_{j}  \Big \rangle \\
+                                                        &= \sum_{ i=1  }^{ k   } {a}_{i} \Big(  \sum_{ j=1  }^{ k  } \overline{{a}_{j}} \langle {v}_{i} ,  {v}_{j} \rangle   \Big).
+\end{align*}
+Since \( \{ {v}_{1}, {v}_{2}, \dots, {v}_{k } \}   \) is orthogonal in \( V  \), we have that \( \langle {v}_{i} , {v}_{j} \rangle = {\delta}_{ij} \) where \( {\delta}_{ij} = 1  \) or \( {\delta}_{ij} = 0   \) if \( i = j  \) or \( i \neq j  \), respectively. Thus, we have
+\[  \Big\| \sum_{ i=1  }^{ k   } {a}_{i} {v}_{i} \Big\|^{2} = \sum_{ i=1  }^{ k  } {a}_{i} \overline{{a}_{i}} \langle {v}_{i}  , {v}_{i} \rangle = \sum_{ i=1  }^{ k  } | {a}_{i} | ^{2} \|{v}_{i}\|^{2}  \] which is our desired result.
+\end{proof}
+
+\subsection*{Exercise 6.1.13} Suppose that \( \langle \cdot  ,  \cdot  \rangle_{1} \) and \( \langle \cdot  ,  \cdot  \rangle_{2} \) is another inner product on \( V  \). Show that \( \langle \cdot ,  \cdot  \rangle \) is an inner product on \( V  \).
+\begin{proof}
+  Suppose that \( \langle \cdot  ,  \cdot  \rangle_{1} \) and \( \langle \cdot  ,  \cdot  \rangle_{2} \) is another inner product on \( V  \). Let \( x,y,z \in V  \) and \( c \in F  \).
+  \begin{enumerate}
+      \item[(a)] By linearity of the first component, we obtain
+          \begin{align*}
+              \langle x + z  , y  \rangle &= \langle x + z  , y  \rangle_{1} + {\langle x + z  , y  \rangle}_{2}  \\
+                                          &= \langle x  , y \rangle_{1} + \langle z , y \rangle_{1}  + \langle x  , y \rangle_{2} + \langle z  , y \rangle_{2} \\
+                                          &= ({\langle x , y \rangle}_{1} + {\langle x , y \rangle}_{2}) + (\langle z , y \rangle_{1} + \langle z  , y \rangle_{2}  ) \\
+                                          &= \langle x  , y \rangle + \langle z , y \rangle.
+          \end{align*}
+        \item[(b)] Observe that
+            \begin{align*}
+                \langle cx , y \rangle &= \langle cx , y \rangle_{1} + \langle cx , y \rangle_{2} \\
+                                       &=  c \langle x , y \rangle_{1} + c \langle x , y \rangle_{2} \\
+                                       &= c (\langle x , y \rangle_{1} + \langle x , y \rangle_{2}) \\
+                                       &=  c \langle x , y \rangle.
+            \end{align*}
+        \item[(c)] 
+            \begin{align*}
+                \overline{\langle x , y \rangle} &= \overline{\langle x , y \rangle_{1} + \langle x , y \rangle_{2}} \\
+                                                 &=  \overline{\langle x , y \rangle_{1}} + \overline{\langle x , y \rangle_{2}} \\
+                                                 &=  \langle y , x \rangle_{1} + \langle y , x \rangle_{2} \\
+                                                 &= \langle y , x \rangle.
+            \end{align*}
+        \item[(d)] For any \( x \neq 0  \), we have
+            \begin{align*}
+                \langle x , x \rangle &= {\langle x , x \rangle}_{1} + {\langle x , x \rangle}_{2}. 
+            \end{align*}
+            Note that \( {\langle x , x \rangle}_{1} > 0  \) and \( \langle x , x \rangle_{2} > 0  \). Thus, we must also have \( \langle x  , x  \rangle > 0  \).
+  \end{enumerate}
+  We conclude that \( \langle \cdot  ,  \cdot  \rangle \) is a inner product on \( V  \).
+\end{proof}
+
+\subsection*{Exercise 6.1.14} Let \( A  \) and \( B  \) be \( n \times n  \) matrices, and let \( c  \) be a scalar. Prove that \( (A + cB)^{*} = A^{*} + \overline{c} B^{*} \).
+\begin{proof}
+Let \( A  \) and \( B  \) be \( n \times n  \) matrices and let \( c \in F  \). By using the definition of adjoint, we get that for all \( i,j \) we get
+\begin{align*}
+    {(A + cB)^{*}}_{ij} &= \overline{{(A + cB)}_{ji}}   \\
+                        &=  \overline{{A}_{ji} + c {B}_{ji}} \\
+                        &= \overline{{A}_{ji}} + \overline{c} \overline{{B}_{ji}} \\
+                        &=  {(A^{*})}_{ij} + \overline{c} {(B^{*})}_{ij}.
+\end{align*} 
+Thus, we conclude that \( (A + cB)^{*} = A^{*} + \overline{c} B^{*} \).
+\end{proof}
+
+\subsection*{Exercise 6.1.15} 
+\begin{enumerate}
+    \item[(a)] Prove that if \( V  \) is an inner product space, then \( | \langle x , y \rangle |  = \| x \| \cdot \| y \| \) if and only if one of the vectors \( x  \) or \( y  \) is a multiple of the other. \textit{Hint:} If the identity holds and \(  y \neq 0  \), let  
+        \[  a = \frac{ \langle x , y \rangle }{ \|y\|^{2} },  \]
+        and let \( z = x - ay  \). Prove that \( y  \) and \( z  \) are orthogonal and 
+        \[  | a  |  = \frac{ \|x\| }{ \|y\| }. \]
+        Then apply Exercise 10 to \( \|x\|^{2} = \|ay + z\|^{2} \) to obtain \( \|z\| = 0  \). 
+    \begin{proof}
+    
+    \end{proof}
+    \item[(b)] Derive a similar result for the equality \( \|x + y\| = \|x\| + \|y\| \), and generalize it to the case of \( n  \) vectors.
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 6.1.16} 
+\begin{enumerate}
+    \item[(a)] Show that the vector space \( H  \) with \( \langle  \cdot  ,  \cdot  \rangle \) defined on page 332 is an inner product space.
+        \begin{proof}
+            Let \( f,g,h \in H  \). Then
+        \begin{enumerate}
+            \item[(a)] 
+                \begin{align*}
+                    \langle  f + h  , g  \rangle &= \frac{ 1  }{  2 \pi  } \int_{ 0  }^{  2 \pi  } (f + h)(t) \overline{g(t)} \ dt  \\
+                                                 &= \frac{ 1 }{  2 \pi }  \int_{ 0 }^{ 2 \pi  } (f(t) + h(t)) \overline{g(t)} \ dt \\
+                                                 &= \frac{ 1 }{ 2 \pi  }  \int_{ 0 }^{  2\pi  } (f(t)\overline{g(t)} + h(t) \overline{g(t)}) \ dt \\
+                                                 &= \frac{ 1 }{ 2 \pi  } \int_{ 0 }^{ 2 \pi  } \overline{g(t)} \ dt + \frac{ 1 }{ 2 \pi  }  \int_{ 0 }^{  2 \pi } h(t) \overline{g(t)}  \ dt \\
+                                                 &= \langle f , g \rangle + \langle h   , g \rangle.
+                \end{align*}
+            \item[(b)] For \( c \in F  \), we have 
+                \begin{align*}
+                    \langle cf , g \rangle &= \frac{ 1 }{ 2\pi } \int_{ 0 }^{ 2 \pi } (cf)(t) \overline{g(t)} \ dt \\
+                                           &= \frac{ 1  }{ 2 \pi  }  \int_{ 0 }^{ 2 \pi }  c f(t) \overline{g(t)} \ dt \\
+                                           &= c \cdot  \frac{ 1 }{ 2 \pi }  \int_{ 0 }^{  2\pi } f(t) \overline{g(t)}   \ dt \\
+                                           &=  c \cdot \langle f  , g \rangle.
+                \end{align*}
+            \item[(c)] 
+                \begin{align*}
+                    \overline{\langle f , g \rangle} &= \frac{ 1 }{ 2 \pi  } \overline{\int_{ 0 }^{ 2 \pi } f(t) g(t)  \ dt } \\
+                                                     &= \frac{ 1  }{ 2 \pi }  \int_{ 0 }^{ 2 \pi }  \overline{f(t) \overline{g(t)}} \ dt \\
+                                                     &= \frac{ 1 }{ 2 \pi }  \int_{ 0 }^{ 2 \pi }  \overline{f(t)} g(t) \ dt \tag{\(  \overline{\overline{g(t)}} = g(t)\)} \\
+                                                     &= \frac{ 1 }{ 2 \pi }  \int_{ 0 }^{ 2 \pi } g(t) \overline{f(t)}  \ dt  \\
+                                                     &= \frac{ 1 }{ 2 \pi }  \int_{ 0 }^{ 2 \pi }  \overline{f(t)} g(t) \ dt \\
+                                                     &= \langle g , f \rangle.
+                \end{align*}
+            \item[(d)] For \( f > 0  \), we know that \( \int_{ 0 }^{ 2 \pi  } f  \ dt > 0  \) by our integration properties. Thus, we have
+                \begin{align*}
+                    \langle f , f \rangle &= \frac{ 1  }{ 2 \pi } \int_{ 0  }^{ 2 \pi }  f(t) \overline{f(t)} \ dt > 0. 
+                \end{align*}
+        \end{enumerate} 
+    We conclude that \( \langle \cdot  ,  \cdot  \rangle \) satisfies all properties of an inner product.
+        \end{proof}
+    \item[(b)] Let \( V = C([0,1]) \), and define 
+        \[  \langle f , g \rangle = \int_{ 0 }^{ 1 / 2  }  f(t) g(t)  \ dt. \]
+        Is this an inner product on \( V  \)?
+        \begin{proof}
+        This is not an inner product because it fails property (c) of the definition of inner product.
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 6.1.17} Let \( T  \) be a linear operator on an inner product space \( V  \), and suppose that \( \|T(x)\| = \|x \|  \) for all \( x  \). Prove that \( T  \) is injective.
+\begin{proof}
+Let \( x,y \in V  \). Suppose \( T(x) = T(y) \) and \( \|T(x)\| = \|x\| \). Then we have
+\begin{align*}
+    \|T(x)\| &= \|T(y)\| \\
+\end{align*}
+\end{proof}
+
+\subsection*{Exercise 6.1.18} Let \( V  \) be a vector space over \( F  \), where \( F = \R  \) or \( F = \C  \), and let \( W  \) be an inner product space over \( F  \) with inner product \( \langle \cdot  ,  \cdot  \rangle \). If \( T: V \to W  \) is linear, prove that \( \langle x , y \rangle' = \langle T(x)  , T(y) \rangle \) defines an inner product on \( V  \) if and only if \( T  \) is one-to-one.
+\begin{proof}
+
+\end{proof}
+
+\subsection*{Exercise 6.1.19} Let \( V  \) be an inner product space. Prove that
+\begin{enumerate}
+    \item[(a)] \( \|x \pm y\|^{2} = \|x\|^{2} \pm 2 \Re \langle x , y \rangle + \|y\|^{2}  \) for all \( x,y \in V  \), where \( \Re \langle x , y \rangle \) denotes the real part of the complex number \( \langle x , y \rangle \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] \( | \|x\| - \|y\| |  \leq \|x - y\| \) for all \( x,y \in V  \).
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 6.1.22} Let \( V  \) be a real or complex vector space (possibly infinite-dimensional), and let \( \beta \) be a basis for \( V  \). For \( x,y \in V  \) there exists \( {v}_{1}, {v}_{2}, \dots, {v}_{n} \in \beta  \) such that
+\[  x = \sum_{ i=1  }^{ n  } {a}_{i} {v}_{i} \ \text{and} \ y = \sum_{ i=1  }^{ n } {b}_{i} {v}_{i}. \]
+Define 
+\[  \langle x , y \rangle = \sum_{ i=1  }^{ n } {a}_{i}\overline{b}_{i}. \]
+\begin{enumerate}
+    \item[(a)] Prove that \( \langle \cdot  ,  \cdot  \rangle \) is an inner product on \( V  \) and that \( \beta  \) is an orthonormal basis for \( V  \). Thus every real or complex vector space may be regarded as an inner product space.
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Prove that if \( V = \R^{n}  \) or \( V = C^{n} \) and \( \beta  \) is the standard ordered basis, then the inner product defined above is the standard inner product.
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}

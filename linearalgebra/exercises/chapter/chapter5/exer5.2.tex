@@ -99,7 +99,7 @@ By Theorem 5.3, \( f(t) \) contains at most \( n   \) distinct eigenvalues. So, 
         \begin{center}
             \( Q = [{I}_{V}]_{\beta'}^{\beta}  \) and \( Q^{-1} = [{I}_{V}]_{\beta}^{\beta'}  \).
         \end{center}
-        Since \( [T]_{\beta} \) is diagonal, \( [T]_{\beta'}  \) is diagonal as well. We can apply this same argument to \( U  \) to show that \( P^{-1} [U]_{\beta} P   \) for invertible \( P \).
+        Since \( [T]_{\beta} \) is diagonal, \( [T]_{\beta'}  \) is diagonal as well. We can apply this same argument to \( U  \) to show that \( Q^{-1} [U]_{\beta} Q   \) for some invertible matrix \( Q \).
         \end{proof}
     \item[(b)] Prove that if \( A  \) and \( B  \) are simultaneously diagonalizable matrices, then \( {L}_{A} \) and \( {L}_{B} \) are simultaneously diagonalizable linear operators.
         \begin{proof}
@@ -111,17 +111,40 @@ By Theorem 5.3, \( f(t) \) contains at most \( n   \) distinct eigenvalues. So, 
 \begin{enumerate}
     \item[(a)] Prove that if \( T  \) and \( U  \) are simultaneously diagonalizable operators, then \( T  \) and \( U  \) commute (i.e., \( TU = UT \)). 
         \begin{proof}
-        
+        Let \( \beta = \{ {v}_{1}, {v}_{2}, \dots ,{v}_{n} \}  \) be a basis for a finite dimensional vector space \( V  \). First, we need to ensure that given \( T \) and \( U  \) are simultaneously diagonalizable that both \( TU \) and \( UT  \) are simultaneously diagonalizable as well; that is, \( [TU]_{\beta} \) and \( [UT]_{\beta} \) are diagonal matrices. Since \( T \) and \( U  \) are simultaneous diagonalizable, there exists a invertible matrix \( Q  \) such that  
+        \begin{center}
+            \( Q^{-1}[T]_{\beta} Q \) and \( Q^{-1} [U]_{\beta} Q  \) 
+        \end{center}
+        are diagonal matrices. Since \( V  \) is finite-dimensional, let \( \beta'  \) be a basis such that \( [T]_{\beta'} = Q^{-1} [T]_{\beta}  Q  \) and \( [U]_{\beta'} = Q^{-1} [U]_{\beta} Q  \). Using Theorem 2.11, we have
+        \begin{align*}
+            [TU]_{\beta} &= [T]_{\beta} [U]_{\beta} \\
+                         &= (Q [T]_{\beta'} Q^{-1})(Q [U]_{\beta'} Q^{-1}) \\
+                         &= Q [T]_{\beta'} [U]_{\beta'} Q^{-1} \\
+                         &= Q [TU]_{\beta'} Q^{-1}.
+        \end{align*}
+        But this implies that \( TU \) is simultaneously diagonalizable. A similar argument shows \( UT  \) being simultaneously diagonalizable. Hence, \( [TU]_{\beta} \) and \( [U]_{\beta} \) are diagonal matrices. Let \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{n} \) and \( {\lambda}_{1}', {\lambda}_{2}', \dots, {\lambda}_{n}'  \) be the eigenvalues of   \( T  \) and \( U  \) respectively. Thus, for \( 1 \leq j \leq n  \) we have
+        \begin{align*}
+            (TU)({v}_{j}) &=  \sum_{ i=1 }^{ n } {D}_{ij} {v}_{j} = {D}_{jj} 
+                          = ({\lambda}_{j} {\lambda}_{j}') {v}_{j} 
+                          = ({\lambda}_{j}'{\lambda}_{j}) {v}_{j} =  {C}_{jj} \\
+                          &= \sum_{ i=1 }^{ n } {C}_{ij} {v}_{j} = (UT)({v}_{j}).
+        \end{align*}
+        Thus, \( TU \) and \( UT  \) commute. 
         \end{proof}
     \item[(b)] Show that if \( A  \) and \( B  \) are simultaneously diagonalizable matrices, then \( A  \) and \( B  \) commute.
         \begin{proof}
-        
+        Let \( T = {L}_{A} \) and \( U = {L}_{B} \), then apply part (a).
         \end{proof}
 \end{enumerate}
 
 \subsection*{Exercise 5.2.19} Let \( T  \) be a diagonalizable linear operator on a finite-dimensional vector space, and let \( m  \) be any positive integer. Prove that \( T  \) and \( T^{m} \) are simultaneously diagonalizable.
 \begin{proof}
-
+Let \( V \) be a finite-dimensional vector space. Let \( \beta \) and \( \beta'  \) be two ordered bases for \( V  \). We need to show that \( [T]_{\beta} \) and \(  [T^{m}]_{\beta}  \)  are diagonal matrices. The former is shown via part (a) of Exercise 5.2.17. We will induct on \(  m  \). The base case is taken care of. Let's assume that the result holds for \( m - 1  \) case. That is, there exists an invertible matrix \( Q  \) such that \( Q^{-1} [T^{m-1}]_{\beta} Q = [T]_{\beta'} \). Similarly, we have \( Q^{-1} [T]_{\beta} Q = [T]_{\beta'} \). We will show that the result holds for the \(m  \)th case. By the induction hypothesis and Theorem 2.11, we can write        
+\begin{align*}
+    [T^{m}]_{\beta} &= [T^{(m-1) + 1}]_{\beta} = [T^{m-1} T]_{\beta} = [T^{m-1}]_{\beta} [T]_{\beta} \\
+                    &= (Q [T^{m-1}]_{\beta'} Q^{-1})(Q [T]_{\beta'}Q^{-1}) = Q [T^{m}]_{\beta'} Q^{-1}. 
+\end{align*}
+Thus, we have \( Q^{-1} [T^{m}]_{\beta} Q = [T^{m}]_{\beta'}  \). Notice how \( T^{m-1}  \) and \( T \) commute via part (a) of Exercise 5.2.18. Thus, we get that both \( T \) and \( T^{m} \) are simultaneously diagonalizable linear operators. 
 \end{proof}
 
 \subsection*{Exercise 5.2.20} Let \( {W}_{1}, {W}_{2}, \dots, {W}_{k} \) be subspaces of a finite-dimensional vector space \( V  \) such that 
@@ -129,7 +152,54 @@ By Theorem 5.3, \( f(t) \) contains at most \( n   \) distinct eigenvalues. So, 
 Prove that \( V  \) is the direct sum of \( {W}_{1}, {W}_{2}, \dots, {W}_{k} \) if and only if 
 \[  \text{dim}(V) = \sum_{ i=1 }^{ k } \text{dim}({W}_{i}). \]
 \begin{proof}
+For the forwards direction, suppose \( V \) is the direct sum of \( {W}_{1}, {W}_{2}, \dots, {W}_{k} \). By definition, we have 
+\[  V = \sum_{ i=1  }^{ n  } {W}_{i} \]
+and 
+\[ {W}_{j} \cap \sum_{ i \neq j  }^{  } {W}_{i} = \{ 0 \}   \] 
+for some \( 1 \leq j \leq k   \).
+Using repeated applications of part (a) of Exercise 1.6.29, we get that 
+\begin{align*}
+    \text{dim}(V) = \text{dim} \Big(  \sum_{ i=1  }^{ n } {W}_{i} \Big)  
+                  = \sum_{ i=1  }^{ n } \text{dim}({W}_{i}) + \text{dim}\Big(  {W}_{j} \cap \sum_{ i \neq j }^{  } {W}_{i} \Big) 
+                  = \sum_{ i=1  }^{ n } \text{dim}({W}_{i}).
+\end{align*}
+Thus, we get that
+\[  \text{dim}(V) = \sum_{ i=1  }^{ n } \text{dim}({W}_{i}). \]
+Conversely, each \( {W}_{i} \) is finite-dimensional, there exists a basis \( {\beta}_{i}  \) for each \( {W}_{i} \) for \( 1 \leq i \leq k  \). Thus, we have \( \beta = {\beta}_{1} \cup {\beta}_{2} \cup \cdots \cup {\beta}_{k} \) is a basis for \( V  \) which implies that
+\[  \bigoplus_{i=1}^{k} {W}_{i} = V  \]
+by part (e) of Theorem 5.9.
+\end{proof} 
 
+\begin{definition}[Partitions]
+    We call the sets \( {\beta}_{1}, {\beta}_{2}, \dots, {\beta}_{k} \) a partition of \( \beta \) if \(   {\beta}_{1}, {\beta}_{2}, \dots, {\beta}_{k} \) are subsets of \( \beta \) such that
+    \begin{center}
+        \( \beta = {\beta}_{1} \cup {\beta}_{2} \cup \cdots \cup {\beta}_{k} \) and \( {\beta}_{i} \cap {\beta}_{j}  \) if \( i \neq j  \).
+    \end{center}
+\end{definition}
+
+\subsection*{Exercise 5.2.21} Let \( V  \) be a finite-dimensional vector space with a basis \( \beta  \), and let \( {\beta}_{1}, {\beta}_{2}, \dots, {\beta}_{k} \) be a \textbf{partition} of \( \beta  \). Prove that  
+\[  V = \text{span}({\beta}_{1}) \oplus \text{span}({\beta}_{2}) \oplus \cdots \oplus \text{span}({\beta}_{k}).  \]
+\begin{proof}
+Let \( \beta \) be a basis for \( V  \) and let \( {\beta}_{1}, {\beta}_{2}, \dots, {\beta}_{k} \) be a partition of \( \beta \). By definition, \( {\beta}_{1}, {\beta}_{2}, \dots, {\beta}_{k } \) are subsets of \( \beta \) such that
+\begin{center}
+    \( \beta = {\beta}_{1} \cup {\beta}_{2} \cup \cdots \cup {\beta}_{k} \) and \( {\beta}_{i} \cap {\beta}_{j} \) if \( i \neq j \).
+\end{center}
+Since \( \beta \) is a basis, we must have \( \text{span}(\beta) = V  \). By repeated applications of {\hyperref[Exercise 1.4.14]{Exercise 1.4.14}}, we must have
+\begin{align*}
+    V = \text{span}(\beta) = \text{span}\Big(\bigcup_{ i=1 }^{ k  }  {\beta}_{i}\Big) = \sum_{ i=1  }^{ k  } \text{span}({\beta}_{i}).
+\end{align*}
+Thus, we establish that
+\[  V = \sum_{ i=1  }^{ k  } \text{span}({\beta}_{i}). \]
+Now suppose for sake of contradiction that there exists a \( 1 \leq j \leq k  \) such that
+\[  v \in \text{span}({B}_{j}) \cap \sum_{  i \neq j  }^{  } \text{span}({\beta}_{i}). \]
+But this implies that \( {\beta}_{j} \cap {\beta}_{i} \neq \emptyset \) which is a contradiction. Thus, we must have that
+\[  \text{span}({\beta}_{j}) \cap \sum_{ i=1  }^{ k  } \text{span}({\beta}_{i})  = \{  0  \}.\]
+Hence, we must have 
+\[  V = \bigoplus_{i=1}^{k} \text{span}({\beta}_{i}). \]
 \end{proof}
 
+\subsection*{Exercise 5.2.22} Let \( T  \) be a linear operator on a finite-dimensional vector space \( V  \), and suppose that the distinct eigenvalues of \( T  \) are \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{k} \). Prove that
+\[  \text{span}(\{ x \in V : x \ \text{is an eigenvector of } T  \} ) = {E}_{{\lambda}_{1}} \oplus {E}_{{\lambda}_{2}} \oplus \cdots \oplus {E}_{\lambda_{k }}. \]
+\begin{proof}
 
+\end{proof}

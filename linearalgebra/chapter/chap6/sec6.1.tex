@@ -206,7 +206,16 @@ A vector space over \( F  \) endowed with a specific inner product is called an 
         Then multiplying \( \|y\|^{2} \), adding \( | \langle x , y \rangle |^{2} \), and then squaring both sides allows us to get
         \[  | \langle x , y \rangle | \leq \|x\| \|y\|  \]
         which is our desired result.
-
+    \item[(d)] Using the definition of norm, we have that
+        \begin{align*}
+            \|x + y\|^{2} &= \langle  x + y  ,  x + y \rangle = \langle x , x \rangle + \langle y , x \rangle + \langle x , y \rangle + \langle y , y \rangle \\
+                          &=  \|x\|^{2} + 2 \Re\langle x , y \rangle + \|y\|^{2} \\
+                          &\leq \|x\|^{2} + 2 | \langle x , y \rangle | + \|y\|^{2} \\ \tag{Part (c)}
+                          &\leq \|x\|^{2} + 2 \|x\| \cdot \|y\| + \|y\|^{2} \\
+                          &= (\|x\| + \|y\|)^{2} 
+        \end{align*}
+        where \( \Re \langle x , y \rangle = \langle x , y \rangle + \overline{\langle x , y \rangle}   \) denotes the real part of the complex number \( \langle x , y \rangle \). Thus, we have 
+        \[  \|x + y\| \leq \|x\| + \|y\| \ \text{for any} \ x,y \in V.    \]
 \end{enumerate}
 \end{proof}
 
