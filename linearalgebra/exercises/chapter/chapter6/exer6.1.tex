@@ -189,7 +189,43 @@ Let \( x,y \in V  \). Suppose \( T(x) = T(y) \) and \( \|T(x)\| = \|x\| \). Then
 
 \subsection*{Exercise 6.1.18} Let \( V  \) be a vector space over \( F  \), where \( F = \R  \) or \( F = \C  \), and let \( W  \) be an inner product space over \( F  \) with inner product \( \langle \cdot  ,  \cdot  \rangle \). If \( T: V \to W  \) is linear, prove that \( \langle x , y \rangle' = \langle T(x)  , T(y) \rangle \) defines an inner product on \( V  \) if and only if \( T  \) is one-to-one.
 \begin{proof}
+    Let \( x,y \in V  \). For the forwards direction, suppose that \( \langle x , y \rangle' = \langle  T(x)  , T(y) \rangle \) defines an inner product on \( V  \). Suppose that \( T(x) = T(y) \). Consider the norm
+    \[  \|T(x)\| = \|T(y)\|.  \]
+Since \( \langle x , y \rangle'  \) defines an inner product on \( V  \), we can write
+\begin{align*}
+    \|T(x) \|^{2} &= \|T(y)\|^{2} \\
+    \langle T(x)  , T(x)  \rangle &= \langle T(y) , T(y) \rangle\\
+    \langle T(x)  , T(x)  \rangle &= \langle T(x) , T(y) \rangle\\
+    \langle x , x \rangle' &= \langle x , y \rangle'.
+\end{align*}
+Using part (e) Theorem 6.1, we have that \( x = y  \). Thus, \( T  \) is one-to-one. 
 
+For the backwards direction, suppose \( T  \) is one-to-one. We need to show that \( \langle \cdot , \cdot \rangle' \) defines an inner product on \( V  \). Let \( x,y,z \in V  \) and let \( c \in F  \). Suppose \( T  \) is linear and \( \langle \cdot ,  \cdot  \rangle  \) defines an inner product over \( W  \). Then
+\begin{enumerate}
+    \item[(a)] 
+        \begin{align*}
+            \langle x + y  ,  z  \rangle' &= \langle  T(x+y)  , T(z) \rangle \\
+                                          &=  \langle T(x) + T(y)  , T(z) \rangle \\
+                                          &= \langle T(x)  , T(y) \rangle + \langle T(z)  , T(y)   \rangle \\
+                                          &=  \langle x , y \rangle' + \langle z , y \rangle'.
+        \end{align*}
+    \item[(b)] 
+        \begin{align*}
+            \langle cx , y \rangle' &= \langle  T(cx)  , T(y) \rangle  \\
+                                    &=  \langle c T(x)  , T(y) \rangle \\
+                                    &=  c \langle T(x)  , T(y) \rangle \\
+                                    &=  c \langle x  , y \rangle'.
+        \end{align*}
+    \item[(c)] 
+        \begin{align*}
+            \overline{\langle x , y \rangle'} &= \overline{\langle T(x)  , T(y) \rangle}  \\
+                                              &=  \langle T(y)  , T(x) \rangle \\
+                                              &=  \langle y , x \rangle'.
+        \end{align*}
+    \item[(d)] Suppose \( x \neq 0  \). Since \( \langle \cdot , \cdot \rangle \) is an inner product on \( W  \), we have 
+        \[  \langle x , x \rangle' = \langle T(x)  , T(x)  \rangle > 0. \]
+\end{enumerate}
+Thus, we have that \( \langle \cdot , \cdot \rangle'  \) is an inner product on \( V  \).
 \end{proof}
 
 \subsection*{Exercise 6.1.19} Let \( V  \) be an inner product space. Prove that
