@@ -181,10 +181,13 @@ Thus, we conclude that \( (A + cB)^{*} = A^{*} + \overline{c} B^{*} \).
 
 \subsection*{Exercise 6.1.17} Let \( T  \) be a linear operator on an inner product space \( V  \), and suppose that \( \|T(x)\| = \|x \|  \) for all \( x  \). Prove that \( T  \) is injective.
 \begin{proof}
-Let \( x,y \in V  \). Suppose \( T(x) = T(y) \) and \( \|T(x)\| = \|x\| \). Then we have
-\begin{align*}
-    \|T(x)\| &= \|T(y)\| \\
-\end{align*}
+Let \( x,y \in V  \) and suppose \( T(x) = T(y) \). Taking advantage of the linearity of \( T  \), we can write 
+\[  T(x) = T(y) \iff T(x - y) = 0.  \]
+Using our assumption, we see that
+\[ 0 = \|T(x-y)\| = \|x-y\|.  \]
+By using the definition of norm, we can see further that
+\[  \| x - y \|^{2} = 0 \iff \langle x - y  ,  x - y  \rangle = 0   \]
+Since \( V  \) is an inner product space, we can see that the above is true if and only if \( x - y = 0  \) and thus \( x = y  \). Therefore, we conclude that \( T  \) is injective.
 \end{proof}
 
 \subsection*{Exercise 6.1.18} Let \( V  \) be a vector space over \( F  \), where \( F = \R  \) or \( F = \C  \), and let \( W  \) be an inner product space over \( F  \) with inner product \( \langle \cdot  ,  \cdot  \rangle \). If \( T: V \to W  \) is linear, prove that \( \langle x , y \rangle' = \langle T(x)  , T(y) \rangle \) defines an inner product on \( V  \) if and only if \( T  \) is one-to-one.
@@ -240,6 +243,21 @@ Thus, we have that \( \langle \cdot , \cdot \rangle'  \) is an inner product on 
         \end{proof}
 \end{enumerate}
 
+\subsection*{Exercise 6.1.21} Let \( A  \) be an \( n \times n  \) matrix. Define
+\[  {A}_{1} = \frac{ 1 }{ 2 }  (A + A^{*}) \ \ \text{and} \ \ {A}_{2} = \frac{ 1 }{ 2i }  (A - A^{*}). \]
+\begin{enumerate}
+    \item[(a)] Prove that \( {A}_{1}^{*} = {A}_{1} \), \( {A}_{2}^{*} = {A}_{2} \), and \( A = {A}_{1} + i {A}_{2} \). Would it be reasonable to define \( {A}_{1}  \) and \( {A}_{2}  \) to be the real and imaginary parts, respectively, of the matrix \( A  \)?
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Let \( A  \) be an \( n \times n  \) matrix. Prove that the representation in (a) is unique. That is, prove that if \( A = {B}_{1} + i {B}_{2} \), where \( {B}_{1}^{*} = {B}_{1} \) and \( {B}_{2}^{*} = {B}_{2} \), then \( {B}_{1} = {A}_{1} \) and \( {B}_{2} = {A}_{2} \).
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
+
+
 \subsection*{Exercise 6.1.22} Let \( V  \) be a real or complex vector space (possibly infinite-dimensional), and let \( \beta \) be a basis for \( V  \). For \( x,y \in V  \) there exists \( {v}_{1}, {v}_{2}, \dots, {v}_{n} \in \beta  \) such that
 \[  x = \sum_{ i=1  }^{ n  } {a}_{i} {v}_{i} \ \text{and} \ y = \sum_{ i=1  }^{ n } {b}_{i} {v}_{i}. \]
 Define 
@@ -253,4 +271,21 @@ Define
         \begin{proof}
         
         \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 6.1.23} Let \( V = F^{n} \), and let \( A \in {M}_{n \times n }(F) \). 
+\begin{enumerate}
+    \item[(a)] Prove that \( \langle x  , Ay \rangle = \langle A^{*} x  , y \rangle \) for all \( x,y \in V  \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Suppose that for some \( B \in {M}_{n \times n}(F) \), we have \( \langle x  , Ay \rangle = \langle B x  , y \rangle \) for all \( x, y \in V  \). Prove that \( B = A^{*} \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(c)] Let \( \alpha  \) be the standard ordered basis for \( V  \). For any orthonormal basis \( \beta  \) for \( V  \), let \( Q  \) be the \( n \times n  \) matrix whose columns are the vectors in \( \beta  \). Prove that \( Q^{*} = Q^{-1}  \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(d)] Define linear operators \( T  \) and \( U  \) on \( V  \) by \( T(x) = Ax  \) and \( U(x) = A^{*}x  \). Show that \( [U]_{\beta} = [T]^{*}_{\beta} \) for any orthonormal basis \( \beta  \) for \( V  \).
 \end{enumerate}
