@@ -2,12 +2,53 @@
 
 \subsection*{Exercise 6.1.6} Complete the proof of Theorem 6.1.
 \begin{proof}
-See proof in notes.
+\begin{enumerate}
+    \item[(b)] Let \( x,y \in V  \). Using the linearity of the first component, we must have 
+        \begin{align*}
+            \langle x, cy \rangle &= \overline{\langle cy, x  \rangle} \\
+                                  &= \overline{c \langle y,x \rangle} \\ 
+                                  &= \overline{c} \overline{\langle y,x \rangle} \\
+                                  &= \overline{c} \langle  x,y  \rangle.
+        \end{align*}
+    \item[(c)] Let \( x \in V  \). Note that for any \( v \in V   \), we have \( 0 \cdot v = 0  \). So, we have
+        \begin{align*}
+            \langle x,0 \rangle &= \langle x, 0 \cdot v  \rangle = \overline{0} \langle x , v  \rangle  = 0 \langle x, v  \rangle = 0  
+        \end{align*}
+        Likewise, we have
+        \[  \langle 0,x  \rangle = \langle  0 \cdot v , x  \rangle =  0 \langle v , x  \rangle = 0. \]
+        Thus, we have \( \langle x,0  \rangle = \langle 0, x  \rangle = 0  \).
+    \item[(d)] Suppose \( \langle x,x \rangle = 0  \). By part (c), we can see that 
+        \[  \langle x , x \rangle = \langle 0  , x  \rangle = \langle x , 0  \rangle = 0    \]
+        which is true if and only if \( x = 0  \). The converse is trivial.
+    \item[(e)] Suppose \( \langle x , y \rangle = \langle x , z \rangle  \) for all \( x \in V  \). Then observe that 
+        \begin{align*}
+            \langle x , y \rangle  = \langle x , z \rangle &\implies \langle x , y \rangle - \langle x , z \rangle = 0   \\
+                                                           &\implies \langle 0  ,  y -z  \rangle = 0.
+        \end{align*}
+        By part (c), we know that the above is true if and only if \( y - z = 0  \). So, we have \( y = z  \).
+\end{enumerate}
 \end{proof}
 
 \subsection*{Exercise 6.1.7} Complete the proof of Theorem 6.2.
 \begin{proof}
-See proof in notes.
+\begin{enumerate}
+    \item[(a)] Let \( x \in V  \) and \( c \in F  \). Observe that
+        \begin{align*}
+            \| cx \| = \sqrt{ \langle  cx , cx \rangle }  
+                   &= \sqrt{c \langle x , cx \rangle }  \\
+                   &= \sqrt{ c \overline{c} \langle x , x \rangle } \\
+                   &= \sqrt{ | c |^{2} \cdot \langle x , x \rangle } \\
+                   &= | c |  \cdot \sqrt{ \langle x , x \rangle } \\
+                   &= | c |  \cdot \| x \|.
+        \end{align*}
+        Thus, we have that \( \| cx \| = | c  |  \cdot \| x \| \).
+    \item[(b)] Let \( x \in V  \). Suppose \( \| x \| = 0   \). Then by definition of norm, we have
+        \[ \| x \| = \sqrt{ \langle x , x \rangle } = 0. \]
+        Squaring both sides, we can see that 
+        \[  \| x \|^{2} = \langle  x , x \rangle = 0. \]
+        This is true if and only if \( x = 0  \) by part (d) of Theorem 6.1. Conversely, suppose \( x = 0   \). So by definition of norm and part (d) of Theorem 6.1, we have  
+        \[  \sqrt{ \langle x , x \rangle }  = 0 \iff \| x \| = 0. \]
+\end{enumerate}
 \end{proof}
 
 \subsection*{Exercise 6.1.9} Let \( \beta \) be a basis for a finite-dimensional inner product space.
@@ -110,7 +151,7 @@ Since \( \{ {v}_{1}, {v}_{2}, \dots, {v}_{k } \}   \) is orthogonal in \( V  \),
 \begin{proof}
 Let \( A  \) and \( B  \) be \( n \times n  \) matrices and let \( c \in F  \). By using the definition of adjoint, we get that for all \( i,j \) we get
 \begin{align*}
-    {(A + cB)^{*}}_{ij} &= \overline{{(A + cB)}_{ji}}   \\
+    (A + cB)_{ij}^{*} &= \overline{{(A + cB)}_{ji}}   \\
                         &=  \overline{{A}_{ji} + c {B}_{ji}} \\
                         &= \overline{{A}_{ji}} + \overline{c} \overline{{B}_{ji}} \\
                         &=  {(A^{*})}_{ij} + \overline{c} {(B^{*})}_{ij}.
@@ -126,7 +167,59 @@ Thus, we conclude that \( (A + cB)^{*} = A^{*} + \overline{c} B^{*} \).
         \[  | a  |  = \frac{ \|x\| }{ \|y\| }. \]
         Then apply Exercise 10 to \( \|x\|^{2} = \|ay + z\|^{2} \) to obtain \( \|z\| = 0  \). 
     \begin{proof}
-    
+    Suppose \( V  \) is an inner product space. For the forwards direction, assume \( |  \langle  x  , y \rangle |  = \| x \| \cdot \| y\| \). We will show that either \( x  \) or \( y  \) is a multiple of the other. Observe that \( y \neq 0  \) implies that
+    \begin{align*}
+        | \langle x , y \rangle | = \|x\| \cdot \|y\| &\iff \frac{ | \langle x , y \rangle |  }{ \|y\|^{2} } \cdot \|y\| = \|x\|.  
+    \end{align*}
+    We can see a similar process proves the other case
+    \begin{align*}
+        | \langle x , y \rangle | = \|x\| \cdot \|y\| &\iff \frac{ | \langle x , y \rangle |  }{ \|x\|^{2} } \cdot \|x\| = \|y\|.  
+    \end{align*}
+    For the backwards direction, suppose either \( x  \) or \( y  \) is a multiple of the other. Thus, for some \( c \neq 0  \), we have
+    \begin{align*}
+        | \langle x , y \rangle |  &= \sqrt{ \overline{\langle x , y \rangle} \cdot \langle x , y \rangle }  \\
+                                   &= \sqrt{ \overline{\langle cy , y \rangle} \cdot \langle x , \frac{ 1 }{ c } x  \rangle } \\
+                                   &= \sqrt{ \overline{c} \cdot \frac{ 1 }{ \overline{c} } \cdot \overline{\langle y , y \rangle}  \langle x , x \rangle } \\
+                                   &= \sqrt{ \langle y , y \rangle \cdot \langle x , x \rangle }  \\
+                                   &=  \sqrt{ \langle y , y \rangle } \cdot \sqrt{ \langle x , x \rangle } \\
+                                   &= \|y\| \cdot \|x\| = \|x\| \cdot \|y\|.
+    \end{align*}
+    Note that the other case is similar. Thus, we have
+    \[  | \langle x , y \rangle | = \|x\| \cdot \|y\|. \]
+
+    Now, let \( y \neq 0  \) and \( z = x - ay \). Then set 
+    \[  a  = \frac{ \langle x , y \rangle }{ \|y\|^{2} }. \]
+
+    We will show that \( y  \) and \( z  \) are orthogonal and that 
+    \[  | a  |  = \frac{ \|x\| }{ \|y\| }. \]
+    It suffices to show that \( \langle y , z \rangle = 0  \). Observe 
+    \begin{align*}
+        \langle y , z \rangle &= \langle y , x - ay \rangle \\
+                              &= \langle y , x \rangle - \overline{a} \langle y , y \rangle \\
+                              &=  \overline{\langle x , y \rangle} - \overline{a} \|y\|^{2}.
+    \end{align*}
+    Note that we have
+    \[  a = \frac{ \langle x , y \rangle }{  \|y\|^{2} }  \iff \langle x , y \rangle = a \|y\|^{2} \]
+    and
+    \[  \overline{ \|y\|^{2} } = \overline{\langle y , y \rangle} = \langle y , y \rangle. \]
+    So, we must have that 
+    \[  \langle y , z \rangle = \overline{\langle x , y \rangle} - \overline{a} \|y\|^{2} =  \overline{a} \|y\|^{2} - \overline{a} \|y\|^{2} = 0. \]
+    Thus, \( y  \) and \( z  \) are orthogonal. Using  
+    \[  a = \frac{ \langle x , y \rangle }{  \|y\|^{2} }, \]
+    we see that 
+    \begin{align*}
+        | \langle x , y \rangle | = \|x\| \cdot \|y\| &\iff  \langle x , y \rangle \cdot \overline{\langle x , y \rangle} = \|x\|^{2} \cdot \|y\|^{2} \\
+                                                      &\iff | a |^{2} \|y\|^{4} = \|x\|^{2} \cdot \|y\|^{2} \\ 
+                                                      &\iff | a |^{2} = \frac{ \|x\|^{2} }{ \|y\|^{2} } \\
+                                                      &\iff | a |  = \frac{ \|x\| }{ \|y\| }.
+    \end{align*}
+
+    Finally, we show that \( \|z\| = 0  \) using Exercise 10. Since \( \|x\|^{2} = \|ay + z \|^{2} \), we see that
+    \[ \|x\|^{2} =  \|ay  + z \|^{2} = a^{2} \|y\|^{2} + \|z\|^{2}. \]
+    Since \( | a  |  = \|x\| / \|y\| \), we can re-write the statement above into
+    \[ a^{2} \|y\|^{2} = a^{2} \|y\|^{2} + \|z\|^{2} \iff \|z\|^{2} = 0.  \]
+    Thus, we get \( \|z\| = 0  \) which is our desired result.
+    \[   \]
     \end{proof}
     \item[(b)] Derive a similar result for the equality \( \|x + y\| = \|x\| + \|y\| \), and generalize it to the case of \( n  \) vectors.
         \begin{proof}
@@ -235,11 +328,25 @@ Thus, we have that \( \langle \cdot , \cdot \rangle'  \) is an inner product on 
 \begin{enumerate}
     \item[(a)] \( \|x \pm y\|^{2} = \|x\|^{2} \pm 2 \Re \langle x , y \rangle + \|y\|^{2}  \) for all \( x,y \in V  \), where \( \Re \langle x , y \rangle \) denotes the real part of the complex number \( \langle x , y \rangle \).
         \begin{proof}
-        
+        Let \( x,y \in V  \) where \( V  \) is an inner product space. Note that 
+        \[  \|x + y\|^{2} = \|x\|^{2} + 2 \Re \langle x , y \rangle + \|y\|^{2} \]
+        by the proof for part (d) of Theorem 6.2. We will show the other case. By the properties found in Theorem 6.1, we have
+        \begin{align*}
+            \|x - y\|^{2} &= \langle x - y  ,  x - y  \rangle \\
+                          &= \langle x , x \rangle - \langle x , y \rangle - ( \langle y , x \rangle)  \\
+                          &= \langle x , x \rangle - (\langle x , y \rangle + \overline{\langle x , y \rangle} ) + \langle y , y \rangle \\
+                          &= \langle x , x \rangle - 2 \Re \langle x , y \rangle + \|y\|^{2}.
+        \end{align*}
         \end{proof}
     \item[(b)] \( | \|x\| - \|y\| |  \leq \|x - y\| \) for all \( x,y \in V  \).
         \begin{proof}
-        
+            Let \( x,y \in V  \). Using part (a) and part (c) of Theorem 6.2, we can see that
+            \begin{align*}
+               \|x - y\|^{2}  &= \|x\|^{2} - 2 \Re \langle x , y \rangle + \|y\|^{2} \\
+                              &\geq \|x\|^{2} - 2 |  \langle x , y \rangle | + \|y\|^{2} \\
+                              &\geq \|x\|^{2} - 2 \|x\| \cdot \|y\| + \|y\|^{2} \tag{\( -2 | \langle x , y \rangle |  \geq -2 \|x\| \cdot \|y\| \)} \\ 
+                              &= (\|x\| - \|y\|)^{2}.
+            \end{align*}
         \end{proof}
 \end{enumerate}
 
