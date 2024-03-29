@@ -100,7 +100,7 @@ Thus, we obtain
 \[  \|x + y \|^{2} + \|x - y\|^{2} = 2 \|x\|^{2} + 2 \|y\|^{2}. \]
 \end{proof}
 
-\subsection*{Exercise 6.1.12} Let \( \{ {v}_{1}, {v}_{2}, \dots, {v}_{k} \}  \) be an orthogonal set in \( V  \), and let \( {a}_{1}, {a}_{2}, \dots, {a}_{k }  \) be scalars. Prove that
+\subsection*{Exercise 6.1.12}\label{Exercise 6.1.12} Let \( \{ {v}_{1}, {v}_{2}, \dots, {v}_{k} \}  \) be an orthogonal set in \( V  \), and let \( {a}_{1}, {a}_{2}, \dots, {a}_{k }  \) be scalars. Prove that
 \[  \Big\| \sum_{ i=1 }^{ k  } {a}_{i} {v}_{i} \Big\|^{2} = \sum_{ i=1 }^{ k  } | {a}_{i} |^{2} \|{v}_{i}\|^{2}. \]
 \begin{proof}
 Let \( \{ {v}_{1}, {v}_{2}, \dots, {v}_{k } \}  \) be an orthogonal set in \( V  \) and let \( {a}_{1}, {a}_{2}, \dots, {a}_{k} \) be scalars. By the linearity in the first component and conjugate linearity in the second component, we obtain
@@ -354,20 +354,81 @@ Thus, we have that \( \langle \cdot , \cdot \rangle'  \) is an inner product on 
         \end{proof}
 \end{enumerate}
 
+
+\subsection*{Exercise 6.1.20} Let \( V \) be an inner product space over \( F  \). Prove the \textit{polar identities}: For all \( x,y \in V  \),  
+\begin{enumerate}
+    \item[(a)] \( \langle x , y \rangle = \frac{ 1 }{ 4 }  \|x + y \|^{2} - \frac{ 1 }{ 4 }  \|x - y\|^{2} \) if \( F = \R  \).
+        \begin{proof}
+        Let \( x,y \in V  \) and let \( F = \R  \). Using part (a) of Exercise 19, we can write
+        \begin{align*}
+            \frac{ 1 }{ 4 }  \|x + y\|^{2} - \frac{ 1 }{ 4 }  \|x + y\|^{2} &= \frac{ 1 }{ 4 }  \Big(  \|x\|^{2} + 2 \langle x , y \rangle + \|y\|^{2}  \Big)  \\
+                                                                            &- \frac{ 1 }{ 4 }  \Big(  \|x\|^{2} - 2 \langle x , y \rangle + \|y\|^{2} \Big) \\
+                                                                            &= \frac{ 1 }{ 4 }  \cdot 4 \langle x , y \rangle = \langle x , y \rangle.
+        \end{align*}
+        Thus, we have that
+        \[  \langle x , y \rangle = \frac{ 1 }{ 4 }  \|x + y\|^{2} - \frac{ 1 }{ 4 }  \|x + y\|^{2}. \]
+        \end{proof}
+    \item[(b)] \( \langle x , y \rangle = \frac{ 1 }{ 4 }  \sum_{ k=1  }^{ 4  } i^{k} \|x + i^{k} y \|^{2}  \) if \( F = \C  \), where \( i^{2} = - 1  \).
+        \begin{proof}
+        Let \( x,y \in V  \) and \( F = \C  \). Using part (a), we can write
+        \begin{align*}
+            \frac{ 1 }{ 4 } \sum_{ k=1  }^{ 4  } i^{k } \|x + i^{k } y\|^{2} &= \frac{ 1 }{ 4 }  \Big[ i \|x + iy\|^{2} + i^{2} \|x + i^{2} y\|^{2} \\ 
+                                                                             &+ i^{3} \|x + i^{3} y\|^{2} + i^{4} \|x + i^{4} y\|^{2} \Big]  \\
+                                                                             &= \frac{ 1 }{ 4 } \Big[   i \|x + iy \|^{2} - \|x - y \|^{2} - i \|x - iy\|^{2} + \|x + y\|^{2} \Big] \\
+                                                                             &= \frac{ 1 }{ 4 }  \Big[ \|x + y\|^{2} - \|x - y \|^{2} \Big] + \frac{ i }{ 4 }  \Big[ \|x + iy\|^{2} - \|x - iy\|^{2} \Big]
+        \end{align*}
+        where
+        \[  \Re \langle x , y \rangle = \frac{ 1 }{ 4 }  \Big[ \|x + y \|^{2} - \|x - y\|^{2} \Big] \tag{part(a)} \]
+        and 
+        \[ \Im \langle x , y \rangle = \frac{ 1 }{ 4 }  \Big[ \|x + iy\|^{2} - \|x - iy\|^{2} \Big].   \]
+        Thus, we have that
+        \[  \langle x , y \rangle = \frac{ 1 }{ 4 }  \sum_{ k=1  }^{ 4  } i^{k } \|x + i^{k } y \|^{2}. \]
+        \end{proof}
+\end{enumerate}
+
+
 \subsection*{Exercise 6.1.21} Let \( A  \) be an \( n \times n  \) matrix. Define
 \[  {A}_{1} = \frac{ 1 }{ 2 }  (A + A^{*}) \ \ \text{and} \ \ {A}_{2} = \frac{ 1 }{ 2i }  (A - A^{*}). \]
 \begin{enumerate}
     \item[(a)] Prove that \( {A}_{1}^{*} = {A}_{1} \), \( {A}_{2}^{*} = {A}_{2} \), and \( A = {A}_{1} + i {A}_{2} \). Would it be reasonable to define \( {A}_{1}  \) and \( {A}_{2}  \) to be the real and imaginary parts, respectively, of the matrix \( A  \)?
         \begin{proof}
-        
+        We will first show that \( {A}_{1}^{*} = {A}_{1} \) and \( {A}_{2}^{*} = {A}_{2} \). For all \( i , j \), we see that
+        \begin{align*}
+            ({A}_{1}^{*})_{ij} = \overline{{({A}_{1})}_{ji}} &= \frac{ 1 }{ 2 }  \overline{{(A + A^{*})}_{ji}}  \\
+                                                             &= \frac{ 1 }{ 2 }  \overline{ ( {A}_{ji} + A_{ji}^{*} ) } \\
+                                                             &= \frac{ 1 }{ 2 }  (\overline{{A}_{ji}} + \overline{{A}_{ji}^{*}} ) \\
+                                                             &= \frac{ 1 }{ 2 }  ({(A^{*})}_{ij} + {A}_{ij}) \tag{\( \overline{\overline{{A}_{ij} }} = {A}_{ij} \)} \\
+                                                             &= \frac{ 1 }{ 2 }  {(A^{*} + A )}_{ij} \\
+                                                             &= ({A}_{1})_{ij}.
+        \end{align*}
+        Thus, \( {A}_{1}^{*} = {A}_{1} \). Similarly, we have
+        \begin{align*}
+            {({A}_{2}^{*})}_{ij} = \overline{{({A}_{2})}_{ji} } &= \overline{\frac{ 1 }{ 2i } (A - A^{*})_{ji}}  \\
+                                                                &= - \frac{ 1 }{ 2i   } \overline{({A}_{ji} - {A}_{ji}^{*})} \\
+                                                                &= - \frac{ 1 }{ 2i }  (\overline{{A}_{ji}} - \overline{{A}_{ji}^{*}}) \\ 
+                                                                &= - \frac{1  }{ 2i } ( {A}_{ij}^{*} - {A}_{ij} ) \tag{\( \overline{\overline{{A}_{ij} }} = {A}_{ij} \)} \\
+                                                                &= \frac{ 1 }{ 2i }  ({A}_{ij} - {A}_{ij}^{*}) \\
+                                                                &= \frac{ 1 }{ 2i } {(A - A^{*})}_{ij} = {({A}_{2})}_{ij}.
+        \end{align*}
+        Thus, we have that \( {A}_{2}^{*} = {A}_{2} \).
+
+        Now, we will show that \( A = {A}_{1} + i {A}_{2} \). Observe that
+        \begin{align*}
+           {A}_{1} + i {A}_{2} &= \frac{ 1 }{ 2 }  (A + A^{*}) + i \cdot \frac{ 1 }{ 2i  } (A - A^{*}) \\
+                               &= \frac{ 1 }{ 2 }  A + \frac{ 1 }{ 2 }  A^{*} + \frac{ 1 }{ 2  } A -  \frac{ 1 }{ 2 }  A^{*} \\
+                               &= A.
+        \end{align*}
+        Thus, we have \( A = {A}_{1} + i {A}_{2} \). This is a reasonable definition since we can just define the corresponds parts of the complex entries of \( A  \) as entries in \( \R  \) corresponding to two different matrices with each dedicated to the real and imaginary parts, respectively.
         \end{proof}
     \item[(b)] Let \( A  \) be an \( n \times n  \) matrix. Prove that the representation in (a) is unique. That is, prove that if \( A = {B}_{1} + i {B}_{2} \), where \( {B}_{1}^{*} = {B}_{1} \) and \( {B}_{2}^{*} = {B}_{2} \), then \( {B}_{1} = {A}_{1} \) and \( {B}_{2} = {A}_{2} \).
         \begin{proof}
-        
+        Let \( A  \) be an \( n \times n  \) matrix. Suppose there exists another representation of \( A  \) such that \( A = {B}_{1} + i {B}_{2}  \) where \( {B}_{1} = {B}_{1}^{*} \) and \( {B}_{2} = {B}_{2}^{*} \). Equating this representation to that of the one found in part (a), we obtain that
+        \begin{align*}
+            {A}_{1} + i {A}_{2} = {B}_{1} + i {B}_{2} \  \iff \ {A}_{1} = {A}_{2} \ , \ {B}_{1} = {B}_{2}.
+        \end{align*}
+        Thus, the representation in (a) is unique.
         \end{proof}
 \end{enumerate}
-
-
 
 \subsection*{Exercise 6.1.22} Let \( V  \) be a real or complex vector space (possibly infinite-dimensional), and let \( \beta \) be a basis for \( V  \). For \( x,y \in V  \) there exists \( {v}_{1}, {v}_{2}, \dots, {v}_{n} \in \beta  \) such that
 \[  x = \sum_{ i=1  }^{ n  } {a}_{i} {v}_{i} \ \text{and} \ y = \sum_{ i=1  }^{ n } {b}_{i} {v}_{i}. \]
@@ -376,11 +437,42 @@ Define
 \begin{enumerate}
     \item[(a)] Prove that \( \langle \cdot  ,  \cdot  \rangle \) is an inner product on \( V  \) and that \( \beta  \) is an orthonormal basis for \( V  \). Thus every real or complex vector space may be regarded as an inner product space.
         \begin{proof}
-        
+        Let \( \beta \) be an orthonormal basis for \( V  \). We will show that \( \langle \cdot  , \cdot  \rangle  \) is an inner product on \( V  \). Let \( x,y,z \in V  \) and \( c \in F  \). 
+        \begin{enumerate}
+            \item[(a)] We can find scalars \( {a}_{i}, {b}_{i}, {c}_{i} \in F  \) and \( {v}_{i} \in \beta  \) for \( 1 \leq i \leq n  \) such that 
+                \[  x = \sum_{ i=1  }^{ n  } {a}_{i} {v}_{i},  \ \  y = \sum_{ i=1  }^{ n } {b}_{i} {v}_{i},  \ \ z = \sum_{ i=1  }^{ n } {c}_{i} {v}_{i}. \]
+                Using our definition of \( \langle \cdot  ,  \cdot \rangle \), we obtain that
+                \begin{align*}
+                    \langle x + y  , z  \rangle = \sum_{ i=1  }^{ n  } ({a}_{i} + {b}_{i}) \overline{{c}_{i}}  
+                                                &= \sum_{ i=1  }^{ n  } ({a}_{i} \overline{{c}_{i}} + {b}_{i} \overline{{c}_{i}}) \\
+                                                &= \sum_{ i=1  }^{ n  } {a}_{i} \overline{{c}_{i}} + \sum_{ i=1  }^{ n } {b}_{i} \overline{{c}_{i}} \\
+                                                &= \langle x , z \rangle + \langle y , z \rangle.
+                \end{align*}
+                Thus, part (a) is satisfied.
+            \item[(b)] Using the representation of \( x,y \in V  \), we obtain
+                \begin{align*}
+                    \langle cx ,  y  \rangle = \sum_{ i=1  }^{ n } c {a}_{i} \overline{{b}_{i}} 
+                                             = c \sum_{ i=1  }^{ n } {a}_{i} \overline{{b}_{i}} 
+                                             =  c \langle x , y \rangle.
+                \end{align*}
+                Thus, part (b) is satisfied.
+            \item[(c)] 
+                \begin{align*}
+                   \overline{\langle x , y \rangle} = \overline{\sum_{ i=1 }^{ n } {a}_{i} \overline{{b}_{i}}} 
+                                                    = \sum_{ i=1  }^{ n } \overline{{a}_{i} \overline{{b}_{i}}} 
+                                                    &= \sum_{ i=1  }^{ n } \overline{{a}_{i}} {b}_{i} \tag{\( \overline{\overline{{b}_{i}}} = {b}_{i} \)} \\
+                                                    &= \sum_{ i=1  }^{ n } {b}_{i} \overline{{a}_{i}}   \\
+                                                    &= \langle y , x \rangle.
+                \end{align*}
+                Thus, part (d) is satisfied.
+            \item[(d)] Suppose \( x \neq 0  \). Then by definition of \( \langle \cdot  ,  \cdot \rangle \), we must have
+                \[  \langle x , x \rangle = \sum_{ i=1  }^{ n } {a}_{i} \overline{{a}_{i}} = \sum_{ i=1  }^{ n } | {a}_{i} |^{2} > 0.  \]
+                Thus, part (d) is satisfied.
+\end{enumerate}
         \end{proof}
     \item[(b)] Prove that if \( V = \R^{n}  \) or \( V = C^{n} \) and \( \beta  \) is the standard ordered basis, then the inner product defined above is the standard inner product.
         \begin{proof}
-        
+        Let \( F = \R^{n}  \) or \( F = \C^{n} \). Let \( x,y,z \in F^{n} \) and \( c \in F  \). Repeat the same process above but with fixing \( x = ({a}_{1}, {a}_{2}, \cdots, {a}_{n}) \), \( y = ({b}_{1}, {b}_{2}, \dots, {b}_{n})  \), and \( z = ({c}_{1}, {c}_{2}, \dots, {c}_{n}) \). Thus, the inner product above is the standard inner product.
         \end{proof}
 \end{enumerate}
 
@@ -388,11 +480,16 @@ Define
 \begin{enumerate}
     \item[(a)] Prove that \( \langle x  , Ay \rangle = \langle A^{*} x  , y \rangle \) for all \( x,y \in V  \).
         \begin{proof}
-        
+        Let \( x,y \in V  \). By definition of the adjoint for matrices, we obtain, for all \( i,j \), through the linearity of the first component and the conjugate linearity of the second component that 
+        \begin{align*}
+            \langle x  ,  {A}_{ij} y  \rangle = \overline{{A}_{ij}} \langle x , y \rangle &= {(A^{*})}_{ji} \langle x , y \rangle  \\
+                                                                                          &= \langle  (A^{*})_{ji} \  x  , y \rangle.
+        \end{align*}
+        Thus, we have that \( \langle x , Ay  \rangle = \langle A^{*} x  , y \rangle \) for all \( x,y \in V  \).
         \end{proof}
     \item[(b)] Suppose that for some \( B \in {M}_{n \times n}(F) \), we have \( \langle x  , Ay \rangle = \langle B x  , y \rangle \) for all \( x, y \in V  \). Prove that \( B = A^{*} \).
         \begin{proof}
-        
+        This is just part (a) but \( B = A^{*} \).
         \end{proof}
     \item[(c)] Let \( \alpha  \) be the standard ordered basis for \( V  \). For any orthonormal basis \( \beta  \) for \( V  \), let \( Q  \) be the \( n \times n  \) matrix whose columns are the vectors in \( \beta  \). Prove that \( Q^{*} = Q^{-1}  \).
         \begin{proof}
