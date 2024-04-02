@@ -51,7 +51,7 @@
 \end{enumerate}
 \end{proof}
 
-\subsection*{Exercise 6.1.9} Let \( \beta \) be a basis for a finite-dimensional inner product space.
+\subsection*{Exercise 6.1.9}\label{Exercise 6.1.9} Let \( \beta \) be a basis for a finite-dimensional inner product space.
 \begin{enumerate}
     \item[(a)] Prove that if \( \langle x , z \rangle = 0  \) for all \( z \in \beta  \), then \( x = 0  \).
         \begin{proof}
@@ -489,11 +489,196 @@ Define
         \end{proof}
     \item[(b)] Suppose that for some \( B \in {M}_{n \times n}(F) \), we have \( \langle x  , Ay \rangle = \langle B x  , y \rangle \) for all \( x, y \in V  \). Prove that \( B = A^{*} \).
         \begin{proof}
-        This is just part (a) but \( B = A^{*} \).
+            Let \( x,y \in V  \). By part (a), we have 
+            \[  \langle x  , Ay  \rangle = \langle  A^{*} x  , y \rangle. \]
+            So, by linearity of the first component, we find that
+            \[  \langle B x  , y \rangle = \langle A^{*} x  , y \rangle \ \iff \ B \langle x , y \rangle  = A^{*} \langle x , y \rangle.  \]
+            by assumption. If \( \langle x , y \rangle \neq 0  \), then \( B = A^{*} \). Otherwise, \( B  \) is just the zero matrix. Thus, we must have \( B = A^{*} \).
+            
         \end{proof}
     \item[(c)] Let \( \alpha  \) be the standard ordered basis for \( V  \). For any orthonormal basis \( \beta  \) for \( V  \), let \( Q  \) be the \( n \times n  \) matrix whose columns are the vectors in \( \beta  \). Prove that \( Q^{*} = Q^{-1}  \).
+    \begin{proof}
+       Let \( V = F^{n} \) and \( \alpha  \) as the standard ordered basis for \( V  \). It suffices to show that \( Q Q^{*} = Q Q^{*} = I  \). Let \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) be an orthonormal basis for \( V \). Since the columns of \( Q  \) are just the vectors of \( \beta \), we can write 
+        \begin{align*}
+            {(Q Q^{*})}_{ij} &= \sum_{ k=1  }^{ n } {Q}_{ik } Q^{*}_{kj} \\
+                             &= \sum_{ k=1  }^{ n } {Q}_{ik } \overline{{Q}_{jk }} \\
+                             &= \langle {v}_{i} ,  {v}_{j} \rangle \\
+                             &= {\delta}_{ij}
+        \end{align*}
+        Note that the above is equal to 1 whenever \( i = j  \) and \( 0  \) otherwise. So, we must have \( Q Q^{*} = I   \). Showing \( Q^{*} Q  \) is done similarly as above. Thus, we conclude that \( Q^{*} = Q^{-1} \).
+     \end{proof}
+
+     \item[(d)] Define linear operators \( T  \) and \( U  \) on \( V  \) by \( T(x) = Ax  \) and \( U(x) = A^{*}x  \). Show that \( [U]_{\beta} = [T]^{*}_{\beta} \) for any orthonormal basis \( \beta  \) for \( V  \).
+        \begin{proof}
+        Observe that \( T = {L}_{A} \) and \( U = {L}_{A^{*}} \) since \( T(x) = Ax  \) and \( U(x) = A^{*}x \). By Theorem 2.15, we can see that 
+        \[  [T]_{\beta} = A \iff [T]_{\beta}^{*} = A^{*}.   \]
+        But note that \(  [U]_{\beta} = A^{*} \). Thus, we conclude that
+        \[  [T]_{\beta}^{*} = [U]_{\beta}.\]
+        \end{proof}
+\end{enumerate}
+
+\begin{definition}[Norm Spaces]
+    Let \( V  \) be a vector space over \( F  \), where \( F  \) is either \( \R  \) or \( \C \). Regardless of whether \( V  \) is or not an inner product space, we may still define a \textbf{norm} \( \|\cdot\| \) as a real-valued function on \( V  \) satisfying the following three conditions for all \( x,y \in V  \) and \( a \in F  \).
+    \begin{enumerate}
+        \item[(1)] \( \|x \| \geq 0  \), and \( \|x\| = 0  \) if and only if \( x = 0  \).
+        \item[(2)] \( \|ax\| = | a | \|x\| \).
+        \item[(3)] \( \|x + y\| \leq \|x\| + \|y\| \).
+    \end{enumerate}
+\end{definition}
+
+\subsection*{Exercise 6.1.24} Prove that the following are norms on the given vector spaces \( V  \).
+\begin{enumerate}
+    \item[(a)] \( V = {M}_{m \times n}(F); \ \ \ \|A \| = \text{max}_{i,j} | {A}_{ij} |    \) \ \ \  for all \( A \in V  \).
+        \begin{proof}
+            Let \( A \in {M}_{m \times n }(F) \). For (1), let \( A \neq O  \) where \( O  \) is the zero matrix. Thus, \( | {A}_{ij} |  > 0  \) and so \( \|A \| = \max\limits_{i,j} | {A}_{ij} | > 0   \). On the other hand, \( A = O \) implies that \( {A}_{ij} = 0  \) for all \( i,j  \). This is true if and only if \( \|A \| = 0   \). Hence, (1) is satisfied.
+
+
+            Let \( a \in F  \). By properties of \( \max\limits_{i,j}  \)
+            \begin{align*}
+                \|a A \| = \max\limits_{i,j} | (aA)_{ij} | &= \max\limits_{i,j} | a {A}_{ij} | \\ 
+                                                           &= \max\limits_{i,j} | a | | {A}_{ij} | = | a | \max\limits_{i,j} | {A}_{ij} |  \\   
+                                                           &= | a | \|A\|.
+        \end{align*}
+        Thus, part (2) is satisfied.
+
+        Now, let \( A, B \in {M}_{m \times n}(F) \). Then by triangle inequality of the absolute value, we have for all \( i,j \)
+        \begin{align*}
+            \|A + B\| &= \max\limits_{i,j} | {(A + B)}_{ij}  |  \\
+                      &= \max\limits_{i,j} | {A}_{ij} + {B}_{ij} | \\
+                      &\leq \max\limits_{i,j} | {A}_{ij} |  + \max\limits_{i,j} | {B}_{ij} | = \|A \| + \|B\|.
+        \end{align*}
+        Thus, (3) is satisfied. We conclude that \( \|A\| = \max\limits_{i,j} | {A}_{ij} |  \) is a norm for all \( A \in V  \).
+        \end{proof}
+    \item[(b)] \( V = C([0,1]);  \ \ \  \|f\| = \max\limits_{t \in [0,1]} | f(t) |  \) for all \( f \in V  \). 
+        \begin{proof}
+            Let \( V = C([0,1]) \) and let \( f \in V  \). Suppose \( f \neq 0  \), then \( f(t) > 0  \) for all \( t \in [0,1] \). Thus, \( \|f\| = \max\limits_{t \in [0,1]} | f(t) | > 0   \). Clearly, \( f = 0  \) implies that for all \( t \in [0,1]  \), \( f(t) = 0  \). This is true if and only if \( \|f\| = 0  \). 
+
+            Let \( a \in F  \). Then observe that
+            \begin{align*}
+                \|af\| = \max\limits_{t \in [0,1]} | (af)(t) | &= \max\limits_{t \in [0,1]} | a f(t) |   \\
+                                                               &= \max\limits_{t \in [0,1]} | a |  | f(t) | \\
+                                                               &= | a |  \max\limits_{ t \in [0,1]} | f(t) | = | a |  \|f\|.
+            \end{align*}
+            Thus, (2) is satisfied.
+
+            Now, let \( f,g \in C([0,1]) \). By using the properties of the absolute value, we have
+            \begin{align*}
+                \|f + g\|  = \max\limits_{t \in [0,1]} | (f+g)(t) |  &= \max\limits_{t \in [0,1]} | f(t) + g(t) |  \\
+                                                                     &\leq \max\limits_{t \in [0,1]} | f(t) |  + \max\limits_{t \in [0,1]} | g(t) | \\ 
+                                                                     &= \|f\| + \|g\|. 
+            \end{align*}
+            Thus, we have that \( \|f +g\| \leq  \|f\| + \|g\| \) for all \( t \in [0,1] \). Thus, (3) is satisfied. Hence, \( \|f \| = \max\limits_{t \in [0,1]} | f(t) |  \) is a norm over \( V  \).
+        \end{proof}
+    \item[(c)] \( V = C([0,1]); \ \ \ \|f\| = \int_{ 0 }^{ 1 } | f(t) |  \ dt \) for all \( f \in V  \).
+        \begin{proof}
+            If \( f \geq 0  \), then \( | f |  \geq 0  \). Thus,
+        \[  \|f \| = \int_{ 0 }^{ 1 }  | f(t) |  \ dt > 0  \]
+        by our integration properties. Otherwise \( f = 0  \) implies that
+        \[  \|f\| = \int_{ 0 }^{ 1 } | f(t) |  \ dt = 0. \]
+        So, property (1) is satisfied. Conversely, \( f = 0  \). Since this is course on linear algebra, I will not bother with the technicalities of the argument. Thus, property (1) is satisfied.  
+
+        Now, for property (2), let \( f \in C([0,1]) \) and \( a \in F  \). Then by our properties of integration, we must have
+        \begin{align*}
+            \|af\| = \int_{ 0 }^{ 1 } | (af)(t) |  \ dt &= \int_{ 0 }^{ 1 } | a f(t) |  \ dt \\  
+                                                        &= \int_{ 0 }^{ 1 }  | a |  | f(t) |  \ dt \\
+                                                        &= | a | \int_{ 0 }^{ 1 }  | f(t) |  \ dt \\
+                                                        &= | a |  \|f\|.
+        \end{align*}
+        Thus, property (2) is satisfied.
+
+        Now, let \( f,g \in C([0,1]) \). Then using the triangle inequality, we obtain
+        \begin{align*}
+            \| f + g \| = \int_{ 0 }^{ 1 } | (f+g)(t) |  \ dt &= \int_{ 0 }^{ 1 }  | f(t) + g(t) |  \ dt \\
+                                                              &\leq \int_{ 0 }^{ 1 } | f(t) |  + | g(t) |  \ dt \\
+                                                              &= \int_{ 0 }^{ 1 } f(t)  \ dt + \int_{ 0 }^{ 1 }  g(t) \ dt \\
+                                                              &= \|f\| + \|g\|.
+        \end{align*}
+        Thus, \( \|f+g\| \leq \|f\| + \|g\| \) for all \( f,g \in C([0,1]) \) and hence we conclude that
+        \[ \|f\| = \int_{ 0 }^{ 1 } | f(t) |  \ dt  \]
+        defines a norm on \( V = C([0,1])  \).
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 6.1.25} Use Exercise 20 to show that there is no inner product \( \langle \cdot , \cdot \rangle \) on \( \R^{2} \) such that \( \|x\|^{2} = \langle x , x \rangle \) for all \( x \in \R^{2} \) if the norm is defined as in Exercise 24(d).
+\begin{proof}
+
+\end{proof}
+
+\subsection*{Exercise 6.1.27} Let \( \| \cdot \|  \) be a norm on a real vector space \( V  \) satisfying the parallelogram law given in Exercise 11. Define 
+\[  \langle  x , y \rangle = \frac{ 1 }{ 4 }  [ \|x + y\|^{2} - \|x - y\|^{2}]. \]
+Prove that \( \langle \cdot , \cdot \rangle  \) defines an inner product on \( V  \) such that \( \|x \|^{2} = \langle x , x \rangle \) for all \( x \in V  \).
+
+\begin{enumerate}
+    \item[(a)] Prove \( \langle x , 2y \rangle = 2 \langle x , y \rangle \) for all \( x,y \in V  \).
         \begin{proof}
         
         \end{proof}
-    \item[(d)] Define linear operators \( T  \) and \( U  \) on \( V  \) by \( T(x) = Ax  \) and \( U(x) = A^{*}x  \). Show that \( [U]_{\beta} = [T]^{*}_{\beta} \) for any orthonormal basis \( \beta  \) for \( V  \).
 \end{enumerate}
+
+\subsection*{Exercise 6.1.28} Let \( V  \) be a complex inner product space with an inner product \( \langle \cdot ,  \cdot \rangle \). Let \( [\cdot, \cdot] \) be the real-valued function such that \( [x,y] \) is the real part of the complex number \( \langle x , y \rangle \) for all \( x,y \in V  \). Prove that \( [\cdot, \cdot] \) is an inner product for \( V  \), where \( V  \) is regarded as a vector space over \( \R  \). Prove, furthermore, that \( [x,ix] = 0  \) for all \( x \in V  \).
+\begin{proof}
+Let \( x,y,z \in V  \) and \( c \in \R   \). 
+\begin{enumerate}
+    \item[(a)] Since \( \langle  \cdot  ,  \cdot \rangle \) is linear in the first component, we must have that
+        \begin{align*}
+            [x + y, z] = \Re \langle x + y , z  \rangle &= \Re (\langle x  , z \rangle + \langle y  , z \rangle) \\
+                                                        &= \Re \langle x , z \rangle + \Re \langle y , z \rangle \\
+                                                        &= [x,z] + [y,z].
+        \end{align*}
+    \item[(b)]
+        \begin{align*}
+            [cx, y] = \Re \langle cx , y \rangle &= \Re c \langle x , y \rangle  \\
+                                                 &=  c \Re \langle x , y \rangle \\
+                                                 &= c [x,y].
+        \end{align*}
+    \item[(c)] 
+        \begin{align*}
+            \overline{[x,y]} = \Re \overline{\langle x , y \rangle} = \Re \langle y , x \rangle  = [y,x].
+        \end{align*}
+    \item[(d)] Suppose that \( x \neq 0  \). Since \( \langle x , x \rangle > 0  \), we also have that
+        \[  [x,x] = \Re \langle x , x \rangle > 0.  \]
+        So, property (d) is satisfied. Now, let us show that \( [x,ix] = 0  \) for any \( x \in V  \). Now we can see that \( [ \cdot , \cdot ] \) is a inner product. Since \( \Re(i) = 0  \), we obtain that
+        \begin{align*}
+            [x,ix] = \Re \langle x , ix \rangle &= \Re (\overline{i} \langle x , x \rangle)\\
+                   &= \Re(-i) \Re \langle x , x \rangle \\
+                   &= 0 \cdot \langle x , x \rangle = 0.
+        \end{align*}
+        So, \( [x,ix] = 0  \) for all \( x \in V  \).
+\end{enumerate}
+\end{proof}
+
+\subsection*{Exercise 6.1.29} Let \( V  \) be a vector space over \( \C  \), and suppose that \( [\cdot,\cdot] \) is a real inner product on \( V  \), where \( V  \) is regarded as a vector space over \( \R  \), such that \( [x,ix] = 0  \) for all \( x \in V  \). Let \( \langle \cdot , \cdot \rangle \) be the complex-valued function defined by
+\[  \langle x , y \rangle = [x,y] + i [x,y] \ \ \text{for} \ x,y \in V. \]
+Prove that \( \langle \cdot , \cdot \rangle  \) is a complex inner product on \( V  \).
+\begin{proof}
+    Let \( x,y,z \in V  \) and \( c \in F  \).
+    \begin{enumerate}
+        \item[(a)] Using the linearity of the first component of the inner product \( [\cdot, \cdot] \), we must have
+            \begin{align*}
+                \langle x + y  , z  \rangle &= [ x + y, z ] + i [x + y, iz] \\
+                                            &=  ([x ,z] + [y,z]) + i ([x,iz] + [y,iz]) \\
+                                            &= ([x,z] + i[x,iz]) + ([y,z] + i[x,iz]) \\
+                                            &= \langle x , z \rangle + \langle y , z \rangle.
+            \end{align*}
+            So we have \( \langle x +y  , z  \rangle = \langle x  , z \rangle + \langle y , z \rangle \).
+        \item[(b)] By the same reasoning, we also have
+            \begin{align*}
+                \langle cx  , y \rangle &= [cx,y] + i[cx,iy] \\
+                                        &= c [x,y] + ci[ x,iy] \\
+                                        &= c ([x,y] + i[x,iy]) \\
+                                        &= c \langle x , y \rangle.
+            \end{align*}
+            So, part (b) is satisfied.
+        \item[(c)] 
+            \begin{align*}
+                \overline{\langle x , y \rangle} &= \overline{[x,y] + i [x,iy]} \\
+                                                 &= \overline{[x,y]} + \overline{i [x,iy]} \\
+                                                 &= [y,x] + \overline{i} [iy,x] \\
+                                                 &= [y,x] + i[y,ix] \\
+                                                 &= \langle y , x \rangle.
+            \end{align*}
+        \item[(d)] Suppose \( x \neq 0  \). Since \( [x,ix] = 0  \) for any \( x \in V  \) and that \( [x,x] > 0  \) (Since \( [\cdot,\cdot]   \) is a real inner product for \( V  \)) , we can write
+            \[   \langle x , x \rangle = [x,x] + i[x,ix] = [x,x] > 0.  \]
+           Thus, property (d) is satisfied. Hence, we conclude that \( \langle \cdot ,  \cdot \rangle  \) is a complex inner product on \( V  \). 
+    \end{enumerate}
+\end{proof} 

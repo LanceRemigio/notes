@@ -201,5 +201,19 @@ Hence, we must have
 \subsection*{Exercise 5.2.22} Let \( T  \) be a linear operator on a finite-dimensional vector space \( V  \), and suppose that the distinct eigenvalues of \( T  \) are \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{k} \). Prove that
 \[  \text{span}(\{ x \in V : x \ \text{is an eigenvector of } T  \} ) = {E}_{{\lambda}_{1}} \oplus {E}_{{\lambda}_{2}} \oplus \cdots \oplus {E}_{\lambda_{k }}. \]
 \begin{proof}
+Let \( S =  \{ x \in V : x \ \text{is an eigenvector of } T  \}  \). Our goal is to show that 
+\[  \text{span}(S) = \sum_{ i=1  }^{ k  } {E}_{{\lambda}_{i}} \ \  \text{and} \ \ {E}_{{\lambda}_{j}} \cap \sum_{ i \neq j  }^{  } {E}_{{\lambda}_{i}} = \{ 0 \}.   \]
+Since \( V  \) is finite-dimensional and each \( {E}_{{\lambda}_{i}} \) is a subspace of \( V \), we have that each \( {E}_{{\lambda}_{i}} \) is finite-dimensional by Theorem 1.11. Thus, there exists a basis of eigenvectors \( {\gamma}_{i} \) of \( T  \) for each \( {E}_{{\lambda}_{i}} \). Using repeated applications of Exercise 14 of section 1.4, we must have
+\begin{align*}
+    \sum_{ i=1  }^{ k  } {E}_{{\lambda}_{i}} = \sum_{ i=1  }^{ k  } \text{span}({\gamma}_{i}) &= \text{span} \Big(  \bigcup_{ i=1  }^{ k  } {\gamma}_{i} \Big).
+\end{align*}
+Observe that each \( \gamma_{i} \) is a linearly independent set containing eigenvectors of \( T  \). Thus, we can see that   
+\[  \bigcup_{ i=1  }^{ k  }  {\gamma}_{i} = S \]
+and so, we must have
+\[  \sum_{ i=1  }^{ k  } {E}_{{\lambda}_{i}} = \text{span}(S). \]
+Since each eigenspace \( {E}_{{\lambda}_{i}} \) is distinct, we have for all \( i \neq j  \) that
+\[ {E}_{{\lambda}_{j}} \cap \sum_{ i \neq j  }^{  } {E}_{{\lambda}_{i}} = \{ 0 \}.   \]
+Thus, we conclude that
+\[  \text{span}(S) = \bigoplus_{i=1}^{k} {E}_{{\lambda}_{i}}. \]
 
 \end{proof}
