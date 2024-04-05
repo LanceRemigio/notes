@@ -604,14 +604,165 @@ Define
 
 \end{proof}
 
-\subsection*{Exercise 6.1.27} Let \( \| \cdot \|  \) be a norm on a real vector space \( V  \) satisfying the parallelogram law given in Exercise 11. Define 
-\[  \langle  x , y \rangle = \frac{ 1 }{ 4 }  [ \|x + y\|^{2} - \|x - y\|^{2}]. \]
-Prove that \( \langle \cdot , \cdot \rangle  \) defines an inner product on \( V  \) such that \( \|x \|^{2} = \langle x , x \rangle \) for all \( x \in V  \).
+\subsection*{Exercise 6.1.26} Let \( \| \cdot \|  \) be a norm on a vector space \( V  \), and define, for each ordered pair of vectors, the scalar \( d(x,y) = \|x - y\| \), called the \textbf{distance} between \( x  \) and \( y  \). Prove the following results for all \( x,y,z \in V  \).
+\begin{enumerate}
+    \item[(a)] \( d(x,y) \geq 0  \).
+        \begin{proof}
+        Let \( x,y \in V  \). Then by definition of norm and \( d(x,y) \), we have
+        \[  d(x,y) = \|x - y\| = \sqrt{ \langle x - y  ,  x -y  \rangle  } \geq 0.   \]
+        \end{proof}
+    \item[(b)] \( d(x,y) = d(y,x) \).
+        \begin{proof}
+        Let \( x,y \in V  \). Then we have
+        \[  d(x,y) = \|x - y\| = \|y-x\| = d(y,x). \]
+        \end{proof}
+    \item[(c)] \( d(x,y) \leq d(x,z) + d(z,y) \).
+        \begin{proof}
+        Let \( x,y,z \in V  \). Then by the triangle inequality of the norm, we have
+        \begin{align*}
+            d(x,y) = \| x - y \|  &=  \| x - z + z - y \|  \\
+                                  &\leq \| x - z \| + \| z - y\| \\
+                                  &= d(x,z) + d(z,y).
+        \end{align*}
+        Thus, we have
+        \[  d(x,y) \leq d(x,z) + d(z,y). \]
+        \end{proof}
+    \item[(d)] \( d(x,x) = 0  \).
+        \begin{proof}
+        Let \( x \in V  \). Then
+        \[  d(x,x) = \|x - x \| = \| 0\| = 0. \]
+        \end{proof}
+    \item[(e)] \( d(x,y) \neq 0  \) if \( x \neq y  \).
+        \begin{proof}
+        Let \( x,y \in V   \) be distinct (\( x \neq y \)). Thus, \( x - y \neq 0 \) implies that 
+        \[  d(x,y) = \|x -y\| = \sqrt{ \langle x-y , x -y \rangle  }  > 0. \]
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 6.1.27} Let \( \| \cdot \| \) be a norm on a real vector space \( V  \) satisfying the parallelogram law given in Exercise 11. Define
+\[  \langle x , y \rangle = \frac{ 1 }{ 4 } [ \|x + y\|^{2} - \|x-y\|^{2}]. \]
+Prove that \( \langle \cdot  ,  \cdot  \rangle  \) defines an inner product on \( V  \) such that \( \|x\|^{2} = \langle x , x \rangle \) for all \( x \in V  \).
 
 \begin{enumerate}
-    \item[(a)] Prove \( \langle x , 2y \rangle = 2 \langle x , y \rangle \) for all \( x,y \in V  \).
+    \item[(a)] Prove \( \langle x , 2y \rangle  = 2 \langle x , y \rangle \) for all \( x,y \in V  \). 
         \begin{proof}
-        
+        Let \( x,y \in V  \). Then
+        \begin{align*}
+            \langle x , 2y \rangle &= \frac{ 1 }{ 4 } \Big[ \|x + 2y\|^{2} - \|x - 2y\|^{2} \Big].  \\
+        \end{align*}
+        Observe that the expression inside the brackets of the equation above can be written as, using the parallelogram law, 
+        \begin{align*}
+            \|x + 2y\|^{2} - \|x - 2y\|^{2} &= \| (x+y) + y\|^{2} - \| (x-y) - y\|^{2} \\
+                                            &=  \| (x+y) + y\|^{2} + \| (x+y) - y\|^{2}  \\ 
+                                            &- (\|(x+y) - y\|^{2} + \| (x-y) - y\|^{2}) \\
+                                            &=  2 \|x + y\|^{2} + 2 \|y\|^{2} - (2 \|x -y\|^{2} + 2 \|y\|^{2}) \\
+                                            &= 2 (\|x + y\|^{2} - \|x -y\|^{2}).
+        \end{align*}
+        This tells us that 
+        \begin{align*}
+            \langle x , 2y \rangle &= 2 \cdot \frac{ 1 }{ 4 } [\|x + y\|^{2} - \|x -y\|^{2}] = 2 \langle x  , y \rangle   \\
+        \end{align*}
+        which is our desired result.
+        \end{proof}
+    \item[(b)] Prove \( \langle x + u  ,  y  \rangle = \langle x  , y \rangle + \langle u , y \rangle  \) for all \( x ,u,y \in V  \).
+        \begin{proof}
+        Let \( x,y, u \in V  \). Observe that the parallelogram law can be written as 
+        \[  \frac{ 1 }{ 2 } \Big[ \|x  + y\|^{2} + \|x - y \|^{2} \Big] = \|x\|^{2} + \|y\|^{2}. \]
+        Observe the sum
+        \begin{align*}
+            \langle x , y \rangle + \langle u , y \rangle &= \frac{ 1 }{ 4 }  \Big[ \|x  +y\|^{2} - \|x -y\|^{2} \Big] + \frac{ 1 }{ 4 }  \Big[ \| u + y\|^{2} - \|u -y\|^{2}\Big].
+        \end{align*}
+        The first term can be written further as
+        \begin{align*}
+            \frac{ 1 }{ 4 }  \Big[ \|x + y\|^{2} - \|x-y\|^{2} \Big] &= \frac{ 1 }{ 4 }  \Big[ \frac{ 1 }{ 2 }  [ \|(x+y) + u\|^{2} + \|(x+y) - u\|^{2} ] \\
+                                                                     &- \frac{ 1 }{ 2 }  [ \|(x-y) + u\|^{2} + \|(x-y) - u\|^{2}] \Big] \\
+                                &= \frac{ 1 }{ 4 }  \Big[ \frac{ 1 }{ 2 }  [ \|(x+u) + y\|^{2} + \|(x+y) - u\|^{2} ] \\
+                                                                     &- \frac{ 1 }{ 2 }  [ \|(x+u) - y\|^{2} + \|(x-y) - u\|^{2}] \Big].
+        \end{align*}
+        Likewise, the second term can be written as 
+        \begin{align*}
+            \frac{ 1  }{ 4  } \Big[ \|u +y\|^{2} - \|u - y\|^{2} \Big] &=   \frac{ 1 }{ 4 }  \Big[ \frac{ 1 }{ 2 }  [ \|(u+y) + x\|^{2} + \|(u+y) -x \|^{2}   ] \\
+                                                                       &- \frac{ 1 }{ 2 }  [ \|(u-y) + x \|^{2} + \|(u-y) - x\|^{2}] \Big] \\
+                                                                       &=   \frac{ 1 }{ 4 }  \Big[ \frac{ 1 }{ 2 }  [ \|(u+x) + y\|^{2} + \|(x-y) - u \|^{2}   ] \\
+                                                                       &- \frac{ 1 }{ 2 }  [ \|(x+u) - y \|^{2} + \|(x+y) - u\|^{2}] \Big].
+        \end{align*}
+        As a whole, we have
+        \begin{align*}
+            \langle x  , y \rangle + \langle u , y \rangle &= \frac{ 1 }{ 4 } \Big[ \| (x+u) + y \|^{2} - \|(x+u) - y\|^{2} \Big] \\
+            &= \langle x + u  , y \rangle.
+        \end{align*}
+        \end{proof}
+    \item[(c)] Prove \( \langle nx , y \rangle = n \langle x  , y \rangle  \) for every positive integer \( n  \) and every \( x,y \in V  \). 
+        \begin{proof}
+        Let \( x ,y \in V  \). Let us proceed via induction to show the result. Note that the base case is trivial; that is, if \( n = 1  \), then we have \( \langle x , y \rangle = \langle x , y \rangle \). Suppose that the result holds for all positive integers less than \( n  \). Then observe that \( \langle (n-1)x , y \rangle = (n-1) \langle x , y \rangle \). Using part (b), we can write
+        \begin{align*}
+            \langle nx , y \rangle = \langle (  (n-1) + 1  ) x , y \rangle &= \langle (n-1) x , y \rangle + \langle x , y \rangle   \\
+                                                                           &= (n-1) \langle x , y \rangle + \langle x , y \rangle \\ 
+                                                                           &= ((n-1) + 1) \langle x , y \rangle \\
+                                                                           &= n \langle x , y \rangle.
+        \end{align*}
+        Thus, we see that \( \langle nx , y \rangle = n \langle x , y \rangle \) which is our desired result.
+        \end{proof}
+    \item[(d)] Prove \( m \langle \frac{ 1 }{ m }  x  , y \rangle = \langle x , y \rangle \) for every positive integer \( m  \) and every \( x,y \in V  \).
+        \begin{proof}
+        Let \( x,y \in V \) and let \( m  \) be any positive integer. Then set \( z = \frac{ 1 }{ m }  x  \). By using part (c), we can write
+        \begin{align*}
+            m \Big\langle \frac{ 1 }{ m }  x  , y \Big\rangle &= m \Big\langle z  , y \Big\rangle \\
+                                                      &= \langle mz , y \rangle \\
+                                                      &= \Big\langle m \cdot \frac{ 1 }{ m }  x  , y \Big\rangle = \langle x  , y \rangle.
+        \end{align*}
+        Thus, we have 
+        \[  m \Big\langle  \frac{ 1 }{ m }  x  , y \Big\rangle = \langle x , y \rangle. \]
+        \end{proof}
+    \item[(e)] Prove \( \langle rx , y \rangle = r \langle x , y \rangle \) for every rational number \( r  \) and every \( x,y \in V  \).
+        \begin{proof}
+        Let \( x,y \in V  \) and let \( r \in \Q  \). Observe that, by definition of rational numbers, we have \( r =  p/q  \) with \( p,q \in \Z  \) and \( q \neq 0  \). Then we write
+        \begin{align*}
+            \langle rx , y \rangle &= \Big\langle \frac{ p }{ q } \cdot  x   , y \Big\rangle \\
+                                   &= p \Big\langle \frac{ 1 }{ q }  x   , y  \Big\rangle \tag{Part (c)} \\
+                                   &= \frac{ p }{ q }  \langle x , y \rangle \tag{Part (d)} \\
+                                   &= r \langle x , y \rangle.
+        \end{align*}
+        Thus, we have that \( \langle rx , y \rangle = r \langle x , y \rangle \).
+        \end{proof}
+    \item[(f)] Prove \( |  \langle x , y \rangle |  \leq \|x\|\|y\| \) for every \( x,y \in V  \).  
+        \begin{proof}
+        Let \( x,y \in V  \). Using the triangle inequality for norms, we must have
+        \begin{align*}
+            | \langle x , y \rangle | &= \frac{ 1 }{ 4 }  \Big[ \|x + y\|^{2} - \|x - y\|^{2} \Big] \\
+                                      &\leq \frac{ 1 }{ 4 }  \Big[ (\|x\| + \|y\|)^{2} - \|x - y\|\Big] \\
+                                      &= \frac{ 1 }{ 4 }  \Big[ 2 \|x \| \|y\| - (\|x -y\|^{2} - \|x\|^{2} - \|y\|^{2})\Big] \\
+                                      &\leq \|x\| \|y\|.  
+        \end{align*}
+        Thus, we have that \( | \langle x , y \rangle  |  \leq \|x \| \|y\|  \).
+        \end{proof}
+    \item[(g)] Prove that for every \( c \in \R  \), every rational number \( r  \), and every \( x,y \in V  \),
+        \[ | c \langle x , y \rangle - \langle cx , y \rangle | = | (c-r)\langle x , y \rangle - \langle (c-r)x ,y  \rangle | \leq 2 | c - r  |  \|x\| \|y\|.   \]
+        \begin{proof}
+        Let \( c \in \R  \), \( r \in \Q  \), and \( x,y \in V  \). Using part (e), we can write
+        \begin{align*}
+        | c \langle x , y \rangle - \langle cx , y \rangle | &= | c \langle x , y \rangle - r \langle x , y \rangle + r \langle x , y \rangle  - \langle cx , y \rangle |   \\
+                                                             &= | (c-r)\langle x , y \rangle  + \langle (r-c)x , y \rangle | \\ 
+                                                             &= | (c-r) \langle x , y \rangle - \langle (c -r)x , y \rangle |.
+    \end{align*}
+    Working with the second equality, we can use the triangle inequality to write
+    \begin{align*}
+    | (c-r) \langle x , y \rangle + \langle (r-c)x , y \rangle | &\leq | (c-r) \langle x , y \rangle  | + | \langle (r-c)x , y \rangle |   \\  
+                                                                 &= | c-r  | | \langle x , y \rangle | + | \langle (r-c)x , y \rangle | \\ 
+                                                                 &\leq | c-r | \|x\|\|y\| + \|(r-c)x\| \|y\| \\ 
+                                                                 &= | c-r  | \|x\| \|y\| + | c-r  | \|x\| \|y\|  \\
+                                                                 &= 2 | c-r  | \|x\| \|y\|.
+\end{align*}
+Hence, we conclude that
+        \[ | c \langle x , y \rangle - \langle cx , y \rangle | = | (c-r)\langle x , y \rangle - \langle (c-r)x ,y  \rangle | \leq 2 | c - r  |  \|x\| \|y\|.   \]
+        \end{proof}
+    \item[(h)] Use the fact that for any \( c \in \R  \), \( | c -r  |  \) can be made arbitrarily small, where \( r  \) varies over the set of rational numbers, to establish item (b) of the definition of inner product.
+        \begin{proof}
+        Let \( x,y \in V  \) be non-zero. Let \( c \in \R  \) and let \( \epsilon > 0  \). Suppose that
+        \[  | c - r  |  < \frac{ \epsilon  }{ 2 \|x \| \|y\| }. \]
+        Then we have
+        \[  | c \langle x  , y \rangle - \langle cx , y \rangle |  \leq 2 | c - r  |  \| x \| \|y\| < \epsilon     \]
+        which is our desired result.
         \end{proof}
 \end{enumerate}
 
@@ -651,8 +802,7 @@ Let \( x,y,z \in V  \) and \( c \in \R   \).
 \[  \langle x , y \rangle = [x,y] + i [x,y] \ \ \text{for} \ x,y \in V. \]
 Prove that \( \langle \cdot , \cdot \rangle  \) is a complex inner product on \( V  \).
 \begin{proof}
-    Let \( x,y,z \in V  \) and \( c \in F  \).
-    \begin{enumerate}
+    Let \( x,y,z \in V  \) and \( c \in F  \). \begin{enumerate}
         \item[(a)] Using the linearity of the first component of the inner product \( [\cdot, \cdot] \), we must have
             \begin{align*}
                 \langle x + y  , z  \rangle &= [ x + y, z ] + i [x + y, iz] \\
