@@ -1,0 +1,65 @@
+\section{The Orthogonalization Process and Orthogonal Complements}
+
+Just as bases are building blocks for vector spaces, orthonormal bases are the building blocks for inner product spaces.
+
+\begin{definition}[Orthonormal Bases for Inner Product Spaces]
+   Let \( V  \) be an inner product space. A subset of \( V  \) is an \textbf{orthonormal basis} for \( V  \) if it is an ordered basis that is orthonormal. 
+\end{definition}
+
+The next theorem illustrates the importance of orthonormal sets and orthonormal bases in general.
+
+\begin{theorem}
+    Let \( V  \) be an inner product space and \( S = \{ {v}_{1}, {v}_{2}, \dots, {v}_{k } \}  \) be an orthogonal subset of \( V  \) consisting of nonzero vectors. If \( y \in \text{span}(S) \), then
+    \[  y = \sum_{ i=1  }^{ k  } \frac{ \langle y , {v}_{i} \rangle }{ \|{v}_{i}\|^{2}  }  {v}_{i}. \]
+\end{theorem}
+\begin{proof}
+Since \( y \in \text{span}(S) \), we can find scalars \( {a}_{1}, {a}_{2}, \dots, {a}_{k } \) such that
+\[  y = \sum_{ i=1  }^{ k  }{a}_{i} {v}_{i}. \]
+Then for \( 1 \leq i \leq k  \), we must have
+\[  \langle y , {v}_{j} \rangle = \Big\langle \sum_{ i=1  }^{ k  } {a}_{i} {v}_{i} , {v}_{j} \Big\rangle  =\sum_{ i=1  }^{ k  } {a}_{i} \langle {v}_{i} , {v}_{j} \rangle = {a}_{j} \|{v}_{j}\|^{2}. \]
+Thus, we have that
+\[ {a}_{j} = \frac{ \langle y , {v}_{j} \rangle }{ \|{v}_{j}\|^{2} }  \]
+which leads to our desired result 
+\[  y = \sum_{ i=1  }^{ k  } \frac{ \langle y ,  {v}_{i} \rangle }{ \|{v}_{i}\|^{2} } {v}_{i}. \]
+\end{proof}
+
+
+\begin{corollary}
+   If, in addition to the hypotheses of Theorem 6.3, \( S  \) is orthonormal and \( y \in \text{span}(S) \), then 
+   \[  y = \sum_{ i=1  }^{ k  } \langle y , {v}_{i} \rangle {v}_{i}. \]
+\end{corollary}
+
+\begin{proof}
+Since \( S  \) is orthonormal, we have \( \|{v}_{i}\| = 1  \) for all \( 1 \leq i \leq k  \). So,
+\[  y = \sum_{ i=1  }^{ k  } \langle y , {v}_{i} \rangle {v}_{i}. \]
+\end{proof}
+
+\begin{corollary}
+    Let \( V  \) be an inner product space, and let \( S  \) be an orthogonal subset of \( V  \) consisting of nonzero vectors. Then \( S  \) is linearly independent.
+\end{corollary}
+
+\begin{proof}
+Suppose that \( {v}_{1}, {v}_{2}, \dots, {v}_{k} \in S  \) and 
+\[  \sum_{ i=1  }^{ k  } {a}_{i} {v}_{i} = 0.  \]
+Observing that \( y = 0  \), we can apply Theorem 6.3 to obtain
+\[  {a}_{j} = \frac{ \langle 0 , {v}_{j} \rangle }{  \|{v}_{j}\|^{2} }  = 0\]
+for all \( j  \). Thus, \( S  \) is linearly independent.
+\end{proof} 
+
+\begin{itemize}
+    \item The main takeaway from these results is that if we have some orthonormal basis, we can solve for the coefficients by using the formula described in the first corollary.
+    \item The second corollary tells us that vector space \( H  \) in the Section 6.1 contains an infinite linearly independent set and therefore is not a finite-dimensional vector space.
+    \item Later in this section, we will prove that it is possible for finite-dimensional vector spaces to posses an orthonormal basis from a linearly independent set of vectors.
+\end{itemize}
+
+\begin{theorem}
+    Let \( V  \) be an inner product space and \( S = \{ {w}_{1}, {w}_{2}, \dots, {w}_{n} \}  \) be a linearly independent subset of \( V  \). Define \( S' = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \},  \) where \( {v}_{1} = {w}_{1} \) and
+    \[  {v}_{k} = {w}_{k} - \sum_{ j=1 }^{ k - 1  } \frac{ \langle {w}_{k} , {v}_{j} \rangle }{ \|{v}_{j}\|^{2} } {v}_{j} \ \ \text{for } 2 \leq k \leq n. \]
+    Then \( S'  \) is an orthogonal set of nonzero vectors such that \( \text{span}(S') = \text{span}(S) \).
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+
+

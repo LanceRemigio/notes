@@ -340,3 +340,12 @@
 \contentsline {definition}{\ifthmt@listswap Definition~6.1.5\else \numberline {6.1.5}Definition\fi \thmtformatoptarg {Orthogonality of Vectors}}{110}{definition.6.1.5}%
 \contentsline {definition}{\ifthmt@listswap Definition~6.1.6\else \numberline {6.1.6}Definition\fi \thmtformatoptarg {Normalizing}}{110}{definition.6.1.6}%
 \contentsline {eg}{\ifthmt@listswap Example~6.1.7\else \numberline {6.1.7}Example\fi }{110}{eg.6.1.7}%
+\contentsline {definition}{\ifthmt@listswap Definition~6.2.1\else \numberline {6.2.1}Definition\fi \thmtformatoptarg {Orthonormal Bases for Inner Product Spaces}}{111}{definition.6.2.1}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~6.2.1\else \numberline {6.2.1}Theorem\fi }{111}{theorem.6.2.1}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{111}{thmt@dummyctr.dummy.339}%
+\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{111}{thmt@dummyctr.dummy.340}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{111}{thmt@dummyctr.dummy.341}%
+\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{112}{thmt@dummyctr.dummy.342}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{112}{thmt@dummyctr.dummy.343}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~6.2.2\else \numberline {6.2.2}Theorem\fi }{112}{theorem.6.2.2}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{112}{thmt@dummyctr.dummy.345}%
