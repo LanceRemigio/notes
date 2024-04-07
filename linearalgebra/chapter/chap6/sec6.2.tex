@@ -8,7 +8,7 @@ Just as bases are building blocks for vector spaces, orthonormal bases are the b
 
 The next theorem illustrates the importance of orthonormal sets and orthonormal bases in general.
 
-\begin{theorem}
+\begin{theorem}\label{Theorem 6.3}
     Let \( V  \) be an inner product space and \( S = \{ {v}_{1}, {v}_{2}, \dots, {v}_{k } \}  \) be an orthogonal subset of \( V  \) consisting of nonzero vectors. If \( y \in \text{span}(S) \), then
     \[  y = \sum_{ i=1  }^{ k  } \frac{ \langle y , {v}_{i} \rangle }{ \|{v}_{i}\|^{2}  }  {v}_{i}. \]
 \end{theorem}
@@ -24,7 +24,7 @@ which leads to our desired result
 \end{proof}
 
 
-\begin{corollary}
+\begin{corollary}\label{Corollary 1 to Theorem 6.3}
    If, in addition to the hypotheses of Theorem 6.3, \( S  \) is orthonormal and \( y \in \text{span}(S) \), then 
    \[  y = \sum_{ i=1  }^{ k  } \langle y , {v}_{i} \rangle {v}_{i}. \]
 \end{corollary}
@@ -34,7 +34,7 @@ Since \( S  \) is orthonormal, we have \( \|{v}_{i}\| = 1  \) for all \( 1 \leq 
 \[  y = \sum_{ i=1  }^{ k  } \langle y , {v}_{i} \rangle {v}_{i}. \]
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}\label{Corollary 2 to Theorem 6.3}
     Let \( V  \) be an inner product space, and let \( S  \) be an orthogonal subset of \( V  \) consisting of nonzero vectors. Then \( S  \) is linearly independent.
 \end{corollary}
 
@@ -52,14 +52,87 @@ for all \( j  \). Thus, \( S  \) is linearly independent.
     \item Later in this section, we will prove that it is possible for finite-dimensional vector spaces to posses an orthonormal basis from a linearly independent set of vectors.
 \end{itemize}
 
-\begin{theorem}
+\begin{theorem}[Gram-Schmidt Process]\label{Thereom 6.4}
     Let \( V  \) be an inner product space and \( S = \{ {w}_{1}, {w}_{2}, \dots, {w}_{n} \}  \) be a linearly independent subset of \( V  \). Define \( S' = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \},  \) where \( {v}_{1} = {w}_{1} \) and
-    \[  {v}_{k} = {w}_{k} - \sum_{ j=1 }^{ k - 1  } \frac{ \langle {w}_{k} , {v}_{j} \rangle }{ \|{v}_{j}\|^{2} } {v}_{j} \ \ \text{for } 2 \leq k \leq n. \]
+    \[  {v}_{k} = {w}_{k} - \sum_{ j=1 }^{ k - 1  } \frac{ \langle {w}_{k} , {v}_{j} \rangle }{ \|{v}_{j}\|^{2} } {v}_{j} \ \ \text{for } 2 \leq k \leq n. \tag{1} \]
     Then \( S'  \) is an orthogonal set of nonzero vectors such that \( \text{span}(S') = \text{span}(S) \).
 \end{theorem}
 \begin{proof}
+The proof is by mathematical induction on \( n  \), the number of vectors in \( S  \). For \( k  = 1,2 , \dots, n  \), let \( {S}_{k} = \{ {w}_{1}, {w}_{2}, \dots, {w}_{k} \} \). If \( n = 1  \), then \( {v}_{1} = {w}_{1} \) where \( {v }_{1} = {w}_{1} \neq 0 \). So, \( {S}_{1}' = {S}_{1} \). 
 
+Now, suppose that \( {S}_{k-1}' = \{ {v}_{1}, {v}_{2}, \dots, {v}_{k-1} \}  \) is an orthogonal set of nonzero vectors such that \( \text{span}({S}_{k}') = \text{span}({S}_{k}) \). Note that in this case \( {v}_{k } \) is obtained from \( {S}_{k}' \) by the property described in (1). If \( {v}_{k} = 0  \), then we get that \( {w}_{k} \in \text{span}({S}_{k-1}') = \text{span}({S}_{k-1}) \). But this contradicts the assumption that \( {S}_{k} \) is linearly independent. 
+
+Thus, for \(1 \leq i \leq k - 1\) we have that (1) implies
+\[  \langle {v}_{k} , {v}_{i} \rangle = \langle {w}_{k} , {v}_{i} \rangle - \sum_{ j=1  }^{ k-1  } \frac{ \langle {w}_{k} ,  {v}_{j} \rangle }{ \|{v}_{j}\|^{2} }  \langle {v}_{j} , {v}_{i} \rangle = \langle {w}_{k } ,  {v}_{i} \rangle - \frac{ \langle {w}_{k} , {v}_{i} \rangle }{ \|{v}_{i}\|^{2} } \|{v}_{i}\|^{2} = 0 \]
+since \( \langle {v}_{j} ,  {v}_{i} \rangle = 0  \) if \( i \neq j \) by our inductive hypothesis that \( {S}_{k-1}' \) is orthogonal. Hence, we have that \( {S}_{k}' \) is an orthogonal set of nonzero vectors. Furthermore, \( \text{span}({S}_{k}') \subseteq \text{span}({S}_{k}) \) by (1). But we also have that \( {S}_{k}' \) is linearly independent set by corollary 2 to Theorem 6.3. Thus, \( \text{dim}(\text{span}({S}_{k}')) = \text{dim}(\text{span}({S}_{k})) = k    \) which implies that \( \text{span}({S}_{k}') = \text{span}({S}_{k}) \).  \end{proof}
+
+\begin{theorem}\label{Theorem 6.5}
+   Let \( V  \) be a nonzero finite-dimensional inner product space. Then \( V  \) has an orthonormal basis \( \beta \). Furthermore, if \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) and \( x \in V  \), then 
+   \[  x = \sum_{ i=1  }^{ n } \langle x , {v}_{i} \rangle {v}_{i}. \]
+\end{theorem}
+\begin{proof}
+Suppose that \( V  \) is a nonzero finite-dimensional inner product space. Let \( {\beta}_{0} \) be an ordered basis for \( V  \). We can apply {\hyperref[Theorem 6.4]{Theorem 6.4}} to obtain an orthogonal set \( \beta'  \) of nonzero vectors such that
+\[  \text{span}(\beta') = \text{span}({\beta}_{0}) = V. \]
+Now, we obtain an orthonormal set \( \beta \) that generates \( V  \) by normalizing each vector in \( \beta'  \). Since this set is also orthogonal, it is also linearly independent by the {\hyperref[Corollary 2 to Theorem 6.3]{Second Corollary to Theorem 6.3}}. Thus, \( \beta  \) is an orthonormal basis for \( V  \). By the {\hyperref[Corollary 1 to Theorem 6.3]{Corollary 1 to Theorem 6.3}}, we must have
+\[  x = \sum_{ i=1  }^{  n } \langle x , {v}_{i} \rangle {v}_{i} \]
+for any \( x \in V  \).
 \end{proof}
+
+\begin{corollary}
+    Let \( V  \) be a finite-dimensional inner product space with an orthonormal basis \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \). Let \( T  \) be a linear operator on \( V  \), and let \( A = [T]_{\beta} \). Then for any \( i  \) and \( j \), \( {A}_{ij} = \langle T({v}_{j}) , {v}_{i} \rangle. \)
+\end{corollary}
+
+\begin{proof}
+Using {\hyperref[Theorem 6.5]{Theorem 6.5}}, we must have  
+\[  T({v}_{j}) = \sum_{ i=1  }^{ n } \langle T({v}_{j}) , {v}_{i} \rangle {v}_{i}. \]
+But this is just the matrix representation of \( T \) so we have \( {A}_{ij} = \langle T({v}_{j}) , {v}_{i} \rangle \).
+\end{proof}
+
+\begin{definition}[Fourier Coefficients]
+    Let \( \beta \) be an orthonormal subset (possibly infinite) of an inner product space \( V  \), and let \( x \in V  \). We define the \textbf{Fourier Coefficients} of \( x  \) relative to \( \beta  \) to be the scalars \( \langle x , y \rangle \), where \( y \in \beta \).
+\end{definition}
+
+\begin{definition}[Orthogonal Complements]
+    Let \( S  \) be a nonempty subset of an inner product space \( V  \). We define \( S^{\perp} \) to be the set of all vectors in \( V  \) that are orthogonal to every vector in \( S  \); that is, 
+    \[  S^{\perp} = \{ x \in V : \langle x , y \rangle = 0 \ \text{for all} \ y \in S  \}. \]
+    The set \( S^{\perp} \) is called the \textbf{orthogonal complement} of \( S  \).
+\end{definition}
+
+Note that this set is a subspace of \( V  \).
+
+\begin{eg}
+    For any inner product space \( V  \), we have \( \{ 0 \}^{\perp} = V  \) and \( V^{\perp} = \{ 0 \}  \).
+\end{eg}
+
+\begin{eg}
+    If \( V = \R^{3} \) and \( S = \{ {e}_{3} \}  \), then \( S^{\perp} \) is just the \( xy- \)plane.
+\end{eg}
+
+The most common situations in which Orthogonal Complements are used are problems dealing with finding the distance in \( \R^{3} \) from some point \( P  \) in a plane \( W  \). If we let \( y  \) be the vector determined by \( 0  \) and \( P  \), then the problem is reduced to finding a vector \( u \) in \( W  \) such that the distance between \( u \) and \( y  \) is as close as possible. This distance can be defined by the norm \( \| y - u\|  \).   
+
+If we set \( z = y - u \), then we can see that this vector is orthogonal to every vector in \( W  \). Thus, we have \( z \in W^{\perp}  \). In the next theorem, we will present a way to finding this vector that minimizes the distance from another vector in the case that \( W  \) is a finite-dimensional subspace of an inner product space. 
+
+
+\begin{theorem}\label{Theorem 6.6}
+    Let \( W  \) be a finite-dimensional subspace of an inner product space \( V  \), and let \( y \in V  \). Then there exists unique vectors in \( u \in W  \) and \( z \in W^{\perp} \) such that \( y = u + z  \). Furthermore, if \( \{ {v}_{1}, {v}_{2}, \dots, {v}_{k } \}  \) is an orthonormal basis for \( W  \), then 
+    \[  y = \sum_{ i=1  }^{ k  } \langle y , {v}_{i} \rangle {v}_{i}. \]
+\end{theorem}
+\begin{proof}
+    Let \( y \in V  \). Let \( \{ {v}_{1}, {v}_{2}, \dots, {v}_{k} \}  \) be an orthonormal basis for \( W  \), let \( u  \) be as defined in the preceding equation, and let \(  z = y - u  \). We can see that \( u \in W  \) and that \( y = u  + z  \).
+    It suffices to show that \( z \in W^{\perp} \); that is, \( z  \) is orthogonal to each \( {v}_{j} \). For any \( j \), we have
+    \[ \langle z , {v}_{j} \rangle = \Big\langle \Big( y - \sum_{ i=1  }^{ k  } \langle y , {v}_{i} \rangle {v}_{i} \Big), {v}_{j} \Big\rangle = \langle y , {v}_{j} \rangle - \sum_{ i=1  }^{ k  } \langle y , {v}_{i} \rangle \langle {v}_{i} , {v}_{j} \rangle = \langle y , {v}_{j} \rangle - \langle y , {v}_{j} \rangle = 0. \]
+    Thus, \( \langle z , {v}_{j} \rangle = 0  \). Since each \( {v}_{j} \neq 0  \), we must have that \( z = y - u = 0  \). So, we get  
+    \[  u = \sum_{ i=1  }^{ k  } \langle y , {v}_{i} \rangle {v}_{i} \] as our desired result. 
+
+    For uniqueness, suppose that \( y = u + z = u' + z' \), where \( u' \in W  \) and \( z' \in W^{\perp}\). Thus, we must have  
+    \[  u - u' = z' - z \in W \cap W^{\perp} = \{ 0  \}. \]
+    Thus, \( u - u' = 0   \) and \( z - z' = 0  \) implies \( u = u'  \) and \( z = z' \).
+\end{proof}
+
+\begin{corollary}
+   In the notation of Theorem 6.6, the vector \( u  \) is the unique vector in \( W  \) that is "closest" to \( y  \); that is, for any \( x \in W  \), \( \| y - x \| \geq \|y - u\| \), and this inequality is an equality if and only if \( x = u \). 
+\end{corollary}
+
 
 
 

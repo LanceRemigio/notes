@@ -347,5 +347,16 @@
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{111}{thmt@dummyctr.dummy.341}%
 \contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{112}{thmt@dummyctr.dummy.342}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{112}{thmt@dummyctr.dummy.343}%
-\contentsline {theorem}{\ifthmt@listswap Theorem~6.2.2\else \numberline {6.2.2}Theorem\fi }{112}{theorem.6.2.2}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~6.2.2\else \numberline {6.2.2}Theorem\fi \thmtformatoptarg {Gram-Schmidt Process}}{112}{theorem.6.2.2}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{112}{thmt@dummyctr.dummy.345}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~6.2.3\else \numberline {6.2.3}Theorem\fi }{113}{theorem.6.2.3}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{113}{thmt@dummyctr.dummy.347}%
+\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{113}{thmt@dummyctr.dummy.348}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{113}{thmt@dummyctr.dummy.349}%
+\contentsline {definition}{\ifthmt@listswap Definition~6.2.2\else \numberline {6.2.2}Definition\fi \thmtformatoptarg {Fourier Coefficients}}{113}{definition.6.2.2}%
+\contentsline {definition}{\ifthmt@listswap Definition~6.2.3\else \numberline {6.2.3}Definition\fi \thmtformatoptarg {Orthogonal Complements}}{113}{definition.6.2.3}%
+\contentsline {eg}{\ifthmt@listswap Example~6.2.1\else \numberline {6.2.1}Example\fi }{113}{eg.6.2.1}%
+\contentsline {eg}{\ifthmt@listswap Example~6.2.2\else \numberline {6.2.2}Example\fi }{113}{eg.6.2.2}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~6.2.4\else \numberline {6.2.4}Theorem\fi }{114}{theorem.6.2.4}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{114}{thmt@dummyctr.dummy.355}%
+\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{114}{thmt@dummyctr.dummy.356}%
