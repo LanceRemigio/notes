@@ -285,17 +285,12 @@ Since \( V  \) is an inner product space, we can see that the above is true if a
 
 \subsection*{Exercise 6.1.18} Let \( V  \) be a vector space over \( F  \), where \( F = \R  \) or \( F = \C  \), and let \( W  \) be an inner product space over \( F  \) with inner product \( \langle \cdot  ,  \cdot  \rangle \). If \( T: V \to W  \) is linear, prove that \( \langle x , y \rangle' = \langle T(x)  , T(y) \rangle \) defines an inner product on \( V  \) if and only if \( T  \) is one-to-one.
 \begin{proof}
-    Let \( x,y \in V  \). For the forwards direction, suppose that \( \langle x , y \rangle' = \langle  T(x)  , T(y) \rangle \) defines an inner product on \( V  \). Suppose that \( T(x) = T(y) \). Consider the norm
-    \[  \|T(x)\| = \|T(y)\|.  \]
-Since \( \langle x , y \rangle'  \) defines an inner product on \( V  \), we can write
-\begin{align*}
-    \|T(x) \|^{2} &= \|T(y)\|^{2} \\
-    \langle T(x)  , T(x)  \rangle &= \langle T(y) , T(y) \rangle\\
-    \langle T(x)  , T(x)  \rangle &= \langle T(x) , T(y) \rangle\\
-    \langle x , x \rangle' &= \langle x , y \rangle'.
-\end{align*}
-Using part (e) Theorem 6.1, we have that \( x = y  \). Thus, \( T  \) is one-to-one. 
-
+    Let \( x,y \in V  \). For the forwards direction, suppose that \( \langle x , y \rangle' = \langle  T(x)  , T(y) \rangle \) defines an inner product on \( V  \). Suppose that \( T(x) = T(y) \). Then we see that \( T(x-y) = 0   \) since \( T  \) is linear. Consider the norm \( \|T(x-y)\| = 0  \). By definition of \( \langle \cdot , \cdot \rangle'  \), observe that
+    \begin{align*}
+        0 = \|T(x-y)\|^{2} &= \langle T(x-y) , T(x-y)  \rangle \\
+                       &= \langle x -y  , x - y  \rangle.
+    \end{align*}
+    Since \( \langle \cdot , \cdot \rangle \) is an inner product, we must have \( x - y = 0  \) implies \( x = y  \).
 For the backwards direction, suppose \( T  \) is one-to-one. We need to show that \( \langle \cdot , \cdot \rangle' \) defines an inner product on \( V  \). Let \( x,y,z \in V  \) and let \( c \in F  \). Suppose \( T  \) is linear and \( \langle \cdot ,  \cdot  \rangle  \) defines an inner product over \( W  \). Then
 \begin{enumerate}
     \item[(a)] 
@@ -601,7 +596,7 @@ Define
 
 \subsection*{Exercise 6.1.25} Use Exercise 20 to show that there is no inner product \( \langle \cdot , \cdot \rangle \) on \( \R^{2} \) such that \( \|x\|^{2} = \langle x , x \rangle \) for all \( x \in \R^{2} \) if the norm is defined as in Exercise 24(d).
 \begin{proof}
-
+There is no inner product on \( \R^{2} \) because the first property of the inner product fails.
 \end{proof}
 
 \subsection*{Exercise 6.1.26} Let \( \| \cdot \|  \) be a norm on a vector space \( V  \), and define, for each ordered pair of vectors, the scalar \( d(x,y) = \|x - y\| \), called the \textbf{distance} between \( x  \) and \( y  \). Prove the following results for all \( x,y,z \in V  \).
