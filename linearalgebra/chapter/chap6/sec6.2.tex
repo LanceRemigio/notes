@@ -133,6 +133,36 @@ If we set \( z = y - u \), then we can see that this vector is orthogonal to eve
    In the notation of Theorem 6.6, the vector \( u  \) is the unique vector in \( W  \) that is "closest" to \( y  \); that is, for any \( x \in W  \), \( \| y - x \| \geq \|y - u\| \), and this inequality is an equality if and only if \( x = u \). 
 \end{corollary}
 
+\begin{proof}
+In the notation of Theorem 6.6., we have \( y = u + z  \), where \( z \in W^{\perp} \). Let \( x \in W  \). Then \( u - x  \) is orthogonal to \( z  \). By Exercise 10 of Section 6.1, we can see that
+\begin{align*}
+    \| y  - x \|^{2} = \| (u+z) - x \|^{2} &= \| (u-x) + z \|^{2} \\
+                                   &= \| u - x \|^{2} + \| z \|^{2} \\
+                                   &\geq \| z \|^{2} = \| y - u \|^{2}
+\end{align*}
+which is our desired inequality. Now, suppose that \( \| y - x \| = \| y - u\| \). This implies that \( \| u - x \| = 0  \) and thus \( u = x  \) since \( V  \) is an inner product space. Conversely, \( u = x  \) immediately implies that \(  \| u - x \| = 0  \) and consequently, the inequality above becomes an equality. So, \( \| y - x \| = \| y - u \| \).
+\end{proof}
 
+Just as we have seen with linearly independent subsets of finite-dimensional vector spaces and how we can extend them to become bases, we can also extend orthonormal subsets of finite-dimensional inner product spaces into orthonormal bases for these spaces. 
 
+\begin{theorem}\label{Theorem 6.7}
+   Suppose that \( S = \{ {v}_{1}, {v}_{2}, \dots, {v}_{k } \}  \) is an orthonormal set in an \( n- \)dimensional inner product space \( V  \). Then 
+   \begin{enumerate}
+       \item[(a)] \( S  \) can be extended to an orthonormal basis \( \{ {v}_{1}, {v}_{2}, \dots, {v}_{k}, {v}_{k+1}, \dots, {v}_{n} \}  \) for \( V  \).
+        \item[(b)] If \( W = \text{span}(S)  \), then \( {S}_{1} = \{ {v}_{k+1}, {v}_{k+2}, \dots, {v}_{n} \}  \) is an orthonormal basis for \( W^{\perp} \) (using the preceding notation).
+        \item[(c)] If \( W  \) is any subspace of  \( V  \), then \( \text{dim}(V) = \text{dim}(W) + \text{dim}(W^{\perp}) \).
+   \end{enumerate}
+\end{theorem}
+\begin{proof} Suppose that \( S = \{ {v}_{1}, {v}_{2}, \dots, {v}_{k} \}   \) is an orthonormal set.
+\begin{enumerate}
+    \item[(a)] Since \( V  \) is an \( n- \)dimensional inner product space, we can use the {\hyperref[2nd Corollary to RT]{Second Corollary to the Replacement Theorem}} to extend \( S  \) into a basis \( S' = \{ {v}_{1}, {v}_{2}, \dots, {v}_{k}, {w}_{k+1}, \dots, {w}_{n} \}  \) for \( V  \). Now, we can use the {\hyperref[Theorem 6.4]{Gram-Schmidt Process}} to \( S' \). Thus, \( S'  \) is an orthogonal set that is also a basis for \( V  \) with the first \( k  \) vectors of \( S' \) being part of \( S  \). The last \( n  - k  \) can be normalized to produce an orthonormal set. Denote this set as \( \beta \) and thus, we have an orthonormal set that is a basis for \( V  \).
+    \item[(b)] Note that \( {S}_{1} \) is a subset of the basis \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{k }, {v}_{k+1}, \dots, {v}_{n} \}  \) and thus it is linearly independent. Furthermore, \( {S}_{1} \) is a subset of \( W^{\perp} \). It suffices to show that \( {S}_{1} \) spans \( W^{\perp}\). Observe that for any \( x \in V  \), our orthonormal basis gives us
+        \[ x  = \sum_{ i=1  }^{ n } \langle x , {v}_{i}  \rangle {v}_{i}.  \]
+        If \( x \in W^{\perp} \), then \( \langle x , {v}_{i} \rangle = 0  \) for \( 1 \leq i \leq k  \) (this is because \( {v}_{1}, {v}_{2}, \dots, {v}_{k} \in V  \) are not in \( W^{\perp} \)). Thus, we have
+        \[  x = \sum_{ i= k + 1  }^{ n } \langle x , {v}_{i} \rangle {v}_{i} \in \text{span}({S}_{1}) \]
+        which is our desired result.
+    \item[(c)] Let \( W  \) be a subspace of \( V \). Since \( V  \) is a finite-dimensional inner product space, we also know that \( W  \) is a finite-dimensional by Theorem 1.11. Thus, it must contain an orthonormal basis \( \{ {v}_{1}, {v}_{2}, \dots, {v}_{k } \}  \). Since \( \text{dim}(W) = k  \) and \( \text{dim}(W^{\perp})  \), we have  
+        \[  \text{dim}(V) = n = k + (n-k) = \text{dim}(W) + \text{dim}(W^{\perp}). \]
+\end{enumerate}
+\end{proof}
 

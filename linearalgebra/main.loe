@@ -360,3 +360,6 @@
 \contentsline {theorem}{\ifthmt@listswap Theorem~6.2.4\else \numberline {6.2.4}Theorem\fi }{114}{theorem.6.2.4}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{114}{thmt@dummyctr.dummy.355}%
 \contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{114}{thmt@dummyctr.dummy.356}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{114}{thmt@dummyctr.dummy.357}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~6.2.5\else \numberline {6.2.5}Theorem\fi }{115}{theorem.6.2.5}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{115}{thmt@dummyctr.dummy.359}%
