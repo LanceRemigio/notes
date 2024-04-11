@@ -1,0 +1,116 @@
+\section{Gram-Schmidt Orthogonalization Process}
+
+\subsection*{Exercise 6.2.6} Let \( V  \) be an inner product space, and let \( W  \) be a finite-dimensional subspace of \( V  \). If \( x \notin W  \), prove that there exists \( y \in V  \) such that \( y \in W^{\perp} \), but \( \langle x , y \rangle \neq 0  \).
+\begin{proof}
+Let \( x \in V  \) but not in \( W  \). By Theorem 6.6, there exists unique scalars \( u \in W  \) and \( y \in W^{\perp} \) such that \( x = u + y \) if and only if \( y = x - u  \). Then observe that
+\[ \langle x , y \rangle = \langle x  , x - u  \rangle = \langle x , x \rangle - \langle x , u \rangle.\]
+If \( x = 0  \), then we would find that \( x \in W  \) since \( W  \) is a finite-dimensional subspace of \( V  \) which is a contradiction. Does \( x  \) must be non-zero as well as \( x - u \neq 0  \) since \( U  \) is a unique scalar. Otherwise, we gain the same contradiction. Thus, we have that \( \langle x , y \rangle \neq 0  \). 
+\end{proof}
+
+\subsection*{Exercise 6.2.7} Let \( \beta \) be a basis for a subspace \( W  \) an inner product space \( V  \), and let \( z \in V  \). Prove that \( z \in W^{\perp} \) if and only if \( \langle z  ,  v  \rangle = 0  \) for every \( v \in \beta  \).
+\begin{proof}
+    Let \( z \in W^{\perp} \) and \( v \in \beta \). Then by definition of \( W^{\perp} \) and the fact that \( \beta \subseteq W  \), we must have \( \langle z , v  \rangle = 0  \).
+
+    Conversely, suppose \( \langle z , v \rangle = 0  \) for all \( v \in \beta \). Since \( \beta \subseteq W \), we immediately have \( z \in W^{\perp} \).
+\end{proof}
+
+\subsection*{Exercise 6.2.8} Prove that if \( \{ {w}_{1}, {w}_{2}, \dots, {w}_{n} \}  \) is an orthogonal set of nonzero vectors, then the vectors \( {v}_{1}, {v}_{2}, \dots, {v}_{n} \) derived from the Gram-Schmidt process satisfy \( {v}_{i} = {w}_{i} \) for \( i = 1,2,\dots, n \).
+\begin{proof}
+
+\end{proof}
+
+\subsection*{Exercise 6.2.10} Let \( W  \) be a finite-dimensional subspace of an inner product space \( V  \). Prove that there exists a projection \( T  \) on \( W  \) along \( W^{\perp} \) that satisfies \( N(T) = W^{\perp} \). In addition, prove that \( \|T(x)\| \leq \|x\| \) for all \( x \in V  \).
+\begin{proof}
+
+\end{proof}
+
+\subsection*{Exercise 6.2.13} Let \( V  \) be an inner product space, \( S  \) and \( {S}_{0} \) be subsets of \( V  \), and \( W  \) be a finite-dimensional subspace of \( V  \). Prove the following results.
+\begin{enumerate}
+    \item[(a)] \( {S}_{0} \subseteq S  \) implies that \( S^{\perp} \subseteq {S}_{0}^{\perp} \).
+        \begin{proof}
+            Suppose \( {S}_{0} \subseteq S \). Let \( {s}_{0} \in {S}_{0} \). Then \( {s}_{0} \in S  \) as well. If we let \( x \in S^{\perp} \), then  we see that \( \langle x ,  {s}_0  \rangle = 0  \). But \( {s}_{0} \) in an element of \( {S}_{0} \), so \( x \in {S}_{0}^{\perp} \) and we are done.  
+        \end{proof}
+    \item[(b)] \( S \subseteq (S^{\perp})^{\perp} \); so \( \text{span}(S) \subseteq (S^{\perp})^{\perp} \).
+        \begin{proof}
+        Let \( {v}_{1}, {v}_{2}, \dots, {v}_{k} \in S  \). If \( y \in \text{span}(S) \), then 
+        \[  y = \sum_{ i=1  }^{  k  } {a}_{i} {v}_{i}  \]
+        for some scalars \( {a}_{1}, {a}_{2}, \dots, {a}_{k }  \). Since \( S \subseteq (S^\perp)^{\perp} \), we see that \( {v}_{1}, {v}_{2}, \dots, {v}_{k} \in (S^{\perp})^{\perp} \). So, \( y  \) must also be an element of \( (S^{\perp})^{\perp} \) and we are done.
+        \end{proof}
+    \item[(c)] \( W = (W^{\perp})^{\perp} \).
+        \begin{proof}
+        By part (b), we have \( W \subseteq (W^{\perp})^{\perp} \). We need only show the other containment now, namely, \( (W^{\perp})^{\perp} \subseteq W  \). Suppose for sake of contradiction that \( x \notin W  \). Now, let \( x \in (W^{\perp})^{\perp} \). By definition, we have   
+        \begin{center}
+            \( \langle x , w \rangle = 0   \) for all \( w \in W^{\perp} \).
+        \end{center}
+        However, we have \( x \notin W  \) implies that \( w \in W^{\perp} \) such that \( \langle x , w \rangle \neq 0  \) for all \( w \in W^{\perp} \) which contradicts the assumption that \( x \in (W^{\perp})^{\perp}  \). Thus, we must have \( (W^{\perp})^{\perp} \subseteq W  \). Hence, we conclude that 
+        \[   W = (W^{\perp})^{\perp}.  \]
+        \end{proof}
+    \item[(d)] \( V = W \oplus W^{\perp} \).
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 6.2.14} Let \( {W}_{1} \) and \( {W}_{2} \) be subspaces of a finite-dimensional inner product space. Prove that \( ({W}_{1} + {W}_{2})^{\perp} = {W}_{1}^{\perp} \cap {W}_{2}^{\perp} \) and \( ({W}_{1} \cap {W}_{2})^{\perp} = {W}_{1}^{\perp} + {W}_{2}^{\perp} \). 
+\begin{proof}
+    Let \( V \) be a finite-dimensional vector space. We will first show that \( ({W}_{1} + {W}_{2})^{\perp} \subseteq {W}_{1}^{\perp} \cap {W}_{2}^{\perp} \). Since \( {W}_{1} \cap {W}_{2} \subseteq {W}_{1} + {W}_{2} \), we can see by part (a) that \( ({W}_{1} + {W}_{2})^{\perp} \subseteq {W}_{1}^{\perp} \cap {W}_{2}^{\perp}  \). Let \( x \in {W}_{1}^{\perp} \cap {W}_{2}^{\perp} \). Then \( x \in {W}_{1}^{\perp} \) and  \( x \in {W}_{2}^{\perp} \). So, \( \langle x , {w}_{1}  \rangle = 0  \) and \( \langle x  ,  {w}_{2} \rangle = 0  \) for all \( {w}_{1} \in {W}_{1} \) and \( {w}_{2} \in {W}_{2} \), respectively. Since 
+    \[  \langle x , {w}_{1} \rangle + \langle x  , {w}_{2} \rangle = \langle x  ,  {w}_{1} + {w}_{2} \rangle = 0, \]
+    we can see that \( x \in ({W}_{1} + {W}_{2})^{\perp} \). So, \( {W}_{1}^{\perp} \cap {W}_{2}^{\perp} \subseteq ({W}_{1} + {W}_{2})^{\perp} \). Thus, 
+    \[  ({W}_{1} + {W}_{2})^{\perp} = {W}_{1}^{\perp} \cap {W}_{2}^{\perp}. \tag{1} \]
+
+    Now, we can use the first equation to show the second equation. Then by using part(c) of Exercise 13 and (1), we can write that
+    \begin{align*}
+        ({W}_{1} \cap {W}_{2})^{\perp} &= \Big( ({W}_{1}^{\perp})^{\perp} \cap ({W}_{2}^{\perp})^{\perp} \Big)  \\
+                                       &= \Big( (W_{1}^{\perp} + {W}_{2}^{\perp})^{\perp}  \Big)^{\perp} \\
+                                       &= {W}_{1}^{\perp} + {W}_{2}^{\perp}
+    \end{align*}
+    which is our desired result.
+
+
+\end{proof}
+
+\subsection*{Exercise 6.2.15} Let \( V  \) be a finite-dimensional inner product space over \( F  \).
+\begin{enumerate}
+    \item[(a)] \textit{Parseval's Identity}. Let \( \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) be an orthonormal basis for \( V  \). For any \( x,y \in V  \) prove that 
+        \[  \langle x , y \rangle = \sum_{ i=1  }^{ n } \langle x , {v}_{i} \rangle \overline{\langle y , {v}_{i} \rangle}. \] 
+        \begin{proof}
+        Let \( x,y \in V  \). Since \( \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}   \) is an orthonormal basis for \( V  \), write  
+        \[   x = \sum_{ i=1  }^{ n } \langle x , {v}_{i} \rangle {v}_{i} \ \ \text{and} \ \ y = \sum_{ j=1  }^{ n  } \langle y , {v}_{j} \rangle {v}_{j}. \]
+        Since \( \langle {v}_{i}  ,  {v}_{j} \rangle = {\delta}_{ij}  \) where \( {\delta}_{ij} = 1 \) whenever \( i = j  \) and \( {\delta}_{ij} = 0  \) otherwise, we have
+        \begin{align*}
+            \langle x , y \rangle &= \Big\langle \sum_{ i=1  }^{ n } \langle x , {v}_{i} \rangle, \sum_{ j=1 }^{ n  } \langle y , {v}_{j} \rangle {v}_{j}  \Big\rangle \\
+                                  &= \sum_{ i=1  }^{ n } \langle x , {v}_{i} \rangle \Big\langle {v}_{i} ,  \sum_{ j=1 }^{ n } \langle y , {v}_{j} \rangle {v}_{j} \Big\rangle \\ 
+                                  &= \sum_{ i=1  }^{ n } \langle x , {v}_{i} \rangle \sum_{ j=1  }^{ n }  \overline{\langle y , {v}_{j} \rangle } \langle {v}_{i} ,  {v}_{j} \rangle  \\
+                                  &= \sum_{ i=1  }^{ n } \langle x  ,  {v}_{i} \rangle \overline{\langle y , {v}_{j} \rangle}.
+        \end{align*}
+        Thus, we have
+            \[  \langle x , y \rangle = \sum_{ i=1  }^{ n } \langle x  , {v}_{i} \rangle \overline{\langle y , {v}_{i} \rangle}. \]
+        \end{proof}
+    \item[(b)] Use (a) to prove that if \( \beta  \) is an orthonormal basis for \( V  \) with inner product \( \langle \cdot , \cdot \rangle \), then for any \( x,y \in V  \)
+        \[  \langle {\phi}_{\beta}(x) , \phi_{\beta}(y) \rangle' = \langle [x]_{\beta} , [y]_{\beta} \rangle' = \langle x , y \rangle. \]
+        \begin{proof}
+            Let \( x,y \in V  \). Since \( \beta  \) is an orthonormal basis for \( V  \), write
+        \[   x = \sum_{ i=1  }^{ n } \langle x , {v}_{i} \rangle {v}_{i} \ \ \text{and} \ \ y = \sum_{ j=1  }^{ n  } \langle y , {v}_{j} \rangle {v}_{j}. \]
+        Since \( \langle \cdot , \cdot \rangle'  \) is the standard inner product on \( F^{n} \), we have
+        \[  \langle \phi_{\beta}(x) , {\phi}_{\beta}(y)  \rangle' = \langle [x]_{\beta} , [y]_{\beta} \rangle' = \sum_{ i=1  }^{ n } \langle x , {v}_{i} \rangle \overline{\langle y , {v}_{i} \rangle} = \langle x , y \rangle \]
+        which is our desired result.
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 6.2.16}
+\begin{enumerate}
+    \item[(a)] \textit{Bessel's Inequality}. Let \( V  \) be an inner product space, and let \( S = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) be an orthonormal subset of \( V  \). Prove that for any \( x \in V  \) we have 
+        \[  \|x\|^{2} \geq \sum_{ i=1  }^{ n } | \langle x , {v}_{i} \rangle |^{2}. \]
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] In the context of (a), prove that Bessel's inequality is an equality if and only if \( x \in \text{span}(S) \).
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 6.2.17} Let \( T  \) be a linear operator on an inner product space \( V  \). If \( \langle T(x) , y \rangle = 0  \) for all \( x,y \in V  \), prove that \( T = {T}_{0} \). In fact, prove this result if the equality holds for all \( x  \) and \( y  \) in some basis for \( V  \).
+\begin{proof}
+
+\end{proof}
