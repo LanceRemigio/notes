@@ -25,9 +25,21 @@ If \( x = 0  \), then we would find that \( x \in W  \) since \( W  \) is a fini
     But since \( {v}_{1} = {w}_{1} \) by our base case, we must have \( {v}_{i} = {w}_{i}  \) for all \( 1 \leq i \leq k  \) which ends our induction proof. 
 \end{proof}
 
-\subsection*{Exercise 6.2.10} Let \( W  \) be a finite-dimensional subspace of an inner product space \( V  \). Prove that there exists a projection \( T  \) on \( W  \) along \( W^{\perp} \) that satisfies \( N(T) = W^{\perp} \). In addition, prove that \( \|T(x)\| \leq \|x\| \) for all \( x \in V  \).
+\subsection*{Exercise 6.2.10} Let \( W  \) be a finite-dimensional subspace of an inner product space \( V  \). Prove that \( V = W \oplus W^{\perp} \). Prove that there exists a projection \( T  \) on \( W  \) along \( W^{\perp} \) that satisfies \( N(T) = W^{\perp} \). In addition, prove that \( \|T(x)\| \leq \|x\| \) for all \( x \in V  \).
 \begin{proof}
+  Let \( S = \{ {v}_{1}, {v}_{2}, \dots, {v}_{k} \}   \) be an orthonormal basis for \( W  \). Let \( x \in V  \). By Theorem 6.6, we can find \( u \in W  \) and \( z \in W^{\perp} \) such that \( x = u + z  \). Thus, \( V = W + W^{\perp} \). Note that \( W \cap W^{\perp} = \{ 0  \}  \). So, \( V = W \oplus W^{\perp}  \). Now, define the map
+  \[  T: V \to V  \ \ \text{by} \ \ T(x) = u    \]
+  with \( x \in V   \). We will show that this map is a projection on \( W  \) along \( W^{\perp} \). Note that it can be easily shown that this map is linear. Since \( V = W \oplus W^{\perp}  \), we have \( x = u + z  \) where \( u \in W  \) and \( z \in W^{\perp} \). Thus, \( T  \) must be a projection on \( W  \) along \( W^{\perp} \). 
 
+  Next, we will show that \( T  \) satisfies \( N(T) = W^{\perp}  \). Let \( x \in W^{\perp} \). Since \( T  \) is a projection on \( W  \) along \( W^{\perp} \), we have \( T(x) = 0  \). So, \( x \in N(T) \). For the other containment, let \( x \in N(T) \). Then by definition of \( N(T) \), we have \( T(x) = 0  \). With \( T  \) being a projection on \( W  \) along \( W^{\perp} \), we have \( x = 0 + z  \) where \( z \in W^{\perp} \). But this tells us that \( x \in W^{\perp} \). Thus, we conclude that \( N(T) = W^{\perp}  \).  
+
+  Let \( x \in V  \). Then \( x = u + z  \) since \( V = W \oplus W^{\perp} \). By Exercise 10 from Section 6.1, we have 
+  \begin{align*}
+      \|x\|^{2} = \|u + z\|^{2} = \|u\|^{2} + \|z\|^{2} 
+                                \geq \|u\|^{2} 
+                                = \|T(x)\|^{2}.
+  \end{align*}
+  Thus, we have \( \|T(x)\| \leq \|x\| \) for all \( x \in V  \).
 \end{proof}
 
 \subsection*{Exercise 6.2.13} Let \( V  \) be an inner product space, \( S  \) and \( {S}_{0} \) be subsets of \( V  \), and \( W  \) be a finite-dimensional subspace of \( V  \). Prove the following results.
@@ -153,8 +165,18 @@ Let \( x,y \in V  \). Our goal is to show that \( {T}_{0} = T \). Consider \( {T
 \subsection*{Exercise 6.2.18} Let \( V = C([-1,1]) \). Suppose that \( {W}_{e} \) and \( {W}_{o} \) denote the subspaces of \( V  \) consisting of the even and odd functions, respectively. Prove that \( W^{\perp}_{e} = W_{o} \), where the inner product on \( V  \) is defined by 
 \[  \langle f , g \rangle = \int_{ -1 }^{ 1 }  f(t) g(t) \ dt. \]
 \begin{proof}
+ Our goal is to show that \( {W}_{o} \subseteq {W}_{e}^{\perp} \) and \( {W}_{e}^{\perp} \subseteq {W}_{o} \). Let \( f \in {W}_{o} \). Consider \( \langle f , g \rangle \). Then by definition 
+ \[  \langle f , g \rangle = \int_{ -1 }^{ 1 }  f(t)g(t) \ dt \] where \( g \in {W}_{e} \). We need to show that \( \langle f , g \rangle = 0  \) for all \( g \in {W}_{e} \). Since \( g  \) is an even function and \( f \) is an odd function, then the product \( fg  \) is an odd function. By our integration properties, we have that 
+ \[  \langle f , g \rangle = \int_{ -1 }^{ 1 }  f(t) g(t) \ dt = \int_{ -1 }^{ 1 }  fg(t) \ dt = 0.   \]
+ Hence, \( f \in {W}_{e}^{\perp} \). 
 
+ Let \( f \in {W}_{e}^{\perp} \). Suppose for sake of contradiction that \( f \notin {W}_{o} \); that is, \( f  \) is an even function. By definition of \( {W}_{e}^{\perp} \), we have
+ \[   0 = \langle f , g \rangle = \int_{ -1 }^{ 1 }  f(t) g(t) \ dt = \int_{ -1 }^{ 1  } fg(t)  \ dt = 2 \int_{ 0 }^{ 1 } fg(t) \ dt. \]
+ But we have \( fg  \) is a continuous even function where
+ \[  \int_{ -1 }^{ 1 }  fg(t) \ dt - 2 \int_{ 0 }^{ 1 } fg(t) \ dt \neq 0 \]
+ which is a contradiction since we have assumed that \( f \in {W}_{e}^{\perp} \). Hence, we must have \( f \in {W}_{o} \). Thus, we conclude that \( {W}_{o} = {W}_{e}^{\perp} \).
 \end{proof}
+
 
 \subsection*{Exercise 6.2.23} Let \( V  \) be the vector space defined in Example 5 of Section 1.2, the space of all sequences \( \sigma \) in \( F  \) (where \( F = \R  \) or \( F = \C  \)) such that \( \sigma(n) \neq 0  \) for only finitely many positive integers \( n  \). For \( \sigma, \mu \in V  \), we define \( \langle \sigma  , \mu \rangle = \sum_{ n=1  }^{ \infty   } \sigma(n) \overline{\mu(n)}.  \) Since all but a finite number of terms of the series are zero, the series converges.
 \begin{enumerate}
@@ -174,5 +196,8 @@ Let \( x,y \in V  \). Our goal is to show that \( {T}_{0} = T \). Consider \( {T
                 \end{proof}
             \item[(ii)] Prove that \( W^{\perp} = \{ 0  \}  \), and conclude that \( W \neq (W^{\perp})^{\perp}  \).
                 Thus the assumption in Exercise 13(c) that \( W  \) is finite-dimensional is essential.
+                \begin{proof}
+                
+                \end{proof}
         \end{enumerate}
 \end{enumerate}
