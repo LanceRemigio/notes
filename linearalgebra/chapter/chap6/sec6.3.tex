@@ -1,1 +1,214 @@
 \section{The Adjoint Of A Linear Operator}
+
+\subsection{Basics of the Adjoint}
+
+\begin{itemize}
+    \item The analog for conjugation of matrices or complex numbers for linear operators is called the \textit{adjoint} of said operator.
+    \item The matrix representation of this kind of operator is represented by \( [T]_{\beta}^{*} \) where \( \beta \) is an orthonormal basis for \( V  \).
+\end{itemize}
+
+Let \( V  \) be an inner product space, and let \( y \in V  \). The function \( g: V \to F  \) defined by \( g(x) = \langle x , y \rangle \) is linear. If \( V  \) is finite-dimensional, then every linear transformation is of the form of \( g \).
+
+\begin{theorem}
+    Let \( V  \) be a finite-dimensional inner product space over \( F  \), and let \( g: V \to F  \) be a linear transformation. Then there exists a unique vector \( y \in V  \) such that \( g(x) = \langle x , y \rangle \) for all \( x \in V  \).
+\end{theorem}
+\begin{proof}
+Let \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) be an orthonormal basis for \( V  \). If \( y \in V  \), then
+\[  y = \sum_{ i=1  }^{ n  } \overline{g({v}_{i})} {v}_{i}. \]
+Define \( h: V \to F  \) by \( h(x) = \langle x , y \rangle \). We can easily show that this function is linear. For \( 1 \leq j \leq n \), we have
+\begin{align*}
+    h({v}_{j}) = \langle {v}_{j} , y \rangle &= \Big\langle {v}_{j}, \sum_{ i=1  }^{ n } \overline{g({v}_{i})} {v}_{i} \Big\rangle \\
+                                             &=\sum_{ i=1 }^{ n } g({v}_{i}) \langle {v}_{j} , {v}_{i} \rangle \\
+                                             &= \sum_{ i=1 }^{ n } g({v}_{i}) {\delta}_{ji} \\
+                                             &= g({v}_{j}).
+\end{align*}
+Since \( h({v}_{j} ) = g({v}_{j}) \) for all \( 1 \leq j \leq n \), we have \( h = g  \) by Corollary to Theorem 2.6.  
+    Now, suppose \( y' \in V  \) such that \( g(x) = \langle x , y' \rangle \) for all \( x  \). Then \( \langle x , y \rangle = \langle x , y' \rangle \) for all \( x  \). By Theorem 6.1, we have \( y = y' \).
+\end{proof}
+
+\begin{theorem}
+    Let \( V  \) be a finite-dimensional inner product space, and let \( T  \) be a linear operator on \( V  \). Then there exists a unique function \( T^{*}: V \to V  \) such that \( \langle T(x) , y \rangle = \langle x , T^{*}(y)  \rangle \) for all \( x,y \in V  \). Furthermore, \( T^{*}  \) is linear.
+\end{theorem}
+\begin{proof}
+Let \( y \in V  \). Define \( g: V \to F  \) by \( g(x) = \langle T(x) , y \rangle \) for all \( x \in V  \). Our first goal is to show that \( g  \) is linear. Let \( {x}_{1}, {x}_{2} \in V  \) and \( c \in F  \). Then
+\begin{align*}
+    g({cx}_{1} + {x}_{2}) &= \langle T({cx}_{1} + {x}_{2}) , y \rangle = \langle c T({x}_{1})  + T({x}_{2}), y \rangle \\
+                          &= c \langle T({x}_{1}) , y \rangle + \langle T({x}_{2}) , y \rangle = c g({x}_{1}) + g({x}_{2}). 
+\end{align*}
+Hence, \( g  \) is linear.
+
+Using Theorem 6.8, we can obtain a unique vector \( y' \in V \) such that \( g(x) = \langle x , y' \rangle \). Thus, \( \langle T(x) , y \rangle = \langle x , y' \rangle \) for all \( x \in V  \). Now, define \( T^{*}: V \to V  \) by \( T^{*}(y) = y' \). So, we have \( \langle T(x) , y \rangle = \langle x , T^{*}(y) \rangle \).
+    Next, we will show that \( T^{*} \) is linear. Let \( {y}_{1}, {y}_{2} \in V  \) and \( c \in F  \). Then for any \( x \in V  \), we have
+    \begin{align*}
+        \langle x , T^{*}({cy}_{1} + {y}_{2}) \rangle &= \langle T(x) , {cy}_{1} + {y}_{2} \rangle \\
+                                                      &= \overline{c} \langle T(x) , {y}_{1} \rangle + \langle T(x) , {y}_{2} \rangle \\ 
+                                                      &= \overline{c} \langle x , T^{*}({y}_{1}) \rangle + \langle x ,  T^{*}({y}_{2}) \rangle \\
+                                                      &= \langle x , c T^{*}({y}_{1}) + T^{*}({y}_{2}) \rangle.
+    \end{align*}
+    By Theorem 6.1 (e), \( T^{*}  \) is linear for all \( x \in V  \). 
+    Finally, we need to show that \( T^{*}  \) is unique. Suppose that \( U: V \to V  \) is linear and that is satisfies \( \langle T(x) , y \rangle = \langle x , U(y) \rangle \) for all \( x,y \in V  \). Then \( \langle x , T^{*}(y) \rangle = \langle x , U(y) \rangle \) for all \( x,y \in V  \) and thus \( T^{*} = U  \) by Theorem 6.1 (e) again.
+\end{proof}
+
+\begin{itemize}
+    \item This new linear operator denoted by \( T^{*} \) is the \textbf{adjoint} of the operator \( T  \).
+    \item We can see from the proof above that \( T^{*} \) is the unique operator on \( V  \) satisfying the property mentioned above.
+    \item Furthermore, 
+        \[  \langle x , T(y) \rangle = \overline{\langle T(y) , x \rangle} = \overline{\langle y , T^{*}(x) \rangle} = \langle T^{*}(x) , y \rangle \]
+        for all \( x,y \in V \). So, \( \langle x , T(y) \rangle = \langle T^{*}(x) , y \rangle \) for all \( x,y \in V  \).
+    \item The property above can be described as adding a \( *  \) to \( T  \) when shifting its position in the inner product.
+    \item Also, the existence of a adjoint of a linear operator \( T  \) is not guaranteed under an infinite-dimensional vector space \( V  \).
+\end{itemize}
+
+\begin{theorem}\label{Theorem 6.10}
+    Let \( V  \) be a finite-dimensional inner product space, and let \( \beta  \) be an orthonormal basis for \( V  \). If \( T  \) is a linear operator on \( V  \), then
+    \[  [T^{*}]_{\beta} = [T]_{\beta}^{*}. \]
+\end{theorem}
+\begin{proof}
+Let \( A = [T]_{\beta} \) and \( B = [T^{*}]_{\beta} \), and \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \). Then from the corollary to Theorem 6.5, we have
+\[  {B}_{ij} = \langle T^{*}({v}_{j}) , {v}_{i} \rangle = \overline{\langle {v}_{i} , T^{*}({v}_{j}) \rangle} = \overline{\langle T({v}_{i}) , {v}_{j} \rangle} = \overline{{A}_{ji}} = (A^{*})_{ij}. \]
+Hence, \( B = A^{*} \) where \( {A}_{ij} = \langle T({v}_{j}) , {v}_{i} \rangle \).
+\end{proof}
+
+\begin{corollary}
+    Let \( A  \) be an \( n \times n  \) matrix. Then \( {L}_{A^{*}} = ({L}_{A})^{*} \).
+\end{corollary}
+\begin{proof}
+    Suppose \( \beta \) is the standard ordered basis for \( F^{n} \). Using Theorem 2.16, we have \( [{L}_{A}]_{\beta} = A  \). So, 
+    \[  [({L}_{A})^{*}]_{\beta} = [{L}_{A}]_{\beta}^{*} = A^{*} = [{L}_{A}^{*}]_{\beta}. \]
+    Thus, we conclude that \( ({L}_{A})^{*} = {L}_{A^{*}} \).
+\end{proof}
+\begin{theorem}
+   Let \( V  \) be an inner product space, and let \( T \) and \( U  \) be linear operators on \( V  \) whose adjoints exist. Then 
+   \begin{enumerate}
+       \item[(a)] \( T + U  \) has an adjoint, and \( (T+U)^{*} = T^{*} + U^{*} \).
+       \item[(b)] \( cT  \) has an adjoint, and \( (cT)^{*} = \overline{c} T^{*} \) for any \( c \in F  \).
+        \item[(c)] \( TU  \) has an adjoint, and \( (TU)^{*} = U^{*} T^{*} \).
+        \item[(d)] \( T^{*} \) has an adjoint, and \( (T^{*})^{*} = T  \).
+        \item[(e)] \( I  \) has an adjoint, and \( I^{*} = I  \).
+   \end{enumerate}
+\end{theorem}
+\begin{proof}
+Let \( T \) and \( U  \) be linear operators on \( V  \) whose adjoints exist. Let \( x,y \in V  \) and \( c \in F  \). Then
+\begin{enumerate}
+    \item[(a)] Since
+        \begin{align*}
+            \langle x , (T+U)^{*}(y) \rangle &= \langle (T+U)(x) , y  \rangle \\
+                                             &= \langle T(x) + U(x) , y \rangle \\
+                                             &= \langle T(x) , y  \rangle + \langle U(x) , y \rangle \\
+                                             &= \langle x , T^{*}(y) \rangle + \langle x ,  U^{*}(y) \rangle \\
+                                             &= \langle x , (T^{*} + U^{*})(y) \rangle,
+        \end{align*}
+        we have \( (T+U)^{*} = T^{*} + U^{*} \).
+    \item[(b)] Since
+        \begin{align*}
+            \langle x , (cT)^{*}(y) \rangle &= \langle cT(x) , y \rangle \\
+                                            &= c \langle T(x)   , y \rangle \\
+                                            &= c \langle x  , T^{*}(y) \rangle \\
+                                            &=  \langle x  ,  \overline{c} T^{*}(y) \rangle,
+        \end{align*}
+        we must have \( (cT)^{*} = \overline{c} T^{*} \).
+    \item[(c)] Observe that
+        \begin{align*}
+            \langle x , (TU)^{*}(y) \rangle &= \langle (TU)(x) , y \rangle \\
+                                            &= \langle T(U(x)) , y \rangle \\
+                                            &= \langle U(x) , T^{*}(y) \rangle \\
+                                            &= \langle x  ,  U^{*}(T^{*}(y)) \rangle \\
+                                            &= \langle x , (U^{*}T^{*})(y) \rangle
+        \end{align*}
+        which implies that \(  (TU)^{*} = U^{*} T^{*} \).
+    \item[(d)] Since
+        \begin{align*}
+            \langle x , (T^{*})^{*}(y) \rangle = \langle T^{*}(x) , y  \rangle 
+                                               = \langle x , T(y) \rangle.
+        \end{align*}
+    \item{(e)} Observe that
+        \begin{align*}
+            \langle x , I^{*}(y) \rangle = \langle I(x) , y  \rangle = \langle x  ,  I(y) \rangle
+        \end{align*}
+\end{enumerate}
+\end{proof}
+
+\begin{corollary}
+    Let \( A  \) and \( B  \) be \( n \times n  \) matrices. Then
+    \begin{enumerate}
+        \item[(a)] \( (A+B)^{*} = A^{*} + B^{*} \).
+        \item[(b)] \( (cA)^{*} = \overline{c} A^{*} \) for all \( c \in F  \).
+        \item[(c)] \( (AB)^{*} = B^{*} A^{*} \).
+        \item[(d)] \( A^{* *} = A  \).
+        \item[(e)] \( I^{*} = I  \).
+    \end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Let \( A,B \in {M}_{n \times n}(F) \) and let \( \beta  \) be an orthonormal basis for \( V = F^{n} \). Using Theorem 6.10, we have
+\begin{enumerate}
+    \item[(a)] 
+        \begin{align*}
+            (A+B)^{*} = [{L}_{A+B}]_{\beta}^{*} &= [{L}_{A}^{*} + {L}_{B}^{*} ]_{\beta}  \\
+                                   &= [{L}_{A}^{*}]_{\beta} + [{L}_{B}^{*}]_{\beta} \\
+                                   &= [{L}_{A}]_{\beta}^{*} + [{L}_{B}]_{\beta}^{*} \\
+                                   &= A^{*} + B^{*}.
+        \end{align*}
+    \item[(b)] Let \( c \in F  \). Then
+        \begin{align*}
+            (cA)^{*} = [{L}_{cA}]_{\beta}^{*} &= [c {L}_{A}^{*}]_{\beta} \\
+                                              &= c [{L}_{A}^{*}]_{\beta} \\
+                                              &= c [{L}_{A}]_{\beta}^{*} \\
+                                              &= c A^{*}.
+        \end{align*}
+    \item[(c)] Using Theorem 2.15, we have 
+        \begin{align*}
+            (AB)^{*} = [{L}_{AB}]_{\beta}^{*} &= [{L}_{AB}^{*}]_{\beta}  \\
+                                              &= [({L}_{A} {L}_{B})^{*}]_{\beta} \\
+                                              &= [{L}_{B}^{*} {L}_{A}^{*}]_{\beta} \\
+                                              &= [{L}_{B}^{*}]_{\beta} [{L}_{A}^{*}]_{\beta} \\
+                                              &= [{L}_{B}]_{\beta}^{*} [{L}_{A}]_{\beta}^{*} \\
+                                              &= B^{*} A^{*}.
+        \end{align*}
+    \item[(d)] Since \( {L}_{A}^{* * } = {L}_{A} \), we must have \( A^{**} = A  \).
+        
+\end{enumerate}
+\end{proof}
+
+\begin{itemize}
+    \item The results in {\hyperref[Theorem 6.10]{Theorem 6.10}} were used extensively to prove the corollary above.
+    \item An alternative approach and one that works for \( m \times n  \) matrices is to apply the definition of the conjugate transpose.
+\end{itemize}
+
+\subsection{Least Squares Approximation}
+
+The following results are dedicated towards solving the problem of finding the best possible fit for data collected that will minimize the error between the expected data and the predicted data. That is, we will try to find constants \( c  \) and \( d  \) such that
+\[  E = \sum_{ i=1  }^{ m  } ({y}_{i} - {ct}_{i} - d)^{2} \]
+will be minimized.
+
+\begin{lemma}
+  Let \( A \in {M}_{m \times n}(F) \), \( x \in F^{n}  \), and \( y \in F^{m} \). Then  
+  \[  \langle Ax  , y \rangle_{m} = \langle x , A^{*} y \rangle_{n}. \]
+\end{lemma}
+
+\begin{proof}
+We can use a generalization of the Corollary to Theorem 6.11 to write
+\[  \langle Ax , y \rangle_{m} = y^{*} (Ax) = (y^{*}A)x = (A^{*}y)^{*} x = \langle x , A^{*} y \rangle_{n}. \]
+\end{proof}
+
+\begin{lemma}
+    Let \( A \in {M}_{m \times n}(F) \). Then \( \text{rank}(A^{*}A ) = \text{rank}(A) \).
+\end{lemma}
+
+\begin{proof}
+By the Dimension Theorem, we need only show that, for \( x \in F^{n} \), we have \( A^{*} Ax = 0  \) if and only if \( A x = 0  \). Clearly, \( Ax = 0  \) implies that \( A^{*} Ax = 0  \). So, assume that \( A^{*} Ax = 0  \). So,
+\[  0 = \langle A^{*} Ax  , x  \rangle_{n} = \langle Ax  , A^{**} x  \rangle_{m} = \langle Ax  , Ax \rangle_{m}. \]
+Thus, we have \( Ax = 0  \).
+\end{proof}
+
+Let \( A  \) be an \( m \times n  \) matrix and \( y \in F^{m} \). Define 
+\[  W = \{ Ax: x \in F^{n} \} = R({L}_{A}).  \]
+Using the {\hyperref[Corollary to Theorem 6.6]{Corollary to Theorem 6.6}}, there exists a unique vector \( {x}_{0} \in F^{n} \) that is closest to \( y  \); that is, \( \|{Ax}_{0} - y \| \leq \|Ax - y \| \) for all \( x \in F^{n} \). Thus, we say that \( {x}_{0}  \) has the property that \( E = \| {Ax}_{0} - y \|  \) is minimal. 
+
+We can develop a practical method of finding the minimum by using {\hyperref[Theorem 6.6]{Theorem 6.6}} and its {\hyperref[Corollary to Theorem 6.6]{corollary}}. Thus, we find that 
+\( {Ax}_{0} - y \in W^{\perp} \), and so \( \langle Ax  , {Ax}_{0} - y  \rangle_{m} = 0  \) for all \( x \in F^{n} \). Hence, \( A^{*}({Ax}_{0} - y) = 0  \). To find a solution to this equation, we must solve \( A^{*}Ax = A^{*} y  \). If we assume the result from the second lemma above, we get that \( {x}_{0} = (A^{*}A)^{-1} A^{*} y  \). 
+\begin{theorem}[Minimal Solution]
+    Let \( A \in {M}_{m \times n}(F) \) and \( y \in F^{m} \). Then there exists \( {x}_{0} \in F^{n} \) such that \( (A^{*}A){x}_{0} = A^{*} y  \) and \( \| {Ax}_{0} - y \| \leq \| Ax - y \| \) for all \( x \in F^{n} \). Furthermore, if \( \text{rank}(A) = n  \), then \( {x}_{0} = (A^{*}A)^{-1} A^{*} y \).
+\end{theorem}
+
+
