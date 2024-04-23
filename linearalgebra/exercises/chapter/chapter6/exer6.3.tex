@@ -2,33 +2,360 @@
 
 \subsection*{Exercise 6.3.4} Complete the proof of Theorem 6.11.
 \begin{proof}
-
+Let \( T \) and \( U  \) be linear operators on \( V  \) whose adjoints exist. Let \( x,y \in V  \) and \( c \in F  \). Then
+\begin{enumerate}
+    \item[(a)] Since
+        \begin{align*}
+            \langle x , (T+U)^{*}(y) \rangle &= \langle (T+U)(x) , y  \rangle \\
+                                             &= \langle T(x) + U(x) , y \rangle \\
+                                             &= \langle T(x) , y  \rangle + \langle U(x) , y \rangle \\
+                                             &= \langle x , T^{*}(y) \rangle + \langle x ,  U^{*}(y) \rangle \\
+                                             &= \langle x , (T^{*} + U^{*})(y) \rangle,
+        \end{align*}
+        we have \( (T+U)^{*} = T^{*} + U^{*} \).
+    \item[(b)] Since
+        \begin{align*}
+            \langle x , (cT)^{*}(y) \rangle &= \langle cT(x) , y \rangle \\
+                                            &= c \langle T(x)   , y \rangle \\
+                                            &= c \langle x  , T^{*}(y) \rangle \\
+                                            &=  \langle x  ,  \overline{c} T^{*}(y) \rangle,
+        \end{align*}
+        we must have \( (cT)^{*} = \overline{c} T^{*} \).
+    \item[(c)] Observe that
+        \begin{align*}
+            \langle x , (TU)^{*}(y) \rangle &= \langle (TU)(x) , y \rangle \\
+                                            &= \langle T(U(x)) , y \rangle \\
+                                            &= \langle U(x) , T^{*}(y) \rangle \\
+                                            &= \langle x  ,  U^{*}(T^{*}(y)) \rangle \\
+                                            &= \langle x , (U^{*}T^{*})(y) \rangle
+        \end{align*}
+        which implies that \(  (TU)^{*} = U^{*} T^{*} \).
+    \item[(d)] Since
+        \begin{align*}
+            \langle x , (T^{*})^{*}(y) \rangle = \langle T^{*}(x) , y  \rangle 
+                                               = \langle x , T(y) \rangle.
+        \end{align*}
+    \item{(e)} Observe that
+        \begin{align*}
+            \langle x , I^{*}(y) \rangle = \langle I(x) , y  \rangle = \langle x  ,  I(y) \rangle
+        \end{align*}
+\end{enumerate}
 \end{proof}
 
 \subsection*{Exercise 6.3.5} 
 \begin{enumerate}
     \item[(a)] Complete the proof of the corollary to Theorem 6.11 by using Theorem 6.11, as in the proof of (c).
-        \begin{proof}
+\begin{proof}
+Let \( A,B \in {M}_{n \times n}(F) \) and let \( \beta  \) be an orthonormal basis for \( V = F^{n} \). Using Theorem 6.10, we have
+\begin{enumerate}
+    \item[(a)] 
+        \begin{align*}
+            (A+B)^{*} = [{L}_{A+B}]_{\beta}^{*} &= [{L}_{A}^{*} + {L}_{B}^{*} ]_{\beta}  \\
+                                   &= [{L}_{A}^{*}]_{\beta} + [{L}_{B}^{*}]_{\beta} \\
+                                   &= [{L}_{A}]_{\beta}^{*} + [{L}_{B}]_{\beta}^{*} \\
+                                   &= A^{*} + B^{*}.
+        \end{align*}
+    \item[(b)] Let \( c \in F  \). Then
+        \begin{align*}
+            (cA)^{*} = [{L}_{cA}]_{\beta}^{*} &= [c {L}_{A}^{*}]_{\beta} \\
+                                              &= c [{L}_{A}^{*}]_{\beta} \\
+                                              &= c [{L}_{A}]_{\beta}^{*} \\
+                                              &= c A^{*}.
+        \end{align*}
+    \item[(c)] Using Theorem 2.15, we have 
+        \begin{align*}
+            (AB)^{*} = [{L}_{AB}]_{\beta}^{*} &= [{L}_{AB}^{*}]_{\beta}  \\
+                                              &= [({L}_{A} {L}_{B})^{*}]_{\beta} \\
+                                              &= [{L}_{B}^{*} {L}_{A}^{*}]_{\beta} \\
+                                              &= [{L}_{B}^{*}]_{\beta} [{L}_{A}^{*}]_{\beta} \\
+                                              &= [{L}_{B}]_{\beta}^{*} [{L}_{A}]_{\beta}^{*} \\
+                                              &= B^{*} A^{*}.
+        \end{align*}
+    \item[(d)] Since \( {L}_{A}^{* * } = {L}_{A} \), we must have \( A^{**} = A  \).
         
-        \end{proof}
+\end{enumerate}
+\end{proof}
     \item[(b)] State a result for nonsquare matrices that is analogous to the corollary to Theorem 6.11, and prove it using a matrix argument.
         \begin{proof}
-        
+        For nonsquare matrices, we can just use the definition of the conjugate. Let \( 1 \leq i \leq n  \) and \( 1 \leq j \leq n   \). Thus, we have
+        \begin{enumerate}
+            \item[(a)] 
+                \begin{align*}
+                    \Big( (A+B)^{*} \Big)_{ij} = \overline{{(A+B)}_{ji}} &= \overline{{A}_{ji} + {B}_{ji}} \\
+                                                                         &= \overline{{A}_{ji}} + \overline{{B}_{ji}} \\
+                                                                         &= {(A^{*})}_{ij} + {(B^{*})}_{ij}.
+                \end{align*}
+                Thus, we have \( (A+B)^{*} = A^{*} + B^{*} \).
+            \item[(b)] 
+                \begin{align*}
+                    \Big( (cA)^{*} \Big)_{ij} = \overline{(cA)_{ji}} &= \overline{c {A}_{ji}} \\
+                                                                     &= \overline{c} \overline{{A}_{ji}} \\
+                                                                     &= \overline{c} {(A^{*})}_{ij}.
+                \end{align*}
+                Thus, we have \( (cA)^{*} = \overline{c} {(A^{*})}_{ij}. \)
+        \end{enumerate}
+        \item[(c)] Using our definition of matrix multiplication found in Section 2.2, we have
+            \begin{align*}
+                \Big( (AB)^{*} \Big)_{ij} = \overline{{(AB)}_{ji}} = \overline{\sum_{ k=1  }^{ n } {A}_{jk} {B}_{ki}} 
+                                                                   &= \sum_{ k=1  }^{ n } \overline{{A}_{jk} {B}_{ki}} \\
+                                                                   &=\sum_{ k=1  }^{ n } \overline{{A}_{jk}} \overline{{B}_{ki}} \\
+                                                                   &=\sum_{ k=1  }^{ n } {(B^{*})}_{ik} {(A^{*})}_{kj} \\
+                                                                   &= (B^{*} A^{*})_{ij}.
+            \end{align*}
+        \item[(d)] 
+            \[  {(A^{**})}_{ij} = \overline{{(A^{*})}_{ji}} = \overline{\overline{{A}_{ij}}}  = {A}_{ij}.\]
+            So, \( A^{* *} = A  \).
+        \item[(e)] 
+            \[  {(I^{*})}_{ij} = \overline{{I}_{ji}} = {I}_{ij}. \]
+            So, we have \( I^{*} = I  \).
         \end{proof}
 \end{enumerate}
 
 \subsection*{Exercise 6.3.5} Let \( T  \) be a linear operator on an inner product space \( V  \). Let \( {U}_{1} = T + T^{*} \) and \( {U}_{2} = TT^{*} \). Prove that \( {U}_{1} = {U}_{1}^{*} \) and \( {U}_{2} = {U}_{2}^{*} \).
 \begin{proof}
-
+Let \( {U}_{1} = T + T^{*} \) and \( {U}_{2} = T T^{*} \). Using Theorem 6.11, we have
+\[ {U}_{1}^{*} = (T + T^{*})^{*} = T^{*} + T^{* *} = T^{*} + T = {U}_{1}. \]
+Likewise, we have
+\[  {U}_{2}^{*} = (T T^{*})^{*} = T^{* * } T^{*} = T T^{*} = {U}_{2}. \]
 \end{proof}
 
 \subsection*{Exercise 6.3.8} Let \( V \) be a finite-dimensional inner product space, and let \( T  \) be a linear operator on \( V  \). Prove that if \( T  \) is invertible, then \( T^{*}  \) is invertible and \( (T^{*})^{-1} = (T^{-1})^{*} \).
 
 \begin{proof}
-
+Let \( x,y \in V  \). Our goal is to show that \( T^{*} (T^{-1})^{*} =  (T^{-1})^{*} T^{*} = I  \). Consider the inner product \( \langle T(x) , y \rangle = \langle x  , T^{*}(y) \rangle \). Since \( T  \) is invertible, we have
+\begin{align*}
+    \langle T(x) , I(y) \rangle = \langle x , T^{*}(y) \rangle &= \langle T^{-1}T(x) , T^{*}(y) \rangle \\
+                                 &= \langle T(x) , (T^{-1})^{*} T^{*}(y) \rangle.
+\end{align*}
+Using Theorem 6.1, we must have \( (T^{*})^{-1} T^{*} = I   \). Now, let us show \( T^{*} (T^{-1})^{*} = I  \). Observe that
+\begin{align*}
+    \langle T(x) , I(y) \rangle &= \langle T(x) , T^{-1} T(y) \rangle \\
+                                &= \langle   T^{*} (T^{-1})^{*} T (x) , I(y) \rangle 
+\end{align*}
+This implies that \(   T^{*} (T^{-1})^{*} T  = T \). Since \( T  \) is invertible, we have \( T^{*} (T^{-1})^{*} = I  \). Thus, \( T^{*}  \) is invertible and therefore \( (T^{*})^{-1} = (T^{-1})^{*} \).
 \end{proof}
 
 \subsection*{Exercise 6.3.9} Prove that if \( V = W \oplus W^{\perp} \) and \( T  \) is the projection on \( W  \) along \( W^{\perp} \) then \( T = T^{*} \).  
 \begin{proof}
+Let \( x \in V  \) such that \( x = u + z  \) where \( u \in W  \) and \( z \in W^{\perp} \). Since \( z \in W^{\perp} \) and that \( W^{\perp} = N(T) \), we have \( T(z) = 0  \). Furthermore, \( \langle z , u \rangle = 0  \). Since \( T  \) is a projection on \( W  \) along \( W^{\perp} \), we must have that 
+\[  \langle z , T(u) \rangle = \langle z , T(u)  \rangle = 0.  \]
+But notice that given \( u,z \in V  \), the fact that
+\[ \langle T(z)  , u  \rangle = \langle z  ,  T^{*}(u) \rangle = 0   \]
+must also be satisfied. This tells us that \( \langle z , T(u) \rangle = \langle z  , T^{*}(u) \rangle \) implies \( T(u) = T^{*}(u) \) for all \( u \in W  \) by Theorem 6.1 and that \( T^{*} = T  \).
+\end{proof}
+
+\subsection*{Exercise 6.3.10} Let \(T  \) be a linear operator on an inner product space \( V  \). Prove that \( \|T(x)\| = \|x\| \) for all \( x \in V  \) if and only if \( \langle T(x) , T(y) \rangle = \langle x , y \rangle \) for all \( x,y \in  V \).
+\begin{proof}
+For the forwards direction, let \( x,y \in V  \). Suppose \( \|T(x)\| = \|x\| \). Using Exercise 10 from Section 6.1, we have  
+\begin{align*}
+    \langle x , y \rangle &= \frac{ 1 }{ 4 } \Big[ \|x + y\|^{2} - \|x-y\|^{2} \Big]   \\
+                          &= \frac{ 1 }{ 4 } \Big[ \|T(x+y)\|^{2} - \|T(x-y)\|^{2} \Big]  \\
+                          &= \frac{ 1 }{ 4 }  \Big[ \|T(x) + T(y)\|^{2} - \|T(x) - T(y)\|^{2} \Big].
+\end{align*}
+Consider \( \|T(x) + T(y)\|^{2} \). If \( F = \R  \), then
+\begin{align*}
+    \|T(x) + T(y)\|^{2} &= \|T(x)\|^{2} + 2 \Re \langle T(x) , T(y) \rangle + \|T(y)\|^{2} \\
+                        &= \|T(x)\|^{2} + 2 \langle T(x) , T(y) \rangle + \|T(y)\|^{2}
+\end{align*}
+by Exercise 19 from Section 6.1.
+Likewise, we have
+\begin{align*}
+    \|T(x) - T(y)\|^{2} = \|T(x)\|^{2} - 2 \langle T(x) , T(y)  \rangle + \|T(y)\|^{2}. 
+\end{align*}
+Thus, we conclude that 
+\[  \langle x , y \rangle =  \langle T(x) , T(y) \rangle. \]
 
 \end{proof}
+
+\subsection*{Exercise 6.3.11} For a linear operator \( T  \) on an inner product space \( V  \), prove that \( T^{*}T = {T}_{0} \) implies \( T = {T}_{0} \). Is the same result true if we assume that \( T T^{*} = {T}_{0} \)?
+\begin{proof}
+Let \( x \in V  \). Consider the norm \(  \|T(x)\| \). Then observe that
+\[  \|T(x)\|^{2} = \langle T(x) , T(x) \rangle = \langle x  , T^{*} T(x) \rangle = \langle x  ,  {T}_{0}(x) \rangle = 0  \]
+since \( T^{*} T = {T}_{0} \). By part (d) of Theorem 6.1, \( T(x) = 0  \) and so we conclude that \( {T}_{0} = T   \).
+\end{proof}
+
+\subsection*{Exercise 6.3.12} Let \( V  \) be an inner product space, and let \( T  \) be a linear operator on \( V  \). Prove the following results.
+\begin{enumerate}
+    \item[(a)] \( R(T^{*})^{\perp} = N(T) \).
+        \begin{proof}
+        Let \( y \in R(T^{*})^{\perp} \). Then \( \langle y , z \rangle = 0  \) for all \( z \in R(T^{*}) \). By definition of \( R(T^{*}) \), we have \( T^{*}(x) = z  \) for some \( x \in V  \). Then we have
+        \begin{align*}
+            \langle y , z \rangle &= \langle y , T^{*}(x) \rangle = 0 \\
+                                  &= \langle T(y)  , x  \rangle
+        \end{align*}
+        which implies \( \langle T(y) , x \rangle = 0  \). Using Exercise 17 from Section 61., \( T = T^{0} \). So, \( T(y) = 0  \) for all \( y \in V    \) and thus \( y \in N(T) \). Now, let \( y \in N(T) \). Then \( T(y) = 0  \) for all \( y \in V  \). Fix \( z \in V  \). Then
+        \[  \langle T(y) , z  \rangle = \langle y  , T^{*}(z) \rangle = 0.  \]
+        Observe that \( T^{*}(z) \in R(T^{*}) \). So, \( y \in R(T^{*})^{\perp} \) and we conclude that \( R(T^{*})^{\perp} = N(T) \).
+        \end{proof}
+    \item[(b)] If \( V  \) is finite-dimensional, then \( R(T^{*}) = N(T)^{\perp} \).
+        \begin{proof}
+        Suppose \( V  \) is finite-dimensional. Using Exercise 13 (c) from Section 6.2 and part (a), we have
+        \[ R(T^{*}) = \Big(R(T^{*})^{\perp}\Big)^{\perp} = \Big( N(T) \Big)^{\perp}.    \]
+        Thus, \( R(T^{*}) = N(T)^{\perp} \).
+        \end{proof}
+\end{enumerate}
+
+
+\subsection*{Exercise 6.3.13} Let \( T  \) be a linear operator on a finite-dimensional inner product space \( V  \). Prove the following results.
+\begin{enumerate}
+    \item[(a)] \( N(T^{*}T) = N(T) \). Deduce that \( \text{rank}(T^{*}T) = \text{rank}(T) \).
+        \begin{proof}
+        Let \( x \in N(T^{*}T) \). Then we have \( T^{*}T(x) = 0  \) for all \( x \in V  \). But note that \( T^{*}T = {T}_{0} \), so we have \( T = {T}_{0} \) by Exercise 6.3.11. Thus, \( T(x) = 0  \) for all \( x \in V  \) which implies \( x \in N(T)  \). Now, let \( x \in N(T) \). Then \( T(x) = 0  \) for all \( x \in V  \). Then 
+        \[  T^{*}T(x) = T^{*}(0) = 0    \]
+        for all \( x \in V  \). Thus, \( x \in N(T^{*}T) \) and so we conclude that \( N(T^{*}T) = N(T) \). Using the Dimension Theorem, we can see that 
+        \[  \text{dim}(R(T)) + \text{dim}(N(T)) = \text{dim}(R(T^{*}T))  +\text{dim}(N(T^{*}T)) \]
+        implies \( \text{dim}(R(T)) = \text{dim}(R(T^{*}T)) \) so \( \text{rank}(T) = \text{rank}(T^{*}T) \).
+\end{proof}
+    \item[(b)] \( \text{rank}(T) = \text{rank}(T^{*}) \). Deduce from (a) that \( \text{rank}(T T^{*}) = \text{rank}(T)  \).
+        \begin{proof}
+        Since \( \text{rank}(T^{*}T) = \text{rank}(T) \) and that \( \text{rank}(T^{*}T) = \text{rank}(T^{*}) \), we have \( \text{rank}(T) = \text{rank}(T^{*}) \). From (a), we get that
+        \begin{align*}
+          \text{rank}(T T^{*}) = \text{rank}\Big(  (T^{*}T)^{*} \Big) = \text{rank}(T^{*}T) = \text{rank}(T).
+        \end{align*}
+        \end{proof}
+    \item[(c)] For any \( n \times n \) matrix \( A  \), \( \text{rank}(A^{*} A) = \text{rank}(A A^{*}) = \text{rank}(A) \).
+        \begin{proof}
+        Using parts (a) and (b) as well as the corollary to Theorem 6.10, we have
+        \begin{align*}
+            R({L}_{A^{*}A}) = R({L}_{A^{*}} {L}_{A}) &= R \Big(  {({L}_{A})}^{*} {L}_{A} \Big) = R({L}_{A})
+        \end{align*}
+        and similarly, we have
+        \[ R({L}_{A A^{*}}) = R \Big(  {L}_{A} {L}_{A^{*}} \Big) = R \Big(  {L}_{A} ({L}_{A})^{*} \Big) = R({L}_{A}). \]
+        So, we conclude that  
+        \[   \text{rank}(A^{*} A) = \text{rank}(A A^{*}) = \text{rank}(A).  \]
+        \[   \]
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 6.3.14} Let \( V  \) be an inner product space, and let \( y,z \in V  \). Define \( T: V \to V  \) by \( T(x) = \langle x , y \rangle z  \) for all \( x \in V  \). First prove that \( T  \) is linear. Then show that \( T^{*}  \) exists, and find an explicit expression for it.
+\begin{proof}
+Fix \( y,z \in V  \). Let \( {x}_{1}, {x}_{2} \in V  \) and \( \epsilon \in F  \). Our first goal is to show that \( T: V \to V    \) is linear. Observe that
+\begin{align*}
+    T(\epsilon {x}_{1} + {x}_{2} ) &= \langle \epsilon {x}_{1} + {x}_{2} , y \rangle z   \\
+                                   &= \langle \epsilon {x}_{1} , y \rangle z +  \langle {x}_{2} , y \rangle z  \\
+                                   &=  \epsilon T({x}_{1}) + T({x}_{2}).
+\end{align*}
+Thus, \( T  \) is linear. Using Theorem 6.9, there exists a function \( T^{*}: V \to V  \) such that  \( \langle T(x) , y \rangle = \langle x  , T^{*}(y) \rangle \) for \( x,y \in V  \). Consider the inner product \( \langle x  , T^{*}(x) \rangle \). Then observe that
+\begin{align*}
+    \langle x , T^{*}(x) \rangle = \langle T(x) , x  \rangle &=  \langle \langle x , y \rangle z  ,  x  \rangle \\
+                                                             &= \langle x , y \rangle \langle z , x \rangle \\
+                                                             &= \langle x , \langle x , z \rangle y \rangle.
+\end{align*}
+Using Theorem 6.1, we see that \( T^{*}(x) = \langle x , z \rangle y  \).
+\end{proof}
+
+\begin{definition}
+    Let \( T: V \to W  \) be a linear transformation, where \( V  \) and \( W  \) are finite-dimensional inner product spaces with inner products \( {\langle \cdot , \cdot \rangle}_{1}  \) and \( {\langle \cdot , \cdot \rangle}_{2} \), respectively. A function \( T^{*}: W \to V  \) is called an \textbf{adjoint} of \( T  \) if \( \langle T(x) , y \rangle_{2} = \langle x  , T^{*}(y) \rangle_{1}  \) for all \( x \in V  \) and \( y \in W  \).
+\end{definition}
+
+\subsection*{Exercise 6.3.15} Let \( T: V \to W  \) be a linear transformation, where \( V  \) and \( W  \) are finite-dimensional inner product spaces with inner products \( \langle \cdot , \cdot \rangle_1  \) and \( \langle \cdot , \cdot \rangle_{2} \), respectively. Prove the following results.
+
+\begin{enumerate}
+    \item[(a)] There is a unique adjoint \( T^{*} \) of \( T  \), and \( T^{*}  \) is linear.
+        \begin{proof}
+            Define the function \( f: W \to F  \) by \( f(x) = \langle T(x) , y \rangle_{2} \). By Theorem 6.8, there exists a unique vector \( y' \in V  \) such that \( f(x) = \langle x  , y' \rangle_{1} \). Define \( T^{*}: W \to V  \) by \( T^{*}(y) = y' \) for \( y \in W  \). Thus, we have \( \langle T(x)  , y \rangle_{2} = \langle x , T^{*}(y) \rangle_{1} \). Let \( \epsilon \in F  \) and \( {y}_{1}, {y}_{2} \in W  \). Then observe that
+            \begin{align*}
+                \langle x , T^{*}(\epsilon {y}_{1} + {y}_{2}) \rangle_1 &= \langle T(x) , \epsilon {y}_{1} + {y}_{2} \rangle_2 \\
+                                                                        &= \langle T(x)  , \epsilon {y}_{1} \rangle_2 +  \langle T(x) , {y}_{2} \rangle_2 \\
+                                                                        &= \overline{\epsilon} \langle T(x) , {y}_{1} \rangle_2 + \langle T(x)  , {y}_{2} \rangle_2 \\
+                                                                        &=\langle x  , \epsilon T^{*}({y}_{1}) \rangle_1 + \langle x  , T^{*}({y}_{2}) \rangle_1 \\
+                                                                        &=  \langle x  , \epsilon T^{*}({y}_{1}) + T^{*}({y}_{2}) \rangle_1.
+            \end{align*} 
+            By Theorem 6.1, we conclude that \( T^{*}(\epsilon {y}_{1} + {y}_{2}) = \epsilon T^{*}({y}_{1}) + T^{*}({y}_{2}) \) and thus \( T^{*}  \) is linear. To prove uniqueness, suppose there exists the linear map \( U: W \to V  \) such that \( \langle T(x) , y \rangle_2 = \langle x  , U(y) \rangle_1 \). Then we have \( \langle x , T^{*}(y) \rangle_1 = \langle x  ,  U(y) \rangle_1  \) implies \( T^{*} = U  \). Thus, \( T^{*} \) is a unique linear map.
+        \end{proof}
+    \item[(b)] If \( \beta \) and \( \gamma \) are orthonormal bases for \( V    \) and \( W  \), respectively, then \( [T^{*}]_{\gamma}^{\beta}  = ([T]_{\beta}^{\gamma})^{*} \).
+        \begin{proof}
+        Let \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) and \( \gamma = \{ {w}_{1}, {w}_{2}, \dots, {w}_{m} \}  \) be orthonormal bases for \( V  \) and \( W  \), respectively. Define \( A = [T]_{\beta}^{\gamma} \) and \( B = [T^{*}]_{\gamma}^{\beta} \). Using the corollary to Theorem 6.5, we have \( {B}_{ij} = \langle T^{*}({w}_{j}) , {v}_{i} \rangle_2 \) and \( {A}_{ij} = \langle T({v}_{j}) , {w}_{i} \rangle_1 \). Our goal is to show that \( {B}_{ij} = {(A^{*})}_{ij} \). For \( 1 \leq i \leq m  \) and \( 1 \leq j \leq n  \), we have 
+        \begin{align*}
+            {B}_{ij} = \langle T^{*}({w}_{j}) , {v}_{i} \rangle_2 &= \overline{\langle {v}_{i}  ,  T^{*}({w}_{j}) \rangle_2} \\
+                                                                  &= \overline{\langle T({v}_{i}) , {w}_{j} \rangle_1 } \\
+                                                                  &= \overline{{A}_{ji}} \\
+                                                                  &= {(A^{*})}_{ij}.
+        \end{align*}
+        Thus, we have \( [T^{*}]_{\gamma}^{\beta}  = ([T]_{\beta}^{\gamma})^{*} \).
+
+        
+        \end{proof}
+    \item[(c)] \( \text{rank}(T^{*}) = \text{rank}(T) \).
+        \begin{proof}
+        Apply part Exercise 6.3.13 part (b).
+        \end{proof}
+    \item[(d)] \( {\langle T^{*}(x) , y \rangle}_{1} = \langle x , T(y) \rangle_{2} \) for all \( x \in W  \) and \( y \in V  \).
+        \begin{proof}
+        Let \( x \in W  \) and \( y \in V  \). Then observe that
+        \begin{align*}
+            \langle T^{*}(x)  , y \rangle_1 = \overline{\langle y , T^{*}(x) \rangle_1}
+                                            = \overline{\langle T(y) , x \rangle_2} 
+                                            = \langle x  , T(y) \rangle_2
+        \end{align*}
+        which is our desired result.
+        \end{proof}
+    \item[(e)] For all \( x \in V  \), \( T^{*}T(x) = 0  \) if and only if \( T(x) = 0  \).
+        \begin{proof}
+        Let \( x \in V  \) and suppose \( T^{*}T(x) = 0  \). Consider the norm \( \|T(x)\| \). Using part (a), we have   
+        \[  \|T(x)\|^{2} = \langle T(x) , T(x) \rangle_2 = \langle x  , T^{*}T(x)  \rangle_1 = 0.  \]
+        By Theorem 6.1, this is true if and only if \( T(x) = 0  \).
+        Conversely, let \( T(x) = 0  \) for all \( x \in V  \). Then
+        \[  T^{*}T(x) = T^{*}(T(x)) = T^{*}(0) = 0 \]
+        which is our desired result.
+    \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 6.3.16} State and prove a result that extends the first four parts of Theorem 6.11 using the preceding definition. 
+\begin{proof} Define \( T: V \to W  \) and \( U: V \to W  \). Let \( x \in V  \) and \( y \in W  \).
+    \item[(a)] Since
+        \begin{align*}
+            \langle x , (T+U)^{*}(y) \rangle_1 &= \langle (T+U)(x) , y  \rangle_2 \\
+                                             &= \langle T(x) + U(x) , y \rangle_2 \\
+                                             &= \langle T(x) , y  \rangle_2 + \langle U(x) , y \rangle_2 \\
+                                             &= \langle x , T^{*}(y) \rangle_1 + \langle x ,  U^{*}(y) \rangle_1 \\
+                                             &= \langle x , (T^{*} + U^{*})(y) \rangle_1,
+        \end{align*}
+        we have \( (T+U)^{*} = T^{*} + U^{*} \).
+    \item[(b)] Let \( c \in F   \). Thus, we have
+        \begin{align*}
+            \langle x , (cT)^{*}(y) \rangle_1 &= \langle cT(x) , y \rangle_2 \\
+                                            &= c \langle T(x)   , y \rangle_2 \\
+                                            &= c \langle x  , T^{*}(y) \rangle_1 \\
+                                            &=  \langle x  ,  \overline{c} T^{*}(y) \rangle_1,
+        \end{align*}
+        Thus, we conclude that \( (cT)^{*} = \overline{c} T^{*} \).
+    \item[(c)] Define \( T: W \to Z  \) and \( U: V \to W   \). Define \( TU: V \to Z  \).
+        \begin{align*}
+            \langle x , (TU)^{*}(y) \rangle_1 &= \langle (TU)(x) , y \rangle_2 \\
+                                            &= \langle T(U(x)) , y \rangle_2 \\
+                                            &= \langle U(x) , T^{*}(y) \rangle_1 \\
+                                            &= \langle x  ,  U^{*}(T^{*}(y)) \rangle_1 \\
+                                            &= \langle x , (U^{*}T^{*})(y) \rangle_1
+        \end{align*}
+        which implies that \(  (TU)^{*} = U^{*} T^{*} \).
+    \item[(d)] Since
+        \begin{align*}
+            \langle x , (T^{*})^{*}(y) \rangle_1 = \langle T^{*}(x) , y  \rangle_2 
+                                               = \langle x , T(y) \rangle_1.
+        \end{align*}
+\end{proof}
+
+\subsection*{Exercise 6.3.17} Let \( T: V \to W  \) be a linear transformation, where \( V  \) and \( W  \) are finite-dimensional inner product spaces. Prove that \( (R(T^{*}))^{\perp} = N(T) \), using the preceding definition.
+\begin{proof}
+Let \( y \in R(T^{*})^{\perp} \). Then \( \langle y , z  \rangle_2 = 0  \) for all \( z \in R(T^{*}) \). Since \( z \in R(T^{*}) \), we have \( T^{*}(x) = z  \) for some \( x \in V  \). Then we have
+\[0 =   \langle y , z \rangle_2 = \langle y  , T^{*}(x) \rangle_2 = \langle T(y) , x  \rangle_1. \]
+By Exercise 17 from Section 6.2, we see that \( T = {T}_{0} \). So, we must have \( T(y) = 0  \) for all \( y \in V  \). Thus, \( y \in N(T) \).
+
+Conversely, \(  y \in N(T) \) implies that 
+\[ \langle T(y)  , z  \rangle_1 = \langle y  ,  T^{*}(z) \rangle_2.  \]
+But \( T(y) = 0  \) for all \( y \in V \) which means \( \langle y , T^{*}(z) \rangle_2 = 0  \). Since \( T^{*}(z) \in R(T^{*}) \), we have \( y \in R(T^{*})^{\perp} \). Thus, we conclude that \( (R(T^{*}))^{\perp} = N(T) \). 
+\end{proof}
+
+\subsection*{Exercise 6.3.18} Let \( A  \) be an \( n \times n  \) matrix. Prove that \( \text{det}(A^{*}) = \overline{\text{det}(A)} \).
+\begin{proof}
+    We proceed by mathematical induction on \( n \geq 1  \). Let \( A  \) be an \( n \times n  \) matrix. Note that the result immediately follows for \( n = 1  \). Now, assume that the result holds for \( n - 1 \times n - 1  \) matrices. Thus, \( \overline{\text{det}(\tilde{A}_{1j})} = \text{det}(\tilde{A}_{j1}^{*}) \). By cofactor expansion along the first row (or the first column), we have
+\begin{align*}
+    \overline{\text{det}(A)} &= \overline{\sum_{ j=1  }^{ n } (-1)^{1+j} {A}_{1j} \cdot \text{det}(\tilde{A}_{1j})  }  \\
+                             &= \sum_{ j=1  }^{ n } (-1)^{1 + j} \overline{{A}_{1j}} \cdot \overline{\text{det}(\tilde{A}_{1j})} \\
+                             &= \sum_{ j=1 }^{ n  } (-1)^{1+j} (A^{*})_{j1} \cdot \text{det}(\tilde{A}_{j1}^{*}) \\
+                             &= \text{det}(A^{*}).
+\end{align*}
+Thus, we conclude that \( \overline{\text{det}(A)} = \text{det}(A^{*}) \). 
+\end{proof}
+

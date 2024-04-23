@@ -1,0 +1,10 @@
+\section{Normal and Self-Adjoint Operators}
+
+\begin{lemma}
+    Let \( T  \) be a linear operator on a finite-dimensional inner product space \( V  \). If \( T  \) has an eigenvector, then so does \( T^{*} \).
+\end{lemma}
+\begin{proof}
+Suppose that \( v  \) is an eigenvector of \( T  \) with the corresponding eigenvalue \( \lambda  \). Then for any \( x \in V  \), we have
+\[  0 = \langle 0  , x  \rangle =  \langle  (T - \lambda I )(v) , x   \rangle = \langle v  ,  (T - \lambda I )^{*}(x) \rangle = \langle v  ,  (T^{*} - \overline{\lambda} I)(x) \rangle. \]
+Hence, we find that \( v  \) is orthogonal to the range of \( T^{*} - \overline{\lambda} I  \). So \( T^{*} - \overline{\lambda} I  \) is not surjective and hence is not injective. Thus,  \( T^{*} - \overline{\lambda}I  \) has a nonzero null space, and any nonzero vector in this null space is an eigenvector of \( T^{*} \) with corresponding eigenvalue \( \overline{\lambda} \).
+\end{proof}
