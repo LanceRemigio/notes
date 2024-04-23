@@ -1,10 +1,56 @@
 \section{Normal and Self-Adjoint Operators}
 
+We begin this section by developing some preliminary results that allows us to find an orthonormal basis of eigenvectors for an inner product space \( V  \) such that a linear operator \(  T  \) is diagonalizable.
+
 \begin{lemma}
     Let \( T  \) be a linear operator on a finite-dimensional inner product space \( V  \). If \( T  \) has an eigenvector, then so does \( T^{*} \).
 \end{lemma}
 \begin{proof}
 Suppose that \( v  \) is an eigenvector of \( T  \) with the corresponding eigenvalue \( \lambda  \). Then for any \( x \in V  \), we have
 \[  0 = \langle 0  , x  \rangle =  \langle  (T - \lambda I )(v) , x   \rangle = \langle v  ,  (T - \lambda I )^{*}(x) \rangle = \langle v  ,  (T^{*} - \overline{\lambda} I)(x) \rangle. \]
-Hence, we find that \( v  \) is orthogonal to the range of \( T^{*} - \overline{\lambda} I  \). So \( T^{*} - \overline{\lambda} I  \) is not surjective and hence is not injective. Thus,  \( T^{*} - \overline{\lambda}I  \) has a nonzero null space, and any nonzero vector in this null space is an eigenvector of \( T^{*} \) with corresponding eigenvalue \( \overline{\lambda} \).
+Hence, we find that \( v  \) is orthogonal to the range of \( T^{*} - \overline{\lambda} I  \). So \( T^{*} - \overline{\lambda} I  \) is not surjective (Because \( v \notin R(T^{*} - \overline{\lambda} I ) \)) and hence is not injective. Thus,  \( T^{*} - \overline{\lambda}I  \) has a nonzero null space, and any nonzero vector in this null space is an eigenvector of \( T^{*} \) with corresponding eigenvalue \( \overline{\lambda} \).
+\end{proof}
+
+\begin{definition}[T-Invariance]
+    Let \( V  \) be a vector space, and let \( T: V \to V  \) be linear. As subspace \( W  \) of \( V  \) is said to be \textbf{\( T- \)invariant} if \( T(x) \in W  \) for every \( x \in W  \), that is, \( T(W) \subseteq W  \). If \( W  \) is \( T- \)invariant, we define the \textbf{restriction of \( T \) on \( W  \)} to be the function \( {T}_{W}: W \to W  \) defined by \( {T}_{W}(x) = T(x) \) for all \( x \in W \).
+\end{definition}
+
+\begin{theorem}[Schur]
+    Let \( T  \) be a linear operator on a finite-dimensional inner product space \( V  \). Suppose that the characteristic polynomial of \( T \) splits. Then there exists an orthonormal basis \( \gamma \) for \( V  \) such that the matrix \( [T]_{\gamma} \) is upper triangular.
+\end{theorem}
+
+\begin{proof}
+By Exercise 12(a) of Section 5.2, there exists an ordered basis \( \beta = \{ {w}_{1}, {w}_{2}, \dots, {w}_{n} \}  \) for \( V  \) such that \( [T]_{\beta} \) is upper triangular. Now apply the Gram-Schmidt process to \( \beta  \) to obtain an orthogonal basis \( \beta' = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) for \( V  \). For each \( k  \), \( 1 \leq k \leq n  \), let 
+\begin{center}
+    \( {S}_{k} = \{ {w}_{1}, {w}_{2}, \dots, {w}_{k } \}   \) and  \( {S}_{k}' = \{ {v}_{1}, {v}_{2}, \dots, {v}_{k} \}. \)
+\end{center}
+From the result of Theorem 6.4, \( \text{span}({S}_{k}) = \text{span}({S}_{k}') \) for all \( k  \). Using Exercise 12 from Section 2.2, we have \( T({w}_{k}) \in \text{span}({S}_{k}) \) for all \(  k  \). Thus, \( [T]_{\beta'} \) is upper triangular by the same exercise. Finally, let \( {z}_{i}  = \frac{ 1 }{ \|{v}_{i}\| }  {v}_{i} \) for all \( 1 \leq i \leq n  \) and \( \gamma = \{ {z}_{1}, {z}_{2}, \dots, {z}_{n} \}  \). Thus, \( \gamma  \) is an orthonormal basis for \( V  \), and \( [T]_{\gamma}  \) is upper triangular.
+\end{proof}
+
+\begin{itemize}
+    \item If such a basis \( \beta \) exists for a linear operator \( T  \), then \( [T^{*}]_{\beta} = [T]_{\beta}^{*} \) is a diagonal.
+    \item Furthermore, we find that \( T  \) and \( T^{*} \) commute.
+    \item Thus, if \( V  \) contains an orthonormal basis of eigenvectors of \( T  \), then \( T T^{*} = T^{*} T  \).
+\end{itemize}
+
+\begin{definition}[Normal]
+    Let \( V  \) be an inner product space, and let \( T  \) be a linear operator on \( V  \). We say that \( T  \) is \textbf{normal} if \( T T^{*} = T^{*} T  \). An \( n \times n  \) real or complex matrix \( A  \) is \textbf{normal} if \( A A^{*} = A^{*} A  \).
+\end{definition}
+
+\begin{remark}
+   From Theorem 6.10,\( T  \) is normal if and only if \( [T]_{\beta} \) is normal.
+\end{remark}
+
+\begin{theorem}
+   Let \( V  \) be an inner product space, and let \( T  \) be a normal operator on \( V  \). Then the following statements are true. 
+   \begin{enumerate}
+       \item[(a)] \( \|T(x)\| = \|T^{*}(x)\|  \) for all \( x \in V  \).
+        \item[(b)] \( T - cI  \) is normal for every \( c \in F  \).
+        \item[(c)] If \( x  \) is an eigenvector of \( T  \) corresponding to eigenvalue \( \lambda  \), then \( x  \) is also an eigenvector of \( T^{*} \) corresponding to eigenvalue \( \overline{\lambda} \). That is, if \( T(x) = \lambda x  \), then \( T^{*}(x) = \overline{\lambda } x  \).
+        \item[(d)] If \( {\lambda}_{1} \) and \( {\lambda}_{2} \) are distinct eigenvectors of \( T  \) with corresponding eigenvectors \( {x}_{1} \) and \( {x}_{2} \), then \( {x}_{1} \) and \( {x}_{2} \) are orthogonal.
+   \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+
 \end{proof}

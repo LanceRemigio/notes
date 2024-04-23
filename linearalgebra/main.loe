@@ -382,3 +382,10 @@
 \contentsline {theorem}{\ifthmt@listswap Theorem~6.3.5\else \numberline {6.3.5}Theorem\fi \thmtformatoptarg {Minimal Solution}}{120}{theorem.6.3.5}%
 \contentsline {lemma}{\ifthmt@listswap Lemma~6.4.1\else \numberline {6.4.1}Lemma\fi }{120}{lemma.6.4.1}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{120}{thmt@dummyctr.dummy.378}%
+\contentsline {definition}{\ifthmt@listswap Definition~6.4.1\else \numberline {6.4.1}Definition\fi \thmtformatoptarg {T-Invariance}}{121}{definition.6.4.1}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~6.4.1\else \numberline {6.4.1}Theorem\fi \thmtformatoptarg {Schur}}{121}{theorem.6.4.1}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{121}{thmt@dummyctr.dummy.381}%
+\contentsline {definition}{\ifthmt@listswap Definition~6.4.2\else \numberline {6.4.2}Definition\fi \thmtformatoptarg {Normal}}{121}{definition.6.4.2}%
+\contentsline {remark}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Remark}{121}{thmt@dummyctr.dummy.383}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~6.4.2\else \numberline {6.4.2}Theorem\fi }{121}{theorem.6.4.2}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{121}{thmt@dummyctr.dummy.385}%
