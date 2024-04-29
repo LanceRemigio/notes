@@ -1,0 +1,183 @@
+\section{Normal and Self-Adjoint Operators}
+
+\subsection*{Exercise 6.4.4} Let \( T  \) and \( U  \) be self-adjoint operators on an inner product space \( V  \). Prove that \( TU  \) is self-adjoint if and only if \( TU = UT  \).
+\begin{proof}
+Let \( T  \) and \( U  \) be self-adjoint operators on an inner product space \( V  \). For the forwards direction, suppose \( TU  \) is self-adjoint. Then we have
+\[  TU = (TU)^{*} = U^{*} T^{*} = UT. \]
+Conversely, suppose \( TU = UT \). Then
+\[  (TU)^{*} = U^{*}T^{*} = UT = TU.  \]
+Thus, \( TU  \) is self-adjoint.
+\end{proof}
+
+\subsection*{Exercise 6.4.5} Prove (b) of Theorem 6.15.
+
+\begin{proof}
+Suppose \( c \in F  \). Then we have
+        \begin{align*}
+            (T - cI)(T - cI)^{*} &= (T - cI)(T^{*} - \overline{c}I) \\
+                                 &= TT^{*} - c T^{*} - \overline{c} (IT) + c \overline{c} I\\
+                                 &= T^{*}T - c T^{*} - \overline{c} (IT) + \overline{c} c   I \\
+                                 &= T^{*} (T - cI) - \overline{c} I  (T - cI) \\
+                                 &= (T - cI) (T^{*} - \overline{c}I) \\
+                                 &= (T - cI) (T  - cI)^{*}.
+        \end{align*}
+        Thus, the operator \( T - cI \) is normal.
+    \end{proof}
+
+\subsection*{Exercise 6.4.6} Let \( V  \) be a complex inner product space, and let \( T  \) be a linear operator on \( V  \). Define 
+\[  {T}_{1} = \frac{ 1 }{ 2 }  (T + T^{*}) \ \ \text{and} \ \ {T}_{2} = \frac{ 1 }{ 2i }  (T - T^{*}). \]
+\begin{enumerate}
+    \item[(a)] Prove that \( {T}_{1}  \) and \( {T}_{2}  \) are self-adjoint and that \( T = {T}_{1} + i {T}_{2} \).
+        \begin{proof}
+            By definition of \( {T}_{1} \), we have
+            \[  {T}_{1}^{*} = \frac{ 1 }{ 2 }  (T + T^{*})^{*} = \frac{ 1 }{ 2 }  ( T^{*} + T^{* * }) = \frac{ 1 }{ 2 }  (T  + T^{*}) = {T}_{1}. \]
+            Thus, \( {T}_{1} \) is self-adjoint. Likewise, we have
+            \begin{align*}
+            {T}_{2}^{*} = \Big(  \frac{ 1 }{ 2i }  (T - T^{*}) \Big)^{*} &=  - \frac{ 1 }{ 2i } (T - T^{*})^{*} \\  
+                                                                         &=  \frac{ 1 }{ 2i }  ( T^{* * } -  T^{*}) \\  
+                                                                         &=  \frac{ 1 }{ 2i }  ( T -  T^{*}) \\  
+                                                                         &= {T}_{2}.
+\end{align*}
+Thus, \( {T}_{2} \) is self-adjoint. Observe that \( T = {T}_{1} + i {T}_{2} \). Hence, we have
+\begin{align*}
+    {T}_{1} + i {T}_{2} &= \frac{ 1 }{ 2 }  ( T  + T^{*}) + i \Big(  \frac{ 1 }{ 2i }  (T - T^{*}) \Big)   \\
+                        &= \frac{ 1 }{ 2 }  (T + T^{*}) + \frac{ 1 }{ 2 } (T - T^{*}) \\
+                        &= \frac{ 1 }{ 2 } \cdot  2 T  \\
+                        &= T.
+\end{align*}
+
+        \end{proof}
+    \item[(b)] Suppose that \( T = {U}_{1} + i {U}_{2} \), where \( {U}_{1} \) and \( {U}_{2} \) are self-adjoint. Prove that \( {U}_{1} = {T}_{1} \) and \( {U}_{2} = {T}_{2} \).
+        \begin{proof}
+            Observe that \( T^{*} = {U}_{1}^{*} - i {U}_{2}^{*} \). First, we will show \( {U}_{1} = {T}_{1} \). Since \( {U}_{1}  \) and \( {U}_{2} \) are self-adjoint, we have \( T^{*} = {U}_{1} - i {U}_{2} \). So, we have
+            \begin{align*}
+                {T}_{1} = \frac{ 1 }{ 2 }  (T + T^{*})  &= \frac{ 1 }{ 2 }  ({U}_{1} + i {U}_{2}) + \frac{ 1 }{ 2 }  ({U}_{1}^{*} - i {U}_{2}^{*}) \\
+                                                        &=\frac{ 1 }{ 2 }  ({U}_{1} + i {U}_{2}) + \frac{ 1 }{ 2 } ( {U}_{1} - i {U}_{2}) \\
+                                                        &= \frac{ 1 }{ 2 }  \cdot 2 {U}_{1} \\
+                                                        &=  {U}_{1}.
+\end{align*}
+Thus, we have \( {T}_{1} = {U}_{1} \). For the second equality, observe that
+\begin{align*}
+    {T}_{2} = \frac{ 1 }{ 2i }  (T - T^{*}) &= \frac{ 1 }{ 2i } ( {U}_{1} + i {U}_{2}) - \frac{ 1 }{ 2i } ( {U}_{1}^{*} - i {U}_{2}^{*} )  \\
+                                            &= \frac{ 1 }{ 2i }  ({U}_{1} + i {U}_{2}) - \frac{ 1  }{ 2i }  ({U}_{1} - i {U}_{2}) \\
+                                            &= \frac{ 1 }{ 2i } \cdot 2i {U}_{2} \\
+                                            &= {U}_{2}.
+\end{align*}
+        \end{proof}
+    \item[(c)] Prove that \( T  \) is normal if and only \( {T}_{1} {T}_{2} = {T}_{2} {T}_{1} \).
+        \begin{proof}
+        Suppose that \( T  \) is normal. Thus, \( T T^{*} = T^{*} T  \) by definition. Our goal is to show \( {T}_{1} {T}_{2}  = {T}_{2} {T}_{1} \). Thus, we have
+        \begin{align*}
+            {T}_{1} {T}_{2} &= \frac{ 1 }{ 2 }  (T  + T^{*}) \frac{ 1 }{ 2i }  (T - T^{*})  \\
+                                                                                          &=  \frac{ 1 }{ 2 }  \cdot \frac{ 1 }{ 2i }  (T^{2} + T^{*}T - T T^{*} - (T^{*})^{2}) \\
+                                                                                          &= \frac{ 1 }{ 2 }  \cdot \frac{ 1 }{ 2i } (T^{2} - T^{*} T + T^{*}T - (T^{*})^{2}) \\
+                                                                                          &= \frac{ 1 }{ 2 }  \cdot \frac{ 1 }{ 2i }  \Big(  T (T  - T^{*}) + T^{*} (T - T^{*})  \Big) \\
+                                                                                          &=  \frac{ 1 }{ 2i }  (T - T^{*}) \frac{ 1 }{ 2 }  (T + T^{*}) \\
+                                                                                          &= {T}_{2} {T}_{1}.
+        \end{align*}
+        Thus, \( {T}_{1} {T}_{2} = {T}_{2} {T}_{1} \). Conversely, suppose \( {T}_{1} {T}_{2} = {T}_{2} {T}_{1} \). Observe that
+        \begin{align*}
+            T T^{*} &= ({T}_{1} + i {T}_{2})({T}_{1} - {iT}_{2}) \\
+                    &= ({T}_{1}^{2} + i {T}_{2} {T}_{1} - i {T}_{1} {T}_{2} - i^{2} {T}_{2}^{2}) \\
+                    &= ({T}_{1}^{2} - i {T}_{1} {T}_{2} + i {T}_{1} {T}_{2} - {i}^{2} T^{2}_2) \\
+                    &= {T}_{1} ({T}_{1} - i {T}_{2}) +  i {T}_{2} ({T}_{1} - i {T}_{2}) \\
+                    &= ({T}_{1} - i {T}_{2}) (T + i {T}_{2}) \\
+                    &= T^{*} T.
+         \end{align*}
+         Thus, we conclude that \( T^{*} T = T T^{*} \).
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 6.4.7} Let \( T  \) be a linear operator on an inner product space \( V  \), and let \( W  \) be a \( T- \)invariant subspace of \( V  \). Prove the following results. 
+\begin{enumerate}
+    \item[(a)] If \( T  \) is self-adjoint, then \( {T}_{W}  \) is self-adjoint. 
+        \begin{proof}
+        Suppose that \( T  \) is self-adjoint. Our goal is to show that \( {T}_{W} \) is also self-adjoint. First, we show that \( W  \) is \( T^{*}  \) invariant. Let \( y \in T^{*}(W) \). Then \( y = T^{*}(x) \) for \( x \in W  \). But \( T  \) is self-adjoint, so \( y = T^{*}(x) = T(x)  \) where \( T(x) \in W  \). Thus, \( y \in W  \) and so \( W  \) is \( T^{*} \) invariant. Therefore, we may place a restriction \( {T}_{W}  \) such that \( {T}_{W}(x) = T(x) \) and \({T}_{W}^{*}(x) = T^{*}(x)  \). Thus,
+     for any \( x \in W  \), we have
+        \begin{align*}
+            {T}_{W}(x) = T(x) = T^{*}(x) = {T}_{W}^{*}(x)
+        \end{align*}
+        and we are done.
+        \end{proof}
+    \item[(b)] \( W^{\perp}  \) is \( T^{*}- \)invariant.
+        \begin{proof}
+        Our goal is to show that \( T^{*}(W^{\perp}) \subseteq W^{\perp} \). Let \( y \in T^{*}(W^{\perp}) \). Thus, \( y = T^{*}(x)  \) for \( x \in W^{\perp}  \). Note that \( y \in W   \) since \( W   \) is \( T^{*}- \)invariant. We need to show that \( \langle y , w  \rangle = 0  \) for all \( w \in W  \). Then observe that
+        \[  \langle y , w \rangle = \langle T^{*}(x) , w  \rangle = \langle x  , T(w) \rangle.  \]
+        Since \( x \in W^{\perp} \) and that \( W  \) is \( T- \)invariant (that is, \( T(w) \in W  \)), \( \langle x  , T(w) \rangle = 0  \). So, we conclude that \( \langle  y  , w  \rangle = 0  \) and that \( y \in W^{\perp} \). So, \( W^{\perp} \) is \( T^{*} -  \)invariant.
+        \end{proof}
+    \item[(c)] If \( W  \) is both \( T- \) and \( T^{*}- \)invariant, then \( ({T}_{W})^{*} = {(T^{*})}_{W} \).
+        \begin{proof}
+        Suppose that \( W  \) is both \( T-  \) and \( T^{*}- \) invariant. We can place restrictions on \( T  \) by having functions \( {T}_{W} \) and \( (T^{*})_W  \). Let \( x \in W  \). Then
+        \[  ({T}_{W})^{*} = T^{*}(x) = (T^{*})_W (x). \]
+        Thus, we conclude that \( ({T}_{W})^{*} = (T^{*})_W   \).
+        \end{proof}
+    \item[(d)] If \( W  \) is both \( T- \) and \( T^{*}-  \)invariant and \( T  \) is normal, then \( {T}_{W} \) is normal.
+        \begin{proof}
+        Suppose that \( W  \) both \( T- \) and \( T^{*}- \) invariant. Using part (c) and the fact that \( T  \) is normal, we can write
+        \begin{align*}
+            {T}_{W} ({T}_{W})^{*} = {T}_{W} (T^{*})_W = T T^{*} = T^{*}T = (T^{*})_W {T}_{W} = ({T}_{W})^{*} {T}_{W}.
+        \end{align*}
+        Thus, we conclude that \( {T}_{W} \) is normal.
+\end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 6.4.8} Let \( T  \) be a normal operator on a finite-dimensional complex inner product space \( V  \), and let \( W  \) be a subspace of \( V  \). Prove that if \( W  \) is \( T- \)invariant, then \( W  \) is also \( T^{*}- \)invariant.
+
+\begin{proof}
+
+\end{proof}
+
+\subsection*{Exercise 6.4.9} Let \( T  \) be a normal operator on a finite-dimensional inner product space \( V  \). Prove that \( N(T) = N(T^{*}) \) and \( R(T) = R(T^{*}) \).
+
+\begin{proof}
+Let \( T  \) be a normal operator on a finite-dimensional inner product space \( V  \). Let \( x \in N(T)  \). Then \( T(x) = 0  \) for all \( x \in V  \). By part (a) of Theorem 6.15, we have
+\[  0 = \|T(x)\| = \|T^{*}(x)\|. \]
+By Theorem 6.1, we have \( T^{*}(x) =0  \). So, \( x \in N (T^{*}) \) and thus \( N(T) \subseteq N(T^{*}) \). The other containment is just the reverse of this argument. Thus, \( N(T) = N(T^{*}) \). Using part (b) of Exercise 12 from Section 6.3, we have 
+\[  R(T^{*}) = N(T)^{\perp} = N(T^{*})^{\perp} = R(T^{**}) = R(T). \]
+Thus, \( R(T^{*}) = R(T) \).
+\end{proof}
+
+
+\subsection*{Exercise 6.4.10} Let \( T  \) be a self-adjoint operator on a finite-dimensional inner product space \( V  \). Prove that for all \( x \in V  \).
+\[ \|T(x) \pm ix\|^{2} = \|T(x)\|^{2} + \|x\|^{2}.  \]
+Deduce that \( T - i I  \) is invertible and that the adjoint of \( (T - iI )^{-1} \) is \( (T + i I )^{-1} \).
+\begin{proof}
+Let \( T  \) be a self-adjoint operator and \( x \in V  \). Note that \( \langle T(x)  , x  \rangle = \langle x , T(x) \rangle \). By Exercise 19 of Section 6.1, we have
+\begin{align*}
+    \|T(x) + ix \|^{2} &= \|T(x)\|^{2} + 2 \Re \langle T(x) , ix  \rangle + \|ix \|^{2} \\
+                       &= \|T(x)\|^{2} + \langle T(x)  , ix  \rangle + \langle ix  , T(x)  \rangle + \|x\|^{2}  \\
+                       &= \|T(x)\|^{2} +  i \langle T(x)   , x \rangle - i \langle T(x)  , x  \rangle + \|x\|^{2} \\  
+                       &= \|T(x)\|^{2} + \|x\|^{2}.
+\end{align*}
+Similarly, we have
+\begin{align*}
+    \|T(x) - ix \|^{2} &= \|T(x)\|^{2} - 2 \Re \langle T(x) , ix  \rangle + \|ix\|^{2} \\
+                       &= \|T(x)\|^{2} - \langle T(x)  , ix  \rangle - \langle ix , T(x) \rangle + \|x\|^{2} \\
+                       &= \|T(x)\|^{2} + i \langle T(x)  , x  \rangle - i \langle T(x)  , x  \rangle + \|x\|^{2} \\
+                       &= \|T(x)\|^{2} + \|x\|^{2}.
+\end{align*}
+Thus, we conclude that \( \|T(x) \pm ix\|^{2} = \|T(x)\|^{2} + \|x\|^{2} \). Since \( V  \) is an finite-dimensional inner product space and \( T - iI  \) is normal , there exists an orthonormal basis \(  \beta \) such that  \( [T - iI]_{\beta} \) is diagonal matrix. Since \( i \neq 0  \), we can see that \( \text{det}([T - i I ]_{\beta}) \neq 0  \). Thus, \( [T - iI ]_{\beta} \) is an invertible matrix and thus \( T - iI  \) is an invertible linear operator. Note that \( (T - iI)^{*} = T^{*} + iI \). Since \( T  \) is normal, we have   
+\[  (T - i I) \]
+\end{proof}
+
+\subsection*{Exercise 6.4.11} Assume that \( T  \) is a linear operator on a complex (not necessarily finite-dimensional) inner product space \( V  \) with an adjoint \( T^{*} \). Prove the following results.
+\begin{enumerate}
+    \item[(a)] If \( T  \) is self-adjoint, then \( \langle T(x) , x \rangle \) is real for all \( x \in V  \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] If \( T  \) satisfies \( \langle T(x) , x \rangle = 0  \) for all \( x \in V  \), then \( T = {T}_{0} \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(c)] If \( \langle T(x) , x \rangle  \) is real for all \( x \in V  \), then \( T  \) is self-adjoint.
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 6.4.12} Let \( T  \) be a normal operator on a finite-dimensional real inner product space \( V  \) whose characteristic polynomial splits. Prove that \( V  \) has an orthonormal basis of eigenvectors of \( T  \). Hence prove that \( T  \) is self-adjoint.
+
+\begin{proof}
+
+\end{proof}

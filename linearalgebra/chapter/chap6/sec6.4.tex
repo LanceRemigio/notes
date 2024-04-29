@@ -1,5 +1,7 @@
 \section{Normal and Self-Adjoint Operators}
 
+\subsection{Eigenvectors and Orthonormal Bases}
+
 We begin this section by developing some preliminary results that allows us to find an orthonormal basis of eigenvectors for an inner product space \( V  \) such that a linear operator \(  T  \) is diagonalizable.
 
 \begin{lemma}
@@ -41,7 +43,7 @@ From the result of Theorem 6.4, \( \text{span}({S}_{k}) = \text{span}({S}_{k}') 
    From Theorem 6.10,\( T  \) is normal if and only if \( [T]_{\beta} \) is normal.
 \end{remark}
 
-\begin{theorem}
+\begin{theorem}\label{Theorem 6.15}
    Let \( V  \) be an inner product space, and let \( T  \) be a normal operator on \( V  \). Then the following statements are true. 
    \begin{enumerate}
        \item[(a)] \( \|T(x)\| = \|T^{*}(x)\|  \) for all \( x \in V  \).
@@ -52,5 +54,99 @@ From the result of Theorem 6.4, \( \text{span}({S}_{k}) = \text{span}({S}_{k}') 
 \end{theorem}
 
 \begin{proof}
+\begin{enumerate}
+    Suppose \( T  \) is normal.
+    \item[(a)] For any \( x \in V  \), we have
+        \begin{align*}
+            \|T(x)\|^{2} = \langle T(x) , T(x) \rangle &= \langle T^{*}T(x) , x  \rangle \\ 
+                                                       &= \langle TT^{*}(x) , x   \rangle \\
+                                                                                        &= \langle T^{*}(x) ,  T^{*}(x) \rangle \\
+                                                                                        &= \|T^{*}(x)\|^{2}.
+        \end{align*}
+    \item[(b)] Suppose \( c \in F  \). Then we have
+        \begin{align*}
+            (T - cI)(T - cI)^{*} &= (T - cI)(T^{*} - \overline{c}I) \\
+                                 &= TT^{*} - c T^{*} - \overline{c} (IT) + c \overline{c} I\\
+                                 &= T^{*}T - c T^{*} - \overline{c} (IT) + \overline{c} c   I \\
+                                 &= T^{*} (T - cI) - \overline{c} I  (T - cI) \\
+                                 &= (T - cI) (T^{*} - \overline{c}I) \\
+                                 &= (T - cI) (T  - cI)^{*}.
+        \end{align*}
+    \item[(c)] Suppose \( T(x) = \lambda x  \). Thus, \( (T - \lambda I)(x) = 0  \)  We will show that \( T^{*}(x) = \overline{\lambda} x  \). Using part (a), we have
+        \begin{align*}
+            0  = \|(T - \lambda I)(x)\| = \|(T - \lambda I)^{*}(x)\| =  \|(T^{*} - \overline{\lambda} I )(x)\|.  
+        \end{align*}
+        Thus, \( (T^{*} - \overline{\lambda} I )(x) = 0   \) and so \( x \in N(T^{*} - \overline{\lambda} I )  \). Hence, \( x  \) is an eigenvector of \( T^{*}  \) corresponding to \( \overline{\lambda} \). 
+    \item[(d)] Let \( {\lambda}_{1} \) and \( {\lambda}_{2} \) be distinct eigenvalues of \( T  \) with corresponding eigenvectors \( {x}_{1} \) and \( {x}_{2} \). Consider the inner product \( {\lambda}_{1} \langle {x}_{1} , {x}_{2} \rangle \). We want to show that \( \langle {x}_{1} , {x}_{2} \rangle = 0  \). So, observe that
+        \begin{align*}
+            {\lambda}_{1} \langle {x}_{1} , {x}_{2} \rangle = \langle {\lambda}_{1} {x}_{1} ,  {x}_{2} \rangle  &= \langle T({x}_{1}) , {x}_{2}  \rangle \\
+                                                                                                                &= \langle {x}_{1} ,  T^{*}({x}_{2}) \rangle \\
+                                                                                                                &=  \langle {x}_{1}  ,  \overline{\lambda} {x}_{2} \rangle \\
+                                                                                                                &= \lambda_2 \langle {x}_{1}  , {x}_{2} \rangle
+        \end{align*}
+        Now, we have the equation
+        \[ ({\lambda}_{1} - {\lambda}_{2}) \langle {x}_{1} , {x}_{2} \rangle = 0 \tag{1}   \]
+        Since \( {\lambda}_{1} \) and \( {\lambda}_{2} \) are distinct eigenvalues, we must have \( {\lambda}_{1} - {\lambda}_{2} \neq 0  \). So, (1) implies that \( \langle {x}_{1} , {x}_{2} \rangle = 0 \).
+\end{enumerate}
+\end{proof}
 
+\begin{theorem}
+   Let \( T  \) be a linear operator on a finite-dimensional complex inner product space \( V  \). Then \( T  \) is normal if and only if there exists an orthonormal basis for \( V  \) consisting of eigenvectors of \( T  \).
+\end{theorem}
+
+\begin{proof}
+Suppose that \( T  \) is normal. By the fundamental theorem of algebra, the characteristic  polynomial of \( T  \) splits. By Schur's Theorem, there exists an orthonormal basis \( \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}   \) for \( V  \) such that \( [T]_{\beta} = A  \) is upper triangular. We know that \( {v}_{1}  \) is an eigenvector of \( T  \) since \( A  \) is upper triangular. Assume that \( {v}_{1}, {v}_{2}, \dots, {v}_{k-1} \) are eigenvectors of \( T  \). We want to show that \( {v}_{k} \) is also an eigenvector of \( T  \). We proceed by mathematical induction to show this. Consider any \( j < k  \), and let \( {\lambda}_{j} \) be the eigenvalue of \( T  \) corresponding to \( {v}_{j} \). Using Theorem 6.15,  \( T^{*}({v}_{j}) = \overline{{\lambda}_{j}} {v}_{j} \). Since \( A  \) is upper triangular, we have
+\[ T({v}_{k}) = {A}_{1k} {v}_{1} + {A}_{2k} {v}_{2} + \cdots + {A}_{jk} {v}_{j} + \cdots + {A}_{kk} {v}_{k}.   \]
+Furthermore, the corollary to Theorem 6.5 implies that
+\[  {A}_{jk} = \langle T({v}_{k}) , {v}_{j} \rangle = \langle {v}_{k}  ,  T^{*}({v}_{j}) \rangle = \langle {v}_{k}  , \overline{{\lambda}_{j}} {v}_{j} \rangle = {\lambda}_{j} \langle {v}_{k} ,  {v}_{j} \rangle = 0. \]
+In order for \( {v}_{k} \) to be an eigenvalue of \( T  \), we must have \( j = k  \). So, \( {A}_{kk} = {\lambda}_{k} \) and thus \( T({v}_{k}) = {\lambda}_{k } {v}_{k } \).
+
+Conversely, assume \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) is an orthonormal basis for \( V  \) consisting of eigenvectors of \( T  \). Thus, \( [T]_{\beta} \) is a diagonal matrix. Since diagonal matrices commute, we have 
+\[ [T T^{*}]_{\beta} =  [T]_{\beta} [T^{*}]_{\beta} = [T]_{\beta} [T]_{\beta}^{*}  = [T]_{\beta}^{*} [T]_{\beta} = [T^{*}]_{\beta} [T]_{\beta} = [T^{*}T ]_{\beta}  \]
+but, this implies that we have \( T T^{*} = T^{*} T  \). So, \( T  \) is normal.
+\end{proof} 
+
+\subsection{Self-Adjoints}
+
+
+\begin{definition}[Self-Adjoints]
+Let \( T  \) be a linear operator on an inner product space \( V  \). We say that \( T  \) is \textbf{self-adjoint} (or \textbf{Hermitian}) if \( T = T^{*} \). An \( n \times n  \) real or complex matrix \( A  \) is \textbf{self-adjoint} (or \textbf{Hermitian}) if \( A = A^{*} \).   
+\end{definition}
+
+\begin{itemize}
+    \item A result that follows immediately is that if \( \beta  \) is an orthonormal basis, then \( T  \) is self-adjoint if and only if \( [T]_{\beta}  \) is self-adjoint.
+    \item If we are dealing with real matrices, say \( A  \), then we require \( A  \) to be symmetric.
+    \item Linear Operators defined on a real inner product space contains real eigenvalues.
+    \item Likewise, self-adjoint operators defined on complex inner product spaces have complex eigenvalues. Furthermore, the characteristic polynomial of every linear operator defined in this space is splits.
+\end{itemize}
+
+\begin{lemma}
+    Let \( T  \) be a self-adjoint operator on a finite-dimensional inner product space \( V  \). Then
+    \begin{enumerate}
+        \item[(a)] Every eigenvalue of \( T  \) is real.
+        \item[(b)] Suppose that \( V  \) is a real inner product space. Then the characteristic polynomial of \( T  \) splits.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Suppose that \( T(x) = \lambda x  \) for \( x \neq 0  \). Since \( T  \) is a self-adjoint linear operator, we know that \( T  \) must also be normal. Using {\hyperref[Theorem 6.15]{Theorem 6.15 (c)}}, we have
+        \[  \lambda x = T(x) = T^{*}(x) = \overline{\lambda }x.   \]
+        So, \( \lambda = \overline{\lambda} \) and so \( \lambda  \) is a real eigenvalue.
+    \item[(b)] Let \( n = \text{dim}(V) \), and \( \beta \) be an orthonormal basis for \( V  \), and \( A = [T]_{\beta} \). Since \( T  \) is self-adjoint, then \( A  \) is also self-adjoint. Let \( {T}_{A} \) be the linear operator on \( C^{n} \) defined by \( {T}_{A}(x) = Ax  \) for all \( x \in C^{n} \). Note that we also have that \( {T}_{A} \) is self-adjoint because \( [{T}_{A}]_{\gamma} = A  \), where \( \gamma  \) is the standard ordered basis for \( C^{n} \). By part (a), the eigenvalues of \( {T}_{A}  \) are real. By the Fundamental Theorem of Algebra, the characteristic polynomial of \( {T}_{A} \) splits into the form \( t - \lambda  \). Since \( \lambda  \) is real, the characteristic polynomial splits over \( \R  \). Note that \( {T}_{A} \) contains the same characteristic polynomial as \( A  \), which has the same characteristic polynomial as \( T  \). Thus, the characteristic polynomial of \( T   \) splits.
+\end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    Let \( T  \) be a linear operator on a finite-dimensional real inner product space \( V  \). Then \( T  \) is self-adjoint if and only if there exists an orthonormal basis \( \beta \) for \( V  \) consisting of eigenvectors of \( T  \).
+\end{theorem}
+
+\begin{proof}
+Suppose that \( T  \) is self-adjoint. By the lemma, we can apply {\hyperref[Schur]{Schur's Theorem}} to obtain an orthonormal basis \( \beta  \) for \( V  \) such that the matrix \( A = [T]_{\beta} \) is upper triangular. Observe that
+\[  A^{*} = [T]_{\beta}^{*} = [T^{*}]_{\beta} = [T]_{\beta} = A. \]
+Since \( \beta \) is an orthonormal basis, \( A  \) must be a diagonal matrix. Thus, \( \beta  \) must consist of eigenvectors of \( T  \).
+
+Conversely, suppose there exists an orthonormal basis \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) consisting of eigenvectors. Thus, \( {v}_{1}, {v}_{2}, \dots, {v}_{n} \) are eigenvectors of \( V  \) corresponding to eigenvalues \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{n} \in \R  \). Since \(  \beta  \) is an orthonormal basis for \( V  \), \( T  \) is normal by Theorem 6.16. Furthermore, \( [T]_{\beta} \) is a diagonal matrix and so is \( [T]_{\beta}^{*} = [T^{*}]_{\beta} \). Thus, by part (c) of Theorem 6.15, we can see that  
+\[  T({v}_{j}) = {\lambda}_{j} {v}_{j} = \overline{\lambda_j} {v}_{j} = T^{*}({v}_{j}). \]
+Thus, \( T = T^{*}  \) and so we conclude that \( T  \) is self-adjoint.
 \end{proof}
