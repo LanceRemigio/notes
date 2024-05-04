@@ -211,6 +211,13 @@ Let \( T  \) be a normal operator on a finite-dimensional real inner product spa
 So, \( T = T^{*}  \) which implies that \( T  \) is self-adjoint.
 \end{proof}
 
+\subsection*{Exercise 6.4.14} Let \( V  \) be a finite-dimensional real inner product space, and let \( U \) and \( T  \) be self-adjoint linear operators on \( V  \) such that \( UT = TU  \). Prove that there exists an orthonormal basis for \( V  \) consisting of vectors that are eigenvectors of both \( U  \) and \( T  \).
+\begin{proof}
+
+\end{proof}
+
+
+
 
 \begin{definition}[Positive Definite]
     A linear operator \( T  \) on a finite-dimensional inner product space is called \textbf{positive definite [positive semidefinite]} if \( T  \) is self-adjoint and \( \langle T(x) , x \rangle > 0  \) [\( \langle T(x) , x \rangle \geq 0  \)] for all \( x \neq 0  \). 
@@ -249,7 +256,6 @@ So, \( T = T^{*}  \) which implies that \( T  \) is self-adjoint.
         Denote \( {a}_{i} = \langle x  , {v}_{i}  \rangle \). Our goal is to show that \( \langle T(x) , x \rangle > 0  \). Using the corollary to Theorem 6.5 again, we can see that
         \begin{align*}
             \langle T(x) , x  \rangle &= \Big\langle T \Big(  \sum_{ j=1  }^{ n } \langle x , {v}_{j}  \rangle {v}_{j} \Big)  , \sum_{ i=1  }^{ n } \langle x , {v}_{i} \rangle {v}_{i}  \Big\rangle \\
-&= \Big\langle T \Big(  \sum_{ j=1  }^{ n } \langle x , {v}_{j}  \rangle {v}_{j} \Big)  , \sum_{ i=1  }^{ n } \langle x , {v}_{i} \rangle {v}_{i}  \Big\rangle \\
 &= \Big\langle \sum_{ j=1  }^{ n } \langle x , {v}_{j} \rangle T({v}_{j}), \sum_{ i=1  }^{ n } \langle x , {v}_{i} \rangle {v}_{i} \Big\rangle \\
 &= \sum_{ j=1  }^{ n } \langle x , {v}_{j} \rangle \sum_{ i=1 }^{ n  } \overline{\langle x , {v}_{i} \rangle} \langle T({v}_{j}) , {v}_{i} \rangle \\
 &= \sum_{ i,j }^{  } \langle T({v}_{j}) , {v}_{i} \rangle \langle x , {v}_{j} \rangle \overline{\langle x , {v}_{i} \rangle} \\
