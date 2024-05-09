@@ -156,14 +156,8 @@ Similarly, we have
                        &= \|T(x)\|^{2} + i \langle T(x)  , x  \rangle - i \langle T(x)  , x  \rangle + \|x\|^{2} \\
                        &= \|T(x)\|^{2} + \|x\|^{2}.
 \end{align*}
-Thus, we conclude that \( \|T(x) \pm ix\|^{2} = \|T(x)\|^{2} + \|x\|^{2} \). Since \( V  \) is an finite-dimensional inner product space and \( T - iI  \) is normal , there exists an orthonormal basis \(  \beta \) such that  \( [T - iI]_{\beta} \) is diagonal matrix. Since \( i \neq 0  \), we can see that \( \text{det}([T - i I ]_{\beta}) \neq 0  \). Thus, \( [T - iI ]_{\beta} \) is an invertible matrix and thus \( T - iI  \) is an invertible linear operator. Note that \( (T - iI)^{*} = T^{*} + iI \). Note that \( T + iI  \) is invertible by the same reasoning. Thus, 
-\begin{align*}
-    [(T + iI)^{-1}]_{\beta} = ([T+iI]_{\beta})^{-1} &= \Big( [(T - iI)^{*}]_{\beta} \Big)^{-1} \\
-                                                    &= \Big(  [(T - iI)]_{\beta}^{*} \Big)^{-1} \\
-                                                    &= [(T- iI)^{-1}]_{\beta}^{*} \\
-                                                    &= \Big[ [(T - iI)^{-1} ]^{*} \Big]_{\beta}.
-\end{align*}
-Thus, we conclude \( (T+iI)^{-1} = [(T - iI)^{-1}]^{*}   \).
+Thus, we conclude that \( \|T(x) \pm ix\|^{2} = \|T(x)\|^{2} + \|x\|^{2} \). Note that \( T - iI  \) is invertible since \( \text{det}(T - iI) \neq 0  \). By Exercise 8 of Section 6.3, we see that \( (T - iI)^{*} = T + iI \) is invertible and that 
+\[ (T + iI)^{*} = \Big( (T - iI)^{*} \Big)^{-1}.  \]
 \end{proof}
 
 \subsection*{Exercise 6.4.11} Assume that \( T  \) is a linear operator on a complex (not necessarily finite-dimensional) inner product space \( V  \) with an adjoint \( T^{*} \). Prove the following results.
@@ -243,7 +237,7 @@ So, \( T = T^{*}  \) which implies that \( T  \) is self-adjoint.
         \[  {A}_{ij} = \langle T({v}_{j}) , {v}_{i} \rangle. \]
         Since \( \beta  \) is an orthonormal basis, we find that
         \begin{align*}
-           \sum_{ i,j }^{  } {A}_{ij} {a}_{j} \overline{{a}_{i}} &= \sum_{ i,j }^{  } \langle T({v}_{j}) , {v}_{i}  \rangle {a}_{j} \overline{{a}_{i}} \\
+           \sum_{ i,j }^{  } {A}_{ij} {a}_{j} \overline{{a}_{i}} = \sum_{ i,j }^{  } \langle T({v}_{j}) , {v}_{i}  \rangle {a}_{j} \overline{{a}_{i}} 
                                                                  &= \sum_{ i,j  }^{  } \langle {\lambda}_{j} {v}_{j} , {v}_{i}  \rangle {a}_{j} \overline{{a}_{i}} \\
                                                                  &= \sum_{ i,j  }^{  } {\lambda}_{j} \langle {v}_{j} , {v}_{i} \rangle {a}_{j} \overline{{a}_{i}} \\
                                                                  &= \sum_{ i=1  }^{ n } {\lambda}_{i} {a}_{i} \overline{{a}_{i}} \\ 
@@ -313,10 +307,22 @@ Note that \( T  \) is self-adjoint by assumption. Thus, we conclude that \( T  \
             \end{align*}
             Thus, we have that \( \langle T^{*}T(x) , x \rangle \geq 0 \). Note that \( T T^{*} \) is self adjoint because  
         \[  (T T^{*})^{*} = T^{**} T^{*} = T T^{*}. \]
-        Thus, \( T^{*} T  \) is positive semidefinite. To show that \( T T^{*} \), we observe that
-        \[  \langle T T^{*}(x) , x  \rangle_2 = \langle T^{*}(x) , T^{*}(x) \rangle_1 = \langle x  ,  \rangle \]
+        Thus, \( T^{*} T  \) is positive semidefinite.  
 
-        \end{proof}
+        Now, let \( y \in W  \) and define \( T^{*}({w}_{i}) = {v}_{i} \).
+        Observe that \[  \langle T T^{*}(y) , y  \rangle_2 = \langle T^{*}(y) , T^{*}(y) \rangle_1 = \|T^{*}(y)\|^{2}_1.  \]
+    By {\hyperref[Exercise 6.1.12]{Exercise 6.1.12}}, we can write
+    \begin{align*}
+        \|T^{*}(y)\|^{2}_1 &= \Big\| T^{*} \Big(  \sum_{ i=1  }^{ n } \langle y , {w}_{i} \rangle_2 {w}_{i} \Big) \Big\|^{2}_1  \\
+                           &= \Big\| \sum_{ i=1  }^{ n } \langle y , {w}_{i} \rangle_2 T^{*}({w}_{i})  \Big\|^{2}_1 \\
+                           &= \sum_{ i=1  }^{ n } | \langle y , {w}_{i} \rangle_2 |^{2} \|T^{*}({w}_{i})\|^{2}_1 \\
+                           &= \sum_{ i=1  }^{ n } \|\langle y , {w}_{i} \rangle_2\|^{2} \|{v}_{i}\|^{2}_1 \\
+                           &= \sum_{ i=1  }^{ n } | \langle y , {w}_{i} \rangle_2 |^{2} \geq 0.
+    \end{align*}
+    Furthermore, \( T T^{*} \) is self-adjoint since
+    \[  (T T^{*})^{*} = T^{**} T^{*} = T T^{*}. \]
+    Thus, \( T T^{*} \) is positive semidefinite.
+\end{proof}
     \item[(b)] \( \text{rank}(T^{*}T) = \text{rank}(T T^{*}) = \text{rank}(T) \).        Since \(   \) 
         \begin{proof}
         
@@ -345,17 +351,80 @@ Note that \( T  \) is self-adjoint by assumption. Thus, we conclude that \( T  \
         \end{proof}
     \item[(c)] \( T^{-1}  \) is positive definite.
         \begin{proof}
-        Suppose that \( T  \) is invertible and that \( T  \) is positive definite. Let \( x \in V  \) be nonzero. Since \( T  \) is also self-adjoint, we have
-        \begin{align*}
-            \langle T^{-1}(x) , x \rangle &= \langle T^{-1}(x) , T T^{-1}(x) \rangle \\
-                                          &= \langle T^{*}(T^{-1}(x)) , T^{-1}(x) \rangle \\
-                                          &= \langle T (T^{-1}(x)) , T^{-1}(x)  \rangle > 0. 
-        \end{align*}
+            Suppose that \( T  \) is invertible and \( T  \) is positive-definite. Let \( x \in V   \) be an eigenvector of \( T  \) corresponding to the eigenvalue \( \lambda \). Recall by {\hyperref[Exercise 5.1.8]{Exercise 8 of Section 5.1}} that for any eigenvalue \( \lambda \) of \( T  \), \( \lambda^{-1} \) is an eigenvalue of \( T^{-1} \). So, observe that
+            \[  \langle T^{-1}(x) , x \rangle = \langle \lambda^{-1} x  , x  \rangle = \lambda ^{-1} \langle x  ,  x  \rangle.  \]
+            Since \( x \neq 0  \) and \( \lambda > 0  \) (by part (a) of Exercise 6.4.18), we have \( \langle x  , x  \rangle > 0  \) and \( \lambda^{-1} > 0 \). This implies that \( \langle T^{-1}(x) , x \rangle > 0  \). So, \( T^{-1}  \) is positive-definite.  
         \end{proof}
 \end{enumerate}
 
 \subsection*{Exercise 6.4.20} Let \( V  \) be an inner product space with inner product \( \langle \cdot , \cdot \rangle \), and a positive definite linear operator on \( V  \). Prove that \( \langle x , y \rangle' = \langle T(x) , y \rangle \) defines another inner product on \( V  \).
 \begin{proof}
-    The argument to show parts (a)-(c) is the same (see {\hyperref[Exercise 6.1.18]{Exercise 6.1.18}}). To show property (d) of the inner product, let \( x \neq 0  \). Since \( T  \) is a positive definite operator, we have \[ \langle x , x \rangle' = \langle T(x) , x \rangle > 0.  \]
+   \begin{enumerate}
+       \item[(a)] Let \( x,y,z \in V  \) be nonzero. Then we have
+           \begin{align*}
+               \langle x+y , z  \rangle' = \langle T(x+y) , z \rangle = \langle T(x) + T(y) , z \rangle &= \langle T(x) , z \rangle + \langle T(y) , z \rangle  \\
+                                                                            &= \langle x , z \rangle' + \langle y , z \rangle'.
+    \end{align*}
+    \item[(b)] Let \( c \in F  \). Then
+        \[  \langle cx , y \rangle' = \langle T(cx) , y \rangle = \langle cT(x) , y \rangle = c \langle T(x) , y \rangle = c \langle x , y \rangle'.  \]
+        Thus, part (b) is satisfied. 
+    \item[(c)] Note that \( T  \) is self-adjoint, so 
+        \[  \overline{\langle x , y \rangle'} = \overline{\langle T(x) , y \rangle} = \langle y , T(x) \rangle = \langle T^{*}(x) , y \rangle = \langle T(x) , y \rangle = \langle x , y \rangle'.  \]
+        So, part (c) is satisfied.
+    \item[(d)] Since \( T  \) is a positive definite operator, we have \[ \langle x , x \rangle' = \langle T(x) , x \rangle > 0.  \]
     Thus, property (d) of the inner product is satisfied and so we conclude that \( \langle x , y \rangle' = \langle T(x) , y \rangle  \) defines an inner product on \( V  \).
+\end{enumerate}  
+Thus, we conclude that \( \langle x , y \rangle' = \langle T(x) , y \rangle \) defines an inner product on \( V  \). 
+
 \end{proof}
+
+\subsection*{Exercise 6.4.21} Let \( V  \) be a finite-dimensional inner product space, and let \( T  \) and \( U  \) be self-adjoint operators on \( V  \) such that \( T  \) is positive definite. Prove that both \( TU  \) and \( UT  \) are diagonalizable linear operators that have only real eigenvalues.
+\begin{proof}
+Let \( V  \) be a finite-dimensional inner product space, and let \( T  \) and \( U  \) be self-adjoint operators on \( V  \) such that \( T  \) is positive-definite. Since \( U  \) is self-adjoint, there exists an orthonormal basis \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) consisting of eigenvectors of \( U \). Using the hint available to us, suppose this orthonormal basis is given with respect to the inner product \( \langle x , y \rangle' = \langle T(x) , y \rangle \). We will show that \( UT  \) is self-adjoint by showing that \( (UT)^{*} = UT \). Let \( {A}_{ij} = \langle UT({v}_{j}) , {v}_{i} \rangle \). Since \( T  \) and \( U  \) are self-adjoint, we must have the following hold
+\begin{align*}
+     \langle UT({v}_{j}) , {v}_{i} \rangle = \langle T({v}_{j}) , U({v}_{i}) \rangle 
+                                                     &= \langle {v}_{j} ,  U({v}_{i}) \rangle' \\
+                                                     &= \langle {v}_{j} , {\lambda}_{j} {v}_{j} \rangle' \\
+                                                     &= {\lambda}_{i} \langle {v}_{j} , {v}_{i} \rangle' \\
+                                                     &= {\lambda}_{i} {\delta}_{ij}
+\end{align*}
+which implies that \( UT({v}_{j}) = {\lambda}_{j} {v}_{j} \) whenever \( i = j  \). Note that the eigenvalues of \( U  \) are only real eigenvalues by the lemma. On the other hand, we also see that
+\begin{align*}
+    \langle (UT)^{*}({v}_{j}) , {v}_{i}  \rangle = \langle T^{*}U^{*}({v}_{j}) , {v}_{i} \rangle &= \langle TU({v}_{j}) , {v}_{i} \rangle \\
+                                                                                                  &= \langle U({v}_{j}) , {v}_{i} \rangle' \\
+                                                                                                  &= \langle {\lambda}_{j}{v}_{j} , {v}_{i} \rangle' \\
+                                                                                                  &= {\lambda}_{j} \langle {v}_{j} , {v}_{i} \rangle' \\
+                                                                                                  &= {\lambda}_{j} {\delta}_{ij}
+\end{align*}
+which implies that \( (UT)^{*}({v}_{j}) = {\lambda}_{j} {v}_{j} \) for all \( i = j  \). Thus, \( UT  \) is self-adjoint which implies that \( [UT]_{\beta} \) is diagonalizable if and only if \( UT \) is diagonalizable. Furthermore, the eigenvalues of \( UT \) are only real eigenvalues given by lemma. Now, we will show that \( TU  \) is diagonalizable. We will refer to the hint again, replacing \( T^{-1} \) with \( T  \). Since \( T  \) is self-adjoint, we know that \( T^{-1} \) is also self-adjoint where \( (T^{*})^{-1} = (T^{-1})^{*}  \). Furthermore, \( T^{-1} \) is positive definite by part (c) of Exercise 6.4.19. Thus, we have
+\begin{align*}
+    \langle TU({v}_{j}) , {v}_{i}  \rangle' = \langle U({v}_{j}) , T({v}_{i}) \rangle' &= \langle T^{-1} U({v}_{j}) , T({v}_{i})  \rangle \\
+                                                                                       &= \langle U({v}_{j}) , {v}_{i} \rangle \\
+                                                                                       &= \langle {\lambda}_{j} {v}_{j} ,  {v}_{i} \rangle \\
+                                                                                       &= {\lambda}_{j} \langle {v}_{j} ,  {v}_{i} \rangle \\ 
+                                                                                       &= {\lambda}_{j} {\delta}_{ij}.
+\end{align*}
+So, \( (TU)({v}_{j}) = {\lambda}_{j} {v}_{j} \). Similarly, we have
+\begin{align*}
+    \langle (TU)^{*}({v}_{j}) , {v}_{i} \rangle'  = \langle U^{*}T^{*}({v}_{j}) , {v}_{i} \rangle' &= \langle UT({v}_{j}) , {v}_{i} \rangle' \\
+                                                                                                   &= \langle T({v}_{j}) , U({v}_{i}) \rangle' \\
+                                                                                                   &= \langle {v}_{j} ,  {\lambda}_{i} {v}_{i} \rangle \\ 
+                                                                                                   &= \overline{{\lambda}_{i}} \langle {v}_{j}  ,  {v}_{i} \rangle \\
+         &=  {\lambda}_{i} \langle {v}_{j} , {v}_{i} \rangle \\
+         &= {\lambda}_{i} {\delta}_{ij}.
+\end{align*}
+Thus, \( (TU)^{*}({v}_{j}) = {\lambda}_{j} {v}_{j}  \) for all \( i = j  \). Therefore, \( (TU)^{*}  = TU  \) is self-adjoint which implies that \( TU \) is diagonalizable with only real eigenvalues. 
+
+\end{proof}
+
+\subsection*{Exercise 6.4.22} This exercise provides to Exercise 20. Let \( V \) be a finite-dimensional inner product space with inner product \( \langle \cdot , \cdot \rangle, \) and let \( \langle \cdot , \cdot \rangle' \) be any other inner product on \( V  \).
+\begin{enumerate}
+    \item[(a)] Prove that there exists a unique linear operator \( T  \) on \( V  \) such that \( \langle x , y \rangle' = \langle T(x) , y \rangle  \) for all \( x  \) and \( y  \) in \( V  \). 
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] Prove that the operator \( T  \) of (a) is positive definite with respect to both inner products.
+        \begin{proof}
+       
+        \end{proof}
+\end{enumerate}
