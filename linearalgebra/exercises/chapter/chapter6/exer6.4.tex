@@ -205,13 +205,17 @@ Let \( T  \) be a normal operator on a finite-dimensional real inner product spa
 So, \( T = T^{*}  \) which implies that \( T  \) is self-adjoint.
 \end{proof}
 
-\subsection*{Exercise 6.4.14} Let \( V  \) be a finite-dimensional real inner product space, and let \( U \) and \( T  \) be self-adjoint linear operators on \( V  \) such that \( UT = TU  \). Prove that there exists an orthonormal basis for \( V  \) consisting of vectors that are eigenvectors of both \( U  \) and \( T  \).
+
+
+\subsection*{Exercise 6.4.13} An \( n \times n  \) real matrix \( A  \) is said to be a \textbf{Gramian} matrix if there exists a real (square) matrix \( B  \) such that \( A = B^{t} B  \). Prove that \( A  \) is a Gramian matrix if and only if \( A  \) is symmetric if and only if \( A  \) is symmetric and all its eigenvalues are non-negative. 
 \begin{proof}
 
 \end{proof}
 
-
-
+\subsection*{Exercise 6.4.14} Let \( V  \) be a finite-dimensional real inner product space, and let \( U \) and \( T  \) be self-adjoint linear operators on \( V  \) such that \( UT = TU  \). Prove that there exists an orthonormal basis for \( V  \) consisting of vectors that are eigenvectors of both \( U  \) and \( T  \).
+\begin{proof}
+Let \( U  \) and \( T  \) be self-adjoint linear operators on \( V  \) such that \( UT = TU  \). Let \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{k} \) be the eigenvalues of \( T \). Let \( {E}_{{\lambda}_{i}} \) for all \( i \) be an eigenspace for \( T \). Note that each \( {E}_{{\lambda}_{i}} \) is \( T- \)invariant and \( U- \)invariant. Thus, we can define a restriction \( {U}_{{E}_{{\lambda}_{i}}}(x) = U(x)  \) for each \( x \in {E}_{{\lambda}_{i}} \) for all \( i  \) consisting of eigenvectors of \( U \). Thus, we can find a basis \( {\beta}_{{E}_{{\lambda}_{i}}} \) for each \( {E}_{{\lambda}_{i}} \). Since \( U \) is self-adjoint and therefore diagonalizable, we have \( \beta = {\beta}_{{\lambda}_{1}} \cup {\beta}_{{\lambda}_{2}} \dots \cup {\beta}_{{\lambda}_{k}}    \) is a basis for \( V  \) consisting of eigenvectors of \( U  \) by Theorem 5.8. But note that we have \( U({E}_{{\lambda}_{i}}) \subseteq {E}_{{\lambda}_{i}}  \) for all \( i \). So, \( \beta \) must also contain eigenvectors of \( T \). We can employ the Gram-Schmidt process to convert the basis \( \beta \) into an orthonormal basis. Call this new basis as \( \beta'  \) consisting of eigenvectors of both \( U  \) and \( T \).
+\end{proof}
 
 \begin{definition}[Positive Definite]
     A linear operator \( T  \) on a finite-dimensional inner product space is called \textbf{positive definite [positive semidefinite]} if \( T  \) is self-adjoint and \( \langle T(x) , x \rangle > 0  \) [\( \langle T(x) , x \rangle \geq 0  \)] for all \( x \neq 0  \). 
@@ -233,15 +237,16 @@ So, \( T = T^{*}  \) which implies that \( T  \) is self-adjoint.
     \item[(b)] \( T  \) is positive definite if and only if 
         \[ \sum_{ i,j }^{  } {A}_{ij} {a}_{j} \overline{{a}_{i} } \ \ \text{for all nonzero} \ n  \text{-tuples} \  ({a}_{1}, {a}_{2}, \dots, {a}_{n}).  \]
         \begin{proof}
-        Suppose \( T  \) is positive definite. Let \( A = [T]_{\beta} \) where \( \beta  \) is an orthonormal basis of \( V  \) consisting of eigenvectors of \( T  \). Note that \( A  \) must be a diagonal matrix, so each \( {A}_{ij} = {\lambda}_{j} \). Furthermore, \( \lambda_j > 0  \) for all \( j  \) since \( T  \) is positive definite by part (a). Let \( ({a}_{1}, {a}_{2}, \dots, {a}_{n}) \) be a nonzero tuple. Using the corollary to Theorem 6.5, we have 
-        \[  {A}_{ij} = \langle T({v}_{j}) , {v}_{i} \rangle. \]
+        Suppose \( T  \) is positive definite. Let \( A = [T]_{\beta} \) where \( \beta  \) is an orthonormal basis of \( V  \). Let \( ({a}_{1}, {a}_{2}, \dots, {a}_{n}) \) be a nonzero tuple. Using the corollary to Theorem 6.5, we have 
+        \[  {A}_{ij} = \langle T({v}_{j}) , {v}_{i} \rangle. \] Suppose \( x \neq 0  \). 
         Since \( \beta  \) is an orthonormal basis, we find that
+        \[  x = \sum_{ i=1  }^{ n } \langle x , {v}_{i} \rangle {v}_{i} \]
+        by Theorem 6.5. Define \( {a}_{i} = \langle x , {v}_{i}  \rangle  \). So, observe that
         \begin{align*}
-           \sum_{ i,j }^{  } {A}_{ij} {a}_{j} \overline{{a}_{i}} = \sum_{ i,j }^{  } \langle T({v}_{j}) , {v}_{i}  \rangle {a}_{j} \overline{{a}_{i}} 
-                                                                 &= \sum_{ i,j  }^{  } \langle {\lambda}_{j} {v}_{j} , {v}_{i}  \rangle {a}_{j} \overline{{a}_{i}} \\
-                                                                 &= \sum_{ i,j  }^{  } {\lambda}_{j} \langle {v}_{j} , {v}_{i} \rangle {a}_{j} \overline{{a}_{i}} \\
-                                                                 &= \sum_{ i=1  }^{ n } {\lambda}_{i} {a}_{i} \overline{{a}_{i}} \\ 
-                                                                 &= \sum_{ i=1  }^{ n } {\lambda}_{i} | {a}_{i} |^{2} > 0
+            \sum_{ i,j }^{  } {A}_{ij} {a}_{j} \overline{{a}_{i}} = \sum_{ i,j  }^{  } \langle T({v}_{j}) , {v}_{i} \rangle {a}_{j} \overline{{a}_{i}} &= \sum_{ i=1  }^{n  } \overline{{a}_{i}} \sum_{ j=1  }^{ n } {a}_{j} \langle T({v}_{j}) , {v}_{i} \rangle   \\
+                                                                                                                                                       &=  \Big\langle \sum_{ j=1  }^{ n } {a}_{j} T({v}_{j}) , \sum_{ i=1  }^{ n } {a}_{i} {v}_{i} \Big\rangle \\
+                                                                                                                                                       &= \Big\langle T \Big(  \sum_{ j=1  }^{ n } {a}_{j} {v}_{j} \Big), \sum_{ i=1  }^{ n } {a}_{i} {v}_{i} \Big\rangle \\
+                                                                                                                                                       &= \langle T(x) , x \rangle > 0.
         \end{align*}
         which is our desired result for the forwards direction. Conversely, suppose that 
         \[ \sum_{ i,j }^{  } {A}_{ij} {a}_{j} \overline{{a}_{i}} > 0   \]
@@ -259,7 +264,25 @@ Note that \( T  \) is self-adjoint by assumption. Thus, we conclude that \( T  \
 \end{proof}
     \item[(c)] \( T  \) is positive semidefinite if and only if \( A = B^{*} B  \) for some square matrix \( B  \).
         \begin{proof}
-        
+        Let \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}   \) be an orthonormal basis for \( V  \) and let \( A = [T]_{\beta} \). For the backwards direction, suppose \( A = B^{*} B  \) for some matrix \( B  \). To show that \( T  \) is positive semidefinite, it suffices to show that 
+        \[ \langle T({v}_{i}) , {v}_{i} \rangle \geq  0.  \] 
+        So, observe that
+        \begin{align*}
+            \langle T({v}_{i}) , {v}_{i}  \rangle = {A}_{ii} = {(B^{*}B)}_{ii} 
+                                                             &= \sum_{ k=1  }^{ n } {(B^{*})}_{ik} {B}_{ki} \\
+                                                             &= \sum_{ k=1  }^{ n } \overline{{B}_{ki}}{B}_{ki} \\
+                                                             &= \sum_{ k=1  }^{ n } | {B}_{ki} |^{2} \geq 0. 
+        \end{align*}
+        Thus, \( T  \) is positive semidefinite. Conversely, suppose \( T  \) is positive semidefinite. By definition, \( T  \) is also self-adjoint. By Theorem 6.17, there exists an orthonormal basis \( \beta' = \{ {w}_{1}, {w}_{2}, \dots, {w}_{n} \}  \) consisting of eigenvectors of \( T  \) with corresponding eigenvalues \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{n} \). Suppose \( Q = [I]_{\beta'}^{\beta}  \) is the matrix that changes \( \beta  \) coordinates into \( \beta'  \) coordinates. Observe that \( Q^{-1} = [{I}_{V}]_{\beta'}^{\beta} = Q  \) and that \( Q^{*} = Q  \) since \( {I}_{V} \) is self-adjoint. Thus, we can see that   
+        \[  [T]_{\beta} = Q [T]_{\beta'} Q^{-1}.  \]
+        Let \( D = [T]_{\beta'} \) and define the linear operator \( U: V \to V    \) such that \( U({v}_{i}) = \sqrt{ {\lambda}_{i}  } {v}_{i} \). Define the matrix representation of this linear operator with \( E = [U]_{\beta'} \). Note that \( E  \) is also diagonal since \( D  \) is diagonal. Furthermore, we have \( E^{2} = D \). So, we have      
+        \begin{align*}
+            [T]_{\beta} &= Q DQ^{-1} \\
+                        &= Q^{*} EE Q  \\
+                        &=  (E^{*}Q)^{*} (EQ) \\
+                        &= (EQ)^{*} (EQ).
+        \end{align*}
+        Define \( B = EQ \) to get our desired result.
         \end{proof}
     \item[(d)] If \( T  \) and \( U  \) are positive semidefinite operators such that \( T^{2} = U^{2} \), then \( U = T  \).     
         \begin{proof}
@@ -330,7 +353,6 @@ Note that \( T  \) is self-adjoint by assumption. Thus, we conclude that \( T  \
 \end{enumerate}
 
 
-
 \subsection*{Exercise 6.4.19} Let \( T  \) and \( U  \) be positive definite operators on an inner product space \( V  \). Prove the following results.
 \begin{enumerate}
     \item[(a)] \( T + U  \) is positive definite.
@@ -375,7 +397,6 @@ Note that \( T  \) is self-adjoint by assumption. Thus, we conclude that \( T  \
     Thus, property (d) of the inner product is satisfied and so we conclude that \( \langle x , y \rangle' = \langle T(x) , y \rangle  \) defines an inner product on \( V  \).
 \end{enumerate}  
 Thus, we conclude that \( \langle x , y \rangle' = \langle T(x) , y \rangle \) defines an inner product on \( V  \). 
-
 \end{proof}
 
 \subsection*{Exercise 6.4.21} Let \( V  \) be a finite-dimensional inner product space, and let \( T  \) and \( U  \) be self-adjoint operators on \( V  \) such that \( T  \) is positive definite. Prove that both \( TU  \) and \( UT  \) are diagonalizable linear operators that have only real eigenvalues.
@@ -428,3 +449,5 @@ Thus, \( (TU)^{*}({v}_{j}) = {\lambda}_{j} {v}_{j}  \) for all \( i = j  \). The
        
         \end{proof}
 \end{enumerate}
+
+

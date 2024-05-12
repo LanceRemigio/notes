@@ -1,0 +1,86 @@
+\section{Unitary and Orthogonal Operators and Their Matrices}
+
+\begin{itemize}
+    \item In the past chapters, we were concerned with how operations and structures are preserved with functions preserving the operations concerned with vector spaces and isomorphisms preserving the structure of the space itself. 
+    \item In this section, we will develop the notion of what it means to preserve "length"; that is, the norm of some vector space.
+\end{itemize}
+
+\begin{definition}[Unitary Operators and Orthogonal Operators]
+    Let \( T  \) be a linear operator on a finite-dimensional inner product space \( V  \) (over \( F  \)). If \( \|T(x)\| = \|x\| \) for all \( x \in V  \), we call \( T  \) a \textbf{unitary operator} if \( F = \C  \) and an \textbf{othogonal operator} if \( F = \R  \).
+\end{definition}
+
+\begin{remark}
+    Under infinite-dimensional vector spaces, an operator that preserves the norm is injective, but not surjective. If it is also surjective, then we call that operator either a \textbf{unitary} or \textbf{orthogonal operator}. 
+\end{remark}
+
+\begin{lemma}
+    Let \( U  \) be a self-adjoint operator on an inner product space \( V  \), and suppose that \( \langle x  , U(x) \rangle = 0  \) for all \( x \in V  \). Then \( U = {T}_{0} \).
+\end{lemma}
+\begin{proof}
+For any \( x \in V  \), we have
+\begin{align*}
+    0 &= \langle x + U(x) , U(x + U(x)) \rangle \\
+      &= \langle x + U(x)  , U(x) + U^{2}(x) \rangle \\
+      &= \langle  x  , U(x) \rangle + \langle x  , U^{2}(x) \rangle + \langle U(x) , U(x) \rangle + \langle U(x) , U^{2}(x) \rangle \\
+      &= 0 + \langle x  , U^{2}(x) \rangle + \langle U(x) , U(x) \rangle + 0 \\
+      &= \langle x  , U^{*}U(x) \rangle + \|U(x)\|^{2} \\
+      &= \langle U(x) , u(x) \rangle + \|U(x)\|^{2} \\
+      &= 2\|U(x)\|^{2}. 
+\end{align*}
+So, for any \( x \in V  \), we have \( \|U(x)\| = 0  \) which implies that \( U = {T}_{0} \).
+\end{proof}
+
+\begin{theorem}
+    Let \( T  \) be a linear operator on a finite-dimensional inner product space \( V  \). Then the following statements are equivalent.
+    \begin{enumerate}
+        \item[(a)] \( T^{*} T = I  \).
+        \item[(b)] \( T T^{*} = I  \).
+        \item[(c)] \( \langle T(x) , T(y) \rangle = \langle x , y \rangle  \) for all \( x , y \in V  \).
+        \item[(d)] If \( \beta  \) is an orthonormal basis for \( V  \), then \( T(\beta) \) is an orthonormal basis for \( V  \).
+        \item[(e)] There exists an orthonormal basis \( \beta  \) for \( V  \) such that \( T(\beta) \) is an orthonormal basis for \( V  \).
+        \item[(f)] \( \|T(x)\| = \|x\|  \) for all \( x \in V  \).
+    \end{enumerate}
+\end{theorem} 
+\begin{proof}
+    \begin{itemize}
+        \item We will show that part (a) implies part (b). Suppose \( T^{*}T = I  \). By Theorem 6.10, we have  
+            \[ {I}_{n} = [T^{*}T]_{\beta} = [T^{*}]_{\beta} [T]_{\beta} = [T]_{\beta}^{*} [T]_{\beta}.  \]
+            Let \( A = [T]_{\beta}^{*}  \) and \( B = [T]_{\beta} \). Since \( A  \) and \( B  \) are invertible and that \( A = B^{-1} \) and \( B = A^{-1} \), we must have
+            \[ {I}_{n} = BA = [T]_{\beta}[T]_{\beta}^{*} = [T]_{\beta} [T^{*}]_{\beta} = [T T^{*}]_{\beta}.   \]
+            Thus, we have \( TT^{*} = I \).
+        \item Next, we wills show that part (b) implies part (c). Let \(x,y \in V  \). Using part (b), we find that
+            \[  \langle x , y \rangle = \langle T^{*}T(x) , y  \rangle = \langle T(x) , T(y) \rangle \]
+            which is our desired result.
+        \item Next, let us show that part (c) implies part (d). Let \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) be an orthonormal basis for \( V  \). First, we will show that \( T(\beta) \) is an orthonormal subset of \( V  \). Using part (c), we find that 
+            \[  \langle T({v}_{i}) , T({v}_{j}) \rangle = \langle {v}_{i} ,  {v}_{j} \rangle = {\delta}_{ij} \]
+            for all \( i  \) and \( j  \). Thus, \( T(\beta)  \) is orthonormal.By the 2nd Corollary to Theorem 6.3, \( T(\beta) \) must also be linearly independent. Clearly, \( T(\beta) \subseteq V  \). Let \( v \in V  \) that is not in \( T(\beta) \). Then by Theorem 1.7, adjoining \( v \in V \) to \( \beta \) generates a linearly dependent set which implies \( v \in \text{span}(T(\beta)) \). So, \( T(\beta) \) spans \( V  \).
+        \item Clearly, (d) implies (e).
+        \item Next, we prove that (e) implies (f). Let \( x \in V  \), and let \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \). Thus, 
+            \[  x = \sum_{ i=1  }^{ n } {a}_{i}{v}_{i} \]
+            where \( {a}_{i} = \langle x , {v}_{i} \rangle \). Then observe that 
+            \begin{align*}
+                \|x\|^{2} = \Big\| \sum_{ i=1  }^{ n } {a}_{i} {v}_{i} \Big\|^{2}
+                          &= \Big\langle \sum_{ i=1  }^{ n } {a}_{i} {v}_{i} ,  \sum_{ j=1  }^{ n } {a}_{j} {v}_{j} \Big\rangle \\ 
+                          &= \sum_{ i=1  }^{ n } {a}_{i} \sum_{ j=1 }^{ n } \overline{{a}_{j}} \langle {v}_{i}  , {v}_{j} \rangle \\
+                          &= \sum_{ i=1  }^{ n } {a}_{i} \sum_{ j=1  }^{ n } \overline{{a}_{j}} \langle T({v}_{i}) , T({v}_{j}) \rangle \\
+                          &= \Big\langle \sum_{ i=1  }^{ n } {a}_{i} T({v}_{i}),  \sum_{ j=1 }^{  n } {a}_{j} T({v}_{j}) \Big\rangle \\
+                          &= \Big\langle T \Big(  \sum_{ i=1  }^{ n } {a}_{i} {v}_{i} \Big), T \Big(  \sum_{ j=1  }^{ n } {a}_{j} {v}_{j} \Big)  \Big\rangle \\
+                          &= \langle T(x) , T(x) \rangle \\
+                          &= \|T(x)\|^{2}.
+            \end{align*}
+            Therefore, we have \( \|x\| = \|T(x)\| \).
+        \item Finally, let us show that part (f) implies part (a). Let \( x \in V  \). Then we have  
+            \[  \langle x  ,  x  \rangle = \|x\|^{2} = \|T(x)\|^{2} = \langle T(x) , T(x) \rangle = \langle x  , T^{*}T(x) \rangle. \]
+            So, we have
+            \[  \langle x  , (T^{*}T - I) (x) \rangle = 0  \]
+            and thus \( T^{*}T - I = {T}_{0} \) by lemma which subsequently implies that \( T^{*}T = I  \).
+    \end{itemize}
+\end{proof}
+Note that the conditions above are all equivalent to the definition of unitary or orthogonal operators.
+
+\begin{corollary}
+    Let \( T  \) be a linear operator on a finite-dimensional real inner product space \( V  \). Then \( V  \) has an orthonormal basis of eigenvectors of \( T  \) with corresponding eigenvalues of absolute value \( 1  \) if and only if \( T  \) is both self-adjoint and orthogonal.
+\end{corollary}
+\begin{proof}
+
+\end{proof}

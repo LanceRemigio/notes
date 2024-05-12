@@ -396,3 +396,11 @@
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{123}{thmt@dummyctr.dummy.390}%
 \contentsline {theorem}{\ifthmt@listswap Theorem~6.4.4\else \numberline {6.4.4}Theorem\fi }{124}{theorem.6.4.4}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{124}{thmt@dummyctr.dummy.392}%
+\contentsline {definition}{\ifthmt@listswap Definition~6.5.1\else \numberline {6.5.1}Definition\fi \thmtformatoptarg {Unitary Operators and Orthogonal Operators}}{124}{definition.6.5.1}%
+\contentsline {remark}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Remark}{124}{thmt@dummyctr.dummy.394}%
+\contentsline {lemma}{\ifthmt@listswap Lemma~6.5.1\else \numberline {6.5.1}Lemma\fi }{124}{lemma.6.5.1}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{125}{thmt@dummyctr.dummy.396}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~6.5.1\else \numberline {6.5.1}Theorem\fi }{125}{theorem.6.5.1}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{125}{thmt@dummyctr.dummy.398}%
+\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{126}{thmt@dummyctr.dummy.399}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{126}{thmt@dummyctr.dummy.400}%
