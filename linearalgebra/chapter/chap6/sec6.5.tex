@@ -82,5 +82,46 @@ Note that the conditions above are all equivalent to the definition of unitary o
     Let \( T  \) be a linear operator on a finite-dimensional real inner product space \( V  \). Then \( V  \) has an orthonormal basis of eigenvectors of \( T  \) with corresponding eigenvalues of absolute value \( 1  \) if and only if \( T  \) is both self-adjoint and orthogonal.
 \end{corollary}
 \begin{proof}
+Suppose \( V  \) has an orthonormal basis \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) consisting of eigenvectors corresponding to eigenvalues \( | {\lambda}_{i} | = 1    \) for each \( i  \). We need to show that \( T  \) is self-adjoint and orthogonal. By {\hyperref[Theorem 6.17]{Theorem 6.17}}, \( T  \) is self-adjoint. Thus, \( T  \) is a diagonalizable linear operator; that is, \( T({v}_{i}) = {\lambda}_{i} {v}_{i} \) for all \( i  \). Since \( | {\lambda}_{i} |  = 1  \) for all \( i  \), we must have
+\[  T^{*}T({v}_{i}) = T(T({v}_{i})) = T({\lambda}_{i} {v}_{i} ) = {\lambda}_{i} T({v}_{i}) = {\lambda}_{i}^{2} {v}_{i} = {v}_{i}.   \]
+So, \( T^{*}T = I  \) and thus \( T  \) is orthogonal. Conversely, suppose \( T  \) is self-adjoint and normal. Then \( V  \) contains an orthonormal basis \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}    \) with eigenvectors corresponding to the eigenvalues \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{n} \), by Theorem 6.17. We need to show that \( | {\lambda}_{i} |  =  1  \) for all \( i \). Since \( T  \) is normal, we must have
+\begin{align*}
+    | {\lambda}_{i} |^{2} \langle {v}_{i}  , {v}_{i} \rangle = | {\lambda}_{i} |^{2} \|{v}_{i}\|^{2} &= \|{\lambda}_{i} {v}_{i}\|^{2}  \\
+                                                                                                 &= \|T({v}_{i})\|^{2} \\
+                                                                                                 &= \langle {v}_{i}  ,  T^{*}T({v}_{i}) \rangle \\
+                                                                                                 &= \langle {v}_{i}  , {v}_{i} \rangle.
+\end{align*}
+Since each \( {v}_{i} \neq 0  \), \( \langle {v}_{i} ,  {v}_{i} \rangle > 0  \) and so
+\[  | {\lambda}_{i} |^{2} \|{v}_{i}\|^{2} = \|{v}_{i}\|^{2} \implies | {\lambda}_{i} | = 1  \  \text{for all} \  i \]
+which is our desired result.
+\end{proof}
 
+\begin{corollary}
+    Let \( T  \) be a linear operator on a finite-dimensional complex inner product space \( V  \). Then \( V  \) has an orthonormal basis of eigenvectors of \( T  \) with corresponding eigenvalues of absolute value \( 1  \) if and only if \( T  \) is both self-adjoint and unitary.
+\end{corollary}
+
+\begin{proof}
+    The proof is similar to the proof of corollary 1.
+\end{proof}
+
+\begin{definition}[Reflection About \( \R^2 \)]
+    Let \( L  \) be a one-dimensional subspace of \( \R^{2} \). We may view \( L  \) as a line in the plane through the origin. A linear operator \( T  \) on \( \R^{2} \) is called a \textbf{reflection of \( \R^{2} \) about \( L  \)} if \( T(x) = x  \) for all \( x \in L  \) and \( T(x) = -x  \) for all \( x \in L^{\perp} \).
+\end{definition}
+
+\begin{definition}[Orthogonal and Unitary Matrices]
+    A square matrix \( A  \) is called an \textbf{orthogonal matrix} if \( A^{t} A = A A^{t} = I  \) and \textbf{unitary} if \( A^{*} A = A A^{*} = I  \).
+\end{definition}
+
+\begin{itemize}
+    \item If given a real matrix \( A  \), we have \( A^{*} = A^{t} \) where a real unitary matrix is also orthogonal in which case we just call \( A  \) orthogonal.
+    \item Note that \( A A^{*} = I  \) is equivalent to the statement that the rows of \( A  \) form an orthonormal basis for \( F^{n} \) since
+        \[  {\delta}_{ij} = {I}_{ij} = (AA^{*})_{ij} = \sum_{ k=1  }^{ n } {A}_{ik } {(A^{*})}_{kj} = \sum_{ k=1  }^{ n } {A}_{ik} \overline{{A}_{jk}}. \]
+    \item The last term above represents the inner product of the \( i \)th and \( j \)th rows of \( A  \).
+\end{itemize}
+
+\begin{prop}
+    Suppose \( V  \) is a finite-dimensional inner product space and \( T  \) is a linear operator on \( V  \). Then \( T  \) is unitary [orthogonal] if and only if \( [T]_{\beta} \) is unitary [orthogonal]. 
+\end{prop}
+\begin{proof}
+    Follows from the definition of unitary/orthogonal matrices and {\hyperref[Theorem 6.10]{Theorem 6.10}}.
 \end{proof}
