@@ -410,3 +410,13 @@
 \contentsline {definition}{\ifthmt@listswap Definition~6.5.3\else \numberline {6.5.3}Definition\fi \thmtformatoptarg {Orthogonal and Unitary Matrices}}{127}{definition.6.5.3}%
 \contentsline {prop}{\ifthmt@listswap Proposition~6.5.1\else \numberline {6.5.1}Proposition\fi }{127}{prop.6.5.1}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{127}{thmt@dummyctr.dummy.406}%
+\contentsline {definition}{\ifthmt@listswap Definition~6.5.4\else \numberline {6.5.4}Definition\fi \thmtformatoptarg {Unitary/Orthogonal Equivalence}}{128}{definition.6.5.4}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~6.5.2\else \numberline {6.5.2}Theorem\fi }{128}{theorem.6.5.2}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{128}{thmt@dummyctr.dummy.409}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~6.5.3\else \numberline {6.5.3}Theorem\fi }{128}{theorem.6.5.3}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{128}{thmt@dummyctr.dummy.411}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~6.5.4\else \numberline {6.5.4}Theorem\fi \thmtformatoptarg {Schur}}{128}{theorem.6.5.4}%
+\contentsline {definition}{\ifthmt@listswap Definition~6.5.5\else \numberline {6.5.5}Definition\fi \thmtformatoptarg {Rigid Motion}}{129}{definition.6.5.5}%
+\contentsline {definition}{\ifthmt@listswap Definition~6.5.6\else \numberline {6.5.6}Definition\fi \thmtformatoptarg {Translations}}{129}{definition.6.5.6}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~6.5.5\else \numberline {6.5.5}Theorem\fi }{129}{theorem.6.5.5}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{129}{thmt@dummyctr.dummy.416}%

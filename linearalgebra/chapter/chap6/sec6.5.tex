@@ -1,5 +1,7 @@
 \section{Unitary and Orthogonal Operators and Their Matrices}
 
+\subsection{Unitary and Orthogonal Operators}
+
 \begin{itemize}
     \item In the past chapters, we were concerned with how operations and structures are preserved with functions preserving the operations concerned with vector spaces and isomorphisms preserving the structure of the space itself. 
     \item In this section, we will develop the notion of what it means to preserve "length"; that is, the norm of some vector space.
@@ -124,4 +126,86 @@ which is our desired result.
 \end{prop}
 \begin{proof}
     Follows from the definition of unitary/orthogonal matrices and {\hyperref[Theorem 6.10]{Theorem 6.10}}.
+\end{proof}
+
+\begin{itemize}
+    \item For complex normal [real symmetric] matrix \( A  \), there exists an orthonormal basis \( \beta  \) for \( F^{n} \) consisting of eigenvectors of \( A  \). Thus, \( A  \) must be similar to a diagonal matrix \( D  \).
+    \item The invertible matrix \( Q  \) is made up of basis vectors from \( \beta  \) such that \( D = Q^{-1} A Q  \). But this tells us that \( Q  \) is unitary since the columns of \( Q  \) are an orthonormal basis for \( F^{n} \).
+\end{itemize}
+
+\begin{definition}[Unitary/Orthogonal Equivalence]
+    Let \( A  \) be an \( n \times n  \) matrix with [real/complex] entries. We call \( A  \) \textbf{unitarily equivalent} [\textbf{orthogonally equivalent}] to \( B  \) if there exists a unitary [orthogonal] matrix \( P  \) such that \( A = P^{*}BP \).
+\end{definition}
+
+\begin{theorem}\label{Theorem 6.19}
+   Let \( A  \) be a complex \( n \times n  \) matrix. Then \( A  \) is normal if and only if \( A  \) is unitarily equivalent to a diagonal matrix. 
+\end{theorem}
+\begin{proof} Note that the preceding paragraph already proved the forwards direction, so we will only have to show the backwards direction. Suppose \( A  \) is unitarily equivalent to a diagonal matrix, and call this matrix \( D  \). Then there exists a unitary matrix \( P  \) such that \( A = P^{*} D P  \). We need to show that \( A  \) is normal; that is, \( A^{*}A = A A^{*} \). Note that diagonal matrices are also normal, so \( D^{*}D = DD^{*} \). Thus, we have 
+    \begin{align*}
+        A^{*}A &= (P^{*}(DP))^{*} (P^{*} D P) \\
+               &= ((DP)^{*} P) (P^{*} D P) \\
+               &= (P^{*}D^{*}P)(P^{*} D P) \\
+               &=  P^{*}D^{*}DP \tag{\( D^{*}D = D D^{*} \)} \\
+               &= P^{*}D D^{*} P \\
+               &= P^{*} D D^{*}P \\
+               &= P^{*} D P P^{*} D^{*} P \\
+               &= (P^{*} D P) ((DP)^{*} P) \\
+               &= (P^{*} D P) (P^{*} D P) \\
+               &= A A^{*}. 
+    \end{align*}
+    Thus, \( A  \) is normal.
+
+\end{proof}
+
+\begin{theorem}
+   Let \( A  \) be a real \(  n \times n  \) matrix. Then \( A  \) is symmetric if and only if \( A  \) is orthogonally equivalent to a real diagonal matrix. 
+\end{theorem}
+\begin{proof}
+The proof is similar to the proof to the theorem above. Just replace the adjoints with transposes.
+\end{proof}
+
+Using Schur's Theorem, the next result immediately follows. In fact, the theorem below is just the matrix form of {\hyperref[Schur]{Schur's Theorem}}.
+
+\begin{theorem}[Schur]
+  Let \( A \in {M}_{ n \times n }(F) \) be a matrix whose characteristic polynomial splits over \( F  \).    
+  \begin{enumerate}
+      \item[(a)] If \( F = C  \), then \( A  \) is unitarily equivalent to a complex upper triangular matrix.
+        \item[(b)] If \( F = \R  \), then \( A  \) is orthogonally equivalent to a real upper triangular matrix.
+  \end{enumerate}
+\end{theorem}
+
+\subsection{Rigid Motions}
+
+One application of unitary and orthogonal operators is the notion of \textit{rigid motions} and how, in a finite-dimensional inner product space, transforming a figure does alter its shape. A key requirement is the transformation to preserve distances.
+
+\begin{definition}[Rigid Motion]
+    Let \( V  \) be a real inner product space. A function \( f: V \to V  \) is called a \textbf{rigid motion} if 
+    \[ \|f(x) - f(y)\| = \| x-  y\|  \]
+    for all \( x,y \in V  \).
+\end{definition}
+
+\begin{itemize}
+    \item Any orthogonal operator is a rigid motion.
+    \item Translations are another class of rigid motions.
+\end{itemize}
+
+\begin{definition}[Translations]
+    A function \( g: V \to V  \), where \( V  \) is a real inner product space, is called a \textbf{translation} if there exists a vector \( {v}_{0} \in V  \) such that \( g(x) = x + {v}_{0} \) for all \( x \in V  \). We call that \( g  \) is a \textit{translation by \( {v}_{0} \)}. 
+\end{definition}
+
+    On a real finite-dimensional inner product space, an orthogonal operator followed by a translation is also a rigid motion.
+
+\begin{theorem}
+    Let \( f: V \to V  \) be a rigid motion on a finite-dimensional real inner product space \( V  \). Then there exists a unique orthogonal operator \( T  \) on \( V  \) and a unique translation \( g  \) on \( V  \) such that \( f  = g \circ T  \).
+\end{theorem} 
+
+\begin{itemize}
+    \item An orthogonal operator is a translation by the zero vector \( O \).
+    \item Any translation is characterized as the identity operator.
+\end{itemize}
+
+\begin{proof}
+Let \( T: V \to V  \) be defined by 
+\[  T(x) = f(x) - f(0) \]
+for all \( x \in V  \).
 \end{proof}
