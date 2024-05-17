@@ -4,26 +4,75 @@
 \[  \langle f , g \rangle = \int_{ 0 }^{ 1 } f(t) \overline{g(t)} \ dt. \]
 Let \( h \in V  \), and define \( T: V \to V  \) by \( T(f) = hf \). Prove that \( T  \) is a unitary operator if and only if \( | h(t) | = 1  \) \( 0 \leq t \leq 1  \).
 \begin{proof}
-
+Let \( h \in V  \), and define \( T: V \to V  \) by \( T(f) = hf \). Define the function \( f(t) = \sqrt{ 1 - | h(t) |^{2} }   \) which is nonnegative. Let \( 0 \leq t \leq 1  \). Suppose \( T  \) is unitary.
+Then we see that
+\begin{align*}
+    \|T(f)\|^{2} = \|f\|^{2} &\implies  \|f\|^{2} - \|T(f)\|^{2} = 0   \\
+                             &\implies \langle f , f \rangle - \langle hf  , hf  \rangle = 0 \\ 
+                             &\implies \int_{ 0 }^{ 1 }  | f(t) |^{2} (1 - | h(t) |^{2})   \ dt = 0 \\
+                             &\implies \int_{ 0 }^{ 1 }  (1 - | h(t) |^{2})^{2} \ dt = 0. 
+\end{align*}
+Note that \( (1-| h(t) |^{2})^{2} \) is also nonnegative. So, \( 1 - | h(t) |^{2} = 0  \) which implies \( | h(t) |  =  1  \) for all \( 0 \leq t \leq 1  \). Conversely, suppose \( |h(t)| = 1   \) for all \( 0 \leq t \leq 1  \). Then
+\begin{align*}
+    \|f\|^{2} = \langle f , f \rangle &= \int_{ 0 }^{ 1 }  f(t) \overline{f(t)} \ dt \\
+                                      &= \int_{ 0 }^{ 1 }  | h(t) |^{2} f(t) \overline{f(t)} \ dt \\
+                                      &= \int_{ 0 }^{ 1 }  h(t) \overline{h(t)} f(t) \overline{f(t)} \ dt \\
+                                      &= \int_{ 0 }^{ 1 }  h(t)f(t) \overline{h(t)f(t)}  \ dt \\
+                                      &= \int_{ 0 }^{ 1 }  hf(t) \overline{hf(t)} \ dt \\
+                                      &= \langle T(f) , T(f) \rangle \\
+                                      &= \|T(f)\|^{2}.
+\end{align*}
+Thus, \( \|T(f)\| = \|f\| \) and so we conclude that \( T  \) is unitary.
 \end{proof}
 
 \subsection*{Exercise 6.5.7} Prove that if \( T  \) is a unitary operator on a finite-dimensional inner product space \( V  \), then \( T  \) has a unitary \textit{square root}; that is, there exists a unitary operator \( U  \) such that \( T = U^{2} \).   
 
 \begin{proof}
-
+Suppose \( T  \) is unitary operator on a finite-dimensional inner product space \( V  \). By Corollary to Theorem 6.18, there exists an orthonormal basis of eigenvectors \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) with eigenvalues of absolute value \( 1  \); that is, \( | {\lambda}_{i} |  = 1  \) for all \( 1 \leq i \leq n \). Define the linear operator \( U: V \to V  \) by  
+\[  U({v}_{i}) = \sqrt{| {\lambda}_{i} | }  {v}_{i}. \]
+We need to show that \( U  \) is unitary. Thus, we have
+\begin{align*}
+    \|U({v}_{i})\|^{2} = \langle U({v}_{i}) , U({v}_{i}) \rangle &= \langle \sqrt{ |  {\lambda}_{i} |  } {v}_{i} ,  \sqrt{ { | \lambda}_{i} |  }  {v}_{i} \rangle \\
+                                                                 &= \sqrt{ | {\lambda}_{i} |  }  \overline{\sqrt{ | {\lambda}_{i} |  } } \langle {v}_{i} , {v}_{i} \rangle \\
+                                                                 &= \langle {v}_{i} , {v}_{i} \rangle.
+\end{align*}
+Thus, \( U  \) is a unitary operator such that
+\[  U^{2}({v}_{i}) = U(U({v}_{i})) = U(\sqrt{ | {\lambda}_{i} |  } {v}_{i} ) = \sqrt{ | {\lambda}_{i} |  }  U({v}_{i}) = | {\lambda}_{i} | {v}_{i} = T({v}_{i}).   \] 
+We conclude that \( U^{2} = T  \).
 \end{proof}
 
 \subsection*{Exercise 6.5.8} Let \( T  \) be a self-adjoint linear operator on a finite-dimensional inner product space. Prove that \( (T+iI)(T - iI)^{-1} \) is unitary using Exercise 10 of Section 6.4.
 
 \begin{proof}
-
+Using {\hyperref[Exercise 6.4.10]{Exercise 10 of Section 6.4}} and the fact that \( T - iI  \) and \( T + iI  \) are normal operators, we have 
+\begin{align*}
+    \Big(  (T+iI)(T - iI)^{-1} \Big) \Big(  (T+iI)(T - iI)^{-1} \Big)^{*} &= \Big( (T+iI)(T-iI)^{-1}   \Big) \Big( \Big(  (T-iI)^{-1} \Big)^{*} (T + iI)^{*}   \Big) \\
+                                                                          &= \Big(  (T - iI)^{*} \Big( (T - iI)^{-1} \Big)^{*} \Big) \Big( (T-iI)^{-1}  (T - iI) \Big) \\
+                                                                          &= \Big(  (T - iI)^{*} \Big( (T - iI)^{*} \Big)^{-1} \Big) \Big( (T-iI)^{-1}  (T - iI) \Big) \\
+                                                                          &= I I = I.
+\end{align*}
+Thus, \( (T+iI)(T - iI)^{-1} \) is unitary.
 \end{proof}
 
 \subsection*{Exercise 6.5.9} Let \( A  \) be an  \( n \times n  \) real symmetric or complex normal matrix. Prove that 
 \[  \text{tr}(A) = \sum_{ i=1  }^{ n } {\lambda}_{i} \ \ \text{and} \ \ \text{tr}(A^{*}A) = \sum_{ i=1  }^{ n } | {\lambda}_{i} |^{2} \] 
 where the \( {\lambda}_{i}' \)s are the (not necessarily distinct) eigenvalues of \( A  \).
 \begin{proof}
-
+    Let \( A  \) be an \( n \times n  \) real symmetric or complex normal matrix. Suppose \( A  \) is a complex normal matrix. Using Theorem 6.19, \( A  \) is unitarily equivalent to a diagonal matrix \( D  \) such that  \( A =P^{*} D P  \) for some unitary matrix \( P  \). Thus, there exists an orthonormal basis \( \beta   \) consisting of eigenvectors \( {v}_{1}, \dots, {v}_{n} \) corresponding to eigenvalues \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{k}   \). Since the trace of the product of two matrices commute, we can write
+    \begin{align*}
+       \text{tr}(A) = \text{tr}( (P^{*} D) P  )  &= \text{tr}((P P^{*}) D ) \\
+                                                 &= \text{tr}(D) \\
+                                                 &= \sum_{ i=1  }^{ n } {\lambda}_{i}
+    \end{align*}
+    where the each \( {\lambda}_{i} \) not necessarily distinct. If \( A  \) is a real symmetric matrix, then \( A  \) is self-adjoint. This tells us that \( A  \) is normal to which we can apply the same theorem to get the same result above. To get the second equation, observe that the first equation implies that the \( {A}_{ii} = {\lambda}_{i} \). So, we have 
+    \begin{align*}
+        \text{tr}(A^{*}A) &= \sum_{ i=1  }^{ n } {(A^{*}A)}_{ii} \\
+                          &= \sum_{ i=1  }^{ n } \sum_{ k=1  }^{ n } {(A)^{*}}_{ik} {A}_{ki} \\ 
+                          &= \sum_{ i=1  }^{ n } \sum_{ k=1  }^{ n } \overline{{A}_{ki}} {A}_{ki} \\ 
+                          &= \sum_{ i=1  }^{ n  } \sum_{ k=1  }^{ n } | {A}_{ki} |^{2} \\
+                          &= \sum_{ i=1  }^{ n  } | {\lambda}_{i} |^{2}
+    \end{align*}
+    which is our desired result.
 \end{proof}
 
 \subsection*{Exercise 6.5.12} Let \( A  \) be an \( n \times n  \) real symmetric or complex normal matrix. Prove that 
@@ -31,5 +80,24 @@ where the \( {\lambda}_{i}' \)s are the (not necessarily distinct) eigenvalues o
 where the \( {\lambda}_{i}' \)s are the (not necessarily distinct) eigenvalues of \( A  \).
 \begin{proof}
 
+    Let \( A  \) be an \( n \times n  \) real symmetric or complex normal matrix. Suppose \( A  \) is a complex normal matrix. Using Theorem 6.19, \( A  \) is unitarily equivalent to a diagonal matrix \( D  \) such that  \( A =P^{*} D P  \) for some unitary matrix \( P  \). Thus, there exists an orthonormal basis \( \beta  \) consisting of eigenvectors \( {v}_{1}, \dots, {v}_{n} \) corresponding to eigenvalues \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{k}   \). Using the properties of determinant and the fact that \( P^{*}P = I  \), we get that
+    \begin{align*}
+       \text{det}(A) = \text{det}(P^{*}D P)  &= \text{det}(P^{*}) \text{det}(D) \text{det}(P) \\
+                                             &= \text{det}(P^{*})\text{det}(P) \text{det}(D) \\ 
+                                             &= \text{det}((P^{*}P)D) \\
+                                             &= \text{det}(D) \\
+                                             &=  \prod_{i=1}^{n} {\lambda}_{i}
+    \end{align*}
+    with each \( {\lambda}_{i} \) not necessarily distinct. A similar argument can be applied if \( A  \) is a real symmetric matrix. Thus, we have that
+    \[  \text{det}(A) = \prod_{i=1}^{n} {\lambda}_{i}. \]
 \end{proof}
 
+\subsection*{Exercise 6.5.13} Suppose that \( A  \) and \( B  \) are diagonalizable matrices. Prove or disprove that \( A  \) is similar to \( B  \) if and only if \( A  \) and \( B  \) are unitarily equivalent. 
+\begin{proof}
+
+\end{proof}
+
+\subsection*{Exercise 6.5.14} Prove that if \( A  \) and \( B  \) are unitarily equivalent matrices, then \( A  \) is positive definite [semidefinite] if and only if \( B  \) is positive definite [semidefinite].
+\begin{proof}
+
+\end{proof}
