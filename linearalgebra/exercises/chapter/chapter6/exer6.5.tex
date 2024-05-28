@@ -99,5 +99,127 @@ where the \( {\lambda}_{i}' \)s are the (not necessarily distinct) eigenvalues o
 
 \subsection*{Exercise 6.5.14} Prove that if \( A  \) and \( B  \) are unitarily equivalent matrices, then \( A  \) is positive definite [semidefinite] if and only if \( B  \) is positive definite [semidefinite].
 \begin{proof}
-
+Suppose \( A  \) and \( B  \) are unitarily equivalent. For the forwards direction, suppose \( A  \) is positive definite. Since \( A  \) and \( B  \) are unitarily equivalent, there exists a unitary matrix \( P  \) such that \( A = P^{*} B P  \). Observe that this can be rewritten to \( B = P A P^{*}  \). Since \( A  \) is positive definite and that \( A  \) is self-adjoint (therefore, \( A  \) is must be diagonalizable), we must have that all eigenvalues \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{n}  \) of \( A  \) are positive. Since \( P  \) is unitary, we find that \( P^{*}P = I  \). So, looking at the determinant of \( B  \), we get that      
+\begin{align*}
+    \text{det}(B) = \text{det}(P A P^{*}) &= \text{det}(P) \text{det}(A) \text{det}(P^{*})  \\
+                                          &= \text{det}(P^{*})\text{det}(P) \text{det}(A) \\
+                                          &= \text{det}(P^{*}P) \text{det}(A) \\
+                                          &= \text{det}(A) \\
+                                          &= \prod_{i=1}^{n} {\lambda}_{i}.
+\end{align*}
+Since each \( {\lambda}_{i} > 0  \) for all \( i  \), the diagonal entries of \( B  \) must also be positive. But these eigenvalues of \( A  \) are also eigenvalues of \( B  \). So, all the eigenvalues of \( B  \) are positive. Also, we have that \( B  \) is self-adjoint because 
+\begin{align*}
+    B^{*} = (P (A P^{*}))^{*} &= (A P^{*})^{*} P^{*}  \\
+                              &= P A^{*} P^{*} \\
+                              &= P A P^{*} \\
+                              &= B.
+\end{align*}
+Thus, \( B  \) must be positive definite. A similar argument can be used to prove the other direction, but this time, switching the places of \( A  \) and \( B  \). Thus, \( A  \) is also positive definite.
 \end{proof}
+
+\subsection*{Exercise 6.5.15} Let \( U  \) be a unitary operator on an inner product space \( V  \), and let \( W  \) be a finite-dimensional \( U- \)invariant subspace of \( V  \). Prove that 
+\begin{enumerate}
+    \item[(a)] \( U(W) =  W  \);
+        \begin{proof}
+        We need to show both containments; that is, \( U(W) \subseteq W  \) and \( W \subseteq U(W) \). Since \( W  \) is \( U- \)invariant, we must have \( U(W) \subseteq W  \). To show that \( W \subseteq U(W) \). Since \( W  \) is finite-dimensional, let \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) be an orthonormal basis for \( W  \). Since \( U  \) is unitary, we can see that \( U(\beta) \) is also an orthonormal basis for \( W  \) by Theorem 6.18. Thus, if \( w \in W  \), we can write
+        \[  w = \sum_{ i=1  }^{ n } \langle w , U({v}_{i}) \rangle U({v}_{i}). \]
+        This tells us that \( w \in U(W) \) since \( U({v}_{i}) \in U(\beta) \). So, \( w \in U(W) \). Thus, \( U(W) = W  \).
+\end{proof}
+    \item[(b)] \( W^{\perp}  \) is \( U- \)invariant.
+        \begin{proof}
+        We need to show that \( U(W^{\perp}) \subseteq W^{\perp} \). Let \( y \in U(W^{\perp}) \). Then \( y = U(x)  \) for \( x \in W^{\perp} \). Since \( U  \) is unitary, we have \( U^{*}U = I = U U^{*} \), which implies that \( U  \) is normal. Thus, we have \( W   \) is \( U^{*}-\) invariant. Then 
+        \begin{align*}
+           \langle y , z \rangle = \langle U(x) , z  \rangle  = \langle x  , U^{*}(z) \rangle = 0.   
+        \end{align*}
+        Therefore, \( y \in W^{\perp} \).
+\end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 6.5.17} Prove that a matrix that is both unitary and upper triangular must be a diagonal matrix.
+\begin{proof}
+Let \( A  \) be a square matrix and suppose \( A  \) is both unitary and upper triangular. Since \( A  \) is unitary, the columns of \( A  \) form an orthonormal basis for \( F^{n} \). This is because
+\[  {\delta}_{ij} = I_{ij} = ( A^{*} A )_{ij} = \sum_{ k=1  }^{ n } (A^{*})_{ik} {A}_{kj}  = \sum_{ k=1  }^{ n } \overline{{A}_{ki}} {A}_{kj}.    \]
+Note that \( A  \) is also upper triangular. So, for every \( i > j  \), we have \( {A}_{ij} = 0  \). But the columns of \( A  \) form an orthonormal basis, and so \( {A}_{ij} = {A}_{ij} {\delta}_{ij} = 0   \) whenever \( i \neq j  \). This tells us that \( A  \) must be a diagonal matrix and we are done.      \end{proof}
+
+\subsection*{Exercise 6.5.18} Show that "is unitarily equivalent to" is an equivalence relation on \( {M}_{n \times n}(\C) \). 
+
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Let \( A  \in {M}_{n \times n }(\C) \). We will show that \( A  \) is unitarily equivalent to itself. Since \( I  \) is a unitary matrix, we have \( A = I^{*} A I  \). Thus, \( A  \) is unitarily equivalent to itself. 
+    \item[(b)] Let \( A, B \in {M}_{n \times n }(\C) \). Suppose \( A  \) is unitarily equivalent to \( B  \). Thus, \( A = P^{*} B P  \) for some unitary matrix \( P  \). We need to show that \( B  \) is unitarily equivalent to \( A  \). Since \( P  \) is unitary, we can multiply \( P  \) on the left side of \( A  \) and \( P^{*}  \) on the right side of \( A  \) to get
+        \[  B = P A P^{*}. \]
+        Set \( D = P^{*} \) and observe that \( (P^{*})^{*} = D^{*} \). So, we have \( B = D^{*}A D  \). Hence, \( B  \) is unitarily equivalent to \(  A  \).
+    \item[(c)] Suppose \( A  \) is unitarily equivalent to \( B  \) and \( B  \) is unitarily equivalent to \( C  \). Then there exists unitary matrices \( P  \) and \( D  \) such that \( A = P^{*} B P   \) and \( B = D^{*} C D  \), respectively. We must show that \( A  \) is unitarily equivalent to \( C  \). So, we have     
+        \begin{align*}
+            A = P^{*} B P &= P^{*} (D^{*} C D ) P  \\
+                          &= (DP)^{*} C (DP) \\
+                          &= X^{*} C X \tag{set \( X = DP \)}. 
+        \end{align*}
+        Thus, \( A  \) is unitarily equivalent to \( C  \).
+\end{enumerate}
+Therefore, we conclude that "is unitarily equivalent to" is an equivalence relation on \( {M}_{n \times n}(\C) \).
+\end{proof}
+
+\subsection*{Exercise 6.5.19} Let \( W  \) be a finite-dimensional subspace of an inner product space \( V  \). By Theorem 6.7 and the exercises of Section 1.3, \( V = W \oplus W^{\perp} \). Define \( U: V \to V  \) by \( U({v}_{1} + {v}_{2}) = {v}_{1} - {v}_{2} \), where \( {v}_{1} \in W  \) and \( {v}_{2} \in W^{\perp} \). Prove that \( U  \) is a self-adjoint unitary operator. 
+
+\begin{proof}
+First, we show that \( U: V \to V  \) is a linear operator. Let \( x,y \in V  \). Since \( V = W \oplus W^{\perp} \), we have \( x = {x}_{1} + {x}_{2} \) and \( y = {y}_{1} + {y}_{2} \). Let \( c \in F  \). Then observe that
+\begin{align*}
+    x + cy &= ({x}_{1} + {x}_{2}) + c ({y}_{1} + {y}_{2})  \\
+           &= ({x}_{1} + {cy}_{1}) + ({x }_{2} + {cy}_{2}).
+\end{align*}
+So, we have
+\begin{align*}
+    U(x + cy) &= {x}_{1} + {cy}_{1} - ({x}_{2} + {cy}_{2})  \\
+              &= ({x}_{1} - {x}_{2}) - c({y}_{1} -{y}_{2}) \\
+              &= U(x) + c U(y).
+\end{align*}
+Thus, \( U  \) is linear. To show that \( U  \) is unitary, we can show \( \|U(x)\| = \|x\|  \). Since \( x =  {x}_{1} + {x}_{2}  \) and \( \overline{\langle {x}_{1} , {x}_{2} \rangle} =  \langle {x}_{2} , {x}_{1} \rangle = 0  \), we must have
+\begin{align*}
+    \|U(x)\|^{2} = \|U({x}_{1} + {x}_{2})\|^{2} &= \|{x}_{1} - {x}_{2}\|^{2}  \\
+                                                &= \|{x}_{1}\|^{2} - 2\Re \langle {x}_{1} , {x}_{2} \rangle + \|{x}_{2}\|^{2} \\ 
+                                                &= \|{x}_{1}\|^{2} + \|{x}_{2}\|^{2} \\
+                                                &= \|{x}_{1} + {x}_{2}\|^{2} \\
+                                                &= \|x\|^{2}.
+\end{align*}
+Thus, \( U  \) must be an unitary. To show that \( U  \) is self-adjoint, we need to show \( U = U^{*} \). Since \( U  \) is unitary, we have \( U^{*}U = I = U U^{*} \). Observe that, by definition of \( U  \), we have
+\[  U(x) = U({x}_{1} + {x}_{2}) = I({x}_{1} - {x}_{2}) = U^{*}(U({x}_{1} - {x}_{2})) = U^{*}({x}_{1} + {x}_{2}) = U^{*}(x). \]
+So, we conclude that \( U  \) is self-adjoint.
+\end{proof}
+
+\begin{definition}[Partial Isometry]
+    Let \( V  \) be a finite-dimensional inner product space. A linear operator \( U  \) on \( V  \) is called a \textbf{partial isometry} if there exists a subspace \( W  \) of \( V  \) such that \( \|U(x)\| = \|x\| \) for all \( x \in W  \) and \( U(x) = 0  \) for all \( x \in W^{\perp} \). Observe that \( W  \) need \textit{not} be \( U- \)invariant. 
+\end{definition}
+
+\subsection*{Exercise 6.5.20} 
+Let \( V  \) be a finite-dimensional inner product space. Suppose \( U  \) is a \textbf{partial isometry} and \( \{ {v}_{1}, {v}_{2}, \dots, {v}_{k} \}   \) is an orthonormal basis for \( W  \). Prove the following results.
+\begin{enumerate}
+    \item[(a)] \( \langle U(x) , U(y) \rangle = \langle x , y \rangle \) for all \( x, y \in W  \).
+        \begin{proof}
+        Let \( x,y \in W  \). The process is the same as {\hyperref[Exercise 6.3.10]{Exercise 10 of Section 6.3}}. 
+        \end{proof}
+    \item[(b)] \( \{ U({v}_{1}), U({v}_{2}), \dots, U({v}_{k}) \}  \) is an orthonormal basis for \( R(U) \).
+        \begin{proof}
+        First, we show that \( \{ U({v}_{1}), U({v}_{2}), \dots, U({v}_{k}) \}  \) is an orthonormal subset of \( R(U)  \). Since \( \{ {v}_{1}, \dots, {v}_{k} \}  \) is an orthonormal basis for \( W  \), we see that (by part (a))
+        \[  \langle U({v}_{i}) , U({v}_{j}) \rangle = \langle {v}_{i} ,  {v}_{j} \rangle = {\delta}_{ij}. \]
+        Now, using Theorem 2.2, we have \( \{ U({v}_{1}), U({v}_{2}), \dots, U({v}_{k}) \}  \) spans \( R(U) \). Additionally, Corollary 2 of Theorem 6.3 implies that this set is also linearly independent. Thus, \( \{ U({v}_{1}), U({v}_{2}), \dots, U({v}_{k}) \}  \) is an orthonormal basis for \( R(U)  \).
+        \end{proof}
+    \item[(c)] There exists an orthonormal basis \( \gamma \) for \( V  \) such that the first \( k  \) columns of \( [U]_{\gamma} \) form an orthonormal set and the remaining columns are zero. 
+        \begin{proof}
+            Using Theorem 6.7, we can extend \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{k} \}  \) into an orthonormal basis \( \gamma \) for \( V  \). By the same Theorem, the last \( n - k  \) vectors of \( \gamma \) form an orthonormal basis for \( W^{\perp} \). Thus, if we consider the entries of \( [U]_{\gamma} \), we find that the first \( k  \) column vectors form an orthonormal set (by part (b)) and that the last \( n - k  \) column vectors are \( 0  \) since \( U({v}_{i}) = 0  \) for all \( {v}_{i} \in W^{\perp} \) for \( k+1 \leq i \leq n  \). 
+        \end{proof}
+    \item[(d)] Let \( \{ {w}_{1}, {w}_{2}, \dots, {w}_{j} \}   \)  be an orthonormal basis for \( (R(U))^{\perp} \) and 
+        \[ \beta = \{ U({v}_{1}), U({v}_{2}), \dots, U({v}_{k}), \dots, {w}_{1}, \dots, {w}_{j} \}. \] Then \( \beta  \) is an orthonormal basis for \( V  \).
+        \begin{proof}
+        Note that every vector in  \( {\beta}_{2} =  \{ {w}_{1}, \dots, {w}_{j} \} \) is orthogonal to every vector in \( {\beta}_{1} = \{ U({v}_{1}), U({v}_{2}), \dots, U({v}_{k}) \}  \). Furthermore, if \( \langle U({v}_{i}) ,  {w}_{j} \rangle = 1  \), then \( U({v}_{i}) = {w}_{j} \). Since \( {\beta}_{1} \) and \( {\beta}_{2} \) are both orthonormal sets, we have \( \beta = {\beta}_{1} \cup {\beta}_{2} \) must also be orthonormal. Additionally, \( {\beta}_{1}  \) and \( {\beta}_{2}  \) are orthonormal bases for \( R(U) \) and \( (R(U))^{\perp} \), respectively. So, \(  \beta   \) must be an orthonormal basis for \( V  \).     
+        \end{proof}
+    \item[(e)] Let \( T  \) be the linear operator on \( V  \) that satisfies \( T(U({v}_{i})) = {v}_{i} \) \( (1 \leq i \leq k) \) and \( T({w}_{i}) = 0  \) for all \( 1 \leq i \leq j  \). Then \( T  \) is well-defined, and \( T = U^{*} \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(f)] \( U^{*} \) is a partial isometry.
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
