@@ -215,11 +215,73 @@ Let \( V  \) be a finite-dimensional inner product space. Suppose \( U  \) is a 
         \end{proof}
     \item[(e)] Let \( T  \) be the linear operator on \( V  \) that satisfies \( T(U({v}_{i})) = {v}_{i} \) \( (1 \leq i \leq k) \) and \( T({w}_{i}) = 0  \) for all \( 1 \leq i \leq j  \). Then \( T  \) is well-defined, and \( T = U^{*} \).
         \begin{proof}
-        
+        Suppose \( {v}_{i} \) and \( {v}_{i}' \) in \( V  \). By definition of \( T  \), we have
+        \[  T(U({v}_{i})) = T(U({v}_{i}')) \implies {v}_{i} = {v}_{i}'. \]
+        Now, suppose \( T({w}_{i}) = {\epsilon}_{i} \) and \( T({w}_{i}) = {\epsilon}_{i}' \) where \( {\epsilon}_{i}, {\epsilon}_{i}' \in V  \). But \( T({w}_{i}) = 0  \), so we must have \( {\epsilon}_{i} = {\epsilon}_{i}' = 0  \). Thus, \( T  \) is well-defined. Now, we will show that \( T = U^{*} \). Using the hint, we shall show that \( \langle U(x) , y \rangle = \langle x  , T(y)  \rangle \) for all \( x,y \in \beta \). We have four cases to prove in order to show this. Consider \( \langle U(U({v}_{i})) , U({v}_{j}) \rangle \). By Theorem 6.18, we have that    
+        \[  \langle U(U({v}_{i})) , U({v}_{\ell}) \rangle = \langle U({v}_{i}) , {v}_{\ell} \rangle = \langle U({v}_{i}) ,  T(U({v}_{\ell})) \rangle \]
+        where \( U({v}_{i}), U({v}_{\ell}) \in \beta  \). Consider \( \langle U({w}_{i}) , {w}_{\ell} \rangle  \). Using Theorem 6.8, define the function \( g: \beta \to F  \) \( g({w}_{i}) =  \langle {w}_{i} , T({w}_{\ell})  \rangle \) with unique vector \(  T({w}_{\ell}) = {w}_{\ell}' \). Then we have
+        \[  \langle U({w}_{i}) , {w}_{\ell} \rangle = \langle {w}_{i} ,  T({w}_{\ell}) \rangle. \]
+        Next, consider \( \langle U(U(v_{i})) , {w}_{k} \rangle  \). Similarly to the last case, we define another function \( \sigma(U({v}_{i})) = \langle U({v}_{i}) , T({w}_{\ell}) \rangle  \) with \( T({w}_{\ell}) \) being a unique vector in \( V  \). Then we have
+        \[  \langle U(U({v}_{i})) , {w}_{\ell} \rangle = \langle U({v}_{i}) , T({w}_{\ell}) \rangle. \]
+        Finally, consider \( \langle U({w}_{i}) , U({v}_{\ell}) \rangle \). Using Theorem 6.18 and definition of \( T  \), we have 
+        \[  \langle U({w}_{i}) , U({v}_{\ell}) \rangle = \langle {w}_{i} ,  {v}_{\ell} \rangle = \langle {w}_{i} ,  T(U({v}_{\ell})) \rangle. \]
+        Thus, for any \( x,y \in \beta  \) we get that \( \langle U(x) , y \rangle = \langle x  , T(y) \rangle \) with \( T = U^{*} \).
         \end{proof}
     \item[(f)] \( U^{*} \) is a partial isometry.
         \begin{proof}
-        
+            From part (e), we see that \( T = U^{*} \) implies that \( U^{*}(U({v}_{i})) = {v}_{i}  \) (\( 1 \leq i \leq k  \)) and \( U^{*}({w}_{i}) \) for all \( 1 \leq i \leq j   \). Consequently, \( U^{*}U = I   \) which is equivalent to \( \|U^{*}(x)\| = \|x\| \) for all \( x \in V  \). Thus, \( U^{*} \) is also a partial isometry.   
         \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 6.5.21} Let \( A  \) and \( B  \) be \( n \times n  \) matrices that are unitarily equivalent.
+\begin{enumerate}
+    \item[(a)] Prove that \( \text{tr}(A^{*}A) = \text{tr}(B^{*}B) \).
+        \begin{proof}
+        Since \( A  \) and \( B  \) are \( n \times n  \) matrices that are unitarily equivalent, there exists a unitary matrix \( P  \) such that \( A = P^{*} B P  \). Note that
+        \[  A^{*} = ((P^{*}B)P)^{*} = P^{*} (P^{*} B)^{*} = P^{*} B^{*} P. \]
+        Then observe that
+        \begin{align*}
+            \text{tr}(A^{*}A) = \text{tr}((P^{*}B^{*}P)(P^{*}BP)) &= \text{tr}( (P^{*}B^{*}) BP) \\
+                                                                  &= \text{tr}((BP)(P^{*}B^{*})) \\ 
+                                                                  &= \text{tr}(B B^{*}) \\
+                                                                  &= \text{tr}(B^{*}B).
+        \end{align*}
+        Thus, we conclude that 
+        \[  \text{tr}(A^{*}A) = \text{tr}(B^{*}B) \]
+        for any \( A  \) and \( B  \) \( n \times n  \) matrices that are unitarily equivalent.
+        \end{proof}
+    \item[(b)] Use (a) to prove that 
+        \[  \sum_{ i,j = 1  }^{ n   } |{A}_{ij}|^{2} = \sum_{ i,j = 1  }^{ n  } | {B}_{ij} |^{2}. \]
+        \begin{proof}
+        From part (a), we get
+        \begin{align*}  \sum_{ i,j = 1  }^{ n } | {A}_{ij} |^{2} = \sum_{ i,j = 1  }^{ n  } \overline{{A}_{ij}} {A}_{ij}   &= \text{tr}(A^{*}A) \\ 
+            &= \text{tr}(B^{*}B) \\ 
+            &= \sum_{ i,j = 1  }^{ n } \overline{{B}_{ij}} {B}_{ij} \\ 
+            &= \sum_{ i,j = 1  }^{ n  } | {B}_{ij} |^{2}
+        \end{align*}
+        which is our desired result.
+        \end{proof}
+    \item[(c)] Use (b) to show that the matrices
+        \[  \begin{pmatrix} 
+            1 & 2 \\
+            2 & i 
+        \end{pmatrix} \ \ \text{and} \ \ \begin{pmatrix} 
+            i & 4 \\
+            1 & 1 
+                  \end{pmatrix} \]
+                  are \textit{not} unitarily equivalent.
+            \begin{proof}
+            Let 
+            \[  A = \begin{pmatrix} 
+                1 & 2 \\
+                2 & i 
+            \end{pmatrix}  \ \ \text{and} \ \ \begin{pmatrix}
+                i & 4 \\
+                1 & 1 
+            \end{pmatrix}. \]
+            Computing the sum of the absolute value squared of the entries of each matrix above, we see that
+            \[  \sum_{ i,j = 1  }^{ n } | {A}_{ij} |^{2} = 5 + i \neq 6 + i = \sum_{ i,j = 1  }^{ n  } | {B}_{ij} |^{2}. \]
+            So, the matrices above 
+            \end{proof}
 \end{enumerate}
 
