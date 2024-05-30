@@ -420,3 +420,17 @@
 \contentsline {definition}{\ifthmt@listswap Definition~6.5.6\else \numberline {6.5.6}Definition\fi \thmtformatoptarg {Translations}}{129}{definition.6.5.6}%
 \contentsline {theorem}{\ifthmt@listswap Theorem~6.5.5\else \numberline {6.5.5}Theorem\fi }{129}{theorem.6.5.5}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{129}{thmt@dummyctr.dummy.416}%
+\contentsline {definition}{\ifthmt@listswap Definition~6.6.1\else \numberline {6.6.1}Definition\fi \thmtformatoptarg {Projections}}{129}{definition.6.6.1}%
+\contentsline {definition}{\ifthmt@listswap Definition~6.6.2\else \numberline {6.6.2}Definition\fi \thmtformatoptarg {Orthogonal Projection}}{130}{definition.6.6.2}%
+\contentsline {remark}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Remark}{130}{thmt@dummyctr.dummy.419}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~6.6.1\else \numberline {6.6.1}Theorem\fi }{130}{theorem.6.6.1}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{130}{thmt@dummyctr.dummy.421}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~6.6.2\else \numberline {6.6.2}Theorem\fi \thmtformatoptarg {The Spectral Theorem}}{131}{theorem.6.6.2}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{131}{thmt@dummyctr.dummy.423}%
+\contentsline {definition}{\ifthmt@listswap Definition~6.6.3\else \numberline {6.6.3}Definition\fi \thmtformatoptarg {Spectrum of \(T\)}}{132}{definition.6.6.3}%
+\contentsline {definition}{\ifthmt@listswap Definition~6.6.4\else \numberline {6.6.4}Definition\fi \thmtformatoptarg {Resolution of the Identity}}{132}{definition.6.6.4}%
+\contentsline {definition}{\ifthmt@listswap Definition~6.6.5\else \numberline {6.6.5}Definition\fi \thmtformatoptarg {Spectral Decomposition}}{132}{definition.6.6.5}%
+\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{133}{thmt@dummyctr.dummy.427}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{133}{thmt@dummyctr.dummy.428}%
+\contentsline {corollary}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Corollary}{133}{thmt@dummyctr.dummy.429}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{133}{thmt@dummyctr.dummy.430}%

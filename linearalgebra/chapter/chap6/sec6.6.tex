@@ -1,0 +1,141 @@
+\section{Orthogonal Projections and The Spectral Theorem}
+
+\begin{itemize}
+    \item In this section, we will prove that any operator \( T  \) on a finite-dimensional inner product space \( V  \) can be written as a linear combination of orthogonal projections \( {T}_{1}, {T}_{2}, \dots, {T}_{k} \) with coefficients \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{k} \) being the distinct eigenvalues of \( T  \).
+    \item In order to prove this result, we must assume knowledge of projections which is introduced at the end of section 1.3, and continued further in sections 2.1 and 5.2 (Look back to the exercises in these sections).
+\end{itemize}
+
+\begin{definition}[Projections]
+   Let \( {W}_{1}  \) and \( {W}_{2}  \) be subspaces of \( V  \) such that \( V = {W}_{1} \oplus {W}_{2}  \). Suppose \( T  \) is a linear operator on \( V  \). We call \( T  \) on \( V  \) a \textbf{projection on \( {W}_{1} \) along \( {W}_{2} \)} if, whenever \( x = {x}_{1} + {x}_{2} \), with \( {x}_{1} \in {W}_{1} \) and \( {x}_{2} \in {W}_{2} \), we have \( T(x) = {x}_{1} \). 
+\end{definition}
+
+\begin{definition}[Orthogonal Projection]
+    Let \( V  \) be an inner product space, and let \( T: V \to V  \) be a projection. We say that \( T  \) is an \textbf{orthogonal projection} if \( R(T)^{\perp} = N(T) \) and \( N(T)^{\perp} = R(T) \).
+\end{definition}
+
+\begin{remark}
+    By Exercise 13(c) of Section 6.2, if \( V  \) is finite-dimensional, we need only assume the one of equalities in the definition holds. Suppose \( R(T)^{\perp} = N(T) \), then to get the other equation, we just have to write
+    \[  R(T) = (R(T)^{\perp})^{\perp} = N(T)^{\perp}.  \]
+\end{remark}
+
+\begin{itemize}
+    \item If we assume that \( W  \) is a finite-dimensional subspace of an inner product space \( V  \), then we can define a function \( T: V \to V  \) by \( T(y) = u  \) that is an orthogonal projection. We can take this a step further by showing that it is unique to \( W  \). 
+    \item We call this projection as the \textbf{orthogonal projection} of \( V  \) on \( W  \).
+\end{itemize}
+
+\begin{theorem}
+    Let \( V  \) be an inner product space, and let \( T  \) be a linear operator on \( V  \). Then \( T  \) is an orthogonal projection if and only if \( T  \) has an adjoint \( T^{*} \) and \( T^{2} = T = T^{*} \).
+\end{theorem}
+
+\begin{proof}
+Suppose that \( T  \) is an orthogonal projection. Since \( T  \) is a projection, we must have \( T^{2} = T  \) by Exercise 17 of Section 2.3. Thus, we need only show that \( T^{*} \) exists and \( T = T^{*} \). Note that \( V = R(T) \oplus N(T) \) and \( R(T)^{\perp} = N(T) \). Let \( x,y \in V  \). Thus, we have \( x = {x}_{1} + {x}_{2}  \) and \( y = {y}_{1} + {y}_{2} \) with \( {x}_{1}, {y}_{1} \in R(T) \) and \( {x}_{2}, {y}_{2} \in N(T) \). To show that \( T^{*} = T  \), it suffices to show that \( \langle T(x) , y \rangle =  \langle x , T(y) \rangle \). Working with the left-hand side, we have
+\begin{align*}
+    \langle T(x) , y \rangle &= \langle {x}_{1}  , {y}_{1} + {y}_{2} \rangle  \\
+                             &=  \langle {x}_{1} ,  {y}_{1} \rangle + \langle {x}_{1}  ,  {y}_{2} \rangle. 
+\end{align*}
+Since \( N(T) = R(T)^{\perp} \) and \( {y}_{2} \in N(T) \), the second term cancels out and we are left with \( \langle T(x) , y \rangle = \langle {x}_{1} , {y}_{1} \rangle \). Likewise, \( {x}_{2} \in N(T)   \) which implies \( \langle {x}_{2} , {y}_{1} \rangle = 0  \). Thus, we have
+\begin{align*}
+    \langle x , T(y) \rangle &= \langle {x}_{1} + {x}_{2} ,  {y}_{1} \rangle \\
+                             &= \langle {x}_{1} ,  {y}_{1} \rangle + \langle {x}_{2}  , {y}_{1} \rangle \\
+                             &= \langle {x}_{1} , {y}_{1} \rangle.
+\end{align*}
+Therefore, we conclude that \( \langle T(x) , y \rangle = \langle x  , T(y) \rangle \) and so \( T^{*} \) exists and that \( T^{*} = T = T^{2}  \).
+
+Conversely, suppose \( T^{*} = T = T^{2} \). We need to show that \( T  \) is an orthogonal projection; that is, we need to show \( N(T) = R(T)^{\perp} \) and \( N(T)^{\perp} = R(T) \). First, we will show \( R(T) = N(T)^{\perp} \). Let \( x \in R(T)  \) and let \( y \in N(T) \). Note that \( T  \) is a projection since \( T^{2} = T  \) and so we have \( x = T(x) = T^{*}(x) \) since  We need to show that \( \langle x , y \rangle = 0  \). Thus, we have 
+\begin{align*}
+    \langle x  , y \rangle = \langle  T(x) ,  y  \rangle
+                           =\langle T^{*}(x) , y  \rangle 
+                           = \langle x  , T(y) \rangle  
+                           = \langle x , 0  \rangle 
+                           = 0.
+\end{align*}
+Thus, \( x \in N(T)^{\perp} \) and so \( R(T) \subseteq N(T)^{\perp} \). Now, let \( y \in N(T)^{\perp} \). We need to show that \( T(y) = y  \) so that \( y \in R(T) \). Consider the norm \( \| y - T(y)\|^{2}  \). It suffices to show that this norm is zero. Observe that
+\begin{align*}
+    \|y - T(y)\|^{2} &= \langle y - T(y) , y - T(y) \rangle \\
+                     &= \langle y  , y - T(y) \rangle - \langle T(y) , y - T(y) \rangle.
+\end{align*}
+Observe that \( y - T(y) \in N(T) \). So, \( y \in N(T)^{\perp} \) implies \( \langle y  ,  y - T(y) \rangle = 0   \). With the second term, namely \( \langle T(y) , y - T(y) \rangle \), we use the fact that \( T^{2} = T = T^{*}  \) and \( y - T(y) \in N(T) \) to write
+\[ \langle T(y) , y - T(y) \rangle = \langle y  ,  T(y - T(y)) \rangle = \langle y  , 0 \rangle = 0.    \]
+So, we have \( \|y - T(y)\|^{2} = 0  \) implies \( y - T(y) = 0  \). Thus, \(  T(y) = y  \) and so we can conclude that \( y \in R(T) \). Therefore, \( R(T) = N(T)^{\perp} \).
+
+Using the preceding results, we write \( R(T)^{\perp} = (N(T)^{\perp})^{\perp}  \supseteq  N(T)\) using Exercise 13 (b) of Section 6.2. Now, suppose that \( x \in R(T)^{\perp} \). For any \( y \in V  \), we have 
+\[  \langle T(x) , y  \rangle = \langle x  , T^{*}(y) \rangle = \langle x  , T(y) \rangle = 0.  \]
+Thus, \( T(x) = 0  \) and so \( x \in N(T) \). Hence, \( R(T)^{\perp} = N(T) \).
+\end{proof}
+
+Let \( V  \) be a finite-dimensional inner product space, and \( W  \) is a subspace of \( V  \), and \( T \) is an orthogonal projection of \( V  \) on \( W  \). Suppose \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n } \}   \) is an orthonormal basis for \( V  \). We can choose \( \{ {v}_{1}, {v}_{2}, \dots, {v}_{k} \}   \) to be the basis for \( W  \). We find that \( [T]_{\beta} \) is a diagonal matrix with ones as the first \(  k  \) diagonal entries and zeros elsewhere. Thus, \( [T]_{\beta} \) has the form  
+\[  \begin{pmatrix}
+    {I}_{k} & {O}_{1} \\
+    {O}_{2} & {O}_{3}
+\end{pmatrix}. \]
+
+Suppose \( U  \) is any projection on \( W  \), then we can choose a basis \( \gamma \) for \( V  \) such that \( [U]_{\gamma} \) has the same form above. But \( \gamma \) may not be orthonormal.
+
+\begin{theorem}[The Spectral Theorem]
+    Suppose that \( T  \) is a linear operator on a finite-dimensional inner product space \( V  \) over \( F  \) with the distinct eigenvalues \( {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{k} \). Assume that \( T  \) is normal if \( F = \C  \) and that \( T  \) is self-adjoint if \( F = \R  \). For each \( i (1 \leq i \leq k) \), let \( {W}_{i} \) be the eigenspace of \( T  \) corresponding to the eigenvalue \( {\lambda}_{i} \), and let \( {T}_{i} \) be the orthogonal projection of \( V  \) on \( {W}_{i} \). Then the following statements are true.
+    \begin{enumerate}
+        \item[(a)] \( V = {W}_{1} \oplus {W}_{2} \oplus \cdots \oplus {W}_{k} \).
+        \item[(b)] If \( {W}_{i}' \) denotes the direct sum of the subspaces \( {W}_{j} \) for \( j \neq i  \), then \( {W}_{i}^{\perp} = {W}_{i}' \). 
+        \item[(c)] \( {T}_{i} {T}_{j} = {\delta}_{ij} {T}_{i} \) for \( 1 \leq i, j \leq k  \).
+        \item[(d)] \( I = {T}_{1} + {T}_{2} + \cdots + {T}_{k} \).
+        \item[(e)] \( T = {\lambda}_{1} {T}_{1} + {\lambda}_{2} {T}_{2} + \cdots + {\lambda}_{k} {T}_{k } \).
+    \end{enumerate}
+\end{theorem} 
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Using Theorems 6.16 and 6.17, we can produce an orthonormal basis for \( V  \) consisting of eigenvectors of \( T  \). By Theorem 5.10, we must have
+        \[  V = {W}_{1} \oplus {W}_{2} \oplus \cdots \oplus {W}_{k} \]
+        where each \( {W}_{i} \) for \( 1 \leq i \leq k  \) is an eigenspace of \( T  \).
+    \item[(b)] If \( x \in {W}_{i} \) and \( y \in {W}_{j} \) for some \( i \neq j  \), then \( \langle x , y \rangle = 0  \) by Theorem 6.15 (d). It follows immediately that \( {W}_{i}'  \subseteq {W}_{i}^{\perp}\) since every \( y \in {W}_{j} \) is orthogonal to \( x \in {W}_{i} \) for \( i \neq j \). From part (a), we see that
+        \[  \text{dim}({W}_{i}') = \sum_{  j \neq i  }^{   } \text{dim}({W}_{j}) = \text{dim}(V) - \text{dim}({W}_{i}). \]
+        By Theorem 6.7 (c), we can see that \( \text{dim}({W}_{i}^{\perp}) = \text{dim}(V) - \text{dim}({W}_{i}) \). Thus, \( {W}_{i}' =  {W}_{i}^{\perp} \), proving (b).
+    \item[(c)] \textit{Left as an exercise} 
+    \item[(d)] Since \( {T}_{i}  \) is the orthogonal projection of \( V  \) on \( {W}_{i} \), it follows from (b) that  
+        \[  N({T}_{i}) = R({T}_{i})^{\perp} = {W}_{i}^{\perp} = {W}_{i}'. \]
+        For any \( x \in V  \), we have \( x = {x}_{1} + {x}_{2} + \cdots + {x}_{k} \) by part (a) with \( {T}_{i}(x) = {x}_{i} \). So, we have
+        \begin{align*}
+            ({T}_{1} + {T}_{2} + \cdots + {T}_{k})(x) &= {T}_{1}(x) + {T}_{2}(x) + \cdots + {T}_{k}(x)  \\
+                                                      &= {x}_{1} + {x}_{2} + \cdots + {x}_{k} \\
+                                                      &= I({x}_{1} + {x}_{2} + \cdots + {x}_{k}).
+        \end{align*}
+        Thus, we have
+        \[  {T}_{1} + {T}_{2} + \cdots + {T}_{k} = I.  \]
+    \item[(e)] Let \( x \in V  \) and write \( x = {x}_{1} + {x}_{2} + \cdots + {x}_{k} \)by part (a). Since each \( {x}_{i} \) is an eigenvector of \( T  \), we have \( T({x}_{i} = {\lambda}_{i} {x}_{i}  \). By using the linearity of \( T  \) and the fact that \( T  \) is an orthogonal projection of \( V  \) on \( W  \), we have
+        \begin{align*}
+            T(x) &= T({x}_{1}) + T({x}_{2}) + \cdots + T({x}_{k}) \\
+                 &= {\lambda}_{1} {x}_{1} + {\lambda}_{2} {x}_{2} + \cdots + {\lambda}_{k} {x}_{k} \\ 
+                 &= {\lambda}_{1} {T}_{1}(x) + {\lambda}_{2} {T}_{2}(x) + \cdots + {\lambda}_{k} {T}_{k}(x) \\
+                 &=  ({\lambda}_{1} {T}_{1} + {\lambda}_{2} {T}_{2} + \cdots + {\lambda}_{k} {T}_{k } )(x).
+        \end{align*}
+        Thus, we conclude that 
+        \[  T = {\lambda}_{1} {T}_{1} + {\lambda}_{2} {T}_{2} + \cdots + {\lambda}_{k} {T}_{k}. \]
+     \end{enumerate}
+\end{proof}
+
+\begin{definition}[Spectrum of \(T\)]
+    We call the set \( \{ {\lambda}_{1}, {\lambda}_{2}, \dots, {\lambda}_{k} \}  \) of eigenvalues of \( T  \) the \textbf{spectrum} of \( T  \).
+\end{definition}
+
+\begin{definition}[Resolution of the Identity]
+   We call the sum \( I = {T}_{1} + {T}_{2} + \cdots {T}_{k} \) the \textbf{resolution of the identity operator} induced by \( T  \). 
+\end{definition}
+
+\begin{definition}[Spectral Decomposition]
+    The linear combination 
+    \[  T = {\lambda}_{1} {T}_{1} + {\lambda}_{2} {T}_{2} + \cdots + {\lambda}_{k} {T}_{k} \]
+    is called the \textbf{spectral decomposition of \( T  \)}. This linear combination is unique up to the order of its eigenvalues.
+\end{definition}
+
+\begin{corollary}
+    If \(F = \C  \), then \( T  \) is normal if and only if \( T^{*} = g(T) \) for some polynomial \( g  \).
+\end{corollary}
+\begin{proof}
+
+\end{proof}
+
+\begin{corollary}
+    If \( F = \C  \), then \( T  \) is unitary if and only if \( T  \) is normal and \( | \lambda |  = 1  \) for every eigenvalue \( \lambda \) of \( T  \).
+\end{corollary}
+\begin{proof}
+
+\end{proof}
