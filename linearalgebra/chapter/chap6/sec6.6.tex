@@ -130,12 +130,59 @@ Suppose \( U  \) is any projection on \( W  \), then we can choose a basis \( \g
     If \(F = \C  \), then \( T  \) is normal if and only if \( T^{*} = g(T) \) for some polynomial \( g  \).
 \end{corollary}
 \begin{proof}
-
+Suppose that \( T  \) is normal.
+\[  T = {\lambda}_{1} {T}_{1} + {\lambda}_{2} {T}_{2} + \cdots + {\lambda}_{k} {T}_{k} \] be the spectral decomposition of \( T  \). Taking the adjoint of both sides of this spectral decomposition, we must have
+\begin{align*}
+    T^{*} &= ({\lambda}_{1} {T}_{1} + {\lambda}_{2} {T}_{2} + \cdots + {\lambda}_{k} {T}_{k})^{*} \\
+          &= \overline{{\lambda}_{1}} {T}_{1}^{*} + \overline{{\lambda}_{2}} {T}_{2}^{*} + \cdots + \overline{{\lambda}_{k}} {T}_{k}^{*} \\
+          &= \overline{{\lambda}_{1}} {T}_{1}  + \overline{{\lambda}_{2}} {T}_{2} + \cdots + \overline{{\lambda}_{k}} {T}_{k} \tag{each \( {T}_{i} \) is self-adjoint}.
+\end{align*}
+We can use the Lagrange Interpolation Formula to choose a polynomial \( g  \) such that \( g({\lambda}_{i}) = \overline{{\lambda}_{i}}  \) for \( 1 \leq i \leq k  \). Then \( T^{*} \) can be written further as  
+\begin{align*}
+    T^{*} &= \overline{{\lambda}_{1}} {T}_{1}  + \overline{{\lambda}_{2}} {T}_{2} + \cdots + \overline{{\lambda}_{k}} {T}_{k}  \\
+          &= g({\lambda}_{1}) {T}_{1} + g({\lambda}_{2}){T}_{2} + \cdots + g({\lambda}_{k}) {T}_{k} \\
+          &= g(T).
+  \end{align*}
+  Conversely, suppose \( T^{*} = g(T) \). Then observe that \( T = (T^{*})^{*} = g(T)^{*} \). Since each \( {T}_{i} \) is self-adjoint, we know that each \( {T}_{i}  \) must also be normal. Thus, 
+  \[  T^{*}T = g(T)g(T)^{*} = g(T)^{*} g(T) = T T^{*}  \]
+  and we are done.
 \end{proof}
 
 \begin{corollary}
     If \( F = \C  \), then \( T  \) is unitary if and only if \( T  \) is normal and \( | \lambda |  = 1  \) for every eigenvalue \( \lambda \) of \( T  \).
 \end{corollary}
 \begin{proof}
+For the forwards direction, suppose \( T  \) is unitary. Thus, \( T  \) is normal and, by Corollary 2 to Theorem 6.18, \( T  \) contains eigenvalues of absolute value \( 1 \). Conversely, suppose \( T  \) is normal and \( | \lambda |  = 1  \) for every eigenvalue \( \lambda  \) of \( T  \). By part (c) of the Spectral Theorem, we see that 
+\begin{align*}
+    T^{*}T &= (\overline{{\lambda}_{1}} {T}_{1}^{*} + \overline{{\lambda}_{2}} {T}_{2}^{*} + \cdots + \overline{{\lambda}_{k}} {T}_{k}^{*}) ({\lambda}_{1} {T}_{1} + {\lambda}_{2} {T}_{2} + \cdots + {\lambda}_{k} {T}_{k})  \\
+           &= \overline{{\lambda}_{1}} {\lambda}_{1} {T}_{1} + \overline{{\lambda}_{2}} {\lambda}_{2} {T}_{2} + \cdots + \overline{{\lambda}_{k}} {\lambda}_{k} {T}_{k} \\   
+           &= | {\lambda}_{1} |^{2} {T}_{1} + | {\lambda}_{2} |^{2} {T}_{2} + \cdots + | {\lambda}_{k} |^{2} {T}_{k} \\
+           &= {T}_{1} + {T}_{2} + \cdots + {T}_{k} \\
+           &= I.
+\end{align*}
+We can employ the same process to show \( TT^{*} = I  \) and we are done.
+\end{proof} 
 
+\begin{corollary}
+    If \( F = \C  \), then \( T  \) is self-adjoint if and only if \( T  \) is normal and every eigenvalue of \( T  \) is real.
+\end{corollary}
+\begin{proof}
+    Suppose \( T  \) is self-adjoint. Clearly, we see that \( T  \) is normal. By {\hyperref[Lemma Prior to Theorem 6.17]{lemma}},  we can see that each eigenvalue of \( T  \) is real. Conversely, suppose \( T  \) is normal and every eigenvalue of \( T  \) is real. Let \( T  = {\lambda}_{1} {T}_{1} + {\lambda}_{2} {T}_{2} + \cdots + {\lambda}_{k} {T}_{k} \) be the spectral decomposition of \( T  \). Since every eigenvalue of \( T  \) is real, we have \( {\lambda}_{i} = \overline{{\lambda}_{i}} \). Thus, we have
+\begin{align*}
+T^{*} &= \overline{{\lambda}_{1}} {T}_{1} + \overline{{\lambda}_{2}} {T}_{2} + \cdots + \overline{{\lambda}_{k}} {T}_{k} \\   
+      &= {\lambda}_{1} {T}_{1} + {\lambda}_{2} {T}_{2} + \cdots + {\lambda}_{k} {T}_{k} \\
+      &= T
+\end{align*} 
+which shows that \( T  \) is self-adjoint.
+\end{proof}
+
+\begin{corollary}
+    Let \( T  \) be as in the spectral theorem with spectral theorem with spectral decomposition \( T = {\lambda}_{1} {T}_{1} + {\lambda}_{2} {T}_{2} + \cdots + {\lambda}_{k} {T}_{k} \). Then each \( {T}_{j} \) is a polynomial in \( T  \).
+\end{corollary}
+\begin{proof}
+Choose a polynomial \( {g}_{j} (1 \leq j \leq k)  \) such that \( {g}_{j}({\lambda}_{i}) = {\delta}_{ij} \). Then 
+\begin{align*}
+    {g}_{j}(T) &= {g}_{j}({\lambda}_{1}){T}_{1} + {g}_{j}({\lambda}_{2}) {T}_{2} + \cdots + {g}_{j}({\lambda}_{k}) {T}_{k}  \\
+               &= {\delta}_{1j} {T}_{1} + {\delta}_{2j} {T}_{2} + \cdots + {\delta}_{kj} {T}_{k} = {T}_{j}.
+\end{align*}
 \end{proof}
