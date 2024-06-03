@@ -33,6 +33,22 @@ Thus, \( I - T  \) is an orthogonal projection on \( W^{\perp} \).
 
 \subsection*{Exercise 6.6.6} Let \( T \) be a normal operator on a finite-dimensional inner product space. Prove that if \( T  \) is a projection, then \( T  \) is also an orthogonal projection.
 \begin{proof}
+Suppose \( T  \) is a projection. Then \( T^{2} = T  \). In order to show that \( T  \) is an orthogonal projection, we have 
+\[  R(T) = N(T)^{\perp} \ \ \text{and} \ \ N(T) = R(T)^{\perp}.  \]
+Let \( x \in R(T) \). Since \( T  \) is a projection, \( T(x) = x  \). We must show that \( x \in N(T)^{\perp} \). Let \( y \in N(T) \). Since \( T  \) is a projection, then   
+\begin{align*}
+    \langle x , y \rangle = \langle T(x) , y \rangle = \langle x  , T^{*}(y) \rangle.  
+\end{align*}
+By Exercise 6.4.9, we must have that \( T^{*}(y) = 0  \) since \( N(T) = N(T^{*}) \). So, \( \langle x  ,  T^{*}(y) \rangle = \langle x  , 0  \rangle = 0  \) implies that \( \langle x  , y \rangle = 0 \). So, \( x \in R(T)^{\perp} \). Now, let \( x \in N(T)^{\perp} \). Then we must show that \( x = T(x) \) so that \( x \in R(T) \). Consider the norm \( \|x  - T(x)\|^{2} \). Then observe that 
+\begin{align*}
+    \|x - T(x)\|^{2} &= \langle  x - T(x ) ,  x - T(x) \rangle \\
+                     &= \langle x  ,  x - T(x) \rangle - \langle  T(x) ,   x - T(x) \rangle.
+\end{align*}
+Since \( x - T(x) \in N(T) \), the first term cancels out. With the second term, we can write
+\[  \langle T(x)  ,  x - T(x) \rangle = \langle  x  ,  T^{*}(x - T(x)) \rangle. \]
+Since \( N(T) = N(T^{*}) \), the equation above is equal to zero. Thus, we have \( \|x - T(x)\|^{2} = 0  \) which implies that \( x = T(x) \in R(T) \). Since \( V  \) is a finite-dimensional inner product space, we must have  
+\[  N(T) = (N(T)^{\perp} )^{\perp} = R(T)^{\perp}  \]
+and we are done.
 
 \end{proof}
 
@@ -41,30 +57,124 @@ Thus, \( I - T  \) is an orthogonal projection on \( W^{\perp} \).
     \item[(a)] If \( g \) is a polynomial, then 
         \[  g(T) = \sum_{ i=1  }^{ k  } g({\lambda}_{i}) {T}_{i}. \]
         \begin{proof}
-        
+        Let \( T  \) be a normal operator and let 
+        \[  T= {\lambda}_{1} {T}_{1} + {\lambda}_{2} {T}_{2} + \cdots + {\lambda}_{k} {T}_{k} \]
+        be the spectral decomposition of \( T  \). Since \( T  \) is normal, we must have that
+        \[  g(T) = T^{*} = \sum_{ i=1  }^{ k } g({\lambda}_{i}) {T}_{i}  \]
+        by Corollary 1 to Theorem 6.18 where \( g({\lambda}_{i}) = \overline{{\lambda}_{i}} \).
         \end{proof}
     \item[(b)] If \( T^{n} = {T}_{0} \) for some \( n  \), then \( T = {T}_{0} \). 
         \begin{proof}
-        
-        \end{proof}
+        Suppose \( T^{n} = {T}_{0} \) for some \( n \). Since \( V  \) is the direct sum of eigenspaces \( {W}_{i} \) for \( 1 \leq i \leq k \) of \( T \), let \( x = {x}_{1} + {x}_{2} + \cdots + {x}_{k} \) with \( {x}_{i} \in {W}_{i} \) for each \( 1 \leq i \leq k \). Let each \( {x}_{i} \) have a corresponding eigenvalue \( {\lambda}_{i} \). By Exercise 5.1.15, we can see that \( T^{n}({x}_{i}) = {\lambda}_{i}^{n} {x}_{i}  \). Since \( T^{n} = {T}_{0} \), notice that \( {\lambda}_{i}^{n} {x}_{i} = {T}_{0}({x}_{i}) = 0  \). Since \( {x}_{i} \neq 0  \), we have \( {\lambda}_{i}^{n} = 0    \) if and only if \( {\lambda}_{i} = 0  \) for each \( i  \). Using the spectral decomposition of \( T  \), we can see that
+        \begin{align*}
+            T &= {\lambda}_{1} {T}_{1} + {\lambda}_{2} {T}_{2}  + \cdots + {\lambda}_{k} {T}_{k}  \\
+              &= 0 {T}_{1} + 0{T}_{1} + \cdots  + 0 {T}_{k} \\
+              &= 0.
+        \end{align*}
+        Thus, we conclude that \( T = {T}_{0} \).
+\end{proof}
     \item[(c)] Let \( U  \) be a linear operator on \( V  \). Then \( U  \) commutes with \( T  \) if and only if \( U  \) commutes with each \( {T}_{i} \). 
         \begin{proof}
-        
+        Suppose \( U  \) commutes with \( T  \). Then we have \( UT = TU  \). Since 
+        \[  T = {\lambda}_{1} {T}_{1} + {\lambda}_{2} {T}_{2} + \cdots + {\lambda}_{k} {T}_{k},  \]
+        we have 
+        \[  UT = U \Big( \sum_{ i = 1   }^{ k  } {\lambda}_{i} {T}_{i} \Big) = \sum_{ i=1  }^{ k  } {\lambda}_{i} U {T}_{i} \]
+        and 
+        \[  TU = \Big(  \sum_{ i=1  }^{ k  } {\lambda}_{i} {T}_{i} \Big) U = \sum_{ i=1  }^{ k  } {\lambda}_{i} {T}_{i} U.  \]
+        Since \( TU = UT  \), \( U  \) must commute with every \( {T}_{i} \).
+
+        On the other hand, suppose \( U  \) commutes with every \( {T}_{i} \).
+
         \end{proof}
     \item[(d)] There exists a normal operator \( U  \) on \( V  \) such that \( U^{2} = T  \).
         \begin{proof}
-        
+        Define the linear operator \( U: V \to V  \) by 
+        \[  U = \sum_{ i=1  }^{ k  } \sqrt{ {\lambda}_{i} } {T}_{i} \]
+        with each \( {T}_{i} \) being an orthogonal operator. Since each \( {T}_{i} \) is self-adjoint and therefore normal as well as \( {T}_{i} {T}_{j} = {\delta}_{ij} {T}_{i}  \), we must have \( U U^{*} = U^{*} U   \). So, \( U  \) is normal. Furthermore, we have  
+        \begin{align*}
+            U^{2} &= \Big(  \sum_{ i=1  }^{ k  } \sqrt{ {\lambda}_{i} }  {T}_{i} \Big) \Big(  \sum_{ i=1  }^{ k  } \sqrt{ {\lambda}_{i} }  {T}_{i} \Big) \\
+                  &= \sum_{ i=1  }^{ k  } (\sqrt{ {\lambda}_{i} } )^{2} {T}_{i} \\  
+                  &=\sum_{ i=1  }^{ k  } {\lambda}_{i} {T}_{i} \\
+                  &= T.
+        \end{align*}
+        So, we conclude that \( U^{2} = T  \).
         \end{proof}
     \item[(e)] \( T  \) is invertible if and only if \( {\lambda}_{i} \neq 0  \) for \( 1 \leq i \leq k  \).
         \begin{proof}
-        
+        Suppose \( T  \) is invertible. Since \( T  \) is normal, there exists an orthonormal basis consisting of eigenvectors corresponding to eigenvalues \( {\lambda}_{i}    \) for \( 1 \leq i \leq n  \) not all necessarily distinct. Let \( A = [T]_{\beta} \). Since \( T \) is invertible, \( [T]_{\beta}  \) is invertible. By Corollary to Theorem 4.7, we must have \( \text{det}(A) \neq  0  \). Thus, the eigenvalues lying on the diagonal of \( A  \) must be nonzero. So, \( {\lambda}_{i} \neq 0  \) for all \( 1 \leq i \leq k  \). We can prove the backwards result by reversing this argument.
         \end{proof}
     \item[(f)] \( T  \) is a projection if and only if every eigenvalue of \( T  \) is \( 1  \) or \( 0  \).
         \begin{proof}
+            (\( \Leftarrow \)) Suppose that every eigenvalue of \( T  \) is 1 or 0. If \( {\lambda}_{i} = 0  \), then \( T  \) is just the zero transformation which is a projection. 
+        On the other hand, suppose that \( {\lambda}_{i} = 1  \) for all \( i \). Using the spectral decomposition of \( T  \), we must have 
+        \[  T = \sum_{ i=1  }^{ k  } {\lambda}_{i} {T}_{i} = \sum_{ i=1  }^{ k  } {T}_{i} = I. \]
+        Since \( I  \) is a projection, we see that \( T  \) must be a projection as well.
+        
+        (\( \Rightarrow \)) Suppose that \( T  \) is a projection. Then \( T(x) = x  \) and \( x = {x}_{1} + {x}_{2} + \cdots + {x}_{k} \) where each \( {x}_{i} \in {W}_{i}  \) with \( {W}_{i} \) being an eigenspace of \( T  \). Since each \( {T}_{i} \) is an orthogonal projection, we must have
+        \begin{align*}
+            x  = T(x) &=  \Big( \sum_{ i=1  }^{ k  } {\lambda}_{i} {T}_{i} \Big)(x)  \\
+                      &= \sum_{ i=1  }^{ k  } {\lambda}_{i} {T}_{i}(x) \\ 
+                      &= \sum_{ i=1  }^{  k  } {\lambda}_{i} {x}_{i}. 
+        \end{align*}
+        Since \( x = {x}_{1} + {x}_{2} + \cdots + {x}_{k} \), each \( {\lambda}_{i} = 1  \) for all \( i \) by matching up corresponding coefficients. If \( x = 0  \), then we can see that each \( {\lambda}_{i} = 0  \) for all \( i \) and we are done.
         
         \end{proof}
     \item[(g)] \( T = - T^{*} \) if and only if every \( {\lambda}_{i} \) is an imaginary number.
         \begin{proof}
+        Suppose \( T = - T^{*}  \) and let  
+        \[ T = \sum_{ i=1  }^{ k  } {\lambda}_{i} {T}_{i}   \]
+        be the spectral decomposition of \( T  \) with each \( {T}_{i} \) being an orthogonal projection. By Corollary 1 of the Spectral Theorem, we see that \( T^{*} = g(T)  \), for some polynomial \( g \), with \( g({\lambda}_{i}) = \overline{{\lambda}_{i}} \) for all \( i \). By part (a), we know that   
+        \[ T^{*} =  g(T) = \sum_{ i=1  }^{ k  } g({\lambda}_{i}) {T}_{i} = \sum_{ i=1  }^{ k  } \overline{{\lambda}_{i}} {T}_{i}. \]
+        Since \( T = - T^{*} \), we know that
+        \[  \sum_{ i=1  }^{ k  } {\lambda}_{i} {T}_{i} = \sum_{ i=1  }^{ k } - \overline{{\lambda}_{i}} {T}_{i}.  \]
+        So, we have \( - {\lambda}_{i} =  \overline{{\lambda}_{i}}  \) for all \( i \) by setting each corresponding coefficient equal to each other. But this means that each \( {\lambda}_{i} \) is an imaginary number.
+
+        Conversely, suppose each \( {\lambda}_{i}  \) is an imaginary number. This implies that 
+        \[  \overline{{\lambda}_{i}} = - {\lambda}_{i} \implies {\lambda}_{i} = - \overline{{\lambda}_{i}} \]
+        for all \( i  \). Using the first corollary to the Spectral Theorem, we have \( g(T) = T^{*} \) with \( g({\lambda}_{i}) = \overline{{\lambda}_{i}} \) for some polynomial \( g \). So, we have 
+        \begin{align*}
+           T = \sum_{ i=1  }^{ k  } {\lambda}_{i} &= \sum_{ i=1  }^{ k  } - \overline{{\lambda}_{i}} {T}_{i}   \\
+                                                  &= \sum_{ i=1  }^{ k  } - g({\lambda}_{i}) {T}_{i} \\
+                                                  &= - \sum_{ i=1  }^{ k   } g({\lambda}_{i}) {T}_{i} \\
+                                                  &= - T^{*}
+        \end{align*}
+        and we are done.
+    \end{proof}
+\end{enumerate}
+
+\subsection*{Exercise 6.6.8} Use Corollary 1 of the Spectral Theorem to show that if \( T  \) is a normal operator on a complex finite-dimensional inner product space and \( U  \) is a linear operator that commutes with \( T  \), then \( U  \) commutes with \( T^{*} \). 
+\begin{proof}
+Suppose \( T  \) is a normal operator on a complex finite-dimensional inner product space and \( U  \) is a linear operator that commutes with \( T  \). We will show that \( U T^{*} = T^{*}U  \). By part (c), \( U  \) must commute with each \( {T}_{i} \). Using the first corollary of the Spectral Theorem, we have \( T^{*} = g(T) \) for some polynomial \( g \). So, observe that
+\begin{align*}
+    U T^{*}  = U (g(T)) &= U \Big(  \sum_{ i=1  }^{ k  } g({\lambda}_{i}) {T}_{i} \Big) \\
+                        &= \sum_{ i=1  }^{ k  } g({\lambda}_{i}) (U {T}_{i}) \\ 
+                        &= \sum_{ i=1  }^{ k  } g({\lambda}_{i}) ({T}_{i} U) \\ 
+                        &= \Big(  \sum_{ i=1  }^{ k  } g({\lambda}_{i}) {T}_{i} \Big) U \\
+                        &= (g(T))U \\
+                        &= T^{*} U.
+\end{align*}
+Thus, \( U  \) commutes with \( T^{*} \).
+\end{proof}
+
+\subsection*{Exercise 6.6.9} Referring to Exercise 20 of Section 6.5, prove the following facts about a partial isometry \( U \). 
+\begin{enumerate}
+    \item[(a)] \( U^{*} U  \) is an orthogonal projection on \( W  \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(b)] \( U U^{*} U = U  \).
+        \begin{proof}
         
         \end{proof}
 \end{enumerate}
+
+\subsection*{Exercise 6.6.10} Let \( U \) and \( T  \) be normal operators on a finite-dimensional complex inner product space \( V  \) such that \( TU = UT  \). Prove that there exists an orthonormal basis for \( V  \) consisting of vectors that are eigenvectors of both \( T  \) and \( U  \).
+\begin{proof}
+
+\end{proof}
+
+\subsection*{Exercise 6.6.11} Prove (c) of the spectral theorem.
+\begin{proof}
+
+\end{proof}
+
