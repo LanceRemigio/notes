@@ -214,7 +214,9 @@ Thus, \( U  \) commutes with \( T^{*} \).
 
 \subsection*{Exercise 6.6.10} Let \( U \) and \( T  \) be normal operators on a finite-dimensional complex inner product space \( V  \) such that \( TU = UT  \). Prove that there exists an orthonormal basis for \( V  \) consisting of vectors that are eigenvectors of both \( T  \) and \( U  \).
 \begin{proof}
-
+Let \( U  \) and \( T  \) be normal operators on a finite-dimensional complex inner product space. Since \( U  \) is normal, there exists an orthonormal basis for \( V  \) containing eigenvectors of \( U  \). Let \( {E}_{{\lambda}_{i}} \) be an eigenspace of \( U  \) with respect to the eigenvalue \( {\lambda}_{i} \) for all \( 1 \leq i \leq k  \). Let \( {x}_{i} \in {E}_{{\lambda}_{i}} \); that is, \( {x}_{i} \) is an eigenvector of \( U \). Since \( UT = TU  \), we can see that  
+\[  UT({x}_{i}) = TU({x}_{i}) = T(U({x}_{i})) = T({\lambda}_{i} {x}_{i}) = {\lambda}_{i} T({x}_{i}). \]
+Hence, we see that each eigenspace \( {E}_{{\lambda}_{i}} \) of \( U \) is \( T- \)invariant. Since \( T \) is normal, we can create an orthonormal basis \( \beta_i = \{ {v}_{1}, {v}_{2}, \dots, {v}_{{k }_{i}} \}  \) consisting of eigenvectors of \( T  \) corresponding to eigenvalues \( {\mu}_{1}, {\mu}_{2}, \dots, {\mu}_{{k}_{i}} \) for each \( {E}_{{\lambda}_{i}} \) of \( U \) by Theorem 6.17. This means that each eigenvector of \( T  \) from each \( {\beta}_{{k}_{i}} \) is also an eigenvector of \( U  \); that is, \( U({v}_{{k}_{i}}) = \lambda_{{k}_{i}} {v}_{{k}_{i}} \) and \( T({v}_{i}) = {\mu}_{{k}_{i}} {v}_{i} \). Unioning the bases fro each eigenspace, we have \( \beta = {\beta}_{1} \cup {\beta}_{2} \cup \cdots \cup {\beta}_{k}  \). Thus, \( \beta \) is an orthonormal basis for \( V  \) that contains eigenvectors of both \( T \) and \( U  \).  
 \end{proof}
 
 \subsection*{Exercise 6.6.11} Prove (c) of the spectral theorem.
