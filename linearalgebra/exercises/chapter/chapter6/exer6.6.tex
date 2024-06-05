@@ -23,11 +23,19 @@ Thus, \( I - T  \) is an orthogonal projection on \( W^{\perp} \).
 \begin{enumerate}
     \item[(a)] If \( T  \) is an orthogonal projection, prove that \( \|T(x)\| \leq \|x\| \) for all \( x \in V  \). Give an example of a projection for which this inequality does not hold. What can be be concluded about a projection for which the inequality is actually an equality for \( x \in V  \).
         \begin{proof}
-        
+        Suppose \( T  \) is an orthogonal projection, we have
+        \begin{center}
+            \( R(T) = N(T)^{\perp} \) and \( N(T) = R(T)^{\perp} \)
+        \end{center}
+        with \( V = R(T) \oplus R(T)^{\perp} \). Let \( x \in V  \). Then \( x = u + z  \) where \( u \in R(T) \) and \( z \in R(T)^{\perp} \). Since \( u  \) and \( z  \) are orthogonal to each other, we can use Exercise 10 from Section 6.1 to write
+        \[  \|x\|^{2} = \| u   + z \|^{2} = \|u\|^{2} + \|z\|^{2} \geq \|u\|^{2} =  \|T(x)\|^{2}. \]
+        So, we conclude that \( \|T(x)\| \leq \|x\|  \). If \( \|T(x)\| = \|x\|  \), then \( T  \) must be unitary.
         \end{proof}
     \item[(b)] Suppose that \( T  \) is a projection such that \( \|T(x)\| \leq \|x\| \) for all \( x \in V  \). Prove that \( T  \) is an orthogonal projection.
         \begin{proof}
-        
+        Since \( T \) is a projection with the property that \( \|T(x)\| \leq \|x \| \) for all \( x \in V  \), we have that \( N(T) = R(T)^{\perp} \) by Exercise 10 of Section 6.2. We only have to show that \( R(T) = N(T)^{\perp} \). Since \( V  \) is finite-dimensional, we must have
+        \[  R(T) = (R(T)^{\perp})^{\perp} = N(T)^{\perp}.   \]
+        Thus, we see that \( T  \) is an orthogonal projection.
         \end{proof}
 \end{enumerate}
 
@@ -160,11 +168,47 @@ Thus, \( U  \) commutes with \( T^{*} \).
 \begin{enumerate}
     \item[(a)] \( U^{*} U  \) is an orthogonal projection on \( W  \).
         \begin{proof}
-        
+        Our goal is to show that 
+        \begin{center}
+           \( R(U^{*}U) = N(U^{*}U)^{\perp} \) and \( N(U^{*}U) = R(U^{*}U)^{\perp} \). 
+        \end{center}
+        Suppose \( y \in R(U^{*}U) \). Then \( y = U^{*}U(x) \) for \( x \in V  \). We need to show that \( \langle y , z  \rangle = 0  \) for all \( z \in N(U^{*}U) \). Since \( U  \) is a partial isometry, we must have
+        \begin{align*}
+            \langle y , z  \rangle = \langle U^{*}U(x) , z  \rangle  &= \langle U(x) , U(z) \rangle \\
+                                                                     &= \langle x  ,  U^{*}U(z) \rangle \\
+                                                                     &= \langle x  , 0  \rangle \\
+                                                                     &= 0.
+       \end{align*}
+       Thus, \( y \in N(U^{*}U)^{\perp} \). On the other hand, suppose \( y \in N(U^{*}U)^{\perp}  \). We need to show that \( y  - U^{*}U(y) = 0 \). Consider the norm \( \| y - U^{*}U(y)\|^{2} \). Then observe that 
+       \begin{align*}
+           \|y - U^{*}U(y)\|^{2} &= \langle y - U^{*}U(y) ,  y - U^{*}U(y) \rangle   \\
+                                 &= \langle y  ,  y - U^{*}U(y) \rangle - \langle U^{*}U(y) , y - U^{*}U(y) \rangle \\
+                                 &= \langle y , y  - U^{*}U(y) \rangle - \langle U(y)  ,  U(y - U^{*}U(y)) \rangle \\ 
+                                 &= \langle y , y - U^{*}U(y) \rangle - \langle y  , y - U^{*}U(y) \rangle \\
+                                 &= 0.
+       \end{align*}
+       So, we conclude that \( y - U^{*}U(y) = 0  \) and thus \(  U^{*}U(y) = y  \). Therefore, we conclude that \( y \in R(U^{*}U) \) which proves our first equation. Using this equation and the fact that \( V  \) is a finite-dimensional inner product space, we can write
+       \[   N(U^{*}U) = (N(U^{*}U)^{\perp})^{\perp}  = R(U^{*}U)^{\perp}  \]
+       which shows the second result.
         \end{proof}
     \item[(b)] \( U U^{*} U = U  \).
         \begin{proof}
-        
+        Consider the norm \( \| U(x) - U U^{*} U (x) \|^{2} \). Then we have
+        \begin{align*}
+            \|U(x) - U U^{*} U (x) \|^{2} &= \langle U(x) - U U^{*} U (x)  ,  U (x) - U U^{*} U(x)  \rangle \\
+                                          &=  \langle U(x) , U(x) - U U^{*} U(x)   \rangle - \langle U U^{*} U(x)  , U(x) - U U^{*} U(x)  \rangle.
+        \end{align*}
+        Since \( U  \) is an partial isometry, we can write the first term as
+        \begin{align*}
+            \langle U(x)  , U ( x - U^{*}U(x)) \rangle = \langle x  ,  x - U^{*}U(x)  \rangle.
+        \end{align*}
+        Likewise, the second term can be written as
+        \begin{align*}
+            \langle U(U^{*}U(x)) , U(x -  U^{*} U(x))  \rangle &= \langle U^{*}U(x)  , x -  U^{*} U(x)  \rangle \\
+                                                                &= \langle U(x)  , U(x -  U^{*} U(x)) \rangle \\
+                                                                &= \langle x  ,  x -  U^{*} U (x)  \rangle.
+        \end{align*}
+        Thus, \( \|U(x) - U U^{*} U(x) \|^{2} = 0  \). So, we get that \( U U^{*} U(x) = U(x)  \) for all \( x \in V  \). Therefore, we conclude that \( U U^{*} U = U  \).
         \end{proof}
 \end{enumerate}
 
@@ -175,6 +219,10 @@ Thus, \( U  \) commutes with \( T^{*} \).
 
 \subsection*{Exercise 6.6.11} Prove (c) of the spectral theorem.
 \begin{proof}
-
+    Let each \( {W}_{i}  \) be the eigenspace of \( T \). Suppose \( i = j  \). Since each \( {T}_{i}  \) is an orthogonal projection, we have \( T_{i}^{2} = {T}_{i}  \). Let \( x \in V  \). Since \( x = {x}_{1} + {x}_{2} + \cdots + {x}_{k } \) and \( {T}_{i}(x) = {x}_{i} \) for each \( i \) where \( {x}_{i} \in {W}_{i} \), we have
+    \[ {T}_{i}{T}_{j}(x) = {T}_{i}^{2}(x) = {T}_{i}({T}_{i}(x)) = {T}_{i}({x}_{i}) = 1 \cdot {x}_{i} = {\delta}_{ii}  \cdot {T}_{i}(x).  \]
+    On the other hand, suppose \( i \neq j  \). By part (b) of the spectral theorem, we know that \( {W}_{i}^{\perp} = {W}_{i}'  \). Thus, we have \( {T}_{i}(x) = 0   \) for \( i \neq j  \). So, observe that 
+    \[  {T}_{i}{T}_{j}(x) = {T}_{i}({T}_{j}(x)) = {T}_{i}({x}_{j}) = 0 = 0 \cdot {T}_{i}(x) = {\delta}_{ij} {T}_{i}(x). \]
+    Therefore, we conclude that \( {T}_{i}{T}_{j} = {\delta}_{i} {T}_{i}  \).
 \end{proof}
 
