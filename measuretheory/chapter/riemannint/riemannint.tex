@@ -1,0 +1,102 @@
+\section{Review: Riemann Integral}
+
+Let \( \R  \) denote the complete ordered field of real numbers.
+
+
+\begin{definition}[Partition]
+    Suppose \( a,b \in \R  \) with \( a <  b  \). A \textbf{partition} of \( [a,b] \) is a finite list of the form \( {x}_{0}, {x}_{1}, \dots, {x}_{n} \), where 
+    \[  a = {x}_{0} < {x}_{1} < \cdots < {x}_{n} = b. \]
+\end{definition}
+
+We can think of closed intervals as union of closed subintervals \( [{x}_{n-1}, {x}_{n}] \) for \( n \geq  1  \); that is,
+\[  [a,b] = [{x}_{0}, {x}_{1}] \cup [{x}_{1}, {x}_{2}] \cup \dots \cup [{x}_{n-1}, {x}_{n}]. \]
+
+\begin{definition}[Infimum and Supremum of Functions]
+    If \( f \) is a real-valued function and \( A  \) is a subset of the domain of \( f \), then  
+    \[ \inf_{A} f = \inf \{ f(x) : x \in A  \} \ \ \text{and} \ \ \sup_{A} f = \sup \{ f(x) : x \in A  \}  \]
+\end{definition}
+
+The definition above approximates the area under the graph of a nonnegative function or the signed area corresponding to a real-valued function.
+
+\begin{definition}[Lower and Upper Riemann Sums]
+    Suppose \( f: [a,b] \to \R  \) is a bounded function and \( P  \) is a partition \( {x}_{0}, \dots, {x}_{n} \) of \( [a,b] \). The \textbf{Lower Riemann Sum} \( L(f, P, [a,b]) \) and the \textbf{Upper Riemann Sum} \( U(f, P, [a,b]) \) are defined by 
+    \[  L(f, P , [a,b] ) = \sum_{ j=1  }^{ n } ({x}_{j} - {x}_{j-1}) \inf_{[{x}_{j-1}, {x}_{j}]} f  \]
+    and 
+    \[  U(f, P, [a,b]) = \sum_{ j=1  }^{ n  }({x}_{j} - {x}_{j-1}) \sup_{[{x}_{j-1}, {x}_{j}]} f. \]
+\end{definition}
+
+\begin{itemize}
+    \item The supremums represent an over approximation in terms of the height of each rectangle with \( [{x}_{j-1}, {x}_{j}] \) being the width. 
+    \item Infimums are an under approximation compared to the supremum with \( [{x}_{j-1}, {x}_{j}] \) being the width as before.
+    \item The next result describes how adjoining more points to a partition \textit{increases} the \textbf{lower Riemann sum} and \textit{decreases}  the \textbf{upper Riemann sum}.
+\end{itemize}
+
+\begin{prop}[Inequalities with Riemann Sums]\label{Inequalities with Riemann Sums}
+    Suppose \( f: [a,b] \to \R  \) is a bounded function and \( P, P' \) are partitions of \( [a,b] \) such that the list defining \( P  \) is a sublist of the list defining \( P' \) (that is, \( P \subseteq  P' \)). Then 
+    \[  L(f,P, [a,b]) \leq L(f, P', [a,b]) \leq U(f, P', [a,b]) \leq U(f,P,[a,b]). \]
+\end{prop}
+\begin{proof}
+    Suppose \( P  \) is the partition \( {x}_{0}, \dots, {x}_{n} \) and \( P' \) is the partition \( {x}_{0}', \dots, {x}_{N}' \) of \( [a,b] \). For each \( j = 1, \dots, n \) (that is, for each subinterval \( [{x}_{j-1}, {x}_{j}] \)), we can find \( k \in \{ 0, \dots, N-1 \} \) and a positive integer \( m  \) such that  
+    \[  {x}_{j-1} = {x}_{k}' < {x}_{k+1}' < \dots < {x}_{k+m}' = {x}_{j}. \]
+    Observe that
+    \begin{align*}
+        L(f, P, [a,b]) = ({x}_{j} - {x}_{j-1}) \inf_{[{x}_{j-1}, {x}_{j}]} f &= \sum_{ i=1  }^{  m } ({x}_{k+i}' - {x}_{(k+i)-1}') \inf_{[{x}_{j-1}, {x}_{j}]} f \\
+                                                            &\leq \sum_{ i=1  }^{ m  } ({x}_{k+i}' - {x}_{k+i - 1}') \inf_{[{x}_{k+i-1}', {x}_{k+i}']}f \\
+                                                            &= L(f, P', [a,b]).
+\end{align*}
+Thus, we have that \( L(f,P, [a,b]) \leq L(f,P', [a,b]) \). The middle inequality can be proven by observing that the infimum of any set is always less than or equal to the supremum of that set. In regards to the partition \( P'  \), we have \( L(f, P', [a,b]) \leq U(f, P', [a,b]) \). To get the last inequality, we can follow the same argument we used to prove the first inequality. Hence, we have  
+    \begin{align*}
+        U(f,P ,[a,b]) = ({x}_{j} - {x}_{j-1}) \sup_{[{x}_{j-1}, {x}_{j-1}]} f &= \sum_{ j=1  }^{ m  } ({x}_{k+i} - {x}_{(k+i)-1}) \sup_{[{x}_{j-1}, {x}_{j}]} f \\
+                                                                              &\geq  \sum_{ j=1  }^{ m  } ({x}_{k+i} - {x}_{(k+i)-1}) \sup_{[{x}_{k+i}, {x}_{(k+i)-1}]} f \\
+                                                                              &= U(f,P', [a,b]).
+    \end{align*}
+    Thus, we have that \( U(f,P', [a,b]) \leq U(f, P, [a,b]) \) in which we now conclude that
+    \[  L(f,P, [a,b]) \leq L(f, P', [a,b]) \leq U(f, P', [a,b]) \leq U(f,P,[a,b]). \]
+\end{proof}
+
+\begin{prop}[Lower Riemann Sums \( \leq \) Upper Riemman Sums]
+    Suppose \( f: [a,b] \to \R  \) is a bounded function and \( P, P' \) are partitions of \( [a,b] \). Then 
+    \[  L(f,P,[a,b]) \leq U(f,P', [a,b]). \]
+\end{prop}
+
+\begin{proof}
+    Let \( P''  \) be the partition of \( [a,b] \) obtained by unioning partitions \(  P   \) and \( P' \); that is, \( P'' = P \cup P' \). Since \( P'' \subseteq P  \) and \( P'' \subseteq  P' \), we have that 
+    \begin{align*}
+        L(f, P, [a,b]) &\leq L(f, P'', [a,b]) \\
+                       &\leq U(f, P'', [a,b]) \\
+                       &\leq U(f, P', [a,b])
+    \end{align*}
+    by the {\hyperref[Inequalities with Riemann Sums]{result before}}.  
+    \end{proof}
+
+Next, we define the upper and lower Riemann integrals.
+
+\begin{definition}[lower and upper Riemann integrals]
+    Suppose \( f: [a,b] \to \R  \) is a bounded function. The \textbf{lower Riemann integral} \( L(f,[a,b]) \) and the \textbf{upper Riemann integral} \( U(f,[a,b]) \) of \( f \) are defined by 
+    \[ L(f,[a,b]) = \sup_{P} L(f,P,[a,b])     \]
+    and
+    \[  U(f,[a,b]) = \inf_{P} U(f, P, [a,b]),  \]
+    where the supremum and infimum above are taken over all partitions \( P  \) of \( [a,b] \).
+\end{definition}
+
+\begin{itemize}
+    \item For the first equation above, we are taking the supremum of all the \textbf{Lower Riemann Sums}. This makes sense considering the lower Riemann sums become larger as we add more points to our partition. 
+    \item Likewise, adding more points to a partition causes the upper Riemann sum to become smaller, leading to the infimum over all the partitions. 
+    \item In both of these cases, we reach a more accurate estimate of the area under the graph of a function.
+\end{itemize}
+
+\begin{prop}[Lower Riemann Integral \( \leq  \) Upper Riemann Integral]
+    Suppose \( f: [a,b] \to \R  \) is a bounded function. Then 
+    \[  L(f,[a,b]) \leq U(f,[a,b]). \]
+\end{prop}
+\begin{proof}
+\textit{Left as an exercise} 
+\end{proof}
+
+\begin{definition}[Riemann integrable; Riemann Integral]
+    \begin{itemize}
+        \item A bounded function on a closed interval is called \textbf{Riemann Integrable} if its lower Riemann integral equals its upper Riemann integral.
+        \item If \( f: [a,b] \to \R  \) is Riemann integrable, then the \textbf{Riemann integral} \( \int_{ a }^{ b }  f  \) is defined by
+            \[ \int_{ a }^{ b }  f = L(f,[a,b]) = U(f,[a,b]). \]
+    \end{itemize}
+\end{definition}

@@ -1,0 +1,91 @@
+\section{Basic Axioms and Examples}
+
+\begin{definition}[Binary Operation]
+    \begin{enumerate}
+        \item[(1)] A \textbf{binary operation} \( \boldsymbol{\cdot}  \) on a set \( G  \) is a function \( \boldsymbol{\cdot} : G \times G \to G  \). For any \( a,b \in G  \), we shall write \( a \boldsymbol{\cdot} b  \) for \( \boldsymbol{\cdot} (a,b) \).
+        \item[(2)] A binary operation \( \boldsymbol{\cdot}  \) on a set \( G  \) is \textbf{associative} if for all \( a,b,c \in G  \), we have
+            \[  a \boldsymbol{\cdot} (b \boldsymbol{\cdot} c ) = (a \boldsymbol{\cdot}  b ) \boldsymbol{\cdot} c. \]
+        \item[(3)] If \( \boldsymbol{\cdot}  \) is a binary operation on a set \( G  \) we say elements \( a  \) and \( b  \) of \( G  \) \textbf{commute} if \( a \boldsymbol{\cdot} b = b \boldsymbol{\cdot} a  \). We say \( \boldsymbol{\cdot}  \) (or \( G \)) is \textbf{commutative} if for all \( a,b \in G  \), \( a \boldsymbol{\cdot} b = b \boldsymbol{\cdot} a   \).
+    \end{enumerate}
+\end{definition}
+
+Suppose we have a binary operation \( \boldsymbol{\cdot}  \) defined on a set \( G  \) and \( H  \) is a subset of \( G  \). Then the operations described in the definition above are preserved in \( H  \).
+
+\begin{eg}
+  \begin{enumerate}
+      \item[(1)] \( +  \) (usual addition) is a commutative binary operation on \( \Z, \R,  \) or \( \C  \).
+        \item[(2)] \( \times  \) (usual multiplication) is a commutative binary operation on \( \Z  \) (or on \( \Q, \R, \) or \( \C  \)).
+        \item[(3)] \( -  \) (usual subtraction) is a noncommutative binary operation on \( \Z  \), where \( - (a,b) = a - b  \). The map \( a \to -a  \) is not a binary operation. 
+        \item[(4)] \( -  \) is not a binary operation on \( \Z^{+} \) (nor \( \Q^{+}, \R^{+} \)) because \( a,b \in \Z^{+} \) with \( a < b  \), \( a - b \notin \Z^{+} \) that is, \( -  \) does not map \( \Z^{+} \times \Z^{+} \) into \( \Z^{+} \).
+        \item[(5)] The vector cross product in \( \R^{3} \) is a binary operation that is neither commutative nor associative.
+  \end{enumerate}  
+\end{eg}
+
+\begin{definition}[Groups]
+    A \textbf{group} is an ordered pair \( (G, \boldsymbol{\cdot} ) \) where \( G  \) is a set and \( \boldsymbol{\cdot}  \) is a binary operation on \( G  \) satisfying the following axioms:
+    \begin{enumerate}
+        \item[(i)] \( (a \boldsymbol{\cdot} b ) \boldsymbol{\cdot} c  = a \boldsymbol{\cdot} (b \boldsymbol{\cdot} c ) \) for all \( a,b,c \in G  \). 
+        \item[(ii)] There exists an element \( e  \) in \( G  \), called an \textbf{identity} of \( G  \), such that for all \( a \in G  \), we have \( a \boldsymbol{\cdot}  e = e \boldsymbol{\cdot} a = a    \).
+        \item[(iii)] For each \( a \in G  \), there is an element \( a^{-1} \) of \( G  \), called an \textbf{inverse} of a, such that \( a \boldsymbol{\cdot} a^{-1} = a^{-1} \boldsymbol{\cdot} a = e  \).
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Abelian]
+    A group \( (G, \boldsymbol{\cdot}) \) is called \textbf{abelian} (or \textbf{commutative}) if \( a \boldsymbol{\cdot} b = b \boldsymbol{\cdot} a  \) for all \( a, b \in G  \).
+\end{definition}
+
+\begin{definition}[Finite Group]
+    If \( G  \) is a group, then we call \( G  \) \textbf{finite} if \( G  \) is a finite set.
+\end{definition}
+
+\begin{eg}
+    \begin{enumerate}
+        \item[(1)] Under the binary operation \( +  \), the sets \( \Z, \Q, \R  \) and \( \C  \) are groups with \( e = 0  \) and \( a^{-1} = -a  \) for all \( a  \).
+    \end{enumerate}
+\end{eg}
+
+\begin{prop}
+   If \( G  \) is a group under the operation \( \boldsymbol{\cdot}  \), then 
+   \begin{enumerate}
+       \item[(1)] The identity of \( G  \) is unique.
+       \item[(2)] For each \( a \in G  \), \( a^{-1} \) is uniquely determined.
+       \item[(3)] \( (a^{-1})^{-1} = a  \) for all \(  a  \in G  \).
+        \item[(4)] \( (a \boldsymbol{\cdot} b)^{-1} = (b^{-1}) \boldsymbol{\cdot} (a^{-1}) \)
+        \item[(5)] For any \( {a}_{1}, {a}_{2}, \dots, {a}_{n} \in G   \) the value of \( {a}_{1} \boldsymbol{\cdot} {a}_{2} \boldsymbol{\cdot} \cdots  {a}_{n} \) is independent of how the expression is bracketed (this is called the \textbf{generalized associative law}).
+   \end{enumerate}
+\end{prop}
+
+\begin{proof}
+\begin{enumerate}
+    \item[(1)] Suppose \( f  \) and \( g  \) are both identities. Since \( G  \) is a group under the operation \( \boldsymbol{\cdot}  \) and \( g  \) is an identity of \( G  \), we have \( f \boldsymbol{\cdot} g = f  \). Using the same axiom, \(  f  \) is an identity of \( G  \). Thus, \( g \boldsymbol{\cdot} f = g   \). So, \( f =  f \boldsymbol{\cdot} g = g \boldsymbol{\cdot} f = g   \), and the 
+    \item[(2)] Suppose \( b  \) and \( c  \) are both inverses of \( a  \) and let \( e  \) be the identity of \( G  \). Since \( b  \) is an inverse of \( a \), we must have \( b \boldsymbol{\cdot} a =  a \boldsymbol{\cdot} b = e  \). Likewise, \( c \boldsymbol{\cdot} a = a \boldsymbol{\cdot} c = e   \) since c also an inverse of \( a  \). We need to show that \( b = c  \). Since associativity holds in \( G  \), we must have
+        \begin{align*}
+            a \boldsymbol{\cdot} b = e &\implies c \boldsymbol{\cdot} (a \boldsymbol{\cdot} b ) = c \boldsymbol{\cdot} e  \\
+                                       &\implies ( c \boldsymbol{\cdot} a ) \boldsymbol{\cdot} b = c \boldsymbol{\cdot} e \\ 
+                                       &\implies e \boldsymbol{\cdot} b = c \boldsymbol{\cdot} e \\
+                                       &\implies b = c.
+        \end{align*}
+        Thus, \( b = c   \) and we conclude that the multiplicative identity of \( a  \) is uniquely determined.
+    \item[(3)] Since \( a a^{-1} = a^{-1} a = e  \). We can view \( a^{-1} \) as the element in question, and state that \( a  \) is the inverse of \( a^{-1} \). Thus, we can write that \( a = (a^{-1})^{-1}  \).
+    \item[(4)] Let \( c = (a \boldsymbol{\cdot} b)^{-1} \). Since every element in \( G  \) contains an inverse, we have \[ (a \boldsymbol{\cdot} b) \boldsymbol{\cdot} c = e.  \tag{1}   \]. 
+        Since \( a  \) and \( b  \) also contain inverses, we must have \( a^{-1} a = e  \) and \( b^{-1} b = e  \). Using associativity, we get that 
+        \[ a \boldsymbol{\cdot} ( b \boldsymbol{\cdot} c ) = e   \] and
+        applying the binary operation \( \boldsymbol{\cdot}  \) to the left-side, we must have 
+        \[  b \boldsymbol{\cdot} c = a^{-1} e. \]
+        Then applying \( b^{-1} \) on both sides, we have
+        \[   c = b^{-1} a^{-1}. \]
+        So, we conclude that \( (a \boldsymbol{\cdot} b)^{-1} = b^{-1} a^{-1} \).
+    \item[(5)] \textit{Left as an exercise}. 
+\end{enumerate}
+\end{proof}
+
+\begin{prop}
+    Let \( G  \) be a group and let \( a,b \in G  \). The equation \( ax = b  \) and \( ya = b  \) have unique solutions for \( x,y \in G  \). In particular, the left and right cancellation laws hold in \( G  \), i.e,
+    \begin{enumerate}
+        \item[(1)] If \( au = av  \), then \( u = v  \), and
+        \item[(2)] If \( ub = vb  \), then \( u = v  \).
+    \end{enumerate}
+\end{prop}
+\begin{proof}
+
+\end{proof}
