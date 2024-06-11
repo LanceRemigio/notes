@@ -100,3 +100,32 @@ Next, we define the upper and lower Riemann integrals.
             \[ \int_{ a }^{ b }  f = L(f,[a,b]) = U(f,[a,b]). \]
     \end{itemize}
 \end{definition}
+
+\begin{prop}
+    Every continuous real-valued function on each closed bounded interval is Riemann integrable.
+\end{prop}
+
+\begin{proof}
+    Let \( a,b \in \R  \) with \( [a,b] \) being a compact interval. Let \( f: [a,b]  \to \R   \) and let \( P  \) be a partition of \( [a,b] \). Let \( \epsilon > 0  \). Since \( f \) is continuous on the compact interval \( [a,b] \), \( f \) is uniformly continuous and must, therefore, attain its maximum and minimum on \( [a,b] \). Thus, assign \( {M}_{j} = f({y}_{j})     \) and \( {m}_{j} = f({z}_{j}) \) where 
+    \[  {M}_{j} = \sup_{x \in [{x}_{j-1}, {x}_{j} ]} f \ \ \text{and} \ \ {m}_{j} = \inf_{x \in [{x}_{j-1}, {x}_{j}]} f.  \]
+    Furthermore, there exists a \( \delta > 0   \) such that whenever \( | {y}_{j}   - {z}_{j} | < \delta  \), we have
+    \[  | {M}_{j} - {m}_{j} | = | f({y}_{j}) - f({z}_{j}) | < \frac{ \epsilon }{ b - a  }. \]
+    Then we have
+    \begin{align*}
+        U(f,P,[a,b]) - L(f, P, [a,b]) &= \sum_{ j=1  }^{ n } ({M}_{j} - {m}_{j}) ({x}_{j} - {x}_{j-1})  \\
+                                      &< \frac{ \epsilon }{ b-a  }  \sum_{ j=1  }^{ n } ({x}_{j} - {x}_{j-1}) \\
+                                      &= \frac{ \epsilon }{ (b - a)  }  \cdot (b-a) = \epsilon.
+    \end{align*}
+    Since \( U(f,[a,b]) \leq U(f,P,[a,b]) \) and \( L(f,[a,b])  \geq L(f,P,[a,b])\), we have
+    \[  U(f,[a,b]) - L(f,[a,b]) \leq U(f, P, [a,b]) - L(f, P, [a,b]) < \epsilon. \]
+    Since \( \epsilon \) is arbitrary, we must have \( U(f,[a,b]) = L(f,[a,b]) \). Thus, \( f  \) is integrable.
+\end{proof}
+
+\begin{prop}[Bounds on Rieman Integral]
+    Suppose \( f: [a,b] \to \R  \) is Riemann integrable. Then 
+    \[  (b-a) \inf_{[a,b]} f \leq \int_{ a }^{ b }  f \leq (b-a) \sup_{[a,b]} f. \]
+
+\end{prop}
+\begin{proof}
+
+\end{proof}
