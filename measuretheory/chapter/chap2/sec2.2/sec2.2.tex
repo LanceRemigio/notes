@@ -1,0 +1,218 @@
+\documentclass[11pt,a4paper]{book}
+\input{../../../../newpreamble.tex}
+\usepackage{standalone}
+\usepackage{import}
+
+\begin{document}
+
+\subsection{The Nonexistence of a Function that generalizes length to all subsets of \( \R  \)}
+
+\begin{prop}[Nonexistence of Extension of Length to all subsets of \( \R  \)]
+   There does not exists a function \( \mu  \) with all the following properties: 
+   \begin{enumerate}
+       \item[(a)] \( \mu  \) is a function from the set of subsets of \( \R  \) to \( [0,\infty ] \).
+        \item[(b)] \( \mu(I) = \ell(I) \) for every open interval of \( \R  \).
+        \item[(c)] \( \mu \Big(  \bigcup_{ k = 1  }^{ \infty  }  {A}_{k } \Big) = \sum_{ k=1  }^{ \infty  } \mu( {A}_{k })  \) for every disjoint sequence \( {A}_{1}, {A}_{2}, \dots  \) of subsets of \( \R  \).
+        \item[(d)] \( \mu(t + A ) = \mu(A) \) for every \( A \subset \R  \) and every \( t \in \R  \).
+   \end{enumerate}
+\end{prop}
+\begin{proof}
+We proceed via contradiction. Our goal is to show that if the function \( \mu  \) has all the properties that were used to prove {\hyperref[Nonadditivity of Outer Measure]{proposition 2.18}}, then we should reach the conclusion that for any disjoint sets \( A, B  \), we have 
+\[  \mu(A \cup B) \neq \mu(A) + \mu(B). \] 
+Those properties in particular are {\hyperref[Outer Measure Preserves Order]{}}  
+Starting with the empty set, we see that \( \mu(\emptyset) = 0  \) by property (b) since the empty set is an open interval with a length of \( 0  \).  
+
+Suppose \( A \subset B \subset \R  \). Assume that we can write \( B  \) as the union of the disjoint of the sequence \( A, B \setminus A, \emptyset, \emptyset, \dots  \). Then we can see that
+\[  \mu(B) = \mu(A) + \mu ( B \setminus A ) + 0 + 0 + \cdots = \mu(A) + \mu(B \setminus A ) \geq \mu(A).   \]
+So, we conclude that \( \mu  \) preserves order.  
+
+Let \( a,b \in \R  \) with \( a < b  \). Now, we want to show that \( \mu([a,b]) = b - a  \). Observe that \( (a,b) \subset [a,b] \subset (a - \epsilon, b + \epsilon ) \) for every \( \epsilon > 0  \). Since \( \mu  \) preserves order, we have   
+\[  b - a \leq \mu([a,b]) \leq b - a + 2 \epsilon. \]
+Since \( \epsilon > 0  \) is arbitrary, we have \( \mu([a,b]) = b - a  \). 
+
+If \( {A}_{1}, {A}_{2}, \dots  \) is a sequence of subsets of \( \R  \), then \( {A}_{1}, {A}_{2} \setminus {A}_{1}, {A}_{3} \setminus ({A}_{1} \cup {A}_{2}), \dots  \) is a disjoint sequence of subsets of \( \R  \) whose union is \( \bigcup_{ k=1  }^{ \infty  }  {A}_{k } \). Thus, we have
+\begin{align*}
+    \mu \Big(  \bigcup_{ k=1  }^{ \infty  }  {A}_{k } \Big) &= \mu \Big(  {A}_{1} \cup ( {A}_{2} \setminus {A}_{1}) \cup ({A}_{3} \setminus ({A}_{1} \cup {A}_{2})) \cup \dots   \Big) \\
+                                                            &= \mu({A}_{1}) + \mu({A}_{2} \setminus {A}_{1}) + \mu({A}_{3} \setminus ({A}_{1} \cup {A}_{2})) + \cdots \\  
+                                                            &\leq \sum_{ k=1  }^{ \infty  } \mu({A}_{k }),
+\end{align*}
+where the second equality follows from the countable additivity of \( \mu \). 
+Since \( \mu  \) implies that the length of empty sets are zero, preserves order, and contains a countable subadditivity. Performing the same process used to prove result 2.18, we see that  
+\[  \mu(A \cup B) \neq \mu(A) + \mu(B) \]
+where \( A,B \subset \R  \) are disjoint. But note that this contradicts property (c) of \( \mu  \). Thus, \( A,B, \emptyset, \emptyset   \) is a disjoint sequence of open intervals of \( \R  \) does not satisfy the countable additivity property of property (c) which completes our proof.     
+\end{proof}
+
+\subsection{\( \sigma- \)Algebras}
+
+In order to generalize the notion of size to all subsets of \( \R  \), we need to give up or make one of the conditions from the proposition above more relaxed. We see that parts (b), (c), and (d) cannot be taken out since: 
+\begin{itemize}
+    \item The size of an interval needs to be its length;
+    \item Countable additivity is needed to prove results about limits;
+    \item We cannot have sizes of intervals change if we translate them.
+\end{itemize}
+So, the only reasonable condition to relax is part (a). In order to have the notion of size generalized to more general subsets of \( \R  \), we need to develop a notion of size allows sets to be closed under complementation and closed under countable unions.   
+
+\begin{definition}[\( \sigma- \)algebra]
+    Suppose \( X  \) is a set and \( \mathcal{S}  \) is a set of subsets of \( X  \). Then \( S  \) is called a \( \sigma- \)algebra on \( X  \) if the following three conditions are satisfied:
+    \begin{itemize}
+        \item \( \emptyset \in S  \);
+        \item if \( E \in \mathcal{S}  \), then \( X \setminus E \in \mathcal{S} \);
+        \item if \( {E}_{1}, {E}_{2}, \dots  \) is a sequence of elements of \(  \mathcal{S }  \), then \( \bigcup_{ k=1  }^{ \infty  } {E}_{k } \in \mathcal{S}  \).
+    \end{itemize}
+
+\end{definition}
+
+\begin{eg}
+   \begin{itemize}
+       \item Suppose \(  X  \) is a set. Then clearly \( \{ \emptyset, X  \}   \) is a \( \sigma-  \)algebra on \( X  \). 
+        \item Suppose \( X  \) is a set. The set of all subsets of \( X  \) is a \( \sigma- \)algebra on \( X  \).
+        \item Suppose \( X  \) is a set. All the subsets of \( E  \) of \( X  \) such that  \( E  \) is countable or \( X \setminus E  \) is countable is a \( \sigma- \)algebra on \( X  \). 
+   \end{itemize} 
+\end{eg}
+
+\begin{prop}[\( \sigma- \)algebras are closed under countable intersection]
+   Suppose \( S  \) is a \( \sigma- \)algebra on a set \( X  \). Then 
+   \begin{enumerate}
+       \item[(a)] \( X \in \mathcal{S} \);
+        \item[(b)] If \( D,E \in \mathcal{S} \), then \( D \cup E \in \mathcal{S }  \), \( D \cap E \in \mathcal{S} \), and \( D \setminus  E \in \mathcal{S} \);
+        \item[(c)] If \( {E}_{1}, {E}_{2}, \dots   \) is a sequence of elements of \( \mathcal{S} \), then \( \bigcap_{ k=1  }^{ \infty  } {E}_{k } \in \mathcal{S}  \).
+   \end{enumerate}
+\end{prop}
+\begin{proof}
+Suppose \( \mathcal{S} \) is a \( \sigma- \)algebra, we know that \( \emptyset \in \mathcal{S } \). Note that \( X = X \setminus \emptyset  \) and thus, \( X \setminus \emptyset \in \mathcal{ S} \). Hence, \( X \in S  \) completing the proof for part (a).
+
+For part (b), suppose \( D,E \in \mathcal{S} \). Note that \( D \cup E  \) is the union of the sequence of \( D,E , \emptyset , \emptyset, \dots  \) of elements of \( \mathcal{S} \). By definition of \( \sigma- \)algebra, we see that \( D \cup E \in \mathcal{S} \).
+
+Using De Morgan's Laws, we can see that
+\[  X \setminus (D \cap E) = (X \setminus  D ) \cup (X \setminus  E ).  \]
+If \( D,E \in \mathcal{S} \), then the right side of the equation above tells us that \( X \setminus  (D \cap E ) \in \mathcal{S} \), and so \( D \cap E \in \mathcal{S} \). Since \( D \setminus  E = D \cap (X \setminus  E )  \), we have \( D \setminus  E \in \mathcal{S} \). Furthermore, \( D \setminus  E = D \cap (X \setminus  E ) \) implies \( D \setminus  E \in \mathcal{S} \), completing the proof of part (b).
+
+Finally, suppose \( {E}_{1}, {E}_{2}, \dots  \) is a sequence of elements in \( \mathcal{S}. \) Using De Morgan's Laws again, we see that  
+\[  X \setminus  \bigcap_{ k=1  }^{ \infty  } {E}_{k } = \bigcup_{ k=1  }^{ \infty  } (X \setminus  {E}_{k }).  \]
+Since the right side of the equation above is in \( \mathcal{S} \), this tells us that the left side of the equation is also in \( \mathcal{S} \). Therefore, \( X \setminus  (X \setminus  \bigcap_{ k=1  }^{ \infty  } {E}_{k }) \in \mathcal{S} \), proving (c).
+\end{proof}
+
+\begin{definition}[Measurable Space; Measurable Set]
+    \begin{itemize}
+        \item A \textit{measurable space} is an ordered pair \( (X, \mathcal{S}) \), where \( X  \) is a set and \( \mathcal{S} \) is a \( \sigma- \)algebra on \( X  \).
+        \item An element of \( \mathcal{S} \) is called an \textit{ \( \mathcal{S}- \)measurable set}, or just a \textit{measurable set} if \( \mathcal{S} \) is clear from the context; that is, \( \mathcal{S}  \) is measurable if \( \mathcal{S} \in X   \).
+    \end{itemize}
+\end{definition}
+
+\begin{eg}
+  If \( X = \R  \) and \( \mathcal{S} \) is the set of all subsets of \( \R  \) that are countable or have a countable complement, then the set of rational numbers is \( \mathcal{S}- \)measurable but the set of positive real numbers 
+\end{eg}
+
+\subsection{Borel Subsets of \( \R  \)}
+
+\begin{prop}[smallest \( \sigma- \)algebra containing a collection of subsets]
+   Suppose \( X  \) is a set and \( \mathcal{A} \) is a set of subsets of \( X  \). Then the intersection of all \( \sigma- \)algebras on \( X  \) that contain \( \mathcal{A} \) is a \( \sigma- \)algebra on \( X  \). 
+\end{prop}
+
+\begin{proof}
+    There is at least one \( \sigma- \)algebra on \( X  \) that contains \( \mathcal{A} \)because the \( \sigma- \)algebra consisting of all subsets of \( X  \) contains \( \mathcal{A} \). 
+
+    Let \( \mathcal{S} \) be the intersection of all \( \sigma- \)algebras on \( X  \) that contain \( \mathcal{A} \). Since \( \emptyset  \) is in every \( \sigma- \)algebra on \( X  \), we see that \( \emptyset \in \mathcal{S} \) as well.
+
+    Suppose \( E \in \mathcal{S} \). Thus, \( E  \) is in each \( \sigma- \)algebra on \( X  \). Therefore, \( X \setminus  E  \) is in each \( \sigma- \)algebra on \( X  \) and so \( X \setminus  E \in \mathcal{S} \)
+
+    Let \( {E}_{1}, {E}_{2}, \dots  \) be a sequence of elements of \( \mathcal{S} \). 
+\end{proof}
+
+
+
+
+\begin{definition}[Borel Set]
+    The smallest \( \sigma- \)algebra on \( \R  \) containing all open subsets of \( \R  \) is called the collection of \textit{Borel subsets} of \( \R  \). An element of this \( \sigma- \)algebra is called a \textit{Borel Set}. 
+\end{definition}
+
+\begin{itemize}
+    \item The open subsets in the set above refer to the Borel sets. 
+\end{itemize}
+
+\begin{eg}[Borel Sets]
+   \begin{itemize}
+       \item Every closed subset of \( \R  \) is a Borel set because every closed subset of \( \R  \) is the complement of an open subset of \(  \R  \). In other words, for every \( a < b  \) with \( a,b \in \R  \), we have \( (a,b) \subseteq [a,b] \).
+        \item Every countable subset of \( \R  \) is a Borel set because if \( B = \{ {x}_{1}, {x}_{2}, \dots  \}  \), then \( B = \bigcup_{ k = 1  }^{ \infty  } \{ {x}_{k } \}  \), which is a Borel set because each \( \{ {x}_{k } \}  \) is a closed set.
+        \item In \( f: \R \to \R  \) is a function, then the set of points at which \( f  \) is continuous is the intersection of a sequence of open sets and thus is a Borel set.
+   \end{itemize} 
+\end{eg}
+
+\begin{itemize}
+    \item The intersection of every sequence of open subsets of \( \R  \) is a Borel set.       \item On the other hand, the set of all such intersections is NOT the Borel sets since it is not closed under countable unions.  
+    \item Furthermore, the set of all countable unions of countable intersections is also not a set of Borel sets.
+\end{itemize}
+
+\subsection{Inverse Images}
+
+\begin{definition}[Inverse Image; \( f^{(-1)}(A) \)]
+    If \( f: X  \to Y  \) is a function and \( A \subset Y  \), then the set \( f^{-1}(A) \) is defined by
+    \[  f^{-1}(A) = \{ x \in X : f(x) \in A  \}. \]
+\end{definition}
+
+\begin{prop}[Algebra of Inverse Images]
+   Suppose \( f: X \to Y  \) is a function. Then 
+   \begin{enumerate}
+       \item[(a)] \( f^{-1} (\mathcal{Y} \setminus  A ) = X \setminus  f^{-1}(A)  \) for every \( A \subset \mathcal{Y} \);
+        \item[(b)] \( f^{-1}(\bigcup_{ A \in \mathcal{A} }^{  }  A ) = \bigcup_{ A \in \mathcal{A} }^{  } f^{-1}(A) \) for every set \( \mathcal{A} \) of subsets of \( \mathcal{Y} \).
+        \item[(c)] \( f^{-1}(\bigcap_{  A \in \mathcal{A} }^{  } A ) = \bigcap_{  A \in \mathcal{A} }^{  } A  \) for every set \( \mathcal{A}  \) of subsets of \( \mathcal{Y} \).
+   \end{enumerate}
+\end{prop}
+\begin{proof}
+Suppose \( f: X \to \mathcal{Y} \) is a function.
+\begin{enumerate}
+    \item[(a)] Suppose \( A \subset \mathcal{Y} \). For \( x \in X  \), we have
+        \begin{align*}
+             x \in f^{-1}(\mathcal{Y} \setminus  A )   &\iff f(x) \in \mathcal{Y} \setminus  A  \\
+                                                        &\iff f(x) \notin A \\
+                                                        &\iff x \notin f^{-1}(A) \\
+                                                        &\iff x \in X \setminus f^{-1}(A). 
+        \end{align*}
+       Thus, we have \( f^{-1}(\mathcal{Y} \setminus  A ) = X \setminus  f^{-1}(A) \) which finishes the proof for part (a). 
+    \item[(b)] Suppose \( A \subset \mathcal{Y}  \). For \( x \in X  \), we have
+        \begin{align*}
+            x \in f^{-1} \Big(  \bigcup_{ A \in \mathcal{A} }^{  } A  \Big) &\iff f(x) \in \bigcup_{ A \in \mathcal{A} }^{  } A  \\
+                                                                            &\iff f(x) \in A \tag{for some \( A \in \mathcal{A} \)} \\  
+                                                                            &\iff  x \in f^{-1}(A) \tag{for some \( A \in \mathcal{A} \)} \\
+                                                                            &\iff x \in \bigcup_{ A \in \mathcal{A} }^{  } f^{-1}(A).
+        \end{align*}
+        Thus, we conclude that 
+        \[ f^{-1}(\bigcup_{ A \in \mathcal{A} }^{  } A ) = \bigcup_{ A \in \mathcal{A} }^{  } f^{-1}(A).  \]
+    \item[(c)] Again, suppose \( A \subset \mathcal{Y}  \). For \( x \in X  \), we have 
+        \begin{align*}
+            x \in f^{-1} \Big(  \bigcap_{ A \in \mathcal{A} }^{  }  A  \Big)  &\iff f(x) \in \bigcap_{ A \in \mathcal{A} }^{  } A  \\
+                                                                              &\iff f(x) \in A \tag{for all \( A \in \mathcal{A}  \)} \\ 
+                                                                              &\iff x \in f^{-1}(A) \tag{for all \( A \in \mathcal{A} \)} \\
+                                                                              &\iff x \in \bigcap_{  A \in \mathcal{A} }^{  } f^{-1}(A).
+        \end{align*}
+    Thus, we conclude that
+    \[  f^{-1} \Big(  \bigcap_{ A \in \mathcal{A} }^{  } A  \Big) = \bigcap_{  A \in \mathcal{A} }^{  }  f^{-1}(A). \]
+\end{enumerate}
+\end{proof}
+
+\begin{prop}[Inverse Image of a Composition]
+    Suppose \( f: X \to \mathcal{Y} \) and \( g: \mathcal{Y} \to \mathcal{W} \) are functions. Then
+    \[ (g \circ f)^{-1}(A) = f^{-1}(g^{-1}(A))   \]
+    for every \( A \subset \mathcal{W} \).
+\end{prop}
+\begin{proof}
+Suppose \( A \subset \mathcal{W} \). For \( x \in X  \), we have
+\begin{align*}
+    x \in (g \circ f)^{-1}(A) &\iff (g \circ f)(x) \in A  \\
+                              &\iff g(f(x)) \in A \\
+                              &\iff f(x) \in g^{-1}(A) \\
+                              &\iff  x \in f^{-1}(g^{-1}(A)). 
+\end{align*}
+Thus, we have 
+\[ (g \circ f)^{-1}(A) = f^{-1}(g^{-1}(A)).  \]
+\end{proof}
+
+\subsection{Measurable Functions}
+
+\begin{definition}[Measurable Function]
+Suppose \( (X,\mathcal{S}) \) is a measurable space. A function \( f: X \to \R  \) is called \textit{\( \mathcal{S} -  \)measurable } (or just \textit{measurable} if \( \mathcal{S} \) is clear from context) if  
+\[  f^{-1}(B) \in S \]
+for every Borel set \( B \subset \R \).
+\end{definition}
+
+\end{document}

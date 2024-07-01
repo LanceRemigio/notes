@@ -1,3 +1,9 @@
+\documentclass[11pt,a4paper]{book}
+\input{../../../newpreamble.tex}
+\usepackage{standalone}
+\usepackage{import}
+
+\begin{document}
 \section{Review: Riemann Integral}
 
 Let \( \R  \) denote the complete ordered field of real numbers.
@@ -90,7 +96,17 @@ Next, we define the upper and lower Riemann integrals.
     \[  L(f,[a,b]) \leq U(f,[a,b]). \]
 \end{prop}
 \begin{proof}
-\textit{Left as an exercise} 
+    Let \( f: [a,b] \to \R  \) be a bounded function. Notice that, by definition, 
+    \[  L(f,[a,b]) = \sup_{P} L(f,P,[a,b]); \]
+    that is, \( L(f,[a,b]) \) is a supremum over all partitions \( P  \) of all the lower Riemann sums. Using a lemma from undergrad analysis, \( L(f,[a,b]) = \sup_{P} L(f,P,[a,b]) \) if and only if for all \( \epsilon > 0  \), there exists \( L(f,{P}_{\epsilon}, [a,b]) \in \{ L(f,P,[a,b]) : \text{for all} \ P \in P \}   \) such that 
+    \[  L(f, [a,b]) - \epsilon < L(f, {P}_{\epsilon}, [a,b]).  \]
+    Now, consider the upper Riemann integral \( U(f,[a,b]) \). Since 
+    \[  U(f,[a,b]) = \inf \{ U(f,P,[a,b]) :  \text{for all} \ P \in P \}  \]
+    and the fact that 
+    \[  \{  U(f,P,[a,b]) :  \text{for all} \ P \in P\}  \]
+    is a set of supremums (upper bounds of \( f \) over each partition \( P \)), we can see that by {\hyperref[Inequalities with Riemann Sums]{Proposition 1.1.1}} that 
+    \[  L(f, [a,b]) - \epsilon < L(f, {P}_{\epsilon}, [a,b]) \leq U(f,[a,b]).  \]
+    Since \( \epsilon > 0  \) is arbitrary, we see that \( L(f,[a,b]) \leq U(f,[a,b]) \).
 \end{proof}
 
 \begin{definition}[Riemann integrable; Riemann Integral]
@@ -127,5 +143,37 @@ Next, we define the upper and lower Riemann integrals.
 
 \end{prop}
 \begin{proof}
-
+    Let \( P  \) be the partition consisting of points \( {x}_{0} = a  \) and \( {x}_{1} = b  \). Since \( f: [a,b] \to \R  \) is Riemann integrable, we have 
+    \[  \int_{ a }^{ b } f  = L(f,[a,b]) = U(f,[a,b]). \]
+    Starting with the first inequality, observe that
+    \begin{align*}
+        \int_{ a }^{ b } f  = L(f,[a,b]) \geq L(f, P, [a,b]) = (b-a) \inf_{[a,b]} f.
+    \end{align*}
+    Observe that the second inequality can be proven by a similar argument 
+    \begin{align*}
+        \int_{ a }^{ b } f  = U(f,[a,b]) \leq U(f,P,[a,b]) = (b-a) \sup_{[a,b]}f.
+    \end{align*}
+    Thus, we have reached our desired result that
+\[  (b-a) \inf_{[a,b]} f \leq \int_{ a }^{ b }  f \leq (b-a) \sup_{[a,b]} f. \]
 \end{proof}
+
+\subsection{Exercises}
+
+\begin{enumerate}
+    \item Suppose \( f:[a,b] \to \R  \) is a bounded function such that
+        \[  L(f,P,[a,b]) = U(f,P,[a,b]) \]
+        for some partition \( P  \) of \( [a,b] \). Prove that \( f \) is a constant function on \( [a,b] \).
+        \begin{proof}
+         
+        \end{proof}
+    \item Suppose \( f: [a,b] \to \R  \) is a bounded function. Prove that \( f  \) is Riemann integrable if and only if for each \( \epsilon > 0  \), there exists a partition \( P  \) of \( [a,b] \) such that 
+        \[  U(f,P,[a,b]) - L(f,P,[a,b]) < \epsilon. \]
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
+
+
+\end{document}
+

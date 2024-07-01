@@ -1,6 +1,9 @@
 \documentclass[11pt,a4paper]{book}
-
+\usepackage{standalone}
+\usepackage{import}
 \input{../newpreamble.tex}
+
+
 \title{Measure Theory Notes}
 \author{Lance Remigio}
 
@@ -12,6 +15,17 @@
 
 \chapter{Riemann Integration}
 
-\input{chapter/riemannint/riemannint.tex}
+
+\import{chapter/riemannint}{riemannint.tex}
+
+\import{chapter/riemannintb}{riemannintb.tex}
+
+\chapter{Measures}
+
+\import{chapter/chap2/sec2.1}{sec2.1.tex}
+
+\import{chapter/chap2/sec2.2}{sec2.2.tex}
+
+% \input{chapter/riemannint/riemannint.tex}
 
 \end{document}
