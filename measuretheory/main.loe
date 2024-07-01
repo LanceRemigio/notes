@@ -32,3 +32,36 @@
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{17}{thmt@dummyctr.dummy.30}%
 \contentsline {prop}{\ifthmt@listswap Proposition~2.1.4\else \numberline {2.1.4}Proposition\fi \thmtformatoptarg {Countable Subadditivity of Outer Measure}}{17}{prop.2.1.4}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{17}{thmt@dummyctr.dummy.32}%
+\contentsline {definition}{\ifthmt@listswap Definition~2.1.4\else \numberline {2.1.4}Definition\fi \thmtformatoptarg {Open Cover}}{18}{definition.2.1.4}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{18}{thmt@dummyctr.dummy.34}%
+\contentsline {prop}{\ifthmt@listswap Proposition~2.1.5\else \numberline {2.1.5}Proposition\fi \thmtformatoptarg {Heine-Borel Theorem}}{18}{prop.2.1.5}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{19}{thmt@dummyctr.dummy.36}%
+\contentsline {prop}{\ifthmt@listswap Proposition~2.1.6\else \numberline {2.1.6}Proposition\fi \thmtformatoptarg {Outer Measure of a Closed Interval}}{19}{prop.2.1.6}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{19}{thmt@dummyctr.dummy.38}%
+\contentsline {prop}{\ifthmt@listswap Proposition~2.1.7\else \numberline {2.1.7}Proposition\fi \thmtformatoptarg {Nontrivial Intervals Are Uncountable}}{20}{prop.2.1.7}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{20}{thmt@dummyctr.dummy.40}%
+\contentsline {prop}{\ifthmt@listswap Proposition~2.1.8\else \numberline {2.1.8}Proposition\fi }{21}{prop.2.1.8}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{21}{thmt@dummyctr.dummy.42}%
+\contentsline {prop}{\ifthmt@listswap Proposition~2.1.9\else \numberline {2.1.9}Proposition\fi \thmtformatoptarg {Nonadditivity of Outer Measure}}{21}{prop.2.1.9}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{21}{thmt@dummyctr.dummy.44}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{21}{thmt@dummyctr.dummy.45}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{21}{thmt@dummyctr.dummy.46}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{22}{thmt@dummyctr.dummy.47}%
+\contentsline {prop}{\ifthmt@listswap Proposition~2.1.10\else \numberline {2.1.10}Proposition\fi \thmtformatoptarg {Nonexistence of Extension of Length to all subsets of \( \ensuremath {\mathbb {R}}\)}}{23}{prop.2.1.10}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{23}{thmt@dummyctr.dummy.49}%
+\contentsline {definition}{\ifthmt@listswap Definition~2.1.5\else \numberline {2.1.5}Definition\fi \thmtformatoptarg {\( \sigma - \)algebra}}{24}{definition.2.1.5}%
+\contentsline {eg}{\ifthmt@listswap Example~2.1.1\else \numberline {2.1.1}Example\fi }{24}{eg.2.1.1}%
+\contentsline {prop}{\ifthmt@listswap Proposition~2.1.11\else \numberline {2.1.11}Proposition\fi \thmtformatoptarg {\( \sigma - \)algebras are closed under countable intersection}}{25}{prop.2.1.11}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{25}{thmt@dummyctr.dummy.53}%
+\contentsline {definition}{\ifthmt@listswap Definition~2.1.6\else \numberline {2.1.6}Definition\fi \thmtformatoptarg {Measurable Space; Measurable Set}}{25}{definition.2.1.6}%
+\contentsline {eg}{\ifthmt@listswap Example~2.1.2\else \numberline {2.1.2}Example\fi }{25}{eg.2.1.2}%
+\contentsline {prop}{\ifthmt@listswap Proposition~2.1.12\else \numberline {2.1.12}Proposition\fi \thmtformatoptarg {smallest \( \sigma - \)algebra containing a collection of subsets}}{25}{prop.2.1.12}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{25}{thmt@dummyctr.dummy.57}%
+\contentsline {definition}{\ifthmt@listswap Definition~2.1.7\else \numberline {2.1.7}Definition\fi \thmtformatoptarg {Borel Set}}{26}{definition.2.1.7}%
+\contentsline {eg}{\ifthmt@listswap Example~2.1.3\else \numberline {2.1.3}Example\fi \thmtformatoptarg {Borel Sets}}{26}{eg.2.1.3}%
+\contentsline {definition}{\ifthmt@listswap Definition~2.1.8\else \numberline {2.1.8}Definition\fi \thmtformatoptarg {Inverse Image; \( f^{(-1)}(A) \)}}{26}{definition.2.1.8}%
+\contentsline {prop}{\ifthmt@listswap Proposition~2.1.13\else \numberline {2.1.13}Proposition\fi \thmtformatoptarg {Algebra of Inverse Images}}{26}{prop.2.1.13}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{26}{thmt@dummyctr.dummy.62}%
+\contentsline {prop}{\ifthmt@listswap Proposition~2.1.14\else \numberline {2.1.14}Proposition\fi \thmtformatoptarg {Inverse Image of a Composition}}{27}{prop.2.1.14}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{27}{thmt@dummyctr.dummy.64}%
+\contentsline {definition}{\ifthmt@listswap Definition~2.1.9\else \numberline {2.1.9}Definition\fi \thmtformatoptarg {Measurable Function}}{27}{definition.2.1.9}%
