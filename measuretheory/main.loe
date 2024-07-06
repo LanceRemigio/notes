@@ -79,3 +79,11 @@
 \contentsline {prop}{\ifthmt@listswap Proposition~2.2.9\else \numberline {2.2.9}Proposition\fi \thmtformatoptarg {Composition of Measurable Functions}}{30}{prop.2.2.9}%
 \contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{30}{thmt@dummyctr.dummy.78}%
 \contentsline {prop}{\ifthmt@listswap Proposition~2.2.10\else \numberline {2.2.10}Proposition\fi \thmtformatoptarg {Algebraic Operations with Measurable Functions}}{30}{prop.2.2.10}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{30}{thmt@dummyctr.dummy.80}%
+\contentsline {prop}{\ifthmt@listswap Proposition~2.2.11\else \numberline {2.2.11}Proposition\fi \thmtformatoptarg {Limit of \( \mathcal {S}- \)measurable functions}}{31}{prop.2.2.11}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{31}{thmt@dummyctr.dummy.82}%
+\contentsline {definition}{\ifthmt@listswap Definition~2.2.10\else \numberline {2.2.10}Definition\fi }{32}{definition.2.2.10}%
+\contentsline {definition}{\ifthmt@listswap Definition~2.2.11\else \numberline {2.2.11}Definition\fi \thmtformatoptarg {Measurable Function}}{32}{definition.2.2.11}%
+\contentsline {prop}{\ifthmt@listswap Proposition~2.2.12\else \numberline {2.2.12}Proposition\fi \thmtformatoptarg {Condition for Measurable Function}}{32}{prop.2.2.12}%
+\contentsline {prop}{\ifthmt@listswap Proposition~2.2.13\else \numberline {2.2.13}Proposition\fi \thmtformatoptarg {Infimum and Supremum of a Sequence of \( \mathcal {S}- \)measurable functions}}{32}{prop.2.2.13}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{32}{thmt@dummyctr.dummy.87}%

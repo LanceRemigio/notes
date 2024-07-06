@@ -368,12 +368,60 @@ Suppose \( g(x) \neq 0  \) for all \( x \in X  \). Since \( g  \) defined on \( 
    Then \( f \) is an \( \mathcal{S}- \)measurable function.
 \end{prop}
 \begin{proof}
+Suppose \( a \in \R  \). Our goal is to show that 
+\[  f^{-1}((a,\infty )) = \bigcup_{ j=1  }^{ \infty  }  \bigcup_{ m = 1  }^{ \infty  }  \bigcap_{  k= m  }^{ \infty  } {f}_{k }^{-1} ((a + \frac{ 1 }{ j }, \infty  )), \tag{1}   \]
+which implies that \( f^{-1}((a,\infty )) \in \mathcal{S} \). To prove (1), let \( x \in f^{-1}((a,\infty )) \). Thus, there exists \( j \in \Z^{+} \) such that \( f(x) > a + \frac{ 1 }{ j }  \). Using the definition of limit, we can find an \( m \in \Z^{+} \) such that \( {f}_{k }(x) > a + \frac{ 1 }{ j }  \) for all \( k \geq m  \). Thus, we have \( x \in {f}_{k }^{-1}((a + \frac{ 1 }{ j }, \infty  )) \), and so 
+\[  x \in  \bigcup_{ j=1  }^{ \infty  }  \bigcup_{ m = 1  }^{ \infty  }  \bigcap_{  k= m  }^{ \infty  } {f}_{k }^{-1} ((a + \frac{ 1 }{ j }, \infty  )).\]
 
+To show the other inclusion, suppose the above. Then there exists \( j,m \in \Z^{+} \) such that \( {f}_{k }(x) > a + \frac{ 1 }{ j }  \) for all \( k \geq m  \). Taking the limit as \( k \to  \infty  \), we see that \( f(x) \geq a  + \frac{ 1 }{ j } > a  \) (taking the limit here involves using the order limit theorem).  Thus, implying that \( x \in f^{-1}((a,\infty )) \). Thus, we conclude that
+\[  f^{-1}((a,\infty )) = \bigcup_{ j=1  }^{ \infty  }  \bigcup_{ m = 1  }^{ \infty  }  \bigcap_{  k= m  }^{ \infty  } {f}_{k }^{-1} ((a + \frac{ 1 }{ j }, \infty  )),   \]
+and so \( f  \) must be an \( \mathcal{S}- \)measurable function.
 \end{proof}
 
+\begin{definition}
+    A subset of \( [- \infty, \infty] \) is called a \textbf{Borel set} if its intersection with \( \R  \) is a Borel set.
+\end{definition}
+
+\begin{itemize}
+    \item That is, we have \( C \subset [-\infty , \infty ] \) is a Borel set if and only if we can find a Borel set \( B \subset \R  \) such that \( C = B  \) or \( C = B \cup \{ \infty  \}   \) or \( C = B \cup \{ -\infty  \}   \) or \( C = B \cup \{ \infty , -\infty  \}  \).
+    \item The set of Borel subsets of \( [-\infty , \infty ] \) forms a \( \sigma- \)algebra on \( [-\infty , \infty ] \).
+\end{itemize}
 
 
+\begin{definition}[Measurable Function]
+    Suppose \( (X , \mathcal{S})  \) is a measurable space. A function \( f: X \to [-\infty , \infty ] \) is called \( \mathcal{S}- \)measurable if 
+    \[  f^{-1}(B) \in \mathcal{S} \]
+    for every Borel set \( B \subset [-\infty , \infty ] \).
+\end{definition}
 
+\begin{prop}[Condition for Measurable Function]
+    Suppose \( (X,\mathcal{S}) \) is a measurable space and \( f: X \to [-\infty , \infty ] \) is a function such that
+    \[  f^{-1}((a,\infty ]) \in \mathcal{S} \]
+    for all \( a \in \R  \). Then \( f  \) is an \( \mathcal{S}- \)measurable function.
+\end{prop}
 
+The final result of this section states that the pointwise limit of the infimum and supremum of a sequence of \( \mathcal{S}- \)measurable functions is \( \mathcal{S}- \)measurable.
+\begin{prop}[Infimum and Supremum of a Sequence of \( \mathcal{S}- \)measurable functions]
+    Suppose \( (X , \mathcal{S})  \) is a measurable space and \( {f}_{1}, {f}_{2}, \dots  \) is a sequence of \( \mathcal{S}- \)measurable functions from \(X  \) to \( [-\infty , \infty ]  \). Define \( g,h: X \to [-\infty , \infty ] \) by
+    \begin{center}
+        \( g(x) = \inf \{ {f}_{k }(x)  : k \in \Z^{+} \}  \) and \( h(x) = \sup \{ {f}_{k}  : k \in \Z^{+}\}   \)
+    \end{center}
+    Then \( g  \) and \( h  \) are \( \mathcal{S}- \)measurable functions.
+\end{prop}
+\begin{proof}
+Let \( a \in \R  \). To show that \( h(x) \) is \( \mathcal{S}- \)measurable, we can use the definition of the supremum to imply that 
+\[  h^{-1}((a,\infty ]) = \bigcup_{  k = 1  }^{ \infty  } {f}_{k }^{-1}((a,\infty ]). \]
+Let \( x \in h^{-1}((a,\infty ])  \). Then we have \( h(x) \in (a,\infty ] \). Let \( \epsilon > 0  \). By definition of \( h(x) \), we can find a \( k \in \Z^{+} \) such that 
+\[  {f}_{k }(x) > h(x) - \epsilon > a -  \epsilon.    \]
+Since \( \epsilon > 0  \) is arbitrary, we find that \( {f}_{k }(x) > a  \) and thus \( {f}_{k }(x) \in (a,\infty ] \). Thus, we have
+\[  x \in \bigcup_{ k = 1  }^{ \infty  }  {f}_{k }^{-1}((a,\infty ]). \]
+To get the other inclusion, suppose \( x  \) is in 
+\[  \bigcup_{ k = 1  }^{ \infty   }  {f}_{k }^{-1}((a,\infty ]). \]
+Then \( x \in {f}_{k}^{-1}((a,\infty ]) \) for some \( k \in \Z^{+} \). Thus \( {f}_{k }(x) \in (a,\infty ] \). By definition of \( h(x) \), we see that \( h(x) \geq {f}_{k }(x) > a  \). But this means that \( x \in h^{-1}((a,\infty ]) \), which completes the proof for the other inclusion. This now implies that \( h  \) is an \( \mathcal{S}- \)measurable function. Note that
+\[  g(x) = - \sup \{ - {f}_{k }(x) : k \in \Z^{+} \}   \] for all \( x \in X  \). Hence, the result about the supremum also implies that \( g  \) is an \( \mathcal{S}- \)measurable function.
+\end{proof}
 
 \end{document}
+
+Suppose we have the following set \( \{ {f}_{k }(x): k \in \Z^{+} \}  \) and suppose we have the interval \( (a, \infty]   \). If the supremum of this set is in \( (a,\infty] \), then is each \( {f}_{k}(x) \) contained in \( (a,\infty ] \)
+

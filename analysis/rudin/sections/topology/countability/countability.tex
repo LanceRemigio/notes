@@ -1,0 +1,142 @@
+\documentclass[11pt,a4paper]{book}
+\input{../../../../../newpreamble.tex}
+\usepackage{standalone}
+\usepackage{import}
+
+\begin{document}
+
+\subsection{Function Concepts}
+
+\begin{definition}[Functions, Domains, Values, and Range]
+    Consider two sets \( A  \) and \( B  \), whose elements may be any objects whatsoever, and suppose that with each element of \( x  \) of \( A  \) there is a associated, in some manner, an element of \( B  \), which we denote by \( f(x) \).
+   \begin{itemize}
+       \item The function \( f  \) is said to be a \textit{function} from \( A  \) into \( B  \);
+        \item The set \( A  \) is called the \textit{domain} of \( f  \); 
+        \item The elements \( f(x) \) are called the \textit{values} of \( f  \);
+        \item The set of values of \( f  \) is called the \textit{range} of \( f  \)
+   \end{itemize} 
+\end{definition}
+
+\begin{definition}[Images, Onto]
+   Let \( A  \) and \( B  \) be two sets and let \( f  \) be a mapping of \( A  \) into \( B  \). If \( E \subset A  \), then \( f(E)  \) is called the set of all elements \( f(x) \), for \( x \in E \). 
+   \begin{itemize}
+       \item We call \( f(E)  \), the \textit{image} of \( E  \) under \( f  \).  
+        \item We call \( f(A) \) the \textit{range} of \( f  \). Clearly, we have \( f(A) \subset B  \).
+        \item If \( f(A) = B  \), we say that \( f  \) maps \textit{onto} B.
+   \end{itemize}
+\end{definition}
+
+\begin{definition}[Inverse Images, One-to-one]
+   \begin{itemize}
+       \item If \( E \subset B  \), \( f^{-1}(E) \) denotes the set of all \( x \in A  \) such that \( f(x) \in E  \). We call \( f^{-1}(E) \) the \textit{inverse image} of \( E  \) under \( f  \).
+       \item If \( y \in B  \), \( f^{-1}(y) \) is the set of all \( x \in A  \) such that \( f(x) = y \). If, for each \( y \in B  \), \( f^{-1}(y) \) consists of at most one element of \( A  \), then \( f  \) is said to be a 1-1 (\textit{one-to-one} ) mapping of \( A  \) into \( B  \).
+        \item Another way to state this is to say that for any \( {x}_{1}, {x}_{2} \in A  \), if \( f({x}_{1}) = f({x}_{2}) \) implies \( {x}_{1} = {x}_{2} \) is called a 1-1 function. 
+        \item Alternatively, if \( {x}_{1} \neq {x}_{2}  \) implies \( f({x}_{1}) \neq f({x}_{2})\) is also called a 1-1 function (this is just contrapositive of the last statement).
+   \end{itemize} 
+\end{definition}
+
+\begin{definition}[Correspondence]
+    If there exists a 1-1 mapping of \( A  \) \textit{onto} B, we say that \( A  \) and \( B  \) can be put in 1-1 \textit{correspondence}, or that \( A  \) and \( B  \) have the same \textit{cardinality}, or, that \( A  \) and \( B  \) are \textit{equivalent}. For this, we write \( A \sim B   \).
+\end{definition}
+
+This relation contains the following properties:
+
+\begin{itemize}
+    \item \textbf{Reflexive}: \( A \sim A  \).
+    \item \textbf{Symmetric}: If \( A \sim B  \), then \( B \sim A  \).
+    \item \textbf{Transitive:} If \( A \sim B  \) and \( B \sim C  \), then \( A \sim C  \).
+\end{itemize}
+
+\begin{definition}[Finite, Infinite, Countable, Uncountable, At most countable]
+    For any positive integer \( n  \), let \( {\N}_{n}  \) be the set whose elelemts are the integers \( 1,2, \dots , n  \); let \( \N  \) be the set consisting of all positive integers. For any set \( A \), we say:
+    \begin{enumerate}
+        \item[(a)] \( A  \) is \textit{finite} if \( A \sim {\N}_{n} \) for some \( n  \) (the empty set is also considered to be finite).
+        \item[(b)] \( A  \) is \textit{infinite} if \( A  \) is not finite. 
+        \item[(c)] \( A  \) is \textit{countable}  if \( A \sim \N  \).
+        \item[(d)] \( A  \) is \textit{uncountable} if \( A  \) is neither finite n or countable.
+        \item[(e)] \( A  \) is \textit{at most countable} if \( A  \) is finite or countable.
+    \end{enumerate}
+\end{definition}
+
+\begin{prop}\label{Infinite subsets of countable sets}
+   Every infinite subset of a countable set \( A  \) is countable. 
+\end{prop}
+\begin{proof}
+Suppose \( E \subset A   \), and \( E  \) is infinite. Arrange the elements of \( x  \) of \( A  \) as a sequence \( ({x}_{n}) \) of distinct elements. Construct a sequence \( ({n}_{k }) \) as follows:
+Let \( {n}_{1} \) be the smallest positive integer such that \( {x}_{{n}_{1}} \in E  \). Having chosen \( {n}_{1}, \dots {n}_{k-1} \) with \( (k = 2,3,4, \dots) \), let \( {n}_{k } \) be the smallest integer greater than \( {n}_{k-1} \) such that \( {x}_{{n}_{k }} \in E  \), let \( {n}_{k } \) be the smallest integer greater than \( {n}_{k-1} \) such that \( {x}_{{n}_{k }} \in E  \). 
+    Putting \( f(k) = {x}_{{n}_{k }}  \) with \( (k = 1,2,3,\dots) \), we obtain a 1-1 correspondence between \( E  \) and \( \N  \). Thus, by definition, we see that \( E  \) is an infinite subset of \( A  \) that is countable.
+\end{proof}
+
+\begin{definition}
+    Let \( A  \) and \( \Omega \) be sets, and suppose that with each element \( \alpha  \) of \( A  \) there is associated a subset of \( \Omega  \) which we denote by \( {E}_{\alpha} \).
+\end{definition}
+
+\begin{itemize}
+    \item We can have sets whose elements are also sets. 
+    \item To make this easier to understand, we usually denote these kinds of sets as a collection of sets.
+\end{itemize}
+
+\begin{definition}[Union]
+    The \textit{union} of the sets \( {E}_{\alpha} \) is defined to be the set \( S  \) such that \( x \in S  \) if \( x \in {E}_{\alpha} \) for at least one \( \alpha \in A  \). We use the notation   
+    \[  S = \bigcup_{ \alpha \in A  }^{  }  {E}_{\alpha}. \]
+\end{definition}
+
+If our collection of sets \( A  \) is finite, then we can use the notation
+\[  S = \bigcup_{ m=  1  }^{ n  }  {E}_{m} \]
+for \( {E}_{1}, {E}_{2}, \dots, {E}_{n} \in A  \)
+
+On the other hand, when the collection of sets \( A  \) contains a countable number of elements, then we can use the notation
+\[  S = \bigcup_{ m = 1  }^{ \infty  }  {E}_{m}. \]
+The \( \infty  \) on the top of the union symbol should not be confused with \( + \infty   \) and \( - \infty  \).
+
+\begin{definition}[Intersection]
+    The \textit{intersection} of the sets \( {E}_{\alpha} \) is defined to be the set \( P  \) such that \( x \in P  \) if \( x \in {E}_{\alpha} \) for every \( \alpha \in A  \), we have
+    \[  P = \bigcap_{ \alpha \in A  }^{  }  {E}_{\alpha}. \]
+\end{definition}
+
+Like the union, \( A  \) can either have a finite collection of sets or a countable collection of sets. Thus, we have
+
+\[  P = \bigcap_{ m=1  }^{ n } {E}_{m} \  \text{and} \ P = \bigcap_{  m = 1  }^{ \infty  } {E}_{m},  \]
+respectively.
+
+\begin{definition}[Nonempty Intersections and Disjoint Sets]
+    If we have \( A \cap B \neq \emptyset  \), then we say that \( A  \) and \( B  \) \textit{intersect}. Otherwise, we say that they are \textit{disjoint}. 
+\end{definition}
+
+Here are some list of algebraic properties of sets:
+
+\begin{itemize}
+    \item \textbf{Commutativity}: \( A \cup B = B \cup A   \) and \( A \cap B = B \cap A  \).
+    \item \textbf{Associativity}: \( (A \cup B) \cup C = A \cup (B \cup C)  \) and \(  (A \cap B ) \cap C = A \cap (B \cap C) \).
+    \item \textbf{Distributivity:} \( A \cap (B \cup C) = (A \cap B) \cup (A \cap C) \). 
+    \item \( A \subset A \cup B  \).
+    \item \( A \cap B \subset A  \).
+    \item \( A \cup \emptyset \) and \( A \cap \emptyset = \emptyset \).
+    \item If \( A \subset B  \), then
+        \[  A \cup B = B, \ \  A \cap B  = A   \]
+\end{itemize}
+
+\begin{theorem}[ ]
+    Let \( \{ {E}_{n} \}   \) with \( n \in \N \) be a countable collection of countable sets, and put
+    \[  S = \bigcup_{ n = 1  }^{ \infty  }  {E}_{n}, \]
+    Then \( S  \) is countable.
+\end{theorem}
+\begin{proof}
+Let every set \( {E}_{n} \) be arranged in a sequence \( ({x}_{{n}_{k }}) \) with \( k = 1,2,3, \dots, \). We can consider an infinite array such that, in each row, we have all the elements of each \( {E}_{n} \). If we take the diagonal entries, starting from left to right, we can rearrange these entries into a sequence  
+\[  {x}_{11}; {x}_{21}, {x}_{12}; {x}_{31}, {x}_{22}, {x}_{13}; {x}_{41}, {x}_{32}, {x}_{23}, {x}_{14}; \dots \ ,  \]
+starting from \( n = 2  \). Notice how the sum of each index in the sequence adds up to the index of the sequence above. Thus, there exists a subset of \( T  \) of the set of all positive integers such that \( S \sim T  \), which shows that \( S  \) is at most countable, using our result about {\hyperref[Infinite subsets of countable sets]{infinite subsets of countable sets}}. Since each \( {E}_{1} \subset S  \), and \( {E}_{1}  \) is infinite, \( S  \) is infinite, and thus \( S  \) is countable.  
+\end{proof}
+
+\begin{corollary}
+   Suppose \( A  \) is at most countable, and, for every \( \alpha  \in A  \), \( {B}_{\alpha} \) is at most countable. Then
+   \[  T = \bigcup_{ \alpha \in A  }^{  }  {B}_{\alpha} \]
+   is at most countable, for \( T  \) is equivalent to a subset of
+   \[  \bigcup_{ n=1  }^{ \infty   } {B}_{n}, \]
+   where \( {B}_{n} \in A  \).
+\end{corollary}
+
+\begin{theorem}[ ]
+    Let \( A  \) be a countable set, and let \( {B}_{n} \) be the set of all \( n- \)tuples \( ({a}_{1}, \dots , {a}_{n}) \), where \( {a}_{k } \in A (k = 1, \dots, n) \), and the elements \( {a}_{1}, \dots, {a}_{n} \) need not be distinct. Then \( {B}_{m}  \) is countable.
+\end{theorem}
+
+\end{document}
