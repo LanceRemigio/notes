@@ -1,0 +1,108 @@
+\documentclass[11pt,a4paper]{book}
+
+\usepackage{standalone}
+\usepackage{import}
+\input{../../../../../newpreamble.tex}
+
+\begin{document}
+
+\section{Complex Numbers and the Complex Plane}
+
+\subsection{Review of Complex Numbers}
+
+\begin{itemize}
+    \item A complex number takes the form \( z = x + iy \) where \( x,y \in \R  \) and that \( i^{2} = -1   \). We denote this set of numbers as \( \C \).
+    \item The \textbf{real} and \textbf{imaginary} part of \( z  \) is defined as follows:
+        \begin{center}
+            \( x = \Re(z) \) and \( y = \Im(z) \).
+        \end{center}
+    \item Real numbers like \( x  \) have \( \Im(x) = 0  \), while numbers like \(  y \) have \( \Re(y) = 0  \). In other words, \( y  \) is said to be \textbf{purely imaginary}.
+    \item Each complex number can be represented as a point in \( \R^{2} \) with the \(  x-  \) axis representing the \textbf{real axis} and the \( y- \)axis representing the \textbf{imaginary axis}.
+    \item The operations that are used with complex numbers works similarly to how we would treat real numbers; that is, they follow commutativity, associativity, and distributivity. 
+    \item The addition of two complex numbers works like adding two corresponding vectors in \( \R^{2} \) where you add up each component.
+    \item Multiplication of complex numbers produces a rotation (around the unit circle) and a dilation of said vector. This is seen using the polar form of a complex number.
+\end{itemize}
+
+\subsection{Notion of Length and Inequalities}
+
+\begin{itemize}
+    \item The notion of length in \( \R^{2} \) is also similar to the complex plane. For \( z \in \C  \) with \( x,y \in \R  \), we can see that the \textbf{absolute value} of a complex number \( z = x + iy \) is
+        \[  | z  |  = (x^{2} + y^{2})^{1/2}. \]
+    This is the distance from the origin to the point \( (x,y) \).
+    \item Like in \( \R  \), the triangle inequality for \( \C  \) also holds:
+        \[  | z + w  |  \leq | z  |  + | w  | \  \text{for all} \ z,w \in \C.    \] 
+    \item Some other inequalities in \( \C  \) include:
+        \begin{center}
+            \( | \Re(z) |  \leq | z  |  \) and \( | \Im(z)  |  \leq | z  |  \).
+        \end{center}
+        Furthermore, the reverse triangle inequality holds:
+        \[  | | z |  - | w  |  | \leq | z - w  |. \]
+    \item The \textbf{complex conjugate} of \( z = x + iy \) is defined by
+        \[  \overline{z}=  x - iy. \]
+        Geometrically, this is seen as a reflection of \( z  \) over the real axis.
+    \item Furthermore, we say that \( z \in \C  \) is a real number if and only if \( z = \overline{z} \). On the other hand, we say that \( z \in \C  \) is purely imaginary if and only if \( z  = - \overline{z} \).
+\end{itemize}
+
+\subsection{Other Properties and Polar Form}
+
+\begin{itemize}
+    \item On top of defining our real and imaginary parts of a complex number, it should be straightforward to prove that
+        \[  \Re(z) = \frac{ z  + \overline{z} }{ 2  }  \ \text{and} \ \Im(z) = \frac{  z - \overline{z} }{ 2i }. \]
+    \item We also see that \( | z |^{2} = z \overline{z} \) implies that
+        \[  \frac{ 1 }{ z }  = \frac{ \overline{z} }{ | z |^{2} }  \]
+        whenever \( z \neq 0  \).
+    \item The \textbf{polar form} of \( z \in \C  \) is 
+        \[  z = r e^{-i \theta} \]
+        for \( r > 0  \) and \( \theta \in \R  \). We denote \( \theta  \) as the \textbf{argument} of \( z  \); that is, \( \theta = \arg(z) \). Note that \( \theta \) is defined uniquely up to a multiple of \( 2\pi \).
+    \item Recall that
+        \[  e^{i \theta} = \cos \theta + i \sin \theta \]
+        and that \( | e^{i\theta} |  = 1  \) as well as \( r = | z  |  \).
+    \item Finally, with these properties, we can see that multiplying \( z,w \in \C  \) results in
+        \[  zw  = rs e^{i (\theta + \varphi)} \]
+        where \( z = r e^{i\theta} \) and \( w = s e^{i \varphi} \). The \( rs  \) is corresponds to the dialation of \( zw  \) and \( \theta + \varphi \) corresponds to a rotation.
+\end{itemize}
+
+\section{Convergence}
+
+\begin{definition}[Convergence in \( \C \)]
+    A sequence \( ({z}_{n}) \subset \C \) is said to \textbf{converge} to \( w \in \C  \) if 
+    \[ \lim_{ n \to \infty  }  | {z}_{n} - w  | = 0   \]
+    and we write
+    \[  w = \lim_{ n \to  \infty  } {z}_{n}. \]
+\end{definition}
+The two formulae above are equivalent to each other.
+
+\begin{itemize}
+    \item In other words, \( ({z}_{n})  \) converges to \( w  \) if and only if the corresponding sequence of points in the complex plane converges to the point that corresponds to \( w \). 
+    \item We can check that \( ({z}_{n}) \to w  \) if and only if for \( w = a + bi  \), we have \( ({a}_{n}) \to a  \) and \( ({b}_{n}) \to b  \); that is, the real and imaginary parts of the sequence of complex numbers converges, respectively.
+\end{itemize}
+
+\begin{definition}[Cauchy Sequence]
+    A sequence \( ({z}_{n})  \) is said to be a \textbf{Cauchy sequence} if 
+    \[  | {z}_{n} - {z}_{m} |  \to 0  \]
+    as \( n,m \to \infty  \).
+\end{definition}
+
+\begin{itemize}
+    \item In other words, given any \( \epsilon > 0  \), there exists an integer \( N > 0  \) such that \( | {z}_{n} - {z}_{m} | < \epsilon  \) whenever \( n,m > N  \).
+    \item Similarly to how \( \R  \) is complete and how all \( z \in \C   \) are made up of a tuple of real numbers in \( \R^{2} \), we see that if \( ({z}_{n}) \) is Cauchy, then every Cauchy complex sequence converges to a limit that is in \( \C  \).
+\end{itemize}
+
+\begin{theorem}[ ]
+    The set of complex numbers \( \C  \) is complete.
+\end{theorem}
+
+\section{Sets in the complex plane}
+
+\begin{definition}[Open Discs]
+    If \( {z}_{0} \in \C  \) and \( r > 0  \), we denote the \textbf{open disc \( {D}_{r}({z}_{0}) \) of radius \( r  \) centered at \( {z}_{0} \)} to be the set  
+    \[  {D}_{r}({z}_{0}) = \{ z \in \C : | z - {z}_{0} | < r \}. \]
+\end{definition}
+
+\begin{definition}[Closed Discs]
+    If \( {z}_{0} \in \C  \) and \( r > 0  \), we denote the \textbf{closed disc \( \overline{{D}_{r}}({z}_{0})  \) of radius \( r  \) centered at \( {z}_{0} \)} to be the set 
+    \[ \overline{{D}_{r}}({z}_{0}) = \{ z \in \C : | z - {z}_{0} |  \leq r  \}.    \]
+\end{definition}
+
+
+\end{document}

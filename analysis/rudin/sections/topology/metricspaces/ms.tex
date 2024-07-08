@@ -1,0 +1,115 @@
+\documentclass[11pt,a4paper]{book}
+\input{../../../../../newpreamble.tex}
+\usepackage{standalone}
+\usepackage{import}
+
+\begin{document}
+
+\begin{definition}[Metric Space]
+   A set \( X  \), whose elements we shall call \textit{points}, is said to be a \textit{metric space} if with any two points \( p  \) and \( q  \) of \( X  \) there is associated a real number \( d(p,q) \) called the \textit{distance} from \( p  \) to \( q  \), such that 
+   \begin{enumerate}
+       \item[(a)] \( d(p,q) > 0  \) if \( p \neq q  \); \( d(p,p) = 0  \);
+        \item[(b)] \( d(p,q) = d(q,p) \);
+        \item[(c)] \( d(p,q) \leq d(p,r) + d(r,q) \) for any \( r \in X  \).
+   \end{enumerate}
+\end{definition}
+
+\begin{itemize}
+    \item Suppose a subset \( Y  \) of \( X  \) is a metric space, with the same distance function.
+    \item \( Y  \) must also be a metric space with the same distance function as \( X  \) (metric).
+\end{itemize}
+
+\begin{definition}[ ]
+    \begin{itemize}
+        \item By the \textit{segment} \( (a,b) \) we mean the set of all \( x \in \R  \) such that \( a < x < b \).
+        \item We call an \textit{interval} \( [a,b] \) to mean the set of all \( x \in \R  \) such that \( a \leq x \leq b  \) for \( a,b \in \R  \) with \( a < b  \).
+        \item We call a \textit{half-open interval} either \( [a,b) \) or \( (a,b] \) to mean \( a \leq x <  b  \) and \( a < x \leq b  \), respectively.
+        \item We call a \textit{k-cell} to mean that if \( {a}_{i} < {b}_{i} \), for \( i = 1, \dots, k  \), the set of all points \( x = ({x}_{1}, {x}_{2}, \dots, {x}_{k }) \in \R^{k } \) whose coordinates satisfy \( {a}_{i} \leq {x}_{i} \leq {b}_{i} (1 \leq i \leq k ) \).  
+        \item If \( x \in \R^{k}  \) and \( r > 0  \), the \textit{open} (or \textit{closed}) \textit{ball} \( B \) with center at \( x  \) and radius \( r  \) is defined to be the set
+            \[ B(x,r) = \{ y \in \R^{k}: | y - x  | < r  \}  \]
+            or alternatively, \( | y - x  | \leq  r  \).
+        \item We call a set \( E \subset \R^{k} \) \textit{convex} if
+            \[  \lambda x + (1 - \lambda) y \in E  \]
+            whenever \( x,y \in E  \), and \(  0 < \lambda < 1  \).
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[ ]
+    Let \( X  \) be a metric space. All points and sets mentioned below are understood to be elements and subsets of \( X  \).
+    \begin{enumerate}
+        \item[(a)] A \textit{neighborhood} of \( p  \) is a set \( {N}_{r}(p) \) consisting of all \( q  \) such that \( d(p,q) < r  \) for some \( r > 0  \). The number \( r  \) is called the \textit{radius} of \( {N}_{r}(p) \). 
+        \item[(b)] A point \( p  \) is a \textit{limit point} of the set \( E  \) if \textit{every} neighborhood of \( p  \) contains a point \( q \neq p  \) such that \( q \in E  \).
+        \item[(c)] If \( p \in E  \) and \( p  \) is not a limit point of \( E  \), then \( p  \) is called an \textit{isolated point} of \( E  \).
+        \item[(d)] \( E  \) is closed if every limit point of \( E  \) is a point of \( E  \).
+        \item[(e)] A point \( p  \) is an \textit{interior} point of \( E  \) if there is a neighborhood \( N  \) of \( p  \) such that \( N \subset E  \).
+        \item[(f)] \( E  \) is \textit{open} if every point of \( E  \) is an interior point of \( E  \). 
+        \item[(g)] The \textit{complement} of \( E  \) (denoted by \( E^{c} \)) is the set of all points \( p \in X  \) such that \( p \neq E  \).
+        \item[(h)] \( E  \) is \textit{perfect} if \( E  \) is closed and if every point of \( E  \) is a limit point of \( E  \).
+        \item[(i)] \( E  \) is \textit{bounded} if there exists a \( M \in \R  \) and \( q \in X  \) such that \( d(p,q) < M  \) for all \( p \in E  \).
+        \item[(j)] \( E  \) is \textit{dense} in \(  X  \) if every point of \( X  \) is a limit point of \( E  \), or a point of \( E  \) (or both).  
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    In \( \R^{1} \), neighborhoods are segments and in \( \R^{2} \) neighborhoods are interiors of circles.
+\end{remark}
+
+\begin{theorem}[Neighborhoods are Open]
+    Every neighborhood is an open set.
+\end{theorem}
+
+\begin{proof}
+Let \( p \in X  \). Consider the neighborhood \( {N}_{r}(p)  \) for some \( r > 0  \). Let \( y \in X  \). Similarly, we can construct a neighborhood \( {N}_{h}(y) \) for some \( h > 0  \). Observe that the distance between \( p \) and \( y \)  is   
+\[  d(p,y) = r - h. \]
+Our goal is to show that \( {N}_{h}(y) \subset {N}_{r}(p)  \) in order for \( {N}_{r}(p) \) to be open. Let \( x \in {N}_{h}(y) \). Using the triangle inequality, we can see that 
+\begin{align*}
+    d(p,x) &\leq d(p,y) + d(y,x) \\
+           &< (r - h) + h \\
+           &= r.
+\end{align*}
+This tells us that \( x \in {N}_{r}(p) \), proving that \( {N}_{r}(p) \) is an open set.
+\end{proof}
+
+\begin{theorem}[ ]
+    If \( p  \) is a limit point of a set \( E  \), then every neighborhood of \( p  \) contains infinitely many points of \( E  \).
+\end{theorem}
+\begin{proof}
+Suppose for sake of contradiction that there exists a neighborhood \( N \) of \( p  \) which contains only a finite number of points of \( E  \). Let \( {q}_{1}, {q}_{2}, \dots, {q}_{n} \) be the points of \( N \cap E  \) such that \( {q}_{m} \neq p  \) for all \( m  \). Observe that
+\[  r = \min_{1 \leq m \leq n} d(p, {q}_{m}) > 0 \]
+since each \( d(p, {q}_{m}) > 0 \). Since each \( d(p, {q}_{m}) < {\delta}_{m }  \) and not \( d(p, {q}_{m}) = {\delta}_{m} \), we have that none of the \( {q}_{m} \in {N}_{r}(p) \) where \( {q}_{m} \neq p  \). So, \( p  \) must not be a limit point of \( E  \) which is a contradiction. Thus, every neighborhood of \( p \) must contain infinitely many points of \( E  \).
+\end{proof}
+
+\begin{corollary}
+   A finite point set has no limit points. 
+\end{corollary}
+
+\begin{eg}[Examples of Closed, Open, Perfect, Bounded Sets]
+   \begin{enumerate}
+       \item[(a)] The set of all \( z \in \C  \) such that \( | z  |  < 1  \). \textbf{Open and Bounded}
+        \item[(b)] The set of all \( z \in \C  \) such that \( | z  |  \leq 1  \). \textbf{Closed, Perfect, Bounded}  
+        \item[(c)] A nonempty finite set. \textbf{(Closed, Bounded)}
+        \item[(d)] The set of all integers. \textbf{(Closed)}
+        \item[(e)] The set 
+            \[ E =  \Big\{ \frac{ 1 }{ n } : n \in \N  \Big\}.  \]
+            Note that no point of \( E  \) is a limit point of \( E  \); that is, there are no limit points contained in \( E  \). \textbf{Bounded}
+        \item[(f)] The set of all complex numbers (that is, \( \R^{2} \)).
+        \item[(g)] The segment \( (a,b) \). \textbf{(Bounded)}
+   \end{enumerate}  
+\end{eg}
+
+Note that \( (g) \) is not open in \( \R^{1} \) but open in \( \R^{2} \).
+
+\begin{theorem}[ ]
+    Let \( \{ {E}_{\alpha} \}  \) be a (either finite or infinite) collection of sets \( {E}_{\alpha} \). Then
+    \[  \Big(  \bigcup_{ \alpha } {E}_{\alpha}  \Big)^{c} = \bigcap_{ \alpha }^{  } ({E}_{\alpha}^{c}). \]
+\end{theorem}
+
+\begin{theorem}[ ]
+    A set \( E  \) is open if and only if its complement is closed.
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+
+\end{document}

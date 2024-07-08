@@ -1,0 +1,39 @@
+\documentclass[11pt,a4paper]{book}
+
+\usepackage{standalone}
+\usepackage{import}
+\input{../../../../../newpreamble.tex}
+
+\begin{document}
+
+\begin{definition}[Convergence in \( \C \)]
+    A sequence \( ({z}_{n}) \subset \C \) is said to \textbf{converge} to \( w \in \C  \) if 
+    \[ \lim_{ n \to \infty  }  | {z}_{n} - w  | = 0   \]
+    and we write
+    \[  w = \lim_{ n \to  \infty  } {z}_{n}. \]
+\end{definition}
+The two formulae above are equivalent to each other.
+
+\begin{itemize}
+    \item In other words, \( ({z}_{n})  \) converges to \( w  \) if and only if the corresponding sequence of points in the complex plane converges to the point that corresponds to \( w \). 
+    \item We can check that \( ({z}_{n}) \to w  \) if and only if for \( w = a + bi  \), we have \( ({a}_{n}) \to a  \) and \( ({b}_{n}) \to b  \); that is, the real and imaginary parts of the sequence of complex numbers converges, respectively.
+\end{itemize}
+
+\begin{definition}[Cauchy Sequence]
+    A sequence \( ({z}_{n})  \) is said to be a \textbf{Cauchy sequence} if 
+    \[  | {z}_{n} - {z}_{m} |  \to 0  \]
+    as \( n,m \to \infty  \).
+\end{definition}
+
+\begin{itemize}
+    \item In other words, given any \( \epsilon > 0  \), there exists an integer \( N > 0  \) such that \( | {z}_{n} - {z}_{m} | < \epsilon  \) whenever \( n,m > N  \).
+    \item Similarly to how \( \R  \) is complete and how all \( z \in \C   \) are made up of a tuple of real numbers in \( \R^{2} \), we see that if \( ({z}_{n}) \) is Cauchy, then every Cauchy complex sequence converges to a limit that is in \( \C  \).
+\end{itemize}
+
+\begin{theorem}[ ]
+    The set of complex numbers \( \C  \) is complete.
+\end{theorem}
+
+
+
+\end{document}
