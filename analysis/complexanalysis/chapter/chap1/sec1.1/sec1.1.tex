@@ -62,7 +62,7 @@
         where \( z = r e^{i\theta} \) and \( w = s e^{i \varphi} \). The \( rs  \) is corresponds to the dialation of \( zw  \) and \( \theta + \varphi \) corresponds to a rotation.
 \end{itemize}
 
-\section{Convergence}
+\subsection{Convergence}
 
 \begin{definition}[Convergence in \( \C \)]
     A sequence \( ({z}_{n}) \subset \C \) is said to \textbf{converge} to \( w \in \C  \) if 
@@ -92,17 +92,294 @@ The two formulae above are equivalent to each other.
     The set of complex numbers \( \C  \) is complete.
 \end{theorem}
 
-\section{Sets in the complex plane}
+\subsection{Sets in the complex plane}
 
-\begin{definition}[Open Discs]
-    If \( {z}_{0} \in \C  \) and \( r > 0  \), we denote the \textbf{open disc \( {D}_{r}({z}_{0}) \) of radius \( r  \) centered at \( {z}_{0} \)} to be the set  
+\begin{itemize}
+    \item If \( {z}_{0} \in \C  \) and \( r > 0  \), we denote the \textbf{open disc \( {D}_{r}({z}_{0}) \) of radius \( r  \) centered at \( {z}_{0} \)} to be the set  
     \[  {D}_{r}({z}_{0}) = \{ z \in \C : | z - {z}_{0} | < r \}. \]
+\item If \( {z}_{0} \in \C  \) and \( r > 0  \), we denote the \textbf{closed disc \( \overline{{D}_{r}}({z}_{0})  \) of radius \( r  \) centered at \( {z}_{0} \)} to be the set 
+    \[ \overline{{D}_{r}}({z}_{0}) = \{ z \in \C : | z - {z}_{0} |  \leq r  \}.    \]
+\item The \textbf{boundary} of either a closed disc or an open disc is given by the set 
+    \[  {C}_{r}({z}_{0}) = \{ z \in \C : | z - {z}_{0} | = r  \}. \]
+\item We denote the \textbf{unit disc} as the set
+    \[  \mathbf{D} = \{ z \in \C : | z  |  < 1  \}. \]
+    \item Given a set \( \Omega \subset \C  \), a point \( {z}_{0} \in \Omega  \) is called an \textbf{interior point} of \( \Omega \) if there exists \( r > 0  \) such that
+    \[  {D}_{r}({z}_{0}) \subset \Omega. \]
+\item A set \( \Omega  \) is \textbf{open} if every point in that set is an interior point of \( \Omega \). 
+\item A point \( z \in \C  \) is said to be a \textbf{limit point} of the set \( \Omega  \) if there exists a sequence of points \( {z}_{n} \in \Omega \) such that \( {z}_{n} \neq z  \) and \( \lim_{ n \to \infty  }  {z}_{n} = z  \).
+\item The \textbf{boundary} of a set \( \Omega \) is equal to its closure minus its interior, and is often denoted by \( \partial \Omega \). 
+\item A set \( \Omega  \) is \textbf{bounded} if there exists \( M > 0  \) such that \( | z  |  < M  \) whenever \( z \in \Omega  \); that is, \( \Omega  \) is contained in some large disc.
+\item If \( \Omega  \) is bounded, we define its \textbf{diameter} by
+    \[  \text{diam}(\Omega) = \sup_{z,w \in \Omega} | z - w  |.  \]
+\item A set \( \Omega  \) is said to be \textbf{compact} if it is closed and bounded.
+\end{itemize}
+
+\begin{theorem}[ ]
+    The set \( \Omega \subset \C  \) is compact if and only if every sequence \( \{ {z}_{n} \}  \subset \Omega  \) has a subsequence that converges to a point in \( \Omega \).
+\end{theorem}
+
+\begin{theorem}[ ]
+   A set \( \Omega  \) is compact if and only if every open covering of \( \Omega  \) contains a finite subcovering. 
+\end{theorem}
+
+The next result will be used to prove Goursat's Theorem (in our study of complex function theory) in a later section.
+
+\begin{prop}
+    If \( {\Omega}_{1} \supset {\Omega}_{2} \supset \cdots \supset {\Omega}_{n} \supset \cdots  \) is a sequence of non-empty compact sets in \( \C  \) with the property that 
+    \[  \text{diam}({\Omega}_{n}) \to 0 \ \text{as} \ n \to \infty,  \]
+    there exists a unique point \( w \in \C  \) such that \( w \in {\Omega}_{n} \) for all \( n  \).
+\end{prop}
+\begin{proof}
+    Choose a point \( {z}_{n} \in {\Omega}_{n}  \) for each \( n  \). Since we have sequence of non-empty compact sets in \( \C  \) such that \( \text{diam}(\Omega_n) \to 0  \) as \( n \to \infty  \), we have that \( ({z}_{n})   \) is Cauchy. Thus, \( ({z}_{n}) \to w  \) and that \( w \in {\Omega}_{n} \) since each \( {\Omega}_{n} \) for all \( n \) is closed. To prove uniqueness, suppose \( w' \) is another point that satisfies the same properties as \( w  \) such that \( w \neq w' \). Then this would violate our assumption that \( \text{diam}({\Omega}_{n}) \to 0  \) because we would have \( | w - w' | > 0  \). Thus, we must have \( w = w' \), proving that \( w  \) is unique.
+\end{proof}  
+
+\begin{itemize}
+    \item We say that an open set \( \Omega \subset \C  \) is \textbf{connected} if it is not possible to find two disjoint non-empty open sets \( {\Omega}_{1}  \) and \( {\Omega}_{2} \) such that
+        \[  \Omega = {\Omega}_{1} \cup {\Omega}_{2}. \]
+    \item A connected open set in \( \C  \) is called a \textbf{region}.
+    \item A closed set \( F  \) is connected if one cannot write \( F = {F}_{1} \cup {F}_{2} \) where \( {F}_{1} \) and \( {F}_{2} \) are disjoint non-empty closed sets. 
+\end{itemize}
+
+\subsection{Functions on the Complex plane}
+
+\subsubsection{Continuous Functions}
+
+\begin{definition}[Continuity]
+    Let \( f  \) be a function defined on a set \( \Omega \subset \C   \). We say that \( f  \) is \textbf{continuous} at the point \( {z}_{0} \in \Omega  \) if for every \( \epsilon > 0  \), there exists \( \delta > 0  \) such that whenever \( z \in \Omega  \) and \( | z - {z}_{0} |  < \delta  \), then 
+    \[  | f(z) - f({z}_{0}) | < \epsilon. \]
 \end{definition}
 
-\begin{definition}[Closed Discs]
-    If \( {z}_{0} \in \C  \) and \( r > 0  \), we denote the \textbf{closed disc \( \overline{{D}_{r}}({z}_{0})  \) of radius \( r  \) centered at \( {z}_{0} \)} to be the set 
-    \[ \overline{{D}_{r}}({z}_{0}) = \{ z \in \C : | z - {z}_{0} |  \leq r  \}.    \]
+\begin{definition}[Sequential Definition of Continuity]
+    The function \( f  \) is said to be continuous on \( \Omega  \) if for every \( ({z}_{n}) \subset \Omega  \) such that \( \lim {z}_{n} = {z}_{0} \), then \( \lim f({z}_{n})  = f({z}_{0})\).
 \end{definition}
+
+\begin{itemize}
+    \item Recall that sums of continuous and products of continuous functions are continuous.
+    \item A complex function is continuous if and only if the corresponding real and imaginary parts of \( f  \) is continuous.
+\end{itemize}
+
+\begin{definition}[Maximums/Minimums of Complex Functions]
+    We say that \( f  \) attains a \textbf{maximum} at the point \( {z}_{0} \in \Omega  \) if 
+    \[  | f(z) |  \leq | f({z}_{0}) | \ \text{ for all } z \in \Omega,  \]
+    with the inequality reversed for the definition of a \textbf{minimum}.
+
+\end{definition}
+
+\begin{theorem}[Continuous Functions on Compact Sets]
+    A continuous function on a compact set \( \Omega  \) is bounded and attains a maximum and minimum on \( \Omega  \).
+\end{theorem}
+
+\subsection{Holomorphic Functions}
+
+\begin{definition}[Holomorphic at a point]
+    Let \( \Omega \subset \C   \) be an open set and \( f  \) is a complex-valued function on \( \Omega  \). The function \( f  \) is \textbf{holomorphic at the point} \( {z}_{0} \in \Omega  \) if the quotient 
+    \[  \frac{ f({z}_{0} + h) - f({z}_{0})  }{ h  }  \]
+    converges to a limit when \( h \to  0  \). When this limit exists, we denote
+    \[  f'({z}_{0}) = \frac{ f({z}_{0} + h ) - f({z}_{0}) }{ h }  \]
+    as the derivative of \( f  \) at \( {z}_{0} \).
+\end{definition}
+
+Note that we're assuming that \( h \in \C  \) and that \(  h \neq 0  \) with \( {z}_{0} + h \in \Omega  \), so that the quotient is well-defined. 
+
+Note that \( h  \) is a complex number that may approach \( 0  \) from any direction.
+
+\begin{definition}[Holomorphic on a subset of \( \C \)]
+    \begin{itemize}
+        \item The function \( f  \) is said to be \textbf{holomorphic on \( \Omega \)} if \( f  \) is holomorphic at every point of \( \Omega  \).
+        \item If \( C  \) is a closed subset of \( \C  \), we say that \( f  \) \textbf{holomorphic on \( \C  \)}.
+        \item If \( C  \) is an open subset, then we say \( f  \) is \textbf{entire}.
+    \end{itemize}
+\end{definition}
+
+\begin{itemize}
+    \item Holomorphic functions have nicer properties than differentiable functions of real variable.
+    \item Differentiability of complex functions imply infinite differentiability.
+    \item Every holomorphic function is analytic; that is, we can power series expansion at every point.
+    \item This is much nicer than real-valued functions, which often have more restrictive properties.
+\end{itemize}
+
+\begin{prop}
+    A function \( f  \) is holomorphic at \( {z}_{0} \in \Omega  \) if and only if there exists \( a \in \C  \) such that
+    \[  f({z}_{0} + h) - f({z}_{0}) - ah = h \psi(h) \]
+    where \( \psi  \) is a function defined for all \( h  \) and \( \lim_{ h \to 0 } \psi(h) = 0 \).
+\end{prop}
+
+\begin{prop}
+    If \( f  \) and \( g  \) are holomorphic in \( \Omega  \), then:
+    \begin{enumerate}
+        \item[(i)] \( f + g  \) is holomorphic in \( \Omega  \) and \( (f+ g)' = f' + g' \).
+        \item[(ii)] \( fg  \) is hoolomorphic in \( \Omega  \) and \( (fg)' = f'g + f g' \).
+        \item[(iii)] If \( g({z}_{0}) \neq 0  \), then \( f / g  \) is holomorphic at \( {z}_{0} \) and
+            \[  (f/g)' = \frac{ f' g - f g' }{ g^{2} }. \]
+    \end{enumerate}
+    Moreover, if \( f : \Omega \to U  \) and \( g: U \to \C  \) are holomorphic, the chain rule holds
+    \[  (g \circ f)'(z) = g'(f(z)) f'(z).  \]
+\end{prop}
+
+\subsubsection{Complex-valued Functions as Mappings}
+
+\begin{itemize}
+    \item Notion of complex differentiability is significantly more different than real differentiability of two variables.
+    \item The existence of the real derivative does not necessarily guarantee that \( f  \) will be holomorphic.
+\end{itemize}
+
+\begin{prop}
+   If \( f  \) is holomorphic at \( {z}_{0} \), then 
+   \[ \frac{ \partial f  }{  \partial \overline{z} } ({z}_{0}) = 0 \ \ \text{and} \ \ f'({z}_{0}) = \frac{ \partial f  }{ \partial z  } ({z}_{0}) = 2 \frac{ \partial u  }{  \partial z  } ({z}_{0}).  \] 
+
+   Also, if we write \( F(x,y) = f(z) \), then \( F  \) is differentiable in the sense of real variables, and
+   \[  \text{det} {J}_{F}({x}_{0}, {y}_{0}) = | f'({z}_{0}) |^{2}.  \]
+\end{prop}
+
+
+\subsubsection{Integration along Curves}
+
+\begin{definition}[Parametrization]
+    \begin{itemize}
+        \item We call a \textbf{parametrized curve} as a function \( z(t) \) that maps a closed interval \( [a,b] \subset \R  \) to \( \C^{2} \).
+        \item We say that a parametrized curve is \textbf{smooth} if \( z'(t)\) exists and is continuous on \( [a,b] \), and \( z'(t) \neq 0 \) for \( t \in [a,b] \).
+        \item At the endpoints \( t = a  \) and \( t = b  \), the quantities \( z'(a) \) and \( z'(b) \) are \textbf{left-handed derivative/right-handed derivative}; that is,  
+            \[ z'(a) = \lim_{ h  \to 0  }  \frac{ z(a+h) - z(a)  }{ h  } \ \ \text{and} \ \ z'(b) = \lim_{ h \to 0 } \frac{ z(b+h) - z(b) }{ h  }    \]
+            with the limit in \( z'(a) \) approaching for values \( h > 0  \) and the limit in \( z'(b) \) approaching for values \( h < 0  \).
+        \item We say that the parametrized curve is \textbf{piecewise-smooth} if \( z  \) is continuous on \( [a,b] \), and if there exists points 
+            \[  a = {a}_{0} < {a}_{1} < \cdots < {a}_{n} = b, \]
+            where \( z(t) \) is smooth in the intervals \( [{a}_{k }, {a}_{k+1}] \).
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[ ]
+    \begin{itemize}
+        \item The family of parametrizations that are equivalent to \( z(t) \) determines a \textbf{smooth curve} \( \gamma \subset \C  \); that is, the image of \( [a,b] \) under \( z  \) with the orientation given by \( z  \) as \( t  \) travels from \( a \) to \( b \).
+        \item The points \( z(a) \) and \( z(b) \) are called the \textbf{end-points} of the curve and are independent on the parametrization. Since \( \gamma \) carries an orientation, it is natural to say that \( \gamma \) begins at \( z(a) \) and ends at \( z(b) \).
+        \item We call a smooth or piecewise-smooth curve \textbf{closed} if \( z(a) \) and \( z(b) \) for any parametrization. 
+        \item We call a piecewise-smooth curve \textbf{simple} if it is \textbf{NOT} self-intersecting; that is, \( z(t) \neq z(t) \) unless \( s = t  \).   
+    \end{itemize}
+\end{definition}
+
+\begin{itemize}
+\item We call curves that are closed to begin with simple whenever \( z(t) \neq z(s) \) unless \( s = t  \) or that \( s = a  \) and \( t = b  \).
+\item The endpoints of a curve are independent of parametrization.
+\item We will call any piecewise-smooth curve as a \textbf{curve}.
+\end{itemize}
+
+\begin{definition}[Orientation]
+    \begin{itemize}
+        \item The \textbf{positive orientation} (counterclockwise) is the one that is given by the standard parametrization  
+            \[  z(t) = {z}_{0} + r e^{i t}, \ \ \text{where} \  t \in [0,2\pi]. \]
+        \item On the other hand, the \textbf{negative orientation} (clockwise) is give by
+    \[  z(t) = {z}_{0} + r e^{-i t}, \ \ \text{where} \   t \in [0,2\pi]. \]
+    \end{itemize}
+\end{definition}
+
+\begin{prop}
+   Integration of continuous functions over curves satisfies the following properties: 
+   \begin{enumerate}
+       \item[(i)] It is linear, that is, if \( \alpha, \beta \in \C  \), then
+           \[  \int_{ \gamma }^{  }  (\alpha f(z) + \beta g(z)) \ dz = \alpha \int_{ \gamma }^{  } f(z) \ dz + \beta \int_{ \gamma }^{  }  g(z) \ dz. \]
+       \item[(ii)] If \( \gamma^{-} \) is \( \gamma \) with the reverse orientation, then
+           \[  \int_{ \gamma }^{  } f(z) \ dz = - \int_{ \gamma^{-} }^{  }  f(z) \ dz. \]
+        \item[(iii)] One has the inequality
+            \[  \Big| \int_{ \gamma }^{  } f(z) \ dz \Big| \leq \sup_{z \in \gamma} | f(z) | \cdot \text{length}(\gamma).   \]
+   \end{enumerate}
+\end{prop}
+
+\subsection{Exercises}
+
+\begin{enumerate}
+    \item Suppose \( U  \) and \( V  \) are open sets in the complex plane. Prove that if \( f: U \to V  \) and \( g: V \to \C  \) are two functions that are differentiable (in the real sense, that is, as functions of the two real variables \( x  \) and \( y  \)), and \( h = g \circ f  \), then
+       \[  \frac{ \partial h  }{  \partial z  } = \frac{ \partial g  }{  \partial z  }  \frac{  \partial f  }{  \partial z  }  + \frac{ \partial g  }{  \partial \overline{z} } \frac{ \partial \overline{f} }{ \partial z  }  \] 
+       and
+\[  \frac{ \partial h  }{  \partial \overline{z}  } = \frac{ \partial g  }{  \partial z  }  \frac{  \partial f  }{  \partial \overline{z}  }  + \frac{ \partial g  }{  \partial \overline{z} } \frac{ \partial \overline{f} }{ \partial \overline{z}  }.  \] 
+    This is the complex version of the chain rule.
+    \begin{proof}
+    
+    \end{proof}
+    \item Show that in polar coordinates, the Cauchy-Riemann equations take the form 
+        \[  \frac{ \partial u  }{ \partial r  }  = \frac{ 1 }{ r }  \frac{ \partial v   }{ \partial \theta } \ \text{and} \ \frac{ 1 }{ r }  \frac{ \partial u  }{  \partial \theta  }  = - \frac{ \partial v  }{  \partial r  }.  \]
+        Use these equations to show that the logarithm function defined by
+        \[  \log z = \log r + i \theta \ \ \text{where} \ z = r e^{i \theta} \ \text{with} - \pi < \theta < \pi    \]
+        is holomorphic in the region \( r > 0  \) and \( - \pi < \theta < \pi \).
+        \begin{proof}
+        Note that we have \( f = u + iv    \) and that \( x = r \cos \theta  \) and \( y = r \sin \theta \). Note that  
+        \[  \frac{\partial x }{\partial r  }  = \cos \theta \ \ \text{and} \ \ \frac{\partial y }{\partial r }  = \sin \theta   \]
+        and
+        \[  \frac{\partial x }{\partial \theta  }  = -r \sin \theta \ \ \text{and} \ \ \frac{\partial y }{\partial \theta  } = r \cos \theta.   \]
+        Using the partial chain rule for real valued functions and using the Cauchy-Riemann equations, we can see that
+        \begin{align*}  \frac{\partial u  }{\partial  r  }  &= \frac{\partial u }{\partial x  }  \frac{\partial x  }{\partial r  }  + \frac{\partial u  }{\partial y }  \frac{\partial y }{\partial r  } \\ 
+            &= \frac{\partial u }{\partial x }  \cos \theta + \frac{\partial u }{\partial y }  \sin \theta  \\
+            &= \frac{ 1 }{ r } \Big(   \frac{\partial v }{\partial y }   r \cos \theta - \frac{\partial v   }{\partial x  }  r \sin \theta \Big) \\
+            &= \frac{ 1 }{ r }  \Big(  \frac{\partial v }{\partial y }  \frac{\partial y }{\partial \theta  }  + \frac{\partial v }{\partial x }  \frac{\partial x  }{\partial \theta  }  \Big) \\ 
+            &= \frac{ 1 }{ r } \frac{\partial v }{\partial \theta  }
+        \end{align*}
+        which proves our first equation. Similarly, we have 
+        \begin{align*}
+            \frac{ 1 }{ r }  \frac{\partial u }{\partial \theta  }  &= \frac{ 1 }{ r }  \Big(  \frac{\partial u }{\partial x  }  \frac{\partial x  }{\partial  \theta  }  + \frac{\partial u }{\partial y }  \frac{\partial y }{\partial \theta  }  \Big) \\
+                                                                    &= \frac{ 1 }{ r } \Big( - \frac{\partial u  }{\partial x   } r \sin \theta + \frac{\partial u }{\partial y } r \cos \theta   \Big) \\
+                                                                    &= - \frac{ 1 }{ r } \Big(  \frac{\partial v }{\partial y }   r \sin \theta   \frac{\partial v  }{\partial x  }  r \cos \theta   \Big) \\
+                                                                    &= - \Big(  \frac{\partial v }{\partial y }  \frac{\partial y }{\partial r  }  + \frac{\partial v }{\partial x }  \frac{\partial x }{\partial r  }  \Big)  \\
+                                                                    &=  - \frac{\partial v }{\partial r }.
+        \end{align*}
+
+        \end{proof}
+    \item Show that 
+        \[  4 \frac{\partial  }{\partial z  }  \frac{\partial  }{\partial \overline{z} } = 4 \frac{\partial  }{\partial \overline{z} }  \frac{\partial  }{\partial z }  = \Delta   \]
+        where \( \Delta  \) is the \textbf{Laplacian}
+        \[ \Delta = \frac{\partial^{2}  }{\partial x^{2} } + \frac{\partial^{2} }{\partial  y^{2} }.     \]
+        \begin{proof}
+        Note that
+        \[  \frac{\partial  }{\partial z }  = \frac{ 1 }{ 2 }  \Big(  \frac{\partial  }{\partial x }  + \frac{ 1 }{ i }  \frac{\partial  }{\partial y }  \Big) \]
+        and 
+        \[  \frac{\partial  }{\partial \overline{z} }  = \frac{ 1 }{ 2 }  \Big( \frac{\partial  }{\partial x }  - \frac{ 1  }{ i }  \frac{\partial  }{\partial y }   \Big).  \]
+        Thus, we have
+        \begin{align*}
+            4 \frac{\partial  }{\partial z }  \frac{\partial  }{\partial \overline{z} } &=   \Big( \frac{\partial  }{\partial x }  + \frac{ 1 }{ i }  \frac{\partial  }{\partial y }   \Big) \Big(  \frac{\partial  }{\partial x }  - \frac{ 1 }{ i }  \frac{\partial  }{\partial y }  \Big) \\
+                                                                                        &= \frac{\partial^{2} }{\partial x^{2} }  - \frac{ 1 }{ i^{2} } \frac{\partial^{2} }{\partial y^{2} }  \\
+                                                                                        &= \frac{\partial^{2} }{\partial x^{2} }  +  \frac{\partial^{2} }{\partial y^{2} }  \\
+                                                                                        &= \Delta.
+        \end{align*}
+        Similarly, we can derive the same result with \( 4 \frac{\partial  }{\partial \overline{z} } \frac{\partial  }{\partial z }  \). Thus, we have  
+        \[  4 \frac{\partial  }{\partial z  }  \frac{\partial  }{\partial \overline{z} } = 4 \frac{\partial  }{\partial \overline{z} }  \frac{\partial  }{\partial z }  = \Delta   \]
+        \end{proof}
+    \item Use Exercise 10 to prove that if \( f  \) is holomorphic in the open set \( \Omega \), then the real and imaginary parts of \( f  \) are \textbf{harmonic}; that is, their Laplacian is zero.
+        \begin{proof}
+        To show that the real and imaginary parts of \( f  \) are \textbf{harmonic}, we need to show that
+        \[  \Delta u  =  \frac{\partial ^{2} u }{\partial  x^{2} }  + \frac{\partial ^{2} u }{\partial y^{2} }  = 0 \]
+        and
+        \[ \Delta v = \frac{\partial ^{2} v }{\partial x^{2} }  + \frac{\partial ^{2} v  }{\partial y^{2} } = 0   \]
+        where \( u  \) and \( v  \) are the real and imaginary parts of \( f  \), respectively.
+        Since \( f  \) is holomorphic in the open set \( \Omega  \), then the Cauchy-Riemann equations must hold; that is, 
+        \[  \frac{\partial u }{\partial x }  = \frac{\partial v }{\partial y } \ \ \text{and} \ \ \frac{\partial u }{\partial y } = - \frac{\partial v }{\partial x }.   \]
+        Thus, using Clairaut's Theorem we can see that
+        \begin{align*}
+            \Delta u  =  \frac{\partial ^{2} u }{\partial  x^{2} }  + \frac{\partial ^{2} u }{\partial y^{2} }  
+                      &= \frac{\partial  }{\partial x  }  \Big(  \frac{\partial u }{\partial x }  \Big) + \frac{\partial  }{\partial y }  \Big(  \frac{\partial u }{\partial y }  \Big) \\ 
+                      &= \frac{\partial  }{\partial x  }  \Big(  \frac{\partial v }{\partial y }  \Big) + \frac{\partial  }{\partial y }  \Big(  -\frac{\partial v }{\partial x }  \Big) \\ 
+                      &= \frac{\partial v^{2} }{ \partial x \partial y } - \frac{\partial  v^{2}  }{\partial y \partial x   } \\
+                      &= 0.
+        \end{align*}
+        By a similar argument, we have that
+            \[ \Delta v = \frac{\partial ^{2} v }{\partial x^{2} }  + \frac{\partial ^{2} v  }{\partial y^{2} } = - \frac{\partial ^{2} u  }{\partial x \partial y  }  + \frac{\partial ^{2} u  }{\partial y \partial x  }   = 0.   \]
+        Thus, the real and imaginary parts of \( f  \) are harmonic.  
+        \end{proof}
+    \item Consider the function defined by
+        \[  f(x + iy) = \sqrt{ | x  |  | y |  }, \ \ \text{whenever } x,y \in \R.   \]
+    Show that \( f  \) satisfies the Cauchy-Riemann equations at the origin, yet \( f  \) is not holomorphic at \( 0 \).
+    \begin{proof}
+    
+    \end{proof}
+    \item Suppose that \( f  \) is holomorphic in an open set \( \Omega  \). Prove that in any one of the following cases:
+        \begin{enumerate}
+            \item[(a)] \( \Re(f) \) is constant;
+            \item[(b)] \( \Im(F) \) is constant;
+            \item[(c)] \( | f |  \) is constant;
+        \end{enumerate}
+        one can conclude that \( f  \) is constant.
+        \begin{proof}
+        
+        \end{proof}
+\end{enumerate}
+
+
 
 
 \end{document}

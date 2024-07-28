@@ -108,8 +108,84 @@ Note that \( (g) \) is not open in \( \R^{1} \) but open in \( \R^{2} \).
     A set \( E  \) is open if and only if its complement is closed.
 \end{theorem}
 \begin{proof}
+    For the forwards direction, let \( x  \) be a limit point of \( E^{c} \). Thus, for all neighborhoods \( N(x) \), \( N(x)  \) contains a point \( q \neq x  \) such that \( q \in E^{c}  \). Since \( E  \) is open, \( N(e) \subset E  \) for every \( e \in E  \). Since \( q \notin E^{c} \), \( q  \) must NOT be an interior point of \( E  \). Thus, \( x \in E^{c} \), proving that \( E^{c} \) is closed. 
+
+   For the backwards direction, suppose \( E^{c} \) is closed. Let \( x \in E  \). Since \( E^{c} \) is closed, all the limit points of \( E^{c} \) must be contained in \( E^{c} \). But \( x \notin E^{c} \), so \( x  \) must not be a limit point of \( E^{c} \). Thus, there exists a neighborhood \( N(x)  \) such that \( N(x) \cap E^{c}  \) is empty. Thus, \( x  \) must be an interior point of \( E  \); that is, \( N(x) \subset E  \). Hence, \( E  \) must be open.  
+\end{proof}
+
+\begin{corollary}
+   A set \( F  \) is closed if and only if its complement is open. 
+\end{corollary}
+
+\begin{theorem}[ ]\label{Theorem 2.24}
+    \begin{enumerate}
+        \item[(a)] For any collection \( \{ {G}_{\alpha} \}  \) of open sets, \( \bigcup_{ \alpha  }^{  }  {G}_{\alpha} \) is open.
+        \item[(b)] For any collection \( \{ {F}_{\alpha} \} \) of closed sets, \( \bigcap_{  \alpha  }^{  }  {F}_{\alpha} \) is closed.
+        \item[c] For any finite collection \( {G}_{1}, {G}_{2}, \dots, {G}_{n} \) of open sets \( \bigcap_{ i=1  }^{ n  } {G}_{i}   \) is open.
+        \item[(d)] For any finite collection \( {F}_{1}, {F}_{2}, \dots, {F}_{n} \) of closed sets \( \bigcup_{ i=1  }^{ n }  {F}_{i} \) is closed.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
 
 \end{proof}
+
+\begin{eg}
+   \begin{itemize}
+       \item The finiteness found in part (c) and (d) of the preceding theorem is essential.
+        \item Suppose \( {G}_{n} = (-1/n, 1/n) \) for \( n \in \N \). We can see that \( {G}_{n} \) is an open subset of \( \R  \). But observe that 
+            \[  G = \bigcap_{ n= 1  }^{  \infty   } (-1/n, 1/n)  \]
+            only contains one point, namely \( 0  \), which implies that \( G  \) is not an open subset of \( \R  \).
+   \end{itemize} 
+\end{eg}
+
+\begin{itemize}
+    \item The intersection of an infinite collection of open sets \textbf{need not} be open.
+    \item The union of an infinite collection of closed sets need not be closed.
+\end{itemize}
+
+\begin{definition}[Closure]
+    If \( X  \) is a metric space, if \( E \subset X  \), and if \( E' \) denotes the set of all limit points of \( E  \) in \( X  \), then the \textit{closure} of \( E  \) is the set \( \overline{E} = E \cup E' \). 
+\end{definition}
+
+\begin{theorem}[ ]
+   If \( X  \) is a metric space and \( E \subset X  \), then 
+   \begin{enumerate}
+       \item[(a)] \( \overline{E} \) is closed,
+        \item[(b)] \( E = \overline{E} \) if and only if \( E  \) is closed.
+        \item[(c)] \( \overline{E} \subset F  \) for every closed set \( F \subset X  \) such that \( E \subset F  \).
+   \end{enumerate}
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+\begin{definition}[Open Relative to \( Y \)]
+    Suppose \( E \subset Y \subset X  \), where \( X  \) is a metric space. To say that the set \( X  \) is \textit{open relative} to \( Y  \) is to say that for each \( p \in E  \), there is an associated \( r > 0  \) such that \( q \in E  \) whenever
+    \begin{center}
+        \( d(p,q) < r  \) and \( q \in Y  \).
+    \end{center}
+\end{definition}
+
+\begin{theorem}[ ]
+    Suppose \( Y \subset X  \). A subset of \( Y  \) is open relative to \( Y  \) if and only if \( E = Y \cap G  \) for some open subset \( G  \) of \( X  \).
+\end{theorem}
+
+\begin{proof}
+    For the forwards direction, suppose \( E  \) is open relative to \( Y  \). For each \( p \in E  \), there exists a positive number \( {r}_{p} \) such that \( q \in E  \) whenever
+    \begin{center}
+         \( d(p,q) < {r}_{p} \) and \( q \in Y \).
+    \end{center}
+    Let \( {V}_{p} \) be the set
+    \[  \{ q \in Y : d(p,q) < {r}_{p} \}  \]
+    by definition. Since each \( {V}_{p} \) is just a neighborhood, we know that each \( {V}_{p} \) has to be an open subset of \( X  \). Thus, we can set
+    \[  G = \bigcup_{ p \in E  }^{  }  {V}_{p} \]
+    which implies \( G  \) is open by part (a) of {\hyperref[Theorem 2.24]{Theorem 2.24}}. Since \( p \in {V}_{p} \) for all \( p \in E  \) and \( p \in Y  \) (since \( E \subset Y  \)), we have \( E \subset Y \cap G   \). (\textbf{This is using the result from set theory that states \( E \subset Y  \) and \( E \subset {V}_{p} \) implies \( E \subset Y \cap {V}_{p} \)}.)
+    With our choice of \( {V}_{p} \), we can see that \( Y \cap {V}_{p} \subset E  \). Since each \( {V}_{p} \subset G   \), we see that \( Y \cap G \subset E  \), which shows that \( E = Y \cap G  \).
+
+    For the backwards direction, suppose \(  E = Y \cap G  \) for some open subset of \( G  \) of \( X  \). Since \( G  \) is open, for every \( p \in E  \), we can construct a neighborhood \( {V}_{p} \) such that \( {V}_{p} \subset G   \). So, \( {V}_{p} \cap Y \subset E   \). Thus, \( E  \) is open relative to \( Y  \).  
+\end{proof}
+
+
 
 
 \end{document}

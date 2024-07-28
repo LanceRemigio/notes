@@ -1,0 +1,29 @@
+\documentclass[11pt,a4paper]{book}
+\input{../../../../../newpreamble.tex}
+\usepackage{standalone}
+\usepackage{import}
+
+\begin{document}
+
+\begin{definition}[Separated]
+    \begin{itemize}
+    \item Two subsets \( A  \) and \( B  \) of a metric space \( X  \) are said to be \textit{separated} if both \( A \cap \overline{B} \) and \( \overline{A} \cap B  \) are empty. That is, if no point of \( A  \) lies in the closure of \( B  \) and no point of \( B \) lies in the closure of \( A  \). 
+    \item A set \( E \subset X  \) is said to be \textit{connected} if \( E  \) is \textit{not} a union of two nonempty separated sets. 
+    \end{itemize}
+\end{definition}
+
+\begin{remark}
+    Separated sets are disjoint, but disjoint sets are not always separated. For example, suppose we have two sets \( [0,1] \) and \( (1,2) \). They are both disjoint since \( 1  \) is not an element of both sets. But if we take the closure of \( (1,2) \), then the intersection with \( [0,1] \) is nonempty. 
+\end{remark}
+
+\begin{theorem}[ ]
+    A subset of \( E  \) of the real line \( \R^{1} \) is connected if and only if it has the following property:  
+    \begin{center}
+        If \( x \in E, y \in E  \), and \( x < z < y  \), then \( z \in E  \).
+    \end{center}
+\end{theorem}
+
+
+
+
+\end{document}

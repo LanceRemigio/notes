@@ -1,3 +1,23 @@
-\contentsline {definition}{\ifthmt@listswap Definition~0.2.1\else \numberline {0.2.1}Definition\fi \thmtformatoptarg {Convergence in \( \ensuremath {\mathbb {C}}\)}}{6}{definition.0.2.1}%
-\contentsline {definition}{\ifthmt@listswap Definition~0.2.2\else \numberline {0.2.2}Definition\fi \thmtformatoptarg {Cauchy Sequence}}{7}{definition.0.2.2}%
-\contentsline {theorem}{\ifthmt@listswap Theorem~0.2.1\else \numberline {0.2.1}Theorem\fi \thmtformatoptarg { }}{7}{theorem.0.2.1}%
+\addvspace {10\p@ }
+\contentsline {definition}{\ifthmt@listswap Definition~1.1.1\else \numberline {1.1.1}Definition\fi \thmtformatoptarg {Convergence in \( \ensuremath {\mathbb {C}}\)}}{8}{definition.1.1.1}%
+\contentsline {definition}{\ifthmt@listswap Definition~1.1.2\else \numberline {1.1.2}Definition\fi \thmtformatoptarg {Cauchy Sequence}}{9}{definition.1.1.2}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~1.1.1\else \numberline {1.1.1}Theorem\fi \thmtformatoptarg { }}{9}{theorem.1.1.1}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~1.1.2\else \numberline {1.1.2}Theorem\fi \thmtformatoptarg { }}{10}{theorem.1.1.2}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~1.1.3\else \numberline {1.1.3}Theorem\fi \thmtformatoptarg { }}{10}{theorem.1.1.3}%
+\contentsline {prop}{\ifthmt@listswap Proposition~1.1.1\else \numberline {1.1.1}Proposition\fi }{10}{prop.1.1.1}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{10}{thmt@dummyctr.dummy.7}%
+\contentsline {definition}{\ifthmt@listswap Definition~1.1.3\else \numberline {1.1.3}Definition\fi \thmtformatoptarg {Continuity}}{10}{definition.1.1.3}%
+\contentsline {definition}{\ifthmt@listswap Definition~1.1.4\else \numberline {1.1.4}Definition\fi \thmtformatoptarg {Sequential Definition of Continuity}}{10}{definition.1.1.4}%
+\contentsline {definition}{\ifthmt@listswap Definition~1.1.5\else \numberline {1.1.5}Definition\fi \thmtformatoptarg {Maximums/Minimums of Complex Functions}}{11}{definition.1.1.5}%
+\contentsline {theorem}{\ifthmt@listswap Theorem~1.1.4\else \numberline {1.1.4}Theorem\fi \thmtformatoptarg {Continuous Functions on Compact Sets}}{11}{theorem.1.1.4}%
+\contentsline {definition}{\ifthmt@listswap Definition~1.1.6\else \numberline {1.1.6}Definition\fi \thmtformatoptarg {Holomorphic at a point}}{11}{definition.1.1.6}%
+\contentsline {definition}{\ifthmt@listswap Definition~1.1.7\else \numberline {1.1.7}Definition\fi \thmtformatoptarg {Holomorphic on a subset of \( \ensuremath {\mathbb {C}}\)}}{11}{definition.1.1.7}%
+\contentsline {prop}{\ifthmt@listswap Proposition~1.1.2\else \numberline {1.1.2}Proposition\fi }{11}{prop.1.1.2}%
+\contentsline {prop}{\ifthmt@listswap Proposition~1.1.3\else \numberline {1.1.3}Proposition\fi }{12}{prop.1.1.3}%
+\contentsline {prop}{\ifthmt@listswap Proposition~1.1.4\else \numberline {1.1.4}Proposition\fi }{12}{prop.1.1.4}%
+\contentsline {definition}{\ifthmt@listswap Definition~1.1.8\else \numberline {1.1.8}Definition\fi \thmtformatoptarg {Parametrization}}{12}{definition.1.1.8}%
+\contentsline {definition}{\ifthmt@listswap Definition~1.1.9\else \numberline {1.1.9}Definition\fi \thmtformatoptarg { }}{13}{definition.1.1.9}%
+\contentsline {definition}{\ifthmt@listswap Definition~1.1.10\else \numberline {1.1.10}Definition\fi \thmtformatoptarg {Orientation}}{13}{definition.1.1.10}%
+\contentsline {prop}{\ifthmt@listswap Proposition~1.1.5\else \numberline {1.1.5}Proposition\fi }{13}{prop.1.1.5}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{14}{thmt@dummyctr.dummy.21}%
+\contentsline {replacementproof}{\ifthmt@listswap \else \numberline {\let \autodot \@empty }\fi Proof}{14}{thmt@dummyctr.dummy.22}%
