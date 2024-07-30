@@ -370,12 +370,48 @@ Note that \( h  \) is a complex number that may approach \( 0  \) from any direc
     \item Suppose that \( f  \) is holomorphic in an open set \( \Omega  \). Prove that in any one of the following cases:
         \begin{enumerate}
             \item[(a)] \( \Re(f) \) is constant;
-            \item[(b)] \( \Im(F) \) is constant;
+            \item[(b)] \( \Im(f) \) is constant;
             \item[(c)] \( | f |  \) is constant;
         \end{enumerate}
         one can conclude that \( f  \) is constant.
-        \begin{proof}
+        \begin{proof} Suppose that \( f  \) is holomorphic in an open set \( \Omega \). Set \( f = u + iv \) with \( u, v  \) being functions of real variable.
+            \begin{enumerate}
+                \item[(a)] Suppose \( \Re(f) \) is constant. Our goal is to show that
+                    \[  \frac{\partial f }{\partial z }  = 0 \]
+                    in order to show that \( f  \) is constant. Thus, \( \Re(f) = k \) for some constant \( k  \). Since \( f  \) is holomorphic, the Cauchy-Riemann equations hold. Thus, we have
+                    \[  \frac{\partial u  }{\partial x  }  = \frac{\partial v }{\partial y }  \ \ \text{and} \ \ \frac{\partial u }{\partial y }  = - \frac{\partial v }{\partial x }. \]
+                    Since \( u  \) is a constant, we see that 
+                    \[ \frac{\partial v }{\partial y }  =   \frac{\partial u }{\partial x   } = 0 \ \ \text{and} \ \ - \frac{\partial v  }{\partial x } =  \frac{\partial u }{\partial y }  = 0.  \]
+                    Thus, we see that
+                    \begin{align*}
+                        \frac{\partial f }{\partial x }  = \frac{\partial  }{\partial x }  (  u + iv ) 
+                                                         = \frac{\partial u }{\partial x } + i \frac{\partial v }{\partial x }  
+                                                         = 0 + 0 
+                                                         = 0,
+\end{align*}
+and thus,
+\[  \frac{\partial f }{\partial y }  = 0,  \]
+by the same process. Therefore, we have that
+\[  \frac{\partial f }{\partial z }  = \frac{ 1 }{ 2 }  \Big(  \frac{\partial f }{\partial x }  + \frac{ 1 }{ i }  \frac{\partial f }{\partial y }  \Big) = 0 + 0 = 0. \]
+which concludes that \( f  \) is a constant.
+\item[(b)] Suppose \( \Im(f) \) is a constant. Employing the same process found in part (a) gives us our desired result.
+\item[(c)] Now, suppose that \( | f  |  \) is constant. By definition of \( | f |  \), we see that  
+    \[   k = | f  |  = \sqrt{ u^{2} + v^{2} } \implies k^{2} = u^{2} + v^{2}. \]
+    Differentiating with respect to \( x  \), we see that
+    \[  0 = 2 \frac{\partial u }{\partial x }  + 2 \frac{\partial v }{\partial x } \implies \frac{\partial u }{\partial x } + \frac{\partial v }{\partial x }  = 0. \tag{1} \]
+    Similarly, differentiating with respect to \( y  \) gives us
+    \[   \frac{\partial u }{\partial y }  + \frac{\partial v }{\partial y } = 0. \tag{2} \]
+    Since the Cauchy-Riemann equations hold, we can see that (1) leads to
+    \[ \frac{\partial u }{\partial x }  = - \frac{\partial v }{\partial x } = \frac{\partial u }{\partial y }  \]
+    and similarly, 
+    \[  \frac{\partial u }{\partial y } = - \frac{\partial v }{\partial y } = - \frac{\partial u }{\partial x }.    \]
+        Using \( \frac{\partial f }{\partial x }  \) and \( \frac{\partial f }{\partial y }  \), we see that
+        \[  \frac{\partial f }{\partial x }  = \frac{\partial u }{\partial x }  + i \frac{\partial v }{\partial x }  = \frac{\partial u }{\partial x }  - i \frac{\partial u }{\partial x }  \]
+        and
+        \[  \frac{\partial f }{\partial y }  = \frac{\partial u }{\partial y }  +   \]
+
         
+        \end{enumerate} 
         \end{proof}
 \end{enumerate}
 
