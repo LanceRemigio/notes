@@ -1,0 +1,151 @@
+\documentclass[11pt,a4paper]{book}
+\input{../../../../newpreamble.tex}
+\usepackage{standalone}
+\usepackage{import}
+
+\begin{document}
+
+\section{Convergent Sequences}
+
+\begin{definition}[3.1]
+   A sequence \( ({P}_{n}) \) in a metric space \( X  \) is said to \textbf{converge} if there is a point \( p \in X  \) with the following property: For every \( \epsilon > 0  \) there is an integer \( N  \) such that \( n \geq N  \) implies that \( d({p}_{n}, p) < \epsilon  \) where \( d  \) denotes the distance in \( X  \). 
+\end{definition}
+
+\begin{itemize}
+    \item Another way we say the statement above is to say that \( ({p}_{n}) \to p  \), or that \( p  \) is the limit of \( ({p}_{n}) \), or that
+\[  \lim_{ n \to \infty  } {p}_{n} = p. \]
+    \item If \( ({p}_{n}) \) does not converge, then it is said to \textbf{diverge}.
+    \item We can be more specific about the convergence of a sequence by specifying the convergence of the sequence with respect to the metric space.
+\end{itemize}
+
+\begin{theorem}[3.2]
+   Let \( ({p}_{n}) \) be a sequence in a metric space \( X  \). 
+   \begin{enumerate}
+       \item[(a)] \( ({p}_{n}) \) converges to \( p \in X  \) if and only if every neighborhood of \( p  \) contains \( {p}_{n} \) for all but finitely many \( n \).
+       \item[(b)] If \( p \in X  \), \( p' \in X  \), and if \( ({p}_{n}) \) converges to \( p  \) and to \( p' \), then \( p' = p \).  
+        \item[(c)] If \( ({p}_{n}) \) converges, then \( ({p}_{n}) \) is bounded.
+        \item[(d)] If \( E \subset X  \) and if \( p  \) is a limit point of \( E  \), then there is a sequence \( ({p}_{n}) \) in \( E  \) such that \( p = \lim_{ n \to \infty  } {p}_{n}  \).
+   \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[3.3]
+   Suppose \( ({s}_{n}), ({t}_{n}) \) are complex sequences and \( \lim_{ n \to \infty  }  {s}_{n} = s  \), \( \lim_{ n \to \infty  }  {t}_{n} = t  \). Then  
+   \begin{enumerate}
+       \item[(a)] \( \lim_{ n \to \infty  }  ({s}_{n} + {t}_{n}) = s + t  \);
+        \item[(b)] \( \lim_{ n \to \infty  }  c {s}_{n} = cs  \), \( \lim_{ n \to \infty  }  (c + {s}_{n}) = c + s  \) for any number \( c  \);
+        \item[(c)] \( \lim_{ n \to \infty  }  {s}_{n} {t}_{n} = s t    \);
+        \item[(d)] \( \lim_{ n \to \infty  }  (1 / s_{n}) = 1/s \), provided \( {s}_{n} \neq 0 (n = 1,2,3,\dots)  \) and \( s \neq 0  \).
+   \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[3.4]
+    \begin{enumerate}
+        \item[(a)] Suppose \( {x}_{n} \in \R^{k} \  (n = 1,2,3 \dots ) \) and 
+            \[  {x}_{n} = ({\alpha}_{1,n}, \dots , {\alpha}_{k,n}). \] 
+            Then \( ({x}_{n}) \to x  \) with \( x =  ({\alpha}_{1}, {\alpha}_{2}, \dots , {\alpha}_{k}) \) if and only if
+            \[  \lim_{ n \to \infty  }  {\alpha}_{j, n } = {\alpha}_{j} \ \ (1 \leq j \leq k ). \]
+        \item[(b)] Suppose \( ({x}_{n}), ({y}_{n}) \) are sequences in \( \R^{k } \), \( ({\beta}_{n}) \) is a sequence of real numbers, and \( {x}_{n} \to x  \), \( {y}_{n} \to y  \), and \( {\beta}_{n} \to \beta  \). Then
+            \[  \lim_{ n \to \infty  }  ({x}_{n} + {y}_{n}) = x + y, \ \ \lim_{ n \to \infty  }  {x}_{n} \cdot {y}_{n} = x \cdot y , \ \ \lim_{ n \to \infty  }  {\beta}_{n} {x}_{n} = \beta x. \]
+    \end{enumerate}
+\end{theorem}
+
+\section{Subsequences}
+
+\begin{definition}[3.5]
+   Given a sequence \( ({p}_{n}) \), consider a sequences \( ({n}_{k}) \) of positive integers such that \( {n}_{1} < {n}_{2} < \dots  \). Then the sequence \( ({p}_{{n}_{i}}) \) is called a \textbf{subsequence} of \( ({p}_{n}) \). If \( ({p}_{{n}_{i}}) \) converges, its limit is called the \textbf{subsequential limit} of \( ({p}_{n}) \). 
+\end{definition}
+
+Recall that if \( ({p}_{n}) \) converges to \( p  \) iff every subsequence of \( ({p}_{n}) \) converges to \( p  \).
+
+\begin{theorem}[3.6]
+    \begin{enumerate}
+        \item[(a)] If \( ({p}_{n}) \) is a sequence in a compact metric space \( X  \), then some subsequence of \( ({p}_{n}) \) converges to a point of \( x  \).
+        \item[(b)] Every bounded sequence in \( \R^{k} \) contains a convergent subsequence.
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[3.7]
+    The subsequential limits of a sequence \( ({p}_{n}) \) in a metric space form a closed subset of \( X  \).
+\end{theorem}
+
+
+\section{Cauchy Sequences}
+
+\begin{definition}[3.8]
+    A sequence \( ({p}_{n}) \) in a metric space \( X  \) is said to be a \textbf{Cauchy sequence} if for every \( \epsilon > 0  \), there is an integer \( N  \) such that \( d({p}_{n}, {p}_{m}) < \epsilon  \) if \( n \geq N  \) and \( m \geq N  \).
+\end{definition}
+
+\begin{definition}[3.9]
+    Let \( E  \) be a nonempty subset of a metric space \( X  \) and let \( S  \) be the set of all real numbers of the form \( d(p,q) \) with \( p \in E  \) and \( q \in E  \). The supremum of \( S  \) is called the \textit{diameter} of \( E  \).
+\end{definition}
+
+\begin{theorem}[3.10]
+   \begin{enumerate}
+       \item[(a)] If \( \overline{E} \) is the closure of a set \( E  \) in a metric space \( X  \), then
+           \[  \text{diam} \overline{E} = \diam E.  \]
+        \item[(b)] If \( {K}_{n} \) is a sequence of compact sets in \( X  \) such that \( {K}_{n} \supset {K}_{n+1} \ (n = 1,2,3,\dots) \) and if  
+            \[  \lim_{ n \to \infty  }  \diam {K}_{n} = 0, \]
+            then \( \cap_{n=1}^{\infty }{K}_{n}  \) consists of exactly one point.
+   \end{enumerate} 
+\end{theorem}
+
+\begin{theorem}[3.11]\label{Theorem 3.11}
+    \begin{enumerate}
+        \item[(a)] In any metric space \( X  \), every convergent sequence is a Cauchy sequence.
+        \item[(b)] If \( X  \) is a compact metric space and if \( ({p}_{n}) \) is a Cauchy sequence in \( X  \), then \( ({p}_{n}) \) converges to some point of \( X  \).
+        \item[(c)] In \( \R^{k } \), every Cauchy sequence converges.
+    \end{enumerate}
+\end{theorem}
+
+\begin{definition}[3.12]
+   A metric space in which every Cauchy sequence converges is said to be \textit{complete}. \end{definition}
+
+\begin{itemize}
+    \item In {\hyperref[Theorem 3.11]{Theorem 3.11}}, we see that \textit{all compact metric spaces and all euclidean spaces are complete}. 
+    \item Referring to the same theorem again, we also add that \textit{every closed subset \( E  \) of a complete metric space is complete}.
+    \item Convergent sequences in \( \R^{k} \) are bounded, but the converse need not be true.
+\end{itemize}
+
+\begin{definition}[3.13]
+    A sequence \( ({s}_{n}) \) of real numbers is said to be 
+    \begin{enumerate}
+        \item[(a)] \textit{monotonically increasing} if \( {s}_{n} \leq {s}_{n+1} \ (n \in \N) \);
+        \item[(b)] \textit{monotonically decreasing} if \( {s}_{n} \geq {s}_{n+1} \ (n \in \N) \).
+    \end{enumerate}
+\end{definition}
+
+The following is the monotone convergence theorem.
+
+\begin{theorem}[3.14]
+    Suppose \( ({s}_{n}) \) is monotonic. Then \( ({s}_{n}) \) converges if and only if it is bounded.
+\end{theorem}
+
+\section{Upper and Lower Limits}
+
+\begin{definition}[3.15]
+    Let \( ({S}_{n}) \) be a sequence of real numbers with the following property: For every real \( M  \) there is an integer \( N \) such that \( n \geq N  \) implies \( {s}_{n} \geq M  \). We then write
+    \[  {s}_{n} \to + \infty.  \]
+    Similarly, if for every real \( M  \) there exists an integer \( N  \) such that \( n \geq N  \) implies \( {s}_{n} \leq M   \), we write
+    \[  {s}_{n} \to -\infty.  \]
+\end{definition}
+
+\begin{definition}[3.16]\label{3.16}
+    Let \( ({s}_{n}) \) be a sequence of real numbers. Let \( E  \) be the set of numbers \( x  \) (in the extended real number system) such that \( {s}_{{n}_{k}} \to x  \) for some subsequence \( ({s}_{{n}_{k}}) \). This set \( E  \) contains all subsequential limits as in {\hyperref[3.5]{Definition 3.5}} and possibly the numbers \( + \infty, - \infty   \). Set
+    \begin{align*}
+        s^{*} &= \sup E, \\
+        {s}_{*} &= \inf E.
+    \end{align*}
+We denote the numbers \( s^{*}, {s}_{*} \) as the \textit{upper} and \textit{lower} limits of \( ({s}_{n}) \). We use the notation 
+\[  \lim_{ n \to \infty  } {s}_{n} = s^{*}, \ \ \lim_{ n \to \infty  } \inf {s}_{n} = {s}_{*}. \]
+\end{definition}
+
+\begin{theorem}[3.17]
+    Let \( ({s}_{n}) \) be a sequence of real numbers. Let \( E  \) and \( s^{*} \) have the same meaning as in {\hyperref[3.16]{Definition 3.16}}. Then \( s^{*}  \) has the following two properties:
+    \begin{enumerate}
+        \item[(a)] \( s^{*} \in E  \).
+        \item[(b)] If \( x > s^{*} \), there is an integer \( N  \) such that \( n \geq N  \) implies \( {s}_{n} < x  \).
+    \end{enumerate}
+\end{theorem}
+
+
+\end{document}

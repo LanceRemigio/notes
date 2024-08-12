@@ -37,6 +37,7 @@
 \newcommand\Q{\ensuremath{\mathbb{Q}}}
 \newcommand\C{\ensuremath{\mathbb{C}}}
 \DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\diam}{diam}
 \usepackage{systeme}
 \let\svlim\lim\def\lim{\svlim\limits}
 \let\implies\Rightarrow
@@ -126,6 +127,7 @@
 
 \declaretheoremstyle[
     headfont=\bfseries\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
+    numbered = no,
     mdframed={
         linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
@@ -156,7 +158,8 @@
 
 \declaretheorem[
     style=thmgreenbox, 
-    numberwithin = section,
+    % numberwithin = section,
+    numbered = no,
     name=Definition]{definition}
 
 \declaretheorem[
@@ -166,21 +169,17 @@
 
 \declaretheorem[
     style=thmredbox, 
-    numberwithin = section,
+    % numberwithin = section,
     name=Proposition]{prop}
 
-\declaretheorem[style=thmredbox, numberwithin = section, name=Theorem]{theorem}
-\declaretheorem[style=thmredbox, numberwithin = section,  name=Lemma]{lemma}
-\declaretheorem[style=thmredbox, numberwithin = section,  numbered=no, name=Corollary]{corollary}
-
+\declaretheorem[style=thmredbox, name=Theorem]{theorem}
+\declaretheorem[style=thmredbox, name=Lemma]{lemma}
+\declaretheorem[style=thmredbox, name=Corollary]{corollary}
 
 \declaretheorem[style=thmproofbox, name=Proof]{replacementproof}
 
 \declaretheorem[style=thmproofbox, 
 name = Solution]{solution}
-
-
-
 
 \renewenvironment{proof}[1][\proofname]{\vspace{-10pt}\begin{replacementproof}}{\end{replacementproof}}
 

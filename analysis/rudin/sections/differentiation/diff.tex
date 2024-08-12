@@ -1,0 +1,94 @@
+\documentclass[11pt,a4paper]{book}
+\input{../../../../newpreamble.tex}
+\usepackage{standalone}
+\usepackage{import}
+
+\begin{document}
+
+\section{The Derivative of a Real Function}
+
+\begin{definition}[5.1]
+    Let \( f  \) be defined (and real-valued) on \( [a,b] \). For any \( x \in [a,b] \), form the quotient 
+    \[  \phi(t) = \frac{ f(t) - f(x)  }{  t - x  } \ \ (a < t < b, \  t \neq x ),   \]
+    and define
+    \[  f'(x) = \lim_{ t \to x }  \phi(t). \]
+\end{definition}
+
+\begin{theorem}[5.2]
+    Let \( f  \) be defined on \( [a,b] \). If \( f  \) differentiable at a point \( x \in [a,b] \), then \( f  \) is continuous at \( x  \).   
+\end{theorem}
+
+\begin{theorem}[5.3]
+    Suppose \( f  \) and \( g  \) are defined on \( [a,b] \) and are defined on \( [a,b] \) and are differentiable at a point \( x \in [a,b] \). Then \( f + g, fg, \) and \( f/g \) are differentiable at \( x  \), and
+    \begin{enumerate}
+        \item[(a)] \( (f+g)'(x) = f'(x) + g'(x)  \);
+        \item[(b)] \( (fg)'(x) = f'(x) g(x) + f(x) g'(x) \);
+        \item[(c)] \( \Big(  \frac{ f  }{ g }  \Big)'(x) = \frac{ g(x) f'(x) - f'(x) f(x)  }{  g^{2}(x) }  \) with \( g(x) \neq 0  \).
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[5.5]
+    Suppose \( f  \) is continuous on \( [a,b] \), \( f'(x) \) exists at some point \( x \in [a,b] \), \( g  \) is defined on an interval \( I  \) which contains the range of \( f  \), and \( g  \) is differentiable at the point \( f(x) \). If 
+    \[  h(t) = g(f(t)) \ \ (a \leq t \leq b), \]
+    then \( h  \) is differentiable at \( x  \), and
+    \[  h'(x) = g'(f(x)) f'(x). \]
+\end{theorem}
+
+\section{Mean Value Theorems}
+
+\begin{definition}[5.7]
+    Let \( f  \) be a real function defined on a metric space \( X  \). We say that \( f  \) has a \textit{local maximum} at a point \( p \in X  \) if there exists \( \delta > 0  \) such that \( f(q) \leq f(p) \) for all \( q \in X  \) with \( d(p,q) < \delta \). Local minima are defined likewise. 
+\end{definition}
+
+\begin{theorem}[5.8]
+    Let \( f  \) be defined on \( [a,b] \); if \( f \) has a local maximum at a point \( x \in (a,b) \) and if \( f'(x) \) exists, then \( f'(x) = 0 \).
+\end{theorem}
+
+\begin{theorem}[5.9]
+    If \(  f  \) and \( g \) are continuous real functions on \( [a,b] \) which are differentiable on \( (a,b) \), then there is a point \( x \in (a,b) \) at which 
+    \[  [f(b) - f(a)]g'(x) = [g(b) - g(a)]f'(x). \]
+    Note that differentiability is not required at the end points.
+
+\end{theorem}
+
+\begin{theorem}[5.10]
+    If \( f  \) is a real continuous function on \( [a,b] \) which is differentiable on \( (a,b) \), then there is a point \( x \in (a,b) \) at which 
+    \[  f(b) - f(a) = (b-a) f'(x). \]
+\end{theorem}
+
+\begin{theorem}[5.11]
+    Suppose \( f  \) is differentiable on \( (a,b) \). 
+    \begin{enumerate}
+        \item[(a)] If \( f'(x) \geq 0  \) for all \( x \in (a,b) \), then \( f  \) is monotonically increasing.
+        \item[(b)] If \( f'(x) = 0  \) for all \( x \in (a,b) \), then \( f  \) is constant.
+        \item[(c)] If \( f'(x) \leq 0  \) for all \( x \in (a,b) \), then \( f  \) is monotonically decreasing.
+    \end{enumerate}
+\end{theorem}
+
+\section{The Continuity of Derivatives}
+
+\begin{theorem}[5.12]
+    Suppose \( f  \) is a real differentiable function on \( [a,b] \) and suppose \( f'(a) < \lambda < f'(b) \). Then there is a point \( x \in (a,b) \) such that \( f'(x) = \lambda  \). 
+\end{theorem}
+
+\begin{corollary}[5.12]
+    If \( f  \) is differentiable on \( [a,b] \), then \( f' \) cannot have any simple discontinuities on \( [a,b] \). 
+\end{corollary}
+
+\section{L'Hopital's Rule}
+
+\begin{theorem}[5.13]
+    Suppose \( f  \) and \( g  \) are real and differentiable on \( (a,b) \), and \( g'(x) \neq 0  \) for all \( x \in (a,b) \), where \( - \infty  \leq a < b \leq + \infty  \). Suppose
+    \[ \frac{ f'(x) }{ g'(x) }  \to A \ \text{as} \ x \to a. \]
+    If
+    \begin{enumerate}
+        \item[(a)] \( f'(x) \to 0  \) and \( g(x) \to 0  \) as \( x \to a  \), or if
+        \item[(b)] \( g(x) \to + \infty  \) as \( x \to a  \),
+    \end{enumerate}
+    then 
+    \[  \frac{ f(x) }{ g(x) }  \to A \ \text{as} \ x \to a. \]
+\end{theorem}
+
+This result also holds true if \( x \to b  \), or if \( g(x) \to - \infty  \) in part (b).
+
+\end{document}
