@@ -136,7 +136,7 @@ The following is the monotone convergence theorem.
         {s}_{*} &= \inf E.
     \end{align*}
 We denote the numbers \( s^{*}, {s}_{*} \) as the \textit{upper} and \textit{lower} limits of \( ({s}_{n}) \). We use the notation 
-\[  \lim_{ n \to \infty  } {s}_{n} = s^{*}, \ \ \lim_{ n \to \infty  } \inf {s}_{n} = {s}_{*}. \]
+\[  \lim_{ n \to \infty  } \sup {s}_{n} = s^{*}, \ \ \lim_{ n \to \infty  } \inf {s}_{n} = {s}_{*}. \]
 \end{definition}
 
 \begin{theorem}[3.17]
@@ -147,5 +147,24 @@ We denote the numbers \( s^{*}, {s}_{*} \) as the \textit{upper} and \textit{low
     \end{enumerate}
 \end{theorem}
 
+\begin{theorem}[3.19]\label{3.19}
+   If \( {s}_{n} \leq {t}_{n} \) for \( n \geq N  \), where \( N  \) is fixed, then 
+   \begin{align*}
+       \lim_{ n \to \infty  } \inf {s}_{n} &\leq \lim_{ n \to \infty  }  \inf {t}_{n}, \\
+       \lim_{ n \to \infty  }  \sup {s}_{n} &\leq \lim_{ n \to \infty  } \sup {t}_{n}.
+   \end{align*}
+\end{theorem}
+
+\section{Some Special Sequences}
+
+\begin{theorem}[3.2]\label{3.2}
+   \begin{enumerate}
+       \item[(a)] If \( p > 0  \), then \( \lim_{ n \to \infty  }  1 / n^{p} = 0  \).
+       \item[(b)] If \( p > 0  \), then \( \lim_{ n \to \infty  } \sqrt[n]{p} = 1   \).
+       \item[(c)] \( \lim_{ n \to \infty  }  \sqrt[n]{ n } = 1. \)
+        \item[(d)] If \( p > 0  \) and \( \alpha  \) is real, then \( \lim_{ n \to \infty  }  n^{\alpha} / (1+p)^{n} = 0 \).
+        \item[(e)] If \( | x  |  < 1  \), then \( \lim_{ n \to \infty  }  x^{n} = 0  \).
+   \end{enumerate} 
+\end{theorem}
 
 \end{document}
