@@ -65,6 +65,11 @@ Continuation of the proof presented in homework. Set \( \beta = - \alpha  \) whe
         \end{proof}
 \end{enumerate}
 
+\item Suppose the construction of \( \R  \) and the proof of the least-upper-bound property for \( \R  \) can be completed without directly using the well-ordering principle for \( \N  \). (Of course, statements equivalent to the well-ordering principle might have been used, but we are assuming that the nontrivial fact of their equivalence to the well-ordering principle was not utilized in the construction of \( \R  \) or in proving its Dedekind completeness.) Use the greatest-lower-bound property of \( \R  \) and the result of the previous exercises to prove the well-ordering principle for \( \N  \); that is, prove that every nonempty subset of \( \N  \) has a minimum.
+
+
+
+
 \item Let \( A, B \subseteq \R  \) be nonempty, bounded sets and let \( c \in \R  \). Define the following sets:
     \begin{align*}
         A + B &= \{ a + b : a \in A, b \in B \}  \\
@@ -196,25 +201,100 @@ Continuation of the proof presented in homework. Set \( \beta = - \alpha  \) whe
             \end{align*}
             \end{proof}
         \item[9-7)] \( \sup(cA) = c \sup (A)  \) if \( c > 0  \).
+               \begin{proof}
+               Let \( c > 0  \). We will show that \( c \sup(A) \) is the supremum of \( cA \); that is, we need to show that \(  c \sup(A)  \) is an upper bound of \( cA \) and the least upper bound of \( cA \). Since the supremum of \( A  \) exists and \( A  \) is bounded above, we have \( a \leq \sup(A)  \) for all \( a \in A  \). Since \( c > 0 \), we can multiply by \( c > 0  \) to get \( ca \leq c \sup(A) \). Thus, \( cA  \) is bounded above by \( c \sup(A)  \).  
+
+               Now, let \( \gamma  \) be any upper bound of \( A   \). Since \( \sup(A) \) exists, we know that \( \sup(A) \leq \gamma \). By multiplying by \( c > 0  \), we have  
+               \[  c \sup(A) \leq c \gamma. \]
+               But \( c \gamma  \) is an upper bound of \( cA \), so \( c \sup(A) \) must be the least upper bound of \( cA \). Thus, we have that \( c \sup(A) \) is the supremum of \( cA \) and that \( \sup(cA) = c \sup(A) \).
+               \end{proof} 
         \item[9-8)] \( \inf(cA) = c \inf (A)  \) if \( c > 0  \).
+            \begin{proof}
+            Let \( c > 0  \). Since \( A  \) is bounded below and \( \inf(A) \) exists, we know that \( a \geq \inf(A) \) for all \( a \in A  \). Multiplying by \( c  \) gives us
+            \[  ca \geq c \inf(A). \]
+            This tells us that every \( ca \in cA  \) is bounded above by \( c \inf(A) \). Now, suppose \( \lambda  \) is any lower bound of \( A  \). Since \( \inf(A)  \) exists, we know that \( \inf(A) \geq \lambda  \). Then multiplying by \( c > 0 \) on both sides of this inequality gives  
+            \[  c \inf(A) \geq c \lambda,  \]
+proving that \( c \inf(A) \) is the greatest lower bound of \( cA  \). Thus, we conclude that
+\[  \inf(cA) = c \inf(A). \]
+            \end{proof}
         \item[9-9)] \( \sup(cA) = c \inf(A) \) if \( c < 0  \).
+            \begin{proof}
+            Let \( c < 0  \). We will show that \( c \inf(A)  \) is the supremum of \( cA \). Since \( A  \) is bounded below and \( \inf(A) \) exists, we have \( a \geq \inf(A) \) for all \( a \in A  \). Since \( c < 0  \), we have \( ca \leq c \inf(A) \) for all \( ca \in cA  \). Thus, \( cA  \) is bounded above by \( c \inf(A) \). 
+
+            Let \( c \varphi  \) be any upper bound of \( cA  \). Let \( \epsilon > 0 \). Since \( \inf(A)  \) exists, there exists \( {\lambda}_{0} \in A  \) such that 
+            \[  {\lambda}_{0} < \inf(A) + \frac{ \epsilon }{ c } \]
+            by the lemma found in {\hyperref[Problem 3]{Problem 3}}. 
+            Since \( c < 0  \), we can multiply \( c  \) on both sides of the inequality above to get
+            \[  c {\lambda}_{0} \geq c \inf(A) + \epsilon. \]
+            But note that \( c \varphi  \) is an upper bound of \( cA  \). Thus, \( c {\lambda}_{0} \leq c \varphi \) and so we have 
+            \[  c \varphi \geq c {\lambda}_{0} > c \inf(A) + \epsilon. \]
+            Since \( \epsilon > 0 \) is arbitrary, we can use the result from {\hyperref[Problem 5]{Problem 5}} to state that 
+            \[  c \varphi \geq c \inf(A). \]
+            Which tells us that \( c \inf(A) \) is the least upper bound of \( cA  \). Hence, we conclude that \(  \sup(cA) = c \inf(A) \).
+        \end{proof}
         \item[9-10)] \( \inf(cA) = c \sup (A) \) if \( c < 0  \).
+            \begin{proof}
+            Let \( c < 0  \). We will show that \( c \sup(A)  \) is the infimum of \( cA \). First, we will show that \( c \sup(A) \) is a lower bound of \( cA  \). Since \( \sup(A)  \) exists, we have \( a \leq \sup(A) \) for all \( a \in A  \). Since \( c < 0  \), we have
+            \[  ca \geq c \sup(A) \ \ \text{for all} \ ca \in cA.  \]
+            Thus, \( c \sup(A) \) is a lower bound for \( cA \).
+
+            Now, suppose \( c \omega  \) is any lower bound of \( cA  \). Since \(  \sup(A) \) exists, there exists an \( {a}_{0} \in A  \) such that  
+            \[  {a}_{0} > \sup(A) - \frac{ \epsilon }{ c }. \]
+            Multiplying by \( c < 0  \), we can write
+            \[  c {a}_{0} < c \sup(A) - \epsilon \]
+            by the lemma found in {\hyperref[Problem 2]{Problem 2}}.
+            Since \( c \omega  \) is a lower bound of \( cA  \), we have \( c {a}_{0} \geq c \omega  \). Thus, we have 
+            \begin{align*}  c \omega \leq c {a}_{0} < c \sup(A) - \epsilon &\implies c \omega \leq c \sup(A) - \epsilon \\
+                &\implies c \omega \leq c\sup(A) \tag{{\hyperref[Problem 5]{Problem 5}}}. 
+            \end{align*}
+           Since \( c \omega  \) is an arbitrary lower bound of \( cA  \), this shows that \( c \sup(A) \) must be the greatest lower bound of \( A  \). Thus, we conclude that 
+        \[  \inf(cA) = c \sup(A). \]
+            
+            \end{proof}
         \item[9-11)] Is it true that \( \sup(A \cdot B) = \sup(A) \cdot \sup(B) \).
+            \begin{proof}
+            This is false. Consider the sets \( A = \{ 1, 2, 4, 8  \}  \) and \( B = \{ -5,-2, -3 , -1 \}  \). Then \( AB = \{ -5, -4, -12, -8 \}  \). Observe that \( \sup(A) \cdot \sup(B) = 8 \cdot -1 = -8 \), but \( \sup(AB) = -5 \neq -8 = \sup(A) \cdot \sup(B)  \). 
+            \end{proof}
     \end{enumerate}
 \item Recall that \( \Q  \) is a field; in particular, \( \Q  \) is closed under addition and multiplication. 
     \begin{enumerate}
         \item[10-1)] Prove that if \( p \in \Q  \) and \( t \) is an irrational number, then \(  p + t  \) is an irrational number.
             \begin{proof}
-            
+            Suppose \( p \in \Q  \) and \( t  \) is an irrational number. Suppose for sake of contradiction that \(  p + t  \) is an rational number. Then there exists \( x,y \in \Z  \) with \( y \neq 0  \) such that 
+            \[  p + t = \frac{ x }{ y }. \]
+           Subtracting \( p  \) on both sides, we get 
+           \[  t = \frac{ x }{ y }  - p. \]
+           Since \( \Q  \) is a field and \( \frac{ x }{ y } , p \in \Q  \), we get that \( \frac{ x }{ y } - p \in \Q    \). But this tells us that \( t  \) is a rational number which is a contradiction. Thus, \( t  \) must be irrational.
             \end{proof}
-        \item[10-2)] Complete the following proof.
+        \item[10-2)] Complete the following proof. \label{10-2)}
             \begin{theorem}
                 Given any two real numbers \( x < y  \), there exists an irrational number \( t  \) satisfying \( x < t < y  \).
             \end{theorem}
             \begin{proof}
-            
+            It follows from \( x < y  \) that \( x - \sqrt{ 2 }  < y - \sqrt{ 2 }  \). Since \( \Q  \) is dense in \( \R  \), there exists \( p \in \Q  \) such that \( x - \sqrt{ 2 }  < p < y - \sqrt{ 2 }  \). Adding \( \sqrt{ 2 }  \) on both sides gives us   
+            \[  x < p + \sqrt{ 2 } < y. \]
+            Since \( p \in \Q   \) and \( \sqrt{ 2 }  \) is irrational, we get that \( t = p + \sqrt{ 2 }  \) is irrational from {\hyperref[10-2)]{10-2)}}. Thus, \( x < t < y  \) for some irrational number \( t  \).
+
             \end{proof}
     \end{enumerate}
+    \item Prove the following:
+        \begin{theorem}[Nested Interval Property]
+            For each \( n \in \N  \), assume we are given a closed interval \( {I}_{n} = [{a}_{n}, {b}_{n}] = \{ x \in \R : {a}_{n} \leq x \leq {b}_{n} \}  \). Assume also that each \( {I}_{n} \) contains \( {I}_{n+1} \). Then, the resulting nested sequence of closed intervals
+            \[  {I}_{1} \supseteq {I}_{2} \supseteq {I}_{3} \supseteq {I}_{4} \supseteq \cdots \]
+            has a nonempty intersection, that is \( \cap_{n}^{\infty } {I}_{n} \neq \emptyset \).
+        \end{theorem}
+        \begin{proof}
+            Let \( A = \{ {a}_{n} : n \in \N  \}  \). Note that \( A \neq \emptyset \) because \( {a}_{n} \in A  \). Since \( {I}_{n} = [{a}_{n}, {b}_{n}]  \) for all \( n \in \N  \) and that each \( {I}_{n+1} \) is contained within each \( {I}_{n} \) , we see that each \( {a}_{n} \in A  \) must be bounded above by \( {b}_{n} \) for all \( n \in \N  \). Since \( A \neq \emptyset  \) and bounded above, there must exists a number \( x  \) such that \( x = \sup(A) \). Since \( x  \) is an upper bound of \( A  \), we have \( {a}_{n} \leq x \leq {b}_{n}  \). Thus, \( x \in {I}_{n}  \) for all \( n \in \N  \) which means that  
+            \[  x \in \bigcap_{ n=1  }^{ \infty  }  {I}_{n}, \]
+            proving that 
+            \[  \bigcap_{ n = 1  }^{ \infty  } {I}_{n} \neq \emptyset. \]
+        \end{proof}
+    \item Complete the following proof:
+
+        Prove that \( \bigcap_{ n = 1  }^{ \infty  } (0, \frac{ 1 }{ n } ) = \emptyset \). 
+        \begin{proof}
+        Suppose for sake of contradiction \( \bigcap_{ n=1  }^{ \infty  } (  0, 1/n   ) \neq \emptyset  \). So there exists \( x \in \bigcap_{ n=1 }^{ \infty  } (0, 1/n) \). This implies that \( x > 0  \) and \( x < 1/n \) for all \( n \in \N  \). Set 
+        \end{proof}
 \end{enumerate}
 
 \end{document}
