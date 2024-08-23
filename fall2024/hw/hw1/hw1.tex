@@ -9,14 +9,16 @@
 \begin{document}
 \maketitle
 \date
+
 \begin{enumerate}
     \item Mark each statement True or False.  
         \begin{enumerate}
-            \item[1-1)] If \( x  \) and \( y  \) are elements of an ordered field, then either \( x \leq y  \) or \( y < x  \). \textbf{False.}
-            \item[1-2)] Every ordered field has the least upper bound property. \textbf{True.}
+            \item[1-1)] If \( x  \) and \( y  \) are elements of an ordered field, then either \( x \leq y  \) or \( y < x  \). \textbf{True.}
+            \item[1-2)] Every ordered field has the least upper bound property. \textbf{False.}
             \item[1-3)] If \( E \subseteq \R  \) is bounded above and \( \alpha = \sup E  \), then \( \alpha \in E  \). \textbf{False.}
             \item[1-4)] If \( E \subseteq \R  \) and \( \alpha \geq x  \), for all \( x \in E  \), then \( \alpha = \sup E  \). \textbf{False.}
-            \item[1-5)] If \( E \subseteq \R  \) and \( \alpha \geq x  \), for all \( x \in E \), and \( \alpha \in E  \), then \( \alpha = \sup_{}E   \). \textbf{True.}
+            \item[1-5)] If \( E \subseteq \R  \) and \( \alpha \geq x  \), for all \( x \in E \), and \( \alpha \in E  \), then \( \alpha = \sup E   \). \textbf{True.}
+            \item[1-6)] If \( E \subseteq \R  \) and \( \alpha \geq x  \), for all \( x \in E  \), and \( \alpha \notin E  \), then \( \alpha \neq \sup(E ) \). \textbf{True.}  
 \end{enumerate}
 
 \item Prove the following: Suppose \( \alpha  \) is an upper bound for \( E \subset \R   \). Then \( \alpha = \sup E   \) if and only if for all \( \epsilon > 0  \), there exists \( {x}_{0} \in E  \) such that \( {x}_{0} > \alpha - \epsilon  \). \label{Problem 2}  
@@ -30,8 +32,16 @@
 
 \item Let \( E  = \{ n / n + 1 : n \in \N  \}  \). Prove that \( \sup E  = 1  \). 
     \begin{proof}
+    To show that \( 1  \) is the supremum of \( E  \), we need to show that \( 1  \) is an upper bound for \( E  \) and that it satisfies the lemma found in {\hyperref[Problem 2]{Problem 2}}. First, we will show that \( 1  \) is an upper bound of \( E  \). Observe that for any \( n \in \N  \), we have  
+    \[  \frac{ n  }{  n + 1  }  \leq \frac{  n }{ n }  = 1.  \]
+    Thus, \( E  \) is bounded above by \( 1 \). 
+
+    Let \( \epsilon > 0  \). Since \( 1 / n + 1 > 0   \) for any \( n \in \N \), there exists \( k \in \Z^{+} \) such that  
+    \[  \frac{ k  }{ n  + 1  }  > 1 > 1 - \epsilon \]
+    by the Archimedean Property. Set \( {x}_{0} = k / n +1  \). By the lemma found in {\hyperref[Problem 2]{Problem 2}}, we must have \( \sup(E) = 1  \).  
     
-    \end{proof}
+
+     \end{proof}
 
 \item State the analogue of the Very Useful Theorem for infimums. 
         \begin{solution}
@@ -66,6 +76,9 @@ Continuation of the proof presented in homework. Set \( \beta = - \alpha  \) whe
 \end{enumerate}
 
 \item Suppose the construction of \( \R  \) and the proof of the least-upper-bound property for \( \R  \) can be completed without directly using the well-ordering principle for \( \N  \). (Of course, statements equivalent to the well-ordering principle might have been used, but we are assuming that the nontrivial fact of their equivalence to the well-ordering principle was not utilized in the construction of \( \R  \) or in proving its Dedekind completeness.) Use the greatest-lower-bound property of \( \R  \) and the result of the previous exercises to prove the well-ordering principle for \( \N  \); that is, prove that every nonempty subset of \( \N  \) has a minimum.
+    \begin{proof}
+    
+    \end{proof}
 
 
 
@@ -293,9 +306,16 @@ proving that \( c \inf(A) \) is the greatest lower bound of \( cA  \). Thus, we 
 
         Prove that \( \bigcap_{ n = 1  }^{ \infty  } (0, \frac{ 1 }{ n } ) = \emptyset \). 
         \begin{proof}
-        Suppose for sake of contradiction \( \bigcap_{ n=1  }^{ \infty  } (  0, 1/n   ) \neq \emptyset  \). So there exists \( x \in \bigcap_{ n=1 }^{ \infty  } (0, 1/n) \). This implies that \( x > 0  \) and \( x < 1/n \) for all \( n \in \N  \). Set 
+        Suppose for sake of contradiction \( \bigcap_{ n=1  }^{ \infty  } (  0, 1/n   ) \neq \emptyset  \). So there exists \( x \in \bigcap_{ n=1 }^{ \infty  } (0, 1/n) \). This implies that \( x > 0  \) and \( x < 1/n \) for all \( n \in \N  \). By the Archimedean Property, there exists an \( {n}_{0} \in \N  \) such that   
+        \[  \frac{ 1 }{ {n}_{0} }  < x.   \]
+        But this contradicts our assumption that \( x < 1 /n   \) holds for all \( n \in \N  \). Thus, the intersection
+        \[  \bigcap_{ n=1  }^{ \infty  }  \Big(  0 , \frac{ 1 }{ n }  \Big)  \]
+        must be empty.
         \end{proof}
 \end{enumerate}
+
+
+
 
 \end{document}
 
