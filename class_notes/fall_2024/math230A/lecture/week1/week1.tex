@@ -1,0 +1,101 @@
+\documentclass[a4paper]{article}
+\usepackage{standalone}
+\usepackage{import}
+\input{../../../../../newpreamble.tex}
+
+\begin{document}
+
+\section{Goals of Course}
+\begin{itemize}
+    \item The goal of this course is to explore and generalize many of concepts that we learned in our calculus classes. 
+    \item Concepts such as
+        \begin{itemize}
+            \item Limits 
+            \item Continuity
+            \item Sequence convergence 
+            \item Differentiability
+            \item Integration
+        \end{itemize}
+        and their results will all be rigorously proven and generalized. 
+\end{itemize}
+
+\section{The Structure of the Real Numbers}
+
+
+The set \( \R  \) is NOT just a boring collection of elements. \( \R  \) is a set equipped with four defining properties.
+
+\begin{itemize}
+    \item \( \R  \) is a \textbf{field}.
+    \item \( \R  \) is an \textbf{ordered field}. 
+    \item \( \R  \) is a unique ordered field that \textbf{least upper bound property}.
+    \item \( \R  \) contains a metric which is a notion that describes length and distance. 
+    \item \( \R  \) is a normed space and a metric space (these two are not equivalent).
+\end{itemize}
+
+
+\section{The First Defining Property}
+
+The set of real numbers is a field.
+
+\begin{definition}[Fields]\label{Field}
+   A field is a set \( F  \) with two operations called addition and multiplication, which satisfy the following field axioms, respectively:
+    \begin{enumerate}
+        \item[(A1)] For all \( x,y \in F  \), we have \( x + y \in F  \). 
+        \item[(A2)] For all \( x,y \in F  \), we have \( x + y = y + x  \).
+        \item[(A3)] For all \( x,y,z \in F  \), we have \( (x+y) + z = x + (y + z) \). 
+        \item[(A4)] There exists an element \( 0 \in F  \) such that for any \( x \in F  \), \(  x + 0 = x  \).
+        \item[(A5)] If \( x \in F  \), then there exists an element \( -x \in F  \) such that \( x + (-x) = 0 \).
+        \item[(M1)] For all \( x,y \in F  \), we have \( xy \in F  \). 
+        \item[(M2)] For all \( x,y \in F  \), we have \( xy = yx  \). 
+        \item[(M3)] For all \( x,y,z \in F  \), we have \( (xy)z = x(yz) \).
+        \item[(M4)] For all \( x \in F  \), there exists an element \( 1 \neq 0  \) such that \( x \cdot 1 =x  \).
+        \item[(M5)] If \( x \in F  \) and \( x \neq 0  \), then there exists an element \( \frac{  1  }{ x }  \in F  \) such that \(  x \cdot \frac{ 1 }{ x }  = 1.  \)
+        \item[(D1)] If \( x,y,z \in F  \), then \( x(y+z) = xy + xz \).
+    \end{enumerate}   
+\end{definition}
+
+\section{The Second Defining Property}
+
+\begin{definition}[Ordered Fields]\label{Ordered Fields}
+    An \textbf{ordered field} is a field \( F  \) equipped with a relation, \( <  \), with the following properties 
+    \begin{enumerate}
+        \item[(i)] If \( x \in F  \) and \( y \in F  \), then one and only one of the statements is true:
+            \begin{center}
+                \( x <y , \ \ x = y, \ \  y < x  \).
+            \end{center}
+        \item[(ii)](\textbf{Transitive Property}) If \( x,y,z \in F  \) and \( x < y  \) and \( y < z  \), then \( x < z  \).
+        \item[(iii)] If \( x,y, z \in F  \) and \(  y < z  \), then \( x + y < x + z  \).
+        \item[(iv)] If \( x,y \in F  \), and \( x > 0  \) and \( y > 0  \), then \( xy > 0  \).
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+   We say that \( x  \) is positive if \( x > 0  \), and negative if \( x < 0  \). Furthermore, \( x \leq y  \) is equivalent to \( x = y  \) or \( x < y  \). 
+\end{remark}
+
+The first two defining properties alone of \( \R  \) do not uniquely specify it. For example, \( \Q  \) is another field that satisfies the first two properties of \( \R  \). 
+
+\begin{definition}[Upper Bounds]\label{Upper Bound}
+   Suppose \( F  \) is an ordered field, and \( A \subseteq F  \). If there exists \( \beta \in F  \) such that for all \( x \in A  \), \( x \leq \beta  \) for all \( x \in A  \). We call \( \beta  \) an \textbf{upper bound of \( A  \)}.
+\end{definition}
+\begin{remark}
+    We call the collection of upper bounds of \( A  \) by \( \UP(A) \). If \( \UP(A) \neq \emptyset  \), then we say that \textbf{\( A  \) is bounded above}. 
+\end{remark}
+
+Similarly, we define the lower bounds of a set.
+\begin{definition}[Lower Bounds]\label{Lower Bound}
+   Suppose \( F  \) is an ordered field, and \( A \subseteq F \). If there exists \( \alpha \in A  \) such that for all \( x \in A  \), \( x \geq \alpha  \), then \( \alpha  \) is called the \textbf{lower bound of \( A  \)}.
+\end{definition}
+\begin{remark}
+    Similarly, we denote the set of lower bounds of \( A  \) by \( \LO(A) \). We say that \( A  \) is bounded below if \( \LO(A) \neq \emptyset \).
+\end{remark}
+
+\begin{eg}
+    Suppose we have \( A = [0,1) \). We have
+    \begin{align*}
+        \UP(A) &= [1, \infty ) \\
+        \LO(A) &= (-\infty, 0].
+    \end{align*}
+\end{eg}
+
+\end{document}

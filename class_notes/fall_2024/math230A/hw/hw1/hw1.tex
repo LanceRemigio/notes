@@ -1,7 +1,7 @@
 \documentclass[11pt,a4paper]{article} 
 \usepackage{standalone}
 \usepackage{import}
-\input{../../../newpreamble.tex}
+\input{../../../../../newpreamble.tex}
 
 \title{Math 230A: Homework 1}
 \author{Lance Remigio}
@@ -9,7 +9,6 @@
 \begin{document}
 \maketitle
 \date
-
 \begin{enumerate}
     \item Mark each statement True or False.  
         \begin{enumerate}
@@ -33,10 +32,10 @@
 \item Let \( E  = \{ n / n + 1 : n \in \N  \}  \). Prove that \( \sup E  = 1  \). 
     \begin{proof}
     To show that \( 1  \) is the supremum of \( E  \), we need to show that \( 1  \) is an upper bound for \( E  \) and that it satisfies the lemma found in {\hyperref[Problem 2]{Problem 2}}. First, we will show that \( 1  \) is an upper bound of \( E  \). Observe that for any \( n \in \N  \), we have  
-    \[  \frac{ n  }{  n + 1  }  \leq \frac{  n }{ n }  = 1.  \]
+    \[  \frac{ n  }{  n + 1  }  < \frac{  n }{ n }  = 1.  \]
     Thus, \( E  \) is bounded above by \( 1 \). 
 
-    Let \( \epsilon > 0  \). Since \( 1 / n + 1 > 0   \) for any \( n \in \N \), there exists \( k \in \Z^{+} \) such that  
+    Let \( \epsilon > 0  \). Since \( \frac{ 1 }{ n+1 }  > 0   \) for any \( n \in \N \), there exists \( k \in \Z^{+} \) such that  
     \[  \frac{ k  }{ n  + 1  }  > 1 > 1 - \epsilon \]
     by the Archimedean Property. Set \( {x}_{0} = k / n +1  \). By the lemma found in {\hyperref[Problem 2]{Problem 2}}, we must have \( \sup(E) = 1  \).  
     

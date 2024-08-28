@@ -1,0 +1,69 @@
+\documentclass[a4paper]{book}
+\input{../../../../../newpreamble.tex}
+\usepackage{standalone}
+\usepackage{import}
+\title{Week 1: Lecture Notes}
+\author{Lance Remigio}
+
+\begin{document}
+\maketitle   
+
+\section{Lecture 1}
+
+\subsection{Why do we need complex analysis?}
+
+We need it for:
+\begin{itemize}
+    \item Solving polynomials with either coefficients in either \( \R  \) or \( \C \). For example, the polynomial \( x^{2} + 1  \) does not have a solution in \( \R  \), but it does have a solution \( \C  \).
+    \item Solving real integrals that may be difficult to deal with using standard techniques developed in \( \R  \); that is, something like
+    \[ \int_{ 0 }^{ \infty  }  \frac{ \sin x  }{x}   \ dx.   \]
+    \item Solving problems in physics, particularly, in the Quantum Field Theory.
+\end{itemize}
+
+\subsection{What is the goal?}
+
+Our goal is to find the "smallest" field \( \C  \) such that 
+\begin{enumerate}
+    \item[(i)] \( \R  \) is "contained" in \( \C  \).
+    \item[(ii)] For any polynomial \(  f \in \C  \), there exists a solution for \( f \) in \( \C  \). 
+\end{enumerate}
+
+Let's assume for a moment that we CAN solve the equation \( x^{2} + 1 = 0   \). Then we define the following set
+\[  \zeta = \{ \alpha + i \beta : \alpha, \beta \in \R  \}.   \]
+Note that in this set, we are using the properties of \( \R  \) as a vector space, and using the operations defined on that vector space to define the operations of \( \C  \). Recall from Linear Algebra that \( \zeta  \) is just the span of the basis vectors \( 1  \) and \( i  \). In other words, we have
+\[ \zeta = \{ \alpha + i \beta : \alpha , \beta \in \R  \} = \text{span}_{\R} \{ 1, i \}.     \]
+Now, let's define the two operations, addition and multiplication, on \( \C  \).
+\begin{definition}[Operations on \( \C  \)]
+    Let \( z,w \in \C  \) and set \( z = {\alpha}_{1} + i {\beta}_{1} \) and \( w = {\alpha}_{2} + i {\beta}_{2} \) for any \( {\alpha}_{1}, {\alpha}_{2}, {\beta}_{1}, {\beta}_{2} \in \R  \). We define the two operations, addition \( +  \) and multiplication \( \cdot \), in the following way:    
+    \begin{itemize}
+        \item Addition:  
+            \begin{align*}
+                z + w &= ({\alpha}_{1} + i {\beta}_{1}) + ({\alpha}_{2} + i {\beta}_{2}) \\
+                      &= ({\alpha}_{1} + {\alpha}_{2}) + i ({\beta}_{1} + {\beta}_{2}).
+            \end{align*}
+        \item Multiplication:
+            \begin{align*}
+                z \cdot w &= ({\alpha}_{1} + i {\beta}_{1}) \cdot ({\alpha}_{2} + i {\beta}_{2})  \\
+                          &= ({\alpha}_{1} {\alpha}_{2} - {\beta}_{1} {\beta}_{2}) + i ({\alpha}_{1} {\beta}_{2} + {\beta}_{1} {\alpha}_{2}).
+            \end{align*}
+    \end{itemize}
+\end{definition}
+
+\begin{prop}
+   The defined operations of \( \C  \) form a field.
+\end{prop}
+\begin{proof}
+\textbf{To do.}
+\end{proof}
+
+\begin{lemma}[Existence of a Square Root]
+    Let \(\alpha + i \beta \in \zeta \). Then there exists \( \gamma + i \delta \in \zeta  \) such that \( (\gamma + i \delta)^{2} = \alpha + i \beta \).
+\end{lemma}
+\begin{proof}
+    \textbf{To do.}
+\end{proof}
+
+
+
+
+\end{document}
