@@ -1,0 +1,290 @@
+\documentclass[a4paper]{article}
+\usepackage{standalone}
+\usepackage{import}
+\input{../../../../../newpreamble.tex}
+
+\title{Math 234A: Homework 1}
+\author{Lance Remigio}
+\begin{document}
+   \maketitle 
+
+\begin{enumerate}
+    \item  
+        \begin{enumerate}
+            \item[(i)] \textbf{(Parallelogram identity)} Let \( z,w \in \C  \). Show that 
+                \[  | z + w  |^{2} + | z - w  |^{2} = 2 (| z  |^{2} + | w |^{2}).  \]
+                \begin{proof}
+                Let \( z,w \in \C  \) with \( z = x + iy  \) and \( w = u + iv  \) with \( x,y \in \R  \) and \( u,v \in \R  \). Our goal is to show that  
+                \[   | z + w  |^{2} + | z - w  |^{2} = 2 (| z  |^{2} + | w |^{2}).    \]
+                Consider \( | z - w  |^{2} \) and notice that 
+                \[  z - w = (x - u) + i(y - v). \]
+                By definition of the modulus, we have 
+                \begin{align*}
+                    | z - w  |^{2} &= (z - w) \overline{z - w} \\
+                                   &= ((x-u) + i(y-v))((x-u) - i(y -v)) \\
+                                   &= (x - u)^{2} + (y -v)^{2} \\
+                                   &= x^{2} - 2xu + u^{2} + y^{2} - 2yv + u^{2} \\
+                                   &= (x^{2} + y^{2}) - 2(xu + yv) + (u^{2} + v^{2}) \\
+                                   &= | z |^{2} - 2(xu + yv) + | w |^{2}.
+                \end{align*}
+                Note that 
+                \[  z + w = (x+u) + i(y+v). \]
+                \begin{align*}
+                    | z + w  |^{2} &= (z + w) \overline{(z+w)}   \\
+                                   &= ((x+u) + i(y+v))((x+u) - i(y+v)) \\
+                                   &= (x+u)^{2} + (y +v)^{2} \\
+                                   &= x^{2} + 2xu + u^{2} + y^{2} + 2yv + v^{2} \\ 
+                                   &= | z |^{2} + 2(xu + yv) + | w  |^{2}.
+                \end{align*}
+                Adding these two moduli together gives us
+                \[ | z + w  |^{2} + | z - w  |^{2} = 2 | z  |^{2} + 2 | w |^{2} = 2 (| z | ^{2} + | w |^{2})    \]
+                which is our desired result.
+
+                \end{proof}
+            \item[(ii)] \textbf{(Binomial Expansion)}: Let \( z,w \in \C  \) and \( n  \) be a positive integer. Show that 
+                \[  (z + w)^{n} = \sum_{ k=  0  }^{  n  } \begin{pmatrix} 
+                           n \\
+                           k 
+                          \end{pmatrix} z^{k} w^{n-k}    \]
+                          where \( \begin{pmatrix} 
+                                     n \\
+                                     k 
+                                    \end{pmatrix}  = \frac{ n!  }{ k! (n-k)! }. \)
+        \end{enumerate}
+        \begin{proof}
+        Let \( z,w \in \C  \). We proceed via induction on \( n \in \Z^{+}  \) to show that 
+                \[  (z + w)^{n} = \sum_{ k=  0  }^{  n  } \begin{pmatrix} 
+                           n \\
+                           k 
+                          \end{pmatrix} z^{k} w^{n-k}    \]
+                          where \( \begin{pmatrix} 
+                                     n \\
+                                     k 
+                                    \end{pmatrix}  = \frac{ n!  }{ k! (n-k)! }. \)
+        Let \( n =1  \) be our base case. Then we have  
+        \begin{align*}
+            \sum_{ k=0  }^{ 1 } \begin{pmatrix} 
+                       n \\
+                       k 
+                      \end{pmatrix} z^{k } w^{n-k} &= \begin{pmatrix} 
+                                1 \\ 
+                                0 
+                                \end{pmatrix} z^{0} w + \begin{pmatrix} 
+                                           1 \\
+                                           1
+                                          \end{pmatrix} z^{1} w^{0}  \\
+                                          &= (z + w)^{1},
+        \end{align*}
+        which tells us that the result holds in our base case. Now, suppose the result holds for \( n  \)th case. We will show the result holds for the \( n + 1  \) case. By our induction hypothesis, we see that
+        \begin{align*}
+            (z+w)^{n+1} &= (z+w) (z+w)^{n} \\
+                        &= (z+w) \sum_{ k=0  }^{ n } \begin{pmatrix} 
+                                   n \\
+                                   k 
+                                  \end{pmatrix} z^{k} w^{n-k} \\
+                        &=  \sum_{ k=0  }^{ n } \begin{pmatrix} 
+                                   n \\ 
+                                   k 
+                                  \end{pmatrix} z^{k+1} w^{n-k} + w \sum_{ k=0  }^{ n } \begin{pmatrix} 
+                                             n \\
+                                             k 
+                                            \end{pmatrix} z^{k} w^{n-k + 1}.  
+        \end{align*}
+        Reordering indices in the first summation by setting \( m = k +1 \), we have
+        \begin{align*}
+            \sum_{ k=0  }^{ n } \begin{pmatrix} 
+                                   n \\ 
+                                   k 
+                                  \end{pmatrix} z^{k+1} w^{n-k} + w \sum_{ k=0  }^{ n } \begin{pmatrix} 
+                                             n \\
+                                             k 
+                                            \end{pmatrix} z^{k} w^{n-k + 1} &= \sum_{ m=1  }^{ n+1 } \begin{pmatrix} 
+                                                       n \\
+                                                       m-1
+                                                      \end{pmatrix}  z^{m} w^{(n+1) -m} \\
+                                                      &+ \sum_{ k=0  }^{ n } \begin{pmatrix} 
+                                                                 n \\
+                                                                 k 
+                                                                \end{pmatrix}  z^{k} w^{(n-k) + 1}.
+        \end{align*}
+       Then separating the first and last term of each summation, respectively, we have
+        \begin{align*}
+            (z + w)^{n+1} &=  \begin{pmatrix} 
+                                               n \\
+                                               n 
+                                              \end{pmatrix} z^{n} w + \sum_{ m=1  }^{ n } \begin{pmatrix} 
+                                                         n \\
+                                                         m-1
+                                                     \end{pmatrix} z^{m} w^{(n-k)+1} + \sum_{ k=1 }^{ n } \begin{pmatrix} 
+                                                                n \\
+                                                                k 
+                                                               \end{pmatrix}  z^{k } w^{n -k  + 1}  +  \begin{pmatrix} 
+                                                                n \\
+                                                                0  
+                                                            \end{pmatrix} w^{n+1} \\
+                                                            &=  \begin{pmatrix} 
+                                               n \\
+                                               n 
+                                               \end{pmatrix} z^{n} w + \sum_{ k=1  }^{ n } \Bigg[ \begin{pmatrix} n \\ k  \end{pmatrix} + \begin{pmatrix} n \\ k - 1  \end{pmatrix}\Bigg] z^{k } w^{(n+1)-k}  +  \begin{pmatrix} 
+                                                                n \\
+                                                                0  
+                                                            \end{pmatrix} w^{n+1}.
+        \end{align*}
+        Using the fact that \textbf{(Need to show this!)} 
+        \[  \begin{pmatrix} n \\ k  \end{pmatrix}  + \begin{pmatrix} n \\ k - 1  \end{pmatrix}  = \begin{pmatrix} n + 1 \\ k  \end{pmatrix}     \]
+        and collecting the first and last terms of the summation, we see that 
+        \begin{align*}
+            (z+w)^{n+1} &= \begin{pmatrix} n \\ 0  \end{pmatrix} z^{0} w^{n+1} + \sum_{ k=1  }^{ n } \begin{pmatrix} n + 1 \\ k  \end{pmatrix}  z^{k } w^{(n+1)- k} + \begin{pmatrix} n \\ n  \end{pmatrix} z^{n+1} w^{0}  \\
+                        &= \sum_{ k=0  }^{ n + 1   } \begin{pmatrix} n + 1 \\ k  \end{pmatrix} z^{k } w^{(n+1) - k} 
+        \end{align*}
+        which completes our induction argument. 
+        \end{proof}
+    \item  For \( z,w \in \C  \). Define \( \langle z , w \rangle = \Re(z \overline{w}) \). (If we think of \(  \C  \) as two dimensional real vector space, then \( \langle \cdot  ,  \cdot  \rangle  \) defines an inner product on \( \C  \)). 
+        \begin{enumerate}
+            \item[(i)] Cauchy Schwarz Inequality: 
+                Show that \( | \langle z , w \rangle |^{2} \leq | z |^{2} | w |^{2} \) for all \( z,w \in \C  \).
+                \begin{proof}
+                First, we would like to show that for any \( z,w \in \C  \)
+                \[ \langle z , w \rangle^{2} + \langle iz , w \rangle^{2} = | z |^{2} | w |^{2}.    \]
+                Let \( z,w \in \C  \). By definition of \( \langle z , w \rangle \), we see that 
+                \begin{align*}
+                    \langle z , w \rangle^{2} + \langle iz  , w  \rangle^{2} &= (xu + yv)^{2} + (xv - uy)^{2}. \tag{1}
+    \end{align*}
+    Observe that 
+    \begin{align*}
+        (xu + yv)^{2} &= (xu)^{2} + 2xuyv + (yv)^{2} \tag{2}
+    \end{align*}
+    and
+    \begin{align*}
+        (xv - uy)^{2} &= (xv)^{2} - 2xuyv + (uy)^{2}. \tag{3}
+    \end{align*}
+    Then adding (2) and (3) results in 
+    \begin{align*}
+        \langle z , w \rangle^{2} + \langle iz , w \rangle^{2} &= (xu)^{2} + (yv)^{2} + (xv)^{2} + (uy)^{2} \\
+                                                               &= x^{2} u^{2} + y^{2} v^{2} + x^{2} v^{2} + u^{2} y^{2} \\
+                                                               &= u^{2} (x^{2} + y^{2}) + v^{2} (x^{2} + y^{2}) \\
+                                                               &= (x^{2} + y^{2}) (u^{2} + v^{2}) \\
+                                                               &= | z  |^{2} | w |^{2}.
+    \end{align*}
+    Now, we need to show that \( | \langle z , w \rangle |^{2} \leq | z |^{2} | w |^{2}  \). By using the result above, we can write      
+    \begin{align*}
+       | \langle z , w \rangle |^{2}   &\leq | \langle z , w \rangle |^{2} + | \langle iz , w \rangle |^{2}  
+                                       = | z |^{2} | w |^{2} 
+    \end{align*}
+    and we are done.
+                \end{proof}
+            \item[(ii)] Triangle Inequalities: Show 
+                \[  | z + w  | \leq | z  |  + | w  | \]
+                and 
+                \[  | | z  |  - | w |  | \leq | z - w  |  \]
+                for all \( z,w \in \C  \).
+                \begin{proof}
+                Let \( z,w \in \C  \). We will first show that \(  | z + w  | \leq | z  |  + | w |  \). First, we will show the following results:
+                \[  | z + w  |^{2} = | z |^{2} + 2 | \langle z , w \rangle | + | w |^{2} \tag{1} \]
+                and 
+                \[  | z - w  |^{2} = | z |^{2} - 2 | \langle z , w \rangle | + | w |^{2}. \tag{2}  \]
+                Let \( z = x + iy \) and \( w = u + i v  \) for \( x,y,u,v \in \R  \). Observe that   
+                \[  z + w = (x+u) + i(y +v) \]
+                and 
+                \[  z - w = (x-u) + i(y - v). \]
+                Using the definition of the modulus, we see that
+                \begin{align*}
+                    | z + w  |^{2} = (z+w) \overline{(z+w)} &= ((x+u) + i(y+v)) ((x+u) - i(y+v)) \\
+                                                            &= (x+u)^{2} + (y +v)^{2} \\
+                                                            &= x^{2} 2xu + u^{2} + y^{2} + 2yv + v^{2} \\
+                                                            &= (x^{2} + y^{2}) + 2 (xu + yv) + (y^{2} + v^{2}) \tag{since \( \Re(z \overline{w}) = xu + yv \)} \\
+                                                            &= | z |^{2} + 2 \langle z , w \rangle + | w |^{2}. \tag{since \( \langle z , w \rangle = \Re(z \overline{w}) \)}
+                \end{align*} 
+                Similarly, we have
+                \begin{align*}
+                    | z - w  |^{2} = (z-w)\overline{(z-w)} &= ((x-u) + i (y - v)) ((x-u) - i (y - v)) \\
+                                                           &= (x-u)^{2} + (y - v)^{2} \\
+                                                           &=  x^{2} -2xu + u^{2} + y^{2} -2yv + v^{2} \\
+                                                           &= x^{2} + y^{2} -2(xu + yv) + v^{2} \\
+                                                           &= (x^{2}  + y^{2}) -2 \langle z , w \rangle + (v^{2} + u^{2}) \\ 
+                                                           &= | z |^{2} - 2 \langle z , w \rangle + | w |^{2}.
+\end{align*}
+Now, let us prove that \( | z + w  | \leq | z  |  + | w |  \). Consider \( | z + w  |^{2} \). By part (a), we see that
+\begin{align*}
+    | z + w  |^{2} &= | z  |^{2} + 2 \langle z , w \rangle + | w |^{2} \\
+                   &\leq | z |^{2} + 2 z  w + | w |^{2} \\ 
+                   &\leq | z |^{2} + 2 | z | | w |  + | w |^{2} \\
+                   &= (| z |  + | w | )^{2}.
+\end{align*}
+By taking the square root of both sides, we see that
+\[  | z + w  | \leq | z  |  + | w |. \]
+To show the second inequality, consider \( | z - w  |^{2} \). Then using part (a) again, we have
+\begin{align*}
+    | z - w  |^{2} &= | z |^{2} - 2 \langle z , w \rangle + | w  |^{2} \\
+                   & \geq | z |^{2} - 2 | z | | w |  + | w |^{2} \\ 
+                   &= (| z |  - | w |)^{2}. 
+\end{align*}
+By taking the square root of both sides, we see that 
+\[  | z - w  | \geq |  | z  |  - | w |  |.  \]
+
+
+
+                \end{proof}
+        \end{enumerate}
+    \item \textbf{(Lagrange Identity)} Let \( {z}_{1}, \dots, {z}_{n}, {w}_{1}, \dots, {w}_{n} \in \C   \). Show that    
+        \[  \Big| \sum_{ k=1  }^{ n } {z}_{k} {w}_{k} \Big|^{2} = \sum_{ k=1  }^{ n } | {z}_{k} |^{2} \sum_{ k=1  }^{ n } | {w}_{k } |^{2} - \sum_{ 1 \leq i < j \leq n  }^{  } | {z}_{i} \overline{{w}_{j}} - {z}_{j} \overline{{w}_{i}} |^{2}. \]
+        Use this to deduce that 
+        \[  \Big| \sum_{ k=1  }^{ n } {z}_{k } {w}_{k } \Big|^{2} \leq \sum_{ k=1  }^{ n } | {z}_{k} |^{2} \sum_{ k=1  }^{ n } | {w}_{k } |^{2}. \]
+        \begin{proof}
+        
+        \end{proof}
+    \item Express the following complex number in the form \( \alpha + i \beta  \):
+        \begin{enumerate}
+            \item[(i)] \( (1 + i)^{-1} \)
+                \begin{solution}
+                    
+                \end{solution}
+            \item[(ii)] \( (1 + i) / 2i \)
+                \begin{solution}
+                    
+                \end{solution}
+            \item[(iii)] \( (5 + 5i)^{10} \)
+                \begin{solution}
+                    
+                \end{solution}
+            \item[(iv)] \( \Big(  \frac{ 2 + i  }{ 3 -2i }  \Big)^{2} \)
+                \begin{solution}
+                    
+                \end{solution}
+            \item[(v)] \( \Big(  \frac{ - 1 + i \sqrt{ 3 }  }{ 2 }  \Big)^{3} \).
+                \begin{solution}
+                    
+                \end{solution}
+        \end{enumerate}
+    \item Let \( z \in \C^{\cdot} \) and \( z = r \cos \varphi + i \sin \Big(  \frac{ \varphi + 2 \pi k  }{ n }   \Big) \) where \( k \in \Z  \). Show that \( w^{n} = z  \).
+        \begin{proof}
+        
+        \end{proof}
+    \item \textbf{(Computing fourth roots)}: Find your distinct complex numbers \( w  \) such that \( w^{4} = z  \) for 
+        \begin{enumerate}
+            \item[(i)] \( z = i  \).
+                \begin{solution}
+                
+                \end{solution}
+            \item[(ii)] \( z = -i \).
+                \begin{solution}
+                
+                \end{solution}
+            \item[(iii)] \( z = 1  \).
+                \begin{solution}
+                
+                \end{solution}
+            \item[(iv)] \( z = -1  \).
+                \begin{solution}
+                
+                \end{solution}
+        \end{enumerate}
+
+
+\end{enumerate}
+
+
+
+
+
+\end{document}

@@ -22,11 +22,14 @@
 
 \item Prove the following: Suppose \( \alpha  \) is an upper bound for \( E \subset \R   \). Then \( \alpha = \sup E   \) if and only if for all \( \epsilon > 0  \), there exists \( {x}_{0} \in E  \) such that \( {x}_{0} > \alpha - \epsilon  \). \label{Problem 2}  
     \begin{proof}
-    Suppose \( \alpha  \) is an upper bound for \( E \subseteq \R  \). For the forwards direction, suppose \( \alpha = \sup E  \) and let \( \epsilon > 0 \). Note that \( \alpha - \epsilon < \alpha  \) implies that \( \alpha - \epsilon  \) is NOT an upper bound of \( E  \). By definition, there must exist an element \( {x}_{0} \in E  \) such that \( {x}_{0} > \alpha - \epsilon  \). Thus, \( \alpha < {x}_{0} + \epsilon  \).  
+    Suppose \( \alpha  \) is an upper bound for \( E \subseteq \R  \). For the forwards direction, suppose \( \alpha = \sup E  \) and let \( \epsilon > 0 \). Note that \( \alpha - \epsilon < \alpha  \) implies that \( \alpha - \epsilon  \) is NOT an upper bound of \( E  \). By definition, there must exist an element \( {x}_{0} \in E  \) such that \( {x}_{0} > \alpha - \epsilon  \). Thus, \( \alpha < {x}_{0} + \epsilon  \).
 
-    For the backwards direction, let \( \epsilon > 0  \) and let \( \alpha  \) be an upper bound of \( E  \). Suppose there exists \( {x}_{0} \in E  \) such that \( {x}_{0} > \alpha - \epsilon  \). Let \( \gamma \) be any upper bound of \( E  \). Thus, \( {x}_{0} \leq \gamma  \) by definition. By assumption, we see that 
-    \[  \alpha - \epsilon  < {x}_{0} \leq \gamma \implies \alpha \leq \gamma + \epsilon.  \]
-    Since \( \epsilon > 0  \) is arbitrary, we can use Exercise 5 to conclude that \( \alpha \leq \gamma  \), showing that \( \alpha  \) is the least upper bound. Thus, \( \sup E = \alpha  \).
+    For the backwards direction, let \( \epsilon = 1  \) and let \( \alpha  \) be an upper bound of \( E  \). We need to show \( \alpha = \sup E  \); that is, we need to show that \( \alpha  \) is an upper bound of \( E  \) and that any \( \gamma < \alpha  \) implies \( \gamma  \) is NOT an upper bound of \( E  \). Notice that the first property is satisfied by our assumption. Thus, all that is left to show is the second property.  
+
+    Suppose \( \gamma < \alpha  \). Our goal is to show that there exists some element \( x \in E  \) such that \( x > \gamma  \). We can use the fact that there exist \( {x}_{0} \in E  \) such that \( {x}_{0} > \alpha - 1 \) to say that
+    \[  \gamma < \alpha < {x}_{0} + 1. \]
+    Set \( x = {x}_{0} + 1  \) and thus, we have \( x > \gamma  \) for some \( x \in E  \). Therefore, \( \gamma  \) is NOT an upper bound of \( E  \) and so we conclude that 
+    \[  \alpha = \sup E. \]
     \end{proof}
 
 \item Let \( E  = \{ n / n + 1 : n \in \N  \}  \). Prove that \( \sup E  = 1  \). 

@@ -1,4 +1,4 @@
-\documentclass[a4paper]{book}
+\documentclass[a4paper]{article}
 \input{../../../../../newpreamble.tex}
 \usepackage{standalone}
 \usepackage{import}
@@ -63,6 +63,124 @@ Now, let's define the two operations, addition and multiplication, on \( \C  \).
     \textbf{To do.}
 \end{proof}
 
+\section{Lecture 2}
+
+\section{Topics}
+
+\begin{itemize}
+    \item Discuss the complex plane \( \C  \) as a working model for complex numbers.
+    \item Discuss the Euclidean Topology on \( \C  \).
+    \item Discuss polar representation of a complex number.
+\end{itemize}
+
+\section{Complex Plane \( \C  \) as a working model for Complex Numbers}
+\begin{lemma}
+  Let \( F  \) be a field containing \( \R  \) and the equation \( x^{2} + 1  =0 \) contains a solution \( i \in F  \).
+\begin{enumerate}
+    \item[(i)] Let   
+  \[  \C = \{ \alpha + i \beta : \alpha, \beta \in \R  \}. \]
+  Then \( \C  \) is a \textbf{subfield} of \( F  \).
+    \item[(ii)] Let \( F  \) be another field containing \( \R  \) and containing a solution \( i' \) of \( x^{2} + 1 = 0   \) and
+        \[  \C' = \{ \alpha + \beta i' : \alpha, \beta \in \R  \}.  \]
+        Then \( \C  \) and \( \C' \) are isomorphic as fields.
+\end{enumerate}
+\end{lemma}
+
+The second part of this lemma is simply saying that \( \C  \) is a unique subfield of \( F  \).
+
+\subsection{A model for \( \C  \)}
+
+Let \( \C = \R^{2} \). Then define addition \( +  \) and multiplication \( \cdot \) as 
+\[  ({\alpha}_{1}, {\beta}_{1}) + ({\alpha}_{2}, {\beta}_{2}) = ({\alpha}_{1} + {\alpha}_{2}, {\beta}_{1} + {\beta}_{2}) \]
+and 
+\[  ({\alpha}_{1}, {\beta}_{1}) \cdot ({\alpha}_{2}, {\beta}_{2}) = ({\alpha}_{1} {\alpha}_{2} - {\beta}_{1} {\beta}_{2} , {\alpha}_{1} {\beta}_{2} + {\alpha}_{2} {\beta}_{1}), \]
+respectively.
+
+
+\begin{lemma} The complex numbers \( \C  \) have the following properties
+    \begin{enumerate}
+        \item[(i)] \( (\C, +, \cdot) \) is a field.
+        \item[(ii)] Let \( \mathcal{J}: \R \to \C  \) by \( x \to (x,0) \). Then \( \mathcal{J}  \) is a subfield and forms an isomorphism between \( \R  \) and \( \mathcal{J}(\R ) \).
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Rough outline of proof:
+\begin{enumerate}
+    \item[(i)] Prove that \( \mathcal{J}(\R ) \) is a subfield.
+    \item[(ii)] Prove that \( \mathcal{J}(\R) \) is a field homorphism.
+    \item[(iii)] Prove that \( \mathcal{J}(\R) \) is an isomorphism; that is, show that \( \mathcal{J} \) is a bijective map.
+\end{enumerate}
+\end{proof}
+
+\begin{definition}[Constructing a solution for \( x^2 + 1 = 0  \)]
+   Define \( i = (0,1) \) as our imaginary number in \( \C  \) and let \( i^{2} = (-1,0) \). 
+\end{definition}
+
+
+\begin{prop}
+    Given \( \alpha, \beta \in \R  \), show that \( (\alpha, 0 ) + (0,1)(\beta, 0) = (\alpha, \beta) \). 
+\end{prop}
+\begin{proof}
+\textbf{To do.}
+\end{proof}
+
+\begin{definition}[Real and Imaginary part of Complex Number]
+   Let \( z = \alpha + i \beta  \) for \( \alpha, \beta \in \R  \). Then  
+   \begin{center}
+       \( \Re(z) = \alpha  \) and \( \Im(z) = \beta   \),
+   \end{center}
+   are the \textbf{real and imaginary of \( z  \)}, respectively.
+\end{definition}
+
+Geometrically, this is viewed as a reflection of the ordered pair \( z = (\alpha, \beta)  \) over the \( x- \)axis.
+
+\begin{prop}
+    For any \( z,w \in \C  \), we have the following properties:
+   \begin{enumerate}
+       \item[(i)] \( \overline{\overline{z}} = z  \).
+        \item[(ii)] \( \overline{z \pm w} = \overline{z} \pm \overline{w} \). 
+        \item[(iii)] \( \overline{zw} = \overline{z} \cdot \overline{w} \).
+        \item[(iv)] \( \Re(z) = \frac{ 1 }{ 2 }  ( z + \overline{z}) \).
+        \item[(v)] \( \Im(z) = \frac{ 1 }{ 2i } (z - \overline{z}) \). 
+        \item[(vi)] \( z \overline{z} = \alpha^{2} + \beta^{2} \geq 0 \).
+   \end{enumerate} 
+\end{prop}
+\begin{proof}
+\textbf{To do.}
+\end{proof}
+
+\begin{definition}[Modulus of a Complex Number]
+   Let \( z \in \C  \). We define the \textbf{modulus} \( | z  |  = \sqrt{ z \overline{z} }  \).
+\end{definition}
+
+
+\begin{prop}[More Properties of Complex Numbers]
+   Given \( z,w \in \C  \), we have the following properties:
+   \begin{enumerate}
+       \item[(i)] \( | z  |  = 0  \) if and only if \( z = 0  \).
+        \item[(ii)] \( | zw  |  = | z  | | w |  \).
+        \item[(iii)] \( | \Re(z) |  \leq | z  |  \).
+        \item[(iv)] \( | \Im(z) | \leq | z |  \).
+        \item[(v)] \( | z + w  | \leq | z  |  + | w |  \).
+        \item[(vi)] For any \( z \in \C  \) and \( z \neq 0  \), then
+            \(  \frac{ 1 }{ z }  = \frac{ \overline{z} }{ | z |^{2} }. \)
+   \end{enumerate}
+\end{prop}
+
+\section{Viewing \( \C  \) as a Metric Space}
+
+In \( \C  \), the metric we will be using is \( d(z,w) =  | z - w  |  \).
+
+\begin{definition}[Metric Space]
+   For \( z,w \in \C  \), we all \( \C  \) a metric space if it satisfies the following properties: 
+   \begin{enumerate}
+       \item[(i)] \( d(z,w) = d(w,z) \).
+        \item[(ii)] \( d(z,w) = 0  \) if and only if \( z = w  \) and \( d(z,w) > 0  \) if and only if \( z \neq w  \).
+   \end{enumerate}
+\end{definition}
+
+Now we have \( \C  \) is a metric space endowed with the metric \( d(z,w) = | z - w  |  \).
 
 
 
