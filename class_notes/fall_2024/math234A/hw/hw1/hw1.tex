@@ -231,34 +231,94 @@ By taking the square root of both sides, we see that
         Use this to deduce that 
         \[  \Big| \sum_{ k=1  }^{ n } {z}_{k } {w}_{k } \Big|^{2} \leq \sum_{ k=1  }^{ n } | {z}_{k} |^{2} \sum_{ k=1  }^{ n } | {w}_{k } |^{2}. \]
         \begin{proof}
-        
+        We will show that 
+        \[  \sum_{ 1 \leq i < j \leq n  }^{  } | {z}_{i} \overline{{w}_{j}} - {z}_{j} \overline{{w}_{i}} |^{2} = \sum_{ k=1  }^{ n } | {z}_{k } |^{2} \sum_{ k=1  }^{ n } | {w}_{k } |^{2} - \Big|  \sum_{ k=1  }^{ n } {z}_{k } {w}_{k } \Big|^{2}. \]
+        Observe that 
+        \begin{align*}
+            \sum_{ 1 \leq i < j \leq n  }^{  } | {z}_{i} \overline{{w}_{j}} - {z}_{j} \overline{{w}_{i}}  |^{2} &= \sum_{ i=1  }^{ n } \sum_{ j=1  }^{ n } | {z}_{i} \overline{{w}_{j}} - {z}_{j} \overline{{w}_{i}} |^{2}  \\
+                                                                                                                &= \sum_{ i=1  }^{ n } \sum_{ j=1  }^{ n } ({z}_{i} \overline{{w}_{j}} - {z}_{j} \overline{{w}_{i}})(\overline{{z}_{i}} {w}_{j} - \overline{{z}_{j}} {w}_{i}) \\
+                                                                                                                &= \sum_{ i=1  }^{ n } \sum_{ j=1  }^{ n } \Big[ | {z}_{i} |^{2} | {w}_{j} |^{2} - 2 {z}_{j} \overline{{z}_{i}} \overline{{w}_{i}} {w}_{j} + | {z}_{j} |^{2} | {w}_{i} |^{2} \Big] \\
+                                                                                                                &= \sum_{ i=1  }^{ n } \sum_{ j=1  }^{ n } | {z}_{i} |^{2} | {w}_{j} |^{2} - 2 \sum_{ i=1  }^{ n }\sum_{ j=1  }^{ n } {z}_{j} \overline{{z}_{i}} \overline{{w}_{i}} {w}_{j}
+                                                                                                                + \sum_{ i=1  }^{ n } \sum_{ j=1  }^{ n } | {z}_{j} |^{2} | {w}_{i} |^{2} \\
+                                                                                                                &= \sum_{ i=1  }^{ n } | {z}_{i} |^{2} \sum_{ j=1  }^{ n } | {w}_{i} |^{2} + \sum_{ i=1  }^{ n } | {w}_{i} |^{2} \sum_{ j=1  }^{ n } | {z}_{j} |^{2} - 2 \sum_{ i=1  }^{ n } \sum_{ j = 1   }^{ n } {z}_{j} \overline{{z}_{i}} \overline{{w}_{i}} {w}_{j} \\
+                                                                                                                &=  \sum_{ i=1  }^{ n  }| {z}_{i} | \sum_{ i=1  }^{ n   } | {w}_{i} |^{2} - \sum_{ i=1  }^{ n }  \overline{{z}_{i} {w}_{i}} \sum_{ i=1  }^{ n } {z}_{i} {w}_{i} \tag{for \( i = j  \)} \\  
+                                                                                                                &=  \sum_{ i=1  }^{ n } | {z}_{i} |^{2} \sum_{ i=1  }^{ n  } | {w}_{i} |^{2} - \Big| \sum_{ i=1  }^{ n } {z}_{i} {w}_{i}  \Big|^{2}.
+        \end{align*}
+        Thus, we conclude that 
+        \begin{align*}   \Big| \sum_{ k=1  }^{ n } {z}_{k} {w}_{k} \Big|^{2} &= \sum_{ k=1  }^{ n } | {z}_{k} |^{2} \sum_{ k=1  }^{ n } | {w}_{k } |^{2} - \sum_{ 1 \leq i < j \leq n  }^{  } | {z}_{i} \overline{{w}_{j}} - {z}_{j} \overline{{w}_{i}} |^{2} \\  
+            &\leq \sum_{ k=1  }^{ n } | {z}_{k } |^{2} \sum_{ k=1  }^{ n } | {w}_{k } |^{2}.  
+        \end{align*}
+
         \end{proof}
     \item Express the following complex number in the form \( \alpha + i \beta  \):
         \begin{enumerate}
             \item[(i)] \( (1 + i)^{-1} \)
                 \begin{solution}
-                    
+                   Observe that  
+                   \[  (1 + i)^{-1} = \frac{ 1 }{  1 + i }  \]
+                   and that 
+                   \begin{align*}
+                      \frac{ 1 }{  1 + i  }  \cdot \frac{ (1 - i)  }{  (1- i) } = \frac{ (1- i) }{ 1 - i^{2} } = \frac{ 1 - i  }{ 2 } = \frac{ 1 }{ 2 }  - \frac{ 1 }{ 2 }  i.
+                   \end{align*}
                 \end{solution}
             \item[(ii)] \( (1 + i) / 2i \)
                 \begin{solution}
-                    
+                 Observe that    
+                 \begin{align*}
+                     \frac{ (1 + i) }{ 2i  }  = \frac{ 1 }{ 2i }  (1 + i) = \frac{ 1 }{ 2i }  + \frac{ 1 }{ 2 } = \frac{ 1 }{ 2 }  - \frac{ 1 }{ 2 }  i.  
+                 \end{align*}
                 \end{solution}
             \item[(iii)] \( (5 + 5i)^{10} \)
                 \begin{solution}
-                    
-                \end{solution}
+                 Let \( z = 1 + i \). Observe that we can write   
+                 \[  (5 + 5i)^{10} = 5^{10} (1 + i)^{10}. \]
+                 Note that  
+                 \[  r = \sqrt{ 1^{2} + 1^{2} }  = \sqrt{ 2 }. \]
+                 Furthermore, we have
+                 \[  \tan^{-1}(  1 / 1  ) = \tan^{-1}(1) = \frac{ \pi  }{ 4 }. \]
+                 Using De Moivre's formula, we can write
+                 \begin{align*}
+                     z^{10} &= (\sqrt{ 2 })^{10}  (\cos(10 \theta ) + i \sin(10 \theta) \\
+                           &=  (\sqrt{ 2 } )^{10} (\cos(5 \pi / 2 ) + i \sin( 5 \pi / 2))
+                           &= (\sqrt{ 2 } )^{10} i.
+                \end{align*}
+                Then we have
+                \[  (5 + 5i)^{10} = 5^{10} (\sqrt{ 2 } )^{10} i = 312500000 i. \]
+            \end{solution}
             \item[(iv)] \( \Big(  \frac{ 2 + i  }{ 3 -2i }  \Big)^{2} \)
                 \begin{solution}
-                    
+                Our first step is to get \( \frac{ 2 + i  }{  3 -2i }  \) in terms of \( \alpha + i \beta  \). Thus, observe that
+                \[  \frac{ 2 + i  }{ 3 - 2i } = \frac{ 2 + i  }{ 3 - 2i } \cdot \frac{ 3 + 2i }{ 3 + 2i } = \frac{ 7i + 4  }{ 13 } = \frac{ 4 }{ 13 }  + i \frac{ 7 }{ 13 }.    \]
+               Furthermore, we have 
+               \[  \Big(  \frac{ 4 }{ 13 } + i \frac{ 7 }{ 13 }  \Big)^{2} = \frac{ 1 }{ 169 } ( 4 + 7i)^{2} = \frac{ 1 }{ 169  } (16 + 46i - 49) = \frac{ 1 }{ 169  }(-33 + 46i).    \]
+               Thus, we have that 
+               \[  \Big(  \frac{ 2 + i  }{ 3 -2i }  \Big)^{2} = \frac{ -33 }{ 169  } + \frac{ 46 }{ 169 }i  \]
                 \end{solution}
             \item[(v)] \( \Big(  \frac{ - 1 + i \sqrt{ 3 }  }{ 2 }  \Big)^{3} \).
                 \begin{solution}
-                    
+                   Denote \( z = \frac{ -1 }{ 2 }  + i \frac{ \sqrt{ 3 }  }{ 2 }  \). Then observe that  
+                   \[  \theta = \tan^{-1} \Big(  \frac{ \sqrt{ 3 } / 2 }{ -1 / 2 }  \Big) = \tan^{-1}(- \sqrt{ 3 } ) = \frac{ 2 \pi  }{ 3 }.   \]
+                   Furthermore, we have
+                   \[  r = \sqrt{ \Big(  \frac{ 1 }{ 2 }  \Big)^{2} + \Big(  \frac{ \sqrt{ 3 }  }{ 2 }  \Big)^{2} } = 1.   \]
+                   Using De Moivre's formula, we have that 
+                   \[  z^{3} = 1^{3} \cdot \Big(  \cos \Big( 3 \cdot \frac{ 2 \pi  }{ 3 }    \Big) + i \sin \Big(  3 \cdot \frac{ 2 \pi  }{ 3 }  \Big) \Big) = \cos(2 \pi) + i \sin(2 \pi ) = 1 + i0 = 1.  \]
                 \end{solution}
         \end{enumerate}
-    \item Let \( z \in \C^{\cdot} \) and \( z = r \cos \varphi + i \sin \Big(  \frac{ \varphi + 2 \pi k  }{ n }   \Big) \) where \( k \in \Z  \). Show that \( w^{n} = z  \).
+    \item Let \( z \in \C^{\cdot} \) and \( z = \gamma ( \cos \varphi + i \sin \varphi)\) where \( n \in \Z^{+}  \) and  
+        \[  w = \gamma^{1/n} \Bigg[ \cos \Big(  \frac{ \varphi + 2 \pi k  }{ n  } \Big)  + i \sin \Big(  \frac{ \varphi + 2 \pi k  }{ n  }  \Big)\Bigg]  \]
+        where \( k \in \Z  \). Show that \( w^{n} = z  \).
         \begin{proof}
-        
+        Note that for any \( n \in \N  \) that 
+        \[ z^{n} = ( \cos \varphi + i \sin \varphi )^{n} = \cos n \varphi + i \sin n \varphi.    \]
+        Thus, we have
+        \begin{align*}
+            w^{n} &= \Bigg(  \gamma^{1/n} \Bigg[  \cos \Bigg(  \frac{ \varphi + 2 \pi k  }{ n  } \Big)  + i \sin \Big(  \frac{ \varphi + 2 \pi k  }{ n  }  \Big) \Bigg] \Bigg)^{n} \\
+                  &= (\gamma^{1/n})^{n} \Bigg[ \cos \Big(  \frac{ \varphi + 2 \pi k  }{ n  } \Big)  + i \sin \Big(  \frac{ \varphi + 2 \pi k  }{ n  }  \Big) \Bigg]^{n} \\
+                  &= \gamma \Bigg[ \cos \Big( n \cdot  \frac{ \varphi + 2 \pi k  }{ n }  \Big) + i \sin \Big(  n \cdot \frac{  \varphi + 2 \pi k  }{ n  }  \Big) \Bigg] \\   
+                  &= \gamma (\cos \varphi + i \sin \varphi) \\
+                  &= z
+        \end{align*}
+        which ends our proof.
         \end{proof}
     \item \textbf{(Computing fourth roots)}: Find your distinct complex numbers \( w  \) such that \( w^{4} = z  \) for 
         \begin{enumerate}
@@ -279,10 +339,38 @@ By taking the square root of both sides, we see that
                 
                 \end{solution}
         \end{enumerate}
-
+    \item Sketch the following sets in \( \C  \).
+        \begin{enumerate}
+            \item[(i)] \( \zeta = \{ z \in \C : \Re((1+i)z - 2) = 0 \}   \).
+                \begin{solution}
+                
+                \end{solution}
+            \item[(ii)] Let \( a,c \in \R  \) and \( b \in \C  \) with \( b \overline{b } - a > 0   \) and
+                \[  \zeta = \{ z \in \C : a | z  |^{2} + \overline{b}z + b \overline{z} + c = 0    \}. \]
+                \begin{solution}
+                
+                \end{solution}
+            \item[(iii)] \( \zeta  = \{ z \in \C : | z - i  |  = 2  \}  \).
+                \begin{solution}
+                    
+                \end{solution}
+        \end{enumerate}
+    \item Let \( z,a \in \C  \). 
+        \begin{enumerate}
+            \item[(i)] Show that \( |  1 - z \overline{a} |^{2} - | z - a  |^{2} = (1 - | z | )^{2} (1 - | a |^{2}) \).
+                \begin{proof}
+                
+                \end{proof}
+            \item[(ii)] Assume that \( | a  |  < 1  \). Show that 
+                \[  | z  |  < 1 \iff \Big| \frac{ z - a  }{ 1 - \overline{a} z  } \Big| < 1     \]
+                and
+                \[  | z  |  = 1 \iff \Big| \frac{ z - a  }{  1 - \overline{a} z  }  \Big|  = 1. \]
+                \begin{proof}
+                
+                \end{proof}
+        \end{enumerate}
 
 \end{enumerate}
-
 
 
 
