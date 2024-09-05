@@ -415,6 +415,75 @@ By taking the square root of both sides, we see that
                 \end{solution}
         \end{enumerate}
 
+    \section*{Problem 7}
+    Sketch the following sets in \( \C  \).
+    \begin{enumerate}
+        \item[(i)] \( \zeta = \{ z \in \C : \Re((1+i)z - 2) = 0 \}.  \)
+
+            \begin{solution}
+            Let \( z = x + iy  \) for \( x,y \in \R  \). Then we see that 
+            \begin{align*}
+                (1 + i)z - 2 &= (1+i)(x + iy) - 2   \\
+                             &= (x - y - 2) + i(x+y).
+            \end{align*}
+            Hence, we have 
+            \[  \Re((1+i)z - 2) = x - y - 2 = 0   \]
+            and so, we have linear equation 
+            \[  y = x - 2. \]
+            
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=7cm]{figures/problem7part1.png}
+                    \label{fig:my_label}
+                \end{figure}
+            \end{solution}
+        \item[(ii)] Let \( a,c \in \R  \) and \( b \in \C  \) with \( \overline{b}b - ac > 0  \) and
+            \[  \zeta = \{  z \in \C : a | z |^{2} + \overline{b}z + b \overline{z} + c = 0 \}.  \]
+            \begin{solution}
+            Let \( z = x + iy \) and \( b = u + iw \) for \( x,y,u,w \in \R  \). Then observe that 
+            \begin{align*}
+                0  = a | z  |^{2} + \overline{b}z + b \overline{z} + c &= a (x^{2} + y^{2}) + (u-iw)(x+iy) + c  \\
+                                                                 &= ax^{2} + ay^{2} + 2ux + 2wy + c 
+            \end{align*}
+            which imply that 
+            \begin{align*}  
+                \Big[ x^{2} + \frac{ 2ux }{ a }  + \Big( \frac{ u }{ a }  \Big)^{2} \Big] +  \Big[ y^{2} + \frac{ 2wy }{ a }  + \Big(  \frac{ w }{ a }  \Big)^{2} \Big]  &= \frac{ u^{2} + w^{2} - ac  }{ a }
+                                                             \end{align*}
+            which further implies that 
+            \[   
+                \Big(  x^{2} + \frac{ u }{ a }  \Big)^{2} + \Big( y^{2} - \frac{ w }{ a }  \Big)^{2}                                                                                                                                                          = \frac{ | b |^{2} - ac  }{ a }. 
+            \]
+            Set 
+            \[  \gamma = \frac{ | b |^{2} - ac  }{ a  }  \]
+            and so
+            \[  \frac{ \Big(  x^{2} + \frac{ u }{ a }  \Big)^{2} }{ \gamma  } + \frac{ \Big( y^{2} - \frac{ w }{ a }  \Big)^{2} }{ \gamma  }  = 1 \]
+            which is an equation of a circle with radius \( \gamma > 0 \).
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=7cm]{figures/problem7part2.png}
+                    \label{fig:my_label}
+                \end{figure}
+
+            \end{solution}
+        \item[(iii)] \( \zeta = \{ z \in \C : | z - i  |  = 2  \}  \).
+            \begin{proof}
+            Let \( z = x + iy  \) for \( x,y \in \R  \). Then we see that 
+            \begin{align*}
+                | z - i  |^{2} = 4 &\implies (z - i) \overline{(z - i)} = 4 \\
+                                   &\implies (x + i(y-1))(x - i(y-1)) = 4 \\
+                                   &\implies x^{2} + (y-1)^{2} = 4 \\
+                                   &\implies \frac{ x^{2} }{ 4 } + \frac{ (y-1)^{2} }{ 4 }  = 1
+            \end{align*}
+            which is an equation for a circle in \( \R^{2} \). Thus, we have
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=7cm]{figures/problem7part3.png}
+                    \label{fig:my_label}
+                \end{figure}
+            \end{proof}
+    \end{enumerate}
+
+
     \section*{Problem 8} Let \( z,a \in \C  \). 
         \begin{enumerate}
             \item[(i)] Show that \( |  1 - z \overline{a} |^{2} - | z - a  |^{2} = (1 - | z | )^{2} (1 - | a |^{2}) \).

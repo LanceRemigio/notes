@@ -24,11 +24,11 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="2"
-     inkscape:cx="268"
-     inkscape:cy="253.5"
-     inkscape:window-width="943"
-     inkscape:window-height="1028"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="409.76838"
+     inkscape:cy="415.77879"
+     inkscape:window-width="1900"
+     inkscape:window-height="1030"
      inkscape:window-x="10"
      inkscape:window-y="40"
      inkscape:window-maximized="1"
@@ -522,22 +522,22 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.165107px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 128.17388,74.01922 -1.541,-1.704179 z"
+       style="fill:none;stroke:#000000;stroke-width:0.320417px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 155.53131,121.10034 -2.99055,-3.30723 z"
        id="path5817"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.171602px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 126.76191,75.799215 1.37508,-1.813354 z"
+       style="fill:none;stroke:#000000;stroke-width:0.333021px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 152.79116,124.55472 2.66856,-3.51912 z"
        id="path5819"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <g
        inkscape:label=""
-       transform="matrix(0.2644596,0,0,0.2644596,77.699056,55.068152)"
+       transform="matrix(0.51322702,0,0,0.51322702,57.576682,84.322704)"
        id="g5861"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
@@ -559,7 +559,7 @@
     </g>
     <g
        inkscape:label=""
-       transform="matrix(0.37032325,0,0,0.37032325,94.690312,44.482357)"
+       transform="matrix(0.71867271,0,0,0.71867271,90.550987,63.77924)"
        id="g10833"
        style="fill:#2b1100"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
@@ -584,7 +584,7 @@
     </g>
     <g
        inkscape:label=""
-       transform="matrix(0.29961645,0,0,0.29961645,72.462316,15.335032)"
+       transform="matrix(0.58145462,0,0,0.58145462,47.413934,7.2140994)"
        id="g11072"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
@@ -605,130 +605,130 @@
       </g>
     </g>
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.147828px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 99.740815,67.523715 c 0.201326,0.06025 2.038825,0.0049 2.038825,0.0049 z"
+       style="fill:none;stroke:#000000;stroke-width:0.286884px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 100.35232,108.49476 c 0.3907,0.11692 3.95667,0.009 3.95667,0.009 z"
        id="path12798"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.136201px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 99.860937,62.007616 c 0.185493,0.05551 1.878473,0.0046 1.878473,0.0046 z"
+       style="fill:none;stroke:#000000;stroke-width:0.26432px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 100.58543,97.789866 c 0.35998,0.107733 3.64548,0.009 3.64548,0.009 z"
        id="path12798-1"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.17157px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 99.695795,56.611259 c 0.233654,0.06993 2.366295,0.0057 2.366295,0.0057 z"
+       style="fill:none;stroke:#000000;stroke-width:0.33296px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 100.26495,87.317354 c 0.45344,0.135711 4.59217,0.01102 4.59217,0.01102 z"
        id="path12798-9"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.139559px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 99.908098,52.330121 c 0.190062,0.05688 1.924772,0.0046 1.924772,0.0046 z"
+       style="fill:none;stroke:#000000;stroke-width:0.270837px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 100.67695,79.009107 c 0.36885,0.110386 3.73533,0.009 3.73533,0.009 z"
        id="path12798-7"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.156192px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 99.82962,81.459706 c 0.21271,0.06366 2.15419,0.0052 2.15419,0.0052 z"
+       style="fill:none;stroke:#000000;stroke-width:0.303116px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 100.52466,135.53983 c 0.41279,0.12355 4.18055,0.0102 4.18055,0.0102 z"
        id="path12798-6"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.151671px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 99.817164,86.228948 c 0.206556,0.06182 2.091836,0.005 2.091836,0.005 z"
+       style="fill:none;stroke:#000000;stroke-width:0.294342px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 100.50048,144.79532 c 0.40086,0.11996 4.05955,0.0102 4.05955,0.0102 z"
        id="path12798-8"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.150239px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 99.84861,90.640672 c 0.20461,0.06123 2.07208,0.005 2.07208,0.005 z"
+       style="fill:none;stroke:#000000;stroke-width:0.291563px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 100.5615,153.35699 c 0.39709,0.11881 4.02121,0.0103 4.02121,0.0103 z"
        id="path12798-2"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.169127px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 99.67915,95.059064 c 0.230336,0.06893 2.33259,0.0057 2.33259,0.0057 z"
+       style="fill:none;stroke:#000000;stroke-width:0.328219px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 100.23264,161.9316 c 0.447,0.13377 4.52677,0.0115 4.52677,0.0115 z"
        id="path12798-0"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.175819px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 109.46449,72.944519 0.0451,2.297694 z"
+       style="fill:none;stroke:#000000;stroke-width:0.341206px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 119.22269,119.01471 0.0875,4.45905 z"
        id="path13013"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.175819px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 113.34779,72.945264 0.0451,2.297694 z"
+       style="fill:none;stroke:#000000;stroke-width:0.341206px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 126.75887,119.01616 0.0875,4.45905 z"
        id="path13013-5"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.210896px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 93.66735,72.654386 0.05412,2.756101 z"
+       style="fill:none;stroke:#000000;stroke-width:0.409278px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 88.565757,118.45167 0.104965,5.34866 z"
        id="path13013-36"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.208153px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 88.579315,72.550152 0.05342,2.720249 z"
+       style="fill:none;stroke:#000000;stroke-width:0.403955px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 78.691601,118.24938 0.10367,5.27908 z"
        id="path13013-9"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.192855px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 84.148346,72.684287 0.04949,2.520332 z"
+       style="fill:none;stroke:#000000;stroke-width:0.374266px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 70.092582,118.50969 0.09605,4.89112 z"
        id="path13013-0"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.198937px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 80.615884,72.646776 0.05105,2.599813 z"
+       style="fill:none;stroke:#000000;stroke-width:0.38607px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 63.237263,118.43689 0.09907,5.04537 z"
        id="path13013-48"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <ellipse
-       style="fill:#2b1100;fill-opacity:0;stroke:#000000;stroke-width:0.168672;stroke-opacity:1"
+       style="fill:#2b1100;fill-opacity:0;stroke:#000000;stroke-width:0.327336;stroke-opacity:1"
        id="path13217"
-       cx="100.84313"
-       cy="69.007927"
-       rx="11.92253"
-       ry="12.293095"
+       cx="102.49153"
+       cy="111.37511"
+       rx="23.137617"
+       ry="23.856758"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.175819px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 116.87887,72.947335 0.0451,2.297694 z"
+       style="fill:none;stroke:#000000;stroke-width:0.341206px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 133.61151,119.02018 0.0875,4.45905 z"
        id="path13013-5-1"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.175819px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 120.07523,72.88733 0.0451,2.297694 z"
+       style="fill:none;stroke:#000000;stroke-width:0.341206px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 139.81456,118.90373 0.0875,4.45904 z"
        id="path13013-5-1-2"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <g
        inkscape:label=""
-       transform="matrix(0.1686148,0,0,0.1686148,86.640193,54.204916)"
+       transform="matrix(0.32722454,0,0,0.32722454,74.928419,82.647453)"
        id="g14197"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
@@ -785,39 +785,39 @@
       </g>
     </g>
     <ellipse
-       style="fill:#2b1100;fill-opacity:1;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
+       style="fill:#2b1100;fill-opacity:1;stroke:#000000;stroke-width:0.513467;stroke-opacity:1"
        id="path14266"
-       cx="100.87878"
-       cy="67.498466"
-       rx="0.32853314"
-       ry="0.3435145"
+       cx="102.56071"
+       cy="108.44576"
+       rx="0.63757217"
+       ry="0.66664594"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 100.74953,67.554244 -11.674866,0.07451 -0.0123,-0.03611 z"
+       style="fill:none;stroke:#000000;stroke-width:0.513467px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 102.30989,108.554 -22.656983,0.1446 -0.02388,-0.0701 z"
        id="path14771"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.208859px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 89.145608,67.699668 c 0,0 2.140116,1.675014 2.971971,1.132289 0.831859,-0.542725 2.573803,0.405888 2.573803,0.405888 l -0.07917,-0.04472 0.160294,0.02475"
+       style="fill:none;stroke:#000000;stroke-width:0.405325px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 79.790585,108.83622 c 0,0 4.153239,3.25064 5.767594,2.19739 1.614354,-1.05324 4.994884,0.7877 4.994884,0.7877 l -0.15364,-0.0868 0.311075,0.0481"
        id="path14886"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.213231px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 100.53094,67.683674 c 0,0 -2.191942,1.704592 -3.043942,1.152284 -0.852003,-0.552309 -2.636137,0.413054 -2.636137,0.413054 l 0.08112,-0.0455 -0.164168,0.02519"
+       style="fill:none;stroke:#000000;stroke-width:0.41381px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 101.88567,108.80518 c 0,0 -4.253807,3.30804 -5.907247,2.2362 -1.65346,-1.07185 -5.115861,0.8016 -5.115861,0.8016 l 0.157421,-0.0883 -0.318585,0.0488"
        id="path14886-9"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <g
        inkscape:label=""
-       transform="matrix(0.21941562,0,0,0.21941562,73.875313,53.146012)"
+       transform="matrix(0.42581182,0,0,0.42581182,50.156085,80.592477)"
        id="g15306"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
@@ -839,7 +839,7 @@
     </g>
     <g
        inkscape:label=""
-       transform="matrix(0.13404935,0,0,0.13404935,89.441545,71.783228)"
+       transform="matrix(0.26014465,0,0,0.26014465,80.3649,116.76103)"
        id="g15693"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
@@ -907,29 +907,29 @@
       </g>
     </g>
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 100.54076,100.64601 0.26182,-59.135431 z"
+       style="fill:none;stroke:#000000;stroke-width:0.513467px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 101.90473,172.77398 102.41284,58.012021 Z"
        id="path15891"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 71.227147,73.695127 56.872803,0.318825 z"
+       style="fill:none;stroke:#000000;stroke-width:0.513467px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 45.016886,120.47138 110.370964,0.61874 z"
        id="path15893"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 100.80258,41.510579 -2.039142,1.531509 z"
+       style="fill:none;stroke:#000000;stroke-width:0.513467px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 102.41284,58.012021 -3.957277,2.972142 z"
        id="path16088"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 100.80258,41.510579 1.95783,1.570564 z"
+       style="fill:none;stroke:#000000;stroke-width:0.513467px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 102.41284,58.012021 3.79949,3.047935 z"
        id="path16092"
        inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part3.png"
        inkscape:export-xdpi="96"
