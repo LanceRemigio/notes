@@ -8,8 +8,7 @@
 \begin{document}
    \maketitle 
 
-\begin{enumerate}
-    \item  
+    \section*{Problem 1}  
         \begin{enumerate}
             \item[(i)] \textbf{(Parallelogram identity)} Let \( z,w \in \C  \). Show that 
                 \[  | z + w  |^{2} + | z - w  |^{2} = 2 (| z  |^{2} + | w |^{2}).  \]
@@ -139,7 +138,7 @@
         \end{align*}
         which completes our induction argument. 
         \end{proof}
-    \item  For \( z,w \in \C  \). Define \( \langle z , w \rangle = \Re(z \overline{w}) \). (If we think of \(  \C  \) as two dimensional real vector space, then \( \langle \cdot  ,  \cdot  \rangle  \) defines an inner product on \( \C  \)). 
+    \section*{Problem 2}  For \( z,w \in \C  \). Define \( \langle z , w \rangle = \Re(z \overline{w}) \). (If we think of \(  \C  \) as two dimensional real vector space, then \( \langle \cdot  ,  \cdot  \rangle  \) defines an inner product on \( \C  \)). 
         \begin{enumerate}
             \item[(i)] Cauchy Schwarz Inequality: 
                 Show that \( | \langle z , w \rangle |^{2} \leq | z |^{2} | w |^{2} \) for all \( z,w \in \C  \).
@@ -226,7 +225,7 @@ By taking the square root of both sides, we see that
 
                 \end{proof}
         \end{enumerate}
-    \item \textbf{(Lagrange Identity)} Let \( {z}_{1}, \dots, {z}_{n}, {w}_{1}, \dots, {w}_{n} \in \C   \). Show that    
+    \section*{Problem 3} \textbf{(Lagrange Identity)} Let \( {z}_{1}, \dots, {z}_{n}, {w}_{1}, \dots, {w}_{n} \in \C   \). Show that    
         \[  \Big| \sum_{ k=1  }^{ n } {z}_{k} {w}_{k} \Big|^{2} = \sum_{ k=1  }^{ n } | {z}_{k} |^{2} \sum_{ k=1  }^{ n } | {w}_{k } |^{2} - \sum_{ 1 \leq i < j \leq n  }^{  } | {z}_{i} \overline{{w}_{j}} - {z}_{j} \overline{{w}_{i}} |^{2}. \]
         Use this to deduce that 
         \[  \Big| \sum_{ k=1  }^{ n } {z}_{k } {w}_{k } \Big|^{2} \leq \sum_{ k=1  }^{ n } | {z}_{k} |^{2} \sum_{ k=1  }^{ n } | {w}_{k } |^{2}. \]
@@ -250,7 +249,7 @@ By taking the square root of both sides, we see that
         \end{align*}
 
         \end{proof}
-    \item Express the following complex number in the form \( \alpha + i \beta  \):
+    \section*{Problem 4} Express the following complex number in the form \( \alpha + i \beta  \):
         \begin{enumerate}
             \item[(i)] \( (1 + i)^{-1} \)
                 \begin{solution}
@@ -304,13 +303,13 @@ By taking the square root of both sides, we see that
                    \[  z^{3} = 1^{3} \cdot \Big(  \cos \Big( 3 \cdot \frac{ 2 \pi  }{ 3 }    \Big) + i \sin \Big(  3 \cdot \frac{ 2 \pi  }{ 3 }  \Big) \Big) = \cos(2 \pi) + i \sin(2 \pi ) = 1 + i0 = 1.  \]
                 \end{solution}
         \end{enumerate}
-    \item Let \( z \in \C^{\cdot} \) and \( z = \gamma ( \cos \varphi + i \sin \varphi)\) where \( n \in \Z^{+}  \) and  
+    \section*{Problem 5} Let \( z \in \C^{\cdot} \) and \( z = \gamma ( \cos \varphi + i \sin \varphi)\) where \( n \in \Z^{+}  \) and  
         \[  w = \gamma^{1/n} \Bigg[ \cos \Big(  \frac{ \varphi + 2 \pi k  }{ n  } \Big)  + i \sin \Big(  \frac{ \varphi + 2 \pi k  }{ n  }  \Big)\Bigg]  \]
         where \( k \in \Z  \). Show that \( w^{n} = z  \).
         \begin{proof}
         Note that for any \( n \in \N  \) that 
-        \[ z^{n} = ( \cos \varphi + i \sin \varphi )^{n} = \cos n \varphi + i \sin n \varphi.    \]
-        Thus, we have
+        \[ z^{n} = ( \cos \varphi + i \sin \varphi )^{n} = \cos n \varphi + i \sin n \varphi.   \tag{1}  \]
+        Using (1), we can see that 
         \begin{align*}
             w^{n} &= \Bigg(  \gamma^{1/n} \Bigg[  \cos \Bigg(  \frac{ \varphi + 2 \pi k  }{ n  } \Big)  + i \sin \Big(  \frac{ \varphi + 2 \pi k  }{ n  }  \Big) \Bigg] \Bigg)^{n} \\
                   &= (\gamma^{1/n})^{n} \Bigg[ \cos \Big(  \frac{ \varphi + 2 \pi k  }{ n  } \Big)  + i \sin \Big(  \frac{ \varphi + 2 \pi k  }{ n  }  \Big) \Bigg]^{n} \\
@@ -320,57 +319,166 @@ By taking the square root of both sides, we see that
         \end{align*}
         which ends our proof.
         \end{proof}
-    \item \textbf{(Computing fourth roots)}: Find your distinct complex numbers \( w  \) such that \( w^{4} = z  \) for 
+    \section*{Problem 6} \textbf{(Computing fourth roots)}: Find your distinct complex numbers \( w  \) such that \( w^{4} = z  \) for 
         \begin{enumerate}
             \item[(i)] \( z = i  \).
                 \begin{solution}
-                
+                Note that \( z  = i = 0  + 1 \cdot i  \). For \( 0 \leq k \leq 3   \), we see that the arguments are 
+                \[  \frac{  \varphi + 2 \pi k  }{ 4  }  = \frac{ \pi }{ 8 }, \frac{ 5 \pi  }{ 8  }, \frac{ 9 \pi  }{ 8  }, \frac{  13 \pi  }{ 8  }.   \]
+                For \( k = 0  \), we see that 
+                \[    \cos \Big(  \frac{  \pi   }{ 8 }   \Big) + i \sin \Big(  \frac{ \pi  }{ 8  }  \Big) = \sqrt{ \frac{ 1 + \sqrt{ 2 } / 2  }{ 2  }  } + i \sqrt{ \frac{  1 + \sqrt{ 2 } / 2  }{ 2  } }. \]
+            For \(  k = 1  \), we see that 
+            \begin{align*}
+            \cos \Big( \frac{ 5 \pi  }{ 8  } \Big) + i \sin \Big( \frac{ 5 \pi  }{ 8  }  \Big) &= - \sqrt{ \frac{ 1 + \cos(5 \pi /4) }{ 2  }  } + i \sqrt{ \frac{ 1 - \cos (5 \pi /4) }{ 2 }  }     \\
+                                                                                               &= - \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }   }{ 2 }  } + i \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }   }{ 2 }  }. 
+        \end{align*}
+        For \( k = 2  \), we see that 
+        \begin{align*}
+            \cos \Big(  \frac{  9 \pi  }{ 8  }  \Big) + i \sin \Big(  \frac{ 9 \pi  }{ 8  }  \Big) &= \cos \Big(  \frac{ 1 }{ 2 }  \cdot \frac{  9 \pi  }{ 4  }  \Big) + i \sin \Big(  \frac{ 1 }{ 2 }  \cdot \frac{ 9 \pi  }{ 4 }  \Big) \\
+                                                                                                   &= \sqrt{ \frac{ 1 + \cos(9 \pi /4) }{2  }  }  + i \sqrt{ \frac{ 1 - \cos(9\pi/4) }{ 2  }  } \\
+                                                                                                   &= \sqrt{  \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }     } + i \sqrt{  \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }. 
+        \end{align*}
+        Lastly, for \( k =3  \), we have 
+        \begin{align*}
+            \cos \Big(  \frac{  13 \pi  }{ 8 }   \Big) + i \sin \Big(  \frac{ 13 \pi  }{ 8 }  \Big) &= \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  - i \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }.
+        \end{align*}
                 \end{solution}
             \item[(ii)] \( z = -i \).
                 \begin{solution}
-                
+                Note that \( z = - i = 0 - 1 \cdot i  \). For \( 0 \leq k \leq 3  \), the arguments are
+                \[  \frac{ 3 \pi  }{ 8  }, \frac{ 7 \pi   }{ 8  }, \frac{ 11 \pi  }{ 8 }, \frac{ 15 \pi  }{ 8 }.  \]
+                Let \( k = 0  \). Then using the result found in problem 5 and the half-angle identity, we have
+                \begin{align*}
+                    \cos \Big(  \frac{ 3 \pi  }{ 8  }  \Big) + i \sin \Big(  \frac{ 3 \pi  }{ 8  }  \Big) &= - \sqrt{ \frac{ 1 + \cos(3 \pi /4) }{ 2 }  }  + i \sqrt{ \frac{ 1 - \cos (3 \pi /4 ) }{ 2 }  }    \\
+                                                                                                          &= - \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  + i \sqrt{ \frac{ 1 -  \frac{ \sqrt{ 2 }  }{ 2 } }{ 2 }  }    \\ 
+                \end{align*}
+                Let \( k = 1  \). We get that  
+                \begin{align*}
+                    \cos \Big(  \frac{ \frac{ 3 \pi }{ 2 } + 2 \pi }{ 4  }  \Big) + i \sin \Big(  \frac{ \frac{ 3 \pi }{ 2 }  + 2 \pi }{ 4 }  \Big) &= \cos \Big(  \frac{ 3 \pi  }{ 8  } + \frac{ \pi }{ 2 }  \Big) + i \sin \Big(  \frac{ 3 \pi }{ 8 }  + \frac{ \pi }{ 2 }  \Big). 
+                \end{align*}
+                Using the sum formula, we see that 
+                \begin{align*}
+                    \cos \Big(  \frac{ 3 \pi  }{ 8  } + \frac{ \pi }{ 2 }  \Big) + i \sin \Big(  \frac{ 3 \pi }{ 8 }  + \frac{ \pi }{ 2 }  \Big) &= \Big[ \cos \Big(  \frac{ 3 \pi  }{ 8 }  \Big) \cos \Big(  \frac{  \pi  }{  2  }  \Big) - \sin \Big(  \frac{ 3 \pi  }{ 8  }  \sin \Big(  \frac{ \pi }{ 2 }  \Big) \Big)\Big]   \\
+                                                                                                                                                 &+ i \Big[ \sin \Big(  \frac{ 3 \pi  }{ 8 }  \Big) \cos \Big(  \frac{  \pi  }{ 2 }  \Big) + \cos \Big(  \frac{  3 \pi  }{ 8  }  \sin \Big(  \frac{ \pi }{ 2 }  \Big) \Big) \Big] \\
+                                                                                                                                                 &= - \sqrt{  \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  - i \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }   }.   
+                \end{align*}
+                For \( k = 2  \), we employ the same process. Thus, we have
+                \begin{align*}
+                    \cos \Big( \frac{ 3 \pi  }{ 8 } + \pi    \Big) + i \sin \Big(  \frac{ 3 \pi  }{ 8 }  + \pi \Big) &= \Big[ \cos \Big(  \frac{ 3 \pi  }{ 8  }  \Big) \cos (\pi) - \sin \Big(  \frac{  3 \pi  }{ 8 }  \Big) \sin (\pi)]     \\
+                                                                                                                     &+ i \Big[ \sin \Big(  \frac{ 3 \pi }{ 8  }  \Big) \cos (\pi) + \cos \Big(  \frac{ 3 \pi  }{ 8 }  \Big) \sin (\pi)\Big] \\ 
+                                                                                                                     &= - \cos \Big(  \frac{ 3 \pi  }{ 8  }  \Big) - i \sin \Big(  \frac{ 3 \pi  }{ 8  }  \Big) \\
+                                                                                                                     &= \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  - i \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }   }{ 2 }  }.
+                \end{align*}
+                Lastly, for \( k = 3  \), we have
+                \begin{align*}
+                    \cos \Big(  \frac{ 15 \pi  }{ 8  }  \Big) + i \sin \Big(  \frac{ 15 \pi  }{ 8 }  \Big) &= \cos \Big(  \frac{ 3 \pi  }{ 8 }  + \frac{ 3 \pi  }{  2  }  \Big) + i \sin \Big(  \frac{ 3 \pi  }{ 8  }  + \frac{ 3 \pi  }{  2  }  \Big) \\
+                                                                                                           &= \Big[ \cos \Big(  \frac{ 3 \pi  }{  8  }   \Big) \cos \Big(  \frac{ 3 \pi  }{  2 }  \Big) - \sin \Big(  \frac{ 3 \pi  }{  8  } \sin \Big(  \frac{ 3 \pi }{ 2 }  \Big) \Big)\Big]  \\
+                                                                                                           &+ i \Big[ \sin \Big(  \frac{ 3 \pi  }{ 8  } \Big)  \cos \Big(  \frac{ 3 \pi }{ 2 }  \Big)  + \cos \Big(  \frac{ 3 \pi  }{ 8  } \Big)  \sin \Big(  \frac{ 3 \pi  }{  2  }   \Big) \Big] \\
+                                                                                                           &= \sin \Big(  \frac{ 3 \pi  }{  8  }  \Big) - i \cos \Big(  \frac{ 3 \pi  }{ 8  }  \Big) \\
+                                                                                                           &= \sqrt{ \frac{ 1 - \frac{ 2  }{ 2 }  }{ 2 }  }  + i \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }.
+                \end{align*}
+                \begin{align*}
+                    & \\
+                \end{align*}
                 \end{solution}
             \item[(iii)] \( z = 1  \).
                 \begin{solution}
-                
+                Note that \( z = 1 = 1 + i \cdot 0  \). For \( 0 \leq k \leq 3  \), we have the arguments
+                \[  0 , \frac{ \pi }{ 2 },  \pi, \frac{ 3 \pi  }{  2  }   \]
+                with each argument corresponding to \( k \in [0,3]  \). For \( k = 0  \), observe that 
+                \[  \cos(0) + i \sin (0) = 1.  \]
+                For \( k = 1  \), we have 
+                \[ \cos \Big(  \frac{ \pi }{ 2 }  \Big) + i \sin \Big(  \frac{ \pi }{ 2 }  \Big) = 0 + i = i.   \]
+                Similarly, if \( k = 2  \) we get  
+                \[ \cos \Big(  \frac{ 3 \pi  }{ 2 }  \Big) + i \sin \Big(  \frac{ 3 \pi }{ 2 }  \Big) = - i.   \]
+
+
+
                 \end{solution}
             \item[(iv)] \( z = -1  \).
                 \begin{solution}
-                
+                Let \( 0 \leq k \leq 3   \) and \( n = 4  \). We will compute all the solution along the interval \( 0 \leq k \leq 3   \). Note that \( z = i = 0 + i \cdot 1 \) and that \( \varphi =  \arg z = \pi / 2  \) and that for \( 0 \leq k \leq 3 \), we have   
+                \[  \frac{  \varphi + 2 \pi k   }{ 4   } = \frac{ \pi  }{ 4 }, \frac{ 3 \pi  }{ 4  },  \frac{  5 \pi  }{ 4 }, \pi.       \]
+                Using the result in problem 5, observe that for \( k = 0  \), we have 
+                \begin{align*}
+                   \cos \Big(  \frac{  \pi  }{ 4  }   \Big)  + i \sin \Big(  \frac{ \pi  }{ 4  }  \Big) &= \frac{ \sqrt{ 2 }  }{ 2 }  + i \frac{ \sqrt{ 2 }  }{ 2 }.
+                \end{align*}
+                Similarly, for \( k = 1  \), we have 
+                \[  \cos \Big(  \frac{ 3 \pi  }{ 4  }  \Big) + i \sin \Big(  \frac{ 3 \pi  }{  4  }  \Big) = - \frac{ \sqrt{ 2 }  }{ 2 }  + i \frac{ \sqrt{ 2 }  }{ 2 }. \]
+                For \( k = 2  \), 
+                \[  \cos \Big(  \frac{ 5 \pi  }{  4  }  \Big) + i \sin \Big(  \frac{ 5 \pi  }{  4  }  \Big) = - \frac{ \sqrt{ 2 }  }{ 2 }  - i \frac{ \sqrt{ 2 }  }{ 2 }. \]
+                For \( k = 3  \), we have 
+                \[  \cos (\pi)  + i \sin (\pi) = -1 + i \cdot 0 = -1. \]
+                Thus, we have 
+                \[  z = \frac{ \sqrt{ 2 }  }{ 2 }  + i \frac{ \sqrt{ 2 }  }{ 2 },  - \frac{ \sqrt{ 2 }  }{ 2 }  + i \frac{ \sqrt{ 2 }  }{ 2 }, - \frac{ \sqrt{ 2 }  }{ 2 }  - i \frac{ \sqrt{ 2 }  }{ 2 }, -1. \]
+
                 \end{solution}
         \end{enumerate}
-    \item Sketch the following sets in \( \C  \).
-        \begin{enumerate}
-            \item[(i)] \( \zeta = \{ z \in \C : \Re((1+i)z - 2) = 0 \}   \).
-                \begin{solution}
-                
-                \end{solution}
-            \item[(ii)] Let \( a,c \in \R  \) and \( b \in \C  \) with \( b \overline{b } - a > 0   \) and
-                \[  \zeta = \{ z \in \C : a | z  |^{2} + \overline{b}z + b \overline{z} + c = 0    \}. \]
-                \begin{solution}
-                
-                \end{solution}
-            \item[(iii)] \( \zeta  = \{ z \in \C : | z - i  |  = 2  \}  \).
-                \begin{solution}
-                    
-                \end{solution}
-        \end{enumerate}
-    \item Let \( z,a \in \C  \). 
+
+    \section*{Problem 8} Let \( z,a \in \C  \). 
         \begin{enumerate}
             \item[(i)] Show that \( |  1 - z \overline{a} |^{2} - | z - a  |^{2} = (1 - | z | )^{2} (1 - | a |^{2}) \).
                 \begin{proof}
-                
+                Note that \( | a  |^{2} = | \overline{a} |^{2}  \) and that  
+                \[ \langle z  , a  \rangle = \Re(z \overline{a}) = x u + yv =   \Re(\overline{z} a ) = \langle 1  ,  z \overline{a} \rangle. \]
+                if \( z = z + iy \) and \( a = u + iv  \) for \( x,y,u,v \in \R  \).
+                Observe that 
+                \begin{align*}
+                    |  1 - z \overline{a} |^{2} - | z - a  |^{2} &= [ 1 - 2 \langle 1  , z \overline{a} \rangle + | z \overline{a} |^{2}] - [ | z  |^{2} - 2 \langle z , a \rangle + | a |^{2}] \\
+                                                                 &=  | z  |^{2} | a |^{2} - | z |^{2} - | a |^{2} - 1  \\ 
+                                                                 &= (1 - | z |^{2})(1 - | a |^{2}).
+                \end{align*}
+                Hence, we see that 
+                \[  |  1 - z \overline{a} |^{2} - | z - a  |^{2} = (1 - | z |^{2})(1 - | a |^{2}). \]
                 \end{proof}
             \item[(ii)] Assume that \( | a  |  < 1  \). Show that 
-                \[  | z  |  < 1 \iff \Big| \frac{ z - a  }{ 1 - \overline{a} z  } \Big| < 1     \]
+                \[  | z  |  < 1 \iff \Big| \frac{ z - a  }{ 1 - \overline{a} z  } \Big| < 1     \tag{1}\]
                 and
-                \[  | z  |  = 1 \iff \Big| \frac{ z - a  }{  1 - \overline{a} z  }  \Big|  = 1. \]
+                \[  | z  |  = 1 \iff \Big| \frac{ z - a  }{  1 - \overline{a} z  }  \Big|  = 1. \tag{2} \]
                 \begin{proof}
-                
-                \end{proof}
-        \end{enumerate}
+                Suppose \( |  z  | < 1  \) and \( | a  |  < 1  \). We will first show that  the forwards direction of (1).
+                \[  \Big|  \frac{  z - a  }{ 1 - \overline{a} z  }  \Big| < 1.  \]
+                It suffices to show that 
+                \[  | z - a  |^{2} < | 1 - \overline{a}z |^{2}.  \]
+                By part (i), we see that 
+                \[  | z - a  |^{2} = | 1 - z \overline{a} |^{2} - (1 - | z |^{2})(1 - | a |^{2}). \tag{3}\]
+                Since \( | z  |  < 1  \) and \( | a  |  < 1  \), we see that 
+                \begin{center}
+                    \( 1 - | z  |^{2} > 0  \) and \( 1 - | a |^{2} > 0 \). 
+                \end{center}
+                Thus, we see that 
+                \[  -(1-| z |^{2} )(1 - | a |^{2}) < 0. \]
+                Therefore, (3) implies that 
+                \[  | z - a  |^{2} < | 1 - \overline{a}z  |^{2} \]
+                which further implies that 
+                \[  \Big| \frac{ z - a  }{ 1 - \overline{a}z }  \Big| < 1. \]
 
-\end{enumerate}
+                Now, suppose for the backwards direction that 
+                \[  \Big| \frac{  z - a  }{  1 - \overline{a}z }  \Big|  < 1. \]
+                Note that this is equivalent to saying
+                \[  | z - a  |^{2}  < | 1 - \overline{a }z  |^{2}  \]
+                By using the fact that 
+                \[  | z - a  |^{2} = | z  |^{2} - 2 \langle z  , a \rangle + | w  |^{2} \]
+                and 
+                \[  | 1 - \overline{a}z |^{2} = 1 - 2 \langle 1  , \overline{a} z  \rangle + | \overline{a}z  |^{2}.  \]
+                Then observe that 
+                \begin{align*}
+                    | z - a  |^{2} < | 1 - \overline{a}z |^{2} &\implies   
+                    | z  |^{2} - 2 \langle z , a \rangle + | w  |^{2} < 1 - 2 \langle 1  , \overline{a}z \rangle + | \overline{a} |^{2} | z  |^{2}.
+                \end{align*}
+                So, we must have 
+                \begin{align*}
+                    | z  |^{2} - 2 \langle z , a \rangle + | a |^{2} &< 1 - 2 \langle 1  , \overline{a}z \rangle + | \overline{a} |^{2} | z |^{2} \\
+                    | z |^{2} + | a |^{2} &< 1 + | a |^{2} | z |^{2} 
+                \end{align*}
+                which imply that 
+                \begin{align*}
+                    | z |^{2} < ( 1 - | a |^{2}) + | a |^{2} | z |^{2} &\implies | z  |^{2} ( 1 - | a |^{2} ) < 1 - | a |^{2}   \\
+                                                                       &\implies | z  |^{2}  < \frac{ 1 - | a |^{2}  }{  1 - | a |^{2}  }  = 1.
+                \end{align*}
+                Thus, we see that \( | z  | < 1  \). To prove (2), we can replace the inequalities above with an equal sign and the proof will be the same.
+            \end{proof}
+        \end{enumerate}
 
 
 

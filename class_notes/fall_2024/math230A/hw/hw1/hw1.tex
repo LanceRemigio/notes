@@ -116,17 +116,8 @@ Continuation of the proof presented in homework. Set \( \beta = - \alpha  \) whe
     \begin{proof}
     Let \( E  \) be a nonempty subset of \( \N  \). First, we will show that \( \inf E  \) exists. Observe that \( 0  \) is a lower bound of \( E  \). Thus, \( E  \) is bounded below. Thus, \( \inf E  \) must exists by the greatest-lower-bound property of \( \R  \).    
 
-    To show that \( E  \) contains a minimum, we suppose for contradiction that \( \inf E \notin E  \). By {\hyperref[Problem 2]{Part 2 of Problem 7}}, the open interval \( (\inf E, \inf E + \epsilon) \) contains infinitely many points. Since \( \inf E  \) is a real number, there must exists \( t \in \Q  \) such that    
-    \[  \inf E < t < \inf E + \epsilon \]
-    by \( \Q  \) being dense in \( \R  \).
-    Thus, \( t = m / n  \) for \( m, n \in \Z  \) with \( n \neq 0  \) such that  
-    \[  \inf E < \frac{ m }{ n }  < \inf E + \epsilon   \]
-    So,
-    \[ n < m <  n (\inf E + \epsilon). \]
-    Let \( \epsilon = \frac{ n + 1 }{ n }  - \inf E  \). Thus,     
-    \[  n < m < n + 1 \implies m \in (n, n +1).  \]
-    But the open interval \( (n, n +1)  \) does not contain any integers which is a contradiction. Thus, \( (\inf E, \inf E + \epsilon) \) must contain infinitely many points.  
-    \end{proof}
+    Let \( \epsilon = \frac{ 1 }{ 5 }   \). To show that \( E  \) contains a minimum, we suppose for contradiction that \( \inf E \notin E  \). By {\hyperref[Problem 2]{Part 2 of Problem 7}}, the open interval \( (\inf E, \inf E + \frac{ 1 }{ 5 } ) \) intersects \( E  \) at infinitely many points (these points being natural numbers). Suppose we choose an \( m \in \N \) such that \( m  \in (\inf E , \inf E + \frac{ 1 }{ 5 }  ) \).  Note that \( m  \) also lies interval \( (m - 1, m + 1) \). Thus, \( (\inf E, \inf E + \epsilon) \subseteq (m-1,m+1) \). However, note that \( (\inf E, \inf E + \frac{ 1 }{ 5 }) \) contains infinitely many natural numbers which cannot happen within the open interval \( (m-1,m+1) \) since this interval contains at most one element. Thus, this is a contradiction. Thus, it must be the case that \( \inf E \in E  \).
+\end{proof}
 
 \item Let \( A, B \subseteq \R  \) be nonempty, bounded sets and let \( c \in \R  \). Define the following sets:
     \begin{align*}

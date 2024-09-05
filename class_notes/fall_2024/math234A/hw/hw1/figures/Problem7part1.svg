@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="Problem7part1.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.0859962"
+     inkscape:cx="569.06278"
+     inkscape:cy="533.15106"
+     inkscape:window-width="943"
+     inkscape:window-height="1028"
+     inkscape:window-x="10"
+     inkscape:window-y="40"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 148.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="210 : 148.5 : 1"
+       inkscape:persp3d-origin="105 : 99 : 1"
+       id="perspective1596" />
+    <g
+       id="g9528">
+      <symbol
+         overflow="visible"
+         id="symbol3475">
+        <path
+           style="stroke:none;"
+           d=""
+           id="path9392" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="symbol8253">
+        <path
+           style="stroke:none;"
+           d="M 3.328125 -3.015625 C 3.390625 -3.265625 3.625 -4.1875 4.3125 -4.1875 C 4.359375 -4.1875 4.609375 -4.1875 4.8125 -4.0625 C 4.53125 -4 4.34375 -3.765625 4.34375 -3.515625 C 4.34375 -3.359375 4.453125 -3.171875 4.71875 -3.171875 C 4.9375 -3.171875 5.25 -3.34375 5.25 -3.75 C 5.25 -4.265625 4.671875 -4.40625 4.328125 -4.40625 C 3.75 -4.40625 3.40625 -3.875 3.28125 -3.65625 C 3.03125 -4.3125 2.5 -4.40625 2.203125 -4.40625 C 1.171875 -4.40625 0.59375 -3.125 0.59375 -2.875 C 0.59375 -2.765625 0.703125 -2.765625 0.71875 -2.765625 C 0.796875 -2.765625 0.828125 -2.796875 0.84375 -2.875 C 1.1875 -3.9375 1.84375 -4.1875 2.1875 -4.1875 C 2.375 -4.1875 2.71875 -4.09375 2.71875 -3.515625 C 2.71875 -3.203125 2.546875 -2.546875 2.1875 -1.140625 C 2.03125 -0.53125 1.671875 -0.109375 1.234375 -0.109375 C 1.171875 -0.109375 0.953125 -0.109375 0.734375 -0.234375 C 0.984375 -0.296875 1.203125 -0.5 1.203125 -0.78125 C 1.203125 -1.046875 0.984375 -1.125 0.84375 -1.125 C 0.53125 -1.125 0.296875 -0.875 0.296875 -0.546875 C 0.296875 -0.09375 0.78125 0.109375 1.21875 0.109375 C 1.890625 0.109375 2.25 -0.59375 2.265625 -0.640625 C 2.390625 -0.28125 2.75 0.109375 3.34375 0.109375 C 4.375 0.109375 4.9375 -1.171875 4.9375 -1.421875 C 4.9375 -1.53125 4.859375 -1.53125 4.828125 -1.53125 C 4.734375 -1.53125 4.71875 -1.484375 4.6875 -1.421875 C 4.359375 -0.34375 3.6875 -0.109375 3.375 -0.109375 C 2.984375 -0.109375 2.828125 -0.421875 2.828125 -0.765625 C 2.828125 -0.984375 2.875 -1.203125 2.984375 -1.640625 Z M 3.328125 -3.015625 "
+           id="path6493" />
+      </symbol>
+    </g>
+    <g
+       id="g4784">
+      <symbol
+         overflow="visible"
+         id="symbol2317">
+        <path
+           style="stroke:none;"
+           d=""
+           id="path2296" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="symbol3161">
+        <path
+           style="stroke:none;"
+           d="M 3.328125 -3.015625 C 3.390625 -3.265625 3.625 -4.1875 4.3125 -4.1875 C 4.359375 -4.1875 4.609375 -4.1875 4.8125 -4.0625 C 4.53125 -4 4.34375 -3.765625 4.34375 -3.515625 C 4.34375 -3.359375 4.453125 -3.171875 4.71875 -3.171875 C 4.9375 -3.171875 5.25 -3.34375 5.25 -3.75 C 5.25 -4.265625 4.671875 -4.40625 4.328125 -4.40625 C 3.75 -4.40625 3.40625 -3.875 3.28125 -3.65625 C 3.03125 -4.3125 2.5 -4.40625 2.203125 -4.40625 C 1.171875 -4.40625 0.59375 -3.125 0.59375 -2.875 C 0.59375 -2.765625 0.703125 -2.765625 0.71875 -2.765625 C 0.796875 -2.765625 0.828125 -2.796875 0.84375 -2.875 C 1.1875 -3.9375 1.84375 -4.1875 2.1875 -4.1875 C 2.375 -4.1875 2.71875 -4.09375 2.71875 -3.515625 C 2.71875 -3.203125 2.546875 -2.546875 2.1875 -1.140625 C 2.03125 -0.53125 1.671875 -0.109375 1.234375 -0.109375 C 1.171875 -0.109375 0.953125 -0.109375 0.734375 -0.234375 C 0.984375 -0.296875 1.203125 -0.5 1.203125 -0.78125 C 1.203125 -1.046875 0.984375 -1.125 0.84375 -1.125 C 0.53125 -1.125 0.296875 -0.875 0.296875 -0.546875 C 0.296875 -0.09375 0.78125 0.109375 1.21875 0.109375 C 1.890625 0.109375 2.25 -0.59375 2.265625 -0.640625 C 2.390625 -0.28125 2.75 0.109375 3.34375 0.109375 C 4.375 0.109375 4.9375 -1.171875 4.9375 -1.421875 C 4.9375 -1.53125 4.859375 -1.53125 4.828125 -1.53125 C 4.734375 -1.53125 4.71875 -1.484375 4.6875 -1.421875 C 4.359375 -0.34375 3.6875 -0.109375 3.375 -0.109375 C 2.984375 -0.109375 2.828125 -0.421875 2.828125 -0.765625 C 2.828125 -0.984375 2.875 -1.203125 2.984375 -1.640625 Z M 3.328125 -3.015625 "
+           id="path4511" />
+      </symbol>
+    </g>
+    <g
+       id="g8941">
+      <symbol
+         overflow="visible"
+         id="symbol3897">
+        <path
+           style="stroke:none;"
+           d=""
+           id="path1558" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="symbol8921">
+        <path
+           style="stroke:none;"
+           d="M 4.84375 -3.796875 C 4.890625 -3.9375 4.890625 -3.953125 4.890625 -4.03125 C 4.890625 -4.203125 4.75 -4.296875 4.59375 -4.296875 C 4.5 -4.296875 4.34375 -4.234375 4.25 -4.09375 C 4.234375 -4.03125 4.140625 -3.734375 4.109375 -3.546875 C 4.03125 -3.296875 3.96875 -3.015625 3.90625 -2.75 L 3.453125 -0.953125 C 3.421875 -0.8125 2.984375 -0.109375 2.328125 -0.109375 C 1.828125 -0.109375 1.71875 -0.546875 1.71875 -0.921875 C 1.71875 -1.375 1.890625 -2 2.21875 -2.875 C 2.375 -3.28125 2.421875 -3.390625 2.421875 -3.59375 C 2.421875 -4.03125 2.109375 -4.40625 1.609375 -4.40625 C 0.65625 -4.40625 0.296875 -2.953125 0.296875 -2.875 C 0.296875 -2.765625 0.390625 -2.765625 0.40625 -2.765625 C 0.515625 -2.765625 0.515625 -2.796875 0.5625 -2.953125 C 0.84375 -3.890625 1.234375 -4.1875 1.578125 -4.1875 C 1.65625 -4.1875 1.828125 -4.1875 1.828125 -3.875 C 1.828125 -3.625 1.71875 -3.359375 1.65625 -3.171875 C 1.25 -2.109375 1.078125 -1.546875 1.078125 -1.078125 C 1.078125 -0.1875 1.703125 0.109375 2.296875 0.109375 C 2.6875 0.109375 3.015625 -0.0625 3.296875 -0.34375 C 3.171875 0.171875 3.046875 0.671875 2.65625 1.203125 C 2.390625 1.53125 2.015625 1.828125 1.5625 1.828125 C 1.421875 1.828125 0.96875 1.796875 0.796875 1.40625 C 0.953125 1.40625 1.09375 1.40625 1.21875 1.28125 C 1.328125 1.203125 1.421875 1.0625 1.421875 0.875 C 1.421875 0.5625 1.15625 0.53125 1.0625 0.53125 C 0.828125 0.53125 0.5 0.6875 0.5 1.171875 C 0.5 1.671875 0.9375 2.046875 1.5625 2.046875 C 2.578125 2.046875 3.609375 1.140625 3.890625 0.015625 Z M 4.84375 -3.796875 "
+           id="path5140" />
+      </symbol>
+    </g>
+    <g
+       id="g9088">
+      <symbol
+         overflow="visible"
+         id="symbol2817">
+        <path
+           style="stroke:none;"
+           d=""
+           id="path5590" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="symbol5394">
+        <path
+           style="stroke:none;"
+           d="M 3.296875 2.390625 C 3.296875 2.359375 3.296875 2.34375 3.125 2.171875 C 1.890625 0.921875 1.5625 -0.96875 1.5625 -2.5 C 1.5625 -4.234375 1.9375 -5.96875 3.171875 -7.203125 C 3.296875 -7.328125 3.296875 -7.34375 3.296875 -7.375 C 3.296875 -7.453125 3.265625 -7.484375 3.203125 -7.484375 C 3.09375 -7.484375 2.203125 -6.796875 1.609375 -5.53125 C 1.109375 -4.4375 0.984375 -3.328125 0.984375 -2.5 C 0.984375 -1.71875 1.09375 -0.515625 1.640625 0.625 C 2.25 1.84375 3.09375 2.5 3.203125 2.5 C 3.265625 2.5 3.296875 2.46875 3.296875 2.390625 Z M 3.296875 2.390625 "
+           id="path2423" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="symbol2903">
+        <path
+           style="stroke:none;"
+           d="M 4.578125 -3.1875 C 4.578125 -3.984375 4.53125 -4.78125 4.1875 -5.515625 C 3.734375 -6.484375 2.90625 -6.640625 2.5 -6.640625 C 1.890625 -6.640625 1.171875 -6.375 0.75 -5.453125 C 0.4375 -4.765625 0.390625 -3.984375 0.390625 -3.1875 C 0.390625 -2.4375 0.421875 -1.546875 0.84375 -0.78125 C 1.265625 0.015625 2 0.21875 2.484375 0.21875 C 3.015625 0.21875 3.78125 0.015625 4.21875 -0.9375 C 4.53125 -1.625 4.578125 -2.40625 4.578125 -3.1875 Z M 2.484375 0 C 2.09375 0 1.5 -0.25 1.328125 -1.203125 C 1.21875 -1.796875 1.21875 -2.71875 1.21875 -3.3125 C 1.21875 -3.953125 1.21875 -4.609375 1.296875 -5.140625 C 1.484375 -6.328125 2.234375 -6.421875 2.484375 -6.421875 C 2.8125 -6.421875 3.46875 -6.234375 3.65625 -5.25 C 3.765625 -4.6875 3.765625 -3.9375 3.765625 -3.3125 C 3.765625 -2.5625 3.765625 -1.890625 3.65625 -1.25 C 3.5 -0.296875 2.9375 0 2.484375 0 Z M 2.484375 0 "
+           id="path2988" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="symbol5856">
+        <path
+           style="stroke:none;"
+           d="M 1.265625 -0.765625 L 2.328125 -1.796875 C 3.875 -3.171875 4.46875 -3.703125 4.46875 -4.703125 C 4.46875 -5.84375 3.578125 -6.640625 2.359375 -6.640625 C 1.234375 -6.640625 0.5 -5.71875 0.5 -4.828125 C 0.5 -4.28125 1 -4.28125 1.03125 -4.28125 C 1.203125 -4.28125 1.546875 -4.390625 1.546875 -4.8125 C 1.546875 -5.0625 1.359375 -5.328125 1.015625 -5.328125 C 0.9375 -5.328125 0.921875 -5.328125 0.890625 -5.3125 C 1.109375 -5.96875 1.65625 -6.328125 2.234375 -6.328125 C 3.140625 -6.328125 3.5625 -5.515625 3.5625 -4.703125 C 3.5625 -3.90625 3.078125 -3.125 2.515625 -2.5 L 0.609375 -0.375 C 0.5 -0.265625 0.5 -0.234375 0.5 0 L 4.203125 0 L 4.46875 -1.734375 L 4.234375 -1.734375 C 4.171875 -1.4375 4.109375 -1 4 -0.84375 C 3.9375 -0.765625 3.28125 -0.765625 3.0625 -0.765625 Z M 1.265625 -0.765625 "
+           id="path4027" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="symbol6504">
+        <path
+           style="stroke:none;"
+           d="M 2.875 -2.5 C 2.875 -3.265625 2.765625 -4.46875 2.21875 -5.609375 C 1.625 -6.828125 0.765625 -7.484375 0.671875 -7.484375 C 0.609375 -7.484375 0.5625 -7.4375 0.5625 -7.375 C 0.5625 -7.34375 0.5625 -7.328125 0.75 -7.140625 C 1.734375 -6.15625 2.296875 -4.578125 2.296875 -2.5 C 2.296875 -0.78125 1.9375 0.96875 0.703125 2.21875 C 0.5625 2.34375 0.5625 2.359375 0.5625 2.390625 C 0.5625 2.453125 0.609375 2.5 0.671875 2.5 C 0.765625 2.5 1.671875 1.8125 2.25 0.546875 C 2.765625 -0.546875 2.875 -1.65625 2.875 -2.5 Z M 2.875 -2.5 "
+           id="path1666" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="symbol536">
+        <path
+           style="stroke:none;"
+           d=""
+           id="path331" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="symbol781">
+        <path
+           style="stroke:none;"
+           d="M 2.03125 -0.015625 C 2.03125 -0.671875 1.78125 -1.0625 1.390625 -1.0625 C 1.0625 -1.0625 0.859375 -0.8125 0.859375 -0.53125 C 0.859375 -0.265625 1.0625 0 1.390625 0 C 1.5 0 1.640625 -0.046875 1.734375 -0.125 C 1.765625 -0.15625 1.78125 -0.15625 1.78125 -0.15625 C 1.796875 -0.15625 1.796875 -0.15625 1.796875 -0.015625 C 1.796875 0.734375 1.453125 1.328125 1.125 1.65625 C 1.015625 1.765625 1.015625 1.78125 1.015625 1.8125 C 1.015625 1.890625 1.0625 1.921875 1.109375 1.921875 C 1.21875 1.921875 2.03125 1.15625 2.03125 -0.015625 Z M 2.03125 -0.015625 "
+           id="path9709" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="symbol7742">
+        <path
+           style="stroke:none;"
+           d=""
+           id="path7651" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="symbol8115">
+        <path
+           style="stroke:none;"
+           d="M 6.5625 -2.296875 C 6.734375 -2.296875 6.921875 -2.296875 6.921875 -2.5 C 6.921875 -2.6875 6.734375 -2.6875 6.5625 -2.6875 L 1.171875 -2.6875 C 1 -2.6875 0.828125 -2.6875 0.828125 -2.5 C 0.828125 -2.296875 1 -2.296875 1.171875 -2.296875 Z M 6.5625 -2.296875 "
+           id="path2039" />
+      </symbol>
+    </g>
+    <g
+       id="g2091">
+      <symbol
+         overflow="visible"
+         id="symbol1316">
+        <path
+           style="stroke:none;"
+           d=""
+           id="path4728" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="symbol4416">
+        <path
+           style="stroke:none;"
+           d="M 3.296875 2.390625 C 3.296875 2.359375 3.296875 2.34375 3.125 2.171875 C 1.890625 0.921875 1.5625 -0.96875 1.5625 -2.5 C 1.5625 -4.234375 1.9375 -5.96875 3.171875 -7.203125 C 3.296875 -7.328125 3.296875 -7.34375 3.296875 -7.375 C 3.296875 -7.453125 3.265625 -7.484375 3.203125 -7.484375 C 3.09375 -7.484375 2.203125 -6.796875 1.609375 -5.53125 C 1.109375 -4.4375 0.984375 -3.328125 0.984375 -2.5 C 0.984375 -1.71875 1.09375 -0.515625 1.640625 0.625 C 2.25 1.84375 3.09375 2.5 3.203125 2.5 C 3.265625 2.5 3.296875 2.46875 3.296875 2.390625 Z M 3.296875 2.390625 "
+           id="path3081" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="symbol6786">
+        <path
+           style="stroke:none;"
+           d="M 1.265625 -0.765625 L 2.328125 -1.796875 C 3.875 -3.171875 4.46875 -3.703125 4.46875 -4.703125 C 4.46875 -5.84375 3.578125 -6.640625 2.359375 -6.640625 C 1.234375 -6.640625 0.5 -5.71875 0.5 -4.828125 C 0.5 -4.28125 1 -4.28125 1.03125 -4.28125 C 1.203125 -4.28125 1.546875 -4.390625 1.546875 -4.8125 C 1.546875 -5.0625 1.359375 -5.328125 1.015625 -5.328125 C 0.9375 -5.328125 0.921875 -5.328125 0.890625 -5.3125 C 1.109375 -5.96875 1.65625 -6.328125 2.234375 -6.328125 C 3.140625 -6.328125 3.5625 -5.515625 3.5625 -4.703125 C 3.5625 -3.90625 3.078125 -3.125 2.515625 -2.5 L 0.609375 -0.375 C 0.5 -0.265625 0.5 -0.234375 0.5 0 L 4.203125 0 L 4.46875 -1.734375 L 4.234375 -1.734375 C 4.171875 -1.4375 4.109375 -1 4 -0.84375 C 3.9375 -0.765625 3.28125 -0.765625 3.0625 -0.765625 Z M 1.265625 -0.765625 "
+           id="path7883" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="symbol9437">
+        <path
+           style="stroke:none;"
+           d="M 4.578125 -3.1875 C 4.578125 -3.984375 4.53125 -4.78125 4.1875 -5.515625 C 3.734375 -6.484375 2.90625 -6.640625 2.5 -6.640625 C 1.890625 -6.640625 1.171875 -6.375 0.75 -5.453125 C 0.4375 -4.765625 0.390625 -3.984375 0.390625 -3.1875 C 0.390625 -2.4375 0.421875 -1.546875 0.84375 -0.78125 C 1.265625 0.015625 2 0.21875 2.484375 0.21875 C 3.015625 0.21875 3.78125 0.015625 4.21875 -0.9375 C 4.53125 -1.625 4.578125 -2.40625 4.578125 -3.1875 Z M 2.484375 0 C 2.09375 0 1.5 -0.25 1.328125 -1.203125 C 1.21875 -1.796875 1.21875 -2.71875 1.21875 -3.3125 C 1.21875 -3.953125 1.21875 -4.609375 1.296875 -5.140625 C 1.484375 -6.328125 2.234375 -6.421875 2.484375 -6.421875 C 2.8125 -6.421875 3.46875 -6.234375 3.65625 -5.25 C 3.765625 -4.6875 3.765625 -3.9375 3.765625 -3.3125 C 3.765625 -2.5625 3.765625 -1.890625 3.65625 -1.25 C 3.5 -0.296875 2.9375 0 2.484375 0 Z M 2.484375 0 "
+           id="path9786" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="symbol8513">
+        <path
+           style="stroke:none;"
+           d="M 2.875 -2.5 C 2.875 -3.265625 2.765625 -4.46875 2.21875 -5.609375 C 1.625 -6.828125 0.765625 -7.484375 0.671875 -7.484375 C 0.609375 -7.484375 0.5625 -7.4375 0.5625 -7.375 C 0.5625 -7.34375 0.5625 -7.328125 0.75 -7.140625 C 1.734375 -6.15625 2.296875 -4.578125 2.296875 -2.5 C 2.296875 -0.78125 1.9375 0.96875 0.703125 2.21875 C 0.5625 2.34375 0.5625 2.359375 0.5625 2.390625 C 0.5625 2.453125 0.609375 2.5 0.671875 2.5 C 0.765625 2.5 1.671875 1.8125 2.25 0.546875 C 2.765625 -0.546875 2.875 -1.65625 2.875 -2.5 Z M 2.875 -2.5 "
+           id="path4632" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="symbol9945">
+        <path
+           style="stroke:none;"
+           d=""
+           id="path8057" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="symbol5847">
+        <path
+           style="stroke:none;"
+           d="M 2.03125 -0.015625 C 2.03125 -0.671875 1.78125 -1.0625 1.390625 -1.0625 C 1.0625 -1.0625 0.859375 -0.8125 0.859375 -0.53125 C 0.859375 -0.265625 1.0625 0 1.390625 0 C 1.5 0 1.640625 -0.046875 1.734375 -0.125 C 1.765625 -0.15625 1.78125 -0.15625 1.78125 -0.15625 C 1.796875 -0.15625 1.796875 -0.15625 1.796875 -0.015625 C 1.796875 0.734375 1.453125 1.328125 1.125 1.65625 C 1.015625 1.765625 1.015625 1.78125 1.015625 1.8125 C 1.015625 1.890625 1.0625 1.921875 1.109375 1.921875 C 1.21875 1.921875 2.03125 1.15625 2.03125 -0.015625 Z M 2.03125 -0.015625 "
+           id="path5873" />
+      </symbol>
+    </g>
+    <g
+       id="g4211">
+      <symbol
+         overflow="visible"
+         id="symbol4983">
+        <path
+           style="stroke:none;"
+           d=""
+           id="path8720" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="symbol35">
+        <path
+           style="stroke:none;"
+           d="M 2.9375 -6.375 C 2.9375 -6.625 2.9375 -6.640625 2.703125 -6.640625 C 2.078125 -6 1.203125 -6 0.890625 -6 L 0.890625 -5.6875 C 1.09375 -5.6875 1.671875 -5.6875 2.1875 -5.953125 L 2.1875 -0.78125 C 2.1875 -0.421875 2.15625 -0.3125 1.265625 -0.3125 L 0.953125 -0.3125 L 0.953125 0 C 1.296875 -0.03125 2.15625 -0.03125 2.5625 -0.03125 C 2.953125 -0.03125 3.828125 -0.03125 4.171875 0 L 4.171875 -0.3125 L 3.859375 -0.3125 C 2.953125 -0.3125 2.9375 -0.421875 2.9375 -0.78125 Z M 2.9375 -6.375 "
+           id="path8138" />
+      </symbol>
+    </g>
+    <g
+       id="g7529">
+      <symbol
+         overflow="visible"
+         id="symbol7912">
+        <path
+           style="stroke:none;"
+           d=""
+           id="path4069" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="symbol8579">
+        <path
+           style="stroke:none;"
+           d="M 1.265625 -0.765625 L 2.328125 -1.796875 C 3.875 -3.171875 4.46875 -3.703125 4.46875 -4.703125 C 4.46875 -5.84375 3.578125 -6.640625 2.359375 -6.640625 C 1.234375 -6.640625 0.5 -5.71875 0.5 -4.828125 C 0.5 -4.28125 1 -4.28125 1.03125 -4.28125 C 1.203125 -4.28125 1.546875 -4.390625 1.546875 -4.8125 C 1.546875 -5.0625 1.359375 -5.328125 1.015625 -5.328125 C 0.9375 -5.328125 0.921875 -5.328125 0.890625 -5.3125 C 1.109375 -5.96875 1.65625 -6.328125 2.234375 -6.328125 C 3.140625 -6.328125 3.5625 -5.515625 3.5625 -4.703125 C 3.5625 -3.90625 3.078125 -3.125 2.515625 -2.5 L 0.609375 -0.375 C 0.5 -0.265625 0.5 -0.234375 0.5 0 L 4.203125 0 L 4.46875 -1.734375 L 4.234375 -1.734375 C 4.171875 -1.4375 4.109375 -1 4 -0.84375 C 3.9375 -0.765625 3.28125 -0.765625 3.0625 -0.765625 Z M 1.265625 -0.765625 "
+           id="path3597" />
+      </symbol>
+    </g>
+    <g
+       id="g6383">
+      <symbol
+         overflow="visible"
+         id="symbol9307">
+        <path
+           style="stroke:none;"
+           d=""
+           id="path5840" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="symbol7343">
+        <path
+           style="stroke:none;"
+           d="M 2.890625 -3.515625 C 3.703125 -3.78125 4.28125 -4.46875 4.28125 -5.265625 C 4.28125 -6.078125 3.40625 -6.640625 2.453125 -6.640625 C 1.453125 -6.640625 0.6875 -6.046875 0.6875 -5.28125 C 0.6875 -4.953125 0.90625 -4.765625 1.203125 -4.765625 C 1.5 -4.765625 1.703125 -4.984375 1.703125 -5.28125 C 1.703125 -5.765625 1.234375 -5.765625 1.09375 -5.765625 C 1.390625 -6.265625 2.046875 -6.390625 2.40625 -6.390625 C 2.828125 -6.390625 3.375 -6.171875 3.375 -5.28125 C 3.375 -5.15625 3.34375 -4.578125 3.09375 -4.140625 C 2.796875 -3.65625 2.453125 -3.625 2.203125 -3.625 C 2.125 -3.609375 1.890625 -3.59375 1.8125 -3.59375 C 1.734375 -3.578125 1.671875 -3.5625 1.671875 -3.46875 C 1.671875 -3.359375 1.734375 -3.359375 1.90625 -3.359375 L 2.34375 -3.359375 C 3.15625 -3.359375 3.53125 -2.6875 3.53125 -1.703125 C 3.53125 -0.34375 2.84375 -0.0625 2.40625 -0.0625 C 1.96875 -0.0625 1.21875 -0.234375 0.875 -0.8125 C 1.21875 -0.765625 1.53125 -0.984375 1.53125 -1.359375 C 1.53125 -1.71875 1.265625 -1.921875 0.984375 -1.921875 C 0.734375 -1.921875 0.421875 -1.78125 0.421875 -1.34375 C 0.421875 -0.4375 1.34375 0.21875 2.4375 0.21875 C 3.65625 0.21875 4.5625 -0.6875 4.5625 -1.703125 C 4.5625 -2.515625 3.921875 -3.296875 2.890625 -3.515625 Z M 2.890625 -3.515625 "
+           id="path6921" />
+      </symbol>
+    </g>
+    <g
+       id="g3121">
+      <symbol
+         overflow="visible"
+         id="symbol873">
+        <path
+           style="stroke:none;"
+           d=""
+           id="path3119" />
+      </symbol>
+      <symbol
+         overflow="visible"
+         id="symbol4096">
+        <path
+           style="stroke:none;"
+           d="M 2.9375 -1.640625 L 2.9375 -0.78125 C 2.9375 -0.421875 2.90625 -0.3125 2.171875 -0.3125 L 1.96875 -0.3125 L 1.96875 0 C 2.375 -0.03125 2.890625 -0.03125 3.3125 -0.03125 C 3.734375 -0.03125 4.25 -0.03125 4.671875 0 L 4.671875 -0.3125 L 4.453125 -0.3125 C 3.71875 -0.3125 3.703125 -0.421875 3.703125 -0.78125 L 3.703125 -1.640625 L 4.6875 -1.640625 L 4.6875 -1.953125 L 3.703125 -1.953125 L 3.703125 -6.484375 C 3.703125 -6.6875 3.703125 -6.75 3.53125 -6.75 C 3.453125 -6.75 3.421875 -6.75 3.34375 -6.625 L 0.28125 -1.953125 L 0.28125 -1.640625 Z M 2.984375 -1.953125 L 0.5625 -1.953125 L 2.984375 -5.671875 Z M 2.984375 -1.953125 "
+           id="path7563" />
+      </symbol>
+    </g>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.160054px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 101.91058,66.826615 -0.347,93.250955 z"
+       id="path2160"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.15312px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 60.376166,112.24387 86.949764,0.50341 z"
+       id="path2162"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <g
+       inkscape:label=""
+       transform="matrix(0.48975296,0,0,0.4944535,103.11324,73.101318)"
+       id="g2194"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <g
+         id="g5559">
+        <g
+           style="fill:#000000;fill-opacity:1"
+           id="g5601">
+          <use
+             xlink:href="#symbol3161"
+             x="91.925003"
+             y="81.962997"
+             id="use3971"
+             width="100%"
+             height="100%" />
+        </g>
+      </g>
+    </g>
+    <g
+       inkscape:label=""
+       transform="matrix(0.47207018,0,0,0.43371966,57.599055,28.5851)"
+       id="g2403"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <g
+         id="g8536">
+        <g
+           style="fill:#000000;fill-opacity:1"
+           id="g9523">
+          <use
+             xlink:href="#symbol8921"
+             x="91.925003"
+             y="81.962997"
+             id="use8911"
+             width="100%"
+             height="100%" />
+        </g>
+      </g>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.0774319px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 146.34772,111.56184 0.97806,1.18557 -0.97508,0.96713 0.97508,-0.96713 z"
+       id="path2467"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.131837px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 101.91058,66.826615 -1.75296,1.511455 z"
+       id="path2469"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.131837px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 101.91058,66.826615 1.65335,1.646881 z"
+       id="path4433"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.0973396px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 100.38813,121.68991 2.50724,-0.009 z"
+       id="path3120"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.107416px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 100.36567,128.5843 2.76679,-0.0104 z"
+       id="path3120-2"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.127096px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 99.942913,134.96385 3.273697,-0.0123 z"
+       id="path3120-2-2"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.14024px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 99.861121,141.16781 3.612249,-0.0136 z"
+       id="path3120-2-9"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.138197px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 115.83599,111.08267 0.0737,2.95601 z"
+       id="path3627-5"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.138197px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 109.62451,111.02033 0.0737,2.95601 z"
+       id="path3627-5-9"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.141541px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 126.38455,111.17865 0.0755,3.02754 z"
+       id="path3627-4"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.0921071px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 100.52381,104.42218 2.37248,-0.009 z"
+       id="path3120-3"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.100042px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 100.4899,98.423372 2.57685,-0.0097 z"
+       id="path3120-7"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.106395px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 100.35076,93.144871 2.7405,-0.01031 z"
+       id="path3120-9"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.097775px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 100.52487,87.144339 2.51846,-0.0095 z"
+       id="path3120-74"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.16059px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 85.047139,145.58569 134.27194,93.809032 Z"
+       id="path3864"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.142997px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 85.047139,145.58569 -0.361803,-2.72638 0.361803,2.72638 2.768244,0.34774 z"
+       id="path3979"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.121538px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 131.08531,93.957692 3.18663,-0.14866 0.77972,2.751258 -0.77972,-2.751258 z"
+       id="path3981"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <g
+       inkscape:label=""
+       transform="matrix(0.26955683,0,0,0.26955683,79.576361,107.3754)"
+       id="g4107"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <g
+         id="g2834">
+        <g
+           style="fill:#000000;fill-opacity:1"
+           id="g9012">
+          <use
+             xlink:href="#symbol5394"
+             x="91.925003"
+             y="81.962997"
+             id="use4653"
+             width="100%"
+             height="100%" />
+          <use
+             xlink:href="#symbol2903"
+             x="95.799454"
+             y="81.962997"
+             id="use4538"
+             width="100%"
+             height="100%" />
+        </g>
+        <g
+           style="fill:#000000;fill-opacity:1"
+           id="g5708">
+          <use
+             xlink:href="#symbol781"
+             x="100.781"
+             y="81.962997"
+             id="use4227"
+             width="100%"
+             height="100%" />
+        </g>
+        <g
+           style="fill:#000000;fill-opacity:1"
+           id="g4469">
+          <use
+             xlink:href="#symbol8115"
+             x="105.209"
+             y="81.962997"
+             id="use4157"
+             width="100%"
+             height="100%" />
+        </g>
+        <g
+           style="fill:#000000;fill-opacity:1"
+           id="g682">
+          <use
+             xlink:href="#symbol5856"
+             x="112.958"
+             y="81.962997"
+             id="use7559"
+             width="100%"
+             height="100%" />
+          <use
+             xlink:href="#symbol6504"
+             x="117.9393"
+             y="81.962997"
+             id="use2967"
+             width="100%"
+             height="100%" />
+        </g>
+      </g>
+    </g>
+    <g
+       inkscape:label=""
+       transform="matrix(0.28887462,0,0,0.28887462,86.501382,93.870677)"
+       id="g4471"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <g
+         id="g8243">
+        <g
+           style="fill:#000000;fill-opacity:1"
+           id="g3657">
+          <use
+             xlink:href="#symbol4416"
+             x="91.925003"
+             y="81.962997"
+             id="use5486"
+             width="100%"
+             height="100%" />
+          <use
+             xlink:href="#symbol6786"
+             x="95.799454"
+             y="81.962997"
+             id="use3692"
+             width="100%"
+             height="100%" />
+        </g>
+        <g
+           style="fill:#000000;fill-opacity:1"
+           id="g7025">
+          <use
+             xlink:href="#symbol5847"
+             x="100.781"
+             y="81.962997"
+             id="use6523"
+             width="100%"
+             height="100%" />
+        </g>
+        <g
+           style="fill:#000000;fill-opacity:1"
+           id="g2288">
+          <use
+             xlink:href="#symbol9437"
+             x="105.209"
+             y="81.962997"
+             id="use8068"
+             width="100%"
+             height="100%" />
+          <use
+             xlink:href="#symbol8513"
+             x="110.1903"
+             y="81.962997"
+             id="use8880"
+             width="100%"
+             height="100%" />
+        </g>
+      </g>
+    </g>
+    <g
+       inkscape:label=""
+       transform="matrix(0.35584304,0,0,0.34926809,64.532446,77.131293)"
+       id="g4733"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <g
+         id="g7617">
+        <g
+           style="fill:#000000;fill-opacity:1"
+           id="g3278">
+          <use
+             xlink:href="#symbol35"
+             x="91.925003"
+             y="81.962997"
+             id="use557"
+             width="100%"
+             height="100%" />
+        </g>
+      </g>
+    </g>
+    <g
+       inkscape:label=""
+       transform="matrix(0.29334389,0,0,0.29334389,70.554095,75.287128)"
+       id="g4996"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <g
+         id="g777">
+        <g
+           style="fill:#000000;fill-opacity:1"
+           id="g884">
+          <use
+             xlink:href="#symbol8579"
+             x="91.925003"
+             y="81.962997"
+             id="use6854"
+             width="100%"
+             height="100%" />
+        </g>
+      </g>
+    </g>
+    <g
+       inkscape:label=""
+       transform="matrix(0.28687316,0,0,0.28687316,71.227708,70.446736)"
+       id="g5277"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <g
+         id="g9039">
+        <g
+           style="fill:#000000;fill-opacity:1"
+           id="g7717">
+          <use
+             xlink:href="#symbol7343"
+             x="91.925003"
+             y="81.962997"
+             id="use6769"
+             width="100%"
+             height="100%" />
+        </g>
+      </g>
+    </g>
+    <g
+       inkscape:label=""
+       transform="matrix(0.32664239,0,0,0.32664239,67.666405,61.366456)"
+       id="g5576"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <g
+         id="g3807">
+        <g
+           style="fill:#000000;fill-opacity:1"
+           id="g5715">
+          <use
+             xlink:href="#symbol4096"
+             x="91.925003"
+             y="81.962997"
+             id="use5346"
+             width="100%"
+             height="100%" />
+        </g>
+      </g>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.141667px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 121.31599,111.12635 0.0755,3.03024 z"
+       id="path3627"
+       inkscape:export-filename="/home/lance/Documents/notes/class_notes/fall_2024/math234A/hw/hw1/figures/problem7part1.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+  </g>
+</svg>
