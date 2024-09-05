@@ -173,9 +173,9 @@
     and we are done.
                 \end{proof}
             \item[(ii)] Triangle Inequalities: Show 
-                \[  | z + w  | \leq | z  |  + | w  | \]
+                \[  | z \pm w  | \leq | z  |  + | w  | \]
                 and 
-                \[  | | z  |  - | w |  | \leq | z - w  |  \]
+                \[  | | z  |  - | w |  | \leq | z \pm w  |  \]
                 for all \( z,w \in \C  \).
                 \begin{proof}
                 Let \( z,w \in \C  \). We will first show that \(  | z + w  | \leq | z  |  + | w |  \). First, we will show the following results:
@@ -212,6 +212,8 @@ Now, let us prove that \( | z + w  | \leq | z  |  + | w |  \). Consider \( | z +
 \end{align*}
 By taking the square root of both sides, we see that
 \[  | z + w  | \leq | z  |  + | w |. \]
+Using this fact, we can see that 
+\[  | z - w  |  = | z + (-w) | \leq | z  |  + | -w | = |  z  |  + | w |.  \]
 To show the second inequality, consider \( | z - w  |^{2} \). Then using part (a) again, we have
 \begin{align*}
     | z - w  |^{2} &= | z |^{2} - 2 \langle z , w \rangle + | w  |^{2} \\
@@ -220,9 +222,8 @@ To show the second inequality, consider \( | z - w  |^{2} \). Then using part (a
 \end{align*}
 By taking the square root of both sides, we see that 
 \[  | z - w  | \geq |  | z  |  - | w |  |.  \]
-
-
-
+Using this fact, we can say that 
+\[  | z + w  |  = | z - (-w) | \geq | | z  |  - | -w |  | = | | z  |  - | w |  |. \]
                 \end{proof}
         \end{enumerate}
     \section*{Problem 3} \textbf{(Lagrange Identity)} Let \( {z}_{1}, \dots, {z}_{n}, {w}_{1}, \dots, {w}_{n} \in \C   \). Show that    
@@ -548,8 +549,6 @@ By taking the square root of both sides, we see that
                 Thus, we see that \( | z  | < 1  \). To prove (2), we can replace the inequalities above with an equal sign and the proof will be the same.
             \end{proof}
         \end{enumerate}
-
-
 
 
 \end{document}

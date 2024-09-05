@@ -82,7 +82,7 @@ Continuation of the proof presented in homework. Set \( \beta = - \alpha  \) whe
             \[  \sup A - \epsilon  < {x}_{0} < \sup A  \]
             for some \( {x}_{0} \in A  \). So, \( (\sup A - \epsilon, \sup A ) \) is nonempty.
 
-            Now, we will show, through contradiction that there exists an \( \epsilon > 0  \) such that \( (\sup A - \epsilon, \sup A ) \) contains infinitely many points. Thus, suppose that \( (\sup A - \epsilon , \sup A ) \cap A  \) contains FINITELY many elements. Let us denote these elements by \( {a}_{i} \) for  \( 1 \leq i \leq n  \) in 
+            Now, we will show, through contradiction that there exists an \( \epsilon > 0  \) such that \( (\sup A - \epsilon, \sup A ) \cap A  \) contains infinitely many points. Thus, suppose that \( (\sup A - \epsilon , \sup A ) \cap A  \) contains FINITELY many elements. Let us denote these elements by \( {a}_{i} \) for  \( 1 \leq i \leq n  \) in 
         \[  (\sup A - \epsilon, \sup A ) \cap A = \{ {a}_{1}, \dots, {a}_{n}:  1 \leq i \leq n   \}. \]
         For all \( 1 \leq k \leq n  \), let the distance between each \( {a}_{k } \) and \( \sup A  \) by  
             \[  {d}_{k } = | \sup A - {a}_{k} |.  \]
@@ -102,20 +102,19 @@ Continuation of the proof presented in homework. Set \( \beta = - \alpha  \) whe
     \[  \inf B < \beta < \inf B + \epsilon. \]
     Thus, the open interval \( (\inf B, \inf B + \epsilon )  \) is nonempty.
 
-    Now, we will show, through contradiction, that \( (\inf B, \inf B + \epsilon) \cap B \) contains infinitely many points. Suppose there exists an \( \epsilon > 0  \) such that \( (\inf B, \inf B + \epsilon) \) FINITELY many points. Denote these points by \( {b}_{i}  \) for \( 1 \leq i \leq n  \) in
+    Now, we will show, through contradiction, that \( (\inf B, \inf B + \epsilon) \cap B \) contains infinitely many points. Suppose there exists an \( \epsilon > 0  \) such that \( (\inf B, \inf B + \epsilon) \cap B \) FINITELY many points. Denote these points by \( {b}_{i}  \) for \( 1 \leq i \leq n  \) in
     \[  (\inf B, \inf B + \epsilon) \cap B = \{ {b}_{i} : 1 \leq i \leq n   \}  \]
     For all \( 1 \leq k \leq n  \), let \( {d}_{k } = | \inf B - {b}_{k } |  \). Since \( {b}_{k } \in B  \) and \( \inf B \notin  B  \), we must have \( | \inf B - {b}_{k } | > 0  \). Let 
     \[  d = \frac{ \min \{ {d}_{1}, {d}_{2}, \dots, {d}_{n} \}  }{ 2 }. \]
-    But this implies that none of the \( {b}_{i} \) for \( 1 \leq i \leq n   \) lies within the open interval \( (\inf B , \inf B + \epsilon) \). That is, the set 
-    \[  (\inf B , \inf B + \epsilon) \cap B = \emptyset \]
+    But this implies that none of the \( {b}_{i} \) for \( 1 \leq i \leq n   \) lies within the open interval \( (\inf B , \inf B + d) \). That is, the set 
+    \[  (\inf B , \inf B + d) \cap B = \emptyset \]
     which is a contradiction. Thus, the open interval \( (\inf B, \inf B + \epsilon) \) must have infinitely many points.
     \end{proof}
 \end{enumerate}
 
 \item Suppose the construction of \( \R  \) and the proof of the least-upper-bound property for \( \R  \) can be completed without directly using the well-ordering principle for \( \N  \). (Of course, statements equivalent to the well-ordering principle might have been used, but we are assuming that the nontrivial fact of their equivalence to the well-ordering principle was not utilized in the construction of \( \R  \) or in proving its Dedekind completeness.) Use the greatest-lower-bound property of \( \R  \) and the result of the previous exercises to prove the well-ordering principle for \( \N  \); that is, prove that every nonempty subset of \( \N  \) has a minimum.
     \begin{proof}
-    Let \( E  \) be a nonempty subset of \( \N  \). First, we will show that \( \inf E  \) exists. Observe that \( 0  \) is a lower bound of \( E  \). Thus, \( E  \) is bounded below. Thus, \( \inf E  \) must exists by the greatest-lower-bound property of \( \R  \).    
-
+    By the greatest-lower-bound property of \( \R  \), we know that \( \inf E  \) exists.
     Let \( \epsilon = \frac{ 1 }{ 5 }   \). To show that \( E  \) contains a minimum, we suppose for contradiction that \( \inf E \notin E  \). By {\hyperref[Problem 2]{Part 2 of Problem 7}}, the open interval \( (\inf E, \inf E + \frac{ 1 }{ 5 } ) \) intersects \( E  \) at infinitely many points (these points being natural numbers). Suppose we choose an \( m \in \N \) such that \( m  \in (\inf E , \inf E + \frac{ 1 }{ 5 }  ) \).  Note that \( m  \) also lies interval \( (m - 1, m + 1) \). Thus, \( (\inf E, \inf E + \epsilon) \subseteq (m-1,m+1) \). However, note that \( (\inf E, \inf E + \frac{ 1 }{ 5 }) \) contains infinitely many natural numbers which cannot happen within the open interval \( (m-1,m+1) \) since this interval contains at most one element. Thus, this is a contradiction. Thus, it must be the case that \( \inf E \in E  \).
 \end{proof}
 
@@ -186,23 +185,10 @@ Continuation of the proof presented in homework. Set \( \beta = - \alpha  \) whe
             \end{proof}
         \item[9-4)] \( \inf(-A) = - \sup(A) \).
             \begin{proof}
-                To show that \( \inf(-A) = - \sup(A) \), we must show that 
-                \begin{enumerate}
-                    \item[(i)] For all \( - a \in - A  \), we have \( - a \geq - \sup(A) \). 
-                    \item[(ii)] For all \( \epsilon > 0  \), there exists \( - \beta \in - A  \) such that 
-                        \[  - \beta < - \sup(A) + \epsilon. \]
-                \end{enumerate}
-                To show (i), let \( a \in A  \). Since \( A  \) is nonempty and bounded above, we have that  
-                \[ a \leq   \sup(A).  \]
-                Multiplying by a negative on this inequality, we get
-                \[  - a \geq - \sup(A) \]
-                for all \( - a \in -A  \), which shows (i). 
-
-                Now, let \( \epsilon > 0 \). Since \( \sup (A)  \) exists, there exists \( \gamma \in A  \) such that  
-                \[  \gamma > \sup A - \epsilon. \]
-                Multiplying by a negative, we get
-                \[  - \gamma < - \sup A + \epsilon  \]
-                for some \( -\gamma \in -A  \), which shows (ii). By the lemma found in {\hyperref[Problem 3]{Problem 3}}, we conclude that \( \inf(-A) = - \sup(A) \).
+            Using 9-3), we see that 
+            \begin{align*}
+                - \sup (A) = - \sup(-(-A)) = - (- \inf(-A)) = \inf(-A). 
+            \end{align*}
             \end{proof}
         \item[9-5)] \( \sup (A -B) = \sup(A) - \inf(B) \).
             \begin{proof}
@@ -235,35 +221,39 @@ Continuation of the proof presented in homework. Set \( \beta = - \alpha  \) whe
                \end{proof} 
         \item[9-8)] \( \inf(cA) = c \inf (A)  \) if \( c > 0  \).
             \begin{proof}
-    Let \( c > 0  \). We will show that \( \inf(cA) = c \inf(A) \). Note that \( cA  \) is nonempty because \( ca \in cA  \). First, we show that \( cA  \) is bounded below by \( c \inf(A) \). Since \( \inf(A) \) exists, we know that  
-                   \[  a \geq \inf(A) \ \ \text{for all} \ a \in A.   \]
-                   Multiplying by \( c  \), we must have
-                   \[  ca \geq c \inf(A) \ \ \text{for all} \  ca \in cA. \]
-                   Now, let \( \epsilon > 0 \). Since \( \inf(A)  \) exists, there exists \( \beta \in A  \) such that   
-                   \[  \beta < \inf(A) + \frac{ \epsilon }{ c }.  \]
-                   Multiplying by \( c > 0  \), we must have
-                   \[  c \beta > c \inf(A) + \epsilon \ \ \text{for some } c \beta \in cA.   \]
-                   Thus, \( c \inf(A) = \inf(cA) \) by the lemma found in {\hyperref[Problem 2]{Problem 2}}. 
+            Let \( c > 0  \). Then observe that 
+            \begin{align*}
+                c \inf (A) &= c \inf (- (-A)) \\
+                           &= c (- \sup(-A)) \tag{9-4)} \\
+                           &= -c \sup(-A) \\
+                           &= -c (- \inf(A)) \tag{9-3)} \\
+                           &= c \inf (A).
+            \end{align*}
+            Thus, we conclude that 
+            \[  c \inf(A) = c \inf(A). \]
             \end{proof}
         \item[9-9)] \( \sup(cA) = c \inf(A) \) if \( c < 0  \).
             \begin{proof}
-            Let \( c < 0  \). We will show that \( \sup(cA) = c \inf(A) \). We will first show that \( cA  \) is bounded above by \( c \inf (A) \). Note that \( \inf(A) \) exists. Thus, \( a \geq \inf(A) \) for all \( a \in A  \). Since \( c < 0  \), \( ca \leq c \inf(A)  \) for all \( ca \in cA  \). Thus, \( c \inf(A) \) is an upper bound of \( cA \).
-           
-            Now, let \( \epsilon > 0 \). Since \( \inf(A) \) exists, there must exists an \( \alpha \in A  \) such that  
-            \[  \alpha < \inf(A) - \frac{ \epsilon }{ c }. \]
-            By multiplying through by \( c < 0  \), we have
-            \[  c \alpha > c \inf(A) - \epsilon \]
-            for some \( c \alpha \in cA  \). Thus, we conclude that \( \sup(cA) = c \inf(A) \) by {\hyperref[Problem 2]{Problem 2}}.
+            Let \( c < 0  \). Observe that 
+            \begin{align*}
+                c \inf(A) &= c \inf(- (-A))  \\
+                          &= -c (\sup(-A)) \tag{9-4)}  \\
+                          &= \sup((-c)(-A)) \tag{\( -c > 0  \) and 9-7)} \\
+                          &= \sup(cA).
+            \end{align*}
             \end{proof}
         \item[9-10)] \( \inf(cA) = c \sup (A) \) if \( c < 0  \).
             \begin{proof}
-            Let \( c < 0  \). We will show that \( \inf(cA) = c \sup(A) \). We will first show that \( cA  \) is bounded below by \( c \sup (A) \). Note that \( \sup(A) \) exists. Thus, \( a \leq \sup(A) \) for all \( a \in A  \). Since \( c < 0  \), \( ca \geq c \sup(A)  \) for all \( ca \in cA  \). Thus, \( c \sup(A) \) is a lower bound of \( cA \).
-           
-            Now, let \( \epsilon > 0 \). Since \( \sup(A) \) exists, there must exists an \( \omega \in A  \) such that  
-            \[  \omega > \sup(A) + \frac{ \epsilon }{ c }. \]
-            By multiplying through by \( c < 0  \), we have
-            \[  c \omega < c \sup(A) +  \epsilon \]
-            for some \( c \omega \in cA  \). Thus, we conclude that \( \inf(cA) = c \sup(A) \) by {\hyperref[Problem 3]{Problem 3}}.
+            Let \( c  < 0  \). Observe that 
+            \begin{align*}
+                \inf (cA) &= \inf ((-c)(-A)) \tag{\( -c > 0 \)} \\
+                          &= -c \inf(-A) \tag{9-8)} \\
+                          &= -c (- \sup A ) \tag{9-4)} \\ 
+                          &= c \sup A. 
+            \end{align*}
+            Thus, we conclude that 
+            \[  \inf(cA) = c \sup A  \]
+            for \( c < 0  \).
             \end{proof}
         \item[9-11)] Is it true that \( \sup(A \cdot B) = \sup(A) \cdot \sup(B) \).
             \begin{proof}
