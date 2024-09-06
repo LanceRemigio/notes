@@ -1,16 +1,25 @@
-\documentclass[a4paper]{article}
+\documentclass[a4paper]{report}
 \usepackage{standalone}
 \usepackage{import}
 \input{../../../../newpreamble.tex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[EL]{\nouppercase\leftmark}
+\fancyhead[OR]{\nouppercase\rightmark}
+\fancyhead[ER,OL]{\thepage}
 
 \title{Math 230A Lecture Notes}
 \author{Lance Remigio}
 
 \begin{document}
 \maketitle 
+\tableofcontents
 
-\section{Week1}
+\chapter{Week1}
 
 \import{week1}{week1.tex}
+
+\import{week2}{week2.tex}
 
 \end{document}

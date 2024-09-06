@@ -26,7 +26,7 @@
 
     For the backwards direction, let \( \epsilon > 0  \) and let \( \alpha  \) be an upper bound of \( E  \). We need to show \( \alpha = \sup E  \); that is, we need to show that \( \alpha  \) is an upper bound of \( E  \) and that any \( \gamma < \alpha  \) implies \( \gamma  \) is NOT an upper bound of \( E  \). Notice that the first property is satisfied by our assumption. Thus, all that is left to show is the second property.  
 
-    Suppose \( \gamma < \alpha  \). Thus, we have \( \alpha - \gamma > 0  \), so pick \( \epsilon = \alpha - \gamma  \).  Our goal is to find some element \( x \) in \( E  \) such that \( x > \alpha - \epsilon \). Choose \( \epsilon = \alpha - \gamma  \). By assumption, there exists an element \( {x}_{0} \in E  \) such that     
+    Suppose \( \gamma < \alpha  \). Thus, we have \( \alpha - \gamma > 0  \). Choose  \( \epsilon = \alpha - \gamma  \).  Our goal is to find some element \( x \in E  \) such that \( x > \alpha - \epsilon \). Choose \( \epsilon = \alpha - \gamma  \). By assumption, there exists an element \( {x}_{0} \in E  \) such that     
     \[  {x}_{0} > \alpha - \epsilon = \alpha - (\alpha - \gamma) = \gamma. \]
     Thus, \( {x}_{0} > \gamma  \) for some \( {x}_{0} \in E  \). Therefore, \( \gamma  \) is NOT an upper bound of \( E  \) and so we conclude that 
     \[  \alpha = \sup E. \]
@@ -38,12 +38,12 @@
     \[  \frac{ n  }{  n + 1  }  < \frac{  n }{ n }  = 1.  \]
     Thus, \( E  \) is bounded above by \( 1 \). 
 
-    Let \( \epsilon > 0  \). By the Archimedean Property, choose \( n \in \N  \) such that   
+    Let \( \epsilon > 0  \). By the Archimedean Property, there exists an \( n \in \N  \) such that   
     \[ \frac{ 1 }{ n + 1  } < \epsilon.  \]
     Then observe that 
-    \[  \frac{ 1 }{ n + 1  }  = \frac{ (n+1) - 1  }{ n + 1  } = 1 - \frac{ n  }{ n + 1  }.   \]
+    \[  \frac{ 1 }{ n + 1  }  = \frac{ (n+1) - n  }{ n + 1  } = 1 - \frac{ n  }{ n + 1  }.   \]
     Thus, 
-    \[  1 - \frac{ n }{ n + 1  } < \epsilon \iff \frac{ n }{ n + 1 }  > 1 - \epsilon. \]
+    \[  1 - \frac{ n }{ n + 1  } < \epsilon \Longleftrightarrow \frac{ n }{ n + 1 }  > 1 - \epsilon. \]
     But note that \( \frac{  n  }{  n+ 1 } \in E   \). By {\hyperref[Problem 2]{Problem 2}}, we conclude that \( \sup E = 1    \). 
     
     
@@ -64,7 +64,7 @@
                                                      &= \frac{ 2 a  }{  2  } \\
                                                      &= a.
         \end{align*}
-        But this means that \( a < b + \epsilon  \) which is a contradiction of our assumption that \( a \leq b + \epsilon  \). Thus, it must be the case that \( a \leq b  \).
+        But this means that \( a > b + \epsilon  \) which is a contradiction of our assumption that \( a \leq b + \epsilon  \). Thus, it must be the case that \( a \leq b  \).
     \end{proof}
     \item Complete the following proof.   
 \begin{theorem}[Greatest-lower-bound property of \( \R  \)]
@@ -80,9 +80,9 @@ Continuation of the proof presented in homework. Set \( \beta = - \alpha  \) whe
             \[  \sup A - \epsilon < {x}_{0} \leq \sup A. \]
             By assumption, we have that \( \sup A \notin A  \). Thus, we have
             \[  \sup A - \epsilon  < {x}_{0} < \sup A  \]
-            for some \( {x}_{0} \in A  \). So, \( (\sup A - \epsilon, \sup A ) \) is nonempty.
+            for some \( {x}_{0} \in A  \). So, \( (\sup A - \epsilon, \sup A ) \cap A  \) is nonempty.
 
-            Now, we will show, through contradiction that there exists an \( \epsilon > 0  \) such that \( (\sup A - \epsilon, \sup A ) \cap A  \) contains infinitely many points. Thus, suppose that \( (\sup A - \epsilon , \sup A ) \cap A  \) contains FINITELY many elements. Let us denote these elements by \( {a}_{i} \) for  \( 1 \leq i \leq n  \) in 
+            Now, we will show, that for all \( \epsilon > 0  \) such that \( (\sup A - \epsilon, \sup A ) \cap A  \) contains infinitely many elements. Thus, suppose for sake of contradiction that there exists an \( \epsilon > 0 \) such that \( (\sup A - \epsilon , \sup A ) \cap A  \) contains FINITELY many elements. Let us denote these elements by \( {a}_{i} \) for  \( 1 \leq i \leq n  \); that is,  
         \[  (\sup A - \epsilon, \sup A ) \cap A = \{ {a}_{1}, \dots, {a}_{n}:  1 \leq i \leq n   \}. \]
         For all \( 1 \leq k \leq n  \), let the distance between each \( {a}_{k } \) and \( \sup A  \) by  
             \[  {d}_{k } = | \sup A - {a}_{k} |.  \]
@@ -90,19 +90,19 @@ Continuation of the proof presented in homework. Set \( \beta = - \alpha  \) whe
             \[  d = \frac{ \min \{ {d}_{1}, \dots, {d}_{n} \}   }{ 2  }.   \]
             But this implies that none of the \( {a}_{1}, \dots, {a}_{n} \) lies inside the interval \( (\sup A - d , \sup A ) \). That is, 
             \[  A \cap (\sup A - d , \sup A ) = \emptyset, \]
-            which is a contradiction. Thus, \( (\sup A - \epsilon , \sup A ) \) must contain infinitely many points.
+            which is a contradiction. Thus, \( (\sup A - \epsilon , \sup A ) \cap A  \) must contain infinitely many elements of \( A  \).
 
 
         \end{proof}
     \item[(ii)] Let \( B \subseteq \R  \) be a nonempty set, which is bounded from below. Show that if \( \inf B \notin B  \), then for all \( \epsilon > 0  \) the open interval \( (\inf B , \inf B + \epsilon ) \) contains infinitely many elements of \( B  \).
     \begin{proof}
-    Let \( \epsilon > 0  \). Our goal is to show that \( (\inf B, \inf B + \epsilon ) \) contain infinitely many points of \( B  \). Note that as a consequence of {\hyperref[Problem 3]{Problem 3}}, there exists an \( \beta \in B  \) such that  
+     Our goal is to show that for all \( \epsilon > 0 \), \( (\inf B, \inf B + \epsilon ) \) contain infinitely many elements of \( B  \). Note that as a consequence of {\hyperref[Problem 3]{Problem 3}}, there exists an \( \beta \in B  \) such that  
     \[ \inf B   \leq  \beta < \inf B + \epsilon. \]
     Since \( \inf B \notin B  \), we must have
     \[  \inf B < \beta < \inf B + \epsilon. \]
-    Thus, the open interval \( (\inf B, \inf B + \epsilon )  \) is nonempty.
+    Thus, the set \( (\inf B, \inf B + \epsilon ) \cap B  \) is nonempty.
 
-    Now, we will show, through contradiction, that \( (\inf B, \inf B + \epsilon) \cap B \) contains infinitely many points. Suppose there exists an \( \epsilon > 0  \) such that \( (\inf B, \inf B + \epsilon) \cap B \) FINITELY many points. Denote these points by \( {b}_{i}  \) for \( 1 \leq i \leq n  \) in
+    Now, we will show that \( (\inf B, \inf B + \epsilon) \cap B \) contains infinitely many points. Thus, suppose for sake of contradiction that there exists an \( \epsilon > 0 \) such that \( (\inf B, \inf B + \epsilon) \cap B \) contains FINITELY many points. Denote these points by \( {b}_{i}  \) for \( 1 \leq i \leq n  \); that is
     \[  (\inf B, \inf B + \epsilon) \cap B = \{ {b}_{i} : 1 \leq i \leq n   \}  \]
     For all \( 1 \leq k \leq n  \), let \( {d}_{k } = | \inf B - {b}_{k } |  \). Since \( {b}_{k } \in B  \) and \( \inf B \notin  B  \), we must have \( | \inf B - {b}_{k } | > 0  \). Let 
     \[  d = \frac{ \min \{ {d}_{1}, {d}_{2}, \dots, {d}_{n} \}  }{ 2 }. \]
@@ -115,7 +115,7 @@ Continuation of the proof presented in homework. Set \( \beta = - \alpha  \) whe
 \item Suppose the construction of \( \R  \) and the proof of the least-upper-bound property for \( \R  \) can be completed without directly using the well-ordering principle for \( \N  \). (Of course, statements equivalent to the well-ordering principle might have been used, but we are assuming that the nontrivial fact of their equivalence to the well-ordering principle was not utilized in the construction of \( \R  \) or in proving its Dedekind completeness.) Use the greatest-lower-bound property of \( \R  \) and the result of the previous exercises to prove the well-ordering principle for \( \N  \); that is, prove that every nonempty subset of \( \N  \) has a minimum.
     \begin{proof}
     By the greatest-lower-bound property of \( \R  \), we know that \( \inf E  \) exists.
-    Let \( \epsilon = \frac{ 1 }{ 5 }   \). To show that \( E  \) contains a minimum, we suppose for contradiction that \( \inf E \notin E  \). By {\hyperref[Problem 2]{Part 2 of Problem 7}}, the open interval \( (\inf E, \inf E + \frac{ 1 }{ 5 } ) \) intersects \( E  \) at infinitely many points (these points being natural numbers). Suppose we choose an \( m \in \N \) such that \( m  \in (\inf E , \inf E + \frac{ 1 }{ 5 }  ) \).  Note that \( m  \) also lies interval \( (m - 1, m + 1) \). Thus, \( (\inf E, \inf E + \epsilon) \subseteq (m-1,m+1) \). However, note that \( (\inf E, \inf E + \frac{ 1 }{ 5 }) \) contains infinitely many natural numbers which cannot happen within the open interval \( (m-1,m+1) \) since this interval contains at most one element. Thus, this is a contradiction. Thus, it must be the case that \( \inf E \in E  \).
+    Let \( \epsilon = \frac{ 1 }{ 5 }   \). To show that \( E  \) contains a minimum, we suppose for contradiction that \( \inf E \notin E  \). By {\hyperref[Problem 2]{Part 2 of Problem 7}}, the open interval \( (\inf E, \inf E + \frac{ 1 }{ 5 } ) \) intersects \( E  \) at infinitely many points (these points being natural numbers). Suppose we choose an \( m \in \N \) such that \( m  \in (\inf E , \inf E + \frac{ 1 }{ 5 }  ) \).  Note that \( m  \) also lies interval \( (m - 1, m + 1) \). Thus, \( (\inf E, \inf E + \epsilon) \subseteq (m-1,m+1) \). However, note that \( (\inf E, \inf E + \frac{ 1 }{ 5 }) \) contains infinitely many natural numbers which cannot happen within the open interval \( (m-1,m+1) \) since this interval contains at most one element, namely \( m \). Thus, this is a contradiction. Thus, it must be the case that \( \inf E \in E  \).
 \end{proof}
 
 \item Let \( A, B \subseteq \R  \) be nonempty, bounded sets and let \( c \in \R  \). Define the following sets:
@@ -221,16 +221,22 @@ Continuation of the proof presented in homework. Set \( \beta = - \alpha  \) whe
                \end{proof} 
         \item[9-8)] \( \inf(cA) = c \inf (A)  \) if \( c > 0  \).
             \begin{proof}
-            Let \( c > 0  \). Then observe that 
-            \begin{align*}
-                c \inf (A) &= c \inf (- (-A)) \\
-                           &= c (- \sup(-A)) \tag{9-4)} \\
-                           &= -c \sup(-A) \\
-                           &= -c (- \inf(A)) \tag{9-3)} \\
-                           &= c \inf (A).
-            \end{align*}
-            Thus, we conclude that 
-            \[  c \inf(A) = c \inf(A). \]
+            Let \( c > 0  \). To show that \( \inf(cA) = c \inf(A) \), we need to show that 
+            \begin{enumerate}
+                \item[(i)] \( c \inf(A) \) is a lower bound and 
+                \item[(ii)] for all \( \epsilon > 0  \), there exists a \( \gamma \in cA    \) such that 
+                    \[  \gamma < c \inf(A) + \epsilon.  \]
+            \end{enumerate}
+
+            Since \( \inf(A) \) exists (because \( A \neq \emptyset  \) and \( A  \) is bounded below), we have that \( a \geq \inf(A)  \) for all \( a \in A  \). Multiplying by \( c > 0  \), we have \( ca \geq c\inf(A)  \) for all \( ca \in cA \). Thus, \( cA  \) is bounded below by \( c \inf(A) \). This proves (i).
+
+            Note the fact that \( \inf(A) \) exists implies that there exists an \( \alpha \in A  \) such that  
+            \[   \alpha < \inf(A) + \frac{ \epsilon }{ c } \]
+            by the lemma found in {\hyperref[Problem 2]{Problem 2}}. Multiplying by \( c > 0  \), we have 
+            \[  c \alpha < c \inf(A) + \epsilon \]
+            for some \( c \alpha \in cA  \). Thus, we can set \( \gamma = c \alpha  \) and conclude that   
+            \[  \inf(cA) = c \inf(A) \]
+            by {\hyperref[Problem 2]{Problem 2}}.
             \end{proof}
         \item[9-9)] \( \sup(cA) = c \inf(A) \) if \( c < 0  \).
             \begin{proof}
@@ -241,6 +247,7 @@ Continuation of the proof presented in homework. Set \( \beta = - \alpha  \) whe
                           &= \sup((-c)(-A)) \tag{\( -c > 0  \) and 9-7)} \\
                           &= \sup(cA).
             \end{align*}
+            Thus, we conclude that  \( c \inf(A) = \sup(cA) \) for \( c < 0  \).
             \end{proof}
         \item[9-10)] \( \inf(cA) = c \sup (A) \) if \( c < 0  \).
             \begin{proof}

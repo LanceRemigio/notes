@@ -1,14 +1,15 @@
-\documentclass[a4paper]{article}
+\documentclass[a4paper]{report}
 \usepackage{standalone}
 \usepackage{import}
 \input{../../../../../newpreamble.tex}
 
 \begin{document}
+\section{Lecture 1}
 
-\section{Goals of Course}
+\subsection{Goals of Course}
 \begin{itemize}
     \item The goal of this course is to explore and generalize many of concepts that we learned in our calculus classes. 
-    \item Concepts such as
+    \item Examples of such concepts are
         \begin{itemize}
             \item Limits 
             \item Continuity
@@ -19,7 +20,7 @@
         and their results will all be rigorously proven and generalized. 
 \end{itemize}
 
-\section{The Structure of the Real Numbers}
+\subsection{The Structure of the Real Numbers}
 
 
 The set \( \R  \) is NOT just a boring collection of elements. \( \R  \) is a set equipped with four defining properties.
@@ -33,7 +34,7 @@ The set \( \R  \) is NOT just a boring collection of elements. \( \R  \) is a se
 \end{itemize}
 
 
-\section{The First Defining Property}
+\subsection{The First Defining Property}
 
 The set of real numbers is a field.
 
@@ -54,7 +55,7 @@ The set of real numbers is a field.
     \end{enumerate}   
 \end{definition}
 
-\section{The Second Defining Property}
+\subsection{The Second Defining Property}
 
 \begin{definition}[Ordered Fields]\label{Ordered Fields}
     An \textbf{ordered field} is a field \( F  \) equipped with a relation, \( <  \), with the following properties 
@@ -97,5 +98,145 @@ Similarly, we define the lower bounds of a set.
         \LO(A) &= (-\infty, 0].
     \end{align*}
 \end{eg}
+
+\section{Lecture 2}
+
+\subsection{Review of Least Upper Bound Property}
+
+\begin{definition}[Supremum]
+    Suppose \( F  \) is an ordered field, and \( A \subseteq F  \). Suppose there exists \( \beta \in F  \) such that 
+    \begin{enumerate}
+        \item[(i)] \( \beta \in \UP(A) \)
+        \item[(ii)] If \( \gamma \in F  \) and \( \gamma < \beta  \), then \( \gamma \notin \UP(A) \).
+    \end{enumerate}
+    We call \( \beta  \) the \textbf{least upper bound} of \( A  \) or the \textbf{supremum} of \( A  \). We denote the supremum of \( A  \) as \( \beta = \sup A  \).
+\end{definition}
+\begin{remark}
+    When we say THE supremum, we are implicitly stating that the supremum of \( A  \) is unique. 
+\end{remark}
+
+\begin{definition}[Infimum]
+    Suppose \( F  \) is an ordered field, and \( A \subseteq F  \). Suppose there exists \( \alpha \in F  \) such that 
+    \begin{enumerate}
+        \item[(i)] \( \alpha \in \LO(A) \)
+        \item[(ii)] If \( \gamma \in F  \) and \( \gamma > \alpha  \), then \( \gamma \notin \LO(A) \).
+    \end{enumerate}
+    We call \( \alpha  \) the \textbf{greatest upper bound} of \( A  \) or the \textbf{infimum} of \( A  \), and write \( \alpha = \inf A  \).
+\end{definition}
+
+\begin{definition}[Least Upper Bound Property]
+    An ordered field \( F  \) is said to have the \textbf{least-upper-bound property} if the following is true:
+    \begin{center}
+        Every nonempty set \( A  \) in \( F  \) that is bounded above has a least upper bound in \( F  \).
+    \end{center}
+    That is, if \( A \neq \emptyset  \) and \( \UP(A) \neq \emptyset \), then \( \sup (A) \) exists.
+\end{definition}
+
+\begin{theorem}[ ]
+    There is exactly one ordered field that has the least-upper-bound bound property. The set \( \R  \) is the unique ordered field that contains \( \Q  \) as a subfield.
+\end{theorem}
+This is equivalent to saying that:
+
+\begin{itemize}
+    \item \( \R  \) is dedekind complete
+    \item \( \R  \) satisfies the Axiom of Completeness.
+\end{itemize}
+
+\begin{remark}
+   Note that \( \Q  \) being an ordered field does not immediately imply that \( \Q  \) has the LUBP.
+\end{remark}
+
+\begin{definition}[Maximums and Infimums]
+    Let \( A \subseteq \R  \).
+    \begin{itemize}
+        \item If \( \sup A \in A  \), then we call, \( \sup A  \), the \textbf{maximum of \( A  \)} and we denote this by \( \max A  \).
+        \item If \( \inf A \in A  \), we call, \( \inf A  \), the \textbf{minimum of \( A  \)} and we denote this by \( \min A  \).
+    \end{itemize}
+\end{definition}
+
+
+\begin{lemma}[Useful Fact for Supremum]\label{First Useful Fact}
+   Let \( A \subseteq \R  \). Then \( \beta = \sup A  \) if and only if   
+   \begin{enumerate}
+       \item[(i)] \( \beta \in \UP(A) \) and
+        \item[(ii)] For all \( \epsilon > 0  \), there exists \( a \in A  \) such that \(a > \beta - \epsilon \).
+   \end{enumerate}
+\end{lemma}
+\begin{remark}
+    We can restate property (ii) above as "for all \( \epsilon > 0  \), \( \beta - \epsilon \notin \UP(A) \)".
+\end{remark}
+
+\begin{lemma}[Useful Fact for Infimums]
+   Let \( A \subseteq \R  \). Then \( \alpha = \inf A  \) if and only if  
+   \begin{enumerate}
+       \item[(i)] \( \alpha \in \LO(A) \) and
+        \item[(ii)] For all \( \epsilon > 0  \), there exists \( a \in A  \) such that \( a < \alpha + \epsilon \).
+   \end{enumerate}
+\end{lemma}
+
+\begin{remark}
+    Similarly, we can restate property (ii) as "for all \( \epsilon > 0  \), \( \alpha + \epsilon \notin \LO(A) \)".
+\end{remark}
+
+\begin{theorem}[Greatest Lower Bound Property of \( \R  \)]
+    Every nonempty subset \( A  \) of \( \R  \) that is bounded below has a \textbf{greatest upper bound in \( \R  \)}.
+\end{theorem}
+
+Another way to say this is the following:
+\begin{center}
+    If \( A \neq \emptyset  \) and \( \LO(A) \neq \emptyset  \), then \( \inf A  \) exists in \( \R  \).
+\end{center}
+
+\subsection{Consequences of Least Upper Bound Property}
+
+\begin{theorem}[Archimedean Property]\label{Archimedean Property}
+    If \( x \in \R  \), \( y \in \R  \) and \( x > 0  \), then there exists \( n \in \Z^{+} \) such that \( nx > y  \).
+\end{theorem}
+\begin{proof}
+Let \( A = \{ nx : n \in \N  \}  \). Note that \( A \neq \emptyset  \) since \( 1 \cdot x \in A  \). Suppose for sake of contradiction that for all \( n \in \Z^{+} \), \( nx \leq y  \). This means that \( y  \) is an upper bound of \( A  \). Let \( \beta = \sup A  \). By the {\hyperref[First Useful Fact]{first useful fact}}, we have that for all \( \epsilon > 0  \), there exists an \( n \in \N  \) such that \( \beta - \epsilon < nx  \). Let \( \epsilon = x  \). Then we find that  
+\[  \beta < nx + \epsilon = nx + x = x(n+1) \implies \beta < x(n+1).  \]
+But this tells us that \( x(n+1) \in A  \) (\( x \in A  \) and \( n+1 \in \N\)) and that \( \beta  \) is NOT an upper bound which is a contradiction. Thus, it must be the case that \( nx > y  \) for some \( n \in \Z^{+} \).
+\end{proof}
+
+\begin{remark}
+   The well ordering property of \( \N  \) can be proven as a consequence of nonempty sets of natural numbers containing a minimum.
+\end{remark}
+
+\begin{corollary}
+  Let \( A  \) be a nonempty subset of \( \R  \) that consists of only integers.  
+  \begin{enumerate}
+      \item[(i)] If \( A  \) is bounded above, then \( \sup(A) \in A  \).
+      \item[(ii)] If \( A  \) is bounded below, then \( \inf(A) \in A  \). 
+  \end{enumerate}
+\end{corollary}
+
+\begin{theorem}[Density of \( \Q  \) in \( \R  \)]
+    Let \( x,y \in \R  \) with \( x < y  \), there exists a \( p \in \Q  \) such that \( x < p < y \). 
+\end{theorem}
+\begin{proof}
+    Our goal is to find a \( p \in \Q  \) such that  
+    \[  x < p < y \]
+    with \( p = \frac{ m }{ n }  \) for \( m \in \Z  \) and \( n \in \N  \); that is, find \( m \in \Z  \) and \( n \in \N  \) such that 
+    \[  nx < m < ny. \]
+    First, notice that \( x < y  \). This implies that \( y - x > 0  \). By the Archimedean Property, there exists \( n \in \N  \) such that
+    \[  \frac{ 1 }{ n }  < y - x \Longleftrightarrow x < y - \frac{ 1 }{ n }. \tag{1}    \]
+    Choose \( m \in \Z  \) such that \( m  \) to be the minimum element greater than \( nx  \); that is, choose \( m \in \Z  \) such that 
+    \[  m - 1 \leq nx < m. \tag{2} \]
+    Let \( A = \{ k \in \Z : k > nx  \}  \) which is nonempty by the {\hyperref[Archimedean Property]{Archimedean Property}}. Furthermore, \( nx  \) is a lower bound for \( A  \). By the Well-ordering property, \( A \) contains a minimum. Thus, \( m = \min A  \). Hence,we have  
+    \[  nx < m \implies x < \frac{ m }{ n }. \tag{3} \]
+    Using the left-hand side of (2) and the inequality found in (1), we can write
+    \begin{align*}
+        m - 1 \leq nx \Longrightarrow m \leq nx +1 &< n \Big(  y - \frac{ 1 }{ n }  \Big) + 1   \\
+                      &= ny -  1 + 1 \\
+                      &= ny.
+    \end{align*}
+    Thus, we see that 
+    \[ m < ny \tag{4}.  \]
+    With (3) and (4), we can conclude that
+    \[ x < \frac{ m }{ n }  < y  \Longleftrightarrow x < p < y.  \]
+
+\end{proof}
+
+
 
 \end{document}
