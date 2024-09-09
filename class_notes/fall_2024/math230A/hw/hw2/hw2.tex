@@ -1,0 +1,85 @@
+\documentclass[11pt,a4paper]{article} 
+\usepackage{standalone}
+\usepackage{import}
+\input{../../../../../newpreamble.tex}
+
+\title{Math 230A: Homework 2}
+\author{Lance Remigio}
+\begin{document}
+\maketitle
+
+\section*{Problem 1} Mark each statement True or False.
+
+\begin{enumerate}
+    \item If \( Y  \) is a set and \( \{ {G}_{\alpha} : \alpha \in A  \}   \) is a family of subsets of \( Y  \), then \( \bigcup_{ \alpha \in A  }^{  }  {G}_{\alpha} \) is a subset of \( Y  \). \textbf{True.}
+    \item The set \( \{ q \in \Q : q^{2} < 2  \}  \) is countable. \textbf{False.}     
+    \item Every infinite subset of an uncountable set is uncountable. \textbf{False.} 
+    \item The union of any collection of at most countable sets is at most countable. \textbf{True.}
+    \item If \( A,B \subseteq \R  \) and \( A  \) is countable, then \( A \cap B  \) is at most countable. \textbf{True.}
+\end{enumerate}
+
+\section*{Problem 2} Find a bijection from \( \N  \) to the set of odd integers.
+\begin{solution}
+Define \( f: \N \to \{ 2n + 1: n \in \N \}  \) as \( f(n) = 2n + 1  \) for \( n \in \N \). 
+\end{solution}
+
+\section*{Problem 3} For the following problem, you may use your grade school knowledge that every real number has a decimal representation. Although there is a careful description of decimal representation on page 11 of Rudin, it will not be needed to solve this problem. 
+
+
+Recall that in class we proved that the set of all binary sequences is uncountable. Use that fact to show that interval \( [0,0.2) \) is uncountable. Explain how this result proves that \( [0,1] \) and \( \R  \) are countable as well.
+\begin{proof}
+
+\end{proof}
+
+\section*{Problem 4} Is the set of all irrational numbers countable?
+\begin{solution}
+False. It is uncountable.
+\end{solution}
+
+\section*{Problem 5} Show any collection of disjoint intervals of positive length is at most countable.
+\begin{proof}
+Let \( A  \) be the collection of disjoint intervals of positive length. Suppose for sake of contradiction that this collection of intervals is uncountable. However, notice how each of the disjoint interval contains a rational number \( q  \) by the density of \( \Q  \) in \( \R \). Since \( A  \) is uncountable, this means that there are an uncountable number of rational points. But we know that \( \Q  \) is countable which is a contradiction.
+\end{proof}
+
+\section*{Problem 6} A real number is said to be algebraic if it is a root of some nonzero polynomial with rational coefficients. Prove that the set of all algebraic numbers is countable.
+\begin{proof}
+Define the set
+\[  \alpha = \{ p(x) = 0 : x \in \R  \}  \] with \( p(x)  \) being any polynomial with rational coefficients. Let  
+\[  \bigcup_{ \alpha  }^{  }  \alpha  \] be the union of all \( \alpha  \) representing the set of all real algebraic numbers coming from \( p(x) \). Since \( p(x) \) is of \( n \)th degree, we know that \( p(x) \) must contain a finite number of roots, namely, \( n  \) number of them. Thus, \( \alpha  \) is countable and hence, the union of all \( \alpha  \) must also be countable.  
+\end{proof}
+
+\section*{Problem 7} Prove that not all real numbers are algebraic.
+\begin{proof}
+    Suppose for sake of contradiction that all real numbers are algebraic. Let \( A  \) be the set of all real numbers that are algebraic. By the last problem, this set is countable. However, \( \R  \) is an uncountable set by Problem 3 which is a contradiction. Thus, not all real numbers are algebraic.  
+\end{proof}
+
+\section*{Problem 8} Choose (specific) distinct real numbers \( a,b,c,d  \) such that \( a < b  \) and \( c < d  \). Prove that \( \card{[a,b]} = \card{[c,d]}  \). (Hint: Find a linear polynomial \( f  \) such that \( f(a) = c  \) and \( f(b) = d  \).)
+\begin{proof}
+
+\end{proof}
+
+\section*{Problem 9} Consider the function \( f: (0,1) \to \R  \) given by 
+\[  f(x) = 
+\begin{cases}
+    \frac{ 1 }{ n - 1  }  &\text{if} \ x = \frac{ 1 }{ n }, \  \text{for some} \ n \in \N \\ 
+    x &\text{otherwise}
+\end{cases}. 
+\]
+\begin{enumerate}
+    \item Prove that \( f  \) is a bijection from \( (0,1)  \) to \( (0,1] \).
+        \begin{proof}
+        
+        \end{proof}
+    \item Find a bijection from \( (0,1]  \) to \( [0,1) \).
+        \begin{solution}
+            
+        \end{solution}
+    \item Find a bijection from \(  [0,1)  \) to \( [0,1] \).
+        \begin{solution}
+        
+        \end{solution}
+
+\end{enumerate}
+
+
+\end{document}

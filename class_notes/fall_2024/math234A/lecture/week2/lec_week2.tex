@@ -1,0 +1,114 @@
+\documentclass[a4paper]{report}
+\usepackage{standalone}
+\usepackage{import}
+
+\input{../../../../../newpreamble.tex}
+
+
+\begin{document}
+
+\section{Lecture 3}
+
+\subsection{Topics}
+
+\begin{itemize}
+    \item Polar Representation of complex numbers.
+    \item Convergence of sequences in \( \C  \).
+\end{itemize}
+
+\subsection{Polar Representation of Complex Numbers}
+
+If \( (x,y) \in \R^{2} \setminus \{ (0,0) \}  \), we can represent this as  
+\[  (x,y) = (\gamma \cos \varphi, \gamma \sin \varphi) \]
+where \( \gamma =\sqrt{ x^{2} + y^{2} }   \) and \( \tan(\varphi) = \frac{ y }{ x }  \)
+is a polar representation of \( (x,y) \).
+\begin{remark}
+    This representation may not be unique!
+\end{remark}
+
+If we insist, we can make \( \varphi  \) unique by restricting the domain to \( -\pi < \varphi \leq \pi \) where \( \varphi  \) is denoted as the \textbf{argument of \( z  \)}.
+
+\begin{definition}[Principle Argument]
+    If \( - \pi < \varphi \leq \pi \), we call this angle the \textbf{principle argument} which we denote as 
+    \[  \varphi = \Arg((x,y)). \]
+\end{definition}
+\begin{remark}
+    For any other domain, we denote the argument by \( \varphi = \arg((x,y)) \).
+\end{remark}
+
+\begin{lemma}
+    Let \( z = \gamma(\cos \varphi + i \sin \varphi) \) and \( w = \gamma' (\cos(\varphi') + \sin(\varphi') \) in \( \C \setminus  \{ 0  \}  \). Then
+    \[  zw = \varphi \varphi' [\cos(\varphi + \varphi') + i \sin(\varphi + \varphi')]. \]
+\end{lemma}
+\begin{proof}
+Using the addition formula, we can write
+\begin{align*}
+    zw &= \gamma \gamma'  (\cos \varphi + i \sin \varphi)(\cos \varphi' + i \sin \varphi')  \\
+       &= \gamma \gamma' [ (\cos \varphi cos \varphi' + \sin \varphi \sin \varphi') + i(\sin \varphi \cos \varphi' + \sin \varphi \cos \varphi') ] \\
+       &= \gamma \gamma' (\cos(\varphi + \varphi') + i \sin(\varphi + \varphi')).
+\end{align*}
+\end{proof}
+
+\begin{corollary}[De Moivre's Theorem]
+   Let \( z = \gamma (\cos \varphi + i \sin \varphi) \in \C \setminus  \{ 0 \}  \) and let \( n \in \Z   \). Then
+   \[  z^{n} = \gamma^{n} (\cos n \varphi + i \sin n \varphi). \]
+\end{corollary}
+
+\begin{remark}
+ If \( n  \) is a negative integer, then \( z^{n} = (z^{-1})^{-n} \). 
+\end{remark}
+
+The corollary above allows us to compute the \( n \)th roots of a non-zero complex number.
+
+\begin{eg}[An example of De Moivre's Theorem]
+   Suppose we had the complex number  
+   \[  z = \frac{ 1 }{ 2 }  + i \frac{ \sqrt{ 3 }  }{ 2 }. \]
+  Suppose we want to find \( z^{10} \). First, we need to find the angle that makes this complex number. Since the \( x  \) and \( y  \) coordinates are both positive this means that the angle must lie in the first quadrant. Thus, we have 
+  \[  \varphi = \arg(z) = \frac{ \pi }{ 3  }. \]
+  Using De Moivre's Theorem, we can write
+  \begin{align*}
+      z^{10 } &= \cos \Big(  10 \cdot \frac{ \pi  }{ 3 }  \Big) + i \sin \Big(  10 \cdot \frac{ \pi }{ 3 }  \Big) \\
+              &= -\frac{1 }{ 2 }  - i \frac{ \sqrt{ 3 }  }{ 2 }. 
+  \end{align*}
+\end{eg}
+
+Some notations we would like to establish are the following:
+\begin{enumerate}
+    \item[(i)] \textbf{The set of all positive real numbers} \( {\R}_{+} = \{ r \in \R : r > 0  \}  \)
+    \item[(ii)] \textbf{The set of all complex numbers excluding zero} \( \C^{\cdot} =  \C \setminus \{ 0 \}  \).
+\end{enumerate}
+
+\begin{prop}
+    The map \( {\R}_{+} \times \R \longrightarrow \C^{} \) defined by 
+    \[  (r, \varphi) \longrightarrow \gamma ( \cos \varphi + i \sin \varphi) \]
+    is surjective.
+\end{prop}
+
+\begin{remark}
+    This gives us the tool we need to show that every non-zero \( z \in \C  \) has a polar representation.
+\end{remark}
+
+\subsection{Convergence of Sequences in \( \C \)}
+
+\begin{definition}[Convergence in \( \C  \)]
+    Let \( {\{ {z}_{n} \} }_{n=1}^{\infty }     \) be a sequence in \( \C  \). We say that \( \{ {z}_{n} \}   \) converges to \( z \in \C  \) if for all \(  \epsilon > 0  \), we can find \( {N}_{\epsilon} \in \N  \) such that  
+    \[  | {z}_{n} - z  |  < \epsilon \]
+    for all \( n \geq {N}_{\epsilon} \).
+\end{definition}
+
+If \( ({z}_{n}) \) converges to \( z  \), then we write \( {z}_{n} \to z  \).
+
+\begin{prop}[Properties of Convergent Sequences]
+   Assume \( ({z}_{n}) \to z  \) and \( ({w}_{n}) \to w   \). 
+   \begin{enumerate}
+       \item[(i)] Let \( \alpha, \beta \in \C  \), then \( \alpha {z}_{n} + \beta {w}_{n} \to \alpha z + \beta w  \).
+        \item[(ii)] \( {z}_{n} {w}_{n} \to zw  \).
+        \item[(iii)] \( {z}_{n}^{-1} \to z^{-1} \).
+        \item[(iv)] \( ({z}_{n}) \to z  \) if and only if \( \Re({z}_{n}) \to \Re(z) \) and \( \Im({z}_{n}) \to \Im(z) \) as a sequences in \( \R  \).
+   \end{enumerate}
+\end{prop}
+\begin{proof}
+
+\end{proof}
+
+\end{document}

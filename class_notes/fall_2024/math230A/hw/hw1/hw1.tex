@@ -22,11 +22,11 @@
 
 \item Prove the following: Suppose \( \alpha  \) is an upper bound for \( E \subset \R   \). Then \( \alpha = \sup E   \) if and only if for all \( \epsilon > 0  \), there exists \( {x}_{0} \in E  \) such that \( {x}_{0} > \alpha - \epsilon  \). \label{Problem 2}  
     \begin{proof}
-    Suppose \( \alpha  \) is an upper bound for \( E \subseteq \R  \). For the forwards direction, suppose \( \alpha = \sup E  \) and let \( \epsilon > 0 \). Note that \( \alpha - \epsilon < \alpha  \) implies that \( \alpha - \epsilon  \) is NOT an upper bound of \( E  \). By definition, there must exist an element \( {x}_{0} \in E  \) such that \( {x}_{0} > \alpha - \epsilon  \). Thus, \( \alpha < {x}_{0} + \epsilon  \).
+    Suppose \( \alpha  \) is an upper bound for \( E \subseteq \R  \). For the forwards direction, suppose \( \alpha = \sup E  \) and let \( \epsilon > 0 \). Note that \( \alpha - \epsilon < \alpha  \) implies that \( \alpha - \epsilon  \) is NOT an upper bound of \( E  \). By definition, there must exist an element \( {x}_{0} \in E  \) such that \( {x}_{0} > \alpha - \epsilon  \). 
 
-    For the backwards direction, let \( \epsilon > 0  \) and let \( \alpha  \) be an upper bound of \( E  \). We need to show \( \alpha = \sup E  \); that is, we need to show that \( \alpha  \) is an upper bound of \( E  \) and that any \( \gamma < \alpha  \) implies \( \gamma  \) is NOT an upper bound of \( E  \). Notice that the first property is satisfied by our assumption. Thus, all that is left to show is the second property.  
+    For the backwards direction, let \( \alpha  \) be an upper bound of \( E  \). We need to show \( \alpha = \sup E  \); that is, we need to show that \( \alpha  \) is an upper bound of \( E  \) and that if \( \gamma < \alpha  \), then \( \gamma  \) is NOT an upper bound of \( E  \). Notice that the first property is satisfied by our assumption. Thus, all that is left to show is the second property.  
 
-    Suppose \( \gamma < \alpha  \). Thus, we have \( \alpha - \gamma > 0  \). Choose  \( \epsilon = \alpha - \gamma  \).  Our goal is to find some element \( x \in E  \) such that \( x > \alpha - \epsilon \). Choose \( \epsilon = \alpha - \gamma  \). By assumption, there exists an element \( {x}_{0} \in E  \) such that     
+    Suppose \( \gamma < \alpha  \). Then \( \alpha - \gamma > 0  \). Choose  \( \epsilon = \alpha - \gamma  \).  Our goal is to find some element \( x \in E  \) such that \( x > \gamma \). By assumption, there exists an element \( {x}_{0} \in E  \) such that     
     \[  {x}_{0} > \alpha - \epsilon = \alpha - (\alpha - \gamma) = \gamma. \]
     Thus, \( {x}_{0} > \gamma  \) for some \( {x}_{0} \in E  \). Therefore, \( \gamma  \) is NOT an upper bound of \( E  \) and so we conclude that 
     \[  \alpha = \sup E. \]
@@ -44,7 +44,7 @@
     \[  \frac{ 1 }{ n + 1  }  = \frac{ (n+1) - n  }{ n + 1  } = 1 - \frac{ n  }{ n + 1  }.   \]
     Thus, 
     \[  1 - \frac{ n }{ n + 1  } < \epsilon \Longleftrightarrow \frac{ n }{ n + 1 }  > 1 - \epsilon. \]
-    But note that \( \frac{  n  }{  n+ 1 } \in E   \). By {\hyperref[Problem 2]{Problem 2}}, we conclude that \( \sup E = 1    \). 
+    But note that \( \frac{  n  }{  n+ 1 } \in E   \). Thus, we conclude that \( \sup E = 1    \) by the lemma found in {\hyperref[Problem 2]{Problem 2}}. 
     
     
 
@@ -52,7 +52,7 @@
 
  \item State the analogue of the Very Useful Theorem for infimums. \label{Problem 3}
      \begin{solution}
-        Suppose \( \beta  \) is a lower bound for \( E \subseteq \R    \). Then \( \beta = \inf E  \) if and only if for all \( \epsilon > 0  \), there exists \( {y}_{0} \in E  \) such that \( {y}_{0} < \beta + \epsilon  \).
+        Suppose \( \beta  \) is a lower bound for \( E \subset \R    \). Then \( \beta = \inf E  \) if and only if for all \( \epsilon > 0  \), there exists \( {y}_{0} \in E  \) such that \( {y}_{0} < \beta + \epsilon  \).
         \end{solution}
     \item Suppose \( a,b \in \R  \) and \( a \leq b + \epsilon  \) for every \( \epsilon > 0  \). Prove \( a \leq b  \). \label{Problem 5}
         \begin{proof}
@@ -82,40 +82,42 @@ Continuation of the proof presented in homework. Set \( \beta = - \alpha  \) whe
             \[  \sup A - \epsilon  < {x}_{0} < \sup A  \]
             for some \( {x}_{0} \in A  \). So, \( (\sup A - \epsilon, \sup A ) \cap A  \) is nonempty.
 
-            Now, we will show, that for all \( \epsilon > 0  \) such that \( (\sup A - \epsilon, \sup A ) \cap A  \) contains infinitely many elements. Thus, suppose for sake of contradiction that there exists an \( \epsilon > 0 \) such that \( (\sup A - \epsilon , \sup A ) \cap A  \) contains FINITELY many elements. Let us denote these elements by \( {a}_{i} \) for  \( 1 \leq i \leq n  \); that is,  
+            Now, we will show, that the set \( (\sup A - \epsilon, \sup A ) \cap A  \) contains infinitely many elements. Thus, suppose for sake of contradiction that the nonempty set \( (\sup A - \epsilon , \sup A ) \cap A  \) contains FINITELY many elements. Let us denote these elements by \( {a}_{i} \) for  \( 1 \leq i \leq n  \); that is,  
         \[  (\sup A - \epsilon, \sup A ) \cap A = \{ {a}_{1}, \dots, {a}_{n}:  1 \leq i \leq n   \}. \]
-        For all \( 1 \leq k \leq n  \), let the distance between each \( {a}_{k } \) and \( \sup A  \) by  
+        For all \( 1 \leq k \leq n  \), let the distance between each \( {a}_{k } \) and \( \sup A  \) be defined by   
             \[  {d}_{k } = | \sup A - {a}_{k} |.  \]
             Since \( {a}_{k } \in A  \) and \( \sup A \notin A  \), we must have \(  | \sup A - {a}_{k } | > 0  \). Let 
             \[  d = \frac{ \min \{ {d}_{1}, \dots, {d}_{n} \}   }{ 2  }.   \]
             But this implies that none of the \( {a}_{1}, \dots, {a}_{n} \) lies inside the interval \( (\sup A - d , \sup A ) \). That is, 
             \[  A \cap (\sup A - d , \sup A ) = \emptyset, \]
-            which is a contradiction. Thus, \( (\sup A - \epsilon , \sup A ) \cap A  \) must contain infinitely many elements of \( A  \).
+            implies that \( \sup A - d \in \UP(A) \) which is a contradiction because \( \sup A - d  \) is not an upper bound of \( A  \). Thus, \( (\sup A - \epsilon , \sup A ) \cap A  \) must contain infinitely many elements of \( A  \).
 
 
         \end{proof}
     \item[(ii)] Let \( B \subseteq \R  \) be a nonempty set, which is bounded from below. Show that if \( \inf B \notin B  \), then for all \( \epsilon > 0  \) the open interval \( (\inf B , \inf B + \epsilon ) \) contains infinitely many elements of \( B  \).
     \begin{proof}
-     Our goal is to show that for all \( \epsilon > 0 \), \( (\inf B, \inf B + \epsilon ) \) contain infinitely many elements of \( B  \). Note that as a consequence of {\hyperref[Problem 3]{Problem 3}}, there exists an \( \beta \in B  \) such that  
+    Let \( \epsilon > 0  \). Note that as a consequence of {\hyperref[Problem 3]{Problem 3}}, there exists an \( \beta \in B  \) such that  
     \[ \inf B   \leq  \beta < \inf B + \epsilon. \]
     Since \( \inf B \notin B  \), we must have
     \[  \inf B < \beta < \inf B + \epsilon. \]
     Thus, the set \( (\inf B, \inf B + \epsilon ) \cap B  \) is nonempty.
 
-    Now, we will show that \( (\inf B, \inf B + \epsilon) \cap B \) contains infinitely many points. Thus, suppose for sake of contradiction that there exists an \( \epsilon > 0 \) such that \( (\inf B, \inf B + \epsilon) \cap B \) contains FINITELY many points. Denote these points by \( {b}_{i}  \) for \( 1 \leq i \leq n  \); that is
+    Now, we will show that \( (\inf B, \inf B + \epsilon) \cap B \) contains infinitely many points. Thus, suppose for sake of contradiction that the nonempty set \( (\inf B, \inf B + \epsilon) \cap B \) contains FINITELY many points. Denote these points by \( {b}_{i}  \) for \( 1 \leq i \leq n  \); that is
     \[  (\inf B, \inf B + \epsilon) \cap B = \{ {b}_{i} : 1 \leq i \leq n   \}  \]
-    For all \( 1 \leq k \leq n  \), let \( {d}_{k } = | \inf B - {b}_{k } |  \). Since \( {b}_{k } \in B  \) and \( \inf B \notin  B  \), we must have \( | \inf B - {b}_{k } | > 0  \). Let 
+    For all \( 1 \leq k \leq n  \), let the distance between each \( {b}_{k } \) and \( \inf B  \) be defined by \[ {d}_{k } = | \inf B - {b}_{k } |.  \] Since \( {b}_{k } \in B  \) and \( \inf B \notin  B  \), we must have \( | \inf B - {b}_{k } | > 0  \). Let 
     \[  d = \frac{ \min \{ {d}_{1}, {d}_{2}, \dots, {d}_{n} \}  }{ 2 }. \]
-    But this implies that none of the \( {b}_{i} \) for \( 1 \leq i \leq n   \) lies within the open interval \( (\inf B , \inf B + d) \). That is, the set 
+    Note that observe that none of the \( {b}_{i} \) for \( 1 \leq i \leq n   \) lies within the open interval \( (\inf B , \inf B + d) \). That is, the set 
     \[  (\inf B , \inf B + d) \cap B = \emptyset \]
-    which is a contradiction. Thus, the open interval \( (\inf B, \inf B + \epsilon) \) must have infinitely many points.
+    implies that \( \inf B + d \in \LO(B)  \) which is a contradiction because \( \inf B + d  \) is not a lower bound of \( B \). Thus, the open interval \( (\inf B, \inf B + \epsilon) \) must have infinitely many points.
     \end{proof}
 \end{enumerate}
 
 \item Suppose the construction of \( \R  \) and the proof of the least-upper-bound property for \( \R  \) can be completed without directly using the well-ordering principle for \( \N  \). (Of course, statements equivalent to the well-ordering principle might have been used, but we are assuming that the nontrivial fact of their equivalence to the well-ordering principle was not utilized in the construction of \( \R  \) or in proving its Dedekind completeness.) Use the greatest-lower-bound property of \( \R  \) and the result of the previous exercises to prove the well-ordering principle for \( \N  \); that is, prove that every nonempty subset of \( \N  \) has a minimum.
     \begin{proof}
-    By the greatest-lower-bound property of \( \R  \), we know that \( \inf E  \) exists.
-    Let \( \epsilon = \frac{ 1 }{ 5 }   \). To show that \( E  \) contains a minimum, we suppose for contradiction that \( \inf E \notin E  \). By {\hyperref[Problem 2]{Part 2 of Problem 7}}, the open interval \( (\inf E, \inf E + \frac{ 1 }{ 5 } ) \) intersects \( E  \) at infinitely many points (these points being natural numbers). Suppose we choose an \( m \in \N \) such that \( m  \in (\inf E , \inf E + \frac{ 1 }{ 5 }  ) \).  Note that \( m  \) also lies interval \( (m - 1, m + 1) \). Thus, \( (\inf E, \inf E + \epsilon) \subseteq (m-1,m+1) \). However, note that \( (\inf E, \inf E + \frac{ 1 }{ 5 }) \) contains infinitely many natural numbers which cannot happen within the open interval \( (m-1,m+1) \) since this interval contains at most one element, namely \( m \). Thus, this is a contradiction. Thus, it must be the case that \( \inf E \in E  \).
+        Let \( E \subseteq \N  \) be a nonempty set. Note that \( E  \) is bounded below by \( 0  \), and so \( \LO(E) \neq \emptyset \). Since \( E  \) is nonempty and bounded below, we know that \( \inf E  \) exists by the greatest-lower-bound property of \( \R  \).
+
+
+     To show that \( E  \) contains a minimum, we suppose for contradiction that \( \inf E \notin E  \). Now, pick \( \epsilon = \frac{ 1 }{ 5 }   \). By {\hyperref[Problem 2]{Part 2 of Problem 7}}, the open interval \( (\inf E, \inf E + \frac{ 1 }{ 5 } ) \) intersects \( E  \) at infinitely many points (these points being natural numbers). Suppose we choose an \( m \in \N \) such that \( m  \in (\inf E , \inf E + \frac{ 1 }{ 5 }  ) \).  Note that \( m  \) also lies interval \( (m - 1, m + 1) \). Thus, \( (\inf E, \inf E + \epsilon) \subseteq (m-1,m+1) \). However, we see that \( (\inf E, \inf E + \frac{ 1 }{ 5 }) \) contains infinitely many natural numbers which cannot happen within the open interval \( (m-1,m+1) \) since this interval contains at most only one element, namely \( m \), which is a contradiction. Hence, it must be the case that \( \inf E \in E  \); that is, \( E  \) contains a minimum.
 \end{proof}
 
 \item Let \( A, B \subseteq \R  \) be nonempty, bounded sets and let \( c \in \R  \). Define the following sets:
@@ -129,13 +131,20 @@ Continuation of the proof presented in homework. Set \( \beta = - \alpha  \) whe
     \begin{enumerate}
         \item[9-1)] \( \inf(A + B) = \inf(A) + \inf(B) \).
             \begin{proof}
-                In order to show that \( \inf(A+B) = \inf A + \inf B  \), we need to show that 
+             Our goal is to show that \( A + B  \) contains an infimum and that 
+                 \( \inf(A+B) = \inf A + \inf B  \). Note that \( A + B \neq \emptyset \) since \(  a + b \in A + B  \) and \( A  \) and \( B  \) are nonempty sets. Since \( A  \) and \( B  \) are both bounded below, there exists \( x \in \R  \) and \( y \in \R  \) such that 
+                 \begin{center}
+                     \( a \geq x  \) for all \( a \in A  \) and \( b \geq y  \) for all \( b \in B  \).
+                 \end{center}
+                 Adding these two inequalities together, we see that \(  a + b \geq x + y  \) for all \( a + b \in A + B  \). Thus, \( x + y  \) is a lower bound for \( A + B  \). Since \( A + B  \) is bounded below, it follows from greatest-lower-bound property that \( \inf(A+B)  \) exists.   
+
+                 Now, let us show \( \inf(A+B) = \inf(A) + \inf(B) \). In order to show that \( \inf(A+B) = \inf(A) + \inf(B) \), we need to show that 
                 \begin{enumerate}
                     \item[(i)] The set \( A + B   \) is bounded below by \( \inf(A) + \inf(B) \).
                     \item[(ii)] For every \( \epsilon > 0  \), there exists \( \varphi \in  A + B  \) such that  
                         \[  \varphi < \inf(A) + \inf(B) + \epsilon. \]
                 \end{enumerate} 
-                Note that \( A + B \neq \emptyset \) since \(  a + b \in A + B  \) and \( A  \) and \( B  \) are nonempty sets. Since \( A  \) and \( B  \) are also bounded below, we can see that \( a \geq \inf A  \) \( a \in A  \) and \( b \geq \inf B  \) for all \( b \in B  \) implies  
+                 Since \( A  \) and \( B  \) are nonempty and bounded below, we know that \( \inf (A)  \) and \( \inf (B)  \) exists by the greatest-lower-bound property. Thus, we can see that \( a \geq \inf A  \) for all \( a \in A  \) and \( b \geq \inf B  \) for all \( b \in B  \). Adding these two inequalities together results in
                 \[  a + b \geq \inf(A) + \inf (B) \ \ \text{for all} \ a + b \in A + B,    \]
                 which shows (i).
     Now, let \( \epsilon > 0 \). Using the lemma found in {\hyperref[Problem 3]{Problem 3}}, there exists an \( \alpha \in A  \) and \( \beta \in \beta  \) such that 
@@ -143,18 +152,29 @@ Continuation of the proof presented in homework. Set \( \beta = - \alpha  \) whe
                 and
                 \[  \beta < \inf(B) + \frac{ \epsilon }{ 2 },  \]
                 respectively. Adding these two inequalities, we get
-                \[ \varphi =  \alpha + \beta < \inf(A) + \inf(B) + \epsilon \ \ \text{for some} \ \varphi \in A + B.  \]
+                \[ \varphi =  \alpha + \beta < \inf(A) + \inf(B) + \epsilon \ \ \text{for some} \ \varphi \in A + B,  \]
+                showing (ii).
                 Thus, we conclude that \( \inf(A+B) = \inf(A) + \inf(B) \).  
             \end{proof}
         \item[9-2)] \( \sup (A + B) = \sup (A) + \sup (B) \) 
 
             \begin{proof}
+                Our goal is to show that \( A + B  \) contains a supremum and that 
+                 \( \sup(A+B) = \sup A + \sup B  \). Note that \( A + B \neq \emptyset  \) since \( a + b \in A + B \) and \( A  \) and \( B  \) are nonempty sets. Since \( A  \) and \( B  \) are bounded above, there exists \( u \in \R  \) and \( v \in \R  \) such that 
+                 \begin{center}
+                     \( a \leq u  \) for all \( a \in A  \) and \( b \leq v  \) for all \( b \in B  \), respectively.
+                 \end{center}
+                 Adding these two inequalities together, we see that \(  a + b \leq u + v  \) for all \( a + b \in A + B  \). Thus, \( u + v  \) is a upper bound for \( A + B  \). Since \( A + B  \) is bounded above, it follows from least-upper-bound property that \( \sup(A+B)  \) exists.   
+
+
+
+
             In order to show that \( \sup(A+B) = \sup(A) + \sup(B) \), we need to show that   
             \begin{enumerate}
-                \item[(i)] \( A + B  \) is bounded above and
-                \item[(ii)] For every \( \epsilon > 0 \) ,there exists a \( \lambda > \sup(A) + \sup(B) - \epsilon \).
+                \item[(i)] \( A + B  \) is bounded above by \( \sup(A) + \sup(B) \) and
+                \item[(ii)] For every \( \epsilon > 0 \), there exists a \( \lambda \in A + B \) such that \[ \lambda > \sup(A) + \sup(B) - \epsilon. \]
             \end{enumerate}
-            Note that \( A + B \neq \emptyset  \) since \( A  \) and \( B  \) is nonempty.Since \( A  \) and \( B  \) are bounded above, we have that \( a \leq \sup (A)  \) for all \( a \in A   \) and \(  b \leq \sup (B) \) for all \( b \in B  \) implies that 
+             Since \( A  \) and \( B  \) are nonempty and bounded above, we must have that \( \sup(A) \) and \( \sup(B) \) exists by the least-upper-bound property. Hence, we have that \( a \leq \sup (A)  \) for all \( a \in A   \) and \(  b \leq \sup (B) \) for all \( b \in B  \). Adding these two inequalities together, gives us
             \[  a + b \leq \sup(A) + \sup(B)  \]
             for all \( a + b \in A + B  \), which proves (i).
             Let \( \epsilon > 0  \). Since \( \sup(A) \) and \( \sup(B) \) exists, we see that there exists \( \alpha \in A  \) and \( \beta \in B  \) such that 
@@ -162,40 +182,47 @@ Continuation of the proof presented in homework. Set \( \beta = - \alpha  \) whe
         and 
         \[  \beta > \sup(B) - \frac{ \epsilon  }{ 2 }  \]
         by the lemma found in {\hyperref[Problem 2]{Problem 2}}. Adding these two inequalities results in 
-        \[ \lambda =  \alpha + \beta > \sup(A) + \sup(B) - \epsilon. \]
-        Thus, \( \sup(A+B) = \sup(A) + \sup(B) \) by the lemma found in {\hyperref[Problem 2]{Problem 2}}.
+        \[ \lambda =  \alpha + \beta > \sup(A) + \sup(B) - \epsilon \]
+        for some \( \lambda =  \alpha + \beta \in A + B  \), which shows (ii).
+        Thus, we conclude that \( \sup(A+B) = \sup(A) + \sup(B) \).
             \end{proof}
         \item[9-3)] \( \sup(-A) = - \inf(A) \) 
             \begin{proof}
+            We will show that \( -A  \) contains a supremum and that \( \sup(-A) = - \inf(A) \). Note that \( -A  \) is nonempty because \( -a \in - A  \) and \( A  \) is nonempty. Since \( A  \) is bounded below, we can find an \( x \in \R  \) such that \( a \geq x  \) for all \( a \in A  \). Multiplying by a negative, we see that \( -a \leq -x   \) for all \( -a \in -A  \). Thus, \( -x  \) is an upper bound for \( -A  \). By the least upper bound property, \( \sup(-A) \) exists. 
+
+
             To show that \( \sup(-A) = - \inf(A) \), we need to show that  
             \begin{enumerate}
-                \item[(i)] For all \( - a \in -A  \), we have \( -a \leq - \inf(A)  \) and
-                \item[(ii)] For all \( \epsilon > 0  \), there exists \( - \alpha \in -A  \) such that 
-                    \[  - \alpha < - \inf(A) - \epsilon. \]
+                \item[(i)] \( -A  \) is bounded above by \( - \inf (A) \) and that
+                \item[(ii)] for all \( \epsilon > 0  \), there exists \( - \alpha \in -A  \) such that 
+                    \[  - \alpha > - \inf(A) - \epsilon. \]
             \end{enumerate}
-            Since \( A  \) is bounded below and nonempty, we know that \( a \geq \inf(A) \) for all \( a \in A  \). Multiplying this inequality by a negative, we get that
+            Since \( A  \) is bounded below and nonempty, we know that \( \inf(A) \) exists (by the greatest-lower-bound property) and that \( a \geq \inf(A) \) for all \( a \in A  \). Multiplying this inequality by a negative, we get that
             \[  - a \leq - \inf(A) \ \ \text{for all} \ -a \in - A. \]
-            Thus, \( -A  \) is bounded above by \( - \inf(A) \).
+            Thus, \( -A  \) is bounded above by \( - \inf(A) \), showing (i).
 
-            Let \( \epsilon > 0 \). Since \( \inf(A)  \) exists, there exists \( \gamma \in A  \) such that   
-            \[  \gamma < \inf(A) + \epsilon. \]
+            Let \( \epsilon > 0 \). Since \( \inf(A)  \) exists, there exists \( \alpha \in A  \) such that   
+            \[  \alpha < \inf(A) + \epsilon \]
+            by the lemma found in {\hyperref[Problem 3]{Problem 3}}.
             By multiplying by a negative on this inequality, we must have that 
-            \[  - \gamma > - \inf(A) - \epsilon \]
-            for some \( - \gamma \in -A  \). Thus, we must have that \( \sup(-A) = -\inf(A)  \).
+            \[  - \alpha > - \inf(A) - \epsilon \]
+            for some \( - \alpha \in -A  \), showing (ii). Thus, we conclude that \( \sup(-A) = -\inf(A)  \).
             \end{proof}
         \item[9-4)] \( \inf(-A) = - \sup(A) \).
             \begin{proof}
+    We will show that \( -A  \) contains an infimum and that \( \inf(-A) = - \sup(A) \). Note that \( -A  \) is nonempty because \( -a \in - A  \) and \( A  \) is nonempty. Since \( A  \) is bounded above, we can find an \( y \in \R  \) such that \( a \leq y  \) for all \( a \in A  \). Multiplying by a negative, we see that \( -a \geq -y   \) for all \( -a \in -A  \). Thus, \( -y  \) is an lower bound for \( -A  \). By the greatest-lower-bound property, \( \inf(-A) \) exists. 
             Using 9-3), we see that 
             \begin{align*}
                 - \sup (A) = - \sup(-(-A)) = - (- \inf(-A)) = \inf(-A). 
             \end{align*}
+            Thus, we conclude that \( - \sup(A) = \inf(-A) \).
             \end{proof}
         \item[9-5)] \( \sup (A -B) = \sup(A) - \inf(B) \).
             \begin{proof}
             Observe that 
             \begin{align*}
                 \sup(A - B) = \sup(A + (-B)) &= \sup(A) + \sup(-B) \tag{9-2)} \\
-                                             &= \sup(A) - \inf(B) \tag{9-3)}
+                                             &= \sup(A) - \inf(B). \tag{9-3)}
             \end{align*}
             \end{proof}
         \item[9-6)] \( \inf(A - B) = \inf(A) - \sup(B) \).
@@ -203,40 +230,52 @@ Continuation of the proof presented in homework. Set \( \beta = - \alpha  \) whe
             Observe that
             \begin{align*}
                 \inf(A -B) = \inf(A + (-B)) &= \inf(A) + \inf(-B) \tag{9-1)} \\
-                                            &= \inf(A) - \sup(A). \tag{9-4)}
+                                            &= \inf(A) - \sup(B). \tag{9-4)}
             \end{align*}
             \end{proof}
         \item[9-7)] \( \sup(cA) = c \sup (A)  \) if \( c > 0  \).
                \begin{proof}
-                   Let \( c > 0  \). We will show that \( \sup(cA) = c \sup(A) \). Note that \( cA  \) is nonempty because \( ca \in cA  \). First, we show that \( cA  \) is bounded above by \( c \sup(A) \). Since \( \sup(A) \) exists, we know that  
+                   Let \( c > 0  \). We will show that \( cA  \) contains a supremum and that \( \sup(cA) = c\sup(A) \). Note that \( cA   \) is nonempty because \( ca \in cA  \) and \( A \neq \emptyset \). Since \( A  \) is bounded above, we can find an \( x \in \R  \) such that \( a \leq x  \) for all \( a \in A  \). Thus, \( ca \leq cx  \) for all \( ca \in cA  \). Thus, \( cx  \) is an upper bound for \( cA  \). By the least-upper-bound property, \( \sup(cA) \) exists.
+                   Now, we will show that \( \sup(cA) = c \sup(A) \) by showing that  
+                   \begin{enumerate}
+                       \item[(i)] The set \( cA  \) is bounded above by \( c \sup A  \). \\ 
+                        \item[(ii)] For all \( \epsilon > 0  \), there exists an \( c \alpha \in cA  \) such that 
+                            \[  c \alpha > c \sup(A) - \epsilon. \]
+                   \end{enumerate}
+                   First, we show that \( cA  \) is bounded above by \( c \sup(A) \). Since \( A  \) is nonempty and bounded above, we know that \( \sup(A) \) exists (least-upper-bound property). Thus, we see that  
                    \[  a \leq \sup(A) \ \ \text{for all} \ a \in A.   \]
                    Multiplying by \( c  \), we must have
                    \[  ca \leq c \sup(A) \ \ \text{for all} \  ca \in cA. \]
+                   Thus, \( cA  \) is bounded above by \( c \sup(A) \).
                    Now, let \( \epsilon > 0 \). Since \( \sup(A)  \) exists, there exists \( \alpha \in A  \) such that   
-                   \[  \alpha > \sup(A) - \frac{ \epsilon }{ c }.  \]
+                   \[  \alpha > \sup(A) - \frac{ \epsilon }{ c }  \]
+                   by the result found in {\hyperref[Problem 2]{Problem 2}}.
                    Multiplying by \( c > 0  \), we must have
-                   \[  c \alpha > c \sup(A) - \epsilon \ \ \text{for some } c \alpha \in cA.   \]
-                   Thus, \( c \sup(A) = \sup(cA) \) by the lemma found in {\hyperref[Problem 2]{Problem 2}}. 
+                   \[  c \alpha > c \sup(A) - \epsilon \ \ \text{for some } c \alpha \in cA,   \]
+                   showing (ii).
+                   Thus, we conclude that \( c \sup(A) = \sup(cA) \).
 
                \end{proof} 
         \item[9-8)] \( \inf(cA) = c \inf (A)  \) if \( c > 0  \).
             \begin{proof}
-            Let \( c > 0  \). To show that \( \inf(cA) = c \inf(A) \), we need to show that 
+            Let \( c > 0  \). We will show that \( cA  \) contains an infimum and that \( \inf(cA) = c\inf(A) \). Note that \( cA   \) is nonempty because \( ca \in cA  \) and \( A \neq \emptyset \). Since \( A  \) is bounded below, we can find a \( y \in \R  \) such that \( a \geq y  \) for all \( a \in A  \). Thus, \( ca \geq cy  \) for all \( ca \in cA  \). Thus, \( cy  \) is an lower bound for \( cA  \). By the greatest-lower-bound property, \( \inf(cA) \) exists.
+
+            To show that \( \inf(cA) = c \inf(A) \), we need to show that 
             \begin{enumerate}
-                \item[(i)] \( c \inf(A) \) is a lower bound and 
+                \item[(i)] \( c \inf(A) \) is a lower bound of \( cA \) and 
                 \item[(ii)] for all \( \epsilon > 0  \), there exists a \( \gamma \in cA    \) such that 
                     \[  \gamma < c \inf(A) + \epsilon.  \]
             \end{enumerate}
 
             Since \( \inf(A) \) exists (because \( A \neq \emptyset  \) and \( A  \) is bounded below), we have that \( a \geq \inf(A)  \) for all \( a \in A  \). Multiplying by \( c > 0  \), we have \( ca \geq c\inf(A)  \) for all \( ca \in cA \). Thus, \( cA  \) is bounded below by \( c \inf(A) \). This proves (i).
 
-            Note the fact that \( \inf(A) \) exists implies that there exists an \( \alpha \in A  \) such that  
+            Let \( \epsilon > 0 \). Note the fact that \( \inf(A) \) exists implies that there exists an \( \alpha \in A  \) such that  
             \[   \alpha < \inf(A) + \frac{ \epsilon }{ c } \]
-            by the lemma found in {\hyperref[Problem 2]{Problem 2}}. Multiplying by \( c > 0  \), we have 
+            by the lemma found in {\hyperref[Problem 3]{Problem 3}}. Multiplying by \( c > 0  \), we have 
             \[  c \alpha < c \inf(A) + \epsilon \]
-            for some \( c \alpha \in cA  \). Thus, we can set \( \gamma = c \alpha  \) and conclude that   
-            \[  \inf(cA) = c \inf(A) \]
-            by {\hyperref[Problem 2]{Problem 2}}.
+            for some \( \gamma  = c \alpha \in cA  \), showing (ii). Thus, we conclude that   
+            \[  \inf(cA) = c \inf(A). \]
+            
             \end{proof}
         \item[9-9)] \( \sup(cA) = c \inf(A) \) if \( c < 0  \).
             \begin{proof}

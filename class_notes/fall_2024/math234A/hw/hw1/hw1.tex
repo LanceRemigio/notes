@@ -129,7 +129,7 @@
                                                                 0  
                                                             \end{pmatrix} w^{n+1}.
         \end{align*}
-        Using the fact that \textbf{(Need to show this!)} 
+        Using the fact that 
         \[  \begin{pmatrix} n \\ k  \end{pmatrix}  + \begin{pmatrix} n \\ k - 1  \end{pmatrix}  = \begin{pmatrix} n + 1 \\ k  \end{pmatrix}     \]
         and collecting the first and last terms of the summation, we see that 
         \begin{align*}
@@ -143,34 +143,13 @@
             \item[(i)] Cauchy Schwarz Inequality: 
                 Show that \( | \langle z , w \rangle |^{2} \leq | z |^{2} | w |^{2} \) for all \( z,w \in \C  \).
                 \begin{proof}
-                First, we would like to show that for any \( z,w \in \C  \)
-                \[ \langle z , w \rangle^{2} + \langle iz , w \rangle^{2} = | z |^{2} | w |^{2}.    \]
-                Let \( z,w \in \C  \). By definition of \( \langle z , w \rangle \), we see that 
-                \begin{align*}
-                    \langle z , w \rangle^{2} + \langle iz  , w  \rangle^{2} &= (xu + yv)^{2} + (xv - uy)^{2}. \tag{1}
-    \end{align*}
-    Observe that 
-    \begin{align*}
-        (xu + yv)^{2} &= (xu)^{2} + 2xuyv + (yv)^{2} \tag{2}
-    \end{align*}
-    and
-    \begin{align*}
-        (xv - uy)^{2} &= (xv)^{2} - 2xuyv + (uy)^{2}. \tag{3}
-    \end{align*}
-    Then adding (2) and (3) results in 
-    \begin{align*}
-        \langle z , w \rangle^{2} + \langle iz , w \rangle^{2} &= (xu)^{2} + (yv)^{2} + (xv)^{2} + (uy)^{2} \\
-                                                               &= x^{2} u^{2} + y^{2} v^{2} + x^{2} v^{2} + u^{2} y^{2} \\
-                                                               &= u^{2} (x^{2} + y^{2}) + v^{2} (x^{2} + y^{2}) \\
-                                                               &= (x^{2} + y^{2}) (u^{2} + v^{2}) \\
-                                                               &= | z  |^{2} | w |^{2}.
-    \end{align*}
-    Now, we need to show that \( | \langle z , w \rangle |^{2} \leq | z |^{2} | w |^{2}  \). By using the result above, we can write      
-    \begin{align*}
-       | \langle z , w \rangle |^{2}   &\leq | \langle z , w \rangle |^{2} + | \langle iz , w \rangle |^{2}  
-                                       = | z |^{2} | w |^{2} 
-    \end{align*}
-    and we are done.
+                    Let \( z,w \in \C  \). Using the fact that \( | \Re(zk) |  \leq | z  |  \) and \( | z  |  = | \overline{z} |  \), we see that  
+                    \begin{align*}
+                        | \langle z , w \rangle |^{2} = | \Re(z \overline{w}) |^{2} &\leq | z \overline{w} |^{2}  \\
+                                                                                    &= | z  |^{2} | \overline{w}  |^{2} \\
+                                                                                    &= | z  |^{2} | w |^{2}.
+                    \end{align*}
+                    Thus, we conclude that \( | \langle z , w \rangle |^{2} \leq | z |^{2} | w |^{2} \). 
                 \end{proof}
             \item[(ii)] Triangle Inequalities: Show 
                 \[  | z \pm w  | \leq | z  |  + | w  | \]
@@ -190,7 +169,7 @@
                 \begin{align*}
                     | z + w  |^{2} = (z+w) \overline{(z+w)} &= ((x+u) + i(y+v)) ((x+u) - i(y+v)) \\
                                                             &= (x+u)^{2} + (y +v)^{2} \\
-                                                            &= x^{2} 2xu + u^{2} + y^{2} + 2yv + v^{2} \\
+                                                            &= x^{2} +  2xu + u^{2} + y^{2} + 2yv + v^{2} \\
                                                             &= (x^{2} + y^{2}) + 2 (xu + yv) + (y^{2} + v^{2}) \tag{since \( \Re(z \overline{w}) = xu + yv \)} \\
                                                             &= | z |^{2} + 2 \langle z , w \rangle + | w |^{2}. \tag{since \( \langle z , w \rangle = \Re(z \overline{w}) \)}
                 \end{align*} 
@@ -233,17 +212,20 @@ Using this fact, we can say that
         \begin{proof}
         We will show that 
         \[  \sum_{ 1 \leq i < j \leq n  }^{  } | {z}_{i} \overline{{w}_{j}} - {z}_{j} \overline{{w}_{i}} |^{2} = \sum_{ k=1  }^{ n } | {z}_{k } |^{2} \sum_{ k=1  }^{ n } | {w}_{k } |^{2} - \Big|  \sum_{ k=1  }^{ n } {z}_{k } {w}_{k } \Big|^{2}. \]
-        Observe that 
+        By rearranging terms, we see that 
+        \[  \sum_{ i=1  }^{ n  } \sum_{ j=1  }^{ n } | {z}_{i} \overline{{w}_{j}} - {z}_{j} \overline{{w}_{i}} |^{2} = 2 \sum_{ 1 \leq  i < j \leq n  }^{  } | {z}_{i} \overline{{w}_{j}} - {z}_{j} \overline{{w}_{i}} |^{2}. \tag{1} \]
+        Using the definition of modulus and rearranging terms, we can see that 
         \begin{align*}
-            \sum_{ 1 \leq i < j \leq n  }^{  } | {z}_{i} \overline{{w}_{j}} - {z}_{j} \overline{{w}_{i}}  |^{2} &= \sum_{ i=1  }^{ n } \sum_{ j=1  }^{ n } | {z}_{i} \overline{{w}_{j}} - {z}_{j} \overline{{w}_{i}} |^{2}  \\
-                                                                                                                &= \sum_{ i=1  }^{ n } \sum_{ j=1  }^{ n } ({z}_{i} \overline{{w}_{j}} - {z}_{j} \overline{{w}_{i}})(\overline{{z}_{i}} {w}_{j} - \overline{{z}_{j}} {w}_{i}) \\
-                                                                                                                &= \sum_{ i=1  }^{ n } \sum_{ j=1  }^{ n } \Big[ | {z}_{i} |^{2} | {w}_{j} |^{2} - 2 {z}_{j} \overline{{z}_{i}} \overline{{w}_{i}} {w}_{j} + | {z}_{j} |^{2} | {w}_{i} |^{2} \Big] \\
-                                                                                                                &= \sum_{ i=1  }^{ n } \sum_{ j=1  }^{ n } | {z}_{i} |^{2} | {w}_{j} |^{2} - 2 \sum_{ i=1  }^{ n }\sum_{ j=1  }^{ n } {z}_{j} \overline{{z}_{i}} \overline{{w}_{i}} {w}_{j}
-                                                                                                                + \sum_{ i=1  }^{ n } \sum_{ j=1  }^{ n } | {z}_{j} |^{2} | {w}_{i} |^{2} \\
-                                                                                                                &= \sum_{ i=1  }^{ n } | {z}_{i} |^{2} \sum_{ j=1  }^{ n } | {w}_{i} |^{2} + \sum_{ i=1  }^{ n } | {w}_{i} |^{2} \sum_{ j=1  }^{ n } | {z}_{j} |^{2} - 2 \sum_{ i=1  }^{ n } \sum_{ j = 1   }^{ n } {z}_{j} \overline{{z}_{i}} \overline{{w}_{i}} {w}_{j} \\
-                                                                                                                &=  \sum_{ i=1  }^{ n  }| {z}_{i} | \sum_{ i=1  }^{ n   } | {w}_{i} |^{2} - \sum_{ i=1  }^{ n }  \overline{{z}_{i} {w}_{i}} \sum_{ i=1  }^{ n } {z}_{i} {w}_{i} \tag{for \( i = j  \)} \\  
-                                                                                                                &=  \sum_{ i=1  }^{ n } | {z}_{i} |^{2} \sum_{ i=1  }^{ n  } | {w}_{i} |^{2} - \Big| \sum_{ i=1  }^{ n } {z}_{i} {w}_{i}  \Big|^{2}.
+            \sum_{ i=1  }^{ n } \sum_{ j=1  }^{ n } | {z}_{i} \overline{{w}_{j}} - {z}_{j} \overline{{w}_{i}} |^{2} &= \sum_{ i=1  }^{ n } \sum_{ j=1  }^{ n } ({z}_{i} \overline{{w}_{j}} - {z}_{j} \overline{{w}_{i}})(\overline{{z}_{i}} {w}_{j} - \overline{{z}_{j}} {w}_{i}) \\
+                                                                                                                    &= \sum_{ i=1  }^{ n } \sum_{ j=1  }^{ n } (| {z}_{i} |^{2} | {w}_{j} |^{2} + | {z}_{j} |^{2} | {w}_{i} |^{2}) \\
+                                                                                                                    &- \sum_{ i=1  }^{ n } \sum_{ j=1  }^{ n } ({z}_{j} \overline{{z}_{i}} \overline{{w}_{i}} {w}_{j} + {z}_{i} \overline{{z}_{j}} {w}_{i} \overline{{w}_{j}}) \\
+                                                                                                                    &= 2 \sum_{ i=1  }^{ n } | {z}_{i} |^{2} \sum_{ j=1  }^{ n } | {z}_{j} |^{2} - 2 \Big( \sum_{ i=1  }^{ n } {z}_{i} {w}_{i} \Big) \Big(  \sum_{ j=1  }^{ n } \overline{{z}_{j} {w}_{j}} \Big) \\
+                                                                                                                    &= 2 \sum_{ i=1  }^{ n } | {z}_{i} |^{2} \sum_{ j=1  }^{ n } | {z}_{j} |^{2} - 2 \Big| \sum_{ i=1  }^{ n } {z}_{i} {w}_{i} \Big|^{2}.  
         \end{align*}
+        Now, dividing \( 2  \) on both sides with the right side of (1), we get our desired result
+        \[ \sum_{ 1 \leq i < j \leq n  }^{  } | {z}_{i} \overline{{w}_{j}} - {z}_{j} \overline{{w}_{i}} |^{2} = \sum_{ i=1  }^{ n } | {z}_{i} |^{2} \sum_{ j=1  }^{ n } | {z}_{j} |^{2} - \Big| \sum_{ i=1  }^{ n } {z}_{i} {w}_{i} \Big|^{2}.   \]
+        
+
         Thus, we conclude that 
         \begin{align*}   \Big| \sum_{ k=1  }^{ n } {z}_{k} {w}_{k} \Big|^{2} &= \sum_{ k=1  }^{ n } | {z}_{k} |^{2} \sum_{ k=1  }^{ n } | {w}_{k } |^{2} - \sum_{ 1 \leq i < j \leq n  }^{  } | {z}_{i} \overline{{w}_{j}} - {z}_{j} \overline{{w}_{i}} |^{2} \\  
             &\leq \sum_{ k=1  }^{ n } | {z}_{k } |^{2} \sum_{ k=1  }^{ n } | {w}_{k } |^{2}.  
@@ -279,7 +261,7 @@ Using this fact, we can say that
                  Using De Moivre's formula, we can write
                  \begin{align*}
                      z^{10} &= (\sqrt{ 2 })^{10}  (\cos(10 \theta ) + i \sin(10 \theta) \\
-                           &=  (\sqrt{ 2 } )^{10} (\cos(5 \pi / 2 ) + i \sin( 5 \pi / 2))
+                           &=  (\sqrt{ 2 } )^{10} (\cos(5 \pi / 2 ) + i \sin( 5 \pi / 2)) \\
                            &= (\sqrt{ 2 } )^{10} i.
                 \end{align*}
                 Then we have
@@ -343,6 +325,13 @@ Using this fact, we can say that
         \begin{align*}
             \cos \Big(  \frac{  13 \pi  }{ 8 }   \Big) + i \sin \Big(  \frac{ 13 \pi  }{ 8 }  \Big) &= \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  - i \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }.
         \end{align*}
+        Thus, the four solutions are
+        \begin{align*}
+            k = 0;  \ \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  &+ i \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }   },  \\
+           k = 1; \  \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  &+ i \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }, \\ 
+           k= 2; \ \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  &+ i \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }, \\
+           k=3; \ \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }   }  &- i \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }.
+        \end{align*}
                 \end{solution}
             \item[(ii)] \( z = -i \).
                 \begin{solution}
@@ -376,12 +365,16 @@ Using this fact, we can say that
                                                                                                            &= \Big[ \cos \Big(  \frac{ 3 \pi  }{  8  }   \Big) \cos \Big(  \frac{ 3 \pi  }{  2 }  \Big) - \sin \Big(  \frac{ 3 \pi  }{  8  } \sin \Big(  \frac{ 3 \pi }{ 2 }  \Big) \Big)\Big]  \\
                                                                                                            &+ i \Big[ \sin \Big(  \frac{ 3 \pi  }{ 8  } \Big)  \cos \Big(  \frac{ 3 \pi }{ 2 }  \Big)  + \cos \Big(  \frac{ 3 \pi  }{ 8  } \Big)  \sin \Big(  \frac{ 3 \pi  }{  2  }   \Big) \Big] \\
                                                                                                            &= \sin \Big(  \frac{ 3 \pi  }{  8  }  \Big) - i \cos \Big(  \frac{ 3 \pi  }{ 8  }  \Big) \\
-                                                                                                           &= \sqrt{ \frac{ 1 - \frac{ 2  }{ 2 }  }{ 2 }  }  + i \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }.
+                                                                                                           &= \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }   }{ 2 }  }{ 2 }  }  + i \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }.
                 \end{align*}
+                Hence, the solutions are 
                 \begin{align*}
-                    & \\
+                    k = 0;  \ - \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  &+ i \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }   },  \\
+                    k = 1; \  \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  &- i \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }, \\ 
+                    k= 2; \ \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  &- i \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }, \\
+                    k=3; \ \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }   }  &+ i \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }.
                 \end{align*}
-                \end{solution}
+            \end{solution}
             \item[(iii)] \( z = 1  \).
                 \begin{solution}
                 Note that \( z = 1 = 1 + i \cdot 0  \). For \( 0 \leq k \leq 3  \), we have the arguments
@@ -390,8 +383,12 @@ Using this fact, we can say that
                 \[  \cos(0) + i \sin (0) = 1.  \]
                 For \( k = 1  \), we have 
                 \[ \cos \Big(  \frac{ \pi }{ 2 }  \Big) + i \sin \Big(  \frac{ \pi }{ 2 }  \Big) = 0 + i = i.   \]
-                Similarly, if \( k = 2  \) we get  
-                \[ \cos \Big(  \frac{ 3 \pi  }{ 2 }  \Big) + i \sin \Big(  \frac{ 3 \pi }{ 2 }  \Big) = - i.   \]
+                For \( k = 2  \), we have
+                \[  \cos \pi + i \sin \pi = -1. \]
+                Lastly, if \( k = 3  \) we get  
+                \[ \cos \Big(  \frac{ 3 \pi  }{ 2 }  \Big) + i \sin \Big(  \frac{ 3 \pi }{ 2 }  \Big) = - i.   \] 
+                Thus, the solutions are  
+                \[  \pm 1, \pm i. \]
 
 
 

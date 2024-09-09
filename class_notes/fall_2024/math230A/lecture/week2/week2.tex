@@ -5,4 +5,204 @@
 
 \begin{document}
 
+
+\section{Lecture 3}
+
+
+\subsection{Topics}
+
+\begin{itemize}
+    \item Review, Existence of Roots.
+    \item Function, injective, and surjective.
+    \item Equivalent Sets
+    \item Finite, Infinite, Countable, At most countable.
+\end{itemize}
+
+\subsection{Review, Existence of Roots}
+
+\begin{prop}
+   There is no rational number whose square is \( 2 \). 
+\end{prop}
+
+\begin{theorem}[ ]
+    There is a unique positive real number \( \alpha  \) satisfying \( \alpha^{2} = 2  \). 
+\end{theorem}
+
+\begin{proof}
+\begin{enumerate}
+    \item[(i)] \textbf{Uniqueness:} Suppose there are two of them \( {\alpha}_{1} \) and \( {\alpha}_{2} \). Prove that both \( {\alpha}_{1} < {\alpha}_{2} \) and \( {\alpha}_{1} > {\alpha}_{2} \) lead to a contradiction. Thus, \( {\alpha}_{1} = {\alpha}_{2} \). 
+    \item[(ii)] \textbf{Existence:} Show that \( A  \) is nonempty and bounded above. Let \( \alpha = \sup A  \). Prove that both \( \alpha^{2} > 2  \) and \( \alpha^{2} < 2  \) leads to a contradiction. Thus, \( \alpha^{2} = 2  \).
+\end{enumerate}
+\end{proof}
+
+\begin{remark}
+    A similar argument can be used to prove that if \( x > 0  \) and \( m \in \N  \), then t there exists a unique positive real number \( \alpha  \) such that \( \alpha^{m} = x  \). We write
+    \begin{center}
+        \( \alpha = \sqrt[m]{ x } \) and \( \alpha = x^{1/m} \).
+    \end{center}
+\end{remark}
+
+\subsection{Functions, Injective, and Surjective}
+
+There are two definitions for functions. The former is the most common way it is defined and the latter is the more rigorous and more "correct" definition. 
+
+\begin{definition}[Usual Way of Defining Functions]
+   Let \( A  \) and \( B  \) be two sets. A \textbf{function} from \( A  \) to \( B  \) denoted by \( f: A \to B  \), is a rule that assigns each element \( x \in A  \) a unique element \( f(x) \in B  \).  
+\end{definition}
+
+In the definition above, what do we mean by "rule" and "assigning"? Notice how these words are not very mathematically precise. 
+
+\begin{definition}[The Correct Way of Defining Functions]
+    Let \( A  \) and \( B  \) be two sets. A function from \( A  \) to \( B  \) is a triple \( (f,A,B) \) where \( f \) is a \textbf{relation} form \( A  \) to \( B  \) satisfying 
+    \begin{enumerate}
+        \item[(i)] \( \Dom(f) = A   \) 
+        \item[(ii)] If \( (x,y) \in f  \) and \( (x,z) \in f  \), then \( y = z  \). (In this case, \( A  \) is called the \textbf{domain} of \( f  \) and \( B  \) is called the \textbf{codomain} of \( f  \))
+    \end{enumerate}
+\end{definition}
+
+\begin{eg}
+    Let \( A = \emptyset  \) and \( B  \) be any set. Clearly, \( \emptyset \times B = \emptyset \). So, the only function from \( A = \emptyset  \) to \( B  \) is the empty function \( (f, \emptyset, B) \).
+\end{eg}
+
+\begin{itemize}
+    \item The empty function is one-to-one.
+    \item The empty function is onto only when \( B = \emptyset  \).
+\end{itemize}
+
+
+\begin{definition}[Image, Range, Onto (Surjective)]
+   Consider a function \( f: A \to B  \). Let \( E \subseteq A  \). Define the \textbf{image} of \( f  \) as the set    
+   \[  f(E) = \{ f(x) : x \in  E \}  = \{ y \in B : y = f(x) \ \text{for some} \ x \in E  \}. \]
+   Define the \textbf{range} of \( f  \) as 
+   \[  f(A) = \{ \text{the collection of all the outputs of \( f \)} \}. \]
+   If \( f(A) = B  \), then we say \( f \) is \textbf{Onto (Surjective)}.
+\end{definition}
+
+\begin{definition}[Preimage]
+    Consider a function \( f: A \to B  \). Let \( D \subseteq B  \). Then the \textbf{preimage} of \( D  \) under \( f  \) is denoted by 
+    \[  f^{-1}(D) = \{ x \in A : f(x) \}  \]
+\end{definition}
+
+\begin{definition}[One-to-One (Injective)]
+   Consider a function \( f: A \to B  \). We call \( f  \) one-to-one if any of the following equivalent conditions hold:  
+   \begin{enumerate}
+       \item[(i)] For all \( {x}_{1}, {x}_{2} \in A  \), if \( {x}_{1} \neq {x}_{2}  \), then \( f({x}_{1}) \neq f({x}_{2}) \).
+        \item[(ii)] For all \( {x}_{1}, {x}_{2} \in A  \), if \( f({x}_{1}) = f({x}_{2})  \), then \( {x}_{1} = {x}_{2} \).
+        \item[(iii)] For all \( y \in B \), the set \( f^{-1}(\{ y \} ) \) consists at most one element of \( A  \).
+   \end{enumerate}
+\end{definition}
+
+
+\subsection{Equivalent Sets}
+
+\begin{definition}[ ]
+   Let \( A  \) and \( B  \) be two sets. We say that \( A  \) and \( B  \) have the same cardinal number, and we write \( A \sim B  \), if there is a function \( f: A \to B  \) that is both injective and surjective.
+\end{definition}
+
+\begin{remark}
+    \begin{itemize}
+        \item An injective and surjective mapping is a bijective mapping.
+        \item \( A  \) and \( B  \) have the same cardinal number 
+            \begin{align*}
+                &= A \  \text{and} \ B \ \text{have the same cardinality} \\
+                &= A \  \text{and} \ B \ \text{can be put in the \textbf{one-to-one correspondence}} \\
+                &= \card{A} = \card{B} \\
+                &= A \  \text{and} \ B \ \text{are equivalent} \\
+                &= A \  \text{and} \ B \ \text{are equipotent} \\
+            \end{align*}
+    \end{itemize}
+\end{remark}
+
+\begin{eg}
+   Consider \( \{ 1,2,3 \}  \sim \{ a,b,c \}  \). Indeed, the function \( f: \{ 1,2,3 \}  \to \{ a,b,c \}  \) defined by 
+   \[ f(1) = a, f(2) = b, f(3) = c  \]
+   is a bijection.
+\end{eg}
+
+\begin{eg}
+    \( \N \sim \{ 2,4,6,\dots \}  \). Indeed, the function \( f: \N \to \{ 2,4,6,\dots \}   \) defined by 
+    \[  f(n) = 2n \]
+    is a bijection.
+\end{eg}
+
+\begin{eg}
+    \( \N \sim \Z  \). Indeed, \( f: \N \to \Z  \) defined by
+    \[  f(n) = 
+    \begin{cases}
+        \frac{ n }{ 2 }  &\text{if} \ n \ \text{is even} \\
+        -\frac{ n - 1 }{ 2 }  &\text{if} \ n \ \text{is odd} \\
+    \end{cases}  \]
+    is a bijection.
+\end{eg}
+
+\begin{eg}
+    \( (-\infty , \infty ) \sim (0,\infty ) \). Indeed, \( f(x) = e^{x}  \) is a bijection between \( (-\infty , \infty ) \) and \( (0,\infty ) \).
+\end{eg}
+
+\begin{eg}
+    \( (0,\infty ) \sim (0,1) \). Indeed, the function \( f: (0,\infty) \to (0,1) \) defined by 
+    \[  f(x) = \frac{ x  }{  x + 1  }  \] is a bijection.
+\end{eg}
+
+\begin{eg}
+    \( [0,1) \sim (0,1) \). Indeed, the function \( f: [0,1) \to (0,1) \) defined by
+    \[  f(x) = 
+    \begin{cases}
+        \frac{ 1 }{ 2 }  &\text{if} \ x = 0 \\ 
+        \frac{ 1 }{ n+1 }  &\text{if} x = \frac{ 1 }{ n }  \ \text{for} \ n \geq 2 \\
+        x &\text{otherwise}
+    \end{cases}  \]
+    is a bijection.
+\end{eg}
+
+\begin{definition}[\( \sim  \) is an equivalence relation]
+    Note that 
+    \begin{enumerate}
+        \item[(i)] \( A \sim A \) (\( \sim  \) is reflexive) 
+        \item[(ii)] If \( A \sim B  \), then \( B \sim A  \) (\( \sim  \) is symmetric) 
+        \item[(iii)] If \( A \sim B  \) and \( B \sim C  \), then \( A \sim C  \) (\( \sim  \) is transitive).
+    \end{enumerate}
+\end{definition}
+
+Observe the following notation
+\begin{align*}
+    {\N}_{n} &= \{ 1,2,3, \dots, n  \}  \\
+    \N &= \{ 1,2,3,\dots  \} 
+\end{align*}
+
+\subsection{Finite, Infinite, Countable, At most countable}
+
+\begin{definition}[Finite, Infinite, Countable, At most countable]
+    Let \( A  \) be any set.
+    \begin{enumerate}
+        \item[(a)] We say that \( A  \) is \textbf{finite} if \( A \neq \emptyset  \) or \( A \sim {\N}_{n} \) for some natural number \( n  \).
+            \begin{itemize}
+            \item[(*)] When \( A \sim {\N}_{n} \), we say \( A  \) has \( n  \) elements and we write \( \card(A) = n \).
+            \item[(*)] Also, we set \( \card(\emptyset) = 0 \).
+            \end{itemize}
+        \item[(b)] The set \( A  \) is said to be \textbf{infinite} if it is not finite.
+        \item[(c)] The set \(  A \) is said to be \textbf{countable} if \( A \sim \N  \); that is, there exists \( g: \N \to A  \) is a bijection where \( A = \{ g(1), g(2), g(3), \dots  \}  \).
+        \item[(d)] The set \( A  \) is said to be \textbf{uncountable} if it is neither countable or finite. 
+        \item[(e)] The set \( A  \) is said to be \textbf{at most countable} if it is either finite or countable.
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+   Previously, we shared \( \Z \sim \N  \). Thus, \( \Z  \) is countable. (Also, note that \( \N  \) is a proper subset of \( \Z  \), nevertheless, \( \N \sim \Z  \)) 
+\end{remark}
+
+Below are some Basic Theorems 
+\begin{enumerate}
+    \item[(i)] Every countable set is infinite (There is no bijection \( {\N}_{n} \to \N  \)).
+    \item[(ii)] Suppose \( A \sim B  \). Then
+        \begin{align*}
+            A \  \text{is finite} &\iff B \  \text{is finite} \\
+            A \  \text{is countable} &\iff B \  \text{is countable} \\
+            A \  \text{is uncountable} &\iff B \  \text{is uncountable} \\
+        \end{align*}
+    \item[(iii)] The union of two finite sets is finite. If \( A  \) is infinite and \( B  \) is infinite, then \( A \setminus  B   \) is infinite. 
+    \item[(iv)] If \textbf{\( A  \) is at most countable}, then there exists a \( 1-1 \) function \( f: A \to \N  \).
+\end{enumerate} 
+
+
 \end{document}
