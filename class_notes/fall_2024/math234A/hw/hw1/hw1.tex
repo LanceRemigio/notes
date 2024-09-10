@@ -143,7 +143,7 @@
             \item[(i)] Cauchy Schwarz Inequality: 
                 Show that \( | \langle z , w \rangle |^{2} \leq | z |^{2} | w |^{2} \) for all \( z,w \in \C  \).
                 \begin{proof}
-                    Let \( z,w \in \C  \). Using the fact that \( | \Re(zk) |  \leq | z  |  \) and \( | z  |  = | \overline{z} |  \), we see that  
+                    Let \( z,w \in \C  \). Using the fact that \( | \Re(z \overline{w}) |  \leq | z  |  \) and \( | z  |  = | \overline{z} |  \), we see that  
                     \begin{align*}
                         | \langle z , w \rangle |^{2} = | \Re(z \overline{w}) |^{2} &\leq | z \overline{w} |^{2}  \\
                                                                                     &= | z  |^{2} | \overline{w}  |^{2} \\
@@ -170,7 +170,7 @@
                     | z + w  |^{2} = (z+w) \overline{(z+w)} &= ((x+u) + i(y+v)) ((x+u) - i(y+v)) \\
                                                             &= (x+u)^{2} + (y +v)^{2} \\
                                                             &= x^{2} +  2xu + u^{2} + y^{2} + 2yv + v^{2} \\
-                                                            &= (x^{2} + y^{2}) + 2 (xu + yv) + (y^{2} + v^{2}) \tag{since \( \Re(z \overline{w}) = xu + yv \)} \\
+                                                            &= (x^{2} + y^{2}) + 2 (xu + yv) + (y^{2} + v^{2}) \\
                                                             &= | z |^{2} + 2 \langle z , w \rangle + | w |^{2}. \tag{since \( \langle z , w \rangle = \Re(z \overline{w}) \)}
                 \end{align*} 
                 Similarly, we have
@@ -199,7 +199,7 @@ To show the second inequality, consider \( | z - w  |^{2} \). Then using part (a
                    & \geq | z |^{2} - 2 | z | | w |  + | w |^{2} \\ 
                    &= (| z |  - | w |)^{2}. 
 \end{align*}
-By taking the square root of both sides, we see that 
+Thus, we see that  
 \[  | z - w  | \geq |  | z  |  - | w |  |.  \]
 Using this fact, we can say that 
 \[  | z + w  |  = | z - (-w) | \geq | | z  |  - | -w |  | = | | z  |  - | w |  |. \]
@@ -292,12 +292,16 @@ Using this fact, we can say that
         \begin{proof}
         Note that for any \( n \in \N  \) that 
         \[ z^{n} = ( \cos \varphi + i \sin \varphi )^{n} = \cos n \varphi + i \sin n \varphi.   \tag{1}  \]
-        Using (1), we can see that 
+        Additionally, \( \cos 2 \pi k  = 1  \) for all \( k \in \Z  \) and \( \sin 2 \pi k  = 0  \) for all \( k \in \Z  \).
+
+        Using (1) and the trigonometric addition formulas, we can see that 
         \begin{align*}
             w^{n} &= \Bigg(  \gamma^{1/n} \Bigg[  \cos \Bigg(  \frac{ \varphi + 2 \pi k  }{ n  } \Big)  + i \sin \Big(  \frac{ \varphi + 2 \pi k  }{ n  }  \Big) \Bigg] \Bigg)^{n} \\
                   &= (\gamma^{1/n})^{n} \Bigg[ \cos \Big(  \frac{ \varphi + 2 \pi k  }{ n  } \Big)  + i \sin \Big(  \frac{ \varphi + 2 \pi k  }{ n  }  \Big) \Bigg]^{n} \\
                   &= \gamma \Bigg[ \cos \Big( n \cdot  \frac{ \varphi + 2 \pi k  }{ n }  \Big) + i \sin \Big(  n \cdot \frac{  \varphi + 2 \pi k  }{ n  }  \Big) \Bigg] \\   
-                  &= \gamma (\cos \varphi + i \sin \varphi) \\
+                  &= \gamma (\cos (\varphi + 2 \pi k ) + i \sin (\varphi + 2 \pi k )) \\
+                  &=  \gamma \Big[ (\cos \varphi \cos 2 \pi k  - \sin \varphi \sin 2 \pi k  ) + i( \sin \varphi \cos 2 \pi k  + \cos \varphi \sin 2 \pi  k ) \Big]  \\
+                  &= \gamma (\cos \varphi + i \sin \varphi) \\ 
                   &= z
         \end{align*}
         which ends our proof.
@@ -306,20 +310,20 @@ Using this fact, we can say that
         \begin{enumerate}
             \item[(i)] \( z = i  \).
                 \begin{solution}
-                Note that \( z  = i = 0  + 1 \cdot i  \). For \( 0 \leq k \leq 3   \), we see that the arguments are 
+                Note that \( z  = i = 0  + 1 \cdot i  \). We can see that \( \varphi =  \arg(z) = \frac{ \pi  }{  2 }  \). For \( 0 \leq k \leq 3   \), we see that the arguments are 
                 \[  \frac{  \varphi + 2 \pi k  }{ 4  }  = \frac{ \pi }{ 8 }, \frac{ 5 \pi  }{ 8  }, \frac{ 9 \pi  }{ 8  }, \frac{  13 \pi  }{ 8  }.   \]
                 For \( k = 0  \), we see that 
-                \[    \cos \Big(  \frac{  \pi   }{ 8 }   \Big) + i \sin \Big(  \frac{ \pi  }{ 8  }  \Big) = \sqrt{ \frac{ 1 + \sqrt{ 2 } / 2  }{ 2  }  } + i \sqrt{ \frac{  1 + \sqrt{ 2 } / 2  }{ 2  } }. \]
+                \[    \cos \Big(  \frac{  \pi   }{ 8 }   \Big) + i \sin \Big(  \frac{ \pi  }{ 8  }  \Big) = \sqrt{ \frac{ 1 + \sqrt{ 2 } / 2  }{ 2  }  } + i \sqrt{ \frac{  1 - \sqrt{ 2 } / 2  }{ 2  } }. \]
             For \(  k = 1  \), we see that 
             \begin{align*}
             \cos \Big( \frac{ 5 \pi  }{ 8  } \Big) + i \sin \Big( \frac{ 5 \pi  }{ 8  }  \Big) &= - \sqrt{ \frac{ 1 + \cos(5 \pi /4) }{ 2  }  } + i \sqrt{ \frac{ 1 - \cos (5 \pi /4) }{ 2 }  }     \\
-                                                                                               &= - \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }   }{ 2 }  } + i \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }   }{ 2 }  }. 
+                                                                                               &= - \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }   }{ 2 }  } + i \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }   }{ 2 }  }. 
         \end{align*}
         For \( k = 2  \), we see that 
         \begin{align*}
             \cos \Big(  \frac{  9 \pi  }{ 8  }  \Big) + i \sin \Big(  \frac{ 9 \pi  }{ 8  }  \Big) &= \cos \Big(  \frac{ 1 }{ 2 }  \cdot \frac{  9 \pi  }{ 4  }  \Big) + i \sin \Big(  \frac{ 1 }{ 2 }  \cdot \frac{ 9 \pi  }{ 4 }  \Big) \\
-                                                                                                   &= \sqrt{ \frac{ 1 + \cos(9 \pi /4) }{2  }  }  + i \sqrt{ \frac{ 1 - \cos(9\pi/4) }{ 2  }  } \\
-                                                                                                   &= \sqrt{  \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }     } + i \sqrt{  \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }. 
+                                                                                                   &= -\sqrt{ \frac{ 1 + \cos(9 \pi /4) }{2  }  }  - i \sqrt{ \frac{ 1 - \cos(9\pi/4) }{ 2  }  } \\
+                                                                                                   &= -\sqrt{  \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }     } - i \sqrt{  \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }. 
         \end{align*}
         Lastly, for \( k =3  \), we have 
         \begin{align*}
@@ -327,20 +331,20 @@ Using this fact, we can say that
         \end{align*}
         Thus, the four solutions are
         \begin{align*}
-            k = 0;  \ \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  &+ i \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }   },  \\
-           k = 1; \  \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  &+ i \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }, \\ 
-           k= 2; \ \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  &+ i \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }, \\
+            k = 0;  \ \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  &+ i \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }   },  \\
+           k = 1; \  -\sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  &+ i \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }, \\ 
+           k= 2;  -\sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  &- i \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }, \\
            k=3; \ \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }   }  &- i \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }.
         \end{align*}
                 \end{solution}
             \item[(ii)] \( z = -i \).
                 \begin{solution}
-                Note that \( z = - i = 0 - 1 \cdot i  \). For \( 0 \leq k \leq 3  \), the arguments are
+                Note that \( z = - i = 0 - 1 \cdot i  \) and that \( \varphi = \arg(z) = \frac{ 3 \pi  }{ 2 }     \). For \( 0 \leq k \leq 3  \), the arguments are
                 \[  \frac{ 3 \pi  }{ 8  }, \frac{ 7 \pi   }{ 8  }, \frac{ 11 \pi  }{ 8 }, \frac{ 15 \pi  }{ 8 }.  \]
                 Let \( k = 0  \). Then using the result found in problem 5 and the half-angle identity, we have
                 \begin{align*}
-                    \cos \Big(  \frac{ 3 \pi  }{ 8  }  \Big) + i \sin \Big(  \frac{ 3 \pi  }{ 8  }  \Big) &= - \sqrt{ \frac{ 1 + \cos(3 \pi /4) }{ 2 }  }  + i \sqrt{ \frac{ 1 - \cos (3 \pi /4 ) }{ 2 }  }    \\
-                                                                                                          &= - \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  + i \sqrt{ \frac{ 1 -  \frac{ \sqrt{ 2 }  }{ 2 } }{ 2 }  }    \\ 
+                    \cos \Big(  \frac{ 3 \pi  }{ 8  }  \Big) + i \sin \Big(  \frac{ 3 \pi  }{ 8  }  \Big) &=  \sqrt{ \frac{ 1 + \cos(3 \pi /4) }{ 2 }  }  - i \sqrt{ \frac{ 1 - \cos (3 \pi /4 ) }{ 2 }  }    \\
+                                                                                                          &=  \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  - i \sqrt{ \frac{ 1 -  \frac{ \sqrt{ 2 }  }{ 2 } }{ 2 }  }    \\ 
                 \end{align*}
                 Let \( k = 1  \). We get that  
                 \begin{align*}
@@ -350,14 +354,14 @@ Using this fact, we can say that
                 \begin{align*}
                     \cos \Big(  \frac{ 3 \pi  }{ 8  } + \frac{ \pi }{ 2 }  \Big) + i \sin \Big(  \frac{ 3 \pi }{ 8 }  + \frac{ \pi }{ 2 }  \Big) &= \Big[ \cos \Big(  \frac{ 3 \pi  }{ 8 }  \Big) \cos \Big(  \frac{  \pi  }{  2  }  \Big) - \sin \Big(  \frac{ 3 \pi  }{ 8  }  \sin \Big(  \frac{ \pi }{ 2 }  \Big) \Big)\Big]   \\
                                                                                                                                                  &+ i \Big[ \sin \Big(  \frac{ 3 \pi  }{ 8 }  \Big) \cos \Big(  \frac{  \pi  }{ 2 }  \Big) + \cos \Big(  \frac{  3 \pi  }{ 8  }  \sin \Big(  \frac{ \pi }{ 2 }  \Big) \Big) \Big] \\
-                                                                                                                                                 &= - \sqrt{  \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  - i \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }   }.   
+                                                                                                                                                 &=  \sqrt{  \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  + i \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }   }.   
                 \end{align*}
                 For \( k = 2  \), we employ the same process. Thus, we have
                 \begin{align*}
                     \cos \Big( \frac{ 3 \pi  }{ 8 } + \pi    \Big) + i \sin \Big(  \frac{ 3 \pi  }{ 8 }  + \pi \Big) &= \Big[ \cos \Big(  \frac{ 3 \pi  }{ 8  }  \Big) \cos (\pi) - \sin \Big(  \frac{  3 \pi  }{ 8 }  \Big) \sin (\pi)]     \\
                                                                                                                      &+ i \Big[ \sin \Big(  \frac{ 3 \pi }{ 8  }  \Big) \cos (\pi) + \cos \Big(  \frac{ 3 \pi  }{ 8 }  \Big) \sin (\pi)\Big] \\ 
                                                                                                                      &= - \cos \Big(  \frac{ 3 \pi  }{ 8  }  \Big) - i \sin \Big(  \frac{ 3 \pi  }{ 8  }  \Big) \\
-                                                                                                                     &= \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  - i \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }   }{ 2 }  }.
+                                                                                                                     &= -\sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  + i \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }   }{ 2 }  }.
                 \end{align*}
                 Lastly, for \( k = 3  \), we have
                 \begin{align*}
@@ -365,19 +369,19 @@ Using this fact, we can say that
                                                                                                            &= \Big[ \cos \Big(  \frac{ 3 \pi  }{  8  }   \Big) \cos \Big(  \frac{ 3 \pi  }{  2 }  \Big) - \sin \Big(  \frac{ 3 \pi  }{  8  } \sin \Big(  \frac{ 3 \pi }{ 2 }  \Big) \Big)\Big]  \\
                                                                                                            &+ i \Big[ \sin \Big(  \frac{ 3 \pi  }{ 8  } \Big)  \cos \Big(  \frac{ 3 \pi }{ 2 }  \Big)  + \cos \Big(  \frac{ 3 \pi  }{ 8  } \Big)  \sin \Big(  \frac{ 3 \pi  }{  2  }   \Big) \Big] \\
                                                                                                            &= \sin \Big(  \frac{ 3 \pi  }{  8  }  \Big) - i \cos \Big(  \frac{ 3 \pi  }{ 8  }  \Big) \\
-                                                                                                           &= \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }   }{ 2 }  }{ 2 }  }  + i \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }.
+                                                                                                           &= -\sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }   }{ 2 }  }{ 2 }  }  - i \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }.
                 \end{align*}
                 Hence, the solutions are 
                 \begin{align*}
-                    k = 0;  \ - \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  &+ i \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }   },  \\
-                    k = 1; \  \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  &- i \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }, \\ 
-                    k= 2; \ \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  &- i \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }, \\
-                    k=3; \ \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }   }  &+ i \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }.
+                    k = 0;  \  \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  &- i \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }   },  \\
+                    k = 1; \  \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  &+ i \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }, \\ 
+                    k= 2;  -\sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }  &+ i \sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }, \\
+                    k=3;  -\sqrt{ \frac{ 1 - \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }   }  &- i \sqrt{ \frac{ 1 + \frac{ \sqrt{ 2 }  }{ 2 }  }{ 2 }  }.
                 \end{align*}
             \end{solution}
             \item[(iii)] \( z = 1  \).
                 \begin{solution}
-                Note that \( z = 1 = 1 + i \cdot 0  \). For \( 0 \leq k \leq 3  \), we have the arguments
+                Note that \( z = 1 = 1 + i \cdot 0  \). Hence, we have \( \varphi = \arg(z) = 0 \). For \( 0 \leq k \leq 3  \), we have the arguments
                 \[  0 , \frac{ \pi }{ 2 },  \pi, \frac{ 3 \pi  }{  2  }   \]
                 with each argument corresponding to \( k \in [0,3]  \). For \( k = 0  \), observe that 
                 \[  \cos(0) + i \sin (0) = 1.  \]
@@ -395,8 +399,8 @@ Using this fact, we can say that
                 \end{solution}
             \item[(iv)] \( z = -1  \).
                 \begin{solution}
-                Let \( 0 \leq k \leq 3   \) and \( n = 4  \). We will compute all the solution along the interval \( 0 \leq k \leq 3   \). Note that \( z = i = 0 + i \cdot 1 \) and that \( \varphi =  \arg z = \pi / 2  \) and that for \( 0 \leq k \leq 3 \), we have   
-                \[  \frac{  \varphi + 2 \pi k   }{ 4   } = \frac{ \pi  }{ 4 }, \frac{ 3 \pi  }{ 4  },  \frac{  5 \pi  }{ 4 }, \pi.       \]
+                Let \( 0 \leq k \leq 3   \) and \( n = 4  \). We will compute all the solution along the interval \( 0 \leq k \leq 3   \). Note that \( z = -1 = -1 + i \cdot 0 \) and that \( \varphi =  \arg z = \pi  \) and that for \( 0 \leq k \leq 3 \), we have   
+                \[  \frac{  \varphi + 2 \pi k   }{ 4   } = \frac{ \pi  }{ 4 }, \frac{ 3 \pi  }{ 4  },  \frac{  5 \pi  }{ 4 }, \frac{ 7 \pi  }{ 4 }.       \]
                 Using the result in problem 5, observe that for \( k = 0  \), we have 
                 \begin{align*}
                    \cos \Big(  \frac{  \pi  }{ 4  }   \Big)  + i \sin \Big(  \frac{ \pi  }{ 4  }  \Big) &= \frac{ \sqrt{ 2 }  }{ 2 }  + i \frac{ \sqrt{ 2 }  }{ 2 }.
@@ -406,9 +410,14 @@ Using this fact, we can say that
                 For \( k = 2  \), 
                 \[  \cos \Big(  \frac{ 5 \pi  }{  4  }  \Big) + i \sin \Big(  \frac{ 5 \pi  }{  4  }  \Big) = - \frac{ \sqrt{ 2 }  }{ 2 }  - i \frac{ \sqrt{ 2 }  }{ 2 }. \]
                 For \( k = 3  \), we have 
-                \[  \cos (\pi)  + i \sin (\pi) = -1 + i \cdot 0 = -1. \]
+                \[ \cos \Big(  \frac{ 7 \pi  }{  4  }   \Big) + i\sin \Big(  \frac{ 7 \pi   }{ 4 }  \Big) = \frac{ \sqrt{ 2 }  }{ 2 }  - \frac{ \sqrt{ 2 }  }{ 2 }  i. \]
                 Thus, we have 
-                \[  z = \frac{ \sqrt{ 2 }  }{ 2 }  + i \frac{ \sqrt{ 2 }  }{ 2 },  - \frac{ \sqrt{ 2 }  }{ 2 }  + i \frac{ \sqrt{ 2 }  }{ 2 }, - \frac{ \sqrt{ 2 }  }{ 2 }  - i \frac{ \sqrt{ 2 }  }{ 2 }, -1. \]
+                \begin{align*}
+                    k= 0 ; \frac{ \sqrt{ 2 }  }{ 2 }  &+ i \frac{ \sqrt{ 2 }  }{ 2 }, \\  
+                    k = 1 ; - \frac{ \sqrt{ 2 }  }{ 2 }  &+ i \frac{ \sqrt{ 2 }  }{ 2 }, \\
+                    k = 2 ; - \frac{ \sqrt{ 2 }  }{ 2 }  &- i \frac{ \sqrt{ 2 }  }{ 2 },\\ 
+                    k = 3 ; \frac{ \sqrt{ 2 }  }{ 2 }  &- \frac{ \sqrt{ 2 }  }{ 2 }  i. 
+            \end{align*}
 
                 \end{solution}
         \end{enumerate}

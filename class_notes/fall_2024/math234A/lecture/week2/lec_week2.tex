@@ -18,19 +18,45 @@
 
 \subsection{Polar Representation of Complex Numbers}
 
-If \( (x,y) \in \R^{2} \setminus \{ (0,0) \}  \), we can represent this as  
-\[  (x,y) = (\gamma \cos \varphi, \gamma \sin \varphi) \]
-where \( \gamma =\sqrt{ x^{2} + y^{2} }   \) and \( \tan(\varphi) = \frac{ y }{ x }  \)
-is a polar representation of \( (x,y) \).
+First, let us introduce some notation:
+\begin{itemize}
+    \item \( \C^{\cdot} = \{ z \in \C : z \neq 0  \}. \)
+    \item \( {\R}_{+} = \{ \alpha \in \R : \alpha > 0  \}. \)
+\end{itemize}
+
+Recall that any non-zero \( (\alpha , \beta ) \in \R^{2} \) can be represented as 
+\[  (\alpha, \beta) = \gamma (\cos \varphi, \sin \varphi) \]
+with \( \tan \varphi = \frac{ \beta  }{ \alpha }\).
+
+Note that if \( \psi = 2 \pi + \varphi  \), then
+\[  (\alpha , \beta ) = \gamma (\cos \psi , \sin \psi). \]
+
+\begin{itemize}
+    \item \( \gamma  \) is uniquely defined. 
+    \item \( \varphi  \) is defined up to the addition of a multiple of \( 2 \pi  \).
+\end{itemize}
+
+
 \begin{remark}
     This representation may not be unique!
 \end{remark}
 
-If we insist, we can make \( \varphi  \) unique by restricting the domain to \( -\pi < \varphi \leq \pi \) where \( \varphi  \) is denoted as the \textbf{argument of \( z  \)}.
+\begin{prop}
+   The map \( {\R}_{+} \times \R \to \C^{\cdot} \) defined by  
+   \[  (\gamma, \varphi) \longrightarrow \gamma (\cos \varphi + i \sin \varphi ) \]
+   is surjective.
+\end{prop}
 
-\begin{definition}[Principle Argument]
-    If \( - \pi < \varphi \leq \pi \), we call this angle the \textbf{principle argument} which we denote as 
-    \[  \varphi = \Arg((x,y)). \]
+\begin{remark}
+The proposition above is a systematic way of saying that if \( z \in \C^{\cdot} \), then     
+\[  z = \gamma (\cos \varphi + i \sin \varphi ) \]
+with \( \gamma = | z  |  \) and \( \varphi  \) can be determined up to a multiple of \( 2 \pi \).
+\end{remark}
+
+If we insist, we can make the polar representation unique by restricting the domain to \( -\pi < \varphi \leq \pi \) where \( \varphi  \) is denoted as the \textbf{argument of \( z  \)}.
+
+\begin{definition}[Agument and Principle Argument]
+    Let \( z \in \C^{\cdot} \) and \( z = \gamma (\cos \varphi + i \sin \varphi) \) be a polar representation of \( z  \). Then \( \varphi  \) is called \textbf{an argument of \( z  \)}. If \( - \pi < \varphi \leq \pi \), then \( \varphi  \) is called \textbf{the principal argument of \( z \)} and it is denoted by \( \Arg(z) \). 
 \end{definition}
 \begin{remark}
     For any other domain, we denote the argument by \( \varphi = \arg((x,y)) \).
@@ -44,10 +70,24 @@ If we insist, we can make \( \varphi  \) unique by restricting the domain to \( 
 Using the addition formula, we can write
 \begin{align*}
     zw &= \gamma \gamma'  (\cos \varphi + i \sin \varphi)(\cos \varphi' + i \sin \varphi')  \\
-       &= \gamma \gamma' [ (\cos \varphi cos \varphi' + \sin \varphi \sin \varphi') + i(\sin \varphi \cos \varphi' + \sin \varphi \cos \varphi') ] \\
+       &= \gamma \gamma' [ (\cos \varphi \cos \varphi' + \sin \varphi \sin \varphi') + i(\sin \varphi \cos \varphi' + \sin \varphi \cos \varphi') ] \\
        &= \gamma \gamma' (\cos(\varphi + \varphi') + i \sin(\varphi + \varphi')).
 \end{align*}
 \end{proof}
+
+The proposition above allows us to visualize the multiplication of complex numbers as two parts:
+    \begin{itemize}
+        \item Scaling of the modulus.
+        \item Addition of the two angles.
+    \end{itemize}
+
+\begin{corollary}
+    Let \( z \in \C^{\cdot} \) with \( z = \gamma (\cos \varphi + i \sin \varphi) \). Then \begin{align*}
+        z^{-1} &= \frac{ 1  }{  \gamma  }  ( \cos (- \varphi) + i \sin (- \varphi)) \\
+               &= \frac{ 1 }{  \gamma  }  (\cos \varphi - i \sin \varphi).
+    \end{align*}
+\end{corollary}
+
 
 \begin{corollary}[De Moivre's Theorem]
    Let \( z = \gamma (\cos \varphi + i \sin \varphi) \in \C \setminus  \{ 0 \}  \) and let \( n \in \Z   \). Then
@@ -108,7 +148,25 @@ If \( ({z}_{n}) \) converges to \( z  \), then we write \( {z}_{n} \to z  \).
    \end{enumerate}
 \end{prop}
 \begin{proof}
-
+Suppose \( ({z}_{n}) \to z  \) and \( ({w}_{n}) \to w  \).
+\begin{enumerate}
+    \item[(i)] Let \( \alpha, \beta \in \C   \). Let \( \epsilon > 0  \). Since \( ({z}_{n}) \to z  \), there exists an \( {N}_{1} \in \N  \) such that for any \( n \geq {N}_{1} \), we have  
+        \[  | {z}_{n} - z  |  < \frac{ \epsilon  }{ 2 \alpha }. \]
+        Likewise, \( ({w}_{n}) \to w  \) implies that we can find an \( {N}_{2} \in \N  \) such that for any \( n \geq {N}_{2} \), we have
+        \[  | {w}_{n} - w  |  < \frac{ \epsilon  }{ 2 \beta }. \]
+        Now, choose \( N = \max \{ {N}_{1}, {N}_{2} \}  \). Then for any \( n \geq N  \), we must have 
+        \begin{align*}
+            | \alpha {z}_{n} + \beta {w}_{n} - (\alpha z + \beta w ) | &= |  \alpha ({z}_{n} - z ) + \beta ({w}_{n} - w )  |   \\
+                                                                       &\leq \alpha | {z}_{n} - z | + \beta | {w}_{n} - w  | \\
+                                                                       &< \alpha \cdot \frac{ \epsilon  }{ 2 \alpha }  + \beta \cdot \frac{ \epsilon  }{  2 \beta } \\
+                                                                       &= \frac{ \epsilon  }{  2 }  + \frac{ \epsilon }{ 2 }  = \epsilon.
+        \end{align*}
+        Thus, we can conclude that 
+        \[  \alpha {z}_{n} + \beta {w}_{n} \to \alpha z + \beta w.  \]
+    \item[(ii)] Let \( \epsilon > 0  \). Since \( ({z}_{n}) \to z  \), we can find a \( {N}_{1} \in \N  \) such that for any \( n \geq {N}_{1} \), we have   
+        \[  | {z}_{n} - z  |  < \frac{ \epsilon  }{  2 M   }   \]
+        where \( M > 0  \).
+\end{enumerate}
 \end{proof}
 
 \end{document}

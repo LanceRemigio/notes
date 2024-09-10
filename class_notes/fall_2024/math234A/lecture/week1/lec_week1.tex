@@ -22,6 +22,13 @@ We need it for:
 
 \subsection{What is the goal?}
 
+Let's recall some facts about the real number system \( \R  \).
+\begin{enumerate}
+    \item[(i)] \( (\R , + , \cdot) \) is a field.
+    \item[(ii)] We have an order relation on \( \R  \).
+    \item[(iii)] For all \( x \in \R  \), \( x^{2} + 1 > 0  \). Hence, the polynomial equation \( x^{2} + 1 = 0  \) does not have any solutions in \( \R  \).
+\end{enumerate}
+
 Our goal is to find the "smallest" field \( \C  \) such that 
 \begin{enumerate}
     \item[(i)] \( \R  \) is "contained" in \( \C  \).
@@ -32,7 +39,9 @@ Let's assume for a moment that we CAN solve the equation \( x^{2} + 1 = 0   \). 
 \[  \zeta = \{ \alpha + i \beta : \alpha, \beta \in \R  \}.   \]
 Note that in this set, we are using the properties of \( \R  \) as a vector space, and using the operations defined on that vector space to define the operations of \( \C  \). Recall from Linear Algebra that \( \zeta  \) is just the span of the basis vectors \( 1  \) and \( i  \). In other words, we have
 \[ \zeta = \{ \alpha + i \beta : \alpha , \beta \in \R  \} = \text{span}_{\R} \{ 1, i \}.     \]
+
 Now, let's define the two operations, addition and multiplication, on \( \C  \).
+
 \begin{definition}[Operations on \( \C  \)]
     Let \( z,w \in \C  \) and set \( z = {\alpha}_{1} + i {\beta}_{1} \) and \( w = {\alpha}_{2} + i {\beta}_{2} \) for any \( {\alpha}_{1}, {\alpha}_{2}, {\beta}_{1}, {\beta}_{2} \in \R  \). We define the two operations, addition \( +  \) and multiplication \( \cdot \), in the following way:    
     \begin{itemize}
@@ -48,6 +57,8 @@ Now, let's define the two operations, addition and multiplication, on \( \C  \).
             \end{align*}
     \end{itemize}
 \end{definition}
+
+With these operations, we can say that \( \C  \) forms a field.
 
 \begin{prop}
    The defined operations of \( \C  \) form a field.
@@ -122,7 +133,8 @@ Rough outline of proof:
     Given \( \alpha, \beta \in \R  \), show that \( (\alpha, 0 ) + (0,1)(\beta, 0) = (\alpha, \beta) \). 
 \end{prop}
 \begin{proof}
-\textbf{To do.}
+    Let \( \alpha, \beta \in \R  \). Then
+    \[ (\alpha, 0 ) + (0,1)(\beta, 0) = (\alpha, 0) + (\beta, 0) = (\alpha, \beta).  \]
 \end{proof}
 
 \begin{definition}[Real and Imaginary part of Complex Number]
@@ -131,6 +143,11 @@ Rough outline of proof:
        \( \Re(z) = \alpha  \) and \( \Im(z) = \beta   \),
    \end{center}
    are the \textbf{real and imaginary of \( z  \)}, respectively.
+   If \( \Im(z) = 0   \), \( z  \) is a real number, and if \( \Re(z) = 0  \), then we call \( z  \) \textbf{purely imaginary}.
+\end{definition}
+
+\begin{definition}[Complex Conjugate]
+    Let \( z = \alpha + i \beta  \) be a complex number. Its complex conjugate is defined as \( \overline{z} = \alpha - i \beta  \).
 \end{definition}
 
 Geometrically, this is viewed as a reflection of the ordered pair \( z = (\alpha, \beta)  \) over the \( x- \)axis.
@@ -168,12 +185,12 @@ Geometrically, this is viewed as a reflection of the ordered pair \( z = (\alpha
    \end{enumerate}
 \end{prop}
 
-\section{Viewing \( \C  \) as a Metric Space}
+\subsection{Viewing \( \C  \) as a Metric Space}
 
 In \( \C  \), the metric we will be using is \( d(z,w) =  | z - w  |  \).
 
 \begin{definition}[Metric Space]
-   For \( z,w \in \C  \), we all \( \C  \) a metric space if it satisfies the following properties: 
+   For \( z,w \in \C  \), we call \( \C  \) a metric space if it satisfies the following properties: 
    \begin{enumerate}
        \item[(i)] \( d(z,w) = d(w,z) \).
         \item[(ii)] \( d(z,w) = 0  \) if and only if \( z = w  \) and \( d(z,w) > 0  \) if and only if \( z \neq w  \).
@@ -181,6 +198,11 @@ In \( \C  \), the metric we will be using is \( d(z,w) =  | z - w  |  \).
 \end{definition}
 
 Now we have \( \C  \) is a metric space endowed with the metric \( d(z,w) = | z - w  |  \).
+
+
+
+
+
 
 
 

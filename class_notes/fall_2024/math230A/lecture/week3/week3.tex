@@ -8,12 +8,30 @@
 \section{Lecture 4}
 
 \begin{definition}[Sequence]
-    
+    We call a \textbf{sequence}, we mean a function \( f  \) on the set \( \N  \).    
 \end{definition}
 
+\begin{itemize}
+    \item We can let \( {x}_{n} = f(n) \). Then it is customary to denote the sequence \( f  \) by \( ({x}_{n})_{n \geq 1} \) or \( {x}_{1}, {x}_{2}, \dots  \).
+    \item Note that \( {x}_{1}, {x}_{2}, \dots  \) need not be distinct.
+    \item If for all \( n \in \N  \), \( {x}_{n} \in A  \), then we say \( ({x}_{n})_{n \geq1} \) is a sequence in \( A  \).
+    \item Sometimes it is convenient to replace \( \N  \) in the definition above with \( \{ 0,1,2,\dots \}  \) or \( \{ -1,0,1,2, \dots \}  \).
+\end{itemize}
+
 \begin{theorem}[ ] 
-   Infinite subsets of a countable set is countable.
+    Every infinite subset of a countable set is countable.
 \end{theorem}
+
+\begin{proof}
+Let \( A  \) be a countable set. Let \( E \subseteq A  \) and \( E  \) is infinite. Our goal is to show that \( E  \) is countable. Since \( A  \) is countable, there exists a bijective function \( g: \N \to A  \), so 
+\[  A = \{ g(n) : n \in \N \} = \{ {x}_{n} : n \in \N \} \]
+with \( {x}_{n} = g(n) \) for all \( n \in \N \).
+Now, let us construct the sequence \( {n}_{1}, {n}_{2}, \dots  \) as follows: 
+\begin{enumerate}
+    \item[(1)] Let \( {n}_{1}  \) be the smallest positive integer such that \( {x}_{{n}_{1}} \in E  \). 
+    \item[(2)] Let \( {n}_{2} \) 
+\end{enumerate}
+\end{proof}
 
 \begin{remark}
     
