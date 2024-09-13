@@ -69,8 +69,178 @@ Now, let us construct the sequence \( {n}_{1}, {n}_{2}, \dots  \) as follows:
     
 \end{eg}
 
-\begin{theorem}[ ]
-   The collection of all binary sequences is uncountable. 
+
+
+\section{Lecture 5}
+
+\subsection{Topics}
+\begin{itemize}
+    \item Summary of last lecture
+    \item Collection of all binary sequences is uncountable.
+    \item Preliminary Remarks
+    \item Inequalities
+\end{itemize}
+
+\subsection{Summary of Last Lecture}
+
+
+\begin{enumerate}
+    \item How to prove \( A  \) is at most countable:
+        \begin{itemize}
+            \item Show that \( A \subseteq S   \) where \( S  \) is countable.
+            \item Find an injective function \( f: A \to S  \) where \( S  \) is countable.  
+        \end{itemize}
+    \item How to prove \( A  \) is infinite:
+        \begin{itemize}
+            \item Prove that \( A  \) has a countable subset.
+            \item Find an injective function \( f: \N \to A  \).
+            \item Find an injective function \( f: A \to A  \) that is not onto.
+            \item Find a proper subset \( B \subseteq  A  \) such that \( A \sim B  \).
+        \end{itemize}
+    \item Find a proper subset \( B \subseteq  A   \) such that \( A \sim B  \).
+        \begin{itemize}
+            \item find a bijective function \( f: A \to B  \).
+            \item (Shroder-Bernstein) 
+                \begin{itemize}
+                    \item Find an injective function \( g: A \to B  \)
+                    \item Find an injective function \( h: B \to A  \).
+                \end{itemize}
+        \end{itemize}
+\item A countable union of countable sets is countable \textbf{AND}
+\item A finite product of countable sets is countable. 
+\end{enumerate}
+
+\begin{theorem}[D]
+Let \( A  \) be the set of all sequences whose terms are the digits \( 0  \) and \( 1  \) (that is \( A  \) is the collection of all binary sequences). This set \( A  \) is uncountable. 
 \end{theorem}
+\begin{proof}
+First, notice that \( A  \) is infinite. Let \( h: \N \to A   \) be the function defined by 
+\[  \text{for all} \ h(n) = \text{The binary sequence whose \( n \)th term is the digit 1 and all other terms are zero}. \]
+Clearly, \( h  \) is an injective map. Hence, \( h: \N \to h(\N) \) is bijective. We have \( \N \sim h(\N) \), and so \( h(\N)  \) is infinite. Note that \( h(\N) \subseteq A  \). Thus, \( A  \) is infinite 
+
+Suppose for sake of contradiction that \( A  \) is NOT uncountable. Since \( A  \) is infinite and not uncountable, this assumption tells us that \( A  \) must be countable. Thus, there exists a bijective map \( f: \N \to A  \). So, we can write
+\[  A = \{ f(n) : n \in \N  \}.  \]
+This means that for each \( n \in \N  \), \( f(n) \) is a binary sequence. Let 
+\begin{align*}
+    f(1) &= ({a}_{1}^{1}, {a}_{2}^{1}, \dots) \\
+    f(2) &= ({a}_{1}^{2}, {a}_{2}^{2} , \dots ) \\
+    f(3) &= ({a}_{1}^{3}, {a}_{2}^{3} , \dots ) \\
+         &\vdots \\
+    f(n) &= ({a}_{1}^{n}, {a}_{2}^{n}, \dots) \\
+        &\vdots
+\end{align*}
+The goal is to construct a binary sequence \( ({b}_{1}, {b}_{2}, \dots ) \) that is not in this list! This will contradict the fact that \( A  \) contains all the binary sequences.  
+
+Define 
+\[  {b}_{1} = 
+\begin{cases}
+    0 &\text{if} \ {a}_{1}^{1} = 1  \\
+    1 &\text{if} \ {a}_{1}^{1} = 0 
+\end{cases}  \]
+Similarly, for the second term, we see that 
+\[  {b}_{2} = 
+\begin{cases}
+    0 &\text{if} \ {a}_{2}^{2} = 1  \\
+    1 &\text{if} \ {a}_{2}^{2} = 0 
+\end{cases}  \]
+and so on. More generally, 
+\[  \text{for all} \ i \in \N \ {b}_{i} = 
+\begin{cases}
+    0 &\text{if} \ {a}_{i}^{i} = 1 \\
+    1 &\text{if} \ {a}_{i}^{i} = 0 
+\end{cases}. \]
+Clearly, this sequence \( ({b}_{n}) \) is not the same as any of the sequences of the list above; that is, for all \( i \in \N  \), \( {b}_{i} \neq f(i)  \).
+\end{proof} 
+
+\subsection{Preliminary Remarks}
+
+\begin{itemize}
+    \item \( \R  \) is NOT just an ordered field, it has more extra structures.
+    \item In \( \R  \), there is a standard notion of length (size, norm) and a corresponding notion of distance.
+    \item Given \( a \in \R  \), the \textbf{size} of \( a  \) is defined to be \( | a  |  \). But note that the \textbf{absolute value of \( a \)} is defined as follows:
+        \[  | a  |  = 
+        \begin{cases}
+            a &\text{if} \ a \geq 0 \\
+            -a &\text{if} \ a \leq 0.
+        \end{cases} \]
+    \item Given two numbers \( a  \) and \( b  \) in \( \R  \), the \textbf{standard distance} between \( a  \) and \( b  \) is 
+        \[  \dist{(a,b)} = | a - b  |.  \]
+    \item The notion of distance plays an essential role in the development of calculus.
+    \item When there is a notion of distance, then it will be possible to make sense of statements such as \textit{as \( h \) gets close to zero...}. 
+    \item Note that size, length, or norm are all equivalent in describing the size of the difference between two numbers/elements.
+\end{itemize}
+
+\begin{theorem}[Basic Properties of Standard Size in \( \R  \)]
+    Let \( a \in \R  \). Then
+    \begin{enumerate}
+        \item[(i)] \( |  a  |  \geq 0  \)  
+        \item[(ii)] \( |  a  |  = 0  \) if and only if \( a = 0  \). 
+        \item [(iii)] \( |  \alpha a  |  = | \alpha  |  | a |  \) for all \( \alpha \in \R  \) and \( a \in \R  \).
+        \item[(iv)] \( |  a + b  |  \leq | a  |  + | b  |  \) for all \( a,b \in \R  \).
+    \end{enumerate}
+\end{theorem}
+\begin{remark}
+    Note that (iv) is equivalent to saying that 
+    \[  -(| a | + | b | ) \leq a + b \leq | a  |  + | b  |.  \]
+    This is an immediate consequence of the following inequalities:
+    \begin{enumerate}
+        \item[(i)] Every \( a \in \R  \), we have \( - | a  |  \leq a \leq | a  |  \) and \( - | b  |  \leq b \leq |  b |  \).
+    \end{enumerate}
+\end{remark}
+
+Is it possible to generalize the notion of "size"? \textbf{YES!}
+
+\begin{definition}[ ]
+    Let \( V  \) be a (real) vector space. A function from \( \| \cdot \|:   V \to \R  \) is called a \textbf{norm} on \( V  \) if it satisfies the following properties:
+    \begin{enumerate}
+        \item[(i)] For all \( x \in V  \), \( \|x \| \geq 0  \) 
+        \item[(ii)] For all \( x \in V  \), \( \|x \| = 0  \) if and only if \( x = 0  \).
+        \item[(iii)] For all \( \alpha \in \R  \) and \( x \in V  \), \( \| \alpha x \| = | \alpha |  \|x\| \).
+        \item[(iv)] For all \( x,y \in V  \), we have
+            \[  \|x + y \| \leq \|x\| + \|y\| \ \tag{triangle inequality} \]
+\end{enumerate}
+A vector space \( V  \) equipped with notion of norm is called a normed space. (Sometimes, we write \( (V , \|\cdot\|) \) is a normed space). So, call \( d(x,y) = \| x - y \| \).
+\end{definition}
+
+\begin{theorem}[Basic Properties of Standard Distance in \( \R  \)]
+    For all \( a,b \in \R  \). 
+    \begin{enumerate}
+        \item[(i)] \( \dist(a,b) \geq 0  \) 
+        \item[(ii)] \( \dist(a,b) = 0  \) if and only if \( a = b  \).
+        \item[(iii)] \( \dist(a,b) = \dist(b,a)  \).
+        \item[(iv)] For all \( a,b,c \in \R   \), we have  \( \dist(a,c) \leq \dist(a,b) + \dist(b,c) \).
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Metric Spaces}
+
+\begin{definition}[Metric Spaces]
+Let \(  X \neq \emptyset  \). A function \( d: X \times X \to \R  \) is said to be a \textbf{distance function} or a \textbf{metric} if it satisfies the following properties:
+\begin{enumerate}
+    \item[(i)] For all \( x,y \in X  \), \( d(x,y) \geq 0  \).
+    \item[(ii)] For all \( x,y \in X  \), \( d(x,y) = 0  \) if and only if \( x = y  \).
+    \item[(iii)] For all \( x,y \in X  \), \( d(x,y) = d(y,x) \).
+    \item[(iv)] For all \( x,y,z \in X  \), \( d(x,y) \leq d(x,z) + d(z,y) \).
+\end{enumerate}
+A set \( X  \) equipped with a metric \( d  \) is called a \textbf{metric space}. (Sometimes we write \( (X,d)  \) is a metric space)
+\end{definition}
+\begin{remark}
+    \( X  \) does \textbf{NOT} need to be a vector space. Furthermore, \( d  \) is a more general notion of size than \( \| \cdot \| \).
+\end{remark}
+
+
+\begin{eg}
+    \( (\R , d)  \) where \( d: \R \times \R \to [0,\infty)   \) is defined by 
+    \[  d(x,y) = |  x - y  |. \]
+    (or \( d(x,y) = \alpha |  x - y  |  \) where \( \alpha > 0  \) is a fixed real number)
+
+
+\end{eg}
+
+\subsection{Inequalities}
+
+
+
+
 
 \end{document}

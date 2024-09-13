@@ -9,7 +9,6 @@
 \fancyhead[OR]{\nouppercase\rightmark}
 \fancyhead[ER,OL]{\thepage}
 
-
 \title{Math 230A: Homework 2}
 \author{Lance Remigio}
 \begin{document}
@@ -32,10 +31,19 @@ Define \( f: \N \to \{ 2n + 1: n \in \N \}  \) as \( f(n) = 2n + 1  \) for \( n 
 
 \section*{Problem 3} For the following problem, you may use your grade school knowledge that every real number has a decimal representation. Although there is a careful description of decimal representation on page 11 of Rudin, it will not be needed to solve this problem. 
 
+Recall that in class we proved that the set of all binary sequences is uncountable. Use that fact to show that interval \( [0,0.2) \) is uncountable. Explain how this result proves that \( [0,1] \) and \( \R  \) are uncountable as well.
 
-Recall that in class we proved that the set of all binary sequences is uncountable. Use that fact to show that interval \( [0,0.2) \) is uncountable. Explain how this result proves that \( [0,1] \) and \( \R  \) are countable as well.
 \begin{proof}
+Consider the set
+\[ A = \{ \text{Binary Sequences} \}. \]
+Suppose we have the injective map  
+\[  f: A   \to [0,0.2) \]
+and consider the proper subset \( f(A)  \) of \( [0,0.2) \). Recall that \( A  \) is uncountable and so, \( f(A)  \) is uncountable since \( f: A \to [0,0.2) \) is uncountable. Thus, \( [0,0.2) \) is also uncountable. 
 
+
+We can use a similar argument to prove that \( [0,1] \) is uncountable. Define the function \( f: [0,0.2) \to [0,1] \). Note that \( f  \) injective. Consider the proper subset \( f([0,0.2))  \) of \( [0,1] \). Since \( f  \) is injective and \( [0,0.2) \) is uncountable, we must have that \( f([0,0.2)) \) is uncountable. Thus, \( [0,1] \) is uncountable.
+
+To prove that \( \R  \) is uncountable, we employ a similar argument. Start with the injective map \( f : [0,1] \to \R  \). Observe that \( f([0,1]) \subset \R  \) and that \( [0,1] \) is uncountable. Hence, we see that \( \R  \) is uncountable.  
 \end{proof}
 
 \section*{Problem 4} Is the set of all irrational numbers countable?
@@ -62,7 +70,21 @@ Define the set
 
 \section*{Problem 8} Choose (specific) distinct real numbers \( a,b,c,d  \) such that \( a < b  \) and \( c < d  \). Prove that \( \card{[a,b]} = \card{[c,d]}  \). (Hint: Find a linear polynomial \( f  \) such that \( f(a) = c  \) and \( f(b) = d  \).)
 \begin{proof}
-
+    Our goal is to show that \( \card{[a,b]} = \card{[c,d]} \). It suffices to show that \( [a,b] \sim [c,d] \). Consider the map \( f: [a,b] \to [c,d] \) defined by
+\[  f(x) = \frac{ d - c  }{  b - a  } (x-a) + c.    \]
+We wan to show that \( f  \) is a bijective function.
+Note that \( f(a) = c  \) and \( f(b) = d   \). First, we show that \( f  \) is injective. Let \( x,y \in [a,b]  \). Suppose \( f(x) = f(y) \). Then we have that  
+\begin{align*}
+    \frac{ d - c  }{  b - a  } ( x- a) + c &= \frac{ d - c  }{ b - a  }  (y - a) + c  \\
+    \frac{ d - c  }{  b - a  }  (x -a) &= \frac{ d - c  }{  b - a  }  (y-a) \\
+    x - a &= y - a \\
+    x &= y.
+\end{align*}
+Thus, \( f  \) is injective. Consider \( x \in [c,d] \). Then 
+\[  x = \frac{ (y-c) (b-a) }{ d - c  } + a. \]
+Then we have that 
+\[  y = \frac{ d - c  }{  b - a  }  (x - a ) + c. \]
+But this means that \( f(x) = y \) for some \( x \in [c,d] \). Hence, \( f  \) is surjective. Since \( f: [a,b] \sim [c,d] \) is bijective, we must have that \( \card{[a,b]} = \card{[c,d]} \).
 \end{proof}
 
 \section*{Problem 9} Consider the function \( f: (0,1) \to \R  \) given by 
@@ -75,15 +97,47 @@ Define the set
 \begin{enumerate}
     \item Prove that \( f  \) is a bijection from \( (0,1)  \) to \( (0,1] \).
         \begin{proof}
-        
+            We will show that \( f: (0,1) \to (0,1] \) where 
+            \[  f(x) = 
+            \begin{cases}
+                \frac{ 1 }{ n - 1  } &\text{if} \ \text{for some} \ n \in \N \\ 
+                x &\text{otherwise}
+            \end{cases} \]
+is a bijective map. First, we will show that \( f  \) is injective. Suppose \( x,y \in (0,1) \). Then we have \( x = 1/n  \) and \( y = 1/ m \) for some \( n,m \in \N  \), respectively, such that \( f(x) = \frac{ 1  }{ n - 1  }  \) and \( f(y) = \frac{ 1  }{ m - 1 }  \). Suppose \( f(x) = f(y) \). Then observe that  
+\begin{align*} 
+    \frac{ 1 }{ n - 1  } &= \frac{ 1  }{  m - 1  }  \\
+    m - 1 &= n - 1 \\
+    m &= n.
+\end{align*}
+Thus, we see that \( x = y  \) and we conclude that \( f  \) is injective. 
+
+Now, we will show that \( f  \) is surjective. Note that for any \( n \in \N  \) such that 
+\[  0 < \frac{ 1 }{ n }  < \frac{ 1 }{ n - 1  }  < 1. \]
+Then we can find some \( x = \frac{ 1 }{ n } \in (0,1)  \) such that  
+\[  f(x) = \frac{ 1 }{ n - 1  }.  \]
+Thus, \( f  \) must be surjective.
+
         \end{proof}
     \item Find a bijection from \( (0,1]  \) to \( [0,1) \).
         \begin{solution}
-            
+          Define the map  
+          \[  f(x) = 
+          \begin{cases}
+              \frac{ 1 }{ n - 1  }  &\text{if} \ x = \frac{ 1 }{ n }  \ \text{for some} \ n \in \N  \\
+              0 &\text{if} \ x = 1 \\
+              x &\text{otherwise}
+          \end{cases}  \]
         \end{solution}
     \item Find a bijection from \(  [0,1)  \) to \( [0,1] \).
         \begin{solution}
-        
+          Define the function  
+          \[  f(x) = 
+          \begin{cases}
+              \frac{ 1 }{ n - 1   } &\text{if} \ n \geq 2 \\   
+              0 &\text{if} \ x = 0 \\ 
+              1 &\text{if} \ x = 1/2 \\
+              x &\text{otherwise} 
+          \end{cases} \]
         \end{solution}
 
 \end{enumerate}
@@ -95,7 +149,13 @@ Define the set
     Let \( A  \) and \( B  \) be two nonempty sets. If \( B \subseteq A  \) and there exists a one-to-one function \( f: A \to B  \), then \( A \sim B  \).
 \end{theorem}
 \begin{proof}
-
+\begin{itemize}
+    \item If \( {x}_{1} \in C  \) and \( {x}_{2} \in C  \), then \( h({x}_{1}) = h({x}_{2})   \) implies that  
+        \[  h({x}_{1}) = h({x}_{2}) \Longrightarrow f({x}_{1}) = f({x}_{2}). \]
+        Since \( f \) is injective, we must have \( {x}_{1} = {x}_{2} \).
+    \item The image of \( h  \), \( h(A) \), is contained in the codomain \( B  \).
+    \item If \( y \notin C  \), then for all \( n \geq 2  \), \( y \notin {C}_{n} \) which further implies that \( y \in A \setminus  {C}_{n} \). Since \( {C}_{n} \subseteq  C  \), we see that \( y \in A \setminus  C \). By definition of \( h  \), we see that \( h(y) = y  \) and so, \( h  \) is surjective.
+\end{itemize}
 \end{proof}
 
 \section{Problem 11} Prove the following theorem.
@@ -103,7 +163,7 @@ Define the set
     Let \( A  \) and \( B  \) be two nonempty sets. If there exists two one-to-one functions \( f: A \to B  \) and \( g: B \to A  \), then \( B \sim A  \).
 \end{theorem}
 \begin{proof}
-
+Since \( g(B) \subseteq  A  \), the function \( g \circ f : A \to g(B)  \) is injective, we can use Theorem 1 to conclude that \( A \sim g(B) \). Since \( B \sim g(B) \) and \( g(B) \sim A  \), we conclude that \( B \sim A  \).
 \end{proof}
 
 \section{Problem 12} Prove the following theorem.
@@ -112,7 +172,50 @@ Define the set
     Every infinite set contains a proper countable subset.
 \end{theorem}
 \begin{proof}
+    In this way, we have constructed a one-to-one function \( f: \N \to S  \). Note that \( f: \N \to f(\N) \) will be bijective. Thus, \( \N \sim f(\N) \) implying that \( f(\N) \) is countable.
+\end{proof}
 
+\section{Problem 13} Prove the following theorem.
+
+\begin{theorem}[ ]
+    A set \( X  \) is infinite if and only if there exists a proper subset \( Y \subseteq  X  \) such that \( X \sim Y  \).
+\end{theorem}
+
+\begin{proof}
+Assume that \( X  \) is finite. Thus, there exists \( n \in \N  \) such that \( X \sim {\N}_{n} \). Let \( h: X \to {\N}_{n} \) be a bijective map. Assume for contradiction that there exists a proper subset \( Y \subset X  \) and a bijective map \( f: X \to Y  \). Thus, we have \( Y \sim X  \). Since \( Y \sim X  \) and \( X \sim {\N}_{n} \), we have \( Y \sim {\N}_{n} \). But by our lemma, we know that this cannot happen. Hence, we have a contradiction and we must conclude that \( X  \) must be infinite.
+\end{proof}
+
+\section{Problem 14} Prove the following theorem.
+\begin{theorem}[ ]
+    A set \( X  \) is infinite if and only if there exists a one-to-one function \( f: X \to X  \) that is not onto.
+\end{theorem}
+\begin{proof}
+By Theorem 4, it is enough to prove that there exists a proper subset \( Y \subseteq X   \)such that \(X \sim Y  \). Note that \( f(X) \subseteq  X   \). Note that, by assumption, there exists a one-to-one function \( f: X \to X  \) that is NOT onto. Thus, we can restrict our codomain \( X  \) by its proper subset \( f(X) \) and produce the bijective function    \( f: X \to f(X) \). Thus, we see that \( X \sim f(X) \) and set \( f(X) = y \). By Theorem 4, we conclude that \( X  \) is infinite.
+\end{proof}
+
+\section{Problem 15} Prove the following theorem.
+\begin{theorem}[Cantor's Theorem]
+    For any set \( A  \), the power set \( P(A) \) has strictly greater cardinality than \( A  \). (Hint: If \( f: A \to P(A) \) were bijective, consider \( B = \{ x \in A : x \notin f(x) \}  \)).
+\end{theorem}
+\begin{proof}
+Let \( A  \) be any set. Consider the map \( f: A \to P(A) \). We will show that \( \card A < \card P(A) \); that is, there exists no bijection \( f: A \to P(A) \). Suppose for sake of contradiction that \( f: A \to P(A) \) is a bijection. Thus, we see that \( f  \) is surjective, by definition. Now, consider the set
+\[  B = \{ x \in A : x \notin f(x)   \}  \]
+note that \( B \subseteq  A  \). Since \( f  \) is surjective, there exists \( y \in A  \) such that \( f(y) = B  \). There are two cases to consider: either \( y \in B  \) or \( y \notin B  \). If \( y \in B  \), then \( y \notin f(y) \). But note that \( f(y) = B  \), so \( y \notin B  \) which is a contradiction. On the other hand, if \( y \notin B   \), then \( y \in f(y) \). Again, \( f(y) = B  \) implies \( y \) is also in \( B  \) which is a contradiction. Thus, there exists no bijective map \( f: A \to P(A) \) and so we conclude that  
+\[  \card A < \card P(A). \]
+\end{proof}
+
+\section*{Problem 16} Prove that \( A  \) is infinite if and only if there exists a one-to-one function \( f: \N \to A  \). 
+\begin{proof}
+\( (\Rightarrow) \) Suppose \( A  \) is infinite. Our goal is to show that there exists a one-to-one function \( f: \N \to A  \). Since \( A  \) is infinite, \( A  \) is countable. Thus, there exists a bijective map \( f: \N \to A  \). By definition, \( f \) is injective.
+
+\( (\Leftarrow) \) Suppose there exists a one-to-one function \( f: \N \to A  \). Our goal is to show that \( A  \) is infinite. Notice that \( f: \N \to f(\N) \) is a bijective map. Hence, \( \N \sim f(\N)  \) implies that \( f(\N) \) infinite. Since \( f(\N) \subseteq  A  \), we also have that \( A  \) is infinite.
+\end{proof}
+
+\section*{Problem 17} Prove that \( A  \) is at most countable if and only if there exists a one-to-one function \( f: A \to \N  \).
+\begin{proof}
+\( (\Rightarrow) \) Suppose \( A  \) is at most countable. Then there exists an injective map \( f: A \to \N  \) by fact 4.
+
+\( (\Leftarrow) \) Suppose there exists a one-to-one function \( f: A \to \N \). Note that \( f(A)    \) is a proper subset of \( \N \) and \( \N  \) is countable. Thus, \( f(A)  \) must be infinite and so, \( f(A) \) must be countable. Restricting \( \N  \) to \( f(A) \) turns \( f: A \to f(A) \) into a bijective map. Thus, \( A \sim f(A) \) and \( f(A) \sim \N \) implies that \( A \sim \N  \). So, we conclude that \( A  \) is infinite.
 \end{proof}
 
 

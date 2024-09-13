@@ -70,7 +70,7 @@ If we insist, we can make the polar representation unique by restricting the dom
 Using the addition formula, we can write
 \begin{align*}
     zw &= \gamma \gamma'  (\cos \varphi + i \sin \varphi)(\cos \varphi' + i \sin \varphi')  \\
-       &= \gamma \gamma' [ (\cos \varphi \cos \varphi' + \sin \varphi \sin \varphi') + i(\sin \varphi \cos \varphi' + \sin \varphi \cos \varphi') ] \\
+       &= \gamma \gamma' [ (\cos \varphi \cos \varphi' - \sin \varphi \sin \varphi') + i(\sin \varphi \cos \varphi' + \sin \varphi \cos \varphi') ] \\
        &= \gamma \gamma' (\cos(\varphi + \varphi') + i \sin(\varphi + \varphi')).
 \end{align*}
 \end{proof}
@@ -163,9 +163,36 @@ Suppose \( ({z}_{n}) \to z  \) and \( ({w}_{n}) \to w  \).
         \end{align*}
         Thus, we can conclude that 
         \[  \alpha {z}_{n} + \beta {w}_{n} \to \alpha z + \beta w.  \]
-    \item[(ii)] Let \( \epsilon > 0  \). Since \( ({z}_{n}) \to z  \), we can find a \( {N}_{1} \in \N  \) such that for any \( n \geq {N}_{1} \), we have   
+    \item[(ii)] Let \( \epsilon > 0  \). Our goal is to show that there exists an \( N \in \N  \) such that  
+        \[  | {z}_{n} {w}_{n} - zw  |  < \epsilon. \]
+        Since \( ({z}_{n}) \to z  \), we can find a \( {N}_{1} \in \N  \) such that for any \( n \geq {N}_{1} \), we have   
         \[  | {z}_{n} - z  |  < \frac{ \epsilon  }{  2 M   }   \]
         where \( M > 0  \).
+        Since \( ({w}_{n})  \to w \), there exists \( {N}_{2} \in \N  \) such that for \( n \geq {N}_{2} \), we have 
+        \[  | {w}_{n} - w  | < \frac{ \epsilon  }{  2 | z  |  }.  \]
+        Thus, choose \( N = \max \{ {N}_{1}, {N}_{2} \}  \) such that for any \( n \geq N  \), we have
+        \begin{align*}
+            | {z}_{n} {w}_{n} - zw  |  &= | {z}_{n} {w}_{n} - {w}_{n} z + {w}_{n} z - zw  |  \\
+                                       &\leq | {w}_{n}  | | {z}_{n} - z  | + | z  |  | {w}_{n} - w   | \\
+                                       &\leq M | {z}_{n} - z  |  + | z  |  | {w}_{n} - w  |  \\
+                                       &< M \cdot \frac{ \epsilon  }{ 2 M  }  + | z  |  \cdot \frac{ \epsilon  }{ 2 | z  |  }  \\
+                                       &= \frac{ \epsilon  }{  2 }  + \frac{ \epsilon  }{  2  }  = \epsilon.
+        \end{align*}
+        Thus, we conclude that 
+        \[ {z}_{n} {w}_{n} \to z w.  \]
+    \item[(iii)] Let \( \epsilon > 0  \). We will show that \( {z}_{n}^{-1} \to z^{-1} \) by showing that there exists an \( N \in \N  \) such that for any \( n \geq N  \), we have 
+        \[  | {z}_{n}^{-1} - z^{-1} | < \epsilon. \]
+    Since \( ({z}_{n}) \to z  \), there must exists an \( {N}_{1} \in \N   \) such that for any \( n \geq {N}_{1}  \), we have
+    \[  | {z}_{n} - z  |  < \frac{ \epsilon | z  |^{2} }{ 2 }.  \]
+    Likewise, we can choose \( {N}_{2} \in \N  \) such that for any \( n \geq {N}_{2} \), we have
+    \[  | {z}_{n}  |  > \frac{ | z |  }{ 2 }.  \]
+    If we choose \( N = \max \{ {N}_{1}, {N}_{2} \}  \), and subsequently, let \( n \geq N  \), then we must have
+    \begin{align*}
+      | {z}_{n}^{-1} - z^{-1} |   &= \frac{ | {z}_{n} - z  |  }{  | z  |  | {z}_{n} |  } \\
+                                  &< \frac{ \epsilon | z |^{2}  }{ 2  } \cdot \frac{ 2  }{  | z |^{2}  } \\ 
+                                  &= \epsilon.
+    \end{align*}
+    Thus, we conclude that \( {z}_{n}^{-1} \to z^{-1} \).
 \end{enumerate}
 \end{proof}
 

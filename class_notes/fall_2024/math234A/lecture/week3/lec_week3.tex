@@ -1,0 +1,133 @@
+\documentclass[a4paper]{report}
+\usepackage{standalone}
+\usepackage{import}
+
+\input{../../../../../newpreamble.tex}
+
+
+\begin{document}
+
+\subsection{Topics}
+
+\begin{enumerate}
+    \item[(i)] Continue discussion of convergence of sequence/series.
+    \item[(ii)] Discuss exponential, sine, and cosine function.
+\end{enumerate}
+
+
+\subsection{Convergence of Series}
+
+Infinite series of complex numbers. Let \( \{ {z}_{n} \}_{n=1}^{\infty } \) be a sequence of complex numbers. 
+
+Goal: To give meaning to \( \sum_{ n=1  }^{ \infty  } {z}_{n} \).
+
+Define \[ {s}_{n} = {z}_{1} + {z}_{2} + \cdots + {z}_{n} = \sum_{ k = 1  }^{ n } {z}_{k} \] 
+\begin{definition}[Convergence of Series]
+    If the sequence \( \{ {s}_{n} \}_{n=1}^{\infty } \) converges, we say that the series  
+    \[  \sum_{ n=1  }^{ \infty  } {z}_{n} \]
+    converges and we write
+    \[  \sum_{ n = 1  }^{  \infty   } {z}_{n} = s. \]
+\end{definition}
+
+\begin{eg}
+    Consider the geometric series
+    \[  \sum_{ n=1  }^{ \infty  } \frac{ 1  }{ 2^{n} \cdot i  }. \]
+    Let 
+    \begin{align*}
+    {s}_{n} &= \frac{ 1 }{ 2 i  }  + \frac{ 1 }{ 2^{2} i   } + \cdots + \frac{ 1  }{ 2^{n} i  }   \\
+            &=  \frac{ 1 }{ i }  \Big[ \frac{ 1 }{ 2 }  + \frac{ 1 }{ 2^{2} }  + \cdots + \frac{ 1 }{ 2^{n} } \Big].
+\end{align*}
+\begin{align*}
+    i {s}_{n} &= \frac{ 1 }{ 2 }  + \frac{ 1 }{ 2^{2}  } + \cdots + \frac{ 1 }{ 2^{n} } \tag{1}  \\
+    \frac{ 1 }{ 2 }  i {s}_{n} &= \frac{ 1 }{ 2^{2}  }  + \cdots + \frac{ 1 }{ 2^{n}  } + \frac{ 1 }{ 2^{n+1} } \tag{2}
+\end{align*}
+Consider
+\[  \frac{ 1 }{ 2 }  i \cdot {s}_{n} = \frac{ 1 }{ 2^{2}  }  + \cdots + \frac{ 1 }{ 2^{n} }  + \frac{ 1 }{  2^{n+1} }.  \]
+Then subtracting (1) and (2), we see that
+\[ i {s}_{n} - \frac{ 1 }{ 2 }  i {s}_{n} =   \frac{ 1 }{ 2 }  i {s}_{n} = \frac{ 1 }{ 2 }  - \frac{ 1 }{ 2^{n+1} } \implies {s}_{n} = \frac{ 1 }{ i }  \Big[ 1 - \frac{ 1 }{ 2^{n} } \Big].   \]
+Thus, taking the limit as \( n \to \infty   \) gives us 
+\[  \lim_{ n \to \infty  }  {s}_{n} = \frac{ 1 }{ i }. \]
+\end{eg}
+
+\begin{eg}
+    Assume that \( | z  |  < 1  \), \( z \in \C  \). Compute
+    \[  \sum_{ n=1  }^{ \infty   } z^{n}. \]
+    Since \( | z  |  < 1  \), we know that 
+    \[  \sum_{ n-1  }^{ \infty  } z^{n}   \]
+    is a geometric series and that it converges. Using the geometric series sum formula, we see that
+    \[  \sum_{ n=1  }^{ \infty  } z^{n} = \lim_{ n \to \infty  }  \sum_{  k =1  }^{ n  } z^{k } = \frac{ z  }{  1 - z }.  \]
+    Consider this alternative way. Suppose we have
+    \[ {s}_{n} = z + z^{2} + z^{3} + \cdots + z^{n}.    \]
+    and
+    \[  z {s}_{n} =  z^{2} + z^{3} + \cdots + z^{n} + z^{n+1}.  \]
+    Then subtracting these two equations, we see that
+    \[  (1 - z ) {s}_{n} = z - z^{n+1}. \]
+    Then we have
+    \[  {s}_{n} = \frac{ z  }{ 1 - z  } - \frac{ z^{n+1} }{ (1 - z) }.  \]
+    Then taking the limit as \( n \to \infty  \), we must have
+    \[  \sum_{ n=1  }^{ \infty   } z^{n} = \frac{ z  }{  1 - z  }. \]
+\end{eg}
+
+Now, we will discuss absolute convergence of complex series.
+
+\begin{definition}[Absolute Convergence of Infinite Series]
+    Let \( ({z}_{n}) \) be a sequence of complex numbers. We say that the series \( \sum_{  n = 1  }^{  \infty  } {z}_{n} \) converges absolutely if the series of real numbers 
+    \[  \sum_{ n=1  }^{ \infty   } | {z}_{n} |  \] converges.
+\end{definition}
+
+
+\begin{remark}
+    If \( \sum_{ n=1  }^{ \infty  } {z}_{n} \) converges absolutely, then the series
+    \[  \sum_{ n=1  }^{ \infty  } {z}_{n} \] converges.
+    But note that the converse may not be true.
+\end{remark}
+
+\begin{eg}
+Let \( z \in \C  \). The series  
+\[  \sum_{ n=0  }^{ \infty  } \frac{ z^{n} }{ n!  }   \]
+converges absolutely. Note that this is just the series expansion of \( e^{z} \) found in calculus courses. Consider   
+\[  \sum_{ n=0  }^{ \infty  } \frac{ | z |^{n} }{ n!  }  = e^{| z | }.  \]
+Note that this infinite series is a real series. If use the ratio test, we can consider 
+\[  {a}_{n+1} = \frac{ | z |^{n+1} }{ (n+1)! }  \]
+and 
+\[  {a}_{n} = \frac{ | z |^{n} }{ n!  }  \]
+and then show that 
+\[  \lim_{ n \to \infty  }  \Big| \frac{ {a}_{n+1} }{ {a}_{n} }  \Big|  < 1.  \]
+\end{eg}
+
+Next, we shall define \( e^{z} \) in \( \C  \). 
+
+\subsection{Exponential, Sine, and Cosine}
+
+\begin{definition}[Complex Version of Exponential Function]
+    For \( z \in \C  \), we define 
+    \[ \exp(z) = \sum_{ n=0  }^{  \infty  } \frac{ z^{n} }{ n!  }   \]
+\end{definition}
+Note that the series 
+            \[  \sum_{ n=0 }^{ \infty  } (-1)^{n} \frac{ z^{2n+1} }{ (2n+1)!  }  \]
+            and 
+            \[  \sum_{ n=0  }^{ \infty  } (-1)^{n} \frac{ z^{2n} }{ (2n)! }  \]
+            converges absolutely for all \( z \in \C  \).
+\begin{definition}[Sine and Cosine Series]
+         We define  \( \sin z  \) as
+            \[ \sin z = \sum_{ n=0 }^{ \infty  } (-1)^{2n+1} \frac{ z^{2n+1} }{ (2n+1)! } \]
+            and \( \cos z  \) as 
+            \[  \cos z  =  \sum_{ n = 0  }^{ \infty  } (-1)^{n} \frac{ z^{2n} }{ (2n)! }.  \]
+\end{definition}
+
+\begin{definition}[ ]
+    For \( z \in \C  \), we define 
+    \[  \exp(z) = \sum_{ n=0 }^{ \infty  } \frac{ z^{n} }{ n! }. \]
+\end{definition}
+
+Now, we want to find out whether \( \exp(z + w) = \exp(z) \cdot \exp(w) \). Note that this is true, but we want to prove this rigorously! Recall that the Euler Formula is
+\[  e^{iz} = \cos z + i \sin z \  \text{\textbf{Show this!}}. \]
+
+
+
+
+
+
+
+
+\end{document}
