@@ -53,7 +53,14 @@ False. It is uncountable.
 
 \section*{Problem 5} Show any collection of disjoint intervals of positive length is at most countable.
 \begin{proof}
-Let \( A  \) be the collection of disjoint intervals of positive length. Suppose for sake of contradiction that this collection of intervals is uncountable. However, notice how each of the disjoint interval contains a rational number \( q  \) by the density of \( \Q  \) in \( \R \). Since \( A  \) is uncountable, this means that there are an uncountable number of rational points. But we know that \( \Q  \) is countable which is a contradiction.
+    Let \( A  \) be the collection of disjoint intervals of positive length. Note that, for every disjoint intervals of positive length \( (a,b) \), we can find a rational number \( p  \) such that \( a < p < b  \). Thus, define the map \( f: A \to \Q  \) by \( f(I) = p  \) for \( p \in \Q  \). We want to show that this map is bijective so that we may use the fact that \( \Q  \) is countable to imply that \( A  \) is countable. To show that \( f  \) is injective, suppose \( {I}_{1}, {I}_{2} \in A  \). Suppose \( f({I}_{1}) = f({I}_{2}) \). Since \( {I}_{1} \cap {I}_{2} = \emptyset  \) and 
+    \begin{center}
+   \( f({I}_{1}) = {p}_{1}  \) for \( {p}_{1} \in \Q  \) and 
+ \( f({I}_{2}) = {p}_{2} \) for \( {p}_{2} \in \Q  \),
+    \end{center}
+    we must have \( {I}_{1} = {I}_{2} \). Thus, \( f  \) is injective.
+
+    To show that \( f  \) is surjective, let \( p \in \Q  \). Since \( \Q  \) is dense in \( \R  \), \( p  \) must be contained within an interval \( I \) of \( \R  \). Thus, \( f(I) = p  \) and so \( f \) is surjective. Therefore, we conclude that \( f: A \to \Q  \) is bijective; that is, \( A \sim \Q   \). Since \( \Q  \) is countable, we must have that \( \N \sim \Q  \). By the transitive property of \( \sim \), we must have that \( A \sim \N  \). Thus, \( A  \) must be countable.
 \end{proof}
 
 \section*{Problem 6} A real number is said to be algebraic if it is a root of some nonzero polynomial with rational coefficients. Prove that the set of all algebraic numbers is countable.
