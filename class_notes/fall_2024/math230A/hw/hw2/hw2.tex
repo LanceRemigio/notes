@@ -7,7 +7,11 @@
 \fancyhf{}
 \fancyhead[EL]{\nouppercase\leftmark}
 \fancyhead[OR]{\nouppercase\rightmark}
+\fancyhead[C]{Homework 2}
 \fancyhead[ER,OL]{\thepage}
+
+% 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17
+
 
 \title{Math 230A: Homework 2}
 \author{Lance Remigio}
@@ -16,17 +20,23 @@
 
 \section*{Problem 1} Mark each statement True or False.
 
-\begin{enumerate}
+\begin{enumerate} 
     \item If \( Y  \) is a set and \( \{ {G}_{\alpha} : \alpha \in A  \}   \) is a family of subsets of \( Y  \), then \( \bigcup_{ \alpha \in A  }^{  }  {G}_{\alpha} \) is a subset of \( Y  \). \textbf{True.}
-    \item The set \( \{ q \in \Q : q^{2} < 2  \}  \) is countable. \textbf{False.}     
+    \item The range of every sequence is at most countable. \textbf{True.}
+    \item The set \( \{ q \in \Q : q^{2} < 2  \}  \) is countable. \textbf{True.}     
     \item Every infinite subset of an uncountable set is uncountable. \textbf{False.} 
-    \item The union of any collection of at most countable sets is at most countable. \textbf{True.}
+    \item The union of any collection of at most countable sets is at most countable. \textbf{False.}
     \item If \( A,B \subseteq \R  \) and \( A  \) is countable, then \( A \cap B  \) is at most countable. \textbf{True.}
 \end{enumerate}
 
 \section*{Problem 2} Find a bijection from \( \N  \) to the set of odd integers.
 \begin{solution}
-Define \( f: \N \to \{ 2n + 1: n \in \N \}  \) as \( f(n) = 2n + 1  \) for \( n \in \N \). 
+    Define the following bijection \( f: \N \to \{ \text{odd integers}  \}  \) as
+    \[  f(n) = 
+    \begin{cases}
+        n &\text{if} \ n \ \text{is odd} \\   
+        -n + 1 &\text{if} \  n \ \text{is} \ \text{even}.
+    \end{cases} \]
 \end{solution}
 
 \section*{Problem 3} For the following problem, you may use your grade school knowledge that every real number has a decimal representation. Although there is a careful description of decimal representation on page 11 of Rudin, it will not be needed to solve this problem. 
@@ -34,41 +44,76 @@ Define \( f: \N \to \{ 2n + 1: n \in \N \}  \) as \( f(n) = 2n + 1  \) for \( n 
 Recall that in class we proved that the set of all binary sequences is uncountable. Use that fact to show that interval \( [0,0.2) \) is uncountable. Explain how this result proves that \( [0,1] \) and \( \R  \) are uncountable as well.
 
 \begin{proof}
-Consider the set
-\[ A = \{ \text{Binary Sequences} \}. \]
-Suppose we have the injective map  
-\[  f: A   \to [0,0.2) \]
-and consider the proper subset \( f(A)  \) of \( [0,0.2) \). Recall that \( A  \) is uncountable and so, \( f(A)  \) is uncountable since \( f: A \to [0,0.2) \) is uncountable. Thus, \( [0,0.2) \) is also uncountable. 
+Consider the set of binary sequences
+\[ A = \{ n \in \N : ({a}_{n})  \} \]
+ Suppose we have the map 
+\[  f: A   \to [0,0.2). \]
+Note that \( f  \) is injective since for any \( ({a}_{1}, {a}_{2}, \dots ), ({b}_{1}, {b}_{2}, \dots) \in A   \), we have   
+\begin{align*}
+    f(({a}_{1}, {a}_{2}, \dots)) &= f(({b}_{1}, {b}_{2}, \dots )) \\
+    0. {a}_{1} {a}_{2} \dots &= 0. {b}_{1} {b}_{2} \dots \ . 
+\end{align*}
+Hence, \( ({a}_{1}, {a}_{2}, \dots ) = ( {b}_{1}, {b}_{2}, \dots ) \). Thus, \( f  \) is injective.
+Consider the proper subset \( f(A)  \) of \( [0,0.2) \). Recall that \( A  \) is uncountable and so, \( f(A)  \) is uncountable since \( f: A \to [0,0.2) \) is uncountable. Thus, \( [0,0.2) \) is also uncountable. 
 
-
-We can use a similar argument to prove that \( [0,1] \) is uncountable. Define the function \( f: [0,0.2) \to [0,1] \). Note that \( f  \) injective. Consider the proper subset \( f([0,0.2))  \) of \( [0,1] \). Since \( f  \) is injective and \( [0,0.2) \) is uncountable, we must have that \( f([0,0.2)) \) is uncountable. Thus, \( [0,1] \) is uncountable.
-
-To prove that \( \R  \) is uncountable, we employ a similar argument. Start with the injective map \( f : [0,1] \to \R  \). Observe that \( f([0,1]) \subset \R  \) and that \( [0,1] \) is uncountable. Hence, we see that \( \R  \) is uncountable.  
+Note that \( [0,0,2) \subseteq [0,1] \). But \( [0,0,2) \) is an uncountable set. Thus, \( [0,1] \) is uncountable. Similarly, we see that \( [0,1] \subseteq  \R  \). Since \( [0,1] \) is uncountable, we see that \( \R  \) is uncountable.  
 \end{proof}
 
 \section*{Problem 4} Is the set of all irrational numbers countable?
 \begin{solution}
-False. It is uncountable.
+    Suppose for sake of contradiction that the set of all irrational numbers \( \mathbb{I} \) is countable. Note that \( \Q  \) is also countable and subsequently that the union \( \mathbb{I} \cup \Q = \R   \) is countable. However, \( \R  \) is uncountable from Problem 3 and so we have a contradiction. Thus, the set of irrational numbers must uncountable.  
 \end{solution}
 
 \section*{Problem 5} Show any collection of disjoint intervals of positive length is at most countable.
 \begin{proof}
-    Let \( A  \) be the collection of disjoint intervals of positive length. Note that, for every disjoint intervals of positive length \( (a,b) \), we can find a rational number \( p  \) such that \( a < p < b  \). Thus, define the map \( f: A \to \Q  \) by \( f(I) = p  \) for \( p \in \Q  \). We want to show that this map is bijective so that we may use the fact that \( \Q  \) is countable to imply that \( A  \) is countable. To show that \( f  \) is injective, suppose \( {I}_{1}, {I}_{2} \in A  \). Suppose \( f({I}_{1}) = f({I}_{2}) \). Since \( {I}_{1} \cap {I}_{2} = \emptyset  \) and 
-    \begin{center}
-   \( f({I}_{1}) = {p}_{1}  \) for \( {p}_{1} \in \Q  \) and 
- \( f({I}_{2}) = {p}_{2} \) for \( {p}_{2} \in \Q  \),
-    \end{center}
-    we must have \( {I}_{1} = {I}_{2} \). Thus, \( f  \) is injective.
-
-    To show that \( f  \) is surjective, let \( p \in \Q  \). Since \( \Q  \) is dense in \( \R  \), \( p  \) must be contained within an interval \( I \) of \( \R  \). Thus, \( f(I) = p  \) and so \( f \) is surjective. Therefore, we conclude that \( f: A \to \Q  \) is bijective; that is, \( A \sim \Q   \). Since \( \Q  \) is countable, we must have that \( \N \sim \Q  \). By the transitive property of \( \sim \), we must have that \( A \sim \N  \). Thus, \( A  \) must be countable.
+    Let \( \{ {I}_{\alpha} \}_{\alpha \in \Lambda} \) be a collection of disjoint intervals of positive length. By the Density of \( \Q  \) in \( \R  \), for each \( \alpha \in \Lambda \), there exists a \( {q}_{\alpha} \in \Q  \) such that \( {q}_{\alpha} \in {I}_{\alpha} \). Define the map \( f: \{ {I}_{\alpha} \}_{\alpha \in \Lambda} \to \Q  \) by \( f({I}_{\alpha}) = {q}_{\alpha} \). Since every interval \( {I}_{\alpha} \) is disjoint, we must have that \( f  \) is injective. If \( f  \) is injective, then the map \( f: \{ {I}_{\alpha} \}_{\alpha \in \Lambda} \to f(\{ {I}_{\alpha} \}_{\Lambda}) \) is bijective. Thus, \[ \{ {I}_{\alpha} \}_{ \alpha \in \Lambda} \sim f(\{ {I}_{\alpha} \}_{ \alpha \in \Lambda}). \]
+    Furthermore, we see that \( f(\{ {I}_{\alpha} \}_{\alpha \in \Lambda}) \subseteq  \Q  \). Since \( \Q  \) is countable, we know that \( f(\{ {I}_{\alpha} \}_{\alpha \in \Lambda}) \) is at most countable. Therefore, we conclude that \( \{ {I}_{\alpha} \}_{\alpha \in \Lambda} \) is at most countable.
 \end{proof}
 
-\section*{Problem 6} A real number is said to be algebraic if it is a root of some nonzero polynomial with rational coefficients. Prove that the set of all algebraic numbers is countable.
+\section*{Problem 6} A real number is said to be algebraic if it is a root of some nonzero polynomial with rational coefficients. Prove that the set of all algebraic numbers is countable. Define the map .
 \begin{proof}
-Define the set
-\[  \alpha = \{ p(x) = 0 : x \in \R  \}  \] with \( p(x)  \) being any polynomial with rational coefficients. Let  
-\[  \bigcup_{ \alpha  }^{  }  \alpha  \] be the union of all \( \alpha  \) representing the set of all real algebraic numbers coming from \( p(x) \). Since \( p(x) \) is of \( n \)th degree, we know that \( p(x) \) must contain a finite number of roots, namely, \( n  \) number of them. Thus, \( \alpha  \) is countable and hence, the union of all \( \alpha  \) must also be countable.  
-\end{proof}
+    Let 
+    \[  A = \text{the set of all (real) algebraic numbers}.  \]
+    For all \( n \geq 1  \), let 
+    \[  \hat{P}_{n} = \text{the set of all polynomials of degree exactly \( n \) with rational coefficients}  \]
+    and that
+    \[  {B}_{n} = \{ \alpha \in \R :  \text{there exists} \ f \in {\hat{P}}_{n} \ \text{with} \ f(\alpha) = 0  \}  \]
+    to be the collection of all polynomials in \( {\hat{P}}_{n} \).
+    Also, for any polynomial \( f  \), we let 
+    \[  R(f) = \{ \alpha \in \R : f(\alpha) = 0 \} \]
+    to be the collection of all roots of \( f \). Here are some observations 
+    \begin{enumerate}
+        \item[(i)] \( A = \bigcup_{ n=1  }^{ \infty  }  {B}_{n} \)
+        \item[(ii)] For all \( n \geq 1  \) and for all \( f \in {\hat{P}}_{n} \), we have that \( R(f) \) is at most countable.
+    \end{enumerate}
+    We will show the following statements:
+    \begin{enumerate}
+        \item[(1)] We will show that for each \( n \geq 1  \), \( {\hat{P}}_{n} \) is countable.
+        \item[(2)] Using (1) and (ii), we will show that \( {B}_{n}  \) is at most countable for each \( n \geq 1  \). 
+        \item[(3)] Using (2) and (i), we will show that \( A  \) is at most countable.
+        \item[(4)] Show that \( A  \) is infinite.
+    \end{enumerate}
+
+    First, we will show fact (1).
+
+    Let \( n \geq 1  \). Define the function \( g: {\hat{P}}_{n} \to \Q^{n+1} \) by
+    \[  g({a}_{n} x^{n} + {a}_{n-1} x^{n-1} + \cdots + {a}_{1} x + {a}_{0}) = ({a}_{n}, {a}_{n-1}, \dots, {a}_{0}). \] 
+    Clearly, this function is 1-1. So, \( g: {\hat{P}}_{n} \to g({\hat{P}}_{n}) \) is bijective. Thus, we have that \( {\hat{P}}_{n} \sim g({\hat{P}}_{n}) \) and \( g({\hat{P}}_{n}) \subseteq \Q^{n+1} \). Note that \( \Q  \) is countable implies that the product \( \Q^{n+1} \) is countable. This implies that \( g({\hat{P}}_{n}) \) is at most countable. Now, we see that \( j: \N \to {\hat{P}}_{n} \) defined by \( h(m) = m x^{n} \) is a 1-1 function. Hence, we see that \( h(\N) \) is an infinite subset of \( {\hat{P}}_{n} \). So, \( {\hat{P}}_{n} \) must be infinite. Since \( {\hat{P}}_{n} \) is at most countable and \( {\hat{P}}_{n} \) is infinite, we must have that \( {\hat{P}}_{n} \) is countable. 
+
+    Next, we will show that for all \( n \geq 1  \), \( {B}_{n}  \) is at most countable. Let \( n \geq 1  \). Since \( {\hat{P}}_{n} \) is countable, we can enumerate its elements in the following way:
+    \[  {\hat{P}}_{n} = \{ {f}_{1}^{n}, {f}_{2}^{n}, \dots  \}. \]
+    We have 
+    \[  {B}_{n} = \bigcup_{ f \in {\hat{P}}_{n} }^{  }  R(f) = \bigcup_{ m=1  }^{ \infty  }  R({f}_{m}^{n}). \]
+    For each \( m  \), we see that \( R({f}_{m}^{n}) \) is finite (and thus, at most countable). Since a countable union of at most countable sets is at most countable, we can conclude that \( {B}_{n} \) is at most countable. 
+
+    Next, we will show that \( A  \) is at most countable. Since each \( {B}_{n} \) for all \( n \geq 1  \) is at most countable and the fact that
+    \[  A = \bigcup_{ n = 1  }^{ \infty  }  {B}_{n}, \]
+    we have that \( A  \) is at most countable (A countable union of at most countable sets is at most countable). 
+
+    Lastly, we will show that \( A  \) is infinite. For each \( \alpha \in \Q  \), clearly, \( \alpha  \) is a root of the polynomial \( x - \alpha  \) (which is a polynomial with rational coefficients). Thus, each rational number is algebraic. Since \( \Q \subseteq  A   \) and \( \Q  \) is countable, we know that \( \Q  \) is infinite. Thus, \( A  \) must be infinite, and thus countable.    
+\end{proof} 
+
+% Have a mapping f that sends each polynomial with rational coefficients to a finite product of rational numbers. This mapping is injective.  
 
 \section*{Problem 7} Prove that not all real numbers are algebraic.
 \begin{proof}
@@ -140,7 +185,7 @@ Thus, \( f  \) must be surjective.
           Define the function  
           \[  f(x) = 
           \begin{cases}
-              \frac{ 1 }{ n - 1   } &\text{if} \ n \geq 2 \\   
+              \frac{ 1 }{ n - 1   } &\text{if} \  x = \frac{ 1 }{ n } \ \text{for some} \  n \geq 3 \\   
               0 &\text{if} \ x = 0 \\ 
               1 &\text{if} \ x = 1/2 \\
               x &\text{otherwise} 
@@ -160,7 +205,7 @@ Thus, \( f  \) must be surjective.
     \item If \( {x}_{1} \in C  \) and \( {x}_{2} \in C  \), then \( h({x}_{1}) = h({x}_{2})   \) implies that  
         \[  h({x}_{1}) = h({x}_{2}) \Longrightarrow f({x}_{1}) = f({x}_{2}). \]
         Since \( f \) is injective, we must have \( {x}_{1} = {x}_{2} \).
-    \item The image of \( h  \), \( h(A) \), is contained in the codomain \( B  \).
+    \item To show that \( h(A) \subseteq B  \), we want to show that for all \( a \in h(A)  \), \( a  \in B \). Let \( a \in h(A) \). By definition of \( h  \), we either have \( a \in C  \) or \( a \in A \setminus  C  \). If \( a \in C  \), then we have \( h(a) = f(a) \). Since \( f: A \to B   \), \( h(a) \in  B \). Thus, \( h(A) \subseteq B  \). If \( a \in A \setminus  C  \), then \( h(a) = a  \) by definition of \( h  \).         
     \item If \( y \notin C  \), then for all \( n \geq 2  \), \( y \notin {C}_{n} \) which further implies that \( y \in A \setminus  {C}_{n} \). Since \( {C}_{n} \subseteq  C  \), we see that \( y \in A \setminus  C \). By definition of \( h  \), we see that \( h(y) = y  \) and so, \( h  \) is surjective.
 \end{itemize}
 \end{proof}
@@ -170,42 +215,48 @@ Thus, \( f  \) must be surjective.
     Let \( A  \) and \( B  \) be two nonempty sets. If there exists two one-to-one functions \( f: A \to B  \) and \( g: B \to A  \), then \( B \sim A  \).
 \end{theorem}
 \begin{proof}
-Since \( g(B) \subseteq  A  \), the function \( g \circ f : A \to g(B)  \) is injective, we can use Theorem 1 to conclude that \( A \sim g(B) \). Since \( B \sim g(B) \) and \( g(B) \sim A  \), we conclude that \( B \sim A  \).
+Since \( g(B) \subseteq  A  \) and the fact that the function \( g \circ f : A \to g(B)  \) is injective, we can use Theorem 1 to conclude that \( A \sim g(B) \). Since \( B \sim g(B) \) and \( g(B) \sim A  \), we conclude that \( B \sim A  \).
 \end{proof}
 
-\section{Problem 12} Prove the following theorem.
+\section*{Problem 12} Prove the following theorem.
 
 \begin{theorem}[ ]
     Every infinite set contains a proper countable subset.
 \end{theorem}
 \begin{proof}
-    In this way, we have constructed a one-to-one function \( f: \N \to S  \). Note that \( f: \N \to f(\N) \) will be bijective. Thus, \( \N \sim f(\N) \) implying that \( f(\N) \) is countable.
+    \textbf{Continuing the proof presented on homework sheet.} In this way, we have constructed a one-to-one function \( f: \N \to S  \). Note that \( f: \N \to f(\N) \) will be bijective. Since \( \N \sim f(\N) \) and \( f(\N)  \) is a proper subset of \( S  \), we know that that \( f(\N) \) is countable.
 \end{proof}
 
-\section{Problem 13} Prove the following theorem.
+\section*{Problem 13} Prove the following theorem.
 
 \begin{theorem}[ ]
     A set \( X  \) is infinite if and only if there exists a proper subset \( Y \subseteq  X  \) such that \( X \sim Y  \).
 \end{theorem}
 
 \begin{proof}
-Assume that \( X  \) is finite. Thus, there exists \( n \in \N  \) such that \( X \sim {\N}_{n} \). Let \( h: X \to {\N}_{n} \) be a bijective map. Assume for contradiction that there exists a proper subset \( Y \subset X  \) and a bijective map \( f: X \to Y  \). Thus, we have \( Y \sim X  \). Since \( Y \sim X  \) and \( X \sim {\N}_{n} \), we have \( Y \sim {\N}_{n} \). But by our lemma, we know that this cannot happen. Hence, we have a contradiction and we must conclude that \( X  \) must be infinite.
+Assume that \( X  \) is finite. Thus, there exists \( n \in \N  \) such that \( X \sim {\N}_{n} \). Let \( h: X \to {\N}_{n} \) be a bijective map. Assume for contradiction that there exists a proper subset \( Y \subset X  \) and a bijective map \( f: X \to Y  \). Thus, we have \( Y \sim X  \). Since \( Y \sim X  \) and \( X \sim {\N}_{n} \), we have \( Y \sim {\N}_{n} \). But by our lemma, we know that this cannot happen since there exists no one-to-one mapping of \( {\N}_{n} \) onto \( Y \subset {\N}_{n} \). Hence, we have a contradiction and we must conclude that \( X  \) must be infinite.
 \end{proof}
 
-\section{Problem 14} Prove the following theorem.
+\section*{Problem 14} Prove the following theorem.
 \begin{theorem}[ ]
     A set \( X  \) is infinite if and only if there exists a one-to-one function \( f: X \to X  \) that is not onto.
 \end{theorem}
 \begin{proof}
-By Theorem 4, it is enough to prove that there exists a proper subset \( Y \subseteq X   \)such that \(X \sim Y  \). Note that \( f(X) \subseteq  X   \). Note that, by assumption, there exists a one-to-one function \( f: X \to X  \) that is NOT onto. Thus, we can restrict our codomain \( X  \) by its proper subset \( f(X) \) and produce the bijective function    \( f: X \to f(X) \). Thus, we see that \( X \sim f(X) \) and set \( f(X) = y \). By Theorem 4, we conclude that \( X  \) is infinite.
+By Theorem 4, it is enough to prove that there exists a proper subset \( Y \subseteq X   \) such that \(X \sim Y  \). Note that \( f(X) \subseteq  X   \). Note that, by assumption, there exists a one-to-one function \( f: X \to X  \) that is NOT onto. Thus, we can restrict our codomain \( X  \) by its proper subset \( f(X) \) and produce the bijective function    \( f: X \to f(X) \). Thus, we see that \( X \sim f(X) \) and \( f(X) \subseteq X  \). By Theorem 4, we conclude that \( X  \) is infinite.
 \end{proof}
 
-\section{Problem 15} Prove the following theorem.
+\section*{Problem 15} Prove the following theorem.
 \begin{theorem}[Cantor's Theorem]
     For any set \( A  \), the power set \( P(A) \) has strictly greater cardinality than \( A  \). (Hint: If \( f: A \to P(A) \) were bijective, consider \( B = \{ x \in A : x \notin f(x) \}  \)).
 \end{theorem}
 \begin{proof}
-Let \( A  \) be any set. Consider the map \( f: A \to P(A) \). We will show that \( \card A < \card P(A) \); that is, there exists no bijection \( f: A \to P(A) \). Suppose for sake of contradiction that \( f: A \to P(A) \) is a bijection. Thus, we see that \( f  \) is surjective, by definition. Now, consider the set
+    Let \( A  \) be any set. Consider the map \( f: A \to P(A) \). We will show that \( \card A < \card P(A) \); that is, there exists no bijection \( f: A \to P(A) \). 
+
+    First, we note that \( f : A \to P(A) \) is defined by  
+    \[  g(x) = \{ x \}  \]
+    which is a one-to-one function.
+    Suppose for sake of contradiction that \( f: A \to P(A) \) is a bijection.  
+Thus, we see that \( f  \) is surjective, by definition. Now, consider the set
 \[  B = \{ x \in A : x \notin f(x)   \}  \]
 note that \( B \subseteq  A  \). Since \( f  \) is surjective, there exists \( y \in A  \) such that \( f(y) = B  \). There are two cases to consider: either \( y \in B  \) or \( y \notin B  \). If \( y \in B  \), then \( y \notin f(y) \). But note that \( f(y) = B  \), so \( y \notin B  \) which is a contradiction. On the other hand, if \( y \notin B   \), then \( y \in f(y) \). Again, \( f(y) = B  \) implies \( y \) is also in \( B  \) which is a contradiction. Thus, there exists no bijective map \( f: A \to P(A) \) and so we conclude that  
 \[  \card A < \card P(A). \]
@@ -213,16 +264,17 @@ note that \( B \subseteq  A  \). Since \( f  \) is surjective, there exists \( y
 
 \section*{Problem 16} Prove that \( A  \) is infinite if and only if there exists a one-to-one function \( f: \N \to A  \). 
 \begin{proof}
-\( (\Rightarrow) \) Suppose \( A  \) is infinite. Our goal is to show that there exists a one-to-one function \( f: \N \to A  \). Since \( A  \) is infinite, \( A  \) is countable. Thus, there exists a bijective map \( f: \N \to A  \). By definition, \( f \) is injective.
+\( (\Rightarrow) \) Suppose \( A  \) is infinite. Our goal is to show that there exists a one-to-one function \( f: \N \to A  \). Since \( A  \) is infinite, \( A  \) is countable. Thus, there exists a bijective map \( f: \N \to A  \). By definition, this map is also injective.
 
 \( (\Leftarrow) \) Suppose there exists a one-to-one function \( f: \N \to A  \). Our goal is to show that \( A  \) is infinite. Notice that \( f: \N \to f(\N) \) is a bijective map. Hence, \( \N \sim f(\N)  \) implies that \( f(\N) \) infinite. Since \( f(\N) \subseteq  A  \), we also have that \( A  \) is infinite.
 \end{proof}
 
 \section*{Problem 17} Prove that \( A  \) is at most countable if and only if there exists a one-to-one function \( f: A \to \N  \).
 \begin{proof}
-\( (\Rightarrow) \) Suppose \( A  \) is at most countable. Then there exists an injective map \( f: A \to \N  \) by fact 4.
+\( (\Rightarrow) \) Suppose \( A  \) is at most countable. By definition, \( A  \) is either countable or finite. If \( A  \) is finite, then there exists a bijective map such that \( f: A \to \N_n   \) for some \( n \in \N \). By definition of bijection, we know that \( f  \) is also injective. Suppose \( A  \) is countable, then we have \( A \sim \N  \) and so there exists a bijective map \( f: A \to \N  \) which is also injective by definition. 
 
-\( (\Leftarrow) \) Suppose there exists a one-to-one function \( f: A \to \N \). Note that \( f(A)    \) is a proper subset of \( \N \) and \( \N  \) is countable. Thus, \( f(A)  \) must be infinite and so, \( f(A) \) must be countable. Restricting \( \N  \) to \( f(A) \) turns \( f: A \to f(A) \) into a bijective map. Thus, \( A \sim f(A) \) and \( f(A) \sim \N \) implies that \( A \sim \N  \). So, we conclude that \( A  \) is infinite.
+
+\( (\Leftarrow) \) Suppose there exists a one-to-one function \( f: A \to \N \). Note that \( f(A)    \) is a proper subset of \( \N \) and that \( \N  \) is countable. Since \( f(A)  \) is a proper subset of \( \N  \), \( f(A)  \) must be at most countable. Furthermore, \( f: A \to f(A) \) is a bijective map and so, \( A \sim f(A) \). Since \( A \sim f(A) \) and \( f(A) \) is at most countable, we must have that \( A  \) is at most countable.
 \end{proof}
 
 

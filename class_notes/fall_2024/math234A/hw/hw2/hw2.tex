@@ -3,20 +3,93 @@
 \usepackage{import}
 \input{../../../../../newpreamble.tex}
 
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[EL]{\nouppercase\leftmark}
+\fancyhead[OR]{\nouppercase\rightmark}
+\fancyhead[C]{Homework 2}
+\fancyhead[ER,OL]{\thepage}
+
+
 \title{Math 234A: Homework 2}
 \author{Lance Remigio}
 \begin{document}
    \maketitle 
  
 \section{Problem 1} 
+\begin{definition}[Cauchy Sequence]
+    A sequence \( ({z}_{n}) \) is called a \textbf{Cauchy Sequence} if for all \( \epsilon > 0  \), there exists a positive interger \( \N  \) such that for all \( m,n \geq N  \),   
+    \[  | {z}_{m} - {z}_{n}  |  < \epsilon. \]
+\end{definition}
+Show that a sequence \( ({z}_{n}) \) in \( \C  \) is convergent if and only if it is Cauchy.
+\begin{proof}
+\( (\Rightarrow) \) Suppose the sequence \( ({z}_{n}) \) is convergent. We want to show that \( ({z}_{n}) \) is Cauchy. Let \( \epsilon > 0  \). We want to show that there exists an \( N \in \Z^{+} \) such that whenever \( n.m \geq N  \), we have
+\[  | {z}_{n} - {z}_{m} | < \epsilon. \]
+Since \( ({z}_{n}) \) converges, we can find an \( {N}_{1} \in \Z^{+} \) such that whenever \( n \geq {N}_{1} \), we have 
+\[  | {z}_{n} - z  | < \frac{ \epsilon }{ 2 }. \tag{1} \]
+Likewise, we can find an \( {N}_{2} \in \Z^{+} \) such that whenever \( m \geq {N}_{2} \) , we have 
+\[  | {z}_{m} - z  |  < \frac{ \epsilon }{ 2 }. \tag{2} \]
+So, choosing \( N = \max{{N}_{1}, {N}_{2}}  \), we see that for any \( m,n \geq N  \), we have 
+\begin{align*}
+    | {z}_{n} - {z}_{m} | &= | {z}_{n} - z + z - {z}_{m} |  \\
+                          &\leq | {z}_{n} - z  |  + | z - {z}_{m} | \\
+                          &< \frac{ \epsilon }{ 2 }  + \frac{ \epsilon }{ 2 }  \\
+                          &= \epsilon.
+\end{align*}
+Thus, we conclude that \( ({z}_{n})  \) is Cauchy.
 
-
+\( ( \Leftarrow )  \) Suppose \( ({z}_{n}) \) is Cauchy. Let \( \epsilon > 0  \). We want to show that there exists an \( N \in \Z^{+}  \) such that for any \( n \geq N  \), we have  
+\[  |  {z}_{n} -  z | < \epsilon. \]
+Since \( ({z}_{n}) \) is Cauchy, we know that \( ({z}_{n}) \) must be bounded. Thus, \( ({z}_{n}) \) must contain a subsequence \( ({z}_{{n}_{k }}) \) that is convergent. Thus, we can find an \( {N}_{1} \in \Z^{+}  \) such that whenever \( {n}_{k } \geq {N}_{1}  \), we have 
+\[  | {z}_{{n}_{k }} - z  | < \frac{ \epsilon  }{  2  } \tag{3}.  \]
+Since \( ({z}_{n}) \) is Cauchy, we can find an \( {N}_{2} \in \Z^{+} \) such that whenever \( n, {n}_{k} \geq {N}_{2} \), we have
+\[  |  {z}_{n} - {z}_{{n}_{k}} |  < \frac{ \epsilon  }{ 2 }  \tag{4}. \]
+Choose \( N = \max{{N}_{1}, {N}_{2}} \). Then for any \( n, {n}_{k} \geq N  \), we have
+\begin{align*}
+    | {z}_{n} - z |  &= | {z}_{n} - {z}_{{n}_{k }} + {z}_{{n}_{k }} - z   |  \\
+                     &\leq  | {z}_{n} - {z}_{{n}_{k }} |  + | {z}_{{n}_{k }} - z  |  \\
+                     &< \frac{ \epsilon  }{ 2  }  + \frac{ \epsilon  }{  2  } \\
+                     &= \epsilon.
+\end{align*}
+Thus, we conclude that \( ({z}_{n}) \to z \).
+\end{proof}
 
 \section{Problem 2}
+\begin{enumerate}
+    \item[(i)] Let \( {z}_{0} = {x}_{0} + i {\zeta}_{0} \in \C  \): Define a sequence \( ({z}_{n}) \) by \( {z}_{n+1} = \frac{ 1 }{ 2 }  ({z}_{n} + \frac{ 1 }{ {z}_{n} } ) \), \( n \geq 1  \), and \( {z}_{1} = \frac{ 1 }{ 2 }  ({z}_{0} + \frac{ 1 }{ {z}_{0} } ) \). 
+        Show that 
+        \[  \lim_{ n  \to \infty  } {z}_{n} = 
+        \begin{cases}
+            1 &\text{if} \ {x}_{0} > 0 \\
+            -1 &\text{if}  \ {x}_{0} < 0 
+        \end{cases}   \]
+    \begin{proof}
+    
+    \end{proof}
+    \item[(ii)] Discuss convergence and divergence of 
+        \[  {z}_{n} = 1 + i \frac{ (-1)^{n} }{ n^{2} } \ \text{for} n = 1,2,\dots \ . \]
+        Let \( \Phi = \Arg({z}_{n}) \). Show that \( ({\Phi}_{n}) \to 0 \).
+        \begin{proof}
+        
+        \end{proof}
+    \item[(iii)] Assume that \( 0 < \gamma < 1  \). Show that 
+        \begin{align*}
+            \sum_{ n=1  }^{ \infty  } \gamma^{n} \cos n \theta &= \frac{ \gamma \cos \theta - \gamma^{2} }{ 1 - 2 \gamma \cos \theta + \gamma^{2} } \\
+            \sum_{ n=1  }^{ \infty  } \gamma^{n} \sin n \theta &= \frac{  \gamma \sin \theta   }{  1 - 2 \gamma \cos \theta + \gamma^{2} }. 
+    \end{align*}
+        \begin{proof}
 
-
+        \end{proof}
+\end{enumerate}
 
 \section{Problem 3}
+Let \( ({z}_{n}) \) be a sequence of non-zero complex numbers. Suppose that 
+\[  \lim_{ n \to \infty  }  \Big| \frac{ {z}_{n+1}  }{ {z}_{n} }  \Big|  = L. \]
+Show that \( \lim_{ n \to \infty  } \sqrt[n]{ | {z}_{n} |   }  = L  \).
+\begin{proof}
+
+\end{proof}
 
 \section{Problem 4}
 
