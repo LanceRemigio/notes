@@ -3,11 +3,12 @@
 \usepackage{import}
 \input{../../../../newpreamble.tex}
 
+\usepackage{fancyhdr}
 \pagestyle{fancy}
-\fancyhf{}
-\fancyhead[EL]{\nouppercase\leftmark}
-\fancyhead[OR]{\nouppercase\rightmark}
-\fancyhead[ER,OL]{\thepage}
+% \fancyhf{}
+% \fancyhead[EL]{\nouppercase\leftmark}
+% \fancyhead[OR]{\nouppercase\rightmark}
+% \fancyhead[ER,OL]{\thepage}
 
 \title{Math 230A Lecture Notes}
 \author{Lance Remigio}
@@ -15,6 +16,10 @@
 \begin{document}
 \maketitle 
 \tableofcontents
+
+\lhead{Math 230A}
+\chead{Lance Remigio}
+\rhead{\thepage}
 
 \chapter{Week 1}
 
@@ -27,5 +32,9 @@
 \chapter{Week 3}
 
 \import{week3}{week3.tex}
+
+\chapter{Week 4}
+
+\import{week4}{week4.tex}
 
 \end{document}

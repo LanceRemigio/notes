@@ -6,56 +6,50 @@
 
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[EL]{\nouppercase\leftmark}
-\fancyhead[OR]{\nouppercase\rightmark}
-\fancyhead[C]{Homework 2}
-\fancyhead[ER,OL]{\thepage}
 
 
 \title{Math 234A: Homework 2}
 \author{Lance Remigio}
 \begin{document}
    \maketitle 
- 
-\section{Problem 1} 
+
+
+\lhead{Math 234A: Homework 2}
+\chead{Lance Remigio}
+\rhead{\thepage}
+
+
+\section*{Problem 1} 
 \begin{definition}[Cauchy Sequence]
     A sequence \( ({z}_{n}) \) is called a \textbf{Cauchy Sequence} if for all \( \epsilon > 0  \), there exists a positive interger \( \N  \) such that for all \( m,n \geq N  \),   
     \[  | {z}_{m} - {z}_{n}  |  < \epsilon. \]
 \end{definition}
 Show that a sequence \( ({z}_{n}) \) in \( \C  \) is convergent if and only if it is Cauchy.
 \begin{proof}
-\( (\Rightarrow) \) Suppose the sequence \( ({z}_{n}) \) is convergent. We want to show that \( ({z}_{n}) \) is Cauchy. Let \( \epsilon > 0  \). We want to show that there exists an \( N \in \Z^{+} \) such that whenever \( n.m \geq N  \), we have
-\[  | {z}_{n} - {z}_{m} | < \epsilon. \]
-Since \( ({z}_{n}) \) converges, we can find an \( {N}_{1} \in \Z^{+} \) such that whenever \( n \geq {N}_{1} \), we have 
-\[  | {z}_{n} - z  | < \frac{ \epsilon }{ 2 }. \tag{1} \]
-Likewise, we can find an \( {N}_{2} \in \Z^{+} \) such that whenever \( m \geq {N}_{2} \) , we have 
-\[  | {z}_{m} - z  |  < \frac{ \epsilon }{ 2 }. \tag{2} \]
-So, choosing \( N = \max{{N}_{1}, {N}_{2}}  \), we see that for any \( m,n \geq N  \), we have 
-\begin{align*}
-    | {z}_{n} - {z}_{m} | &= | {z}_{n} - z + z - {z}_{m} |  \\
-                          &\leq | {z}_{n} - z  |  + | z - {z}_{m} | \\
-                          &< \frac{ \epsilon }{ 2 }  + \frac{ \epsilon }{ 2 }  \\
-                          &= \epsilon.
-\end{align*}
-Thus, we conclude that \( ({z}_{n})  \) is Cauchy.
+    \( (\Longrightarrow) \) Let \( \epsilon > 0  \). If \( ({z}_{n}) \) is Cauchy, then we can find an \( N \in \N  \) such that for any \( n,m \geq N  \) such that 
+    \[  | {z}_{n} - {z}_{m} | < \epsilon. \]
+    Then observe that for any \( n,m \geq N  \), we have
+    \[ | \Re({z}_{n}) - \Re({z}_{m}) | = | \Re({z}_{n} - {z}_{m}) | \leq | {z}_{n} - {z}_{m} | < \epsilon \]
+    and similarly,
+    \[ | \Im({z}_{n}) - \Im({z}_{m}) | = | \Im({z}_{n} - {z}_{m}) |  \leq | {z}_{n} - {z}_{m} | < \epsilon.   \]
+    Therefore, the real and imaginary parts of \( ({z}_{n}) \) are Cauchy. Since \( \Re({z}_{n}) \) and \( \Im({z}_{n}) \) are real-valued sequences, they must converge as well. But this holds if and only if \( ({z}_{n}) \) converges. 
 
-\( ( \Leftarrow )  \) Suppose \( ({z}_{n}) \) is Cauchy. Let \( \epsilon > 0  \). We want to show that there exists an \( N \in \Z^{+}  \) such that for any \( n \geq N  \), we have  
-\[  |  {z}_{n} -  z | < \epsilon. \]
-Since \( ({z}_{n}) \) is Cauchy, we know that \( ({z}_{n}) \) must be bounded. Thus, \( ({z}_{n}) \) must contain a subsequence \( ({z}_{{n}_{k }}) \) that is convergent. Thus, we can find an \( {N}_{1} \in \Z^{+}  \) such that whenever \( {n}_{k } \geq {N}_{1}  \), we have 
-\[  | {z}_{{n}_{k }} - z  | < \frac{ \epsilon  }{  2  } \tag{3}.  \]
-Since \( ({z}_{n}) \) is Cauchy, we can find an \( {N}_{2} \in \Z^{+} \) such that whenever \( n, {n}_{k} \geq {N}_{2} \), we have
-\[  |  {z}_{n} - {z}_{{n}_{k}} |  < \frac{ \epsilon  }{ 2 }  \tag{4}. \]
-Choose \( N = \max{{N}_{1}, {N}_{2}} \). Then for any \( n, {n}_{k} \geq N  \), we have
-\begin{align*}
-    | {z}_{n} - z |  &= | {z}_{n} - {z}_{{n}_{k }} + {z}_{{n}_{k }} - z   |  \\
-                     &\leq  | {z}_{n} - {z}_{{n}_{k }} |  + | {z}_{{n}_{k }} - z  |  \\
-                     &< \frac{ \epsilon  }{ 2  }  + \frac{ \epsilon  }{  2  } \\
-                     &= \epsilon.
-\end{align*}
-Thus, we conclude that \( ({z}_{n}) \to z \).
+    \( (\Longleftarrow) \) Let \( \epsilon > 0  \). Suppose \( ({z}_{n}) \) converges. This holds if and only if \( \Re({z}_{n}) \) and \( \Im({z}_{n}) \) converge. But this holds if and only if \( \Re({z}_{n}) \) and \( \Im({z}_{n}) \) are both Cauchy since they are real-valued sequences. Thus, we can find an \( N \in \N  \) such that for any \( n,m \geq N  \), we see that 
+    \[  | \Re({z}_{n}) - \Re({z}_{m}) | < \frac{ \epsilon  }{ 2  } \tag{1}  \]
+    and 
+    \[  | \Im({z}_{n}) - \Im({z}_{m}) | < \frac{ \epsilon  }{  2  }. \tag{2} \]
+    Using (1) and (2), we see that
+    \begin{align*}
+        | {z}_{n} - {z}_{m} | &= | \Re({z}_{n}) + i \Im({z}_{n}) - (\Re({z}_{m}) + i \Im({z}_{m})) |  \\
+                              &= | (\Re({z}_{n}) - \Re({z}_{m})) + i (\Im({z}_{n}) - \Im({z}_{m})) | \\
+                              &\leq | \Re({z}_{n}) - \Re({z}_{m}) | + | \Im({z}_{n}) - \Im({z}_{m}) | \\ 
+                              &< \frac{ \epsilon  }{ 2 } + \frac{ \epsilon }{ 2 } \\
+                              &= \epsilon.
+    \end{align*}
+    Thus, we conclude that \( ({z}_{n}) \) is Cauchy.
 \end{proof}
 
-\section{Problem 2}
+\section*{Problem 2}
 \begin{enumerate}
     \item[(i)] Let \( {z}_{0} = {x}_{0} + i {\zeta}_{0} \in \C  \): Define a sequence \( ({z}_{n}) \) by \( {z}_{n+1} = \frac{ 1 }{ 2 }  ({z}_{n} + \frac{ 1 }{ {z}_{n} } ) \), \( n \geq 1  \), and \( {z}_{1} = \frac{ 1 }{ 2 }  ({z}_{0} + \frac{ 1 }{ {z}_{0} } ) \). 
         Show that 
@@ -65,13 +59,60 @@ Thus, we conclude that \( ({z}_{n}) \to z \).
             -1 &\text{if}  \ {x}_{0} < 0 
         \end{cases}   \]
     \begin{proof}
-    
+     Let \( {z}_{0} = {x}_{0} + i {\zeta}_{0} \in \C  \). Define a sequence \( ({z}_{n}) \) by     
+     \[  {z}_{n+1} = \frac{ 1 }{ 2 }  \Big(  {z}_{n} + \frac{ 1 }{ {z}_{n} }  \Big), \ n \geq 1  \]
+     and
+     \[  {z}_{1} = \frac{ 1 }{ 2 } \Big(  {z}_{0} + \frac{ 1 }{ {z}_{0} }  \Big). \]
+     Our goal is to show that 
+        \[  \lim_{ n  \to \infty  } {z}_{n} = 
+        \begin{cases}
+            1 &\text{if} \ {x}_{0} > 0 \\
+            -1 &\text{if}  \ {x}_{0} < 0. 
+        \end{cases}   \]
+        Suppose \( {x}_{0} > 0  \). First, we need to show that \( {z}_{n} \neq 1  \) for all \( n \in \N  \). We will first show that \( \Re({z}_{n}) > 0  \) by induction. Now, define a new sequence \( ({w}_{n})  \) such that
+\[  {w}_{n+1} = \frac{ {z}_{n+1} - 1  }{  {z}_{n+1} + 1  }   \]
+        and note that 
+        \[  {z}_{n+1} = \frac{ 1 + {z}_{n}^{2} }{  2 {z}_{n} }.  \]
+        Our next step is to show that \( {w}_{n+1} = {w}_{n}^{2} \). Thus, observe that
+        \begin{align*}
+            {w}_{n+1} = \frac{ \frac{ 1 + {z}_{n}^{2} }{ 2 {z}_{n} }  - 1  }{ \frac{ 1 + {z}_{n}^{2} }{ 2 {z}_{n}} + 1   }  
+                      = \frac{ \frac{ {z}_{n}^{2} - 2 {z}_{n} + 1}{2 {z}_{n}}  }{ \frac{ {z}_{n}^{2} + 2 {z}_{n} + 1  }{ 2 {z}_{n} }  }  
+                      &= \frac{ {z}_{n}^{2} - 2 {z}_{n} + 1  }{  {z}_{n}^{2} + 2 {z}_{n} + 1  } \\
+                      &= \frac{ ({z}_{n} - 1)^{2} }{ ({z}_{n} + 1)^{2} }  \\
+                      &= \Big(  \frac{ {z}_{n} -1  }{ {z}_{n} + 1  }  \Big)^{2} \\
+                      &= {w}_{n}^{2}.
+        \end{align*}
+        Now, we want to show, as a consequence of the result  above, that \( ({w}_{n}) \) is a decreasing sequence; that is, we want to show that  \( 0 < |  {w}_{n + 1}  |  < | {w}_{n} |  < 1 \). We will induct on \( n \in \N  \) to show this. Thus, let \( n = 1  \) be our base case. Observe that
+        \begin{align*}
+            0 < | {w}_{1 + 1} |  = | {w}_{2} | = | {w}_{1}^{2} | &= \Big| \Big(  \frac{ {z}_{1} - 1  }{  {z}_{1} + 1  } \Big)^{2} \Big|  \\
+                                                             &< \Big|  \frac{ {z}_{1} - 1  }{ {z}_{1} + 1  }  \Big|  \\
+                                                             &< 1.
+        \end{align*}
+        Let us now assume that this result holds for the \( n \)th case. Thus, we see that
+        \begin{align*}
+            0 < | {w}_{n+2} |  = | {w}_{n+1}^{2} | = \Big| \Big( \frac{ {z}_{n+1} - 1  }{  {z}_{n+1} + 1  }    \Big)^{2} \Big|  < | {w}_{n+1}   | &< | {w}_{n} | < 1. \\
+        \end{align*}
+        Thus, we see that \( 0 < | {w}_{n+1} | < | {w}_{n} |  < 1  \) holds for all \( n \in \N  \). Clearly, we see that \( ({w}_{n}) \) is bounded and decreasing for all \( n  \). Hence, \( ({w}_{n})  \) must converge, and in this case, it converges to \( 0  \). Let \( \epsilon > 0  \). We can pick an \( N \in \N  \) such that for any \( n \geq N  \), we see that  
+        \[  \Big| \frac{ {z}_{n} - 1  }{ {z}_{n+1} + 1  }  \Big| < \epsilon \Longleftrightarrow | {z}_{n} - 1  | < \epsilon | {z}_{n+1} + 1 |.  \]
+        Since \( \epsilon > 0  \) is arbitrary, we see that \( ({z}_{n}) \to 1  \).
+
+        Now, assume that \( {x}_{0} < 0  \). Let \( \epsilon > 0  \). Since the first case holds, we can find an \( N \in \N  \) such that for any \( n \geq N  \), we have  
+        \[  | {z}_{n} - 1  |  < \epsilon. \]
+        Observe that 
+        \[  | {z}_{n} - 1  | = | - {z}_{n} - (-1)   | \]
+        which tells us that \( (- {z}_{n}) \to -1 \). 
+        
+
+
     \end{proof}
     \item[(ii)] Discuss convergence and divergence of 
-        \[  {z}_{n} = 1 + i \frac{ (-1)^{n} }{ n^{2} } \ \text{for} n = 1,2,\dots \ . \]
-        Let \( \Phi = \Arg({z}_{n}) \). Show that \( ({\Phi}_{n}) \to 0 \).
+        \[  {z}_{n} = 1 + i \frac{ (-1)^{n} }{ n^{2} } \ \text{for} \ n = 1,2,\dots \ . \]
+        Let \( \Phi_n = \Arg({z}_{n}) \). Show that \( ({\Phi}_{n}) \to 0 \).
         \begin{proof}
-        
+        Observe that \( \Re({z}_{n}) \to 1  \) and \( \Im({z}_{n}) = \frac{ (-1)^{n} }{ n^{2} } \to 0 \) as \( n \to \infty  \). Since the real part and imaginary part of \( {z}_{n} \) converge, we know that \( ({z}_{n}) \) must also converge. In fact, it converges to the following value
+        \[  {z}_{n} \to 1 + 0i = 1. \]
+        By definition, we know that 
+        \[  {\Phi}_{n} = \Arg({z}_{n}) = \tan^{-1} \Bigg(  \frac{ \Im({z}_{n}) }{ \Re({z}_{n})  }  \Bigg) \to \tan^{-1}( 0 ) = 0 \ \text{as} \ n \to \infty. \]
         \end{proof}
     \item[(iii)] Assume that \( 0 < \gamma < 1  \). Show that 
         \begin{align*}
@@ -79,27 +120,348 @@ Thus, we conclude that \( ({z}_{n}) \to z \).
             \sum_{ n=1  }^{ \infty  } \gamma^{n} \sin n \theta &= \frac{  \gamma \sin \theta   }{  1 - 2 \gamma \cos \theta + \gamma^{2} }. 
     \end{align*}
         \begin{proof}
-
+        Set \( z = \gamma e^{i\theta} \). Consider the series  
+        \[  \sum_{ n=1  }^{ \infty  } z^{n} \]
+        which converges absolutely for \( | z  | < 1  \) such that 
+        \[  \sum_{ n=1  }^{ \infty  } z^{n} = \frac{ z  }{  1 - z  }. \tag{1} \]
+        By rearranging terms and using the polar representation of \( z \), we see that
+        \begin{align*}
+            \sum_{ n=1  }^{ \infty  } z^{n} &= \sum_{ n=1  }^{ \infty  } (\gamma e^{i\theta})^{n} \\
+                                            &= \sum_{ n=1  }^{ \infty  } [\gamma (\cos \theta + i \sin \theta)]^{n} \\ 
+                                            &= \sum_{ n=1  }^{ \infty  } \gamma^{n} (\cos \theta + i \sin \theta )^{n} \\
+                                            &= \sum_{ n=1  }^{ \infty  } \gamma^{n} (\cos n \theta + i \sin n \theta ) \tag{De Moivre's Theorem} \\
+                                            &= \sum_{ n=1  }^{ \infty  } \gamma^{n} \cos n \theta + i \sum_{ n=1 }^{ \infty  } \gamma^{n} \sin n \theta.  
+        \end{align*}
+        Thus, we have
+        \[ \sum_{ n=1  }^{ \infty  } z^{n} = \sum_{ n=1  }^{ \infty  } \gamma^{n} \cos n \theta + i \sum_{ n=1  }^{ \infty  } \gamma^{n} \sin n \theta. \tag{2}    \]
+        Working with the sum in (1) and using the polar representation of \( z  \), we see that
+        \begin{align*}
+            \frac{ z  }{  1 - z  } = \frac{ \gamma e^{i \theta} }{ 1 - \gamma e^{i \theta}  }  
+                                   &= \frac{  ( \gamma \cos \theta + i \gamma \sin \theta)  }{ (1 - \gamma \cos \theta) -   i \gamma \sin \theta  }   \\
+                                   &= \frac{  ( \gamma \cos \theta + i \gamma \sin \theta)  }{ (1 - \gamma \cos \theta) - i \gamma \sin \theta  } \cdot \frac{ ( 1 - \gamma \cos \theta) + i \gamma \sin \theta }{ (1 - \gamma \cos \theta ) + i \gamma \sin \theta  }    \\
+                                   &= \frac{ \gamma \cos \theta - \gamma^{2}( \sin^{2} \theta + \cos^{2} \theta ) + i \gamma \sin \theta  }{  1 -  2 \gamma \cos \theta + \gamma^{2} (\sin^{2} \theta + \cos^{2} \theta ) } \\
+                                   &= \frac{ \gamma \cos \theta - \gamma^{2} }{ 1 - 2 \gamma \cos \theta + \gamma^{2} } + i \frac{ \gamma \sin \theta  }{ 1 - 2 \gamma \cos \theta + \gamma^{2} }.
+        \end{align*}
+        Thus, we see that 
+        \[  \frac{ z  }{  1 - z  }  =  \frac{ \gamma \cos \theta - \gamma^{2} }{ 1 - 2 \gamma \cos \theta + \gamma^{2} } + i \frac{ \gamma \sin \theta  }{ 1 - 2 \gamma \cos \theta + \gamma^{2} }. \tag{3}
+\]
+Equating the real and imaginary parts of (2) and (3), we see that
+\begin{align*}
+    \Re \Big(  \sum_{ n=1  }^{ \infty  } z^{n}  \Big) &= \sum_{ n=1  }^{ \infty  } \gamma^{n} \cos n \theta = \frac{ \gamma \cos \theta - \gamma^{2} }{ 1 - 2 \gamma \cos \theta + \gamma^{2} },   \\
+    \Im \Big(  \sum_{ n=1  }^{ \infty  } z^{n} \Big) &= \sum_{ n=1  }^{ \infty  } \gamma^{n} \sin n \theta = \frac{ \gamma \sin \theta  }{ 1 - 2 \gamma \cos \theta + \gamma^{2} }.
+\end{align*}
         \end{proof}
 \end{enumerate}
 
-\section{Problem 3}
+\section*{Problem 3}
 Let \( ({z}_{n}) \) be a sequence of non-zero complex numbers. Suppose that 
 \[  \lim_{ n \to \infty  }  \Big| \frac{ {z}_{n+1}  }{ {z}_{n} }  \Big|  = L. \]
 Show that \( \lim_{ n \to \infty  } \sqrt[n]{ | {z}_{n} |   }  = L  \).
+
 \begin{proof}
+Let \( \epsilon > 0  \). Our goal is to show that there exists an \( N \in \N  \) such that for any \( n \geq N  \), we have
+\[ | | {z}_{n} |^{\frac{ 1 }{ n } } - L  | < \epsilon.  \]
+Indeed, we can use the fact that 
+\[  \lim_{ n \to \infty  }  \Big| \frac{ {z}_{n+1} }{ {z}_{n} }  \Big|  = L,  \]
+to find an \( N \in \N  \) such that whenever \(  n \geq  N \), we have
+\[  \Big| \frac{ {z}_{n+1} }{ {z}_{n} }  \Big| < L + \epsilon.  \]
+Now, observe that
+\begin{align*}
+    | {z}_{n} |^{\frac{ 1 }{ n } } &= \Big| \frac{ {z}_{n} }{ {z}_{n-1} } \cdot \frac{ {z}_{n-1} }{ {z}_{n-2} } \cdot \frac{ {z}_{n-2} }{ {z}_{n-3} } \cdots \frac{ {z}_{N+1} }{ {z}_{N} }  \Big|^{\frac{ 1 }{ n } } \\ 
+                                   &< \Big[ (L+\epsilon)^{n - N} \Big]^{\frac{ 1 }{ n }} | {z}_{N} |^{1/n} \\
+                                   &= \Big[(L+\epsilon)\Big]^{1- \frac{ N }{ n } } | {z}_{N} |^{\frac{ 1 }{ n }}.
+\end{align*}
+Taking the limit as \( n \to \infty  \) on the right-hand side, we can see that
+\[  | {z}_{n} |^{\frac{ 1 }{ n }} < L + \epsilon \Longleftrightarrow  | | {z}_{n} |^{1/n} - L | < \epsilon     \]
+which is our desired result.
 
 \end{proof}
 
-\section{Problem 4}
+\section*{Problem 4}
+Determine all \( z \in \C  \) such that 
+\begin{enumerate}
+    \item[(i)] \( \exp(z) = -2 \)
+        \begin{solution}
+        Note that \( -2 = -2 + 0i \) which means that 
+        \[  \Arg(-2) = \tan^{-1}(-2) = \pi. \]
+        Thus, we see that 
+        \begin{align*}
+            z = \Log(-2) &= \ln | -2 |  + i \Arg(-2) \\
+                     &= \ln 2 + i \Big( \pi + 2\pi k    \Big) \  \text{for} \ k \in \Z. 
+        \end{align*}
+        \end{solution}
+    \item[(ii)] \( \exp(z) = -i \)
+        \begin{solution}
+        Note that \( -i = 0 - i \) which means that 
+        \[  \Arg(-i) = \frac{ 3 \pi }{ 2 }. \]
+        Thus, we see that
+        \begin{align*}
+            z =  \Log(-i) &= \ln | -i |  + i \Arg(-i) \\
+                          &=  \ln (1) + i \Big[\frac{ 3 \pi  }{  2  }  + 2 \pi k \Big] \ \text{for} \ k \in \Z \\ 
+                          &= i\Big[\frac{ 3 \pi  }{  2  }  + 2 \pi k \Big] \ \text{for} \ k \in \Z. 
+        \end{align*}
+        \end{solution}
+    \item[(iii)] \( \sin z = 1 - i \)
+        \begin{solution}
+        Using the fact that 
+        \[  \sin z = \frac{ e^{iz} - e^{-iz} }{ 2i }  \]
+        we see that
+        \begin{align*}
+            \frac{ e^{iz} - e^{-iz} }{ 2i  } = 1 - i &\Longrightarrow  e^{iz} - e^{-iz} = 2i + 2  \\
+                                                     &\Longrightarrow (e^{iz})^{2} - 2(i+1) e^{iz} = 1 \\ 
+                                                     &\Longrightarrow w^{2} - 2(i+1)w = 1  \tag{\( w = e^{iz} \)}\\
+                                                     &\Longrightarrow w^{2} -2(1+i) w + (1+i)^{2} = 1 + (1+i)^{2} \\
+                                                     &\Longrightarrow (w - (1+i))^{2} = 1 + (1+i)^{2} \\
+                                                     &\Longrightarrow (w - (1+i))^{2 } = 1 + 2i \\
+                                                     &\Longrightarrow  w = \sqrt{ 1 + 2i } + (1+i). 
+        \end{align*}
+        Now, we will convert the first term on the right-hand side in terms of its respective polar representation. Thus, we have
+        \[  \sqrt{ 1 + 2i }  = 5^{\frac{1  }{ 4 } } e^{i \frac{ \tan^{-1}(2) }{ 2 } } = 5^{1/4} \Big(  \cos \Big(  \frac{ \tan^{-1}(2) }{ 2 }  \Big) + i \sin \Big(  \frac{ \tan^{-1}(2) }{ 2 }  \Big) \Big).  \]
+        Now, set 
+        \[  \alpha = \Big(  5^{1/4} \cos \Big(  \frac{ \tan^{-1}(2) }{ 2 }  \Big) + 1  \Big) + i \Big(  5^{1/4} \sin \Big(  \frac{ \tan^{-1}(2) }{ 2 }  \Big) + 1  \Big). \]
+        \begin{align*}
+            e^{iz } = \alpha  &\Longrightarrow z = \frac{ 1 }{ i } \Log (\alpha)  \\
+                              &\Longrightarrow z = -i [\ln | \alpha | + i \Arg(\alpha) ] \\ 
+                              &\Longrightarrow z = \Arg(\alpha) - i \ln | \alpha |.
+        \end{align*}
+        \end{solution}
+    \item[(iv)] \( \cos z = 3 + 4i \)
+        \begin{solution}
+        Using the fact that 
+        \[  \cos z = \frac{ e^{iz} + e^{-iz} }{ 2 },  \]
+        we have
+        \begin{align*}
+            e^{iz} + e^{-iz} = 2 (3 + 4i) &\Longrightarrow (e^{iz})^{2} + 1 = (6+8i) e^{iz}  \\
+                                          &\Longrightarrow w^{2} + 1 = (6+8i)w \\ \tag{\( w = e^{iz} \)}
+                                          &\Longrightarrow w^{2} - (6+8i)w = -1 \\
+                                          &\Longrightarrow w^{2} - (6+8i)w + (3+4i)^{2} = (3+4i)^{2} - 1 \\
+                                          &\Longrightarrow (w - (3+4i))^{2} = -1 + (3+4i)^{2} \\
+                                          &\Longrightarrow w = \sqrt{ 8(3i-1) } + (3+4i)  
+        \end{align*}
+        Now, let us convert the first term on the right-hand side into it's polar form which is 
+        \[  \sqrt{ 8 (3i - 1) } = 8^{1/2} \cdot 10^{1/2} e^{i \frac{ 3 \pi }{ 8 } } = 8^{1/2} \cdot 10^{1/2} \Big(  \cos \Big(  \frac{ 3 \pi }{ 8 }  \Big) + i \sin \Big(  \frac{ 3 \pi  }{ 8 }  \Big) \Big). \]
+        Let us set 
+        \[  \beta = \Big(  3 + 8^{1/2}\cdot 10^{1/2} \cos \Big(  \frac{ 3 \pi }{ 8 }  \Big) \Big) + i \Big(  4 + 8^{1/2} \cdot 10^{1/2} \sin \Big(  \frac{ 3 \pi  }{ 8 }  \Big) \Big). \]
+        Now, we have
+        \begin{align*}
+            e^{iz} = \beta &\Longrightarrow z  = \frac{ 1 }{ i }  \Log (\beta )  \\
+                           &\Longrightarrow z = -i [\ln | \beta  |  + i \Arg(\beta)] \\  
+                           &\Longrightarrow z = \Arg(\beta) - i \ln | \beta |.
+        \end{align*}
+        \end{solution}
+\end{enumerate}
 
-\section{Problem 5}
+\section*{Problem 5}
+Let \( ({z}_{n}) \) and \( ({w}_{n}) \) be two sequences of complex numbers. Assume that \( {z}_{n} = {w}_{n} - {w}_{n +1}  \). Show that \( \sum_{ n=1  }^{ \infty   } {z}_{n}  \) converges if and only if \( ({w}_{n}) \) converges. If \( \sum_{ n=1  }^{ \infty } {z}_{n} \) converges, show that 
+\[  \sum_{ n=0 }^{ \infty  } {z}_{n} = {w}_{1} - \lim_{ n \to \infty  } {w}_{n+1}. \]
+Use this to compute 
+\[  \sum_{ n=1  }^{  \infty  } \frac{ 1 }{ (n+i)((n+1)+i) }.  \]
+\begin{proof}
+    \( (\Rightarrow) \) Let \( ({z}_{n}) \) and \( {w}_{n} \) be two sequences of complex numbers. Our goal is to show that \( ({w}_{n}) \) converges. Assume that \( {z}_{n} = {w}_{n} - {w}_{n+1} \). Since \( \sum_{ n=1  }^{ \infty  } {z}_{n} \) converges , we know that \( ({z}_{n}) \) must converge to \( 0 \). But we must also have that 
+\[  | {z}_{n} |  = | {w}_{n} - {w}_{n+1} | \to 0  \]
+as \( n \to \infty   \). Hence, \( ({w}_{n}) \) must be a Cauchy sequence and so, it must converge by problem 1.   
 
-\section{Problem 6}
+\( (\Leftarrow) \) Suppose that \( ({w}_{n}) \) converges to some \( w \in \C  \). Let
+\[  {s}_{n} = \sum_{ k=1  }^{ n } {z}_{k}. \]
+Our goal is to show that \( ({s}_{n}) \to 0  \) as \( n \to \infty  \). Since \( {z}_{n} = {w}_{n} - {w}_{n+1} \), we can see that      
+\begin{align*}
+    | {s}_{n} | = \Big| \sum_{ k=1  }^{ n } {z}_{k}  \Big| &= \Big| \sum_{ k=1  }^{ n } {w}_{k} - {w}_{k+1} \Big|   \\
+                &= | ({w}_{1} - {w}_{2}) + ({w}_{2} - {w}_{3}) + \cdots + ({w}_{n} - {w}_{n+1}) | \\
+                &= | {w}_{1} - {w}_{n+1} |.
+\end{align*}
+Since \( ({w}_{n})  \) converges, we must also have that \( ({w}_{n}) \) is Cauchy. Thus, we see that 
+\[  | {s}_{n} | = | {w}_{1} - {w}_{n+1}  |  \to 0 \ \text{as} \ n  \to \infty.   \]
+Thus, \( ({s}_{n}) \) must converge and hence the infinite series \( \sum_{ k=1  }^{ \infty  } {z}_{n}  \) converges. Using this result, we can now compute
+\begin{align*}
+    {s}_{n} = \sum_{ k=1  }^{ n } {z}_{k} &= \sum_{ k=1  }^{ n } ({w}_{k} - {w}_{k+1})  \\
+                                          &=  ({w}_{1} - {w}_{2}) + ({w}_{2} - {w}_{3}) + \cdots + ({w}_{n} - {w}_{n+1}) \\
+                                          &= {w}_{1} - {w}_{n+1}
+\end{align*}
+whereby taking the limit gives us
+\[  \lim_{ n \to \infty  }  {s}_{n} = \lim_{ n \to \infty  }  ({w}_{1} - {w}_{n+1}) = {w}_{1} - \lim_{ n \to \infty  }  {w}_{n+1}. \]
+Now, let us compute the following infinite series
+\[  \sum_{ n=1  }^{  \infty  } \frac{ 1 }{ (n+i)((n+1)+i) }.  \]
+Using the formula we have just proved, we can see that
+\begin{align*}
+\sum_{ n=1 }^{ \infty  } \frac{ 1  }{  (n+i)((n+1)+i) }  &= \frac{ 1 }{ (1+i) (2 + i) }  + \lim_{ n \to \infty  }  \frac{ 1 }{ (n+i)((n+1) + i) }   \\
+                                                         &= \frac{ 1 }{ (1+i) (2+i) }.
+\end{align*}
+\end{proof}
 
-\section{Problem 7}
+\section*{Problem 6}
 
-\section{Problem 8}
+For \( z,w \in \C^{\cdot} \). Show that 
+\[  \Log(zw) = \Log(z) + \Log(w) + 2 \pi i k  \]
+where 
+\[  k = 
+\begin{cases}
+    0 &\text{if} \ - \pi < \Arg(z) + \Arg(w) \leq \pi \\ 
+    1 &\text{if} \ -2 \pi < \Arg(z) + \Arg(w) \leq - \pi \\
+    -1 &\text{if} \ \pi < \Arg z + \Arg w \leq 2 \pi.
+\end{cases} \]
+\begin{proof}
+Let \( z,w \in \C  \). We would like to consider three cases: 
+    \begin{enumerate}
+        \item[(i)] \( - \pi < \Arg(z) + \Arg(w) \leq \pi \)
+        \item[(ii)] \( -2 \pi < \Arg(z) + \Arg(w) \leq - \pi \).
+        \item[(iii)] \( \pi < \Arg z + \Arg w \leq 2 \pi \). 
+    \end{enumerate}
+Starting with case (i), we see that
+\[  \Log(z) = \ln | z |  + \Arg(z) \]
+and that \( k = 0  \). Thus, we see that 
+we can see that 
+\begin{align*}
+    \Log(zw) &= \ln | zw |  + \Arg(zw) \\
+             &= \ln | z | | w |  + (\Arg(z) + \Arg(w) ) \\
+             &= [\ln(z) + \ln(w)] + (\Arg(z) + \Arg(w) )\\  
+             &= \Big(  \ln(z) + \Arg(z)  \Big) + \Big(  \ln(w) + \Arg(w) \Big)\\
+             &= \Log(z) + \Log(w). 
+\end{align*}
+With case (ii), we have \( k = 1  \) so, we have
+\begin{align*}
+    \Log(zw) &= \ln | zw |  + \Arg(zw) \\
+             &= \ln | z | | w |  + (\Arg(z) + \Arg(w) + 2\pi i ) \\
+             &= [\ln(z) + \ln(w)] + (\Arg(z) + \Arg(w) + 2\pi i )\\  
+             &= \Big(  \ln(z) + \Arg(z)  \Big) + \Big(  \ln(w) + \Arg(w) \Big) + 2\pi i   \\
+             &= \Log(z) + \Log(w) + 2\pi i k. 
+\end{align*}
+Lastly, with case (iii), we have \( k = -1 \) which implies that 
+\begin{align*}
+    \Log(zw) &= \ln | zw |  + \Arg(zw) \\
+             &= \ln | z | | w |  + (\Arg(z) + \Arg(w) - 2\pi i ) \\
+             &= [\ln(z) + \ln(w)] + (\Arg(z) + \Arg(w) - 2\pi i )\\  
+             &= \Big(  \ln(z) + \Arg(z)  \Big) + \Big(  \ln(w) + \Arg(w) \Big) - 2\pi i   \\
+             &= \Log(z) + \Log(w) - 2\pi i . 
+\end{align*}
 
+\end{proof}
+
+\section*{Problem 7 (Hyperbolic Functions)}
+For \( z \in \C  \), define 
+\[  \cosh(z) = \frac{ \exp(z) + \exp(-z) }{ 2 }  \]
+and
+\[  \sinh(z) = \frac{ \exp(z) - \exp(-z) }{ 2 }.  \]
+Show that 
+\begin{enumerate}
+    \item[(i)] \( \sinh(z) = -i \sin(iz) \), \( \cosh(z) = \cos(iz) \) for all \( z \in \C  \).
+        \begin{proof}
+        Let \( z \in \C  \). Using the formulas above, we can see that
+        \begin{align*}
+            -i \sin (iz) &= -i \Bigg[ \frac{ \exp(i^{2} z) - \exp(-i^{2}z) }{ 2i } \Bigg] \\
+                         &= \frac{ \exp(z) - \exp(-z) }{ 2 } \\
+                         &= \sinh(z)
+        \end{align*}
+        and
+        \begin{align*}
+            \cos(iz) &= \frac{ \exp(i^{2} z) + \exp(- i^{2} z) }{ 2 }  \\
+                     &= \frac{ \exp(-z) + \exp(z) }{ 2 } \\
+                     &= \cosh(z).
+        \end{align*}
+        \end{proof}
+    \item[(ii)] \( \sinh(z+w) = \sin(z) \cosh(w) + \cosh(z) \sinh(w) \).
+        \begin{proof}
+            We will show the formulas above by using the sum formulas for cosine and sine. By part (i), we see that
+            \begin{align*}
+                \sinh(z+w) &= -i \sin(i (z+w)) \\
+                           &= -i \sin (iz + iw) \\
+                           &= -i \Big[ \sin(iz) \cos(iw) + \sin(iw) \cos(iz) \Big] \\
+                           &= (  - i \sin(iz) ) \cos(iw) + (-i \sin(iw)) \cos(iz) \\
+                           &= \sinh(z) \cosh(w) + \sinh(w) \cosh(z)
+            \end{align*}
+            and
+            \begin{align*}
+                \cosh(z+w) &= \cos(i(z+w)) \\
+                           &= \cos(iz + iw) \\
+                           &= \cos(iz)\cos(iw) - \sin(iz) \sin(iw) \\
+                           &= \cosh(z)\cosh(w) + i^{2} \sin(iz) \sin(iw) \\
+                           &= \cosh(z) \cosh(w) + (-i \sin(iz))(-i \sin(iw)) \\
+                           &= \cosh(z) \cosh(w) + \sinh(z) \sinh(w).
+            \end{align*}
+        \end{proof}
+    \item[(iii)] \( \cosh^{2}(z) - \sinh^{2}(z) = 1 \) for all \( z \in \C  \). 
+        \begin{proof}
+        Let \( z \in \C  \). Using part (i), we see that
+        \begin{align*}
+            \cosh^{2}(z) - \sinh^{2}(z) &= \cos^{2}(iz) - (- \sin^{2}(iz)) \\
+                                        &= \cos^{2}(iz) + \sin^{2}(iz) \\ 
+                                        &= 1.
+        \end{align*}
+        \end{proof}
+    \item[(iv)] \( \cosh(z + 2 \pi i ) = \cosh(z) \) and \( \sinh(z + 2 \pi i ) = \sinh(z) \) for all \( z \in \C  \).
+        \begin{proof}
+        Let \( z \in \C  \). Observe that
+        \[  \sinh(2\pi i) = -i \sin(2\pi i^{2}) = -i \sin(-2\pi) = \sin(2\pi) = 0 \]
+        and 
+        \[  \cosh(2\pi i ) = \cos(2\pi i^{2}) = \cos(-2 \pi) = \cos(2\pi) = 1. \]
+        Using part (ii), we can see that
+        \begin{align*}
+            \cosh(z+2\pi i) &= \cosh(z) \cosh(2\pi i) + \sinh(z) \sinh(2\pi i )   \\
+                            &= \cosh(z)
+        \end{align*}
+        and
+        \begin{align*}
+            \sinh(z + 2\pi i) &= \sinh(z)\cosh(2 \pi i) + \cosh(z) \sinh(2 \pi i) \\
+                              &= \sinh(z).
+        \end{align*}
+
+        \end{proof}
+    \item[(v)] \( \cosh(z) = \sum_{ n=0 }^{ \infty  } \frac{ z^{2n} }{ (2n)! }   \) and \( \sum_{ n=0 }^{ \infty  } \frac{ z^{2n+1} }{ (2n+1)! }  \).
+        \begin{proof}
+        By using the series representation of cosine and sine, we can see that  
+        \begin{align*}
+            \cosh(z) = \cos(iz) &= \sum_{ n=0 }^{ \infty  } \frac{ (-1)^{n} }{ (2n)! } (iz)^{2n} \\
+                                &= \sum_{ n=0  }^{ \infty  } \frac{ (-1)^{n} }{ (2n)! } (-1)^{n} z^{2n} \\
+                                &= \sum_{ n=0 }^{ \infty  } \frac{ z^{2n} }{ (2n)! } 
+        \end{align*}
+        and 
+        \begin{align*}
+            \sinh(z) = -i \sin(iz) &= -i \sum_{ n=0 }^{ \infty  } \frac{ (-1)^{n} }{ (2n+1)! } (iz)^{2n+1} \\
+                                   &=  \sum_{ n=0  }^{ \infty  } \frac{ (-i) (-1)^{n}  }{  (2n+1)! } i^{2n+1} z^{2n+1} \\ 
+                                   &= \sum_{ n=0 }^{ \infty  } \frac{ (-i) (-1)^{n} }{ (2n+1)! } (-1)^{n} i z^{2n+1} \\
+                                   &= \sum_{ n=0 }^{ \infty  } \frac{ z^{2n+1} }{ (2n+1)! }.
+        \end{align*}
+        \end{proof}
+\end{enumerate}
+
+\section*{Problem 8}
+\begin{enumerate}
+    \item[(a)] Find all possible \( z \in \C  \) so that 
+        \[  \sum_{ n=1  }^{ \infty  } n | z |^{n}  \] 
+        converges. Use it to discuss the convergence of the series \( \sum_{ n=1  }^{  \infty  } n z^{n} \).
+        \begin{solution}
+        Using the ratio test, denote \( {a}_{n} = n | z |^{n} \). Then observe that         
+        \begin{align*}
+            \Big| \frac{ {a}_{n+1} }{ {a}_{n} }  \Big|  = \Big| \frac{ (n+1) | z |^{n+1} }{ n | z |^{n} }  \Big| &= \frac{ n+1 }{ n } \cdot | z |  \\
+                                                                                                                 &= \Big(  1 + \frac{ 1 }{ n }  \Big) | z |. 
+        \end{align*}
+        If we take the limit as \( n \to \infty  \), we see that 
+        \[  \lim_{ n \to \infty  }  \Big| \frac{ {a}_{n+1} }{ {a}_{n} }  \Big| = \lim_{ n \to \infty  } \Big( 1 + \frac{ 1 }{ n }  \Big) | z | = | z |. \]
+        Note that by the ratio test, the series 
+        \[  \sum_{ n=1 }^{ \infty  }n | z |^{n} \]
+        converges if \( | z |  < 1  \). Thus, the series  
+        \[  \sum_{ n=1 }^{ \infty  } n z^{n} \] converges for all 
+        \( | z | < 1  \).
+        \end{solution}
+    \item Show that the series \( \sum_{ n=0 }^{ \infty  } \frac{ z^{4n+1} }{ (2n)! }  \)converges absolutely for all \( z \in \C  \).
+        \begin{proof}
+        Let \( z \in \C  \). We proceed via the ratio test to show that 
+        \[  \sum_{ n=0  }^{  \infty  } \frac{ z^{4n+1} }{ (2n)! }  \]
+        converges absolutely. Thus, observe that
+        \[  {r}_{n} = \frac{ z^{4n+1} }{ (2n)! }. \]
+        Hence, we have
+        \begin{align*}
+            \Big| \frac{ {r}_{n+1} }{ {r}_{n} }  \Big| &= \Big| \frac{ z^{4n+5} }{ (2n+2)! } \cdot \frac{ (2n)! }{ z^{4n+1} }   \Big|  \\
+                                                       &= \Big| \frac{ z }{ (2n+2)(2n+1) }  \Big| \\
+                                                       &= \frac{ | z |  }{ (2n+2)(2n+1) } .
+        \end{align*}
+        Taking the limit as \( n \to \infty  \), we see that for any fixed \( z \in \C  \) that
+        \[ \lim_{ n \to \infty  }  \Big| \frac{ {r}_{n+1} }{ {r}_{n} }  \Big|  = \lim_{ n \to \infty  }  \frac{ | z |  }{ (2n+2)(2n+1) } = 0 < 1.   \]
+        Thus, we see that the infinite series
+        \[  \sum_{ n=0 }^{ \infty  } \frac{ z^{4n+1} }{ (2n)! }  \]
+        converges. Now, observe that
+        \[  \sum_{ n=0 }^{ \infty  } \frac{ z^{4n+1} }{ (2n)! } = z \sum_{ n=0 }^{ \infty  } \frac{ (z^{2} )^{2n}  }{ (2n)! } = z \cosh(z^{2}) \]
+        and so we can find the sum of this infinite series granted that we pick a \( z \in \C  \).
+        \end{proof}
+\end{enumerate}
 
 \end{document}

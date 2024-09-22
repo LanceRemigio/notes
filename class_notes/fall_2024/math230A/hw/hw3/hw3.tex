@@ -1,0 +1,595 @@
+\documentclass{article}
+
+\usepackage{standalone}
+\usepackage{import}
+\input{../../../../../newpreamble.tex}
+
+
+\title{Homework 3}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% \fancyhf{}
+% \fancyhead[EL]{\nouppercase\leftmark}
+% \fancyhead[OR]{\nouppercase\rightmark}
+% \fancyhead[C]{Homework 3}
+% \fancyhead[ER,OL]{\thepage}
+\author{Lance Remigio}
+
+\begin{document}
+\maketitle    
+
+\lhead{Math 230A: Homework 3}
+\chead{Lance Remigio}
+\rhead{\thepage}
+
+
+
+\begin{enumerate}
+    \item Prove that for all \( a,b \in \R  \), we have \( | ab |  = | a |  | b |  \).
+        \begin{proof}
+        Let \( a,b \in \R  \). Our goal is to show that \( | ab | = | a |  | b |   \). There are a few cases to consider to which we will list below:
+        \begin{enumerate}
+            \item[(1)] If \( a = 0  \) and \( b = 0  \).
+            \item[(2)] \( a > 0  \) and \(  b > 0  \) 
+            \item[(3)] \( a < 0  \) and \( b > 0  \)  
+            \item[(4)] \( a > 0  \) and \( b < 0  \).
+            \item[(5)] \( a < 0  \) and \( b < 0 \).
+        \end{enumerate}
+        Note that, by definition of absolute value, we have
+        \begin{align*}
+            | a  | &= 
+            \begin{cases}
+                a &\text{if} \ a > 0 \\
+                -a &\text{if} \ a \leq 0
+            \end{cases}    \\
+            | b  | &= 
+            \begin{cases}
+                b &\text{if} \ b > 0 \\
+                -b &\text{if} \ b \leq 0
+            \end{cases}    \\
+            | ab  | &= 
+            \begin{cases}
+                ab &\text{if} \ ab > 0 \\
+                -ab &\text{if} \ ab \leq 0
+            \end{cases}. 
+        \end{align*}
+
+        Now, we proceed with each case as follows:
+        \begin{enumerate}
+            \item[(1)] Suppose \( a = 0  \) and \( b = 0  \), then the result immediately follows.
+            \item[(2)] Suppose \( a > 0  \) and \( b > 0  \). Then \( ab > 0  \) which implies that 
+                \begin{align*}
+                    | ab  | = a \cdot b = | a | \cdot | b |.
+                \end{align*}
+            \item[(3)] Suppose \( a < 0  \) and \( b > 0  \), then we have \( ab < 0  \). Thus,  
+                \[  | ab | = -ab = (-a)(b) = | a | | b |.   \]
+            \item[(4)] Suppose \( a> 0  \) and \( b < 0  \). Then we have \( a b < 0  \) which tells us that 
+                \[  | ab  |  = -ab = (a)(-b) = | a |  | b |.  \]
+            \item[(5)] Suppose \( a < 0  \) and \( b < 0  \). Then we have \( ab > 0  \) which tells us that 
+                \[  | ab | = ab = (-a)(-b) = | a |  | b |. \]
+        \end{enumerate}
+        Thus, we conclude that for all \( a,b \in \R  \), we have \( | ab | = | a |  | b |  \).
+        \end{proof}
+    \item Prove that for all \( c \in \R  \), we have \( - | c  |  \leq c \leq | c  |  \).  
+        \begin{proof}
+        Let \( c \in \R  \). We will show that \( - | c  |  \leq c \leq | c  |  \). There are two cases to consider: 
+        \begin{enumerate}
+            \item[(1)] \( c = 0 \),
+            \item[(2)] \( c > 0  \), 
+            \item[(2)] \( c < 0  \).
+        \end{enumerate}
+        We proceed with each case as follows:
+        \begin{enumerate}
+            \item[(1)] If \( c = 0  \), then the result immediately follows.
+            \item[(2)] Suppose \( c > 0  \). Then \( | c  |  = c  \) which implies that 
+        \[  c \leq c \implies c \leq | c  |. \]
+        For the other inequality, note that \( c \geq -c  \). So, we have
+        \[ c \geq -c = - | c  |.    \]
+        Thus, we have \( - | c  |  \leq c \leq | c  |  \).
+            \item[(3)] Suppose \( c < 0  \). Note that \( | c  |  = -c  \). If \( c < 0  \), then we see that \( -c < c   \). Clearly, we have \( c \leq c  \), and so we have 
+            \begin{align*}
+                - | c  | = -(-c) = c \leq c \implies - | c  |  \leq c.   
+            \end{align*}
+            Since \( c < -c  \), we see that   
+            \[  c \leq -c = | c  |.  \]
+            Hence, we have \( -| c  |  \leq c \leq | c  |  \).
+        \end{enumerate}
+        \end{proof}
+    \item Prove that for all \( c,d \in \R  \), we have
+        \[  | c  |  \leq d \Longleftrightarrow -d \leq c \leq d. \]
+        \begin{proof}
+        Let \( c,d \in \R  \). We will show that \( | c  |  \leq d  \) if and only if \( -d \leq c \leq d  \). 
+
+        \( (\Rightarrow) \) Suppose \( | c  |  \leq d  \). Note that we have \( | c  |  = c  \) if \( c > 0  \) or \( | c  |  = -c  \) if \( c < 0  \) or \( | c |  = 0  \) if \( c = 0  \). Clearly, if \( c = 0  \), then the result immediately follows. Thus, suppose \( c > 0  \). Then
+        \[  | c  | \leq d \Longrightarrow c \leq d  \]
+        and
+        \begin{align*}
+            | c | \leq d &\Longrightarrow c \leq d  \\
+                         &\Longrightarrow -(-c) \leq d  \\
+                         &\Longrightarrow -c \geq -d. 
+        \end{align*}
+        Note that \( c > -c  \), so \( c \geq -d  \). Thus, we see that   
+        \[  -d \leq c \leq d.  \]
+
+        If \( c < 0  \), then \( | c  |  = -c  \). So,
+        \begin{align*}
+            | c  |  \leq d &\implies -c \leq d  \\
+                           &\implies c \geq -d.
+        \end{align*}
+        If \( c < 0  \), then \( -c > 0  \) implies \( -c > c  \). So, we have
+        \begin{align*}
+            c \geq -d &\implies -(-c) \geq -d \\
+                      &\implies -c \leq d \\
+                      &\implies c < -c \leq d \\ 
+                      &\implies c \leq d.
+        \end{align*}
+        Thus, we see that 
+        \[  -d \leq c \leq d. \]
+
+        \( (\Leftarrow) \) Suppose \( -d \leq c \leq d  \). Note that if \( c = 0  \), then the result immediately follows. Thus, we either have \( c > 0  \) or \( c < 0  \). If \( c > 0  \), then \( | c  |  = c  \). Then by assumption, we have
+        \[  | c |  = c \leq d. \]
+        If \( c < 0  \), then \( | c  |  = -c  \). By assumption, we see that 
+        \[  -d \leq c \implies -c \leq d. \]
+        Thus, we have
+        \[ | c  | = -c \leq d.   \]
+    \end{proof}
+    \item 
+        \begin{enumerate}
+            \item[(i)] Use induction to prove that \( | {x}_{1} + {x}_{2} + \cdots + {x}_{n} |  \leq | {x}_{1}  |  + | {x}_{2}  |  + \cdots + | {x}_{n} | \) for any \( n  \) real numbers \( {x}_{1}, \dots, {x}_{n} \).
+                \begin{proof}
+                We proceed with induction on \( n  \). Let \( n = 1  \), then we clearly we have \( | {x}_{1} |  \leq | {x}_{1} |  \). If \( n = 2  \), then our claim is that  
+                \[  | {x}_{1} + {x}_{2} | \leq | {x}_{1} | + | {x}_{2} | \]
+                to which we will show that 
+                \[  ({x}_{1} + {x}_{2})^{2} \leq (| {x}_{1} |  + | {x}_{2}| )^{2}.  \]
+                Using problem 1 and 2, we can see that
+                \begin{align*}
+                    ({x}_{1} + {x}_{2})^{2} &= {x}_{1}^{2} + 2 {x}_{1} {x}_{2} + {x}_{2}^{2} \\
+                                            &\leq | {x}_{1} |^{2} + 2 | {x}_{1} {x}_{2} | + | {x}_{2} |^{2} \\
+                                            &= | {x}_{1} |^{2} + 2 | {x}_{1} | | {x}_{2} |  + | {x}_{2} |^{2} \\
+                                            &= (| {x}_{1} |  + | {x}_{2} | )^{2}.
+                \end{align*}
+                Then we have
+                \[  | {x}_{1} + {x}_{2} | \leq | {x}_{1} | + | {x}_{2} |  \]
+                by taking the square root of both sides. Thus, case \( n = 2  \) holds. 
+
+                Now, suppose the result holds for the \( n  \)th case. We will show that the \( n + 1  \) case holds.  Note that \(  p = ({x}_{1} + {x}_{2} + \cdots + {x}_{n}) \). So, applying the result for \( n = 2  \) yields the following result:
+                \begin{align*}
+                    | {x}_{1} + {x}_{2} + \cdots + {x}_{n} + {x}_{n+1} | &= | ({x}_{1} + {x}_{2} + \cdots + {x}_{n}) + {x}_{n+1}  |  \\
+                                                                         &= | p + {x}_{n+1} | \\
+                                                                         &\leq | p  |  + | {x}_{n+1} |.
+                \end{align*}
+                By our induction hypothesis, we see that 
+                \[  | {x}_{1} + {x}_{2} + \cdots + {x}_{n} |  \leq | {x}_{1} |  + | {x}_{2} |  + \cdots + | {x}_{n} |. \]
+                Thus, we have
+                \[  | {x}_{1} + {x}_{2} + \cdots + {x}_{n} +  {x}_{n+1} | \leq | {z}_{1}  |  + | {x}_{2}  |  + \cdots + | {x}_{n} |  + | {x}_{n+1} |  \]
+                and we are done.
+                \end{proof}
+            \item[(ii)] Prove \( | | x  |  - | y  |  | \leq | x - y  |  \) for any two real numbers \( x  \) and \( y  \). 
+                \begin{proof}
+                Let \( x,y \in \R  \). To show that \( | | x |  - | y |  | \leq | x - y  |  \), it is enough to show that 
+                \[  -(| x  -  y |) \leq |x  | - | y | \leq | x - y |.   \]
+                Observe that \( | x  |  \leq | x  |  \). Then using the part (i), we see that 
+                \begin{align*}
+                    | x  |  \leq | x  | &\Longleftrightarrow | x |  \leq | (x-y) + y |  \leq | x - y  |  + | y |  \\
+                                        &\Longleftrightarrow | x  |  - | y  | \leq |  x - y  |.
+                \end{align*}
+                Similarly, observe that \( | y |  \leq | y  |  \) implies that 
+                \begin{align*}
+                    | y | \leq | y  | &\Longleftrightarrow | y  |  \leq | (y-x) + x  | \leq | y - x  | + | x  |   \\
+                          &\Longleftrightarrow | y  | - | x |  \leq | y - x  | \\
+                          &\Longleftrightarrow -(| x |  - | y |) \leq |  x-  y  |.   
+                \end{align*}
+                Thus, we see that 
+                \[  -(| x  -  y |) \leq |x  | - | y | \leq | x - y |   \]
+                which is our desired result.
+                \end{proof}
+        \end{enumerate}
+
+            \item Recall that according to the AM-GM inequality (for the case \( n = 2  \)) we have 
+                \[ \forall x,y > 0 \ \ \frac{ x + y  }{  2  }  \geq \sqrt{ xy }.  \]
+                Use the inequality above to show that for all real numbers \( a > 0  \) we have \( a + \frac{ 1 }{ a }  \geq 2  \).
+                \begin{proof}
+                Let \( a > 0  \). Then by the \( n = 2  \) case of the AM-GM inequality, we have
+                \begin{align*}
+                a + \frac{ 1 }{ a  } = \frac{ 2 a^{2} }{ 2a  }  + \frac{ 2  }{ 2a  }  &= \frac{ 2a^{2}/ a  }{ 2  }  + \frac{ 2 /a  }{ 2  } \\
+                                                                                      &\geq \sqrt{ \frac{ 2 a^{2} }{ a }  \cdot \frac{ 2 }{ a }  } \\ 
+                                                                                      &= \sqrt{ 4 } \\
+                                                                                      &=2.
+            \end{align*}
+            Thus, we conclude that 
+            \[ a + \frac{ 1 }{ a }  \geq 2. \]
+             \end{proof}
+        \item Let \( p  \) and \( q  \) be positive real numbers with \( \frac{ 1 }{ p }  + \frac{ 1 }{ q } = 1  \). Prove that for all nonnegative real numbers \(  a \) and \( b  \), we have
+            \[  ab \leq \frac{ a^{p} }{ p }  + \frac{ b^{q} }{ q }. \]
+            \begin{proof}
+            Let \( p  \) and \( q  \) be positive real numbers with \( \frac{ 1 }{ p }  + \frac{ 1 }{ q }  = 1  \). Let \( a,b \in \R  \) be nonnegative. We have the following cases:  
+            \begin{enumerate}
+                \item[(1)] \( a = 0  \) and \( b = 0  \)
+                \item[(2)] \( a = 0  \) and \( b > 0  \)
+                \item[(3)] \( a > 0  \) and \( b = 0  \)
+                \item[(4)] \( a > 0  \) and \( b > 0  \).
+            \end{enumerate}
+            We proceed with the proof of the result with the following cases.
+            \begin{enumerate}
+                \item[(1)] If \( a = 0  \) and \( b = 0  \), then the result is immediate. 
+                \item[(2)] If \( a = 0  \) and \(  b > 0  \), then we immediately have  
+                    \[  ab = 0 \leq \frac{ a^{p} }{ p  } + \frac{ b^{q} }{ q }  = \frac{ b^{q} }{ q }. \]
+                \item[(3)] If \( b = 0  \) and \( a > 0  \), then we similarly have
+                    \[  ab = 0 \leq \frac{ a^{p} }{ p  } + \frac{ b^{q} }{ q }  = \frac{ a^{p} }{ p }. \]
+                \item[(4)] Suppose \(  a > 0  \) and \( b > 0  \). By the property of logarithms, we see that
+                    \[  ab = e^{\ln a } e^{\ln b} = e^{\ln a + \ln b}. \]
+                Also, we see that 
+                \[  \ln(a^{p}) = p \ln a \ \text{and} \ \ln(b^{q})=  q \ln b.  \]
+                Now, observe that 
+                \[  e^{\ln a + \ln b} = e^{\frac{ p }{ p } \ln a  + \frac{ q }{ q }  \ln b } = e^{\frac{ 1 }{ p }  \ln (a^{p}) + \frac{ 1 }{ q }  \ln(b^{q})}.    \]
+                Notice that \( e^{t} \), when differentiated twice, is a strictly positive function. Thus, \( e^{t} \) is convex for all \( t \in \R  \) our knowledge of calculus. Thus, we can use Jensen's inequality to conclude that
+                \[  e^{\frac{ 1 }{ p }  \ln (a^{p}) + \frac{ 1 }{ q }  \ln (b^{q})} \leq   \frac{ 1 }{ p } e^{  \ln (a^{p})} + \frac{ 1 }{ q }  e^{\ln (b^{q})}  = \frac{ 1 }{ p }  a^{p} + \frac{ 1 }{ q }  b^{q}. \]
+            \end{enumerate}
+            \end{proof}
+        \item \textbf{(Holder's Inequality)} Let \( p  \) and \( q  \) be positive real numbers with \( \frac{ 1  }{ p  }  + \frac{ 1 }{ q }  = 1  \). Suppose \( x = ({x}_{1}, \dots, {x}_{n})  \) and \( y = ({y}_{1}, {y}_{2}, \dots, {y}_{n})  \) are two points in \( \R^{n} \). Prove that 
+            \[  \sum_{ i=1  }^{ n } | {x}_{i} {y}_{i} | \leq \Big(  \sum_{ i=1  }^{ n } | {x}_{i} |^{p} \Big)^{\frac{ 1 }{ p } } \Big(  \sum_{ i=1  }^{ n } | {y}_{i} |^{q} \Big)^{\frac{ 1 }{ q } }  \]
+    (Note that the Cauchy-Schwarz inequality is a special case of the inequality above where \(  p = q = 2   \))
+    \begin{proof}
+    Let \( a = \Big(  \sum_{ i=1  }^{ n } | {x}_{i} |^{p} \Big)^{\frac{ 1 }{ p } } \) and \( b = \Big(  \sum_{ i=1  }^{ n } | {y}_{i} |^{q} \Big)^{\frac{ 1 }{ q } } \).As a continuation of the proof presented in the homework sheet, we see that \( a,b \neq  0 \) implies 
+    \begin{align*}  \sum_{ i=1  }^{ n } \Big| \Big(  \frac{ {x}_{i} }{ a }  \Big) \Big(  \frac{ {y}_{i} }{ b }  \Big) \Big| \leq 1 &\Longrightarrow \sum_{ i=1  }^{ n }  \Big|  \frac{ {x}_{i} }{ a }  \Big| \Big|  \frac{ {y}_{i} }{ b }  \Big| \leq 1  \\
+        &\Longrightarrow \frac{ 1 }{ ab } \sum_{ i=1  }^{ n } | {x}_{i} |  | {y}_{i} | \\
+        &\Longrightarrow \sum_{ i=1  }^{ n } | {x}_{i} {y}_{i}  | \leq ab = \Big(  \sum_{ i=1  }^{ n } | {x}_{i} |^{p} \Big)^{\frac{ 1 }{ p } } \Big(  \sum_{ i=1  }^{ n } | {y}_{i} |^{q} \Big)^{\frac{ 1 }{ q }}.
+    \end{align*}
+    \end{proof}
+\item \textbf{(Minkowski's Inequality)} Let \( p \geq 1  \) be a real number. Suppose \( x = ({x}_{1}, {x}_{2}, \dots, {x}_{n})  \) and \( y = ({y}_{1}, {y}_{2}, \dots, {y}_{n})  \) are two points in \( \R^{n} \). Prove that 
+    \[  \Big(  \sum_{ i=1  }^{ n } | {x}_{i} + {y}_{i} |^{p} \Big)^{\frac{ 1 }{ p }} \leq \Big(  \sum_{ i=1  }^{ n } | {x}_{i} |^{p} \Big)^{\frac{ 1 }{ p }} + \Big(  \sum_{ i=1  }^{ n } | {y}_{i} |^{p} \Big)^{\frac{ 1 }{ p }}. \]
+    \begin{proof}
+    As a continuation of proof presented in the homework sheet, we have
+    \[  \sum_{ i=1  }^{ n } | {x}_{i} + {y}_{i} |^{p} \leq \Bigg( \Big(  \sum_{ i=1  }^{ n } | {x}_{i} |^{p} \Big)^{\frac{ 1 }{ p }} + \Big(  \sum_{ i=1  }^{ n } | {y}_{i} |^{p} \Big)^{\frac{ 1 }{ p }}     \Bigg) \Big(  \sum_{ i=1  }^{ n } | {x}_{i} + {y}_{i} |^{p}  \Big)^{\frac{ 1 }{ q } }. \]
+    Dividing \( \Big(  \sum_{ i=1  }^{ n } | {x}_{i} + {y}_{i} |^{p} \Big)^{\frac{ 1 }{ q } } \) by both sides, we see that 
+    \[  \frac{ \sum_{ i=1  }^{ n } | {x}_{i} + {y}_{i} |^{p} }{ \Big(  \sum_{ i=1  }^{ n } | {x}_{i} + {y}_{i} |^{p} \Big)^{\frac{ 1 }{ q } } } \leq  \Bigg( \Big(  \sum_{ i=1  }^{ n } | {x}_{i} |^{p} \Big)^{\frac{ 1 }{ p }} + \Big(  \sum_{ i=1  }^{ n } | {y}_{i} |^{p} \Big)^{\frac{ 1 }{ p }}     \Bigg) \]
+    which can be re-written to 
+    \[  \Big(  \sum_{ i=1  }^{ n } | {x}_{i} + {y}_{i} |^{p} \Big)^{1 - \frac{ 1 }{ q } } \leq  \Big(  \sum_{ i=1  }^{ n } | {x}_{i} |^{p} \Big)^{\frac{ 1 }{ p }} + \Big(  \sum_{ i=1  }^{ n } | {y}_{i} |^{p} \Big)^{\frac{ 1 }{ p }}.   \]
+    Now, observe that 
+    \[  \frac{ 1 }{ p }  + \frac{ 1 }{ q }  = 1 \Longrightarrow \frac{ 1 }{ q }  = 1 - \frac{ 1 }{ p }. \]
+    If we set 
+    \[  A =  \sum_{ i=1  }^{ n } | {x}_{i} + {y}_{i} |^{p},   \]
+    then we see that 
+    \[  A^{1 - \frac{ 1 }{ q } } = A^{1 - \Big(  1 - \frac{ 1 }{ p }  \Big)} = A^{\frac{ 1 }{ p }}. \]
+    Thus, we see that 
+            \[  \Big( \sum_{ i=1  }^{ n } | {x}_{i} +  {y}_{i} | \Big)^{\frac{ 1 }{ p } }  \leq \Big(  \sum_{ i=1  }^{ n } | {x}_{i} |^{p} \Big)^{\frac{ 1 }{ p } } +  \Big(  \sum_{ i=1  }^{ n } | {y}_{i} |^{p} \Big)^{\frac{ 1 }{ p } }.  \]
+    \end{proof}
+\item Let \( n \geq 2  \) where \( n \in \N  \). Prove that 
+    \[  y^{n} - x^{n} < n (y-x) y^{n-1}. \]
+    \begin{proof}
+    Using the identity that 
+    \[  y^{n} - x^{n} = (y - x)(y^{n-1} + y^{n-2} + \cdots + x^{n-1}) \]
+    and the assumption that \( x < y  \), we can see that 
+    \begin{align*}
+        y^{n} - x^{n} &= (y-x)(y^{n-1} + y^{n-2}x + \cdots + x^{n-1})\\
+                      &< (y-x)(y^{n-1} + y^{n-2} \cdot y + \cdots + y^{n-1}) \\
+                      &= (y-x)(y^{n-1} + y^{n-1} + \cdots + y^{n-1}) \\
+                      &= (y-x)n y^{n-1}.
+    \end{align*}
+    Thus, we conclude that 
+    \[  y^{n} - x^{n} < n (y-x) y^{n-1}. \]
+    \end{proof}
+\item \textbf{Every normed space is a metric space.} Let \( (V, \|\cdot\|) \) be a normed space (in particular, \( V  \) is a vector space). Prove that \( d: V \times V \to \R  \) defined by \( d(x,y) = \|x - y\| \) is a metric space on \( V  \).
+    \begin{proof}
+    To show that \( d(x,y) \) is a metric on \( V \), we need to show the following properties:
+    \begin{enumerate}
+        \item[(i)] For all \( x,y \in V  \), \( d(x,y) \geq 0  \).
+        \item[(ii)] For all \( x,y \in V  \), \( d(x,y) = 0  \) if and only if \( x = y  \).
+        \item[(iii)] For all \( x,y \in V  \), \( d(x,y) = d(y,x) \).
+        \item[(iv)] For all \( x,y,z \in V  \), we have
+            \[  d(x,y) \leq d(x,z) + d(z,y). \]
+    \end{enumerate}
+    We proceed with the following proof of each property listed above. 
+    \begin{enumerate}
+        \item[(i)] Let \( x,y \in V  \). Since \( (V, \|\cdot\|) \) is a normed space, we know that \( \|x - y\| \geq 0  \) which satisfies property (i).
+        \item[(ii)] Let \( x,y \in V  \). Suppose \( d(x,y) = 0  \). By definition of \( d(x,y)  \) and by property (2) of norms, we have 
+            \begin{align*}
+               d(x,y) = 0  &\Longrightarrow \|x - y\| = 0  \\
+                           &\Longrightarrow x - y = 0 \\
+                           &\Longrightarrow x = y.
+            \end{align*}
+            This shows property (ii).
+        \item[(iii)] Let \( x,y \in V  \). Then by property (3) of norms, we see that 
+            \[  d(x,y) = \|x - y \| = \| -(y-x)\| = | -1 | \| y - x \| = d(y,x).  \]
+            Thus, property (iii) is satisfied.
+        \item[(iv)] Let \( x,y,z \in V  \). Then by the triangle inequality property of norms, we see that 
+            \begin{align*}
+                d(x,y) = \|x - y\|  &= \|(x - z) + (z - y)\|  \\
+                                    &\leq \|x - z \| + \| z - y\| \\
+                                    &= d(x,z) + d(z,y).
+            \end{align*}
+            Thus, property (iv) is satisfied.
+    \end{enumerate}
+    Since all four properties of a metric have been satisfied, we can now conclude that, indeed, \( d(x,y) = \|x - y\|  \) is a metric on \( V  \).
+    \end{proof}
+\item Let \( p \geq 1  \) be a real number. Define \( {d}_{p}: \R^{n} \times \R^{n} \to \R  \) as follows:
+    \[  \forall x = ({x}_{1}, {x}_{2}, \dots, {x}_{n}), y = ({y}_{1}, {y}_{2}, \dots, {y}_{n}) \in \R^{n} \ \ {d}_{p}(x,y) = \Big(  \sum_{ i=1  }^{ n } | {x}_{i}- {y}_{i} |^{p} \Big)^{\frac{ 1 }{ p } }. \]
+    Prove that \( {d}_{p} \) is a metric on \( \R^{n} \). (Note that the special case \( p = 2  \) gives the standard metric on \( \R^{n} \).)
+    \begin{proof}
+        Let us define the function \( \| \cdot \|_p : \R^{n} \to \R  \) by \( \|x\|_p = \Big(  \sum_{ i=1  }^{ n } | {x}_{i} |^{p} \Big)^{\frac{ 1 }{ p } } \). We will show that \( \|\cdot\|_p  \) is a norm on the vector space \( \R^{n} \) and then define \( {d}_{p}(x,y) = \|x - y\|_p  \) and then show that this is a metric using the last exercise. Firstly, we proceed by showing that \( \|\cdot\|_p  \) satisfies the properties of norms. Thus, we have:  
+        \begin{enumerate}
+            \item[(i)] Let \( x = ({x}_{1}, {x}_{2}, \dots, {x}_{n}) \in \R^{n} \). Note that \( | {x}_{i} |^{p} \geq 0    \) for all \( {x}_{i} \)'s if and only if \( | {x}_{i}| \geq 0    \) which is true if and only if \( {x}_{i} \geq 0   \) for all \( 1 \leq i \leq n  \). This tells us that     
+                \[  \sum_{ i=1  }^{ n } | {x}_{i} |^{p}  \geq 0.  \]
+                Since \( p \geq 1  \) is a real number, we must have
+                \[  \|x\|_p  = \Big( \sum_{ i=1 }^{ n } | {x}_{i} |^{p}   \Big)^{\frac{ 1 }{ p } } \geq 0. \]
+                Thus, the first property of norms are satisfied.
+            \item[(ii)] Let \( x \in \R^{n} \). Then we see that 
+                \begin{align*}
+                    \|x\|_p = 0  &\Longleftrightarrow \Big(  \sum_{ i=1  }^{ n } | {x}_{i} |^{p}  \Big)^{\frac{ 1 }{ p } } =  0 \\
+                                 &\Longleftrightarrow \sum_{ i=1  }^{ n } | {x}_{i} |^{p}  = 0  \\
+                                 &\Longleftrightarrow | {x}_{i} |^{p} = 0 \tag {  \( \forall \  1 \leq i \leq n \) }   \\
+                                 &\Longleftrightarrow | {x}_{i} |  = 0 \tag{  \( \forall \  1 \leq i \leq n \) }\\
+                                 &\Longleftrightarrow {x}_{i} = 0  \tag{  \( \forall \  1 \leq i \leq n \) } \\
+                                 &\Longleftrightarrow x = 0.
+                \end{align*}
+                Hence, property (ii) is satisfied.
+            \item[(iii)] Let \( \alpha \in \R  \) and \( x = ({x}_{1}, {x}_{2}, \dots, {x}_{n}) \in \R^{n} \). Then we see that  
+                \begin{align*}
+                    \| \alpha x \|_p &= \Big(  \sum_{ i=1  }^{ n } | \alpha {x}_{i} |^{p} \Big)^{\frac{ 1 }{ p } } \\
+                                   &= \Big(  \sum_{ i=1  }^{ n } | \alpha |^{p} | {x}_{i} |^{p}  \Big)^{\frac{ 1 }{ p } } \\
+                                   &=  | \alpha | \Big(  \sum_{ i=1  }^{ n } | {x}_{i} |^{p} \Big)^{\frac{ 1 }{ p } } \\
+                                   &= | \alpha | \|x\|_p.
+                \end{align*}
+                Thus, we see that property (iii) has been satisfied.
+            \item[(iv)] Let \( x,y \in V  \). By using Minkowski's inequality, we see that
+                \begin{align*}
+                    \|x + y \|_p &= \Big(  \sum_{ i=1  }^{ n } | {x}_{i} + {y}_{i}  |^{p} \Big)^{\frac{ 1 }{ p } } \\
+                                 &\leq \Big(  \sum_{ i=1  }^{ n } | {x}_{i} |^{p} \Big)^{\frac{ 1 }{ p } } + \Big(  \sum_{ i=1  }^{ n } | {y}_{i} |^{p} \Big)^{\frac{ 1 }{ p } } \\
+                                 &= \|x\|_p + \|y\|_p.
+                \end{align*}
+                Thus, the triangle inequality property of norms is satisfied.
+        \end{enumerate}
+        This tells us that \( \|\cdot\|_p  \) is a norm on the vector space \( \R^{n} \). Defining the function \( {d}_{p}: \R^{n} \times \R^{n} \to \R  \) by \( {d}_{p}(x,y) = \|x - y \|_{p} \), we see that \( {d}_{p}  \) must be a metric on \( \R^{n} \) by Exercise 10.
+    \end{proof}
+\item Define \( {d}_{\infty } : \R^{n} \times \R^{n} \to \R  \) as follows:
+    \[  \forall x = ({x}_{1}, {x}_{2}, \dots, {x}_{n}), y = ({y}_{1}, {y}_{2}, \dots, {y}_{n}) \in \R^{n} \ \ {d}_{\infty } = \max \{ | {x}_{i} - {y}_{i} | : 1 \leq i \leq n \}. \]
+    Prove that \( {d}_{\infty }  \) is a metric on \( \R^{n} \).
+    \begin{proof}
+       Let us define the function \( {\|\cdot\|}_{\infty } : \R^{n} \to \R  \) by 
+       \[  {\|x\|}_{\infty } = \max \{ | {x}_{i} | : i = 1, \dots, n \}  = \max_{1 \leq i \leq n} | {x}_{i} |. \]
+       We will prove that this is, indeed, a norm on the vector space \( \R^{n} \) and thereby show that, by defining the function \( {d}_{\infty } : \R^{n} \times \R^{n} \to \R  \) by \( {d}_{\infty }(x,y) = \|x - y\|_{\infty } \), it defines a metric on \( \R^{n} \). In what follows, we will show the four properties of norms:
+       \begin{enumerate}
+           \item[(i)] Let \( x = ({x}_{1}, {x}_{2}, \dots, {x}_{n}) \in \R^{n} \). Since the absolute value \( | \cdot |  \) is always nonnegative, we can see that \( | {x}_{i} |  \geq 0  \) for all \( 1 \leq i \leq n  \). Thus, we have 
+               \[  {\|x\|}_{\infty } = \max_{1 \leq i \leq n} | {x}_{i} | \geq 0. \]
+               Thus, the first property of norms is satisfied.
+           \item[(ii)] Let \( x = ({x}_{1}, {x}_{2}, \dots, {x}_{n}) \in \R^{n} \). Observe that     
+               \begin{align*}
+                   \|x\|_{\infty } = 0 &\Longrightarrow \max_{1 \leq i \leq n} | {x}_{i} |  = 0    \\ 
+                                       &\Longrightarrow | {x}_{i} | \leq 0 \tag{\( \forall 1 \leq i \leq n \)} \\
+                                       &\Longrightarrow 0 \leq | {x}_{i} | \leq 0 \tag{\( \forall 1 \leq i \leq n \)} \\
+                                       &\Longrightarrow | {x}_{i} |  = 0 \tag{\( \forall 1 \leq i \leq n \)} \\
+                                       &\Longrightarrow {x}_{i} =  0 \tag{\( \forall 1 \leq i \leq n  \)} \\
+                                       &\Longrightarrow x = 0.
+               \end{align*}
+               Now, suppose \( x = ({x}_{1}, {x}_{2}, \dots, {x}_{n}) = 0 \). Then for all \( 1 \leq i \leq n  \), we see that \( | {x}_{i} | = 0  \) and so \( \max_{1 \leq i \leq n } | {x}_{i} | = 0   \). By definition of \( \|\cdot\|_{\infty } \), we see that \( \|x\|_{\infty } = 0 \).
+
+           \item[(iii)] Let \( \alpha \in \R  \) and let \( x = ({x}_{1}, {x}_{2}, \dots , {x}_{n}) \in \R^{n} \). Then observe that by problem 9-7) of homework 1 that   
+                \begin{align*}
+                    \|\alpha x \|_{\infty  } &= \max_{1 \leq i \leq n} | \alpha {x}_{i} |   \\
+                                             &= \max_{1 \leq i \leq n} | \alpha | | {x}_{i} | \tag{Problem 1} \\
+                                             &= | \alpha | \max_{1 \leq i \leq n} | {x}_{i} | \tag{Problem 9-7) of Homework 1}\\
+                                             &= | \alpha | \|x\|_{\infty}.
+                \end{align*}
+                Thus, we see that \( \|\cdot\|_{\infty } \) satisfies the third property of norms.
+            \item[(iv)] Let \( x,y \in \R^{n} \) with \( x = ({x}_{1}, {x}_{2}, \dots, {x}_{n}) \) and \( y = ({y}_{1}, {y}_{2}, \dots, {y}_{n}) \). By the triangle inequality of the absolute value \( | \cdot |  \), we can see that 
+                \begin{align*}
+                    \|x + y\|_{\infty } &= \max_{1 \leq i \leq n} | {x}_{i} + {y}_{i} |  \\
+                                        &\leq \max_{1 \leq i \leq n} | {x}_{i} |  + | {y}_{i} |  \\
+                                        &= \max_{1 \leq i \leq n} | {x}_{i} |  + \max_{1 \leq i \leq n } | {y}_{i} | \\
+                                        &= {\|x\|}_{\infty } + {\|y\|}_{\infty }.
+                \end{align*}
+                Thus, property (iv) is satisfied.
+       \end{enumerate}
+       Hence, we conclude that \( {\|\cdot\|}_{\infty } \) defines a norm on \( \R^{n} \). So, we can define the function \( {d}_{\infty } : \R^{n} \times \R^{n} \to \R  \) by \( {d}_{\infty }(x,y) = \|x - y\|_{\infty } \). Applying Exercise 10, we can see that this function defines a metric on \( \R^{n} \).
+    \end{proof}
+    \begin{remark}
+        Alternatively, we can show the triangle inequality above in the following way. By definition, we know that \( \|x\|_{\infty } = \max_{1 \leq i \leq n} | {x}_{i} |   \) and \( \|y\|_{\infty} = \max_{1 \leq i \leq n} | {y}_{i} |  \). Then by definition of maximums, we see that for all \( 1 \leq i \leq n  \), we have
+        \[  | {y}_{i} |  \leq \|y\|_{\infty } \tag{1} \]
+        and
+        \[  | {x}_{i} |  \leq \|x\|_{\infty }. \tag{2} \]
+        Adding (1) and (2) together and then using the triangle inequality we see that
+        \[ | {x}_{i} + {y}_{i} | \leq  | {x}_{i} | + | {y}_{i} | \leq \|x\|_{\infty } +  \|y\|_{\infty }.   \]
+        This shows that that \( \|x\|_{\infty } + \|y\|_{\infty } \) is an upper bound for the set 
+        \[  \{ | {x}_{i} + {y}_{i} | : 1 \leq i \leq n  \}.  \]
+        Since the set above is clearly finite, bounded above, and nonempty, we see that the maximum for this set exists and thus
+        \[  \max_{1 \leq i \leq n} | {x}_{i} + {y}_{i}  | \leq \|x\|_{\infty } + \|y\|_{\infty }. \]
+        Hence, we have
+        \[  \|x + y\|_{\infty } \leq \|x\|_{\infty } + \|y\|_{\infty }.  \]
+        
+    \end{remark}
+\item Let \( X = \R^{2} \). Is \( d(x,y) = | {x}_{1} {x}_{2} + {y}_{1} {y}_{2} |  \) a metric on \( X  \)?
+    \begin{solution}
+    No, \( d(x,y) = | {x}_{1} {x}_{2} + {y}_{1} {y}_{2} |  \) does not define a metric on \( \R^{2} \). Consider \( (0,1), (1,0) \in \R^{2} \) with \( x = (0,1) \) and \( (1,0) \). Clearly, \( (0,1) \neq (1,0) \) but  
+    \[  | {x}_{1} {x}_{2} + {y}_{1} {y}_{2} | = | 0 \cdot 1 + 1 \cdot 0   | = | 0 + 0  | =  |  0  |  =  0.   \]
+    \end{solution}
+\item Let \( X = C([0,1]) \) be the set of continuous real-valued functions on \( [0,1] \). Is \( d(f,g) = | f(1) - g(1) |  \) a metric on \( X  \)?
+    \begin{solution}
+        This is not a metric on \( X  \). Consider \( f(x) = e^{x} \) and \( g(x) = e \). We have \( f \neq g   \), but \( d(f,g) = | f(1) - g(1) | = 0  \).
+    \end{solution}
+\item Let \( X = \{ 0 \}  \). Can you define a metric on \( X  \)?
+    \begin{solution}
+        Yes, consider the function \( d: X \times X \to X  \) defined by \( d(x,y) = 0 \) for any \( x,y \in X  \). This function satisfies all the properties of a metric.
+    \end{solution}
+\item Let \( X = C[0,1] \). It can be proved that \( X  \) is a vector space. Also, it can be shown that every real-valued continuous function on a closed and bounded interval attains a maximum. Define 
+    \[  \|f\|_{\infty } = \max \{ | f(x) |  : x \in [0,1] \} = \max_{x \in [0,1]} | f(x) |.  \] 
+    Prove that \( \|\cdot\|_{\infty } \) is a norm on \( X  \). What is the corresponding metric?
+    \begin{proof}
+        We will show that \( \|\cdot\|_{\infty } \) defines a norm on \( X  \). We will do so by showing that \( \|\cdot\|_{\infty } \) satisfies the properties of a norm.     
+        \begin{enumerate}
+            \item[(i)] Let \( f \in X  \). Then for all \( x \in [0,1] \), we see that \( | f(x)  | \geq 0  \) by the nonnegative property of the absolute value \( | \cdot |  \). Thus, we see that 
+                \[ \|f\|_{\infty } = \max_{x \in [0,1]} | f(x) | \geq 0.    \]
+            \item[(ii)] Let \( f \in X  \). We have that 
+                \begin{align*}
+                    {\|f\|}_{\infty } = 0 &\Longrightarrow \max_{x \in [0,1]} | f(x) |  = 0  \\
+                                          &\Longrightarrow  0 \leq  | f(x) | \leq 0 \tag{\( \forall x \in [0,1] \)} \\
+                                          &\Longrightarrow | f(x) |  = 0 \tag{\( \forall   x \in [0,1] \)} \\
+                                          &\Longrightarrow f(x) = 0 \tag{\( \forall x \in [0,1] \)} \\
+                                          &\Longrightarrow f = 0. 
+                \end{align*}
+                Now, suppose \( f = 0  \). Then for all \( x \in [0,1] \), we see that \( f(x) = 0 \). So, \( | f(x) | = 0   \) and thus \( \max_{1 \leq i \leq n} | {x}_{i}  |  = 0  \). Hence, \( \|x\|_{\infty} = 0  \).
+                Thus, property (ii) is satisfied.
+            \item[(iii)] Let \( \alpha \in \R  \) and \( f \in X  \). Then by exercise 9-7) of homework 1, we can see that 
+                \begin{align*}
+                    \|\alpha f \|_{\infty } &= \max_{x \in [0,1]} | (\alpha f)(x) |  \\
+                                            &= \max_{x \in [0,1]} | \alpha \cdot f(x) | \\
+                                            &= \max_{x \in [0,1]} | \alpha | | f(x) | \tag{Problem 1} \\
+                                            &= | \alpha | \max_{x \in [0,1]} | f(x) | \tag{Problem 9-7) of hw1} \\
+                                            &= | \alpha |  \|f\|_{\infty }.
+                \end{align*}
+                Thus, we see that property (iii) is satisfied.
+            \item[(iv)] Let \( f,g \in X  \). Then observe that  
+                \begin{align*}
+                    \|f + g\|_{\infty } &= \max_{x \in [0,1]} | (f + g)(x) |  \\
+                                        &= \max_{x \in [0,1]} | f(x) + g(x) | \\
+                                        &\leq \max_{x \in [0,1]} | f(x) |  + | g(x) | \tag{Triangle Inequality} \\
+                                        &= \max_{x \in [0,1]}| f(x) |  + \max_{x \in [0,1]} | g(x) | \tag{Problem 9-2) of hw1} \\
+                                        &= \|f\|_{\infty } + \|g\|_{\infty }.
+                \end{align*}
+                Thus, the triangle inequality property is satisfied.
+        \end{enumerate}
+        Since all four properties have been satisfied, we can now conclude that \( \|\cdot\|_{\infty } \) is a norm on the vector space \( X = C[0,1] \). The corresponding metric is the function \( {d}_{\infty }: X \times X \to \R  \) defined by \( {d}_{\infty }(f,g) = \|f - g\|_{\infty } \).
+    \end{proof}
+    \begin{remark}
+        We can appeal to the same methods in the remark of problem 12 to show the triangle inequality for the \( \|\cdot\|_{\infty } \). By definition of maximums, we see that  
+        \( | f(x) | \leq \|f\|_{\infty } \) and \( | g(x) | \leq \|g\|_{\infty } \) for all \( x \in [0,1] \). Adding these two inequalities together and using the triangle inequality of the \( | \cdot |  \), we see that
+        \[ | f(x) + g(x) |   \leq | f(x)  | + | g(x) |  \leq \|f\|_{\infty } + \|g\|_{\infty } \]
+        which holds for all \( x \in [0,1] \). Thus, we see that the set 
+        \[  | f(x) + g(x) | : x \in [0,1] \]
+        is bounded above by \( \|f\|_{\infty } + \|g\|_{\infty }  \), and so we have
+        \[ \|f +g\|_{\infty }  \max_{1 \leq i \leq n}| f(x) + g(x) | \leq \|f\|_{\infty } + \|g\|_{\infty }.  \]
+    \end{remark}
+\item Let \( (X,d) \) be a metric space. Define \( D(x,y) = \frac{ d(x,y) }{  1 + d(x,y) }  \) for all \( x,y \in X  \). Prove that \( (X,D) \) is a metric space.
+    \begin{proof}
+    Let \( (X,d) \) be a metric space. We will show that  
+    \[  D(x,y) = \frac{ d(x,y) }{  1 + d(x,y) }  \]
+    is a metric space. 
+    \begin{enumerate}
+        \item[(i)] Let \( x,y \in X  \). Since \( (X,d) \) is a metric space, we know that          \( d(x,y) \geq 0  \) for every \( x,y \in X  \) by property (i) of metric spaces. Thus, we see that
+            \[  D(x,y) = \frac{ d(x,y)  }{ 1 + d(x,y) } \geq 0 \ \forall x,y \in X. \]
+            Hence, property (i) is satisfied.
+        \item[(ii)] Let \( x,y \in X  \). Since \( (X,d) \) is a metric space, we know that \( d(x,y) = 0  \) if and only if \( x = y  \). Thus, we see that  
+            \begin{align*}
+                D(x,y) = 0 &\Longleftrightarrow \frac{ d(x,y) }{ 1 + d(x,y)  } = 0 \\
+                           &\Longleftrightarrow d(x,y) = 0 \\
+                           &\Longleftrightarrow x = y.
+            \end{align*}
+            Hence, property (ii) is satisfied.
+        \item[(iii)] Let \( x,y \in X  \). Since \( d(x,y) = d(y,x) \) for all \( x,y \in X  \) (because \( (X,d) \) is a metric space), we see that  
+            \[ D(x,y) = \frac{ d(x,y) }{ 1 + d(x,y) } = \frac{ d(y,x) }{ 1 + d(y,x) }  = D(y,x).  \]
+            Thus, property (iii) is satisfied.
+        \item[(iv)] To show that \( D(x,y) \) satisfies the triangle inequality, we first need to show that \( D(x,y) \) is a monotonically increasing function; that is, we need to show that for any \( a < b  \) where \( a,b \in X  \), that 
+            \[  \frac{ a  }{ 1 + a  }  < \frac{ b  }{  1 + b }. \]
+            Now, let \( a < b  \). Then observe that
+            \begin{align*}
+                a <  b  &\Longleftrightarrow ab + a < ab +  b  \\
+                        &\Longleftrightarrow a (b + 1) < b (a + 1) \\
+                        &\Longleftrightarrow \frac{ a  }{ 1 + a  }  < \frac{ b }{  1 + b } .
+            \end{align*}
+            Thus, we can see that \( D(x,y) \) is a monotonically increasing function. Let \( x,y,z \in X  \). We need to consider a few cases when proving the triangle inequality:
+            \begin{enumerate}
+                \item[(i)] \( d(x,y) \leq d(x,z) \).
+                \item[(ii)] \( d(x,y) \leq d(z,y) \)
+                \item[(iii)] \( d(x,y) > d(x,z) \) and \( d(x,z) > d(z,y) \).
+            \end{enumerate}
+            We proceed with each case as follows:
+            \begin{enumerate}
+                \item[(i)] If \( d(x,y) \leq d(x,z) \), then by using the monotonicity of \( D(x,y) \), we can see that 
+                    \[  D(x,y) = \frac{ d(x,y) }{ 1 + d(x,y) } \leq \frac{ d(x,z) }{ 1 + d(x,z) } = D(x,z) \leq D(x,z) + D(z,y). \]
+                \item[(ii)] Similarly, if \( d(x,y) \leq d(z,y) \), we have by using the monotonicity of \( D(x,y) \) that
+                    \[  D(x,y) = \frac{ d(x,y) }{  1 + d(x,y) } \leq \frac{ d(z,y) }{ 1 + d(z,y) } = D(z,y) \leq D(x,z) + D(z,y). \]
+                \item[(iii)] If both \( d(x,y) > d(x,z) \) and \( d(x,z) > d(z,y) \), then by the triangle inequality property of \( (X,d) \), we see that                   
+                    \begin{align*}
+                    D(x,y) &= \frac{ d(x,y) }{ 1 + d(x,y) }  \\
+                           &\leq \frac{ d(x,z) + d(z,y)  }{ 1 + d(x,y) } \\
+                           &= \frac{ d(x,z) }{ 1 + d(x,y)  }  + \frac{ d(z,y) }{ 1 + d(z,y) } \\
+                           &\leq \frac{ d(x,z) }{ 1 + d(x,z) }  + \frac{ d(z,y) }{ 1 + d(z,y) } \\
+                           &= D(x,z) + D(z,y).
+                \end{align*} 
+            \end{enumerate}
+            Thus, we can see that \( D(x,y) \) satisfies the triangle inequality.
+    \end{enumerate}
+    We can, therefore, conclude that \( D(x,y) \) defines a metric on \( X  \).
+    \end{proof}
+\end{enumerate}
+
+\section*{Extra Credit Problems}
+
+\begin{enumerate}
+    \item Use the AM-GM inequality to prove that the sequence \( ({a}_{n})_{n \geq1} \) given by \( {a}_{n} = \Big(  1 + \frac{ 1  }{ n }  \Big)^{n} \) is an increasing sequence. That is, show that for all \( n \in \N  \)
+        \[  \Big(  1 + \frac{ 1 }{ n }  \Big)^{n} \leq \Big(  1 + \frac{ 1 }{ n+1 }  \Big)^{n+1}. \]
+        \begin{proof}
+            Our goal is use the AM-GM inequality to show that the sequence \( ({a}_{n})_{n \geq 1} \) given by 
+            \[  {a}_{n} = \Big(  1 + \frac{ 1 }{ n }  \Big)^{n} \]
+            is an increasing sequence; that is, we want to show that for all \( n \in \N  \) that \( {a}_{n} \leq {a}_{n+1} \). From the AM-GM inequality, if we take \( n + 1  \) points, then we see that 
+            \[  ({x}_{1} \dots {x}_{n+1})^{\frac{ 1 }{ n+1 } } \leq \frac{ {x}_{1} + {x}_{2} + \cdots + {x}_{n+1} }{ n + 1  } \]
+            where
+            \[   (x y^{n})^{\frac{ 1 }{ n+1 } } \leq \frac{ x + ny }{ n+1 }  \]
+            with \( x = {x}_{1} \) and \( y = {x}_{2} = \cdots = {x}_{n+1} \). Now, taking \( x = 1  \) and \( y = 1 + \frac{ 1 }{ n }  \), we see that 
+            \[  \frac{ 1 + n \Big(  1 + \frac{ 1 }{ n }  \Big) }{ n+1 }  = \frac{ 1 + (n+1) }{ n+1 }  = \frac{ 1 }{ n+1 }  + 1 \]
+            and so,
+            \begin{align*}
+                (x y^{n})^{\frac{ 1 }{ n+1 } } \leq \frac{ x + ny }{ n + 1 }   &\Longleftrightarrow \Bigg( \Big(  1 + \frac{ 1 }{ n }  \Big)^{n}  \Bigg)^{\frac{ 1 }{ n+1 } } \leq \frac{ 1 + n \Big(  1 + \frac{ 1 }{ n }  \Big) }{ n + 1  }   \\
+                                                                               &\Longleftrightarrow \Big(  1 + \frac{ 1 }{ n }  \Big)^{\frac{ n }{ n+1 } } \leq 1 + \frac{ 1 }{ n+1 } \\  
+                                                                               &\Longleftrightarrow \Big(  1 + \frac{ 1 }{ n }  \Big)^{n} \leq \Big(  1 + \frac{ 1 }{ n+1 }  \Big)^{n+1} \\
+                                                                               &\Longleftrightarrow {a}_{n} \leq {a}_{n+1}.
+            \end{align*}
+            Thus, we conclude that the sequence \( ({a}_{n})_{n \geq 1} \) is increasing.
+        \end{proof}
+    \item Let \( (X,d) \) be a metric space. Define \( D(x,y) = \min \{ 1 , d(x,y) \}  \) for all \( x,y \in X  \). Prove that \( (X,D) \) is a metric space. 
+        \begin{proof}
+        Let \( (X,d) \) be a metric space. Define \( D(x,y) = \min \{ 1, d(x,y) \}   \) for all \( x,y \in X  \). Our goal is to show that \( (X,D) \) is a metric space. 
+        \begin{enumerate}
+            \item[(i)] Let \( x,y \in X  \). Since \( d(x,y) \geq 0  \) by property (i) of metric spaces, we can see immediately that
+                \[  D(x,y) = \min \{ 1, d(x,y) \} \geq 0. \]
+                Thus, the property (i) of metric spaces is satisfied.
+            \item[(ii)] Let \( x,y \in X  \). Then
+                \begin{align*}
+                   D(x,y) = 0  &\Longleftrightarrow \min \{ 1, d(x,y) \} = 0  \\
+                               &\Longleftrightarrow d(x,y) = 0 \\
+                               &\Longleftrightarrow x = y. \tag{\( (X,d) \) is a metric space}
+                \end{align*}
+                Thus, property (ii) of metric spaces is satisfied.
+            \item[(iii) ] Let \( x,y \in X  \). Then we see that
+                \[  D(x,y) = \min \{ 1 , d(x,y)  \}  = \min \{ 1 , d(y,x) \}  = D(y,x). \]
+                Thus, property (iii) of metric spaces is satisfied.
+            \item[(iv)] Let \( x,y,z \in X  \). Our goal is to show that 
+                \[  D(x,y) \leq D(x,z) + D(z,y). \tag{1} \]
+                We have some cases to consider; that is, either
+                \begin{enumerate}
+                    \item[(1)] \( d(x,z) = 0  \), \( d(z,y) = 0  \), and \( d(x,y) = 0 \).
+                    \item[(2)] \( d(x,z) \geq 1  \) or  
+                    \item[(3)] \( d(z,y) \geq 1  \) or
+                    \item[(4)] both \( d(x,z) \geq 1 \) and \( d(z,y) \geq 1  \)
+                    \item[(5)] otherwise, \( d(x,z) < 1  \) and \( d(z,y) < 1  \).
+                \end{enumerate}
+                Thus, we proceed by proving (1) with the following cases in mind:
+                \begin{enumerate}
+                    \item[(1)] If \( d(x,z) = 0  \), \( d(z,y) = 0  \), and \( d(x,y) = 0  \), then we get
+                        \[ D(x,y) = 0 \leq 0 =  0 + 0 = D(x,z) + D(z,y). \]
+                    \item[(2)] Suppose \( d(x,z) \geq 1  \). By definition of \( D(\cdot, \cdot)  \), we see that \( D(x,z) = \min \{ 1, d(x,z) \} = 1  \). 
+                        Then observe that
+                        \begin{align*}
+                            D(x,z) + D(z,y) &= 1 + D(z,y) \geq 1 \geq D(x,y).
+                        \end{align*}
+                    \item[(3)] Suppose \( d(z,y) \geq 1  \). Then similarly, \( D(z,y) = \min \{ 1, d(z,y)  \} = 1  \). Thus, we see that
+                        \begin{align*}
+                            D(x,z) + D(z,y) &= D(x,z) + 1 \geq 1 \geq D(x,y).
+                        \end{align*}
+                    \item[(4)] Suppose both \( d(x,z) \geq 1  \) and \( d(z,y) \geq 1  \). Then we have both \( D(x,z) = \min \{ 1, d(x,z) \}  = 1  \) and \( D(z,y) = \min \{ 1, d(z,y) \}  = 1  \). Thus, we have
+                        \begin{align*}
+                            D(x,z) + D(z,y) &= 1 + 1 \geq 1 \geq D(x,y).
+                        \end{align*}
+                    \item[(5)] Now, suppose \( d(x,z) < 1  \) and \( d(z,y) < 1 \). Then by definition of \( D(\cdot, \cdot) \), we see that \( D(x,z) = \min \{1, d(x,z) \} = d(x,z) \) and \( D(z,y) = \min \{ 1, d(z,y) \}  = d(z,y) \). Since \( (X,d) \) is a metric space, we know that the triangle inequality for the metric \( d(\cdot, \cdot) \) holds. Thus, we have that 
+                        \begin{align*}
+                           D(x,z) + D(z,y)  &= d(x,z) + d(z,y) \geq d(x,y) \geq D(x,y).
+                        \end{align*}
+                \end{enumerate}
+        \end{enumerate}
+        Thus, we conclude that the \( D(x,y) \leq D(x,z) + D(z,y) \) for all of these cases.
+        \end{proof}
+\end{enumerate}
+
+
+
+\end{document}

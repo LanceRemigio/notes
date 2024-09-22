@@ -1,0 +1,345 @@
+\documentclass[a4paper]{report}
+\usepackage{standalone}
+\usepackage{import}
+\input{../../../../../newpreamble.tex}
+
+\begin{document}
+
+\section{Lecture 6}
+
+\subsection{A few examples of Metrics}
+
+\begin{eg}
+    Consider \( (\R, d) \) where \( d: \R \times \R \to [0,\infty )  \) is defined by   
+    \[  d(x,y) = \frac{ | x - y |  }{ 1 + | x - y |  }.  \]
+    This is a metric on \( (\R, d) \). \textbf{Prove this on homework!}
+\end{eg}
+
+\begin{remark}
+    If \( (X,D) \) is a metric space, then \( (X,D)  \) is also a metric space where
+    \[  D(x,y) = \frac{ d(x,y) }{ 1 + d(x,y) }. \]
+\end{remark}
+
+We can define a metric that will always be less than or equal to \( 1 \).
+
+\begin{eg}[Taxi Cab Metric]
+    Consider \( (\R^{2}, d) \) where \( d: \R^{2} \times \R^{2} \to [0,\infty)  \) is defined by
+    \[  d((a,b), (x,y)) = | a - x  |  + | b - y |   \]
+    We want to show that this is a metric. 
+    \begin{enumerate}
+        \item[(i)] For all \( (a,b), (x,y) \in \R^{2} \), we have \( d((a,b),(x,y)) = | a - x  |  + |  b - y |  \geq 0  \) by property of the absolute value \( | \cdot |  \).
+        \item[(ii)] For all \( (a,b), (x,y) \in \R^{2} \), we have 
+            \begin{align*}
+            d((a,b), (x,y)) = 0 &\iff | a - x  | + | b - y | = 0   \\
+                                &\iff |  a - x  |  = 0 \  \text{and} \ | b - y |  = 0 \\
+                                &\iff a - x = 0 \   \text{and} \  b - y = 0  \\
+                                &\iff (a,b) = (x,y).
+        \end{align*}
+    \item[(iii)] For all \( (a,b), (x,y) \in \R^{2} \). 
+        \[ d((a,b), (x,y)) = | a - x   | + |  b - y |  = |  x - a  |  + |  y - b  | = d((x,y), (a,b)).  \]
+    \item[(iv)] For all \( (a,b), (x,y), (t,s) \in \R^{2}  \), we want to show that 
+        \[  d((a,b), (x,y)) \leq d((a,b), (t,s)) + d((t,s), (x,y)). \]
+        We have 
+        \begin{align*}
+            d((a,b),(t,s)) + d((t,s), (x,y)) &= | a - t |  + | b - s |  + | t - x  |  + | s -y  |  \\
+                                             &= (| a - t |  + | t - x  | ) + (| b - s |  + |  s  -y  | ) \\
+                                             &\geq | a - x  |  + | b - y | \\
+                                             &= d((a,b), (x,y))
+        \end{align*}
+    \end{enumerate}
+\end{eg}
+
+\begin{eg}[Discrete Metric]
+    Consider \( X \to \text{any nonempty set}  \). Consider \( d: X \times X \to [0,\infty ) \),   
+    \[  d(x,y) = 
+    \begin{cases}
+        1 &\text{if} \  x \neq y  \\
+        0 &\text{if} \ x = y
+    \end{cases}. \]
+    We want to show that this is a metric on \( (X, \text{any non-empty set}) \).
+    \begin{enumerate}
+        \item[(i)] For all \( x,y \in X  \), we have \( d(x,y) \geq 0  \) because either the \( d(x,y)  = 1  \) or \( d(x,y) = 0  \).
+        \item[(ii)] Let \( x,y \in X  \). Clearly, we have \( x = y  \) if and only if \(  d(x,y) = 0 \) by definition of \( d(x,y) \).
+        \item[(iii)] Let \( x,y \in X  \). Clearly, we have \( d(x,y) = d(y,x) \) by definition.  
+        \item[(iv)] Let \( x,y,z \in X  \). We want to show that 
+            \[  d(x,y) \leq d(x,z) + d(z,y) \]
+            Let us consider two cases:
+            \begin{enumerate}
+                \item[(1)] \( x = y \). Thus, both sides of the triangle inequality clearly hold since \( d(x,y) = 0  \).
+                \item[(2)] \( x \neq y  \). In this case, we have \( d(x,y) = 1  \). So, we need to show that 
+                    \[  d(x,z) + d(z,y) \geq 1. \]
+                    Since \( x \neq y  \), at least one of the statements \( z \neq y  \) or \( z \neq x  \) is true. If \( z \neq x  \), then \( d(z,x ) = 1  \) and so 
+                    \[  d(x,z) + d(z,y) =  1 + d(z,y) \geq  1.  \]
+                    If \( z \neq y  \), then \( d(z,y) = 1  \), and so
+                    \[  d(x,z) + d(z,y) = d(x,z) + 1 \geq 1.  \]
+            \end{enumerate}
+    \end{enumerate}
+\end{eg}
+
+
+\begin{eg}
+    Consider \( (V, \| \cdot \|) \to \text{any normed vector space} \) with the metric \( d: V \times V \to [0,\infty ) \) and \( d(x,y) = \| x - y \| \).
+    We wan to show that this is a metric on \( V  \). 
+    \begin{enumerate}
+        \item[(i)] Let \( x,y \in V  \). By the property of the norm, we have \( d(x,y) = \| x - y \| \geq 0  \).
+        \item[(ii)] Let \( x,y \in V  \). By the 2nd property of the norm, we have 
+            \begin{align*}
+                d(x,y ) = 0 &\iff \| x - y \| = 0  \\
+                            &\iff x - y = 0 \\
+                            &\iff x = y. 
+            \end{align*}
+        \item[(iii)] Let \( x,y \in V  \). We have
+            \[  d(x,y) = \| x - y \| = \| - (y - x)\| = |  - 1 | \| y - x \| = \| y - x \| = d(y,x).  \]
+        \item[(iv)] Let \( x,y,z \in V  \). We want to show that 
+            \[  d(x,y) \leq d(x,z) + d(z,y). \]
+            We have,
+            \begin{align*}
+                d(x,z) + d(z,y) &= \|x - z \| + \|z - y\| \\
+                                &\geq \| (x-z) + (z-y) \| \\
+                                &= \|x  - y\| \\
+                                &= d(x,y).
+            \end{align*}
+    This example illustrates how every time we have a norm, we immediately have a metric space. But the other around is not necessarily true!
+    \end{enumerate}
+\end{eg}
+
+\begin{eg}[Standard Distance in \( \R^n \)]
+    Consider \( (\R^{n}, d) \) where \( d: \R^{n} \times \R^{n} \to \R \) is defined by 
+    for all \( x,y \in \R^{n} \) with \( x = ({x}_{1}, {x}_{2}, \dots, {x}_{n}) \) and \( y = ({y}_{1}, {y}_{2}, \dots, {y}_{n}) \), we have 
+    \[  d(x,y) = \sqrt{ | {x}_{1} - {y}_{1} |^{2} + \cdots + | {x}_{n} - {y}_{n} |^{2} }  \]
+Note that if we define for all \( x \in \R^{n} \), we have
+\[  \|x \|_2 = \sqrt{ | {x}_{1} |^{2} + \cdots + | {x}_{n} |^{2} }.   \]
+Then 
+\[  d(x,y) = \| x - y\|_2. \]
+Proving that the above is a norm is enough to show that the original in question is a metric.  
+
+Let \( x,y \in \R^{n} \).
+
+\begin{enumerate}
+    \item[(i)] We have 
+        \[  \|x \|_2 = \sqrt{ | {x}_{1} |^{2} + \cdots + | {x}_{n} |^{2}  }  \geq 0. \]
+    \item[(ii)] We have 
+        \begin{align*}
+\|{x}_{2} \|_2 = 0 &\iff \sqrt{ | {x}_{1} |^{2} + \cdots + | {x}_{n} |^{2}  }  = 0  \\
+                   &\iff | {x}_{1} |^{2} + \cdots + | {x}_{n} |^{2} = 0 \\ 
+                   &\iff |  {x}_{1} |  = 0, | {x}_{2} | = 0, \dots,  | {x}_{n} |  = 0 \\
+                   &\iff {x}_{1} = 0, {x}_{2} = 0, \dots, {x}_{n} = 0. 
+        \end{align*}
+        Thus, we have \( x = 0  \).
+    \item[(iii)] For all \( \alpha \in \R  \), we have
+        \begin{align*}
+            \| \alpha x  \|_2 &= \sqrt{ (\alpha {x}_{1})^{2} + \cdots + (\alpha {x}_{n})^{2}  }  \\
+                            &= \sqrt{ \alpha^{2} ({x}_{1}^{2} + \cdots + {x}_{n}^{2}) } \\
+                            &= | \alpha |  \sqrt{ {x}_{1}^{2} + \cdots + {x}_{n}^{2} }  \\
+                            &= | \alpha | \| x\|_2.
+        \end{align*}
+    \item[(iv)] Now, we want to show that 
+        \[  \|x + y\|_2 \leq \| x\|_2 + \|y\|_2.   \]
+        That is, we want to show that
+        \begin{align*}
+            \sqrt{ ({x}_{1} + {y}_{1})^{2} + \cdots + ({x}_{n} + {y}_{n})^{2} } &\leq \sqrt{ {x}_{1}^{2} + \cdots + {x}_{n}^{2} }  + \sqrt{ {y}_{1}^{2} + \cdots + {y}_{n}^{2} }.
+        \end{align*}
+        \textbf{We will show this later!}
+\end{enumerate}
+\end{eg}
+
+\begin{eg}
+   Consider \( (\R^{n} ,d) \) where \( d: \R^{n} \times \R^{n} \to \R  \) is defined by 
+   for all \( x,y \in \R^{n} \), we have
+   \[  {d}_{p}(x,y) = \Big[|  {x}_{1} - {y}_{1} |^{p } + \cdots + | {x}_{n} - {y}_{n} |^{p} \Big]^{\frac{ 1 }{ p } }. \]
+\end{eg}
+
+\subsection{Inequalities}
+
+In what follows we will list several key inequalities that can be used in proving that, for example, a given expression is a metric or a norm.
+\begin{enumerate}
+    \item[(1)] The triangle inequality for the standard norm in \( \R  \). We have for all \( x,y \in \R  \), we have 
+        \[  |  x + y  |  \leq | x  |  + | y |. \]
+        More generally, we have for all \( {x}_{1}, \dots, {x}_{n} \in \R  \), we have
+        \[  \Big| \sum_{ i=1  }^{ n } {x}_{i} \Big|  \leq \sum_{ i=1  }^{ n } | {x}_{i} |. \]
+    \item[(2)] Reverse triangle inequality for the standard norm in \( \R \); that is, we have for all \( x,y \in \R  \), 
+        \[  | |  x  |  - | y |  |  \leq |  x  - y  |. \]
+    \item[(3)] For all \( a,b \geq 0  \) and for all \( \rho > 0  \), we have 
+        \[  ab \leq \frac{ 1 }{ 2 }  \Big(\rho a^{2} + \frac{ 1 }{ \rho }  b^{2} \Big). \]
+        Note that we are dealing with real numbers here!
+    \item[(4)] Cauchy-Schwarz Inequality. For al \( x,y \in \R^{n} \), we have
+        \[  |  {x}_{1} {y}_{1} + \cdots + {x}_{n}{y}_{n}  |  \leq \Big(  \sqrt{  {x}_{1}^{2} + \cdots + {x}_{n}^{2} }  \Big) \Big(  \sqrt{ {y}_{1}^{2} + \cdots + {y}_{n}^{2} }  \Big) \tag{*}.  \]
+\end{enumerate}
+
+\section{Lecture 7}
+
+\subsection{Topics}
+
+\begin{itemize}
+    \item Review of Inequalities
+    \item Neighborhood of a point
+    \item Limit point of a set, isolated point of a set
+    \item Closed set
+    \item Interior point of a set
+    \item Open set
+    \item Bounded set
+    \item Closure
+    \item Dense
+\end{itemize}
+
+\subsection{Inequalities}
+    
+\subsection{Minkowski}
+    We wan to show the triangle inequality for \( \|\cdot\|_2  \) in \( \R^{n} \); that is, we want to show that
+    \begin{prop}
+         Let \( \|\cdot\|_2 \) be a norm in \( \R^{n} \). Then for all \( x,y \in \R^{n} \), \( \| x + y \|_2 \leq \|x\|_2 + \|y\|_2   \).
+    \end{prop}
+    \begin{proof}
+        We see that \( x \cdot y  \leq | x \cdot y  |  \leq \|x\|_2 \|y\|_2 \) by the Cauchy Cauchy-Schwarz Inequality. Thus, we have
+        \begin{align*}
+            \|x + y \|_2^{2} &= (x +y) \cdot (x +y) \\
+                             &= x \cdot x + x \cdot y + y \cdot x + y \cdot y \\
+                             &= \|x\|_2^{2} + 2 x \cdot y + \|y\|_2^{2} \\
+                             &\leq \|x\|_2^{2} + 2 \|x\|_2 \|y\|_2 + \|y\|_2^{2} \\
+                             &= (\|x\|_2 + \|y\|_2 )^{2}. 
+    \end{align*}
+    Hence, we have 
+    \[  \|x + y\|_2^{2} \leq (\|x\|_2 + \|y\|_2)^{2}.  \]
+    Therefore, we have
+    \[  \|x  + y\|_2 \leq \|x\|_2 + \|y\|_2. \]
+    \end{proof}
+
+\subsection{Minkowski for General p}
+For general \( p  \), we have Holder's Inequality which is 
+\[  \|x +y\|_p \leq \|x\|_p + \|y\|_p \]
+for any fixed real number \( p \geq 1  \) and for any \( x,y \in \R^{n} \).
+
+\subsection{\( (x+1)^n \)}
+Recall that for all \( a,b \in \R  \), for all \( n \in \N  \), we have
+\[  (a+b)^{n} = \sum_{ k = 0  }^{  n  } \begin{pmatrix} n \\ k  \end{pmatrix} a^{k } b^{n - k }. \]
+So, in particular, if \( x \geq 0  \) and \( n \in \N  \), then
+\begin{align*}  (x+1)^{n} &= \sum_{ k = 0  }^{ n } \begin{pmatrix} n \\ k  \end{pmatrix}  x^{k } 1^{n-k} \\ &= \sum_{ k = 0  }^{ n  } \begin{pmatrix} n \\ k  \end{pmatrix}  x^{k}  \\
+                          &= \begin{pmatrix} n \\ 0  \end{pmatrix}  x^{0} + \begin{pmatrix} n \\ 1  \end{pmatrix}  x^{1} + \cdots + \begin{pmatrix} n \\ n  \end{pmatrix} x^{n} \\
+                          &\geq 1 + nx.
+\end{align*}
+Hence, we have for all \( x \geq 0  \) and for all \( n \in \N  \), we have
+\[  (x+1)^{n} \geq 1 + nx.  \]
+
+\subsection{\( p- \)means}
+Let \( {x}_{1}, \dots, {x}_{n}  \) be positive real numbers. Let \( p \in \N \cup \{ 0  \}  \). By the \( p- \)mean of \( {x}_{1}, \dots, {x}_{n} \) denoted by \( {A}_{p}({x}_{1}, \dots, {x}_{n}) \), we mean
+\begin{align*}
+    {A}_{p}({x}_{1}, \dots, {x}_{n}) &= 
+    \begin{cases}
+        \frac{ \sqrt[p]{  x^{p}_1 + \cdots + {x}_{n}s^{p} }{ n }  } &\text{if} \ p \neq 0 \\
+        \sqrt[n]{{x}_{1} \dots {x}_{n} } &\text{if} \  p = 0. 
+    \end{cases}.
+\end{align*}
+For example, if \( p = 1  \), we have
+\[  {A}_{1}({x}_{1}, {x}_{2}, \dots, {x}_{n}) = \frac{ {x}_{1} + {x}_{2} + \cdots + {x}_{n}  }{ n }   \]
+which is the Arithmetic Mean. If \( p = 2  \), we have
+\[  {A}_{2}({x}_{1}, \dots, {x}_{n}) = \sqrt{ \frac{ {x}_{1}^{2} + \cdots + {x}_{n}^{2} }{ n }  }.  \]
+If \( p = 0  \), we have
+\[  {A}_{0}({x}_{1}, \dots, {x}_{n}) = \sqrt[n]{ {x}_{1} \dots {x}_{n}  } \]
+which is the geometric mean. It can be shown that
+\[  {A}_{0}({x}_{1}, \dots, {x}_{n}) \leq {A}_{1}({x}_{1}, \dots, {x}_{n}) \leq {A}_{2}({x}_{1}, \dots, {x}_{n}) \leq \dots \ .  \]
+In particular, we have \( {A}_{0} \leq {A}_{1} \); that is, 
+\[  \sqrt[n]{{x}_{1} \dots {x}_{n}  } \leq \frac{ {x}_{1} + \cdots + {x}_{n} }{ n } \tag{AM-GM Inequality}. \]
+We can prove this inequality using differentiation. Without differentiation, we can prove the same inequality using \textbf{Cauchy Induction}.
+
+\subsection{Jensen's Inequality}
+
+Suppose \( f: (a,b) \to \R  \) is a convex function (\( f"(x) \geq 0  \) for all \( x \in (a,b) \)). Let \( {x}_{1}, \dots, {x}_{n}  \) be points in \( (a,b) \). Let \( {\lambda}_{1}, \dots, {\lambda}_{n} \geq 0  \) such that \( {\lambda}_{1} + \cdots + {\lambda}_{n} = 1  \). Then   
+\begin{align*}
+    f({\lambda}_{1} {x}_{1} + \cdots + {\lambda}_{n} {x}_{n}) &= {\lambda}_{1} f({x}_{1}) + \cdots + {\lambda}_{n} f({x}_{n}).
+\end{align*}
+We want to show this inequality holds for \( n = 2  \); that is, 
+\[  f({\lambda}_{1} {x}_{1} + {\lambda}_{2} {x}_{2}) \leq {\lambda}_{1} f({x}_{1}) + {\lambda}_{2} f({x}_{2}) \]
+where \( {\lambda}_{1} + {\lambda}_{2} = 1  \). Note that 
+\[  f((1 - {\lambda}_{2}){x}_{1} + {\lambda}_{2} {x}_{2}) \leq (1 - {\lambda}_{2})f({x}_{2}) + {\lambda}_{2} f({x}_{2}). \]
+
+\begin{remark}
+    If we want to have an expression that defines a function that gives us any number in between two points \( e<h  \), we can have
+    \[ f(\lambda) =  (1-\lambda)e + \lambda h   \]
+    for any \( 0 \leq \lambda \leq 1  \).
+\end{remark}
+
+\subsection{Neighborhood of a point}
+
+\begin{definition}[Neighborhood]
+   Let \( (X,d) \) be a metric space. Let \( p \in X  \). For any \( \epsilon > 0  \), we call  
+   \begin{align*}
+       {N}_{\epsilon}(p) &= \{ x \in X : d(p,x) < \epsilon \}.  
+   \end{align*}
+   the \textbf{neighborhood of \( p \) of radius \( \epsilon \)}. 
+\end{definition}
+
+\begin{eg}
+    Let \( (\R, d) \) and \( d(x,y) = | x - y  |  \). The neighborhood of any \( p \in \R  \) with radius \( \epsilon > 0  \) is
+    \[  {N}_{\epsilon}(p) = \{ x \in \R : d(x,p) < \epsilon \}  = \{ x \in \R : |  x - p  |  < \epsilon \}.  \]
+    Note that \( | x - p  |  < \epsilon  \) is the same thing as \( p - \epsilon < x < p + \epsilon  \) or that \( x \in (p - \epsilon, p + \epsilon) \).
+\end{eg}
+
+\begin{eg}
+    Let \( (\R^{2}, d) \) with \( d((a,b), (x,y)) = \sqrt{ (a-x)^{2} + (b-y)^{2} }  \).
+    Let \( (a,b) \in \R^{2} \) with \( \epsilon > 0  \). Then
+    \begin{align*} 
+    {N}_{\epsilon}((a,b)) &= \{ (x,y) \in \R^{2} : d((x,y)(a,b)) < \epsilon \}  \\
+                          &= \{ (x,y) \in \R^{2} : \sqrt{ (x-a)^{2} + (y-b)^{2} } < \epsilon \} \\
+                          &= \{ (x,y) \in \R^{2} : (x-a)^{2} + (y-b)^{2} < \epsilon^{2}. \} 
+\end{align*}
+Thus, \( {N}_{\epsilon}((a,b))  \) consists of the points inside the circle of radius \( \epsilon  \) centered in \( (a,b) \).
+\end{eg}
+
+\begin{eg}
+    \( (\R^{2}, d) \) with \( d((a,b), (x,y)) = | a - x  |  + |  b - y  |  \) and let \( \epsilon = 1  \). We have
+    \begin{align*}
+    {N}_{1}((0,0)) &= \{ (x,y) \in \R^{2} : d((x,y),(0,0)) < 1  \}  \\
+                &= \{ (x,y) \in \R^{2} : | x - 0  |  + | y - 0  |  < 1  \} \\
+                   &= \{ (x,y) \in \R^{2} : | x  |  + | y  |  < 1  \}.
+\end{align*}
+If we graph this out in \( \R^{2} \), then the shape of the neighborhood will take on a rhombus.
+\end{eg}
+
+\begin{eg}
+   Let \( (\R, d) \) with the discrete metric
+   \[  d(x,y) = 
+   \begin{cases}
+       1 &\text{if} \ x \neq y \\
+       0 &\text{if} \ x =  y 
+   \end{cases}.  \]
+   Let \( p \in \R  \). Let \( \epsilon > 0  \). Let us consider two cases:
+   \begin{enumerate}
+       \item[(1)] Let \( \epsilon \leq 1  \). Note that if
+           \[  d(x,p) < \epsilon \leq 1, \]
+           then \( d(x,p) < 1  \), and so \( d(x,p) = 0  \). Hence, \( x = p  \). Then the neighborhood is 
+           \[  {N}_{\epsilon}(p) = \{ x \in \R : d(x,p) < \epsilon \}  = \{ p \}. \]
+        \item[(2)] Let \( \epsilon > 1  \). Clearly, for all \( x \in \R  \), we have \( d(x,p) \leq 1 < \epsilon. \)
+            So,
+            \[  {N}_{\epsilon}(p) = \{ x \in \R : d(x,p) < \epsilon \}  = \R.  \]
+   \end{enumerate}
+\end{eg}
+
+\subsection{Limit Points}
+
+\begin{definition}[Limit Points, Isolated Points]
+    Let \( (X,d) \) is a metric space with \( E \subseteq X  \). Then we call
+   \begin{enumerate}
+       \item[(1)] A point \( p \in X  \) is said to be a \textbf{limit point of \( E  \)} if for all \( \epsilon > 0  \), 
+           \[  {N}_{\epsilon}(p) \cap (E \setminus  \{ p \} ) \neq \emptyset. \]
+       \item[(2)] The \textbf{collection of all the limit points of \( E  \)} is denoted by \( E' \); that is,
+           \[  E' = \{ p \in X : \text{for all} \ \epsilon > 0, {N}_{\epsilon}(p) \cap (E \setminus  \{ p \} ) \neq \emptyset \}.  \]
+        \item[(3)] A point \( p \in E  \) is said to be an \textbf{isolated point of \( E  \)} if \( p  \) is NOT a limit point; that is,  \( p \in E  \) but \( p \notin E' \). Another way of saying this is \( E \setminus  E' \). 
+        \item[(4)] If \( p  \) is NOT a limit point, we have \( p \notin E' \) if and only if there exists \( \epsilon > 0  \) such that 
+    \[  {N}_{\epsilon}(p) \cap (E \setminus  \{ p \} ) = \emptyset. \]
+\end{enumerate} 
+\end{definition}
+
+\begin{remark}
+    The statement for all \( \epsilon > 0 \), \( {N}_{\epsilon}(p) \) is equivalent to for all \( {N}_{\epsilon}(p) \).
+\end{remark}
+
+\begin{eg}
+    Let \( (\R, d) \) with \( d(x,y) = | x - y |  \). Note that \(  0 \notin E  \). Also, recall that \( 0 \in E' \) if and only if for all \( \epsilon > 0  \), \( {N}_{\epsilon}(0) \cap (E \setminus  \{ 0  \} ) \neq \emptyset \). If \( 0 \in E' \), we just need to show that for all \( \epsilon > 0  \), \( {N}_{\epsilon}(0) \cap E \neq \emptyset \); that is, we need to show that  
+    \begin{center}
+        for all \( \epsilon > 0  \), \( (-\epsilon, \epsilon) \cap E \neq \emptyset \).
+    \end{center}
+    Let \( \epsilon > 0  \). By the Archimedean Property of \( \R  \), there exists \( m \in \N  \) such that \( \frac{ 1 }{ m }  < \epsilon  \). Clearly, \( 1/m \in (-\epsilon, \epsilon ) \cap E  \).
+\end{eg}
+
+
+\end{document}
