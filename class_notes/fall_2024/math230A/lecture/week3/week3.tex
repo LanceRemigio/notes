@@ -7,6 +7,13 @@
 
 \section{Lecture 4}
 
+\subsection{Topics}
+    \begin{enumerate}
+        \item[(1)] Sequences
+        \item[(2)] Infinite subset of a countable set is countable.
+    \end{enumerate}
+\subsection{Sequences}
+
 \begin{definition}[Sequence]
     We call a \textbf{sequence}, we mean a function \( f  \) on the set \( \N  \).    
 \end{definition}
@@ -18,7 +25,10 @@
     \item Sometimes it is convenient to replace \( \N  \) in the definition above with \( \{ 0,1,2,\dots \}  \) or \( \{ -1,0,1,2, \dots \}  \).
 \end{itemize}
 
-\begin{theorem}[ ] 
+
+\subsection{Infinite subset of a countable set is countable}
+
+\begin{theorem}[ ]\label{Subsets of countable sets is countable}
     Every infinite subset of a countable set is countable.
 \end{theorem}
 
@@ -29,45 +39,145 @@ with \( {x}_{n} = g(n) \) for all \( n \in \N \).
 Now, let us construct the sequence \( {n}_{1}, {n}_{2}, \dots  \) as follows: 
 \begin{enumerate}
     \item[(1)] Let \( {n}_{1}  \) be the smallest positive integer such that \( {x}_{{n}_{1}} \in E  \). 
-    \item[(2)] Let \( {n}_{2} \) 
+    \item[(2)] Let \( {n}_{2} \) be the smallest positive integer greater than \( {n}_{1}  \) such that \( {x}_{{n}_{2}} \in E  \). 
+    \item[\( \vdots \)]
+    \item[(k)] Let \( {n}_{k} \) be the smallest integer greater than \( {n}_{k - 1}  \) such that \( {x}_{{n}_{k}} \in E  \).
 \end{enumerate}
+Observe that the set 
+\[  \{ m \in \N :  m > {n}_{k-1} \wedge {x}_{m} \in E  \}   \]
+is both nonempty (since \( E  \) is infinite) and bounded below (by the well ordering property of natural numbers). Thus, we know that  
+\[  {n}_{k} = \min \{ m \in \N : m > {n}_{k-1} \wedge {x}_{m} \in E  \}. \]
+Now, define the function \( f: \N \to E  \) as follows:
+\[  f(k) = {x}_{{n}_{k}}. \]
+We claim that this is a bijective map. If we can prove this fact, then surely \( E  \) is countable. We need to prove a two things:
+\begin{enumerate}
+    \item[(1)] \( f \) is injective and
+    \item[(2)] \( f  \) is surjective.
+\end{enumerate}
+Starting with (1), suppose \( {k}_{1} \neq {k}_{2}  \). Then we have \( {n}_{{k}_{1}} \neq {n}_{{k}_{2}} \) and thus, \( {x}_{{n}_{{k}_{1}}} \neq {x}_{{n}_{{k}_{2}}} \). Hence, we see that \( f({k}_{1}) \neq f({k}_{2}) \). Therefore, \( f  \) is injective which proves (1).
+
+With (2), let \( b \in E  \). Since \( E \subseteq  A  \), we must have \( b \in A  \) and thus there exists an \( m \in \N  \) such that \( b = {x}_{m} \). Hence, there exists \( 1 \leq k \leq m  \) such that \( {x}_{{n}_{k}} = {x}_{m} = b \). Thus, \( f(k) = b \) which shows that \( f  \) is surjective and so (2) is satisfied.
+
+Therefore, \( f  \) must be a bijective map and we can now conclude that \( E \) is countable.
 \end{proof}
 
 \begin{remark}
-    
+   Consider the contrapositive of the theorem above:  
+   \begin{center}
+       Let \( E  \subseteq  A  \). If \( E  \) is not countable, then \( A  \) is not countable. 
+   \end{center}
+   When we say that a set is NOT countable, we do not necessarily mean the set is uncountable. However, in the case in that \( E  \) is an infinite set, we can say that \( E  \) being not countable is equivalent to saying that \( E  \) is uncountable. So, only in the case in which \( E  \) is infinite then the contrapositive is 
+   \begin{center}
+       Let \( E \subseteq A   \) be infinite. If \( E  \) is uncountable, then \( A  \) is uncountable. By the {\hyperref[Subsets of countable sets is countable]{theorem}} we just proved, we see that \( f(A) \subseteq S   \) and \( S  \) being countable implies that \( f(A) \) must be at most countable. Thus, \( A  \) must be at most countable.
+   \end{center}
+   
 \end{remark}
 
-\begin{corollary}[ ]
-    
+\begin{corollary}[ ]\label{Injective mapping implies at most countability}
+   Let \( A  \) be any set and let \( S  \) be a countable set. If there exists an injective mapping \( f: A \to S  \), then \( A  \) is at most countable. 
 \end{corollary}
+\begin{proof}
+Let \( A  \) be any set and let \( S  \) be a countable set. Suppose there exists an injective mapping \( f: A \to S  \). We can restrict the codomain \( S  \) of \( f  \) to its range \( f(A) \). Because \( f  \) is injective, the mapping \( f: A \to f(A) \) will be bijective. Thus, we have that \( A \sim f(A) \).
+\end{proof}
 
 \begin{eg}[\( \N \times \N  \) is countable]
-    
+   \begin{enumerate}
+       \item[(1)] The function \( f: \N \times \N \to \N  \) defined by
+           \[  f(x,y) = 2^{x} 3^{y} \]
+           is injective. By the corollary we have just proved, we see taht \( \N \times \N  \) is at most countable. 
+        \item[(2)] Notice that \( g: \N \to \{ 1 \}  \times \N  \) is a bijection \( g(a) = (1,a) \). Hence, \( \{ 1 \}  \times \N  \) is countable. Now, we have that  
+            \begin{enumerate}
+                \item[(i)] \( \{ 1 \}  \times \N \subseteq  \N \times \N   \)  
+                \item[(ii)] \( \{ 1 \} \times \N  \) is countable implies that \( \{ 1 \}  \times \N  \) is infinite.
+            \end{enumerate}
+            Thus, (i) and (ii) imply that \( \N \times \N  \) is countable.
+   \end{enumerate} 
 \end{eg}
+
+Proving that a set \( A  \) is countable can be done by finding a subset \( B  \) that is countable which forces \( A  \) to be countable. 
 
 \begin{eg}[\( \Q  \) is countable]
-    
+   \begin{enumerate}
+       \item[(1)] The function \( f: \Q \to \N \) defined by 
+           \[  f(x) = 
+           \begin{cases}
+               2(2^{p} 3^{q}) &\text{if} \ x = \frac{ p }{ q } \ p \in \N, q \in \N, (p,q) = 1 \\
+               2(2^{p} 3^{q}) + 1 &\text{if} \ x = \frac{ -p }{ q } \ p \in \N, q \in \N, (p,q) = 1 \\
+               1 &\text{if} \ x = 0
+           \end{cases} \]
+           is an injective mapping. So, \( \Q  \) is at most countable.
+        \item[(2)] Observe that \( \N \subseteq \Q   \) and \( \N  \) being a countable (and thus \( \N  \) is infinite) set implies that \( \Q  \) is infinite. Thus, \( \Q  \) is is countable.
+   \end{enumerate} 
 \end{eg}
 
-\begin{theorem}[ ]
+\subsection{Countable union of at most countable sets is at most countable}
+
+\begin{theorem}[ ]\label{Countable union of at most countable sets is at most countable}
    Countable union of at most countable sets is at most countable.
 \end{theorem}
+\begin{proof}
+    Let \( \{ {A}_{n} : n \in \N  \} \) be a countable family of at most countable sets; that is, for each \( n \in \N  \), \( {A}_{n} \) is at most countable. Our goal is to show that 
+    \[  K = \bigcup_{ n \in \N  }^{  }  {A}_{n} \ \text{is at most countable.} \]
+    To this end, it suffices to show that there exists an injective map \( f: K \to \N \times \N  \). Let 
+    \begin{align*}
+        {B}_{1} &= {A}_{1} \\
+        {B}_{2} &= {A}_{2} \setminus  {A}_{1} \\
+        {B}_{3} &= {A}_{3} \setminus  ({A}_{1} \cup {A}_{2}) \\
+                &\vdots \\
+        {B}_{n+1} &= {A}_{n+1} \setminus  \Big(  \bigcup_{ k=1  }^{ n }  {A}_{k} \Big).
+    \end{align*}
+    We leave as an exercise to show that 
+        \[  \bigcup_{ n \in \N  }^{   }  {B}_{n} = \bigcup_{ n \in \N  }^{  }  {A}_{n} \ \text{are pairwise disjoint}. \]
+       Note that for all \( n \in \N  \), we have \( {B}_{n} \subseteq  {A}_{n} \) and \( {A}_{n}  \) is at most countable. Then for each \( n \in \N  \). \( {B}_{n} \) must be at most countable. So, for each \( n \in \N  \), there exists an injective mapping \( {f}_{n}: {B}_{n} \to \N \). Our goal is to show that  
+       \[  \bigcup_{ n =1  }^{ \infty  } {B}_{n} \ \text{is at most countable}. \]
+       To this end, we define the function 
+       \[  f: \bigcup_{ n=1  }^{ \infty  }  {B}_{n} \to \N \times \N \]
+       as follows:
+       \begin{center}
+           For each \( x \in \bigcup_{ n = 1  }^{ \infty  } {B}_{n} \), there is exactly one \( n \in \N  \) such that \( x \in {B}_{n} \); let us denote this \( n  \) by \( {n}_{x} \).  
+       \end{center}
+       Thus, we define 
+       \[  f(x) = ({n}_{x}, {f}_{{n}_{x}}(x)). \]
+       This function is injective because
+       \begin{align*}
+           f(x) = f(y) &\Longrightarrow ({n}_{x}, {f}_{{n}_{x}}(x)) = ({n}_{y}, {f}_{{n}_{y}}(y)) \\
+                       &\Longrightarrow {n}_{x} = {n}_{y} \ \wedge \ {f}_{{n}_{x}}(x) = {f}_{{n}_{y}}(y) \\
+                       &\Longrightarrow {f}_{{n}_{k}}(x) \wedge {f}_{{n}_{x}}(y) \\
+                       &\Longrightarrow x =y \tag{Since \( {f}_{{n}_{x}}  \) is injective}
+       \end{align*}
+       By the {\hyperref[Injective mapping implies at most countability]{corollary}}, we see that the set 
+       \[  \bigcup_{ n =1  }^{  \infty  }  {B}_{n} \] is at most countable.
+\end{proof}
 
 \begin{corollary}
-    
+A countable union of countable sets is countable.    
 \end{corollary}
+\begin{proof}
+Let \( \{ {A}_{n} : n \in \N  \}  \) be a countable collection of countable sets. By the previous {\hyperref[Countable union of at most countable sets is at most countable]{Theorem}}, we see that \( \bigcup_{ n \in \N  }^{   }  {A}_{n} \) is at most countable. Note that \( {A}_{1} \subseteq \bigcup_{ n \in \N  }^{   } {A}_{n} \) and that \( {A}_{1} \) is countable. Thus, \( {A}_{1} \) must be infinite and so 
+\[  \bigcup_{ n \in \N  }^{} {A}_{n}  \ \text{is infinite}. \]
+Thus, we see that 
+\[  \bigcup_{ n \in \N  }^{  } {A}_{n}  \]
+must be countable.
+\end{proof}
 
 \begin{corollary}
-    
+   If \( A  \) and \( B  \) are at most countable, then \( A \cup B  \) at most countable. 
 \end{corollary}
+\begin{proof}
+Let \( {A}_{1} = A  \) and \( {A}_{2} = B  \) where \( {A}_{2} = {A}_{3} = \cdots = {A}_{n} = \emptyset \). Then \( A \cup B  \) is at most countable by the previous {\hyperref[Countable union of at most countable sets is at most countable]{Theorem}}. 
+\end{proof}
 
 \begin{theorem}[ ]
-   Finite product of countable sets is countable. 
+    If \( A  \) is countable, then \( A \times A  \) is countable.
 \end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item[(1)] Note that \( A \times A  = \bigcup_{ b \in A  }^{  }  \{ b  \}  \times A  \) for each \( b \in A  \).
+        \item[(2)] The function \( f: A \to \{ b \}  \times A  \) defined by \( f(x) = (b,x) \) is bijective. So, \( A \sim \{ b \}  \times A  \). Hence, \( \{ b  \}  \times A  \) is countable.
+    \end{enumerate}
+    Since a countable union of countable sets is countable, we see that \( A \times A  \) must be countable by (1) and (2).
+\end{proof}
 
-\begin{eg}[\( \Q \) is countable]
-    
-\end{eg}
 
 
 
@@ -237,7 +347,6 @@ A set \( X  \) equipped with a metric \( d  \) is called a \textbf{metric space}
 
 \end{eg}
 
-\subsection{Inequalities}
 
 
 

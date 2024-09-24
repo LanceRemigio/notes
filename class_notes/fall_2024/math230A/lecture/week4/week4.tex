@@ -3,7 +3,14 @@
 \usepackage{import}
 \input{../../../../../newpreamble.tex}
 
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
 \begin{document}
+
+\lhead{\rightmark}
+\chead{Week 4}
+\rhead{\thepage}
 
 \section{Lecture 6}
 
@@ -340,6 +347,157 @@ If we graph this out in \( \R^{2} \), then the shape of the neighborhood will ta
     \end{center}
     Let \( \epsilon > 0  \). By the Archimedean Property of \( \R  \), there exists \( m \in \N  \) such that \( \frac{ 1 }{ m }  < \epsilon  \). Clearly, \( 1/m \in (-\epsilon, \epsilon ) \cap E  \).
 \end{eg}
+
+\begin{eg}
+   Let \( (\R, d) \) with \( d(x,y) = | x - y  |  \) and 
+   \[  E = (1,2) \cup \{ 5  \}.  \]
+   Prove that \( 5  \) is an isolated point.
+   Since \( 5 \in E  \), it is enough to show that \( 5  \) is not in \( E' \). Recall that \( 5 \in E^{'}  \) if and only if there exists an \( \epsilon > 0  \) such that   
+   \[  {N}_{\epsilon}(5) \cap (E \setminus  \{ 5 \} ) = \emptyset. \]
+   Noticing that \( E \setminus  \{ 5  \} = (1,2) \), we can write \( 5 \notin E' \) if and only if there exists an \( \epsilon > 0  \) such that \( (5 - \epsilon , 5 + \epsilon) \cap (1,2) = \emptyset \). Clearly, \( \epsilon = 1  \) does the job and we are done; that is,
+   \[  (5 - \epsilon, 5 + \epsilon) \cap (1,2) = (4, 6) \cap (1,2) = \emptyset. \]
+\end{eg}
+
+\begin{eg}
+   Let \( (\R^{2}, d) \) and \( d((a,b),(x,y)) = \sqrt{ (a-x)^{2} + (b-y)^{2} }   \) 
+   and 
+   \[  E = \{ (x,y) \in \R^{2} : x^{2} + y^{2} < 4   \}. \]
+   What is \( E' \)?
+   \[  E' = \{ (x,y) \in \R^{2} : x^{2} + y^{2} \leq 4.  \}  \]
+   For example, if \( (a,b) \) is such that \( a^{2} + b^{2} > 4  \), then \( (a,b) \notin E' \). Let \( \delta = \frac{ 1 }{ 2 }  (\sqrt{ a^{2} + b^{2} } - 2 ) \). Clearly, \( {N}_{\delta} \cap (E \setminus  \{ p \}  ) = \emptyset \).
+\end{eg}
+
+\begin{definition}[Closed Set]
+    Let \( (X,d)  \) be a metric space, \( E \subseteq  X  \). We say that \( E  \) is \textbf{closed} if every limit point of \( E  \) is contained within \( E  \); that is,
+    \begin{center}
+        \( E  \) is closed \( \Longleftrightarrow  \)  \( E' \subseteq  E  \).
+    \end{center}
+\end{definition}
+
+\begin{eg}
+    Let \( (\R,d) \), \( d(x,y) = | x - y  |  \) and \( E = \{ 1,2,3 \}  \).
+    \begin{enumerate}
+        \item[(i)] What is \( E' \)?
+          
+            \textbf{Claim:} \( E' = \emptyset \). Let \( p \in \R  \). Our goal is to show that \( p  \) is not in \( E' \). That is, we want to show that there exists an \( \epsilon >  0  \) such that \( {N}_{\epsilon}(p) \cap (E \setminus  \{ p \} )  = \emptyset \)
+          where \( {N}_{\epsilon}(p) = (p - \epsilon, p + \epsilon) \).
+
+          We may consider the following cases:
+          \begin{enumerate}
+              \item[(1)] If \( p < 1  \). Let \( \epsilon = \frac{ 1 - p }{ 2 }  \) works. 
+               \item[(2)] If \( p > 3  \), we have \( \epsilon = \frac{ p - 3  }{ 2  }   \) works.
+                \item[(3)] If \( p \in \{ 1,2,3 \}  \), then \( \epsilon = \frac{ 1 }{ 4 }  \) works.
+                \item[(4)] If \( 1 < p < 2  \), then let \( \epsilon = \frac{ 1 }{ 2 }  \min \{ p - 1 , 2 - p \}   \) works. 
+            \item[(5)] If \( 2 < p < 3   \), then \( \epsilon = \frac{ 1 }{ 2 } \{  \min p - 2 , 3 -p \}   \) works.
+          \end{enumerate}
+        \item[(ii)] Is \( E  \) closed?
+            Since \( E' = \emptyset \), we have \( E' \subseteq E  \) and so \( E  \) is closed.
+    \end{enumerate}
+\end{eg}
+
+\begin{remark}
+    Any finite set is closed!
+\end{remark}
+
+\begin{definition}[Interior Point]
+   Let \( (X,d) \) is a metric space and let \( E \subseteq  X  \). We say that a point \( p \in E  \) is said to be an \textbf{interior point of \( E  \)} if there exists a neighborhood \( {N}_{\epsilon}(x)  \) such that \( {N}_{\epsilon}(x) \subseteq E  \). The collection of all interior points of \( E  \) is called the \textbf{interior of \( E  \)} and is denoted by the set:
+   \[  E^{\circ} = \{ x \in E : \exists \ {N}_{\epsilon}(x) \subseteq E  \}. \]
+\end{definition}
+
+\begin{remark}
+    Note that by definition we know that the interior of \( E  \) is always contained within \( E  \); that is, \( E^{\circ} \subseteq  E  \). Also, 
+    \begin{center}
+        \( p \in E^{\circ}  \) if and only if there exists a neighborhood \( {N}_{\delta}(p)  \) such that \( {N}_{\delta}(p) \subseteq E  \).
+    \end{center}
+\end{remark}
+
+\begin{eg}
+    Let \( (\R, d) \) with \( d(x,y) = | x - y  |  \) with \( E = (1,3] \). What is \( E^{\circ} = ?  \). We claim that \( E^{\circ} = (1,3) \).
+
+    Let \( p \in  (1,3) \). We want to show that 
+    \begin{enumerate}
+        \item[(1)] If \( p \in (1,3) \), then \( p  \) is an interior point.
+        \item[(2)] If \( p = 3  \), then \( p \notin E^{\circ} \).
+    \end{enumerate}
+    We proceed by showing each case above:
+    \begin{enumerate}
+        \item[(1)] It suffices to show that there exists \( \delta > 0  \) such that \( {N}_{\delta}(p) \subseteq  E  \). Clearly, choose \( \delta = \frac{ 1 }{ 2 }  \min \{  p - 1 , 3 - p \}  \) and we are done.
+        \item[(2)] Suppose \( p = 3  \). It suffices to show that 
+            \begin{center}
+                \( \forall \ \epsilon > 0  \), \( {N}_{\epsilon}(3) \not\subseteq E  \).
+            \end{center}
+            That is, we want to show that
+            \[  \forall \ \epsilon > 0 , (3 - \epsilon, 3 + \epsilon) \cap E^{c} \neq \emptyset. \]
+            Clearly, for all \( \epsilon > 0  \), we have \( 3 + \frac{ \epsilon  }{  2  }  \in (3 - \epsilon , 3 + \epsilon) \). Thus, \( 3  + \frac{ \epsilon  }{  2  }  \in E^{c} \). Hence, we have 
+            \[  (3 - \epsilon , 3 + \epsilon) \cap E^{c} \neq \emptyset. \]
+    \end{enumerate}
+\end{eg}
+
+To show that boundary points are not interior points, it suffices to show that intersection with each neighborhood and the complement of the set is question is nonmepty.
+
+\begin{eg}
+    Let \( (\R, d)  \) with \( d(x,y) = |  x - y  |  \) and \( E = \{ 1,2,3 \}  \). What is \( E^{\circ} = ?  \). We claim that \( E^{\circ} = \emptyset  \). The reason is as follows: Let \( p \in \{ 1,2,3 \}  \); that is, for all \( \epsilon > 0  \), we have \( {N}_{\epsilon}(p) \not\subseteq E  \) but \( {N}_{\epsilon}(p) = (p - \epsilon, p + \epsilon) \) has infinitely many points. We proved that if \( p \in E  \), then \( p \notin E^{\circ} \). So, \( E^{\circ} = \emptyset \).
+\end{eg}
+
+\begin{definition}[Open Sets]
+   Let \( (X,d) \) be a metric space and \( E \subseteq  X \). We say that \( E  \) is \textbf{open} if every point of \( E  \) is an interior point of \( E  \); that is, 
+   \begin{center}
+       \( E  \) is open \( \Longleftrightarrow  \) \( E \subseteq  E^{\circ} \).
+   \end{center}
+\end{definition}
+
+\begin{remark}
+    We know that, for any set, \( E^{\circ} \subseteq  E  \). So, we can rewrite our definition as follows:
+    \begin{center}
+        \( E  \) is open \( \Longleftrightarrow  \) \( E = E^{\circ} \).
+    \end{center}
+    That is, the other inclusion holds!
+\end{remark}
+
+\begin{eg}
+    Let \( (\R ,d ) \) with \( d(x,y) = | x -y  |  \) and \( E = \{ 1,2,3 \}  \). Is \( E  \) open? Note that \( E^{\circ} = \emptyset  \). So, \( E^{\circ} \neq E  \) and so \( E  \) is NOT open.
+\end{eg}
+
+\begin{eg}
+    Let \( (\R,d) \) with \( d(x,y) = |  x - y  |  \) and \( E = (1,4) \). Prove that \( E  \) is open. It suffices to show that every point \( p \in E   \) is an interior point. Let \(  p \in E  \). That is, we want to show that there exists \( \delta > 0  \) such that \( {N}_{\delta}(p) \subseteq  E  \). If we choose \( \delta = \frac{ 1 }{ 2 }  \{ p - 1 , 4 - p \}  \) does the job and we are done.
+\end{eg}
+
+\begin{definition}[Bounded Sets]
+    Let \( (X,d) \) be a metric space and \( E \subseteq  X \). We say that \( E  \) is \textbf{bounded} if there exists \( \epsilon >0    \) and \( q \in X  \) such that \( E \subseteq {N}_{\epsilon}(q) \).   
+\end{definition}
+
+\begin{eg}
+    Let \( (\R , d ) \) with \( d(x,y) = | x - y  |  \) and \( E = [0,\infty ) \). Is \( E  \) bounded? \textbf{NO!} This is because for all \( q \in \R  \) and \( \epsilon > 0  \), we have
+    \[  [0,\infty ) \not\subseteq (q - \epsilon, q + \epsilon).   \]
+\end{eg}
+
+\begin{eg}
+    Let \( (\R, d) \) with the discrete metric and \( E = [0,\infty )  \). Is \( E  \) bounded? \textbf{YES!} For example, we have 
+    \[  E \subseteq  {N}_{10}(0) = \R.  \]
+\end{eg}
+
+\begin{definition}[Closure]
+    Let \( (X,d) \) be a metric space and \( E \subseteq X  \). The \textbf{closure} of \( E  \), denoted by \( \overline{E} \), is defined as follows:  
+    \[ \overline{E} = E \cup E' \]
+    that is, the closure of \( E  \) is the union of the isolated points and limit points.
+\end{definition}
+
+\begin{eg}
+   Let \( (\R,d) \) and \( d(x,y) = | x - y  |  \). What is \( \overline{Q} \)? Show within the homework that \( \Q' = \R  \). So,  
+   \[   \]
+\end{eg}
+
+\begin{definition}[Dense]
+    Let \( (X,d) \) metric space and \( E \subseteq X  \). We say that \( E  \) is dense in \( X  \) if \( \overline{E} = X  \). (that is, every point of \( X  \) is either in \( E  \) or is a limit point of \( E  \)).
+\end{definition} 
+
+\begin{eg}
+    \( \overline{\Q} = \R    \), so \( \Q \) is dense in \( \R  \). 
+\end{eg}
+
+
+
+
 
 
 \end{document}

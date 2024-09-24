@@ -69,7 +69,21 @@ Show that a sequence \( ({z}_{n}) \) in \( \C  \) is convergent if and only if i
             1 &\text{if} \ {x}_{0} > 0 \\
             -1 &\text{if}  \ {x}_{0} < 0. 
         \end{cases}   \]
-        Suppose \( {x}_{0} > 0  \). First, we need to show that \( {z}_{n} \neq 1  \) for all \( n \in \N  \). We will first show that \( \Re({z}_{n}) > 0  \) by induction. Now, define a new sequence \( ({w}_{n})  \) such that
+        Suppose \( {x}_{0} > 0  \). First, we need to show that \( {z}_{n} \neq 1  \) for all \( n \in \N  \). We proceed via induction. Let our base case be \( n = 1  \). Then we want to show that \( \Re({z}_{1}) > 0  \). Using the definition of \( {z}_{0} \), we see that  
+        \begin{align*}
+            {z}_{1} = \frac{ {z}_{0}^{2} + 1  }{ 2 {z}_{0} } &= \frac{ 1 }{ 2({x}_{0}^{2} + {\zeta}_{0}^{2}) } \cdot [({x}_{0} + i {\zeta}_{0})^{2}({x}_{0} - i {\zeta}_{0}) + ({x}_{0} - i {\delta}_{0}) ] \\
+                                                             &= \frac{ {x}_{0}^{3} + {x}_{0} {\zeta}_{0}^{2} + {x}_{0} }{ 2 ({x}_{0}^{2} + {\zeta}_{0}^{2}) } +  i \frac{ {\zeta}_{0} {x}_{0}^{3} - {\zeta}_{0} }{ 2 ({x}_{0}^{2} + {\zeta}_{0}^{2}) }.
+        \end{align*}
+        Since \( {z}_{1} = \Re({z}_{1}) + i \Im({z}_{1}) \) and \( {x}_{0} > 0  \), we see that 
+        \[  \Re({z}_{1}) = \frac{ {x}_{0}^{3} + {x}_{0} {\zeta}_{0}^{2} + {x}_{0} }{ 2 ({x}_{0}^{2} + {\zeta}_{0}^{2})  } > 0.   \]
+        Now, suppose that the result holds for the \( n \)th case. We will show that the result holds for the \( n + 1  \) case. Set \( \alpha = \Re({z}_{n})  \) and \( \beta = \Im({z}_{n}) \). Then by definition of \( {z}_{n+1} \), we see that
+        \begin{align*}
+            {z}_{n+1} = \frac{ {z}_{n}^{2} + 1 }{ 2 {z}_{n} }                                                                 &= \frac{ 1 }{ 2(\alpha^{2} + \beta^{2})  }  \cdot [(\alpha + i \beta)(\alpha - i \beta) + (\alpha - i \beta)] \\
+                                                                                                                              &= \frac{ \alpha^{3} + \alpha \beta^{3} + \alpha }{ 2(\alpha^{2} + \beta^{2}) } + i \frac{ \beta \alpha^{3} - \beta }{ 2(\alpha^{2} + \beta^{2}) }. 
+        \end{align*}
+        By equating the real and imaginary parts of \( {z}_{n+1} \) with the right-hand side of the equation above and using the inductive hypothesis that \(  \alpha = \Re({z}_{n})  > 0\), we see that
+        \[  \Re({z}_{n+1}) = \frac{ \alpha^{3} + \alpha \beta^{3} + \alpha }{ 2 (\alpha^{2} + \beta^{2}) } > 0.  \]
+Thus, we see that \( \Re({z}_{n}) > 0  \) for all \( n \in \N \). Consequently, this tells us that \( \Re({z}_{n}) + 1 >  1 \) which further tells us that \( | {z}_{n+1} + 1  | > 1  \). Now, define a new sequence \( ({w}_{n})  \) such that
 \[  {w}_{n+1} = \frac{ {z}_{n+1} - 1  }{  {z}_{n+1} + 1  }   \]
         and note that 
         \[  {z}_{n+1} = \frac{ 1 + {z}_{n}^{2} }{  2 {z}_{n} }.  \]
@@ -92,15 +106,15 @@ Show that a sequence \( ({z}_{n}) \) in \( \C  \) is convergent if and only if i
         \begin{align*}
             0 < | {w}_{n+2} |  = | {w}_{n+1}^{2} | = \Big| \Big( \frac{ {z}_{n+1} - 1  }{  {z}_{n+1} + 1  }    \Big)^{2} \Big|  < | {w}_{n+1}   | &< | {w}_{n} | < 1. \\
         \end{align*}
-        Thus, we see that \( 0 < | {w}_{n+1} | < | {w}_{n} |  < 1  \) holds for all \( n \in \N  \). Clearly, we see that \( ({w}_{n}) \) is bounded and decreasing for all \( n  \). Hence, \( ({w}_{n})  \) must converge, and in this case, it converges to \( 0  \). Let \( \epsilon > 0  \). We can pick an \( N \in \N  \) such that for any \( n \geq N  \), we see that  
-        \[  \Big| \frac{ {z}_{n} - 1  }{ {z}_{n+1} + 1  }  \Big| < \epsilon \Longleftrightarrow | {z}_{n} - 1  | < \epsilon | {z}_{n+1} + 1 |.  \]
-        Since \( \epsilon > 0  \) is arbitrary, we see that \( ({z}_{n}) \to 1  \).
-
-        Now, assume that \( {x}_{0} < 0  \). Let \( \epsilon > 0  \). Since the first case holds, we can find an \( N \in \N  \) such that for any \( n \geq N  \), we have  
-        \[  | {z}_{n} - 1  |  < \epsilon. \]
-        Observe that 
-        \[  | {z}_{n} - 1  | = | - {z}_{n} - (-1)   | \]
-        which tells us that \( (- {z}_{n}) \to -1 \). 
+        Thus, we see that \( 0 < | {w}_{n+1} | < | {w}_{n} |  < 1  \) holds for all \( n \in \N  \). Clearly, we see that \( ({w}_{n}) \) is bounded and decreasing for all \( n  \). Hence, \( ({w}_{n})  \) must converge, and in this case, we claim that it converges to \( 0  \). Observe that 
+        \[  | {w}_{n} | = e^{\ln | {w}_{n} | }. \]
+        Now, since \( 0 < | {w}_{n} |  < 1  \), we must have \( \ln | {w}_{n} | < 0  \). By applying the limit as \( n \to \infty  \), we can see that 
+        \[  \lim_{ n \to \infty  }  | {w}_{n} |  = \lim_{ n \to \infty  }  e^{\ln | {w}_{n} | } = 0.  \]
+        Since \( | {z}_{n+1} + 1  | > 1  \) for all \( n \in \N  \), we must have that 
+        \[  | {z}_{n+1} - 1  | \to 0  \]
+        as \( n \to \infty  \). Thus, we conclude that \( \lim_{ n \to \infty  } {z}_{n} = 1  \).
+    Now, assume that \( {x}_{0} < 0  \). Consider the sequence \( (-{z}_{n}) \). Then observe that  
+    \[  \lim_{ n \to \infty  } - {z}_{n} = - \lim_{ n \to \infty  } {z}_{n} = -1. \]
         
 
 
@@ -213,17 +227,21 @@ Determine all \( z \in \C  \) such that
                                                      &\Longrightarrow w^{2} -2(1+i) w + (1+i)^{2} = 1 + (1+i)^{2} \\
                                                      &\Longrightarrow (w - (1+i))^{2} = 1 + (1+i)^{2} \\
                                                      &\Longrightarrow (w - (1+i))^{2 } = 1 + 2i \\
-                                                     &\Longrightarrow  w = \sqrt{ 1 + 2i } + (1+i). 
+                                                     &\Longrightarrow  w_{1,2} = \pm \sqrt{ 1 + 2i } + (1+i). 
         \end{align*}
         Now, we will convert the first term on the right-hand side in terms of its respective polar representation. Thus, we have
-        \[  \sqrt{ 1 + 2i }  = 5^{\frac{1  }{ 4 } } e^{i \frac{ \tan^{-1}(2) }{ 2 } } = 5^{1/4} \Big(  \cos \Big(  \frac{ \tan^{-1}(2) }{ 2 }  \Big) + i \sin \Big(  \frac{ \tan^{-1}(2) }{ 2 }  \Big) \Big).  \]
+        \[  \pm \sqrt{ 1 + 2i }  = \pm  5^{\frac{1  }{ 4 } } e^{i \frac{ \tan^{-1}(2) }{ 2 } } = \pm 5^{1/4} \Big(  \cos \Big(  \frac{ \tan^{-1}(2) }{ 2 }  \Big) + i \sin \Big(  \frac{ \tan^{-1}(2) }{ 2 }  \Big) \Big).  \]
         Now, set 
         \[  \alpha = \Big(  5^{1/4} \cos \Big(  \frac{ \tan^{-1}(2) }{ 2 }  \Big) + 1  \Big) + i \Big(  5^{1/4} \sin \Big(  \frac{ \tan^{-1}(2) }{ 2 }  \Big) + 1  \Big). \]
+        and
+        \[  \zeta = \Big(  1 - 5^{1/4} \cos \Big(  \frac{ \tan^{-1}(2) }{ 2 }  \Big)  \Big) + i \Big(  1 - 5^{1/4} \sin \Big(  \frac{ \tan^{-1}(2) }{ 2 }  \Big)  \Big). \]
         \begin{align*}
-            e^{iz } = \alpha  &\Longrightarrow z = \frac{ 1 }{ i } \Log (\alpha)  \\
+            e^{iz} = \alpha  &\Longrightarrow z = \frac{ 1 }{ i } \log (\alpha)  \\
                               &\Longrightarrow z = -i [\ln | \alpha | + i \Arg(\alpha) ] \\ 
-                              &\Longrightarrow z = \Arg(\alpha) - i \ln | \alpha |.
+                              &\Longrightarrow z = \Arg(\alpha) - i \ln | \alpha |
         \end{align*}
+        and similarly
+    \[  e^{iz} = \zeta \Longrightarrow z = \{  \Arg(\zeta) - i \ln | \zeta | \}.  \]
         \end{solution}
     \item[(iv)] \( \cos z = 3 + 4i \)
         \begin{solution}
@@ -236,17 +254,25 @@ Determine all \( z \in \C  \) such that
                                           &\Longrightarrow w^{2} - (6+8i)w = -1 \\
                                           &\Longrightarrow w^{2} - (6+8i)w + (3+4i)^{2} = (3+4i)^{2} - 1 \\
                                           &\Longrightarrow (w - (3+4i))^{2} = -1 + (3+4i)^{2} \\
-                                          &\Longrightarrow w = \sqrt{ 8(3i-1) } + (3+4i)  
+                                          &\Longrightarrow w = \pm \sqrt{ 8(3i-1) } + (3+4i)  
         \end{align*}
         Now, let us convert the first term on the right-hand side into it's polar form which is 
-        \[  \sqrt{ 8 (3i - 1) } = 8^{1/2} \cdot 10^{1/2} e^{i \frac{ 3 \pi }{ 8 } } = 8^{1/2} \cdot 10^{1/2} \Big(  \cos \Big(  \frac{ 3 \pi }{ 8 }  \Big) + i \sin \Big(  \frac{ 3 \pi  }{ 8 }  \Big) \Big). \]
+        \[ \pm \sqrt{ 8 (3i - 1) } = 8^{1/2} \cdot 10^{1/2} e^{i \frac{ 3 \pi }{ 8 } } = 8^{1/2} \cdot 10^{1/2} \Big(  \cos \Big(  \frac{ 3 \pi }{ 8 }  \Big) + i \sin \Big(  \frac{ 3 \pi  }{ 8 }  \Big) \Big). \]
         Let us set 
-        \[  \beta = \Big(  3 + 8^{1/2}\cdot 10^{1/2} \cos \Big(  \frac{ 3 \pi }{ 8 }  \Big) \Big) + i \Big(  4 + 8^{1/2} \cdot 10^{1/2} \sin \Big(  \frac{ 3 \pi  }{ 8 }  \Big) \Big). \]
+        \[  \beta = \Big(  3 + 8^{1/2}\cdot 10^{1/2} \cos \Big(  \frac{ 3 \pi }{ 8 }  \Big) \Big) + i \Big(  4 + 8^{1/2} \cdot 10^{1/2} \sin \Big(  \frac{ 3 \pi  }{ 8 }  \Big) \Big)\]
+        and
+        \[  \omega = \Big(  3 - 8^{1/2}\cdot 10^{1/2} \cos \Big(  \frac{ 3 \pi }{ 8 }  \Big) \Big) + i \Big(  4 - 8^{1/2} \cdot 10^{1/2} \sin \Big(  \frac{ 3 \pi  }{ 8 }  \Big) \Big)\]
         Now, we have
         \begin{align*}
-            e^{iz} = \beta &\Longrightarrow z  = \frac{ 1 }{ i }  \Log (\beta )  \\
-                           &\Longrightarrow z = -i [\ln | \beta  |  + i \Arg(\beta)] \\  
-                           &\Longrightarrow z = \Arg(\beta) - i \ln | \beta |.
+            e^{iz} = \beta &\Longrightarrow z  = \frac{ 1 }{ i }  \log (\beta )  \\
+                           &\Longrightarrow z = \{ -i [\ln | \beta  |  + i \Arg(\beta)] \} \\  
+                           &\Longrightarrow z = \{ \Arg(\beta) - i \ln | \beta | \}.
+        \end{align*}
+        and
+        \begin{align*}
+            e^{iz} = \omega &\Longrightarrow z  = \frac{ 1 }{ i }  \log (\omega )  \\
+                           &\Longrightarrow z = \{ -i [\ln | \omega  |  + i \Arg(\omega)] \} \\  
+                           &\Longrightarrow z = \{ \Arg(\omega) - i \ln | \omega | \}.
         \end{align*}
         \end{solution}
 \end{enumerate}
@@ -265,12 +291,12 @@ as \( n \to \infty   \). Hence, \( ({w}_{n}) \) must be a Cauchy sequence and so
 \[  {s}_{n} = \sum_{ k=1  }^{ n } {z}_{k}. \]
 Our goal is to show that \( ({s}_{n}) \to 0  \) as \( n \to \infty  \). Since \( {z}_{n} = {w}_{n} - {w}_{n+1} \), we can see that      
 \begin{align*}
-    | {s}_{n} | = \Big| \sum_{ k=1  }^{ n } {z}_{k}  \Big| &= \Big| \sum_{ k=1  }^{ n } {w}_{k} - {w}_{k+1} \Big|   \\
-                &= | ({w}_{1} - {w}_{2}) + ({w}_{2} - {w}_{3}) + \cdots + ({w}_{n} - {w}_{n+1}) | \\
-                &= | {w}_{1} - {w}_{n+1} |.
+    | {s}_{n} - {s}_{m} | = \Big| \sum_{ k=m+1  }^{ n } {z}_{k}  \Big| &= \Big| \sum_{ k=m+1  }^{ n } {w}_{k} - {w}_{k+1} \Big|   \\
+                &= | ({w}_{m+1} - {w}_{m+2}) + ({w}_{m+2} - {w}_{m+3}) + \cdots + ({w}_{n} - {w}_{n+1}) | \\
+                &= | {w}_{m+1} - {w}_{n+1} |.
 \end{align*}
 Since \( ({w}_{n})  \) converges, we must also have that \( ({w}_{n}) \) is Cauchy. Thus, we see that 
-\[  | {s}_{n} | = | {w}_{1} - {w}_{n+1}  |  \to 0 \ \text{as} \ n  \to \infty.   \]
+\[  | {s}_{n} - {s}_{m} | = | {w}_{m+1} - {w}_{n+1}  |  \to 0 \ \text{as} \ n  \to \infty.   \]
 Thus, \( ({s}_{n}) \) must converge and hence the infinite series \( \sum_{ k=1  }^{ \infty  } {z}_{n}  \) converges. Using this result, we can now compute
 \begin{align*}
     {s}_{n} = \sum_{ k=1  }^{ n } {z}_{k} &= \sum_{ k=1  }^{ n } ({w}_{k} - {w}_{k+1})  \\

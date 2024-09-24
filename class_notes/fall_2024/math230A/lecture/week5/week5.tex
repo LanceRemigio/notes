@@ -1,0 +1,53 @@
+\documentclass[a4paper]{report}
+\usepackage{standalone}
+\usepackage{import}
+\input{../../../../../newpreamble.tex}
+
+\begin{document}
+
+\subsection{Topics}
+
+\begin{enumerate}
+    \item[(1)] Every neigborhood is an open set.
+    \item[(2)] If \( p  \) is a limit point of a set \( E  \), then every neighborhood of \( p  \) contains infinitely many points of \( E  \). 
+    \item[(3)] Theorem: \( E  \) is open \( \Longleftrightarrow \) \( E^{C}   \) is closed.
+    \item[(4)] Theorem: arbitrary union of open sets is open, Finite intersection of open sets is open.
+    \item[(5)] Theorem: \( \overline{E} \) is the smallest closed subset of \( X  \) that contains \( E  \).
+\end{enumerate}
+
+\begin{theorem}[ ]
+   Let \( (X,d) \) be a metric space and let \( p \in X  \) and \( \epsilon > 0  \). Every neighborhood is an open set; that is, \( {N}_{\epsilon}(p) \) is an open set.
+\end{theorem}
+
+\begin{proof}
+Our goal is to show that every point of \( {N}_{\epsilon}(p) \) is an interior point of \( {N}_{\epsilon}(p) \). Let \( q \in {N}_{\epsilon}(p) \). We need to show that there exists \( \delta > 0  \) such that \( {N}_{\delta}(q) \subseteq {N}_{\epsilon}(p) \). Let \( \delta = \frac{ \epsilon - d(p,q)  }{ 2 }  \). We claim that \( {N}_{\delta}(q) \) is a subset of \( {N}_{\epsilon}(p) \). Indeed, if \( x \in {N}_{\delta}(q) \), then  
+\[  d(q,x) < \delta \Longrightarrow d(q,x) < \epsilon - d(p,q)  \]
+and so
+\[  d(p,q) + d(q,x) < \epsilon \Longleftrightarrow d(p,x) < \epsilon \tag{triangle inequality}. \]
+Thus, \( x \in {N}_{\epsilon}(p) \).
+
+\end{proof}
+
+\begin{theorem}[ ]
+   If \( p  \) is a limit point of a set \( E  \), then every neighborhood of \( p  \) contains infinitely many points of \( E  \).
+\end{theorem}
+
+\begin{corollary}
+    A finite set has no limit points.
+\end{corollary}
+
+\begin{theorem}[ ]
+    
+\end{theorem}
+
+\begin{theorem}[ ]
+    
+\end{theorem}
+
+\begin{theorem}[ ]
+    
+\end{theorem}
+
+
+
+\end{document}
