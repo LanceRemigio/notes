@@ -178,15 +178,21 @@ Let \( \epsilon > 0  \). Our goal is to show that there exists an \( N \in \N  \
 Indeed, we can use the fact that 
 \[  \lim_{ n \to \infty  }  \Big| \frac{ {z}_{n+1} }{ {z}_{n} }  \Big|  = L,  \]
 to find an \( N \in \N  \) such that whenever \(  n \geq  N \), we have
-\[  \Big| \frac{ {z}_{n+1} }{ {z}_{n} }  \Big| < L + \epsilon.  \]
+\[ L - \epsilon  < \Big| \frac{ {z}_{n+1} }{ {z}_{n} }  \Big| < L + \epsilon.  \]
 Now, observe that
 \begin{align*}
     | {z}_{n} |^{\frac{ 1 }{ n } } &= \Big| \frac{ {z}_{n} }{ {z}_{n-1} } \cdot \frac{ {z}_{n-1} }{ {z}_{n-2} } \cdot \frac{ {z}_{n-2} }{ {z}_{n-3} } \cdots \frac{ {z}_{N+1} }{ {z}_{N} }  \Big|^{\frac{ 1 }{ n } } \\ 
                                    &< \Big[ (L+\epsilon)^{n - N} \Big]^{\frac{ 1 }{ n }} | {z}_{N} |^{1/n} \\
-                                   &= \Big[(L+\epsilon)\Big]^{1- \frac{ N }{ n } } | {z}_{N} |^{\frac{ 1 }{ n }}.
+                                   &= \Big[(L+\epsilon)\Big]^{1- \frac{ N }{ n } } | {z}_{N} |^{\frac{ 1 }{ n }}
 \end{align*}
-Taking the limit as \( n \to \infty  \) on the right-hand side, we can see that
-\[  | {z}_{n} |^{\frac{ 1 }{ n }} < L + \epsilon \Longleftrightarrow  | | {z}_{n} |^{1/n} - L | < \epsilon     \]
+and similarly, we see that 
+\begin{align*}
+    | {z}_{n} |^{\frac{ 1 }{ n } } &= \Big| \frac{ {z}_{n}  }{  {z}_{n-1} }  \cdot \frac{ {z}_{n-1} }{  {z}_{n-2} }  \cdot \frac{ {z}_{n-2}  }{  {z}_{n-3} }  \cdots \frac{ {z}_{N+1} }{ {z}_{N} }  \Big|^{\frac{ 1 }{ n }} \\
+                                   &> \Big[ (L - \epsilon)^{n-N} \Big]^{\frac{ 1 }{ n } } | {z}_{N} |^{\frac{ 1 }{ n } } \\
+                                   &= \Big[(L - \epsilon)\Big]^{1 - \frac{ N }{ n } } | {z}_{N} |^{\frac{ 1 }{ n } }.
+\end{align*}
+Taking the limit as \( n \to \infty  \) for both of these inequalities above, we can see that
+\[ L - \epsilon < | {z}_{n} |^{\frac{ 1 }{ n }} < L + \epsilon \Longleftrightarrow  | | {z}_{n} |^{1/n} - L | < \epsilon     \]
 which is our desired result.
 
 \end{proof}
@@ -200,8 +206,8 @@ Determine all \( z \in \C  \) such that
         \[  \Arg(-2) = \tan^{-1}(-2) = \pi. \]
         Thus, we see that 
         \begin{align*}
-            z = \Log(-2) &= \ln | -2 |  + i \Arg(-2) \\
-                     &= \ln 2 + i \Big( \pi + 2\pi k    \Big) \  \text{for} \ k \in \Z. 
+            z = \log(-2) &= \{  \ln | -2 |  + i \Arg(-2) + 2 \pi i k : k \in \Z  \} \\
+                         &= \{ \ln 2 + i ( \pi + 2\pi k) : \ k \in \Z \} . 
         \end{align*}
         \end{solution}
     \item[(ii)] \( \exp(z) = -i \)
@@ -210,9 +216,9 @@ Determine all \( z \in \C  \) such that
         \[  \Arg(-i) = \frac{ 3 \pi }{ 2 }. \]
         Thus, we see that
         \begin{align*}
-            z =  \Log(-i) &= \ln | -i |  + i \Arg(-i) \\
-                          &=  \ln (1) + i \Big[\frac{ 3 \pi  }{  2  }  + 2 \pi k \Big] \ \text{for} \ k \in \Z \\ 
-                          &= i\Big[\frac{ 3 \pi  }{  2  }  + 2 \pi k \Big] \ \text{for} \ k \in \Z. 
+            z =  \log(-i) &= \{ \ln | -i |  + i \Arg(-i) + 2 \pi i k  : k \in \Z  \} \\
+                          &=  \Big\{ \ln (1) + i \Big[\frac{ 3 \pi  }{  2  }  + 2 \pi k \Big] : k \in \Z \Big\} \\ 
+                          &= \Big\{ i \frac{ 3 \pi  }{  2  }  + 2 \pi i k : k \in \Z  \Big\}. 
         \end{align*}
         \end{solution}
     \item[(iii)] \( \sin z = 1 - i \)
@@ -237,11 +243,11 @@ Determine all \( z \in \C  \) such that
         \[  \zeta = \Big(  1 - 5^{1/4} \cos \Big(  \frac{ \tan^{-1}(2) }{ 2 }  \Big)  \Big) + i \Big(  1 - 5^{1/4} \sin \Big(  \frac{ \tan^{-1}(2) }{ 2 }  \Big)  \Big). \]
         \begin{align*}
             e^{iz} = \alpha  &\Longrightarrow z = \frac{ 1 }{ i } \log (\alpha)  \\
-                              &\Longrightarrow z = -i [\ln | \alpha | + i \Arg(\alpha) ] \\ 
-                              &\Longrightarrow z = \Arg(\alpha) - i \ln | \alpha |
+                             &\Longrightarrow z = \{ -i [\ln | \alpha | + i \Arg(\alpha) + 2 \pi i k  ] : k \in \Z \} \\ 
+                             &\Longrightarrow z = \{ (\Arg(\alpha) + 2 \pi  k) - i \ln | \alpha | : k \in \Z  \}
         \end{align*}
         and similarly
-    \[  e^{iz} = \zeta \Longrightarrow z = \{  \Arg(\zeta) - i \ln | \zeta | \}.  \]
+    \[  e^{iz} = \zeta \Longrightarrow z = \{  (\Arg(\zeta) + 2 \pi k) - i \ln | \zeta | : k \in \Z  \}.  \]
         \end{solution}
     \item[(iv)] \( \cos z = 3 + 4i \)
         \begin{solution}
@@ -254,25 +260,29 @@ Determine all \( z \in \C  \) such that
                                           &\Longrightarrow w^{2} - (6+8i)w = -1 \\
                                           &\Longrightarrow w^{2} - (6+8i)w + (3+4i)^{2} = (3+4i)^{2} - 1 \\
                                           &\Longrightarrow (w - (3+4i))^{2} = -1 + (3+4i)^{2} \\
-                                          &\Longrightarrow w = \pm \sqrt{ 8(3i-1) } + (3+4i)  
+                                          &\Longrightarrow w_{1,2} = \pm \sqrt{ 8(3i-1) } + (3+4i)  
         \end{align*}
         Now, let us convert the first term on the right-hand side into it's polar form which is 
-        \[ \pm \sqrt{ 8 (3i - 1) } = 8^{1/2} \cdot 10^{1/2} e^{i \frac{ 3 \pi }{ 8 } } = 8^{1/2} \cdot 10^{1/2} \Big(  \cos \Big(  \frac{ 3 \pi }{ 8 }  \Big) + i \sin \Big(  \frac{ 3 \pi  }{ 8 }  \Big) \Big). \]
-        Let us set 
-        \[  \beta = \Big(  3 + 8^{1/2}\cdot 10^{1/2} \cos \Big(  \frac{ 3 \pi }{ 8 }  \Big) \Big) + i \Big(  4 + 8^{1/2} \cdot 10^{1/2} \sin \Big(  \frac{ 3 \pi  }{ 8 }  \Big) \Big)\]
+        \[ \pm \sqrt{ 8 (3i - 1) } = \pm 8^{1/2} \cdot 10^{1/4} e^{i \frac{ \tan^{-1}(-3) }{ 2 }  } = \pm 8^{1/2} \cdot 10^{1/4} \Big(  \cos \Big(  \frac{ \tan^{-1}(-3) }{ 2 }   \Big) + i \sin \Big(  \frac{ \tan^{-1}(-3) }{ 2 }  \Big) \Big) \]
+        and the second term as 
+        \[  3 + 4i = 5 e^{i \tan^{-1}(4/3)} = 5 \Big[ \cos \Big(  \tan^{-1} \Big(  \frac{ 4 }{ 3 }  \Big) \Big) + i \sin \Big(  \tan^{-1} \Big(  \frac{ 4 }{ 3 }  \Big) \Big)\Big]. \]
+        Let us set
+        \[  \varphi = \tan^{-1} \Big(  \frac{ 4 }{ 3 }  \Big) \ \text{and} \ \theta = \frac{ \tan^{-1}(-3) }{ 2 }.  \]
+        Furthermore, we shall set 
+        \begin{align*}  \beta &=   5 \cos   \varphi  + 8^{1/2}\cdot 10^{1/4} \cos \theta + i \Big(  5 \sin \varphi + 8^{1/2} \cdot 10^{1/4} \sin \theta \Big) \end{align*}
         and
-        \[  \omega = \Big(  3 - 8^{1/2}\cdot 10^{1/2} \cos \Big(  \frac{ 3 \pi }{ 8 }  \Big) \Big) + i \Big(  4 - 8^{1/2} \cdot 10^{1/2} \sin \Big(  \frac{ 3 \pi  }{ 8 }  \Big) \Big)\]
+        \begin{align*}  \omega &=   5 \cos   \varphi  - 8^{1/2}\cdot 10^{1/4} \cos \theta + i \Big(  5 \sin \varphi - 8^{1/2} \cdot 10^{1/4} \sin \theta \Big) \end{align*}
         Now, we have
         \begin{align*}
             e^{iz} = \beta &\Longrightarrow z  = \frac{ 1 }{ i }  \log (\beta )  \\
-                           &\Longrightarrow z = \{ -i [\ln | \beta  |  + i \Arg(\beta)] \} \\  
-                           &\Longrightarrow z = \{ \Arg(\beta) - i \ln | \beta | \}.
+                           &\Longrightarrow z = \{ -i [\ln | \beta  |  + i \Arg(\beta) + 2 \pi i k] : k \in \Z  \} \\  
+                           &\Longrightarrow z = \{ (\Arg(\beta) + 2 \pi k)  - i \ln | \beta | : k \in \Z  \}.
         \end{align*}
         and
         \begin{align*}
             e^{iz} = \omega &\Longrightarrow z  = \frac{ 1 }{ i }  \log (\omega )  \\
-                           &\Longrightarrow z = \{ -i [\ln | \omega  |  + i \Arg(\omega)] \} \\  
-                           &\Longrightarrow z = \{ \Arg(\omega) - i \ln | \omega | \}.
+                           &\Longrightarrow z = \{ -i [\ln | \omega  |  + i \Arg(\omega) + 2 \pi i k ] : k \in \Z  \} \\  
+                           &\Longrightarrow z = \{ (\Arg(\omega) + 2 \pi k)  - i \ln | \omega | : k \in \Z  \}.
         \end{align*}
         \end{solution}
 \end{enumerate}
@@ -287,7 +297,7 @@ Use this to compute
 \[  | {z}_{n} |  = | {w}_{n} - {w}_{n+1} | \to 0  \]
 as \( n \to \infty   \). Hence, \( ({w}_{n}) \) must be a Cauchy sequence and so, it must converge by problem 1.   
 
-\( (\Leftarrow) \) Suppose that \( ({w}_{n}) \) converges to some \( w \in \C  \). Let
+\( (\Leftarrow) \) Suppose that \( ({w}_{n}) \) converges. Let
 \[  {s}_{n} = \sum_{ k=1  }^{ n } {z}_{k}. \]
 Our goal is to show that \( ({s}_{n}) \to 0  \) as \( n \to \infty  \). Since \( {z}_{n} = {w}_{n} - {w}_{n+1} \), we can see that      
 \begin{align*}
@@ -297,7 +307,7 @@ Our goal is to show that \( ({s}_{n}) \to 0  \) as \( n \to \infty  \). Since \(
 \end{align*}
 Since \( ({w}_{n})  \) converges, we must also have that \( ({w}_{n}) \) is Cauchy. Thus, we see that 
 \[  | {s}_{n} - {s}_{m} | = | {w}_{m+1} - {w}_{n+1}  |  \to 0 \ \text{as} \ n  \to \infty.   \]
-Thus, \( ({s}_{n}) \) must converge and hence the infinite series \( \sum_{ k=1  }^{ \infty  } {z}_{n}  \) converges. Using this result, we can now compute
+Thus, \( ({s}_{n}) \) must converge and hence the infinite series \( \sum_{ n=1  }^{ \infty  } {z}_{n}  \) converges. Using this result, we can now compute
 \begin{align*}
     {s}_{n} = \sum_{ k=1  }^{ n } {z}_{k} &= \sum_{ k=1  }^{ n } ({w}_{k} - {w}_{k+1})  \\
                                           &=  ({w}_{1} - {w}_{2}) + ({w}_{2} - {w}_{3}) + \cdots + ({w}_{n} - {w}_{n+1}) \\
@@ -307,10 +317,20 @@ whereby taking the limit gives us
 \[  \lim_{ n \to \infty  }  {s}_{n} = \lim_{ n \to \infty  }  ({w}_{1} - {w}_{n+1}) = {w}_{1} - \lim_{ n \to \infty  }  {w}_{n+1}. \]
 Now, let us compute the following infinite series
 \[  \sum_{ n=1  }^{  \infty  } \frac{ 1 }{ (n+i)((n+1)+i) }.  \]
+First, we have to convert the fraction
+\[  \frac{ 1  }{ (n+i)((n+1) + i) }  \]
+into its partial fraction decomposition; that is, we want to find coefficients \( A  \) and \( B  \) such that
+\[  \frac{ 1 }{ (n+i)((n+1) + i) } = \frac{ A  }{ n+ i } + \frac{ B }{ n +  (1 + i) }.  \]
+Using the heaviside method, we know that 
+\[ A = 1 \ \text{and} \ B = -1.   \]
+Thus, we see that
+\[  \sum_{ n=1  }^{ \infty  }  \frac{ 1 }{ (n+i)((n+1) + i) }  = \sum_{ n=1  }^{ \infty  }\Bigg[ \frac{ 1  }{ n+i }  - \frac{ 1  }{ n + (1+i) }  \Bigg]. \]
 Using the formula we have just proved, we can see that
 \begin{align*}
-\sum_{ n=1 }^{ \infty  } \frac{ 1  }{  (n+i)((n+1)+i) }  &= \frac{ 1 }{ (1+i) (2 + i) }  + \lim_{ n \to \infty  }  \frac{ 1 }{ (n+i)((n+1) + i) }   \\
-                                                         &= \frac{ 1 }{ (1+i) (2+i) }.
+\sum_{ n=1 }^{ \infty  } \frac{ 1  }{  (n+i)((n+1)+i) }  &= \frac{ 1 }{ (1+i) }  - \lim_{ n \to \infty  }  \frac{ 1}{ n + (1+i) }   \\
+                                                         &= \frac{ 1 }{ 1+ i } - 0 \\ 
+                                                         &= \frac{ 1 }{ 1 + i  } \\
+                                                         &= \frac{ 1 }{ 2 }  (1 - i).
 \end{align*}
 \end{proof}
 
@@ -335,7 +355,6 @@ Let \( z,w \in \C  \). We would like to consider three cases:
 Starting with case (i), we see that
 \[  \Log(z) = \ln | z |  + \Arg(z) \]
 and that \( k = 0  \). Thus, we see that 
-we can see that 
 \begin{align*}
     \Log(zw) &= \ln | zw |  + \Arg(zw) \\
              &= \ln | z | | w |  + (\Arg(z) + \Arg(w) ) \\
