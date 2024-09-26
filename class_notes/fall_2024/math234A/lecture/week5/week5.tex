@@ -4,9 +4,125 @@
 
 \input{../../../../../newpreamble.tex}
 
+\pagestyle{fancy}
+\fancyhf{}
 
 \begin{document}
     
+\lhead{Math 234A}
+\chead{Lance Remigio}
+\rhead{\thepage}
+\subsection{Topics}
+
+\begin{itemize}
+    \item Open sets
+    \item Closed sets
+    \item Interior Points
+    \item Closure of a set.
+\end{itemize}
+
+Let's recall the Euclidean metric on \( \C  \):
+\[  d(z,w) = | \vec{ z }  - \vec{ w }   |.  \]
+For real vector spaces, we can identify \( \C  \) with \( \R^{2} \) using the map \( \C \to \R^{2}  \) with \( \alpha + i \beta \to (\alpha, \beta) \). Thus, we can visualize \( \C  \) using \( \R^{2} \).
+
+Recall that definition of continuity for functions in \( \R  \).
+
+\begin{definition}[continuity in \( \R  \)]
+    Let \( f: \R \to \R  \). We say that \( f  \) is \textbf{continuous} for each \( a \in \R  \) if for all \( \epsilon > 0 \), there exists \( \delta > 0  \) such that \( | x - a  |  < \delta \) implies
+    \[  | f(x) - f(a) |  < \epsilon. \]
+\end{definition}
+
+Note that whenever we say \( | x - a  |  < \delta  \), we can also say that \( x \in (a - \delta, a + \delta) \). Similarly, we have \( | f(x) - f(a) | < \epsilon  \) is equivalent to \( f(x) \in (f(a) - \epsilon, f(a) + \epsilon) \).
+
+If we want to write the former using set notation, we can denote it as 
+\[  \{ x \in \R : d(x,a) < \delta \}  \]
+which is a more general statement than the one found in the definition above.
+\begin{definition}[Open Ball]
+  Consider the usual metric \( d(z,w) = | z - w  |   \) in \( \C  \). Let \( \epsilon > 0  \) and \( a \in \C  \). By an \textbf{open ball} centered at \( a  \), and radius \( \epsilon > 0  \), we mean the set
+  \[ B(a,\epsilon)  =  \{ z \in \C : d(z,a) < \epsilon \}. \]
+\end{definition}
+
+\begin{definition}[Open Set]
+   Let \( D \subseteq  \C .  \) We say \( D  \) is \textbf{open} if for each \( a \in D  \), we can find \( \epsilon > 0  \) such that  
+   \(  B(a,\epsilon) \subseteq D  \).
+\end{definition}
+
+\begin{eg}
+    \begin{enumerate}
+        \item[(i)] \( \C  \) is open.
+        \item[(ii)] Let \( \epsilon > 0  \) and \( a \in \C  \). Then \( B(a,\epsilon)  \) is also open; that is, open balls are open.
+        \item[(iii)] Let \( {D}_{1} \) and \( {D}_{2} \) be open sets.
+            Show that \( {D}_{1} \cap {D}_{2} \) is open. Let \( x \in {D}_{1} \cap {D}_{2} \) To show that \( {D}_{1} \cap {D}_{2} \) is open, we need to find \( \delta > 0  \) such that \( B(x,\delta) \subseteq {D}_{1} \cap {D}_{2} \). Since \( x \in {D}_{1} \cap {D}_{2} \), then \( x \in {D}_{1} \) and \( x \in {D}_{2} \). Since \( {D}_{1} \) and \( {D}_{2} \) are open sets, we can find \( \epsilon > 0  \) and \( \epsilon' > 0  \) such that 
+            \begin{center}
+               \( B(x,\epsilon) \subseteq {D}_{1} \) and \( B(x, \epsilon') \subseteq  {D}_{2} \), respectively. 
+            \end{center} By definition, we see that \( d(x,p) < \epsilon \) for all \( p \in {D}_{1} \) and \( d(x,q) < \epsilon' \). Then pick \( \delta = \min \{ d(x,p), d(x,q) \}  \). Since \( x  \) is in both \( {D}_{1} \) and \( {D}_{2} \), we have that 
+            \[  B(x,\delta) \subseteq  {D}_{1} \cap {D}_{2}. \]
+            Hence, \( {D}_{1} \cap {D}_{2} \) is open.
+        \item The empty set is open.
+        \item Let \( \{ {D}_{\lambda}  \}_{\lambda \in \Lambda} \) be a collection of open ets, where \( \Lambda \) is an indexing set. Define the set
+            \[  \bigcup_{ \lambda \in \Lambda }^{  }  {D}_{\lambda} = \{ z \in \C : z \in {D}_{\lambda} \ \text{for some} \ \lambda \in \Lambda \}. \]
+            Show that \( \bigcup_{ \lambda \in \Lambda }^{  } {D}_{\lambda}  \) is also open.
+    \end{enumerate}
+\end{eg}
+
+\begin{definition}[Interior Point]
+  Let \( D \subseteq \C \) and \( a \in D  \). We say that \( a  \) is an \textbf{interior point} of \( D  \) if we can find \( \epsilon > 0  \) such that \( B(a, \epsilon) \subseteq  D  \).
+\end{definition}
+
+\begin{prop}
+    \( D  \) is open if and only if each \( a \in D  \) is an interior point of \( D  \).
+\end{prop}
+
+\begin{eg}
+    Consider the following intersection 
+    \[  \bigcap_{ n=1  }^{ \infty  }  B(0,1/n)   \tag{1} \]
+    Let us compute (1). This is just the singleton \( \{ 0 \}  \). Show that \( \{ 0  \}  \) is not open. Note that the intersection of arbitrary many open sets may not be open. 
+\end{eg}
+
+\begin{definition}[Closed Set]
+    We say \( A \subseteq \C   \) \textbf{closed} if its complement     
+    \[  \C \setminus  A = \{ z \in \C : z \notin A  \}   \] is open.
+\end{definition}
+\begin{eg}
+    Define a closed ball with center at \( a \in \C  \) and radius \( \epsilon > 0  \) by
+    \[  \overline{B}(a, \epsilon) = \{ z \in \C : | z - a  | \leq \epsilon \}. \]
+    Note that this is not the same thing as the closure of the open ball! Show that \( \overline{B}(a,\epsilon) \) is closed.
+\end{eg}
+\begin{eg}
+    \begin{itemize}
+\item For any \( a \in \C  \), we say that the singleton \( \{ a  \}   \) is closed.
+\item If \( {A}_{1}, {A}_{2}, \dots, {A}_{n} \) are closed sets. Then 
+    \[  \bigcup_{ i =1  }^{ n }  {A}_{i} \ \text{is also closed.} \]
+    We can just show that the complement of this set is open.
+\item Let \( \{ {A}_{\Lambda} \}_{\lambda \in \Lambda}   \) be a collection of closed sets. Define
+    \[  \bigcap_{ \lambda \in \Lambda }^{  }  {A}_{\lambda} = \{ z \in \C : z \in {A}_{\Lambda} \ \forall \lambda \in \Lambda \},  \]
+    then \( \bigcap_{  \lambda \in \Lambda }^{  } {A}_{\lambda } \) is closed.
+\end{itemize}
+\end{eg}
+
+\begin{definition}[Boundary Points]
+   Let \( D \subseteq  \C  \). We say \( a \in \C  \) is a \textbf{boundary point} of \( D  \) if for all \( \epsilon > 0  \), \( B(a,\epsilon) \cap D \neq \emptyset \) and \( B(a,\epsilon) \cap (\C \setminus  D ) \neq \emptyset  \); that is, \( B(a,\epsilon) \) intersects \( D  \) and \( \C \setminus  D   \) non-trivially.  
+\end{definition}
+
+\begin{eg}
+   Any point on the circle \( \{ z \in \C : | z - a  | = \epsilon \}  \) is a boundary point of \( B(a,\epsilon) \), where \( \epsilon > 0  \).
+\end{eg}
+
+\begin{eg}[Boundary Points of Singletons]
+    \begin{itemize}
+  \item  Note that the boundary point of the singleton is just the singleton itself.
+    \item Let \( D = \C \setminus  \{ a  \}  \). Just like the first item, the boundary points of this set is just \( \{ a  \}  \). 
+    \end{itemize}
+\end{eg}
+
+\begin{definition}[Accumulation Point]
+    
+\end{definition}
+
+
+
+
+
 
 
 \end{document}

@@ -29,20 +29,70 @@ Thus, \( x \in {N}_{\epsilon}(p) \).
 \end{proof}
 
 \begin{theorem}[ ]
-   If \( p  \) is a limit point of a set \( E  \), then every neighborhood of \( p  \) contains infinitely many points of \( E  \).
+    Let \( (X,d) \) be a metric space and \( E \subseteq X  \). If \( p \in E' \), then every neighborhood of \( p  \) contains infinitely many points of \( E  \)
 \end{theorem}
+
+\begin{proof}
+Suppose for sake of contradiction that there exists a neighborhood of \( p  \) that contains finitely many points of \( E  \); that is,
+\begin{center}
+    \( \exists \epsilon > 0  \) such that \( {N}_{\epsilon}(p) \cap E  \) is a finite set.
+\end{center}
+Since \( {N}_{\epsilon}(p) \cap (E \setminus  \{ p \} ) \subseteq  {N}_{\epsilon}(p) \cap E  \), we can immediately conclude that \( {N}_{\epsilon}(p) \cap (E \setminus  \{ p \} ) \) is finite also. Furthermore, \( {N}_{\epsilon}(p) \cap (E \setminus  \{ p  \} ) \) is nonempty since \( p \in E' \). Let us denote the elements of \( {N}_{\epsilon}(p) \cap (E \setminus  \{ p \} )  \) by \( {x}_{1}, \dots, {x}_{n} \). Our goal is to find a \( \delta > 0  \) such that the neighborhood with radius \( \delta > 0  \), we will not contain any of the finite points we introduced. For each \( i \in \{ 1,\dots, n \}  \), \( d(p,{x}_{i}) > 0  \),
+\[  \delta = \min \{ d(p,{x}_{i}) : i \in {1,\dots,n} \} > 0.   \]
+Clearly, \( {N}_{\delta/2}(p) \cap (E \setminus  \{ p \} ) = \emptyset \). But this contradicts our assumption that \( p  \) is NOT a limit point of \( E  \).
+\end{proof}
 
 \begin{corollary}
-    A finite set has no limit points.
+    A finite set has no limit points; that is, if \( E  \) is finite, then \( E' = \emptyset \).
 \end{corollary}
+\begin{itemize}
+    \item Note that every finite set in any metric space is closed.
+\end{itemize}
+
+\begin{proof}
+This is just the contrapositive of the theorem above.
+\end{proof}
 
 \begin{theorem}[ ]
-    
+  Let \( (X,d) \) be a metric space and \( E \subseteq X  \). We have that \( E  \) is open if and only if \( E^{c} \) closed.
 \end{theorem}
 
+\begin{proof}
+\( (\Longrightarrow) \) Assume that \( E  \) is open. We want to show that \( E^{c} \) is closed; that is, every limit point of \( E^{c} \) is contained in \( E^{c} \). Let \( p  \) be a limit point of \( (E^{c}) \). Assume for sake of contradiction that \( p \notin E^{c} \). Then \( p \in E  \). Since \( E  \) is open, \( p  \) is an interior point of \( E  \). Thus, there exists \( \delta > 0  \) such that \( {N}_{\delta}(p) \subseteq E  \); that is, there exists \( \delta > 0  \) such that \( {N}_{\delta}(p) \cap E^{c} = \emptyset \). Furthermore, we have that 
+\[  {N}_{\delta}(p) \cap (E^{c} \setminus  \{ p \} ) = \emptyset. \]
+But this tells us that \( p \) is not a limit point which is a contradiction.
+
+\( (\Longleftarrow) \) Assume that \( E^{c} \) is closed. We want to show that \( E  \) is open; that is, every \( x \in E  \) is an interior point. Let \( p \in E  \). Assume for sake of contradiction that \( p \notin E^{\circ} \). Then for all \( \delta > 0  \), \( {N}_{\delta}(p) \not\subseteq E\). Hence, for all \( {N}_{\epsilon}(p) \cap E^{c} \neq \emptyset \). Therefore, 
+\[  \forall \delta > 0 \ {N}_{\delta} (p) \cap (E^{c} \setminus  \{ p \} ) \neq \emptyset. \]
+That is, \( p  \) is a limit point of \( E^{c} \). But by assumption, \( E^{c} \) is closed. Thus, \( p \in E^{c} \). But this contradicts the assumption that \( p \in E  \).
+\end{proof}
+
 \begin{theorem}[ ]
-    
+    Let \( (X,d) \) be a metric space. Let \( \{ {A}_{\alpha} \}_{\alpha \in \Lambda} \) be a collection of open sets where \( \Lambda  \) is an index set (can be finite or infinite). Then     
+    \[  \bigcup_{ \alpha \in \Lambda }^{  }  {A}_{\alpha} \]
+    is an open set.
 \end{theorem}
+\begin{proof}
+Our goal is to show that every point of \( A =  \bigcup_{ \alpha \in \Lambda }^{  } {A}_{\alpha}  \) is an interior point. Let \( p \in A   \). Thus, there exists \( \alpha \in \Lambda \) such that \( p \in {A}_{\alpha} \). Since \( {A}_{\alpha} \) is open, so there exists \( \delta > 0  \) such that \( {N}_{\delta}(p) \subseteq  {A}_{\alpha} \). But note that 
+\[  {A}_{{\alpha}_{0}} \subseteq  A.  \]
+Hence, 
+\[  {N}_{\delta}(p) \subseteq A  \]
+and thus \( p  \) is an interior point of \( A  \).
+
+\end{proof}
+
+\begin{theorem}[ ]
+    Let \( {A}_{1}, \dots, {A}_{n} \) be open sets in the metric space \( (X,d) \). Then
+    \[  \bigcap_{ k = 1  }^{ n }  {A}_{k} \ \text{is open}. \]
+\end{theorem}
+\begin{proof}
+Our goal is to show that every point of \( \bigcap_{ k = 1  }^{ n  }  {A}_{k } \) is an interior point of \( \bigcap_{ k = 1  }^{ n }  {A}_{k } \). Let \( p \in \bigcap_{  k = 1  }^{ n }  {A}_{k } \). Then for all \(  1 \leq k \leq n  \) such that \( p \in {A}_{k} \). Since \( {A}_{k} \) is open for all \( k  \), we know that for all \( 1 \leq k \leq n   \), there exists \( {\delta}_{k} > 0  \) such that \( {N}_{{\delta}_{k }} (p) \subseteq {A}_{k} \). Let \( \delta = \min \{ {\delta}_{i} : 1 \leq i \leq n   \}  \). Then we have that  
+\[  {N}_{\delta}(p) \subseteq  {N}_{{\delta}_{k }}(p) \subseteq  {A}_{k}. \]
+Consequently, we have 
+\[  {N}_{\delta}(p) \subseteq  \bigcap_{  k = 1 }^{ n }  {A}_{k}. \]
+Hence, \( p  \) is an interior point of the intersection \( \bigcap_{  k = 1  }^{ n }  {A}_{k} \).
+\end{proof}
+
 
 \begin{theorem}[ ]
     
