@@ -37,10 +37,26 @@
         \end{enumerate}
     \item Consider \( \R^{2}  \) with its standard metric. Let \( E = \{ (x,y) \in \R^{2} : x^{2} + y^{2} < 4  \}  \). Prove that \( E' = \{ (x,y) \in \R^{2} : x^{2} + y^{2} \leq 4  \}  \).
         \begin{proof}
-        We want to show that 
-        \[  E' = \{ (x,y) \in \R^{2} : x^{2} + y^{2} \leq 4 \}. \]
-         Set \( p = (a,b) \). Choose \( \delta = \frac{ 1 }{ 2 }  (\sqrt{ a^{2} + b^{2} } - 2 ) > 0 \). Then we must have \( {N}_{\delta}(p) \cap E \setminus  \{ p \} = \emptyset \), showing that \( p \notin E' \) and that \( a^{2} + b^{2} > 4  \). For \( p \in E' \), then we must have \( {N}_{\delta}(p) \cap E \setminus  \{ p  \} \neq \emptyset \); that is, \( a^{2} + b^{2} \leq 4 \). Thus, 
-         \[  E' = \{ (x,y) \in \R^{2} : x^{2} + y^{2} \leq 4 \}. \]
+            Our goal is to show that \( E' = \{ (x,y) \in \R^{2} : x^{2} + y^{2} \leq 4  \}  \); that is, we will show that 
+            \[  E' = E \cup \{ (x,y) \in \R^{2} : x^{2} + y^{2} = 4  \}.  \]
+            We proceed by considering two cases:
+            \begin{enumerate}
+                \item[(1)] If \( (a,b)  \) is such that \( a^{2} + b^{2} > 4  \), then we will prove that \( (a,b) \notin E' \).
+                \item[(2)] We will prove that if \( (a,b) \) is such that \( a^{2} + b^{2} \leq 4  \), then \( (a,b) \in E' \); that is,   
+                    \[  \forall \ {N}_{\epsilon}((a,b)) \cap (E \setminus  \{ (a,b) \} ) \neq \emptyset. \] 
+            \end{enumerate}
+            With (1), consider a point \( p = (a,b) \) that is outside of \( E  \). Let \( \delta = \frac{ 1 }{ 2 }  (\sqrt{ a^{2} + b^{2} } - 2 ) \). Then we see that    
+            \[  0 < \frac{ 1 }{ 2 } (\sqrt{ a^{2} + b^{2} }  - 2 ) \Longleftrightarrow a^{2} + b^{2} > 4.    \]
+            Hence, we must have that \( {N}_{\delta}(p) \cap (E \setminus \{ p \} ) = \emptyset. \)
+
+            With (2), consider the distance from the origin to any point \( (a,b) \) on the boundary of the circle \( E  \). Let \( \delta = \frac{ 1 }{ 2 } \min \{ \epsilon, 2 - \epsilon \}   \). Suppose \( \epsilon < 2  \). Let \( p \) be the points on the ray \( \overline{OQ} \) where the distance to \( q  \) is \( \delta \). Note that \( p \in {N}_{\epsilon}((a,b))   \) since the distance between \( p  \) and \( (a,b) \) is \( \delta \) which is less than \( \epsilon  \). Also, \( p \in E  \) since \( p  \) is on the ray \( \overline{OQ} \). Thus, we have 
+            \[  p \in {N}_{\epsilon}((a,b)) \cap (E \setminus  \{ (a,b) \} ). \]
+            On the other hand, if \( \epsilon \geq 2  \), then let \( \delta = 1  \). \( E  \) is clearly the intersection   
+            \[  {N}_{\epsilon}((a,b)) \cap (E \setminus  \{ (a,b) \} ) \]
+            is nonempty with a similar argument shown when \( \epsilon  < 2  \).
+
+            Thus, we conclude that 
+            \[  E' = \{ (a,b) \in \R^{2} : a^{2} + b^{2} \leq 4  \}. \]
         \end{proof}
     \item Let \( (X,d)  \) be a metric space. Prove that \( X  \) and \( \emptyset  \) are both open sets.
         \begin{proof}
@@ -49,9 +65,9 @@
             \item[(i)] \( X  \) is open 
             \item[(ii)] \( \emptyset \) is open
         \end{enumerate}
-        Let \( x \in X \). For (i), we want to show that there exists \( \delta > 0 \) such that \( {N}_{\delta}(x) \subseteq X  \). Pick another point \( q \neq x  \) such that \( q \in X  \). Choose \( \delta = \frac{ 1 }{ 2 } d(x,q) \). Since \( q,x \in X  \), it follows that \( {N}_{\delta}(x) \subseteq X  \). So, \( X  \) is open. 
-
-        Since there are no points to consider in \( \emptyset \), it must immediately follow that \( \emptyset  \) is an open set.
+        Let \( x \in X \). For (i), we want to show that there exists \( \delta > 0 \) such that \( {N}_{\delta}(x) \subseteq X  \). Pick another point \( q \neq x  \) such that \( q \in X  \). Choose \( \delta =  d(x,q) > 0 \). But note that any open neighborhood is a subset of \( X  \). So, \( {N}_{\delta}(x) \subseteq X  \) and so \( X  \) is open. 
+        
+        Note that \( \emptyset^{\circ} = \emptyset \). Hence, \( \emptyset  \) is an open set.
         \end{proof}
     \item Let \( (X,d)  \) be a metric space. Prove that \( X  \) and \( \emptyset  \) are both closed sets.
         \begin{proof}
@@ -62,7 +78,7 @@
         \end{enumerate}
         Let \( x  \) be a limit point of \( X  \). Then for all \( \epsilon > 0 \), we have \( {N}_{\epsilon}(x) \cap X \setminus  \{ x \} \neq \emptyset  \). But note that \( {N}_{\epsilon}(x) \) is an open set that is contained in \( X  \). Thus, \( x  \) must be contained within \( X  \) which proves (i).
 
-        For (ii), note that the complement of \( \emptyset \) is just \( X  \) itself. Since \( X  \) is open by part (a), we see that \( X^{c} = \emptyset \) must be closed.
+        For (ii), note that the complement of \( \emptyset \) is just \( X  \) itself. Since \( X  \) is open by problem 4, we see that \( X^{c} = \emptyset \) must be closed.
         \end{proof}
     \item Consider \( \R  \) equipped with the discrete metric. Let \( E = \{ 1,2,3 \} \). Prove that \( E  \) is open, that is, \( E^{\circ} = E  \).
         \begin{proof}
@@ -113,18 +129,15 @@
                 \end{proof}
         \end{enumerate}
     \item Let \( (X,d) \) be a metric space. Let \( p \in X   \) and \( \delta > 0  \). Prove that the closed ball \( {C}_{\delta}(p) = \{ x \in X : d(x,p) \leq \delta  \}  \) is indeed closed.
-        \begin{proof}
-        Let \( p \in X  \) and \( \delta > 0  \). Our goal is to show that 
-        \[  {C}_{\delta}(p) = \{ x \in X   : d(x,p) \leq \delta \} \]
-        is a closed set; that is, we need to show that every limit point of \( {C}_{\delta}(p) \) is contained in \( {C}_{\delta}(p) \). Let \( x  \) be a limit point of \( {C}_{\delta}(p) \). By definition, choose \( \epsilon = \frac{ \delta }{ 2 }  \) such that  
-        \[  {N}_{\frac{ \delta }{ 2 } }(x) \cap {C}_{\delta}(p) \setminus  \{ x  \}.  \]
-        Choose this point to be \( y  \) such that \( y \neq x  \) and \( y \in {C}_{\delta}(p) \). Thus, we see that \( d(y,p) \leq \frac{ \delta }{ 2 }  \). Likewise, \( y  \) being contained in \( {N}_{\frac{ \delta }{ 2 } }(x)  \) implies that \( d(x,y) < \frac{ \delta }{ 2 }  \). In order for \( x  \) to be contained in \( {C}_{\delta}(p) \), we need to show that         
-        \begin{center}
-            for all \( \delta > 0  \) that \( d(x,p) \leq \delta  \).
-        \end{center}
-        Using the triangle inequality, we see that 
-        \[  d(x,p) \leq d(x,y) + d(y,p) \leq \frac{ \delta }{ 2 }  + \frac{ \delta }{ 2 }  = \delta.  \]
-        Thus, we see that \( x \in {C}_{\delta}(p) \) and so we can now conclude that, indeed, \( C_{\delta}(p) \) is a closed set.
+    \begin{proof}
+        Our goal is to show that \( {C}_{\delta}(p) \) is a closed set. To this end, we will show that \( [{C}_{\delta}(p)]^{c} \) is an open set. If this holds, then we can conclude that \( {C}_{\delta}(p) \) is a closed set. Let \( x \in [{C}_{\delta}(p)]^{c} \). Then we have \( d(x,p) > \delta \). Our goal is to find \( \epsilon > 0  \) such that \( {N}_{\epsilon}(y) \subseteq [{C}_{\delta}(p)]^{c} \). Since \( d(x,p) > \delta \) we can set \( \epsilon = d(x,p) - \delta > 0  \). 
+        Using the radius \( \epsilon > 0  \), we can construct the neighborhood of \( x  \), \( {N}_{\epsilon}(x) \). Let \( y \in {N}_{\epsilon}(x) \). In order for \( y  \) to       be contained within \( [{C}_{\delta}(p)]^{c} \), we have to show that \( d(p,y) > \delta \). Using the triangle inequality, we have 
+        \begin{align*}
+            d(x,p) \leq d(x,y) + d(y,p) \Longrightarrow d(y,p) &\geq d(x,p) - d(x,y) \\   
+                                                               &> d(x,p) - \epsilon \tag{\( y \in {N}_{\epsilon}(x) \)} \\ 
+                                                               &= \delta.
+        \end{align*}
+        Thus, we see that \( {N}_{\epsilon}(x) \subseteq [{C}_{\delta}(p)]^{c} \) for some \( \epsilon > 0  \). Hence, \( [{C}_{\delta}(p)]^{c} \) is open and so \( {C}_{\delta}(p) \) is closed.   
     \end{proof}
     \item Give an example that shows that the equality \( \overline{{N}_{\delta}(p)} = {C}_{\delta}(p)  \) is not always true.
         \begin{solution}
@@ -183,7 +196,7 @@
        
         With (2), suppose \( x \in A  \). We want to show that \( x \in \overline{E} \); that is, \( x  \) is either a limit point of \( E  \) or an element of \( E  \). Suppose that \( x  \) is NOT an element of \( E  \). By definition of \( A  \), we see that for all \( \epsilon > 0 \), 
         \[  {N}_{\epsilon}(x) \cap E \neq \emptyset.  \]
-        If we take away \( x  \) from \( E  \), then the intersection above is nonempty; that is, 
+        Note that \( x \notin E  \) implies that \( E \setminus \{ x \} = E    \) and so we have 
         \[  {N}_{\epsilon}(x) \cap E \setminus  \{ x \} \neq \emptyset. \]
         Thus, \( x  \) is a limit point of \( E  \) and so \( x \in \overline{E} \). Otherwise, when \( x  \) is not a limit point of \( E  \), then the nonempty intersection
         \[  {N}_{\epsilon}(x) \cap E  \]
@@ -191,38 +204,37 @@
     \end{proof}
 \item Let \( (X,d) \) be a metric space. Show that the closure of a bounded set is bounded.
     \begin{proof}
-    Let \( E \subseteq  X   \) be a bounded set and let \( \overline{E} \) be the closure of \( E  \); that is, \( \overline{E} = E \cup E' \). Our goal is to show that \( \overline{E}  \) is bounded; that is, there exists \( M \in \R  \) and \( q \in X  \) such that \( d(p,q) < M  \) for all \( p \in \overline{E} \). Let \( p \in \overline{E} \). Let us consider two cases:
-    \begin{enumerate}
-        \item[(1)] \( p \in E  \) 
-        \item[(2)] \( p \in E' \); that is, \( p  \) is a limit point of \( E  \).
-    \end{enumerate}
-    Suppose \( p \in E  \). Since \( E  \) is bounded, there exists \( M \in \R  \) and \( q \in X  \) such that \( d(p,q) < M  \). Hence, \( \overline{E} \) is bounded. Now, suppose \( p \in E' \). Then we know that \( p  \) is a limit point of \( E  \); that is, choose \( \epsilon = M > 0  \) such that 
-    \[ {N}_{M}(p) \cap E \setminus  \{ p \} \neq \emptyset.  \]
-    So, pick \( q \neq p  \) such that \( q \in E  \). Since \( q \in {N}_{\epsilon}(p) \), we have that \( d(p,q) < \epsilon \). But since \( \overline{E} \) is a closed set, we know that \( p \in \overline{E} \), this must also mean that \( \overline{E} \) is bounded.  
+        Let \( (X,d) \) be a metric space and suppose \( E \subseteq X \) is bounded; that is, there exists \( \epsilon > 0  \) and \( q \in X  \) such that \( E \subseteq {N}_{\epsilon}(q)  \). We claim that \( \overline{E} \subseteq {N}_{\epsilon + 1}(q) \) so that \( \overline{E} \) is bounded. Note that \( \overline{E } = E \cup E' \). Let \( y \in \overline{E} \). Then either \( y \in E  \) or \( y \in E' \). If \( y \in E  \) and \( E  \) i bounded, then   
+        \[  d(y,q) \leq \epsilon < \epsilon + 1.  \]
+        Thus, \( y \in {N}_{\epsilon + 1 }(q) \). If \( y \in E' \), then for all \( \delta > 0  \),
+        \[  {N}_{\delta}(y) \cap (E \setminus  \{ y \} ) \neq \emptyset. \]
+        Let \( \delta = 1/2 \). Then pick a point \( x  \) inside the intersection 
+        \[  {N}_{1/2}(y) \cap (E \setminus  \{ y \} ).    \]
+        Then \( x \in {N}_{1/2}(y) \) and \( x \in E  \). If \( x \in {N}_{1/2}(y) \), then \( d(x,y) < 1/2  \) and \( d(x,q) \leq \epsilon  \), respectively. Using the triangle inequality, we see that 
+        \begin{align*}
+            d(y,q) &\leq d(y,x) + d(x,q)
+                   < \frac{ 1 }{ 2 }  + \epsilon 
+                   < 1 + \epsilon.
+        \end{align*}
+        Thus, \( y \in {N}_{\epsilon + 1}(q) \). Therefore, we see that \( \overline{E} \) is bounded in both cases.
     \end{proof}
 \item Prove that a nonmepty subset \( A  \) of a metric space \( (X,d) \) is open if and only if it is a union of neighborhoods (open balls).
     \begin{proof}
-    Let \( A  \) be a nonempty subset of a metric space \( (X,d) \) that is an open set. Thus, define the collection of open balls as
-    \[  {V}_{\epsilon}(x) = \{ {N}_{\epsilon}(x) : x \in A   \}. \]
-    Our goal is to show that 
-    \[  A = \bigcup_{ x \in A  }^{  } {N}_{\epsilon}(x); \]
-    that is, we need to show the following two inclusions:
-    \begin{enumerate}
-        \item[(1)] \( A \subseteq \bigcup_{ x \in A  }^{  }  {N}_{\epsilon}(x) \)
-        \item[(2)] \( \bigcup_{ x \in A  }^{  }  {N}_{\epsilon}(x) \subseteq A. \)
-    \end{enumerate}
-    Now, we proceed with the proof of the result for the two cases above:
-    \begin{enumerate}
-        \item[(1)] Let \( x \in A  \). Since \( A  \) is open, there exists an \( \epsilon > 0  \) such that \( {N}_{\epsilon}(x) \subseteq  A  \). But note that \( {N}_{\epsilon}(x) \subseteq  \bigcup_{ x \in A  }^{  }  {N}_{\epsilon}(x) \). Since \( x \in {N}_{\epsilon}(x) \), we must have \( x \in \bigcup_{ x \in A  }^{  } {N}_{\epsilon}(x)  \). Hence, 
-            \[  A \subseteq \bigcup_{ x \in A  }^{  } {N}_{\epsilon}(x). \]
-        \item[(2)] Let \( p \in \bigcup_{ x \in A  }^{  } {N}_{\epsilon}(x) \). Then for some \( \epsilon > 0 \), then \( y \in {N}_{\epsilon}  \). But since \( {N}_{\epsilon} \) is an open set of \( A  \), we must have \( y \in A  \). Thus,
-            \[  \bigcup_{ x \in A  }^{   }  {N}_{\epsilon}(x) \subseteq  A. \]
-    \end{enumerate}
-    Thus, with (1) and (2) we have that \( A  \) is the union of open balls in \( A  \).
+        \( (\Longrightarrow) \) Suppose \( A  \) is an open set in \( X  \). We will show that \( A  \) can be written as a union of open balls; that is,    
+        \[  A = \bigcup_{ x \in A  }^{  } {N}_{{\epsilon}_{x}}(x) \]
+        where \( {N}_{{\epsilon}_{x}}(x) \) are open neighborhoods with radius \( {\epsilon}_{x} \) (\( \epsilon \) depends on \( x \)) for each \( x \in A  \). To this end, we will show the following inclusions:
+        \begin{enumerate}
+            \item[(1)] \( A \subseteq \bigcup_{ x \in A  }^{  } {N}_{{\epsilon}_{x}}(x) \)
+            \item[(2)] \( \bigcup_{ x \in A  }^{  } {N}_{{\epsilon}_{x}}(x) \subseteq A  \)
+        \end{enumerate}
+        Starting with the inclusion in (1), let \( x \in A  \). Since \( A  \) is open, we can find an \( {\epsilon}_{x} > 0  \) such that \( {N}_{{\epsilon}_{x}}(x) \subseteq A  \). Note that \( {N}_{{\epsilon}_{x}}(x) \subseteq \bigcup_{ x \in A  }^{  }  {N}_{{\epsilon}_{x}}(x)  \). So, \( x  \) must be contained in \( \bigcup_{ x \in A  }^{  } {N}_{{\epsilon}_{x}}(x) \) which satisfies (1).      
+        
+        Let \( p \in \bigcup_{ x \in A  }^{  } {N}_{{\epsilon}_{x}}(x)  \). Then for some point \( x \in A  \), \( p  \) must be contained in some neighborhood \( {N}_{{\epsilon}_{x}}(x) \) with radius \( {\epsilon}_{x} > 0  \). Since \( x \in A  \) and \( A  \) is an open set, we must have \( {N}_{{\epsilon}_{x}}(x) \subseteq A  \). Thus, \( p  \) must be contained in \( A  \) as well. Thus, the inclusion in (2) is satisfied. 
 
-    \( (\Longleftarrow) \) Suppose 
-    \[  A = \bigcup_{ x \in A  }^{  } {N}_{\epsilon}(x). \tag{*} \]
-    We want to show that \( A  \) is open; that is, we need to find a \( \delta > 0  \) such that \( {N}_{\delta}(x) \subseteq A  \). Let \( x \in A  \). Then by (*), we know that \( x \in \bigcup_{ x \in A  }^{  }  {N}_{\epsilon}(x) \). By definition of the arbitrary union, we see that we can find \(  \delta  > 0 \) such that \( {N}_{\delta}(x) \subseteq \bigcup_{ x \in A  }^{   }  {N}_{\epsilon}(x) = A  \). Thus, \( A  \) must be an open set. 
+        \( (\Longleftarrow) \) Suppose \( A  \) is the union of open balls in \( A  \); that is, 
+        \[  A = \bigcup_{ x \in A  }^{  } {N}_{{\epsilon}_{x}}(x). \]
+        Since each \( {N}_{{\epsilon}_{x}}(x) \) is open, the union of the right-hand side of the equation above is open. Thus, \( A  \) must be open as well and we are done.
+
     \end{proof}
 \item On page 9, Rudin implicitly defines a subset \( E \subseteq \R   \) to be "dense" if it satisfies:
     \begin{enumerate}
@@ -242,41 +254,14 @@
     \[  {N}_{\delta}(x) \cap E \setminus  \{ x \} \neq \emptyset.  \]
     Hence, \( x  \) is a limit point of \( E  \). Now, if \( x  \) is NOT a limit point, then \( x  \) is an isolated point of \( E  \) and that \(  x \in E  \).
     
-    \( (\Longleftarrow ) \) Let \( x,y \in \R  \) such that \( x < y  \). We will show that there exists \( p \in E  \) such that \( x < p < y \). Suppose \( E \subseteq \R   \) satisfies property (ii); that is, every point of \( X  \) is either limit point of \( E  \) or a point of \( E  \). We will consider a few cases:     
-    \begin{enumerate}
-        \item[(1)] \( x  \) is a limit point and \( y \in E  \)
-        \item[(2)] \( x \in E  \) and \( y \in E  \)
-        \item[(3)] \( x \in E  \) but \( y  \) is a limit point.
-        \item[(4)] \( x  \) and \( y  \) are limit points of \( E  \) 
-    \end{enumerate}
-    Suppose case (1). If \( x  \) is a limit point, then for all \( \delta > 0  \), we have 
-    \[  (x - \delta, x + \delta) \cap E \setminus  \{ x  \}  \neq \emptyset. \]
-    Hence, pick \( p \neq x  \) such that \( p \in E  \). Thus, \( x - \delta < p < x + \delta \). Since \( y > x  \), we see that 
-    \[  x - \delta < p < y  + \delta. \]
-    Since \( \delta> 0  \) is arbitrary, we can see that \( x < p < y  \).
-
-    Now, consider case (2). Then immediately if \( x < y  \), then choose \( p = \frac{  y -x  }{ 2  }  \). Clearly, we have \( x < p < y \).
-
-    Next, consider the case (3) when \( x \in E   \), but \( y  \) is a limit point of \( E  \). Since \( y  \) is a limit point of \( E  \), we have for all \( \delta > 0  \), 
-    \[  {N}_{\delta}(y) \cap E \setminus  \{ y \} \neq \emptyset. \]
-    That is, 
-    \[  (y - \delta, y + \delta)  \cap E \setminus  \{ y \} \neq \emptyset. \]
-    To this end, pick \( p \neq y  \) in \( E  \) such that 
-    \[  y - \delta < p < y + \delta. \]
-    If \( x < y  \), then we see that
-    \[  x  - \delta < p < y + \delta. \]
-    Since \( \delta > 0  \) is arbitrary, we have that \( x < p < y \).
-
-    Finally, suppose \( x  \) and \( y  \) are limit points of \( E  \). By definition, for all \( \epsilon > 0  \) and \( \delta > 0  \), we have
-    \begin{align*}
-     (x - \epsilon, x + \epsilon) \cap E \setminus  \{ x  \} &\neq \emptyset \\
-     (y - \delta, y  + \delta) \cap E \setminus  \{ y \} &\neq \emptyset. 
-    \end{align*}
-    Without loss of generality, let \( \epsilon = \delta > 0 \) and pick \( p \neq x  \in E  \) such that \( p \in (x- \epsilon , x + \epsilon) \). Since \( x < y  \), we have that  
-    \[  x - \epsilon < p < x + \epsilon < y + \epsilon. \]
-    Thus, we see that 
-    \[  x < p < y. \]
-    \end{proof}
+    \( (\Longleftarrow ) \) Let \( x,y \in \R  \) such that \( x < y  \). We will show that there exists \( p \in E  \) such that \( x < p < y \). Suppose that \( \R = \overline{E}  \). Since \( x \in \R  \), we must have \( x \in \overline{E}  \). That is, for all \( \epsilon > 0  \), we have  
+    \[  {N}_{\epsilon}(x) \cap E \neq \emptyset.  \]
+    This implies that \( {N}_{\epsilon}(x)  \) contains a point \( p \neq  x   \) such that \( p \in E  \). This means that \( p \in (x - \epsilon , x + \epsilon) \) and so
+    \[  x - \epsilon < p < x + \epsilon.  \]
+    Since \( x < y  \), we have that 
+    \[  x - \epsilon <  p < y  + \epsilon. \]
+    Since \( \epsilon > 0 \) is arbitrary, we find that \( x < p < y  \) for some \( p \in E  \).
+\end{proof}
     \item Let \( A  \) and \( B  \) be subsets of a metric space \( (X,d) \).
         \begin{enumerate}
             \item[(a)] If \( A \subseteq B  \), then \( A' \subseteq B' \).
@@ -298,6 +283,30 @@
                 and 
                 \[  {N}_{\epsilon}(x) \cap B \setminus  \{ x \} \neq \emptyset. \tag{2}  \]
                 Thus, (1) and (2) imply that \( x \in A'   \) and \( x \in B'  \) meaning that \( x  \) is both a limit of point of \( A  \) and \(  B \). Hence, \( x \in \overline{A}  \) and \( x \in \overline{B} \). Thus, we have \( \overline{A \cap B} \subseteq \overline{A} \cap \overline{B} \) in both of these cases.
+                \end{proof}
+            \item Prove that \( A' \cup B' = (A \cup B)' \).
+                \begin{proof}
+                Our goal is to show that \( A' \cup B' = (A \cup B)' \); that is, we need to show that
+                \begin{enumerate}
+                    \item[(1)] \( A' \cup B' \subseteq  (A \cup B)' \)
+                    \item[(2)] \( (A \cup B)' \subseteq  A' \cup B' \).
+                \end{enumerate}
+                Starting with (1), let \( x \in A' \cup B' \). Then \( x \in A' \) or \( x \in B' \). If \( x \in A' \), then \( x  \) is a limit point of \( A  \). Hence, for all \( \epsilon > 0  \) such that 
+                \[  {N}_{\epsilon}(x) \cap A \setminus  \{ x \} \neq \emptyset. \]
+                Then pick a point in this intersection, say, \( q \neq x  \) such that \( q \in A  \). Since \( A \subseteq  A \cup B  \), we have \( q \in A \cup B \). Thus, we have 
+                \[  {N}_{\epsilon}(x) \cap \Big( (A \cup  B) \setminus  \{ x \} \Big) \neq \emptyset. \]
+                Hence, \( x  \) is a limit point of \( A \cup B \) and so \( x \in (A \cup B)' \). If \( x \in B' \), then for all \( \epsilon > 0  \) such that  
+                \[  {N}_{\epsilon}(x) \cap B \setminus  \{ x \} \neq \emptyset.  \]
+                Since \( B \subseteq A \cup B \), we have
+                \[  {N}_{\epsilon}(x) \cap \Big( (A \cup B) \setminus  \{ x \} \Big) \neq \emptyset. \]
+                Then \( x  \) is a limit point of \( A \cup B \); that is, \( x \in (A \cup B)' \). Hence, we have that \( A' \cup B' \subseteq  (A \cup B)' \).
+
+                Now, with (2), let \( x \in (A \cup B)' \). Then \( x  \) is a limit point of \( A \cup  B \). Thus, for all \( \epsilon > 0 \) we have
+                \[  {N}_{\epsilon}(x) \cap (A \cup B) \setminus  \{ x \} \neq \emptyset. \]
+                Pick a point in this intersection, say, \( p \neq x   \). Note that \( p \in A \cup B  \). So, either \( p \in A  \) or \( p \in B  \). If \( p \in A  \), then \( x  \) is a limit point of \( A  \). Thus, \( x \in A' \) and so \( x \in A' \cup B' \). If \( p \in B  \), then \( x  \) is a limit point of \( B  \) and so \( x \in B' \). Thus, \( x \in A' \cup B' \). Therefore, we have \( (A \cup B)' \subseteq A' \cup B' \) which proves (2). 
+
+                With (1) and (2), we have 
+                \[  A' \cup B' = (A \cup B)'. \]
                 \end{proof}
         \end{enumerate}
     \item Let \( (X,d) \) be a metric space and let \( E \subseteq X  \).
@@ -330,7 +339,9 @@
         \end{enumerate}
         \item Construct a bounded set of real numbers with exactly three limit points.
             \begin{solution}
-            Consider \( (a,b) \subseteq \R  \). Then the three limit points of this set are \( a,b \) and a \( p \in \Q  \) with \( a < p < b \) since \( \Q  \) is dense in \( \R  \).
+                Consider the sets \(A =  \{ 1/n : n \in \N  \}, L =  \Big\{ \pi + \frac{ 1 }{ n } : n \in \N    \Big\} , I =  \Big\{ 3 + \frac{ 1 }{ n } : n \in \N \Big\}   \).  Note that each set is bounded. If we take the union of these sets, then we have the following set
+                \[  A \cup L \cup I   \]
+                which has three limit points which are \( 0, \pi,  \) and \( 3  \), respectively.
             \end{solution}
         \item Let \( (X,d)  \) be a metric space and \( E \subseteq X  \).
             \begin{enumerate}
@@ -396,11 +407,35 @@
             \[  {N}_{\epsilon}(p) \cap A \setminus  \{ p\} \neq \emptyset.  \]
             Thus, \( p  \) is a limit point of \( A  \). On the other hand, if \( p  \) is not a limit point of \( A  \), then \( p \) is an isolated point of \( A  \). Thus, \( p \in A  \). 
         \end{proof}
+        \begin{proof}
+        \( (\Longleftarrow) \) Suppose \( A  \) has a nonempty intersection with every nonempty open set in \( X  \). Thus, we have     
+        \begin{align*}
+            (A^{c})^{\circ} = \emptyset &\Longrightarrow_{\text{18-c)}} \Big(  \overline{(A^{c})^{c}} \Big)^{c} = \emptyset \\
+                                        &\Longrightarrow  (\overline{A})^{c} = \emptyset \\
+                                        &\Longrightarrow \overline{A} = X.
+        \end{align*}
+        Thus, \( A  \) is dense in \( X  \).
+
+        \( (\Longrightarrow) \) Suppose \( \overline{A} = X  \). By problem 11, we see that for any \( x \in X  \) and for all \( \epsilon > 0  \) that 
+        \[  {N}_{\epsilon}(x) \cap A \neq \emptyset. \tag{1}  \]
+        If \( E  \) is any nonempty open set, then let \( q \in E  \). Since \( q  \) is an interior point of \( E  \), there exists \( \delta > 0  \) such that \[ {N}_{\delta}(q) \subseteq E \tag{2}.  \]
+        By (1) and (2), we must have that \( E \cap A \neq \emptyset \).
+        \end{proof}
         \item Let \( (X,d) \) be a metric space and \( {A}_{i} \subseteq X \) for all \( i \in \N \). 
             \begin{enumerate}
                 \item[(a)] Prove that for all \( n \in \N  \), we have \( \overline{\bigcup_{ i=1  }^{ n }  } {A}_{i} = \bigcup_{ i=1 }^{ n }  \overline{{A}_{i}}. \)
                     \begin{proof}
-                    For all \( i \in \N  \), we see that 
+                    First, we will show by induction on \( n \in \N  \) that  
+                    \[  \Big(  \bigcup_{ i=1  }^{ n } {A}_{i} \Big)' = \bigcup_{ i=1  }^{ n }  {A}_{i}'. \]
+                    Let \( n = 2  \) be our base case, then we see that 
+                    \( ({A}_{1} \cup {A}_{2})^{'} = {A}_{1}' \cup {A}_{2}' \) by problem 15-(d). Now, we will suppose that the result holds for the \( n \)th case. Thus, we have that 
+                    \begin{align*}
+                       \Big( \bigcup_{ i=1  }^{ n  + 1  } {A}_{i} \Big)'  &= \Big( \bigcup_{ i= 1  }^{ n }  {A}_{i} \cup {A}_{n+1}   \Big)' \\
+                                                                          &= \Big( \bigcup_{ i=1  }^{ n }  {A}_{i} \Big)' \cup {A}_{n+1}' \\
+                                                                          &= \Big( \bigcup_{ i=1  }^{ n }  {A}_{i}' \Big)  \cup {A}_{n+1}' \\  
+                                                                          &= \bigcup_{ i = 1  }^{ n + 1  } {A}_{i}'.
+                    \end{align*}
+                    Then for all \( i \in \N  \), we see that 
                     \begin{align*}
                         \overline{\bigcup_{ i=1  }^{ n }  {A}_{i}} &= \Big(  \bigcup_{ i =1  }^{ n }  {A}_{i} \Big) \cup \Big(  \bigcup_{ i=1 }^{ n } {A}_{i} \Big)' \\
                                                                    &= \Big( \bigcup_{ i= 1}^{ n }  {A}_{i} \Big) \cup \Big(  \bigcup_{ i=1  }^{ n }  {A}_{i}' \Big) \\
