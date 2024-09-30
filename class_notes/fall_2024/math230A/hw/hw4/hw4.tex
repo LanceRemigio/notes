@@ -32,7 +32,10 @@
                 \end{solution}
             \item[(b)] Prove that \( \Q' = \R  \). Is \( \Q  \) closed?
                 \begin{solution}
-                Let \( a \in \R  \) and let \( \epsilon > 0 \). Consider the open interval \( (a - \epsilon, a + \epsilon) \). Since \( \Q  \) is dense in \( \R  \), we can find an \( x \in \Q  \) such that \( x \in (a- \epsilon, a + \epsilon) \) which is equivalent to saying that \( | x - a  | < \epsilon \). So, any \( a \in \R  \) must be a limit point of \( \Q  \). Therefore, we conclude that \( \Q'= \R  \). Consequently, \( \Q  \) must not be closed since its limit points take are outside of \( \Q \). 
+                Let \( a \in \R  \) and let \( \epsilon > 0 \). Consider the open interval \( (a - \epsilon, a + \epsilon) \). Since \( \Q  \) is dense in \( \R  \), we can find at least one \( x \in \Q  \) such that \( x \in (a- \epsilon, a + \epsilon) \); that is, 
+                we have 
+                \[  {N}_{\epsilon}(a) \cap (\Q \setminus  \{ a \} ) \neq \emptyset. \]
+                So, any \( a \in \R  \) must be a limit point of \( \Q  \). Therefore, we conclude that \( \Q'= \R  \). Consequently, \( \Q  \) must not be closed since its limit points take are outside of \( \Q \). 
                 \end{solution}
         \end{enumerate}
     \item Consider \( \R^{2}  \) with its standard metric. Let \( E = \{ (x,y) \in \R^{2} : x^{2} + y^{2} < 4  \}  \). Prove that \( E' = \{ (x,y) \in \R^{2} : x^{2} + y^{2} \leq 4  \}  \).
@@ -76,7 +79,7 @@
             \item[(i)] \( X  \) is closed.
             \item[(ii)] \( \emptyset \) is closed.
         \end{enumerate}
-        Let \( x  \) be a limit point of \( X  \). Then for all \( \epsilon > 0 \), we have \( {N}_{\epsilon}(x) \cap X \setminus  \{ x \} \neq \emptyset  \). But note that \( {N}_{\epsilon}(x) \) is an open set that is contained in \( X  \). Thus, \( x  \) must be contained within \( X  \) which proves (i).
+        Let \( x  \) be a limit point of \( X  \). Then for all \( \epsilon > 0 \), we have \( {N}_{\epsilon}(x) \cap (X \setminus  \{ x \} ) \neq \emptyset  \). But note that \( {N}_{\epsilon}(x) \) is an open set that is contained in \( X  \). Thus, \( x  \) must be contained within \( X  \) which proves (i).
 
         For (ii), note that the complement of \( \emptyset \) is just \( X  \) itself. Since \( X  \) is open by problem 4, we see that \( X^{c} = \emptyset \) must be closed.
         \end{proof}
@@ -94,13 +97,17 @@
                     \item[(ii)] \( (a,\infty ) \)
                     \item[(iii)] \( (-\infty , a) \)
                 \end{enumerate}
-                Starting with (i), we want to show that there exists a \( \delta > 0  \) such that \( {N}_{\delta}(x) \subseteq (a,b) \) where \( {N}_{\delta}(x) = (x - \delta, x + \delta) \). Let \( x \in (a,b) \). Choose \( \delta = \frac{ 1 }{ 2 } \min \{ b - x, x - a  \}  \). Then we have \( {N}_{\delta}(x) \subseteq (a,b)  \). Thus, we conclude that \( (a,b) \) is open.
+                Starting with (i), we want to show that there exists a \( \delta > 0  \) such that \( {N}_{\delta}(x) \subseteq (a,b) \) where \( {N}_{\delta}(x) = ( x - \delta, x + \delta) \). Let \( x \in (a,b) \). Choose \( \delta = \frac{ 1 }{ 2 } \min \{ |b - x|, |x - a|  \}  \). Then we have \( {N}_{\delta}(x) \subseteq (a,b)  \). Thus, we conclude that \( (a,b) \) is open.
+                
+                With (ii), fix \( x \in (a,\infty ) \). Observe that \( (a,x) \) is an open interval that is contained within \( (a,\infty ) \). Now, let \( y \in (a,x) \). Then choose \( \delta = \frac{ 1 }{ 2 }  \min \{ | x - y |, | y - a |\} > 0    \). Hence, we have        
+                \[  {N}_{\delta}(y) \subseteq (a,x) \subseteq (a,\infty ). \]
+                Thus, we have that \( (a,\infty ) \) is an open set in \( \R  \).
 
-                With (ii), observe that the neighborhood \( {N}_{\delta}(x) \) constructed in the proof of (i) is contained within \( (a,\infty ) \). Thus, \( (a,\infty ) \) is open as well. 
-
-                Lastly and similarly, observe that the neighborhood \( {N}_{\delta}(x) \) constructed in (i) that is contained in \( (a,b) \) is also contained within \( (-\infty, b  ) \). Thus, \( {N}_{\delta}(x) \subseteq (- \infty, b) \) for some \( \delta > 0  \) implying that \( (- \infty , b) \) is open.
+                Lastly, fix \( x \in (- \infty , b ) \). Consider the open interval \( (x,b)  \) and let \( y \in (x,b) \). Choose \( \delta = \frac{ 1 }{ 2 }  \min \{ | b- y |, | y - x  |  \} > 0  \). Then we have 
+                \[  {N}_{\delta}(y) \subseteq (x,b) \subseteq (b,\infty ) \]
+                which shows that \( {N}_{\delta}(y) \) is an open set.
                 \end{proof}
-            \item[(b)] Prove that the sets \( [a,b], [a,\infty), \) and \( (-\infty, b ] \) are closed.
+            \item[(b)] Prove that the sets \( [a,b], [a,\infty), \) and \( (-\infty, b ) \) are closed.
                 \begin{proof}
                 We will showing that the following intervals are closed in \( \R  \):
                 \begin{enumerate}
@@ -108,21 +115,21 @@
                     \item[(ii)] \( [a,\infty ) \)
                     \item[(iii)] \( (-\infty,b] \)
                 \end{enumerate}
-                Starting with (i), we want to show that every limit point \( x \) of \( [a,b] \) is contained in \( [a,b] \). Thus, let \( x  \) be a limit point of \( x  \). By definition, for all \( \delta > 0  \), we have \( {N}_{\delta}(x) \cap [a,b] \setminus  \{ x \} \neq \emptyset \). So, \( {N}_{\delta}(x) \) contains a point \( q \neq x  \) such that \( q \in [a,b]  \). This means that \( a \leq q \leq b  \). Using the fact that \( q \in {N}_{\delta}(x) \), we have  
+                Starting with (i), we want to show that every limit point \( x \) of \( [a,b] \) is contained in \( [a,b] \). Thus, let \( x  \) be a limit point of \( x  \). By definition, for all \( \delta > 0  \), we have \( {N}_{\delta}(x) \cap ( [a,b] \setminus  \{ x \} ) \neq \emptyset \). So, \( {N}_{\delta}(x) \) contains a point \( q \neq x  \) in this intersection such that \( q \in [a,b]  \). This means that \( a \leq q \leq b  \). Using the fact that \( q \in {N}_{\delta}(x) \), we have  
                 \begin{align*}
                     |  x-  q  |  < \delta &\Longleftrightarrow q - \delta < x < q + \delta  \\
                                           &\Longrightarrow a - \delta \leq x \leq b + \delta.
                 \end{align*}
                 Since \( \delta > 0  \) is arbitrary, we conclude that \( a \leq x \leq b  \) which means that \( x \in [a,b] \). Thus, \( [a,b] \) is closed.
 
-                With (ii), we will employ the same process. Let \( x  \) be a limit point of \( [a,\infty)  \). Then for all \( \varphi > 0  \), we see that \( {N}_{\varphi}(x) \cap [a,\infty) \setminus  \{ x \} \neq \emptyset  \). To this end, pick \( p \neq x  \) such that \( p \in [a,\infty) \). Since \( p  \) is also contained within \( {N}_{\varphi}(x) \), we see that  
+                With (ii), we will employ the same process. Let \( x  \) be a limit point of \( [a,\infty)  \). Then for all \( \varphi > 0  \), we see that \( {N}_{\varphi}(x) \cap ([a,\infty) \setminus  \{ x \} ) \neq \emptyset  \). To this end, pick \( p \neq x  \) in this intersection such that \( p \in [a,\infty) \). Since \( p  \) is also contained within \( {N}_{\varphi}(x) \), we see that  
                 \begin{align*}  | x - p  |  < \varphi &\Longleftrightarrow p - \varphi < x < p + \varphi \\
                     &\Longleftrightarrow a - \varphi \leq x < p + \varphi.
                 \end{align*}
                 This implies that \( a \leq x < p  \) since \( \varphi > 0 \) is arbitrary. Thus, we have \( x \in [a,\infty ) \) and so \( [a,\infty ) \) is closed.  
 
-                The last case is similar to (ii). Let \( \epsilon > 0 \). If \( x  \) is a limit point of \( (-\infty, b] \), then \( {N}_{\epsilon}(x) \cap [- \infty, b) \setminus  \{ x  \} \neq \emptyset \) implies that we can pick \( p \neq x  \) such that \( p \in [- \infty ,  b) \). Since \( \epsilon > 0 \) is arbitrary, we have
-                \[  q - \epsilon < x < q + \epsilon \leq b + \epsilon \]
+                The last case is similar to (ii). Let \( \epsilon > 0 \). If \( x  \) is a limit point of \( (-\infty, b] \), then \( {N}_{\epsilon}(x) \cap ((- \infty, b]) \setminus  \{ x  \} ) \neq \emptyset \) implies that we can pick \( q \neq x  \) in this intersection such that \( q \in (- \infty ,  b] \). Since \( \epsilon > 0 \) is arbitrary, we have
+                \[  q - \epsilon < x < q + \epsilon \leq  b + \epsilon \]
                 implies 
                 \[  q < x \leq b.  \]
                 Hence, \( x \in (-\infty, b] \) and so \( (- \infty , b]  \) is a closed set.
@@ -185,7 +192,7 @@
             \item[(2)] \( A \subseteq \overline{E} \).
         \end{enumerate}
         Starting with (1), suppose \( x \in \overline{E} \). Then either \( x \in E  \) or \( x \in E' \) (or both). If \( x \in E'  \), then \( x  \) is a limit point of \( E  \). Then for all \( \epsilon > 0  \),
-        \[  {N}_{\epsilon}(x) \cap E \setminus  \{ x \}  \neq \emptyset. \]
+        \[  {N}_{\epsilon}(x) \cap (E \setminus  \{ x \} )   \neq \emptyset. \]
         Since \( E \setminus  \{ x \} \subseteq E  \), we we see that 
         \[  {N}_{\epsilon}(x) \cap E \neq \emptyset \]
         which implies that \( x \in A \). Suppose \( x \in E  \). Then for all \( \epsilon > 0 \), we see that  
@@ -197,7 +204,7 @@
         With (2), suppose \( x \in A  \). We want to show that \( x \in \overline{E} \); that is, \( x  \) is either a limit point of \( E  \) or an element of \( E  \). Suppose that \( x  \) is NOT an element of \( E  \). By definition of \( A  \), we see that for all \( \epsilon > 0 \), 
         \[  {N}_{\epsilon}(x) \cap E \neq \emptyset.  \]
         Note that \( x \notin E  \) implies that \( E \setminus \{ x \} = E    \) and so we have 
-        \[  {N}_{\epsilon}(x) \cap E \setminus  \{ x \} \neq \emptyset. \]
+        \[  {N}_{\epsilon}(x) \cap ( E \setminus  \{ x \} ) \neq \emptyset. \]
         Thus, \( x  \) is a limit point of \( E  \) and so \( x \in \overline{E} \). Otherwise, when \( x  \) is not a limit point of \( E  \), then the nonempty intersection
         \[  {N}_{\epsilon}(x) \cap E  \]
         implies that \( x \in E  \) and so \( x \in \overline{E} \). Thus, \( A \subseteq \overline{E} \).
@@ -247,11 +254,11 @@
     Prove that \( E \subseteq \R  \) satisfies (i) if and only if it satisfies (ii).
     \begin{proof}
     \( (\Longrightarrow) \) Suppose \( E \subseteq \R  \) satisfies the property (i). We want to show that every point in \( \R  \) must either be a limit point of \( E  \) or a point in \( E  \). To this end, let \( x \in \R  \) be an arbitrary point. Suppose that \( x  \) is not an element of \( E  \). Thus, we want to show that \( x  \) is a limit point of \( E  \); that is, we will show that 
-    \[  \forall \delta > 0 \ \ {N}_{\delta}(x) \cap E \setminus  \{ x  \}  \neq \emptyset. \]
+    \[  \forall \delta > 0 \ \ {N}_{\delta}(x) \cap (E \setminus  \{ x  \})  \neq \emptyset. \]
     Let \( \delta > 0 \). Then denote the open neighborhood of \( x  \) as 
     \[  {N}_{\delta}(x) = \{ y \in \R : | x - y | < \delta \} = (x - \delta, x  + \delta).  \]
     But note that \( x - \delta < x + \delta  \) implies that there exists a \( p \neq x  \in E  \) such that \( x - \delta < p < x + \delta \). Thus, we see that \( |  x - p  |  < \delta  \) and hence, we see that 
-    \[  {N}_{\delta}(x) \cap E \setminus  \{ x \} \neq \emptyset.  \]
+    \[  {N}_{\delta}(x) \cap (E \setminus  \{ x \} ) \neq \emptyset.  \]
     Hence, \( x  \) is a limit point of \( E  \). Now, if \( x  \) is NOT a limit point, then \( x  \) is an isolated point of \( E  \) and that \(  x \in E  \).
     
     \( (\Longleftarrow ) \) Let \( x,y \in \R  \) such that \( x < y  \). We will show that there exists \( p \in E  \) such that \( x < p < y \). Suppose that \( \R = \overline{E}  \). Since \( x \in \R  \), we must have \( x \in \overline{E}  \). That is, for all \( \epsilon > 0  \), we have  
@@ -266,8 +273,8 @@
         \begin{enumerate}
             \item[(a)] If \( A \subseteq B  \), then \( A' \subseteq B' \).
                 \begin{proof}
-                Let \( x \in A' \). We want to show that \( x \in B' \); that is, \( x  \)is a limit point of \( B  \). By definition, \( x \in A'  \) implies that for all \( \epsilon > 0  \), \( {N}_{\epsilon}(x) \cap A \setminus  \{ x \} \neq \emptyset \). So, pick \( p \neq x  \) such that \( p \in A  \). But note that \( A \subseteq B  \). Thus, \( p \in  B \) and we must have for all \( \epsilon > 0 \), 
-                \[  {N}_{\epsilon}(x) \cap B \setminus  \{ x \} \neq \emptyset. \]
+                Let \( x \in A' \). We want to show that \( x \in B' \); that is, \( x  \) is a limit point of \( B  \). By definition, \( x \in A'  \) implies that for all \( \epsilon > 0  \), \( {N}_{\epsilon}(x) \cap (A \setminus  \{ x \} ) \neq \emptyset \). So, pick \( p \neq x  \) in this intersection such that \( p \in A  \). But note that \( A \subseteq B  \). Thus, \( p \in  B \) and we must have for all \( \epsilon > 0 \), 
+                \[  {N}_{\epsilon}(x) \cap (B \setminus  \{ x \}) \neq \emptyset. \]
                 Thus, \( x  \) is also a limit point of \( B  \) (that is, \( x \in B' \)) and we conclude that \( A' \subseteq  B' \).
                 \end{proof}
             \item[(b)] If \( A \subseteq  B  \), then \( \overline{A} \subseteq \overline{B} \).
@@ -278,10 +285,10 @@
                 \end{proof}
             \item[(c)] Prove that \( \overline{A \cap B} \subseteq \overline{A} \cap \overline{B} \).
                 \begin{proof}
-                Our goal is to show that \( \overline{A \cap B} \subseteq \overline{A} \cap \overline{B} \). Let \( x \in \overline{A \cap B} \). Then either \( x \in A \cap B  \) or \( x \in (A \cap B)' \). Suppose \( x \in A \cap  B  \). Then both \( x \in A  \) and \( x \in  B \) and so \( x \in \overline{A} \) and \( x \in \overline{B} \) since \( A \subseteq  \overline{A} \) and \( B \subseteq \overline{B} \). Now, suppose \( x \in (A \cap B)' \). Then \( x  \) is a limit point of \( A \cap B  \); that is, for all \( \epsilon > 0  \), \( {N}_{\epsilon}(x) \cap (A \cap B) \setminus  \{ x \} \neq \emptyset \). Since \( A \cap B \subseteq  A  \) and \( A \cap B \subseteq  B  \), we must have that
-                \[  {N}_{\epsilon}(x) \cap A \setminus  \{ x \} \neq \emptyset  \tag{1}\]
+                Our goal is to show that \( \overline{A \cap B} \subseteq \overline{A} \cap \overline{B} \). Let \( x \in \overline{A \cap B} \). Then either \( x \in A \cap B  \) or \( x \in (A \cap B)' \). Suppose \( x \in A \cap  B  \). Then both \( x \in A  \) and \( x \in  B \) and so \( x \in \overline{A} \) and \( x \in \overline{B} \) since \( A \subseteq  \overline{A} \) and \( B \subseteq \overline{B} \). Now, suppose \( x \in (A \cap B)' \). Then \( x  \) is a limit point of \( A \cap B  \); that is, for all \( \epsilon > 0  \), \( {N}_{\epsilon}(x) \cap ((A \cap B) \setminus  \{ x \} ) \neq \emptyset \). Since \( A \cap B \subseteq  A  \) and \( A \cap B \subseteq  B  \), we must have that
+                \[  {N}_{\epsilon}(x) \cap (A \setminus  \{ x \} ) \neq \emptyset  \tag{1}\]
                 and 
-                \[  {N}_{\epsilon}(x) \cap B \setminus  \{ x \} \neq \emptyset. \tag{2}  \]
+                \[  {N}_{\epsilon}(x) \cap (B \setminus  \{ x \} ) \neq \emptyset. \tag{2}  \]
                 Thus, (1) and (2) imply that \( x \in A'   \) and \( x \in B'  \) meaning that \( x  \) is both a limit of point of \( A  \) and \(  B \). Hence, \( x \in \overline{A}  \) and \( x \in \overline{B} \). Thus, we have \( \overline{A \cap B} \subseteq \overline{A} \cap \overline{B} \) in both of these cases.
                 \end{proof}
             \item Prove that \( A' \cup B' = (A \cup B)' \).
@@ -292,7 +299,7 @@
                     \item[(2)] \( (A \cup B)' \subseteq  A' \cup B' \).
                 \end{enumerate}
                 Starting with (1), let \( x \in A' \cup B' \). Then \( x \in A' \) or \( x \in B' \). If \( x \in A' \), then \( x  \) is a limit point of \( A  \). Hence, for all \( \epsilon > 0  \) such that 
-                \[  {N}_{\epsilon}(x) \cap A \setminus  \{ x \} \neq \emptyset. \]
+                \[  {N}_{\epsilon}(x) \cap (A \setminus  \{ x \}) \neq \emptyset. \]
                 Then pick a point in this intersection, say, \( q \neq x  \) such that \( q \in A  \). Since \( A \subseteq  A \cup B  \), we have \( q \in A \cup B \). Thus, we have 
                 \[  {N}_{\epsilon}(x) \cap \Big( (A \cup  B) \setminus  \{ x \} \Big) \neq \emptyset. \]
                 Hence, \( x  \) is a limit point of \( A \cup B \) and so \( x \in (A \cup B)' \). If \( x \in B' \), then for all \( \epsilon > 0  \) such that  
@@ -302,7 +309,7 @@
                 Then \( x  \) is a limit point of \( A \cup B \); that is, \( x \in (A \cup B)' \). Hence, we have that \( A' \cup B' \subseteq  (A \cup B)' \).
 
                 Now, with (2), let \( x \in (A \cup B)' \). Then \( x  \) is a limit point of \( A \cup  B \). Thus, for all \( \epsilon > 0 \) we have
-                \[  {N}_{\epsilon}(x) \cap (A \cup B) \setminus  \{ x \} \neq \emptyset. \]
+                \[  {N}_{\epsilon}(x) \cap ((A \cup B) \setminus  \{ x \} ) \neq \emptyset. \]
                 Pick a point in this intersection, say, \( p \neq x   \). Note that \( p \in A \cup B  \). So, either \( p \in A  \) or \( p \in B  \). If \( p \in A  \), then \( x  \) is a limit point of \( A  \). Thus, \( x \in A' \) and so \( x \in A' \cup B' \). If \( p \in B  \), then \( x  \) is a limit point of \( B  \) and so \( x \in B' \). Thus, \( x \in A' \cup B' \). Therefore, we have \( (A \cup B)' \subseteq A' \cup B' \) which proves (2). 
 
                 With (1) and (2), we have 
@@ -313,8 +320,8 @@
         \begin{enumerate}
             \item[(a)] Prove that \( E' \) is closed.
                 \begin{proof}
-                Our goal is to show that \( E' \) is closed; that is, any limit point of \( E'  \) is contained within \( E' \). Let \( x  \) be a limit point of \( E'  \). Then for all \( \epsilon > 0 \), \( {N}_{\epsilon}(x) \cap E' \setminus  \{ x \}  \neq \emptyset  \). To this end, pick \( y \neq x  \) such that \( y \in E' \). But this tells us that \( y  \) is a limit point of \( E  \). Thus, for all \( \delta > 0  \), \( {N}_{\delta}(y) \cap E \setminus  \{ y \} \neq \emptyset \). Thus, we can pick \( p \neq y  \) such that \( p \in E  \). Note that \( p \neq y \neq x  \) and \( p \in E  \) imply that  
-                \[  {N}_{\epsilon}(x) \cap E \setminus  \{ x \} \neq \emptyset. \]
+                Our goal is to show that \( E' \) is closed; that is, any limit point of \( E'  \) is contained within \( E' \). Let \( x  \) be a limit point of \( E'  \). Then for all \( \epsilon > 0 \), \( {N}_{\epsilon}(x) \cap (E' \setminus  \{ x \} )  \neq \emptyset  \). To this end, pick \( y \neq x  \) in this intersection such that \( y \in E' \). But this tells us that \( y  \) is a limit point of \( E  \). Thus, for all \( \delta > 0  \), \( {N}_{\delta}(y) \cap (E \setminus  \{ y \} ) \neq \emptyset \). Thus, we can pick \( p \neq y  \) such that \( p \in E  \). Note that \( p \neq y \neq x  \) and \( p \in E  \) imply that  
+                \[  {N}_{\epsilon}(x) \cap (E \setminus  \{ x \} ) \neq \emptyset. \]
                 Thus, \( x  \) is a limit point of \( E  \) and so \( x \in E' \). Hence, \( E' \) is closed.
                 \end{proof}
             \item[(b)] Prove that \( E  \) and \( \overline{E} \) have the same limit points.
@@ -324,17 +331,17 @@
                     \item[(1)] \( E' \subseteq  (\overline{E})' \)
                     \item[(2)] \( (\overline{E})' \subseteq E' \).
                 \end{enumerate}
-                Starting with (1), let \( x \in E' \). Then \( x  \) is a limit point of \( E \). Thus, for all \( \epsilon > 0  \), \( {N}_{\epsilon}(x) \cap E \setminus  \{ x \}  \neq \emptyset \). Since \( E \subseteq \overline{E} \), we must have that   
-                \[  {N}_{\epsilon}(x) \cap \overline{E} \setminus  \{ x \} \neq \emptyset. \]
+                Starting with (1), let \( x \in E' \). Then \( x  \) is a limit point of \( E \). Thus, for all \( \epsilon > 0  \), \( {N}_{\epsilon}(x) \cap (E \setminus  \{ x \} ) \neq \emptyset \). Since \( E \subseteq \overline{E} \), we must have that   
+                \[  {N}_{\epsilon}(x) \cap (\overline{E} \setminus  \{ x \} ) \neq \emptyset. \]
                 Thus, \( x \in \overline{E}' \) which proves (1).
 
-                Now with (2), let \( x \in \overline{E}' \). Then for all \( \epsilon > 0  \), \( {N}_{\epsilon}(x) \cap \overline{E} \setminus  \{ x \} \neq \emptyset \). From this nonempty intersection, pick \( y \neq x   \) such that \( y \in \overline{E} \); that is, \( y \in E  \) or \( y \in E' \). If \( y \in E  \), then \( x  \) is a limit point of \( E  \) and thus \( x \in E' \). If \( y \in E' \), then \( y  \) is a limit point of \( E  \). Hence, for all \( \delta > 0  \) \( {N}_{\delta}(y) \cap E \setminus  \{ y \} \neq \emptyset \). From this, we can pick \( q \neq y \neq x  \) such that \( q \in E  \). But this tell us that  
-                \[  {N}_{\epsilon}(x) \cap E \setminus \{ x \} \neq \emptyset, \]
+                Now with (2), let \( x \in \overline{E}' \). Then for all \( \epsilon > 0  \), \( {N}_{\epsilon}(x) \cap (\overline{E} \setminus  \{ x \}) \neq \emptyset \). From this nonempty intersection, pick \( y \neq x   \) such that \( y \in \overline{E} \); that is, \( y \in E  \) or \( y \in E' \). If \( y \in E  \), then \( x  \) is a limit point of \( E  \) and thus \( x \in E' \). If \( y \in E' \), then \( y  \) is a limit point of \( E  \). Hence, for all \( \delta > 0  \) \( {N}_{\delta}(y) \cap (E \setminus  \{ y \}) \neq \emptyset \). From this, we can pick \( q \neq y \neq x  \) such that \( q \in E  \). But this tell us that  
+                \[  {N}_{\epsilon}(x) \cap (E \setminus \{ x \}) \neq \emptyset, \]
                 proving that \( x  \) is a limit point of \( E \) and so \( x \in E' \). 
                 \end{proof}
             \item[(c)] Construct an example that shows \( E  \) and \( E' \) do not necessarily have the same limit points?
                 \begin{proof}
-                Suppose we have the following set \( E = \{ x < \frac{ 1 }{ n }  : n \in \N, x \in \R  \}  \) and its set of limit points \( E' = \{ \frac{ 1 }{ n }  : n \in \N  \}   \). Do these two sets necessarily have the same limit points?
+                Suppose we have the following set \( E = \{ x < \frac{ 1 }{ n }  : n \in \N, x \in \R  \}  \) and its set of limit points \( E' = \{ \frac{ 1 }{ n }  : n \in \N  \}   \). By problem 1, we see that the set of limit points of \( E' \) must be \( \{  0  \}  \). Clearly, \( E  \) and \( E' \) do not have the same limit points.  
                 \end{proof}
         \end{enumerate}
         \item Construct a bounded set of real numbers with exactly three limit points.
@@ -371,18 +378,13 @@
                     Starting with (1), let \( x \in E^{\circ} \). Then there exists a \( \delta > 0 \) such that \( {N}_{\delta}(x) \subseteq  E   \). This implies that \( x  \) cannot be in \( E^{c} \). Otherwise, \( x  \) is not an interior point of \( E  \). Subsequently, we have that for all \( \delta > 0  \), \( {N}_{\delta}(x) \cap E^{c} = \emptyset \). Thus, neither \( x \in E^{c}  \) nor \( x \in (E^{c})' \). Hence, \( x \in (\overline{E^{c}})^{c} \).    
 
                     With (2), let \( x \in (\overline{E^{c}})^{c}  \). Then \( x \notin \overline{E^{c}} \). Since \( \overline{E^{c}} = E^{c} \cup (E^{c})'  \), we have \( x \notin E^{c} \) and \( x \notin (E^{c})' \). Then there exists \( \delta > 0  \) such that  
-                    \[   {N}_{\delta}(x) \cap E^{c} \setminus  \{ x \}  = \emptyset \Longleftrightarrow {N}_{\delta}(x) \cap E^{c} = \emptyset.    \]
+                    \[   {N}_{\delta}(x) \cap (E^{c} \setminus  \{ x \} )  = \emptyset \Longleftrightarrow {N}_{\delta}(x) \cap E^{c} = \emptyset.    \]
                     Since \( x \notin E^{c} \), we must have \( x \in E  \). Thus, \( {N}_{\delta}(x) \subseteq E  \) for some \( \delta > 0  \) and so \( x \in E^{\circ} \) which proves (2). 
                     \end{proof}
                 \item[(d)] Give an example that shows that \( E  \) and \( \overline{E} \) do not always have the same interiors.
-                    \begin{proof}
-                    Let \( x \in \R  \). Consider the following open ball in the set of real numbers
-                    \[  {N}_{1/n}(x) = \Big\{ y \in \R : |  x - y | < \frac{ 1 }{ n }  \Big\}.    \]
-                    Since \( {N}_{1/n}(x) \) is open, we know that \( {N}_{1/n}(x) = ({N}_{1/n}(x))^{\circ} \). Note that the closure of this set is 
-                    \[  \overline{{N}_{1/n}(x)} = \Big\{ y \in \R : | x - y |  \leq \frac{ 1 }{ n } \Big\}. \]
-                    But this is also equal to the interior of the closure \( {N}_{1/n}(x) \). Clearly, we see that
-                    \[  (\overline{{N}_{1/n}(x)})^{\circ} \neq {N}_{1/n}(x) \]
-                    \end{proof}
+                    \begin{solution}
+                        Let \( E = \Q  \) and note that \( \overline{E} = \R  \) under the standard metric of \( \R \). Since \( \R  \) is open, we know that \( \R^{\circ} = \R  \). But the interior of \( \Q  \) is empty, which is clearly not equal to \( \R^{\circ} = \overline{E}^{\circ} \).    
+                    \end{solution}
                 \item[(e)] Give an example that shows that \( E  \) and \( E^{\circ} \) do not always have the same closures.
                     \begin{proof}
                         Consider the set of rational numbers \( \Q \). Then observe that \( \Q^{\circ} \) is empty since for all \( \epsilon > 0  \), \( {N}_{\epsilon}(x)  \) contains irrational numbers which are not contained in \( \Q  \). Hence, \( \overline{\Q^{\circ}} = \emptyset \). But notice that the closure \( \overline{\Q} = \R  \). Clearly, \( \overline{\Q} \neq \overline{\Q^{\circ}} \).  
@@ -396,7 +398,7 @@
                 \item[(2)] \( b \in A  \).
             \end{enumerate}
             If \( b  \) is a limit point of \( A  \), then for all \( \delta > 0  \), 
-            \[  {N}_{\delta}(b) \cap A \setminus  \{ b \} \neq \emptyset.  \]
+            \[  {N}_{\delta}(b) \cap (A \setminus  \{ b \} ) \neq \emptyset.  \]
             Since \( B \) is an open set, we know that \( {N}_{\delta}(b) \subseteq B \). Together with the fact that \( A \setminus  \{ b \} \subseteq  A  \), we can conclude that 
             \[  B \cap A \neq \emptyset. \]
             On the other hand, \( b \in A  \) immediately implies that \( B \cap A \neq \emptyset \).
@@ -404,7 +406,7 @@
             \( (\Longleftarrow) \) Let \( p \in X  \) and let \( A \subseteq X  \). We need to show that \( A  \) is dense in \( X  \); that is, we need to show that \( p  \) is either a limit point of \( A  \) or \( p \in A  \). Suppose that \( p \notin A  \). We will show that \( p  \) is a limit point of \( A  \). Let \( \epsilon > 0 \) and consider the open neighborhood \( {N}_{\epsilon}(p) \). By assumption, the open ball \( {N}_{\epsilon}(p) \) contains a nonempty intersection with \( A  \); that is,  
             \[  {N}_{\epsilon}(p) \cap A \neq \emptyset. \]
             Subsequently, we have
-            \[  {N}_{\epsilon}(p) \cap A \setminus  \{ p\} \neq \emptyset.  \]
+            \[  {N}_{\epsilon}(p) \cap (A \setminus  \{ p\} ) \neq \emptyset.  \]
             Thus, \( p  \) is a limit point of \( A  \). On the other hand, if \( p  \) is not a limit point of \( A  \), then \( p \) is an isolated point of \( A  \). Thus, \( p \in A  \). 
         \end{proof}
         \begin{proof}
@@ -518,5 +520,5 @@
 \end{enumerate}
 
 
-
 \end{document}
+

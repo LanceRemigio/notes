@@ -56,32 +56,24 @@
 % \let\phi\varphi
 \renewcommand\qedsymbol{$\blacksquare$}
 
-
-
 % correct
 \definecolor{correct}{HTML}{009900}
 \newcommand\correct[2]{\ensuremath{\:}{\color{red}{#1}}\ensuremath{\to }{\color{correct}{#2}}\ensuremath{\:}}
 \newcommand\green[1]{{\color{correct}{#1}}}
-
-
 
 % horizontal rule
 \newcommand\hr{
     \noindent\rule[0.5ex]{\linewidth}{0.5pt}
 }
 
-
 % hide parts
 \newcommand\hide[1]{}
-
-
 
 % si unitx
 \usepackage{siunitx}
 \sisetup{locale = FR}
 % \renewcommand\vec[1]{\mathbf{#1}}
 \newcommand\mat[1]{\mathbf{#1}}
-
 
 % tikz
 \usepackage{tikz}
@@ -90,7 +82,6 @@
 \usetikzlibrary{arrows.meta}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.13}
-
 
 \tikzset{
     force/.style={thick, {Circle[length=2pt]}-stealth, shorten <=-1pt}
@@ -102,13 +93,12 @@
 \usepackage[framemethod=TikZ]{mdframed}
 \mdfsetup{skipabove=1em,skipbelow=0em}
 
-
 \theoremstyle{definition}
 
 \declaretheoremstyle[
     headfont=\bfseries\sffamily\color{ForestGreen!70!black}, bodyfont=\normalfont,
     mdframed={
-        linewidth=2pt,
+        linewidth=1pt,
         rightline=false, topline=false, bottomline=false,
         linecolor=ForestGreen, backgroundcolor=ForestGreen!5,
     }
@@ -117,7 +107,7 @@
 \declaretheoremstyle[
     headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
     mdframed={
-        linewidth=2pt,
+        linewidth=1pt,
         rightline=false, topline=false, bottomline=false,
         linecolor=NavyBlue, backgroundcolor=NavyBlue!5,
     }
@@ -126,29 +116,25 @@
 \declaretheoremstyle[
     headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
     mdframed={
-        linewidth=2pt,
+        linewidth=1pt,
         rightline=false, topline=false, bottomline=false,
         linecolor=NavyBlue
     }
 ]{thmblueline}
 
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
+    headfont=\bfseries\sffamily, bodyfont=\normalfont,
     numbered = no,
     mdframed={
-        linewidth=2pt,
-        rightline=false, topline=false, bottomline=false,
-        linecolor=RawSienna, backgroundcolor=RawSienna!5,
+        rightline=true, topline=true, bottomline=true,
     }
-]{thmredbox}
+]{thmbox}
 
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
+    headfont=\bfseries\sffamily, bodyfont=\normalfont,
     numbered=no,
     mdframed={
-        linewidth=2pt,
-        rightline=false, topline=false, bottomline=false,
-        linecolor=RawSienna, backgroundcolor=RawSienna!1,
+        rightline=true, topline=false, bottomline=true,
     },
     qed=\qedsymbol
 ]{thmproofbox}
@@ -157,34 +143,32 @@
     headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
     numbered=no,
     mdframed={
-        linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
         linecolor=NavyBlue, backgroundcolor=NavyBlue!1,
     },
 ]{thmexplanationbox}
 
 \declaretheorem[
-    style=thmgreenbox, 
+    style=thmbox, 
     % numberwithin = section,
     numbered = no,
     name=Definition]{definition}
 
 \declaretheorem[
-    style=thmbluebox, 
+    style=thmbox, 
     name=Example,
     numberwithin = section]{eg}
 
 \declaretheorem[
-    style=thmredbox, 
+    style=thmbox, 
     % numberwithin = section,
     name=Proposition]{prop}
 
-\declaretheorem[style=thmredbox, name=Theorem]{theorem}
-\declaretheorem[style=thmredbox, name=Lemma]{lemma}
-\declaretheorem[style=thmredbox, name=Corollary]{corollary}
+\declaretheorem[style=thmbox, name=Theorem]{theorem}
+\declaretheorem[style=thmbox, name=Lemma]{lemma}
+\declaretheorem[style=thmbox, name=Corollary]{corollary}
 
 \declaretheorem[style=thmproofbox, name=Proof]{replacementproof}
-
 \declaretheorem[style=thmproofbox, 
 name = Solution]{solution}
 
@@ -193,14 +177,14 @@ name = Solution]{solution}
 \declaretheorem[style=thmexplanationbox, name=Proof]{tmpexplanation}
 \newenvironment{explanation}[1][]{\vspace{-10pt}\begin{tmpexplanation}}{\end{tmpexplanation}}
 
-
-\declaretheorem[style=thmblueline, numbered=no, name=Remark]{remark}
-\declaretheorem[style=thmblueline, numbered=no, name=Note]{note}
+\declaretheorem[style=thmbox, numbered=no, name=Remark]{remark}
+\declaretheorem[style=thmbox, numbered=no, name=Note]{note}
+\declaretheorem[style=thmbox, numbered=yes, name =Problem]{problem}
 
 \newtheorem*{uovt}{UOVT}
 \newtheorem*{notation}{Notation}
 \newtheorem*{previouslyseen}{As previously seen}
-\newtheorem*{problem}{Problem}
+% \newtheorem*{problem}{Problem}
 \newtheorem*{observe}{Observe}
 \newtheorem*{property}{Property}
 \newtheorem*{intuition}{Intuition}
@@ -260,16 +244,7 @@ name = Solution]{solution}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 
-\fancyhead[LE,RO]{Lance Remigio}
-\fancyhead[RO,LE]{\@lesson}
-\fancyhead[RE,LO]{}
-\fancyfoot[LE,RO]{\thepage}
-\fancyfoot[C]{\leftmark}
-
 \makeatother
-
-
-
 
 % notes
 \usepackage{todonotes}
@@ -293,9 +268,6 @@ name = Solution]{solution}
     fonttitle=\sffamily,
     breakable
 ]}{\end{tcolorbox}}
-
-
-
 
 % figure support
 \usepackage{import}

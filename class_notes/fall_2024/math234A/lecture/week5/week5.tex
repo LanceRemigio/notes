@@ -12,13 +12,16 @@
 \lhead{Math 234A}
 \chead{Lance Remigio}
 \rhead{\thepage}
+
+\section{Lecture 6}
+
 \subsection{Topics}
 
 \begin{itemize}
-    \item Open sets
-    \item Closed sets
-    \item Interior Points
-    \item Closure of a set.
+    \item {\hyperref[Open Sets]{Open Sets}} 
+    \item {\hyperref[Closed Sets]{Closed Sets}}
+    \item {\hyperref[Interior Points]{Interior Points}} 
+    \item {\hyperref[Closure of a set]{Closure of a set}} 
 \end{itemize}
 
 Let's recall the Euclidean metric on \( \C  \):
@@ -33,6 +36,8 @@ Recall that definition of continuity for functions in \( \R  \).
 \end{definition}
 
 Note that whenever we say \( | x - a  |  < \delta  \), we can also say that \( x \in (a - \delta, a + \delta) \). Similarly, we have \( | f(x) - f(a) | < \epsilon  \) is equivalent to \( f(x) \in (f(a) - \epsilon, f(a) + \epsilon) \).
+
+\subsection{Open Sets} \label{Open Sets}
 
 If we want to write the former using set notation, we can denote it as 
 \[  \{ x \in \R : d(x,a) < \delta \}  \]
@@ -65,6 +70,9 @@ which is a more general statement than the one found in the definition above.
     \end{enumerate}
 \end{eg}
 
+
+\subsection{Interior Points}\label{Interior Points}
+
 \begin{definition}[Interior Point]
   Let \( D \subseteq \C \) and \( a \in D  \). We say that \( a  \) is an \textbf{interior point} of \( D  \) if we can find \( \epsilon > 0  \) such that \( B(a, \epsilon) \subseteq  D  \).
 \end{definition}
@@ -78,6 +86,9 @@ which is a more general statement than the one found in the definition above.
     \[  \bigcap_{ n=1  }^{ \infty  }  B(0,1/n)   \tag{1} \]
     Let us compute (1). This is just the singleton \( \{ 0 \}  \). Show that \( \{ 0  \}  \) is not open. Note that the intersection of arbitrary many open sets may not be open. 
 \end{eg}
+
+\subsection{Closed sets}\label{Closed Sets}
+
 
 \begin{definition}[Closed Set]
     We say \( A \subseteq \C   \) \textbf{closed} if its complement     
@@ -116,9 +127,44 @@ which is a more general statement than the one found in the definition above.
 \end{eg}
 
 \begin{definition}[Accumulation Point]
-    
+Let \( D \subseteq  \C . \) We say \( a \in \C  \) is an \textbf{accumulation point} of \( D  \) if for any \( \epsilon > 0  \),
+\[  B(a,\epsilon) \cap (D \setminus  \{ a \} ) \neq \emptyset. \]
+
 \end{definition}
 
+\begin{eg}
+    \begin{enumerate}
+        \item[(i)] Let \( D = \C  \). Then \( \{ 0  \}  \) is an accumulation point of \( D  \).
+        \item[(ii)] Let \( a  \) such that \( | a  |  = 1  \). Then \( a  \) is an accumulation point of \( D = \{ z : | z | < 1   \}  \).
+        \item[(iii)] Let \( D = \{ 1,i \}  \). Then \( D  \) has no accumulation points.
+    \end{enumerate}
+\end{eg}
+
+\label{Closure of a set}
+
+\begin{definition}[Closure]
+    Let \( D \subseteq \C \). We denote the \textbf{closure of \( D \)} by \( \textbf{D} \) and define \( \overline{D} \) as 
+    \[  \overline{D} = D \cup \{ x \in D : \exists \epsilon > 0  \  B(x,\epsilon) \cap D \neq \emptyset \}.  \]
+\end{definition}
+
+\begin{lemma}
+    \begin{enumerate}
+        \item[(i)] \( \overline{D} \) is closed in \( \C  \).
+        \item[(ii)] The following statements are equivalent:
+            \begin{enumerate}
+                \item[(a)] \( a \in \C  \) is an accumulation point of \( D  \)
+                \item[(b)] There is a sequence \( ({z}_{n}) \) with \( {z}_{n} \in D  \), \( {z}_{n} \neq a  \) for all \( n \in {\Z}_{+} \) and \( {z}_{n} \to a  \).
+            \end{enumerate}
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{definition}[Bounded]
+    We say \( D \subseteq \C  \) is \textbf{bounded} if there exists \( R > 0  \) such that \( D \subseteq \overline{B}(0,R) \); that is, \( | z  |  \leq R  \) for all \( z \in D  \).
+\end{definition}
 
 
 
