@@ -49,7 +49,7 @@ is both nonempty (since \( E  \) is infinite) and bounded below (by the well ord
 \[  {n}_{k} = \min \{ m \in \N : m > {n}_{k-1} \wedge {x}_{m} \in E  \}. \]
 Now, define the function \( f: \N \to E  \) as follows:
 \[  f(k) = {x}_{{n}_{k}}. \]
-We claim that this is a bijective map. If we can prove this fact, then surely \( E  \) is countable. We need to prove a two things:
+We claim that this is a bijective map. If we can prove this fact, then surely \( E  \) is countable. We need to prove two things:
 \begin{enumerate}
     \item[(1)] \( f \) is injective and
     \item[(2)] \( f  \) is surjective.
@@ -66,7 +66,7 @@ Therefore, \( f  \) must be a bijective map and we can now conclude that \( E \)
    \begin{center}
        Let \( E  \subseteq  A  \). If \( E  \) is not countable, then \( A  \) is not countable. 
    \end{center}
-   When we say that a set is NOT countable, we do not necessarily mean the set is uncountable. However, in the case in that \( E  \) is an infinite set, we can say that \( E  \) being not countable is equivalent to saying that \( E  \) is uncountable. So, only in the case in which \( E  \) is infinite then the contrapositive is 
+   When we say that a set is NOT countable, we do not necessarily mean that the set is uncountable. However, in the case that \( E  \) is an infinite set, we can say that \( E  \) being not countable is equivalent to saying that \( E  \) is uncountable. So, only in the case in which \( E  \) is infinite then the contrapositive is 
    \begin{center}
        Let \( E \subseteq A   \) be infinite. If \( E  \) is uncountable, then \( A  \) is uncountable. By the {\hyperref[Subsets of countable sets is countable]{theorem}} we just proved, we see that \( f(A) \subseteq S   \) and \( S  \) being countable implies that \( f(A) \) must be at most countable. Thus, \( A  \) must be at most countable.
    \end{center}
@@ -84,7 +84,7 @@ Let \( A  \) be any set and let \( S  \) be a countable set. Suppose there exist
    \begin{enumerate}
        \item[(1)] The function \( f: \N \times \N \to \N  \) defined by
            \[  f(x,y) = 2^{x} 3^{y} \]
-           is injective. By the corollary we have just proved, we see taht \( \N \times \N  \) is at most countable. 
+           is injective. By the corollary we have just proved, we see that \( \N \times \N  \) is at most countable. 
         \item[(2)] Notice that \( g: \N \to \{ 1 \}  \times \N  \) is a bijection \( g(a) = (1,a) \). Hence, \( \{ 1 \}  \times \N  \) is countable. Now, we have that  
             \begin{enumerate}
                 \item[(i)] \( \{ 1 \}  \times \N \subseteq  \N \times \N   \)  
@@ -142,7 +142,7 @@ Proving that a set \( A  \) is countable can be done by finding a subset \( B  \
        \begin{align*}
            f(x) = f(y) &\Longrightarrow ({n}_{x}, {f}_{{n}_{x}}(x)) = ({n}_{y}, {f}_{{n}_{y}}(y)) \\
                        &\Longrightarrow {n}_{x} = {n}_{y} \ \wedge \ {f}_{{n}_{x}}(x) = {f}_{{n}_{y}}(y) \\
-                       &\Longrightarrow {f}_{{n}_{k}}(x) \wedge {f}_{{n}_{x}}(y) \\
+                       &\Longrightarrow {f}_{{n}_{k}}(x) = {f}_{{n}_{x}}(y) \\
                        &\Longrightarrow x =y \tag{Since \( {f}_{{n}_{x}}  \) is injective}
        \end{align*}
        By the {\hyperref[Injective mapping implies at most countability]{corollary}}, we see that the set 
@@ -164,7 +164,7 @@ must be countable.
    If \( A  \) and \( B  \) are at most countable, then \( A \cup B  \) at most countable. 
 \end{corollary}
 \begin{proof}
-Let \( {A}_{1} = A  \) and \( {A}_{2} = B  \) where \( {A}_{2} = {A}_{3} = \cdots = {A}_{n} = \emptyset \). Then \( A \cup B  \) is at most countable by the previous {\hyperref[Countable union of at most countable sets is at most countable]{Theorem}}. 
+Let \( {A}_{1} = A  \) and \( {A}_{2} = B  \) where \( {A}_{3} = {A}_{4} = \cdots = {A}_{n} = \emptyset \). Then \( A \cup B  \) is at most countable by the previous {\hyperref[Countable union of at most countable sets is at most countable]{Theorem}}. 
 \end{proof}
 
 \begin{theorem}[ ]
@@ -172,7 +172,7 @@ Let \( {A}_{1} = A  \) and \( {A}_{2} = B  \) where \( {A}_{2} = {A}_{3} = \cdot
 \end{theorem}
 \begin{proof}
     \begin{enumerate}
-        \item[(1)] Note that \( A \times A  = \bigcup_{ b \in A  }^{  }  \{ b  \}  \times A  \) for each \( b \in A  \).
+        \item[(1)] Note that \( A \times A  = \bigcup_{ b \in A  }^{  }  (\{ b  \}  \times A)  \) for each \( b \in A  \).
         \item[(2)] The function \( f: A \to \{ b \}  \times A  \) defined by \( f(x) = (b,x) \) is bijective. So, \( A \sim \{ b \}  \times A  \). Hence, \( \{ b  \}  \times A  \) is countable.
     \end{enumerate}
     Since a countable union of countable sets is countable, we see that \( A \times A  \) must be countable by (1) and (2).
@@ -207,7 +207,7 @@ Let \( {A}_{1} = A  \) and \( {A}_{2} = B  \) where \( {A}_{2} = {A}_{3} = \cdot
             \item Find an injective function \( f: A \to A  \) that is not onto.
             \item Find a proper subset \( B \subseteq  A  \) such that \( A \sim B  \).
         \end{itemize}
-    \item Find a proper subset \( B \subseteq  A   \) such that \( A \sim B  \).
+    \item How to prove that \( A \sim B  \).
         \begin{itemize}
             \item find a bijective function \( f: A \to B  \).
             \item (Shroder-Bernstein) 
