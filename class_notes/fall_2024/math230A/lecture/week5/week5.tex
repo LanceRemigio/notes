@@ -92,8 +92,46 @@ Hence, \( p  \) is an interior point of the intersection \( \bigcap_{  k = 1  }^
 
 
 \begin{theorem}[ ]
-    
+Let \( (X,d) \) be a metric space and \( E \subseteq X  \).
+\begin{enumerate}
+    \item[(1)] \( \overline{E} \) is a closed set. 
+    \item[(2)] \( E  \) is closed if and only if \( E = \overline{E} \).
+    \item[(3)] If \( E \subseteq F  \) and \( F \) is closed, then \( \overline{E} \subseteq F  \).
+\end{enumerate}
 \end{theorem}
+\begin{proof}
+Our goal is to show that \( (\overline{E})^{c} \) is open. We need to show that every point of \( (\overline{E})^{c} \) is an interior point of \( (\overline{E})^{c} \). Let \( p \in (\overline{E})^{c} \). We have 
+\begin{align*}
+    p \in (\overline{E})^{c} &\Longrightarrow p \notin \overline{E} \\ 
+                             &\Longrightarrow p \notin (E \cup E') \\
+                             &\Longrightarrow p \notin E \ \wedge \ p \notin E'.
+\end{align*}
+Note that 
+\begin{align*}
+    p \notin E' &\Longrightarrow \exists \epsilon > 0 \ {N}_{\epsilon}(p) \cap (E \setminus \{ p \} ) = \emptyset \\
+                &\Longrightarrow \exists \epsilon > 0 \ {N}_{\epsilon}(p) \cap E = \emptyset. \tag{1}
+\end{align*}
+In what follows, we will show that \( {N}_{\epsilon}(p) \cap E' = \emptyset \). So, we have
+\begin{align*}
+    &{N}_{\epsilon}(p) \cap (E \cup E') = \emptyset \\
+                                       &\Longrightarrow {N}_{\epsilon}(p) \cap \overline{E} = \emptyset \\
+                                       &\Longrightarrow {N}_{\epsilon}(p) \subseteq (\overline{E})^{c}.
+\end{align*}
+Thus, we have that \( p  \) is an interior point of \( (\overline{E})^{c}\). It remains to show that \( {N}_{\epsilon}(p) \cap E'  = \emptyset\). Assume for sake of contradiction that \( {N}_{\epsilon}(p) \cap E' \neq \emptyset \). Let \( q \in {N}_{\epsilon}(p) \cap E' \). Then we have \( q \in {N}_{\epsilon}(p)  \) and \( q \in E' \). Hence, there exists \( \delta > 0  \) such that \( {N}_{\delta}(q) \subseteq {N}_{\epsilon}(p) \) and that \( {N}_{\delta}(q) \cap (E \setminus  \{ q \} ) \neq \emptyset \), respectively. But note that since \( {N}_{q}(p) \subseteq  {N}_{\epsilon}(p)  \) and \( E \setminus  \{ q  \} \subseteq E   \) implies that 
+\[  {N}_{\epsilon}(p) \cap E \neq \emptyset \]
+which contradicts (1).
+\end{proof}
+
+\begin{definition}[Metric Subspace]
+    Let \( (X,d) \) be a metric space and let \( Y  \) be a nonempty subset of \( X  \). Then \( (Y, d |_{Y \times Y}) \) is called a \textbf{metric subspace} of \( (X,d) \).
+\end{definition}
+
+\begin{remark}
+    Consider the metric subspace \( (Y, d |_{Y \times Y} \) of \( (X,d) \). Let \( p \in Y  \) and \( \epsilon > 0  \). Then we define
+    \begin{align*} {N}_{\epsilon}^{Y}(p) = \{ y \in Y : d^{Y}(y,p) < \epsilon \} &= \{ y \in Y : d(y,p) < \epsilon \}   \\
+        &= {N}_{\epsilon}(p) \cap Y.
+    \end{align*}
+\end{remark}
 
 
 \end{document}

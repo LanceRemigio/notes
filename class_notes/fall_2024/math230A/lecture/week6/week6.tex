@@ -1,0 +1,238 @@
+\documentclass[a4paper]{report}
+\usepackage{standalone}
+\usepackage{import}
+\input{../../../../../newpreamble.tex}
+
+\begin{document}
+
+\section{Lecture 10}
+
+\begin{theorem}[\( E  \) is open relative to \( Y  \)]
+Let \( (X,d) \) be a metric space and \( E \subseteq Y \subseteq X  \) and \( Y \neq \emptyset \). \( E  \) is open relative to \( Y  \) if and only if there exists an open set \( {G}_{0} \subseteq X   \) such that \( E = G \cap Y  \).
+\end{theorem}
+\begin{proof}
+\( (\Longrightarrow) \) Assume that \( E  \) is open relative to \( Y  \). Our goal is to show that there exists an open set \( G \subseteq X  \) such that \( E = G \cap Y  \). Since \( E  \) is open relative to \( Y  \), every \( a \in E  \), we have that \( a  \) is an interior point of \( E  \); that is, there exists \( {\epsilon}_{0} > 0  \) such that \( {N}_{{\epsilon}_{a}}^{Y}(a) \subseteq E  \). Hence, for all \( a \in E  \), there exists \( {\epsilon}_{a} > 0  \) such that \( {N}_{{\epsilon}_{a}}(a) \cap Y \subseteq  E  \). Let \( G = \bigcup_{ a \in E  }^{  }  {N}_{{\epsilon}_{a}}(a) \). Clearly, \( G  \) is open in \( X  \) since 
+\begin{enumerate}
+    \item[(1)] For all \( a \in E  \), \( {N}_{{\epsilon}_{a}}(a)  \) is a neighborhood and so it is open in \( X  \).
+    \item[(2)] A union of open sets is open in any metric space.
+\end{enumerate}
+In what follows, we will prove that \( E  = G \cap Y  \). Note that 
+\begin{align*}
+    G \cap Y &= \Big( \bigcup_{ a \in E  }^{  }  {N}_{{\epsilon}_{a}} (a) \Big) \cap Y = \bigcup_{ a \in E  }^{   }  \Big(  {N}_{\epsilon_a}  \cap Y\Big) \subseteq  \bigcup_{ a \in E  }^{  } E = E.
+\end{align*}
+Suppose \( b \in E  \). We have \( b \in {N}_{{\epsilon}_{b}}(b)  \) and thus \( b \in G  \). Furthermore, \(  b \in E  \) implies \( b \in Y  \) since \( E \subseteq Y  \). Thus, we see that \( E \subseteq G \cap Y  \).
+
+\( (\Longleftarrow) \) Assume that there exists \( G \subseteq  X  \) such that \( E = G \cap Y  \). We want to show that \( E  \) is open relative to \( Y  \). Our goal is to show that for all \( a \in E  \), there exists \( \epsilon > 0  \) such that \( {N}_{{\epsilon}_{a}}^{Y}(a) \subseteq E  \).
+
+So, let \( a \in E  \) be given. Our goal is to find \( \epsilon > 0  \) such that 
+\[  {N}_{\epsilon}(a) \cap Y \subseteq  E. \]
+By assumption, we have 
+\begin{align*}
+    a \in E = G \cap Y &\Longrightarrow a \in G  \\
+                       &\Longrightarrow_{G \ \text{is open}} \exists \epsilon > 0 \ \text{such that} \ {N}_{\epsilon}(a) \subseteq G. 
+\end{align*}
+Hence, we see that 
+\[  {N}_{\epsilon}(a) \cap Y \subseteq  G \cap Y = E. \]
+\end{proof}
+
+\begin{theorem}[ ]
+    \begin{enumerate}
+        \item[(i)] If \( E \subseteq \R   \) is bounded above, then \( \sup E \in \overline{E} \).
+        \item[(ii)] If \( E \subseteq \R  \) is bounded below, then \( \inf E \in \overline{E} \).
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Here we will prove (1) and the proof of (2) is completely analogous.
+
+    Since \( E  \) is bounded above, we have that \( \sup E  \) exists and is a real number by the least upper bound property of \( \R  \). Let \( \alpha = \sup E  \). Our goal is to show that \( \alpha \in \overline{E} \); that is, we want to show that for all \( \epsilon > 0  \),
+    \[  {N}_{\epsilon}(\alpha) \cap E \neq \emptyset. \tag{Exercise 11 of HW4} \] 
+    Let \( \epsilon  > 0  \) be given. Since \( \alpha = \sup E  \), we know that there exists \( x \in E  \) such that \( \alpha - \epsilon < x  \). Hence, there exists \( x \in E  \) such that 
+    \[  \alpha - \epsilon <   x \leq \alpha < \alpha + \epsilon. \]
+    Hence, \( \alpha - \epsilon < x < \alpha + \epsilon \); that is, \( x \in {N}_{\epsilon}(\alpha) \). Therefore, \( {N}_{\epsilon}(\alpha) \cap E \neq \emptyset \).
+\end{proof}
+
+\begin{definition}[Open Covers]
+    Let \( (X,d) \) be a metric space and \( E \subseteq X  \). A collection of sets \( \{ {O}_{\alpha}   \}_{\alpha \in \Lambda} \) is said to be an \textbf{open cover} of \( E  \) if   
+    \begin{enumerate}
+        \item[(i)] for every \( \alpha \in \Lambda \), \( {O}_{\alpha}  \) is open in \( X \).
+        \item[(ii)] \( E \subseteq \bigcup_{ \alpha \in \Lambda }^{  } {O}_{\alpha} \).
+    \end{enumerate}
+\end{definition}
+
+\begin{eg}
+    Consider \( (\R , | \bullet | ) \) and the subset \( E = [0,\infty ) \). The collection \( \{ {E}_{n} \}_{n \in \N } \) defined by for all \( n \in \N  \), we have 
+    \[  {E}_{n} = \Big(  \frac{ -1 }{ n } , n  \Big) \]
+    is an open cover of \( E  \). The reason is as follows:
+    \begin{enumerate}
+        \item[(i)] In homework 4, we proved that every open interval is an open set with the standard metric on \( \R  \).
+        \item[(ii)] \( E \subseteq \bigcup_{ n=1  }^{ \infty  }  {E}_{n} \). Indeed, let \( a \in E  \). If \( a = 0  \), then \( a  \) belongs \( {E}_{n} \) for all \( n \in \N \). So, we have 
+            \[  a \in \bigcup_{ n=1  }^{ \infty  } {E}_{n}. \]
+            On the other hand, if \( a \neq 0  \), then \( \frac{ 1 }{ a }  > 0 \). By the Archimedean Property of \( \R  \), there exists an \( n \in \N  \) such that \( \frac{ 1 }{ n }  < \frac{ 1 }{ a }  \). So, \( a < n  \). Clearly, 
+            \[  \frac{ -1 }{ n }  < 0 < a <  n. \]
+            Hence, \( a \in {E}_{n} = \Big(  \frac{ -1 }{ n } , n  \Big) \). Consequently, 
+            \[  a \in \bigcup_{ m=1  }^{ \infty   } {E}_{m}. \]
+
+    \end{enumerate}
+\end{eg}
+
+\begin{definition}[Compactness]
+    Let \( (X,d) \) be a metric space and \( K \subseteq X  \). We say that \(  K \) is \textbf{compact} if every open cover of \(  K  \) has a finite subcover; that is, if \( \{ {O}_{\alpha} \}_{\alpha \in \Lambda}  \) is an open cover of \( K  \), then there exists \( {\alpha}_{1}, {\alpha}_{2}, \dots, {\alpha}_{n} \), we have
+    \[  K \subseteq \bigcup_{ i = 1  }^{ n }  {O}_{{\alpha}_{i}}. \]
+\end{definition}
+
+\begin{eg}
+    Let \( (X,d) \) be a metric space and \( E \subseteq  X \). If \( E  \) is finite, then \( E  \) is compact. The reason is as follows: 
+
+    Let \( \{ {O}_{\alpha} \}_{\alpha \in \Lambda} \) be any open cover. Our goal is to show that this open cover has a finite subcover; that is, we can choose \( {\alpha}_{1}, \dots, {\alpha}_{n} \) such that 
+    \[  E \subseteq \bigcup_{ i=1  }^{ n }  {O}_{{\alpha}_{i}}. \]
+    If \( E = \emptyset \), there is nothing to prove. Otherwise, \( E \neq \emptyset \), we can denote the elements of \( E  \) by \( {x}_{1}, \dots, {x}_{n} \). So, 
+    \[ E = \{ {x}_{1}, \dots, {x}_{n} \}. \]
+    We have
+    \begin{align*}
+        {x}_{1} \in E \subseteq  \bigcup_{ \alpha \in \Lambda }^{  } {O}_{\alpha} &\Longrightarrow \exists {\alpha}_{1} \in \Lambda \ \text{such that} \ {x}_{1} \in {O}_{{\alpha}_{1}} \\
+        {x}_{2} \in E \subseteq  \bigcup_{ \alpha \in \Lambda }^{  }  {O}_{\alpha} &\Longrightarrow \exists {\alpha}_{2} \in \Lambda \ \text{such that} \ {x}_{2} \in {O}_{{\alpha}_{2}}
+    \end{align*}
+    and so continue this process until you have reached the \( n \)th element of \( E \). Hence, we have
+    \[  {x}_{n} \in E \subseteq \bigcup_{ \alpha \in \Lambda }^{  } {O}_{\alpha} \Longrightarrow \exists {\alpha}_{n} \in \Lambda \ \text{such that} \ {x}_{n} \in {O}_{{\alpha}_{n}}. \]
+    Thus, we have that
+    \[  E \subseteq \bigcup_{ i=1  }^{ n } {O}_{{\alpha}_{i}} \]
+    and so \( E  \) is compact.
+\end{eg}
+
+\begin{eg}
+   Let \( (\R, | \cdot | ) \) and  
+   \[  E = \Big\{\frac{ 1 }{ n }  : n \in \N \Big\} \cup \{ 0  \}. \]
+   Prove that \( E  \) is compact (In general, if \( {a}_{n} \to a  \) in \( \R  \), then the set \( F = \{ {a}_{n} : n \in \N  \} \cup \{ a \}   \) is compact).
+    
+   Let \( \{ {O}_{\alpha} \}_{\alpha \in \Lambda} \) be any open cover of \( E  \). Our goal is to show that this open cover has a finite subcover. Notice that \( 0 \in E  \) and \( E \subseteq \bigcup_{ \alpha \in \Lambda }^{  } {O}_{\alpha} \) implies that 
+   \[  O \in \bigcup_{  \alpha \in \Lambda }^{  }  {O}_{\alpha} \Longrightarrow \exists {\alpha}_{0} \in \Lambda \ \text{such that} \ O \in {O}_{{\alpha}_{0}}. \]
+   So, if \( O \in {O}_{{\alpha}_{0}}  \) and \( {O}_{{\alpha}_{0}}  \) is open, we have 
+   \[  \exists \epsilon > 0 \ \text{such that} \ (- \epsilon , \epsilon) \subseteq  {O}_{{\alpha}_{0}}. \]
+   By the Archimedean Property of \( \R  \), we see that there exists \( m \in \N  \) such that \( \frac{ 1 }{ m   }  < \epsilon \). So, for all \( n \geq m  \), we have \( \frac{ 1 }{ n }  < \epsilon  \). Hence, for all \( n \geq m  \), we have \( \frac{ 1 }{ n }  \in (- \epsilon , \epsilon ) \subseteq  {O}_{{\alpha}_{0}} \). Note that \( 1 \in E  \) so there exists \( {\alpha}_{1} \in \Lambda \) such that \( 1 \in {O}_{{\alpha}_{1}} \). Similarly, \( \frac{ 1 }{ 2 }  \in E  \) implies that there exists \( {\alpha}_{2} \in \Lambda \) such that \( \frac{ 1 }{ 2 }  \in {O}_{{\alpha}_{2}} \). Continue this process until, we have 
+   \[  \frac{ 1 }{ m - 1  } \in E \Longrightarrow \exists {\alpha}_{m} \in \Lambda \ \text{such that} \ \frac{ 1 }{ m - 1  }  \in {O}_{{\alpha}_{m-1}}. \]
+   Thus, we conclude that 
+   \[  E \subseteq \bigcup_{ n=0  }^{ \infty   }  {O}_{{\alpha}_{n}} \]
+   and so \( E  \) is compact.
+
+\end{eg}
+
+\begin{remark}
+    If \( X  \) itself is compact, we say that \( (X,d) \) is a compact metric space; that is, if \( \{ {O}_{\alpha} \}_{\alpha \in \Lambda} \) is any collection of open sets such that  
+    \[  X = \bigcup_{ \alpha \in \Lambda }^{  }  {O}_{\alpha} \]
+    then there exists \( {\alpha}_{1}, \dots, {\alpha}_{n} \in \Lambda \) such that 
+    \[  X = \bigcup_{ i=1  }^{ n }  {O}_{{\alpha}_{i}}. \]
+\end{remark}
+
+\begin{theorem}[Compactness implies Closed]
+Let \( (X,d) \) be a metric space and \( K \subseteq X   \) is compact. Then \(  K  \) is compact.
+\end{theorem}
+\begin{proof}
+It is enough to show that \( K^{c} \) is open; that is, we need to find \( \epsilon > 0 \) such that \( {N}_{\epsilon}(x) \subseteq K^{c} \) for every \( x \in K^{c} \). That is, we want to show that   
+\[ \exists \epsilon > 0 \ \text{such that} \ {N}_{\epsilon}(a) \cap K = \emptyset.   \]
+We have 
+\begin{align*}
+    a \in K^{c} &\Longrightarrow a \notin K  \\
+                &\Longrightarrow \forall x \in K \ d(x,a) > 0 \\
+\end{align*}
+For all \( x \in K  \), let \( {\epsilon}_{x} = \frac{ 1 }{ 4 }  d(x,a) \). Clearly, we have 
+\[ \forall x \in K \ {N}_{{\epsilon}_{x}} \cap {N}_{{\epsilon}_{x}}(a) = \emptyset.  \]
+Note that \( \{ {N}_{{\epsilon}_{x}}(x) \}_{x \in K} \) is an open cover for \( K   \). Since \(  K  \) is compact, there is a finite subcover. That is, there exists \( {x}_{1}, \dots {x}_{n} \in  K  \) such that 
+\[  K \subseteq  \bigcup_{ i =1  }^{ n }  {N}_{{\epsilon}_{{x}_{i}}}({x}_{i}) \]
+and of course 
+\[  {N}_{{\epsilon}_{{x}_{1}}} ({x}_{1}) \cap {N}_{{\epsilon}_{{x}_{1}}}(a) = \emptyset. \]
+If we continue this process until the \( n \)th step, we have that 
+\[  {N}_{{\epsilon}_{{x}_{n}}}(x) \cap {N}_{{\epsilon}_{{x}_{n}}}(a) = \emptyset. \]
+Let \( \epsilon = \min \{ {\epsilon}_{{x}_{1}}, \dots, {\epsilon}_{{x}_{n}}  \}.   \)
+Clearly, \( {N}_{\epsilon}(a) \subseteq  {N}_{{\epsilon}_{{x}_{i}}} (a) \forall 1 \leq i \leq n  \). Hence, we have 
+\[  {N}_{{\epsilon}_{{x}_{1}}} \cap {N}_{\epsilon}(a) = \emptyset \]
+and similarly for the \( n \)th step, we have 
+\[  {N}_{{\epsilon}_{{x}_{n}}}(x) \cap {N}_{\epsilon}(a) = \emptyset. \]
+Therefore, we have 
+\[  {N}_{\epsilon}(a) \cap \Big[ {N}_{{\epsilon}_{{x}_{1}}} \cup \cdots \cup {N}_{{\epsilon}_{{x}_{n}}} \Big] = \emptyset. \]
+So, 
+\[  {N}_{\epsilon}(a) \cap K = \emptyset. \]
+
+\end{proof}
+
+\section{Lecture 11}
+
+
+\subsection{Topics}
+
+\begin{itemize}
+    \item Metric subspace
+    \item {\hyperref[Theorem 2.35]{Theorem 2.35}} 
+    \item {\hyperref[Theorem 2.33]{Theorem 2.33}} 
+    \item {\hyperref[Theorem 2.37]{Theorem 2.37}} 
+    \item {\hyperref[Theorem 2.36]{Theorem 2.36}} 
+\end{itemize}
+
+\begin{theorem}[ ]\label{Theorem 2.35}
+    Closed subsets of compact sets are compact.
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+\begin{corollary}
+    If \( F  \) is closed and \( K  \) is compact, then \( F \cap K  \) is compact.
+\end{corollary}
+\begin{proof}
+
+\end{proof}
+
+
+\begin{theorem}[ ]\label{Theorem 2.33}
+    Suppose \( K \subseteq Y \subseteq X  \). We have \( E  \) is compact if and only if \( K  \) is compact relative to \( Y  \).
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+\begin{theorem}[ ]\label{Theorem 2.37}
+    If \( E  \) is an infinite subset of a compact set \( K  \), then \( E  \) has a limit point in \( K  \).
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+
+\begin{remark}
+    Let \( (X,d) \) be a metric space and \( K \subseteq X . \) The following statements are equivalent:
+    \begin{enumerate}
+        \item[(i)] \( K  \) is compact.
+        \item[(ii)] Every infinite subset of \( K  \) has a limit point in \( K  \).
+        \item[(iii)] Every sequence in \( K  \) has a subsequence that converges to a point in \( K  \).
+    \end{enumerate}
+\end{remark}
+
+\begin{corollary}
+If \( {K}_{1} \supseteq {K}_{2} \supseteq \dots  \) is a sequence of nonempty compact sets, then \( \bigcap_{ n=1  }^{ \infty   }  {K }_{n} \) is nonempty.
+\end{corollary}
+\begin{proof}
+
+\end{proof}
+
+
+
+\begin{theorem}[ ]\label{Theorem 2.36}
+    Let \( \{ {K}_{\alpha} \}   \) a collection of compact subsets of \( X  \). If the intersection of any finite subcollection is nonempty, then
+    \[  \bigcap_{ \alpha \in \Lambda }^{  } {K}_{\alpha} \neq \emptyset. \]
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+
+\begin{theorem}[Nested Interval Property]
+    If \( {I}_{n} = [{a}_{n}, {b}_{n}] \) is a sequence of closed intervals in \( \R  \) such that \( {I}_{1} \supseteq {I}_{2} \supseteq {I}_{3} \supseteq \dots  \), then \( \bigcap_{ n=1  }^{ \infty   }  {I}_{n} \) is nonempty. 
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+
+
+
+\end{document}

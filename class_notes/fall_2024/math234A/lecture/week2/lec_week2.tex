@@ -12,15 +12,15 @@
 \subsection{Topics}
 
 \begin{itemize}
-    \item Polar Representation of complex numbers.
-    \item Convergence of sequences in \( \C  \).
+    \item {\hyperref[Polar Representation of Complex Numbers]{Polar Representation of Complex Numbers}} 
+    \item {\hyperref[Convergence of Sequences in the Complex Numbers]{Convergence of Sequences in \( \C \)}} 
 \end{itemize}
 
-\subsection{Polar Representation of Complex Numbers}
+\subsection{Polar Representation of Complex Numbers}\label{Polar Representation of Complex Numbers}
 
 First, let us introduce some notation:
 \begin{itemize}
-    \item \( \C^{\cdot} = \{ z \in \C : z \neq 0  \}. \)
+    \item \( \C^{\bullet} = \{ z \in \C : z \neq 0  \}. \)
     \item \( {\R}_{+} = \{ \alpha \in \R : \alpha > 0  \}. \)
 \end{itemize}
 
@@ -128,7 +128,7 @@ Some notations we would like to establish are the following:
     This gives us the tool we need to show that every non-zero \( z \in \C  \) has a polar representation.
 \end{remark}
 
-\subsection{Convergence of Sequences in \( \C \)}
+\subsection{Convergence of Sequences in \( \C \)}\label{Convergence of Sequences in the Complex Numbers}
 
 \begin{definition}[Convergence in \( \C  \)]
     Let \( {\{ {z}_{n} \} }_{n=1}^{\infty }     \) be a sequence in \( \C  \). We say that \( \{ {z}_{n} \}   \) converges to \( z \in \C  \) if for all \(  \epsilon > 0  \), we can find \( {N}_{\epsilon} \in \N  \) such that  
@@ -193,6 +193,28 @@ Suppose \( ({z}_{n}) \to z  \) and \( ({w}_{n}) \to w  \).
                                   &= \epsilon.
     \end{align*}
     Thus, we conclude that \( {z}_{n}^{-1} \to z^{-1} \).
+\item[(iv)] \( (\Longrightarrow) \) Let \( \epsilon > 0  \). Since \( ({z}_{n}) \to z  \), we can choose \( N \in \N  \) such that for any \( n \geq N  \), we have   
+    \begin{align*}
+        | \Re({z}_{n}) - \Re(z)  | =  | \Re({z}_{n} - z) | &\leq | {z}_{n} - z | < \epsilon    \\
+        | \Im({z}_{n}) - \Im(z) | = | \Im({z}_{n} - z) | &\leq | {z}_{n} - z  | < \epsilon.  
+    \end{align*}
+    Hence, the real and imaginary part of \( ({z}_{n}) \) converge.
+
+    \( (\Longleftarrow) \) Letting \( \epsilon > 1  \) again. Our goal is to find an \( N \in \N  \) such that for any \( n \geq N  \), we have 
+    \[ | {z}_{n} - z  |  < \epsilon. \]
+    Since the real and imaginary part of \( {z}_{n} \) converge, we know that there exists \( {N}_{1}, {N}_{2} \in \N  \) such that, we have  
+    \begin{align*}
+        | \Re({z}_{n}) - \Re(z) |  &< \frac{ \epsilon }{ 2 } \tag{1}  \\
+        | \Im({z}_{n}) - \Im(z) | &< \frac{ \epsilon }{ 2 } \tag{2}
+    \end{align*}
+ whenever \( n \geq {N}_{1} \) and \( n \geq {N}_{2} \), respectively. Now, choose \( N = \max \{ {N}_{1}, {N}_{2} \}  \) such that for any \( n \geq N  \), we have
+ \begin{align*}
+     | {z}_{n} - z | &= | (\Re({z}_{n}) - \Re(z) ) + i(\Im({z}_{n}) - \Im(z))  |  \\
+                     &\leq | \Re({z}_{n}) - \Re(z) |  +  | \Im({z}_{n}) - \Im(z) | \tag{\( | i |  = 1  \)}  \\
+                     &< \frac{ \epsilon }{ 2 }  + \frac{ \epsilon }{ 2 }  \\
+                     &= \epsilon.
+ \end{align*}
+ Thus, we see that \( ({z}_{n}) \to z  \).
 \end{enumerate}
 \end{proof}
 

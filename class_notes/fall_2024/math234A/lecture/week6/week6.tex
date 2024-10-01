@@ -10,15 +10,164 @@
 
 \subsection{Topics}
 
+Our goal for this lecture is to discuss complex powers of a non-zero complex number.
+
+\subsection{Complex Powers}
+
+Let \( z \in \C^{\bullet} \). We want to define \( z^{w} \) for \( w \in \C  \). Recall from real number system that, for \( x \in {\R}_{+} \), \( x^{a} = e^{a \ln x } \). We want our complex powers to extend this idea.
+
+\begin{definition}[ ]
+   We define \( z^{w} = \exp(w \log z) \). Note that  
+   \begin{align*}
+       \log z &= \Log z + 2 \pi i k  \\
+              &= \ln | z  |  + i (\Arg(z) + 2\pi k), \ k \in \Z 
+   \end{align*}
+   is a multi-valued function.
+\end{definition}
+
+For this reason, the complex power of a non-zero complex number will also be multi-valued.
+Hence, by choosing a fixed \( k  \), we can find a specific value of \( z^{w} \).
+
+\begin{eg}
+    \begin{enumerate}
+        \item[(i)] Compute \( i^{i} \). Recall that \( \log i = i \Big(  \frac{ \pi  }{  2  }  + 2 \pi k  \Big) \). Hence, we have 
+            \[  i^{i} = \exp(i \log i) = \{ e^{\frac{ -\pi }{ 2 }  + 2 \pi k }: k \in \Z  \}. \]
+            If we are just referring to the principal branch, then 
+            \[ i^{i} = e^{\frac{ -\pi }{ 2 } }.  \]
+        \item[(ii)] Compute: \( (-1)^{1 + i} \).
+            Note that 
+            \[  \log(-1) = i \pi + 2 \pi i k  =  i (2k+1) \pi. \]
+            Then we see that for all \( k \in \Z  \), we have
+            \begin{align*}
+                (-1)^{1 + i} &= \exp((2k+1)\pi (i-1)) \\
+                             &= e^{-(2k+1)\pi} \exp(e^{(2k+1) \pi i }) \\
+                             &= e^{-(2k+1)\pi} \Big[\cos (2k+1) \pi + i \sin (2k+1) \pi \Big] \\
+                             &= - e^{-(2k+1)\pi}.
+            \end{align*}
+    \end{enumerate}
+\end{eg}
+
+Let us summarize some facts about \( \exp(z) \).
+
 \begin{itemize}
-    \item
+    \item For all \( x \in \R  \), we have \( \exp(z) = e^{x} \). Thus, from now on, we write \( e^{z} \) in place of \( \exp(z) \).
+    \item For \( z \in \C^{\bullet} \), we have \( \log z  \) is a multi-valued function. That is, we have 
+        \[  \log z = \ln | z  |  + i (\Arg z + 2 \pi k ), \ k \in \Z.  \]
+    \item For \( z \in \C^{\bullet} \), we have \( \Log z = \ln | z  |  + i \Arg z  \) (this is the principal branch log).
+    \item For \( z \in \C^{\bullet} \), we have \( z^{w } = e^{w \log z} \) is also a multi-valued function.
 \end{itemize}
 
+\begin{eg}
+    \begin{itemize}
+        \item Find all solutions of \( \sin z = 1  \).
+        \item Find all possible solutions of \( \cos z = i  \).
+    \end{itemize}
+\end{eg}
+
+\begin{problem}
+     Find all solutions of \( e^{z} = i  \).
+\end{problem}
+\begin{solution}
+
+\end{solution}
 
 \section{Lecture 8}
 
 \begin{itemize}
-    \item 
+    \item Limits of a function
+    \item Continuity
+    \item Derivative
 \end{itemize}
+
+\subsection{Functional Limit}\label{Functional Limit}
+
+\begin{definition}[Functional Limit]
+    Let \( D \subseteq \C   \) and \( f: D \to \C  \) be a function. Let \( a \) be an accumulation point of \( D  \). Let \( \ell \in \C  \). We say that \( \ell  \) is \textbf{the limit of \( f(z) \)} as \( z  \) approaches to \( a  \) if for all \( \epsilon > 0 \), there is \( \delta> 0  \) such that for all \( z \in D  \) with \( 0 < |  z - a  |  < \delta \), we have
+    \[  | f(z) - \ell | < \epsilon; \]
+    that is, \( z \in D \cap (B(a,\delta) \setminus  \{ a \} ) \) implies \( f(z) \in B(\ell, \epsilon) \).
+\end{definition}
+
+\begin{eg}
+    Let \( f: B(0,1) \to \C  \) defined by \( f(z) = \frac{ iz }{ 2  }  \) then \( \lim_{ z \to i }  f(z) = - \frac{ 1 }{ 2 }  \).
+\end{eg}
+\begin{proof}
+Observe that 
+\[  | f(z) - \ell | = \Big| \frac{ i }{ 2 } z - \Big(  - \frac{ 1 }{ 2 }  \Big) \Big| = \Big| \frac{ i }{ 2 }  \Big|  | z - i  |  = \frac{ 1 }{ 2 }  | z - i  |.  \]
+So, given any \( \epsilon > 0  \), we can take any \( 0 < \delta< 2 \epsilon  \) such that 
+\[  0 < | z - i  | < \delta  \] implies 
+\[  | f(z) - \ell | < \epsilon. \]
+\end{proof}
+
+Some facts about limits are:
+
+\begin{theorem}[ ]
+    Let \( D \subseteq \C  \) with \( f: D \to \C  \), \( g: D \to \C  \) be two functions let us write \( f = u + i v \).
+    \begin{enumerate}
+        \item[(i)] Let \( a = \alpha + i \beta \). Then \( \lim_{ z \to a  } f(x) = \ell \) if and only if 
+        \begin{center}
+            \( \lim_{ (x,y) \to (\alpha, \beta) } u(x,y) = \Re(\ell)  \) and \( \lim_{ (x,y) \to (\alpha, \beta)  } v(x,y) = \Im(\ell) \); that is,
+            \[  \lim_{ z \to a }  f(z) = \lim_{ z \to a }  u(z) + i \lim_{ z \to a } v(z). \] 
+        \end{center}
+    \item[(ii)] Let \( \lim_{ z \to  a  }  f(z) = \ell  \) and \( \lim_{ z \to a } g(z) = \ell' \) and \( c,d \in \C  \). Then
+        \[  \lim_{ z \to a }  (cf(z) + dg(z)) = c \ell + d \ell'.  \]
+    \item[(iii)] \( \lim_{ z \to a } (f(z)g(z)) = \lim_{ z \to a } f(z) \cdot \lim_{ z \to a }  g(z) \).
+    \item[(iv)] We have
+        \[  \lim_{ z \to a }  \frac{ f(z) }{ g(z) }  = \frac{ \lim_{ z \to a }  f(z) }{ \lim_{ z \to a } g(z) }  \]
+        whenever \( \lim_{ z \to a } g(z) \neq 0  \).
+    \end{enumerate}
+\end{theorem}
+
+\begin{problem}
+    Let \( \lim_{ z \to i } f(z) = 2 + i    \) and \( \lim_{ z \to i }  g(z) = 1 - i  \). Compute the following:
+    \[ \lim_{ z \to i }  \Big[ (f(z))^{3} + \frac{ (1+i) g(z) }{ z^{2} } \Big]. \]
+\end{problem} 
+\begin{solution}
+Observe that 
+\begin{align*}
+  \lim_{ z \to i }  \Big[(f(z))^{3} + \frac{ (1+i) g(z) }{ z^{2} } \Big]  &= \lim_{ z \to i }  (f(z))^{3} + \lim_{ z \to i }  \frac{ (1+i) g(z)  }{ z^{2} }  \\
+                                                                          &= (2+i)^{3} + \frac{ (1+i) (1-i) }{ i^{2} } \\
+                                                                          &= (2+i)^{3} -2. 
+\end{align*}
+\end{solution}
+
+\begin{definition}[Limits at Infinity]
+    \begin{enumerate}
+        \item[(i)] Let \( f: D \to \C  \) be a function and \( a \in \C  \) be an accumulation point of \( D  \). Then we say \( \lim_{ z \to a } f(z) = \infty   \) if for all \( M > 0  \), there exists \( \delta > 0  \) such that
+            \[  z \in D \cap (B(a,\delta) \setminus  \{ a \} ) \]
+            implies \( | f(z) | \geq  M \); that is, \( f  \) is unbounded as \( z  \) approaches to \( a  \).
+        \item[(ii)] Let \( f  \) be a complex function defined on the complement of a ball in \( \C  \). We say \( \lim_{ z \to \infty  } f(z) = \ell  \) if for all \( \epsilon > 0  \), there exists \( R > 0  \) such that \( | z  |  > R  \) implies 
+            \[  | f(z) - \ell  | < \epsilon. \]
+    \end{enumerate}
+\end{definition}
+
+\begin{eg}
+    \begin{enumerate}
+        \item[(i)] Consider \( \lim_{ z \to 0 }  \frac{ 1 }{ z }  = \infty   \). Let \( M > 0  \). Let \( \delta = \frac{ 1 }{ M }  \). Then \( 0 < | z  |  < \delta \) implies that 
+            \[  \Big| \frac{ 1 }{ z }  \Big| > \frac{ 1 }{ \delta } = M. \]
+        \item[(ii)] Consider \( \lim_{ z \to \infty  }   \frac{ 1 }{ z }  = 0.  \)
+            Let \( \epsilon > 0  \). Choose \( R = \frac{ 1 }{ \epsilon } > 0  \). Then 
+            \(  | z  |  > R  \) implies 
+            \[  \Big| \frac{ 1 }{ z }  \Big| < \frac{ 1 }{ R } = \epsilon. \]
+    \end{enumerate}
+\end{eg}
+
+\begin{problem}
+    \begin{enumerate}
+        \item[(i)] Show that \( \lim_{ z \to \infty  } f(z) = \ell  \) if and only if
+            \[  \lim_{ z \to \infty  } f \Big(  \frac{ 1 }{ z }  \Big) = \ell.  \]
+        \item[(ii)] \( \lim_{ z \to a } f(z) = \infty   \) if and only if \( \lim_{ z \to a }  \frac{ 1 }{ f(z) } = 0  \).
+        \item[(iii)] Give a definition of \( \lim_{ z \to \infty  } f(z) = \infty   \). Show that \( \lim_{ z \to \infty  } f(z) = \infty  \) if and only if \( \lim_{ z \to 0 } f \Big(  \frac{ 1 }{ z }  \Big) = \infty  \).
+        \item[(iv)] Compute \( \lim_{ z \to \infty  }  \frac{ z - 1  }{ z + i  }  \).
+        \item[(v)] Compute \( \lim_{ z \to \infty    }  \frac{ gz + i  }{ z^{2} + z + 1  }  \). 
+        \item[(vi)] Can you compute \( \lim_{ z \to \infty   }  e^{-z}  \)?
+    \end{enumerate}
+\end{problem}
+
+\subsection{Continuity}
+
+\begin{definition}[Continuity]
+    Let \( D \subseteq \C   \) and \( f: D \to \C  \) be a function. We say \textbf{\( f  \) is continuous at \( a \in D  \)} if for all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that for all \( z \in B(a,\delta) \cap D \), we have \( f(z) \in B(f(a), \epsilon) \).
+\end{definition}
+
 
 \end{document}

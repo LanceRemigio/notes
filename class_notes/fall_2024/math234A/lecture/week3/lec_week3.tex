@@ -12,12 +12,12 @@
 \subsection{Topics}
 
 \begin{enumerate}
-    \item[(i)] Continue discussion of convergence of sequence/series.
-    \item[(ii)] Discuss exponential, sine, and cosine function.
+    \item[(i)] {\hyperref[Convergence of Series]{Convergence of Series}} 
+    \item[(ii)] {\hyperref[Exponential, Sine, and Cosine functions]{Exponential, Sine, and Cosine functions}} 
 \end{enumerate}
 
 
-\subsection{Convergence of Series}
+\subsection{Convergence of Series}\label{Convergence of Series}
 
 Infinite series of complex numbers. Let \( \{ {z}_{n} \}_{n=1}^{\infty } \) be a sequence of complex numbers. 
 
@@ -99,7 +99,7 @@ and then show that
 
 Next, we shall define \( e^{z} \) in \( \C  \). 
 
-\subsection{Exponential, Sine, and Cosine}
+\subsection{Exponential, Sine, and Cosine}\label{Exponential, Sine, and Cosine functions}
 
 \begin{definition}[Complex Version of Exponential Function]
     For \( z \in \C  \), we define 
@@ -124,121 +124,6 @@ Note that the series
 
 Now, we want to find out whether \( \exp(z + w) = \exp(z) \cdot \exp(w) \). Note that this is true, but we want to prove this rigorously! Recall that the Euler Formula is
 \[  e^{iz} = \cos z + i \sin z \  \text{\textbf{Show this!}}. \]
-
-\section{Lecture 5}
-
-\subsection{Topics}
-\begin{itemize}
-    \item Continue discussion of some important functions.
-    \item Go over some topological notion briefly.
-\end{itemize}
-
-\subsection{Sine and Cosine Functions}
-
-Recall that we defined 
-\begin{align*}
-    \sin(z) &= \sum_{ n=0  }^{ \infty  } (-1)^{n} \frac{ z^{2n+1} }{ (2n+1)! } , \ \text{for} \ z \in \C  \\
-    \cos(z) &= \sum_{ n = 0  }^{ \infty  } (-1)^{n} \frac{ z^{2n}  }{ (2n)! } , \ \text{for} \ z \in \C. 
-\end{align*}
-We also know,
-\[  \exp(z) = \sum_{ n=0 }^{ \infty  } \frac{ z^{n} }{ n! }.  \]
-
-\begin{lemma}
-    For any \( z \in \C  \), observe that
-    \begin{itemize}
-        \item \( \exp(iz) = \cos z + i \sin z  \)
-        \item \( \cos(z) = (\exp(iz) + \exp(-iz)) / 2 \) 
-        \item \( \sin(z) = (\exp(iz) - \exp(-iz)) / 2 \).
-    \end{itemize}
-\end{lemma}
-
-\begin{proof}
-Let \( z \in \C  \). We know the series
-\[  \sum_{ n=0 }^{ \infty  } \frac{ (iz)^{n} }{ n! }  \] converges absolutely.
-Thus, we see that
-\begin{align*}
-    \sum_{ n=0 }^{ \infty  } \frac{ (iz)^{n} }{ n! } &= \sum_{ n=0 }^{ \infty  } \frac{ (i)^{2n+1} z^{2n+1} }{ (2n+1)! }  + \sum_{ n=0 }^{ \infty  } \frac{ (i)^{2n} z^{2n} }{ (2n)! }  \\
-                                                     &= \sum_{ n=0 }^{ \infty  } \frac{ (-1)^{n} z^{2n} }{ (2n)! }  +  i  \sum_{ n=0 }^{ \infty  } \frac{ (-1)^{n} z^{2n+1} }{ (2n+1)! } \\
-                                                     &= \cos z + i \sin z.
-\end{align*}
-Take the real and imaginary part the formulas stated in the lemma will follow.
-\end{proof}
-
-\begin{corollary}
-    For any \( z \in \C  \), we see that 
-    \begin{itemize}
-        \item \( \exp(x + iy) = e^{x} (\cos y + i \sin y) \).  
-        \item \( \Re(\exp(z)) = e^{x} \cos y \).
-        \item \( \Im(\exp(z)) = e^{x} \sin y, \ | \exp(z) |  = e^{x} \).
-        \item \( \sin(z +w) = \sin z \cos w + \cos z \sin w \).
-        \item  \( \cos(z + w) = \cos z \cos w - \sin z \sin w  \).
-    \end{itemize}
-\end{corollary}
-
-\begin{prop}
-   Show that \( \exp(z) = \exp(w) \) if and only if \( z - w \in 2 \pi i \Z  \). 
-   \textbf{Hint:} Let \( z = x + iy \) and \( w = u + i v \). Then 
-   \begin{align*}
-       \exp(z) &= e^{x} (\cos y + i \sin y) \\
-       \exp(w) &= e^{v} (\cos v + i \sin v)
-   \end{align*}
-   and show that \( u  = x  \) and \(  u - v \in 2 \pi \Z  \).
-\end{prop} 
-
-\begin{remark}
-    This exercise shows that \( \exp: \C \to \C^{\cdot} \) is not injective.
-    \begin{itemize}
-        \item Note that \( \exp: \C \to \C^{\cdot} \) is a group homomorphism. From this exercise, we know that \( \ker(\exp) = 2\pi i \Z  \). This means that \( \exp  \) is periodic with period \( 2 \pi i  \). 
-    \end{itemize}
-\end{remark}
-
-Our next goal is find an "inverse" of \( \exp \). We just learned that it is not possible unless we change the "domain" of \( \exp \).
-
-Let \( S = \{ z \in \C : -\pi < \Im(z) \leq \pi \}. \)
-
-\begin{lemma}
-   \( \exp: S \to \C^{\cdot} \) is a bijective map. 
-\end{lemma}
-\begin{proof}
-Let \( z \in \C^{\cdot} \) and \( z = x + iy \). Let \( z = \gamma (\cos \varphi + i \sin \varphi) \) be the polar representation of \( z  \) such that \( -\pi < \varphi \leq \pi \). Define \( w = \ln \gamma + i \varphi \). Then \( \exp(w) = z  \) and so, \( \exp  \) is surjective. Moreover, \( \exp  \) is injective (on \( S \)) as well.
-\end{proof}
-
-\begin{corollary}
-    For any \( z \in \C^{\cdot} \), we can find a unique \( w \in S  \) such that \( \exp(w) = z \).
-\end{corollary}
-
-\begin{definition}[ ]
-    Given \( z \in \C^{\cdot} \), the unique \( w \in S  \) is called the principal value of the logarithm of \( z  \) and we write \( w = \Log(z) \).
-\end{definition}
-
-\begin{theorem}[ ]
-    There exists a mapping 
-    \[  \Log: \C^{\cdot} \to \C  \] such that 
-    \begin{enumerate}
-        \item[(i)] \( \exp(\Log z) = z  \)
-        \item[(ii)] \( - \pi < \Im(\Log z) \leq \pi \).
-    \end{enumerate}
-\end{theorem}
-
-\begin{definition}[Principal Branch]
-    The function \( \Log Z  \) is called the principal branch of the logarithm. 
-\end{definition}
-
-\begin{prop}
-    Let \( z \in \C^{\cdot} \). Find all possible solutions of \( \exp(w) = z  \).
-\end{prop}
-
-\begin{lemma}
-   For \( z \in \C^{\cdot} \), we have  
-   \[  \Log(z) = \ln | z |  + i \Arg(z). \]
-\end{lemma}
-
-\subsection{Notion of logarithm}
-For the proposition above, we can now see that the solutions given by the equation \( \exp(w) = z  \) are given by
-\[  w = \Log(z) + 2 \pi i k  \ \text{for} \ z \in \Z   \]
-where 
-\[  \log z = \Log z + 2\pi i k  \]
-is a \textbf{multivalued function} and \( \log z = \Log z  \) if we want the solution to be in \( S  \).
 
 
 

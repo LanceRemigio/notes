@@ -137,15 +137,24 @@ Let \( D \subseteq  \C . \) We say \( a \in \C  \) is an \textbf{accumulation po
         \item[(i)] Let \( D = \C  \). Then \( \{ 0  \}  \) is an accumulation point of \( D  \).
         \item[(ii)] Let \( a  \) such that \( | a  |  = 1  \). Then \( a  \) is an accumulation point of \( D = \{ z : | z | < 1   \}  \).
         \item[(iii)] Let \( D = \{ 1,i \}  \). Then \( D  \) has no accumulation points.
+        \item[(iv)] If \( D = \{ w  \}  \) for some nonzero \( w \in \C  \). Thus, \( D' = \emptyset \). That is, every singleton set contains no accumulation points. Furthermore, any finite set does not have any accumulation points.
+        \item[(v)] Let \( D = \R  \). Then the accumulation points of \( D  \) is just \( \R  \) itself. That is, any point of \( \R  \) is an accumulation point.
+        \item[(vi)] Let \( D = B(0,1) \). The accumulation points are contained in the following set: 
+            \[  \overline{B}(0,1) = \{ z \in \C : | z  |  \leq 1  \}. \]
     \end{enumerate}
 \end{eg}
+
+Another way to define the set of accumulation points of \( D  \) is the following:
+\[  \{ a \in \C : \forall \epsilon > 0 , B(a,\epsilon) \cap (D \setminus  \{ a \} ) \}. \]
 
 \label{Closure of a set}
 
 \begin{definition}[Closure]
     Let \( D \subseteq \C \). We denote the \textbf{closure of \( D \)} by \( \textbf{D} \) and define \( \overline{D} \) as 
-    \[  \overline{D} = D \cup \{ x \in D : \exists \epsilon > 0  \  B(x,\epsilon) \cap D \neq \emptyset \}.  \]
+    \[  \overline{D} = D \cup \{ x \in D : \forall \epsilon > 0  \  B(x,\epsilon) \cap D \neq \emptyset \}.  \]
 \end{definition}
+
+The closure is the smallest closed set that contains \( D  \)!
 
 \begin{lemma}
     \begin{enumerate}
@@ -159,11 +168,11 @@ Let \( D \subseteq  \C . \) We say \( a \in \C  \) is an \textbf{accumulation po
 \end{lemma}
 
 \begin{proof}
-
+\textbf{Proof is in the homework!}
 \end{proof}
 
 \begin{definition}[Bounded]
-    We say \( D \subseteq \C  \) is \textbf{bounded} if there exists \( R > 0  \) such that \( D \subseteq \overline{B}(0,R) \); that is, \( | z  |  \leq R  \) for all \( z \in D  \).
+    We say \( D \subseteq \C  \) is \textbf{bounded} if there exists \( R > 0  \) such that \( D \subseteq \overline{B}(0,R) \); that is, \( | z  |  \leq R  \) for all \( z \in D  \); that is, \( D \subseteq  \overline{B}(0,R) \).
 \end{definition}
 
 
