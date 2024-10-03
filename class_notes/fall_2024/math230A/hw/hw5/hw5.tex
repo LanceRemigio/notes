@@ -6,14 +6,175 @@
 \pagestyle{fancy}
 \fancyhf{}
 
-\title{Math 230A: Homework 4}
+\title{Math 230A: Homework 5}
 \author{Lance Remigio}
 
 \begin{document}
 \maketitle    
-\lhead{Math 230A: Homework 4}
+\lhead{Math 230A: Homework 5}
 \chead{Lance Remigio}
 \rhead{\thepage}
+
+\begin{problem}
+   Mark each statement True or False. Let \( (X,d) \) be a metric space and \( K \subseteq X  \). 
+   \begin{enumerate}
+       \item If \( Y \subseteq X   \) and \( \{ {G}_{\alpha} \}  \) is a collection of subsets of \( Y  \) that are open relative to \( Y  \), then \( \bigcup_{ \alpha }^{  } {G}_{\alpha} \) is open relative to \( Y  \).
+        \item If there exists some open cover of \( K   \) which has a finite subcover, then \( K  \) is compact. 
+        \item If \( K  \) is compact, then \( K' \subseteq K  \).
+        \item If \( K  \) is closed, then \( K  \) is compact.
+        \item If \( K  \) is compact and \( E \subseteq K \), then \( E  \) is compact.
+        \item Consider \( E = [-10,10] \subseteq \R  \) and the open cover of \( E  \) by \( \Phi = \{ (x-1,x + 1) : x \in E  \}  \). Then the collection \( \{ (x - \frac{ 1 }{ 2 }  , x + \frac{ 1 }{ 2 } ) : x \in E  \}  \) is a subcover of \( \Phi \).
+        \item Let \( E  \) and \( \Phi \) be as above. Then the collection \( \{ (x-1, x+1): x = -10,-9,-8, \dots, 8, 9, 10 \}  \) is a subcover of \( \Phi \).
+        \item Let \( E  \) and \( \Phi \) be as above. Then the collection \( \{ (x-1, x+1): x = -10,-8, -6, \dots, 6, 8, 10 \}  \) is a subcover of \( \Phi \).
+   \end{enumerate}
+\end{problem}
+   \begin{solution}
+   \begin{enumerate}
+       \item True.
+        \item False.
+        \item True.
+        \item False.
+        \item 
+        \item 
+        \item
+   \end{enumerate}
+   \end{solution}
+
+   \begin{problem}
+       Show that compact implies bounded.
+   \end{problem}
+   \begin{proof}
+    Let \( E \subseteq X  \). Suppose \( E  \) is compact. Our goal is to show that \( E  \) is bounded set in \( X  \); that is, there exists \( p \in X  \) and \( \delta > 0  \) such that \( E \subseteq {N}_{\delta}(q) \). Let \( x \in E  \). To this end, we will show that there exists a \( p \in X  \) and \( \delta > 0  \) such that \( E \subseteq  {N}_{\delta}(x) \). Since \( E  \) is compact, \( E  \) is a closed set. Hence, we know that 
+    \[  E = \overline{E}  =  \{ x \in X : \forall \epsilon > 0 \ {N}_{\epsilon}(x) \cap E \neq \emptyset \}.  \]
+    Choose \( \delta = \epsilon + 1  \). Since \( E  \) is closed, then there exists \(  \) a \(p \in {N}_{\epsilon}(x) \cap E  \) such that \( p \in {N}_{\epsilon}(x) \) and \( p \in E  \) (that is, \( p \in X  \)). Since \( p \in {N}_{\epsilon}(x) \), we have
+    \[  d(x,p) < \epsilon < \epsilon + 1 = \delta. \]
+    Hence, we see that \( p \in {N}_{\delta}(x) \). Thus, \( E \subseteq  {N}_{\delta}(x) \) and so \( E  \) is bounded.
+   \end{proof}
+
+   \begin{problem}
+      Show the union of finitely many compact sets is compact. 
+   \end{problem}
+   \begin{proof}
+       Let \( (X,d)  \) be a metric space. Set \( K =  \bigcup_{ i=1 }^{ n } {K}_{i} \) with \( {K}_{i} \) compact for all \( 1 \leq i \leq n  \). Our goal is to show that \( K  \) is compact. Let \( \{ {O}_{\alpha} \}_{\alpha \in \Lambda} \) be a collection of open sets in \( X  \) that forms an open cover for \( K  \). Since \( {K}_{i} \) is compact for all \( 1 \leq i \leq n  \), we can find a finite subcover for each \( {K}_{i} \). Thus, we have  
+       \[  {K}_{i} \subseteq \bigcup_{ j=1  }^{ {m}_{i} } {O}_{i,j} \ \ 1 \leq j \leq {n}_{i}.  \]
+       Note that each \( \bigcup_{ j=1 }^{ {m}_{i} } {O}_{i,j} \) is open since each \( {O}_{i,j} \) is open. Furthermore, 
+       \[  \sum {m}_{i} = n.  \]
+       Denote each of these unions as 
+       \[  {Q}_{\alpha_i} = \bigcup_{ j=1  }^{ {m}_{i} }  {O}_{i,j}. \]
+       Thus, we see that 
+       \begin{align*}
+           K = \bigcup_{ i=1  }^{ n }  {K}_{i} &\subseteq \bigcup_{ i=1  }^{ n } {Q}_{{\alpha}_{i}}
+       \end{align*}
+       and so \( K  \) is compact.
+   \end{proof}
+
+   \begin{problem}
+       Show that an arbitrary intersection of compact sets is compact. (Hint. A closed subset of a compact set is compact)
+   \end{problem}
+   \begin{proof}
+       Let \( \{ {O}_{\alpha} \}_{\alpha \in \Lambda} \) be a collection of open sets in \( X  \) and let \( \{ {K}_{\alpha} \}_{\alpha \in \Lambda} \) be a collection of compact sets in \( X  \). Define
+       \[  K = \bigcap_{  \alpha  }^{  } {K}_{\alpha}. \tag{1} \]
+       Since each \( {K}_{\alpha} \) is compact, we know that each \( {K}_{\alpha} \) must be closed. Therefore, the arbitrary intersection above must be closed and so \( K  \) is closed. But observe that 
+       \[  \bigcup_{ \alpha }^{  } {K}_{\alpha} \subseteq  {K}_{\alpha} \]
+       and that \( K_{\alpha}  \) is a closed set. Thus, \( K  \) must be compact as well! 
+   \end{proof}
+
+    \begin{problem}
+        A metric space \( (X,d) \) is called \textbf{separable} if it contains a countable subset \( E  \) which is dense in \( X  \). For example, \( \R  \) is separable because \( \Q  \) is a countable set which is dense in \( \R  \). Show that \( \R^{2}  \) is separable. (Hint: Consider the set of points which have only rational coordinates.) 
+    \end{problem}
+    \begin{proof}
+        Note that \( \R^{2} \) is just \( \R \times \R  \). Recall that a finite product of countable sets is countable. Thus, we see that \( \Q^{2} = \Q \times \Q  \) is countable. All that is left to show is that \( \Q^{2} \) is dense in \( \R^{2} \). Let \( {x}_{1}, {x}_{2}, {y}_{1}, {y}_{2} \in \R  \) with \( {x}_{1} < {x}_{2} \) and \( {y}_{1} < {y}_{2} \). Since \( \Q  \) is dense in \( \R  \), there must exists \( p \in \Q  \) and \( q \in \Q  \) such that \( {x}_{1} < p < {x}_{2} \) and \( {y}_{1} < q < {y}_{2} \), respectively. Denote the points in \( \R^{2} \) as \( {p}_{1} = ({x}_{1}, {y}_{1}) \),  \( {p}_{2} = ({x}_{2}, {y}_{2}) \) and \( r = (p,q) \). Thus, we have that   
+        \[  {p}_{1} < r < {p}_{2}.  \]
+        Thus, \( \Q^{2}  \) must be dense in \( \R^{2} \).
+    \end{proof}
+
+   \begin{problem}
+       Let \( (X,d) \) be a separable metric space and \( \O \neq A \subseteq X  \). Prove that the collection of the isolated points of \( A  \) is at most countable.
+   \end{problem}
+   \begin{proof}
+       Let \( (X,d) \) be a separable metric space and \( \O = A \subseteq  X  \). Denote the set of isolated points as 
+       \[  {A}_{I} = \{ x \in X : \exists \epsilon > 0 \ \text{such that} \ {N}_{\epsilon}(x) \cap A = \emptyset \}.  \]
+       By assumption, \( X  \) contains a subset \( E  \) such that \( E  \) is countable and \( \overline{E} = X  \). Our goal is to show that \( {A}_{I} \) is at most countable. It suffices to show that \( {A}_{I} \subseteq E  \). Let \( x \in {A}_{I} \). Then there exists \( \epsilon > 0  \) such that \( {N}_{\epsilon}(x) \cap A = \emptyset \). Hence, \( {N}_{\epsilon}(x) \subseteq  A^{c} \) for some \( \epsilon > 0  \) and so \( A^{c} \) is an open set in \( X  \). By problem 19 of homework 4, we see that  
+       \[  A^{c} \cap E \neq \emptyset. \]
+       Thus, \( x  \) must be contained in the intersection above. So, \( {A}_{I} \subseteq E  \). Since \( E  \) is countable, \( {A}_{I} \) must be at most countable and we are done. 
+   \end{proof}
+
+   \begin{problem}
+       Let \( (X,d) \) be a metric space. A collection \( \{ {V}_{\alpha} \} \) of open subsets of \( X  \) is said to be a \textbf{base} for \( X  \) if the following is true: For every \( x \in X  \) and every open set \( G \subseteq X   \) such that \( x \in G  \), we have \( {V}_{\alpha} \subseteq G   \) for some \( \alpha \). In other words, every open set in \( X  \) is the union of a subcollection of \( \{ {V}_{\alpha} \}  \). 
+
+       Prove that the every separable metric space has a countable base. (Hint: Take all neighborhoods with rational radius and center in some countable dense subset of \( X  \).)
+   \end{problem}
+   \begin{proof}
+   Since \( (X,d) \) is a separable metric space, we know that \( X  \) contains a countable dense subset \( E  \); that is, we have 
+   \[  X = \overline{E} = E = \{ x \in X : \forall \epsilon > 0 \ {N}_{\epsilon}(x) \cap E \neq \emptyset \}. \]
+   Let \( \{ {V}_{\alpha} \}_{\alpha \in \Lambda} \). Let \( x \in X  \) and let \( G \subseteq  X   \) be an open set such that \( x \in G  \). Our goal is to show that \( {V}_{\alpha} \subseteq  G  \) for some \( \alpha \). Since \( X = \overline{E } \), we must have \( x \in \overline{E} \); that is, for all \( \epsilon > 0  \),
+   \[  {N}_{\epsilon}(x) \cap E \neq \emptyset. \]
+   To this end, let \( \epsilon = \frac{ 1 }{ n }  \) and pick a point \( y \in {N}_{\epsilon}(x) \cap E  \). Then
+   \begin{center}
+       \( y \in {N}_{1/n}(x) \) and \( y \in E  \).
+   \end{center}
+    Note that \( {N}_{1/n}(x) \) is an open set in \( X  \). Thus, we can write this set in the following way
+    \[  {N}_{1/n}(x) = \bigcup_{ \alpha }^{  } {V}_{\alpha}. \]
+    Thus, \( y  \) must be contained in the union above and so \( y \in {V}_{\alpha_0} \) for some \( {\alpha}_{0} \in \Lambda \). Since \( y \in G  \), we must also have \( {V}_{\alpha} \subseteq G  \) and we are done.
+   \end{proof}
+
+   \begin{problem}
+      Let \( X  \) be a metric space in which every infinite subset has a limit point. Prove that \( X  \) is separable. (Hint: Fix \( \delta > 0  \), and pick \( {x}_{1} \in X  \).) Having chosen \( {x}_{1}, \dots, {x}_{j} \in X  \), choose \( {x}_{j+1} \in X  \), if possible, so that \( d({x}_{i}, {x}_{j+1}) \geq \delta \) for \( i = 1,\dots, j \). Show that this process must stop after a finite number of steps, and that \( X  \) can therefore be covered by finitely many neighborhoods of radius \( \delta  \). Take \( \delta = 1/n \ (n = 1,2,3,\dots) \), and consider the centers of the corresponding neighborhoods.
+   \end{problem}
+   \begin{proof}
+   
+   \end{proof}
+
+   \begin{problem}[Extra Credit]
+      Let \( (X,d) \) be a metric space and \( Y  \) be a nonempty subset of \( X  \). Let \( E \subseteq Y \). Prove that   
+      \begin{center}
+          \( E  \) is closed relative to \( Y  \) \( \iff \) \( E = A \cap Y  \) for some closed set \( A \subseteq  X \).
+      \end{center}
+   \end{problem} 
+   \begin{proof}
+    \( (\Longrightarrow) \) Assume that \( E  \) is closed relative to \( Y  \). Our goal is to show that \( E = A \cap Y  \); that is, we need to show two inclusions:
+    \begin{enumerate}
+        \item[(1)] \( E \subseteq A \cap Y  \),
+        \item[(2)] \( A \cap Y \subseteq E  \).
+    \end{enumerate}
+    By assumption, we know that 
+    \[  E = \overline{E} = \{ \forall x \in Y, \forall \epsilon > 0 : {N}_{\epsilon}^{Y}(x) \cap E \neq \emptyset \}. \]
+    Note that \( {N}_{\epsilon}(x) \subseteq  \overline{{N}_{\epsilon}(x)} \). Set 
+    \[  A = \bigcup_{ i=1 }^{ n } \overline{{N}_{{\epsilon}_{i}}(x)}  \]
+    with radius \( {\epsilon}_{i} > 0  \) for each \( {N}_{{\epsilon}_{i}} \). Notice that \( A  \) must be a closed set in \( Y  \) because each \( \overline{{N}_{{\epsilon}_{i}}(x)} \) is a closed set. Since 
+    \[ {N}_{\epsilon}(x) \cap Y \subseteq  \overline{{N}_{\epsilon}(x)} \cap Y \subseteq E,   \]
+    we must have 
+    \begin{align*}
+        A \cap Y = \Big(  \bigcup_{ i=1  }^{ n }  \overline{{N}_{{\epsilon}_{i}}(x)}  \Big) \cap Y &\subseteq \bigcup_{ i=1 }^{ n } (\overline{{N}_{{\epsilon}_{i}}(x)} \cap Y)  \\
+                                                                                                   &\subseteq \bigcup_{ i=1 }^{ n }  E \\
+                                                                                                   &= E.
+    \end{align*}
+    Thus, we see that \( A \cap Y \subseteq E   \) which proves (1).
+
+    Now, we want to show (2). Let \( p \in E  \). Using our definition of \( A  \) and the fact that \( {N}_{\epsilon}(p) \subseteq \overline{{N}_{\epsilon}(p)} \), 
+    \begin{align*}
+        E \subseteq  {N}_{\epsilon}(p) \cap Y \subseteq \overline{{N}_{\epsilon}(p)} \cap Y &\subseteq \Big[ \bigcup_{ i=1  }^{ n }  \overline{{N}_{{\epsilon}_{i}}(x)}\Big] \cap Y   \\
+                                                                                            &= A \cap Y
+    \end{align*}
+    which shows (2). Hence, (1) and (2) imply that \( E = A \cap Y  \) for some closed set \( A \subseteq  Y \).
+
+    \( (\impliedby) \) Suppose \( E = A \cap Y  \) for some closed set \( A \subseteq X  \). Our goal is to show that \( E  \) is closed relative to \( Y  \). Let \( p  \) be a limit point of \( E  \). 
+
+
+
+   \end{proof}
+   
+   \begin{problem}[Extra Credit]
+   Let \( (X,d) \) be a metric space. Let \( E \subseteq  X \). Prove that the following definitions of boundedness are equivalent:
+    \begin{itemize}
+        \item Rudin's Definition: There exists \( q \in X  \) and \( \epsilon > 0  \) such that \( E \subseteq {N}_{\epsilon}(q) \).
+        \item Anthony's Definition: There exists \( R > 0  \) such that for all \( x  \) and \( y  \) in \( E  \), we have \( d(x,y) < R  \).
+    \end{itemize}
+   \end{problem}
+   \begin{proof}
+     
+   \end{proof}
+
 
 
 

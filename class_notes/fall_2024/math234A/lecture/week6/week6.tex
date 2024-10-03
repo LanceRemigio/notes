@@ -74,12 +74,12 @@ Let us summarize some facts about \( \exp(z) \).
 \section{Lecture 8}
 
 \begin{itemize}
-    \item Limits of a function
-    \item Continuity
-    \item Derivative
+    \item {\hyperref[Limits of a function]{Limits of a function}}  
+    \item {\hyperref[Continuity]{Continuity}} 
+    \item {\hyperref[Derivative]{Derivative}} 
 \end{itemize}
 
-\subsection{Functional Limit}\label{Functional Limit}
+\subsection{Functional Limit}\label{Limits of a function}
 
 \begin{definition}[Functional Limit]
     Let \( D \subseteq \C   \) and \( f: D \to \C  \) be a function. Let \( a \) be an accumulation point of \( D  \). Let \( \ell \in \C  \). We say that \( \ell  \) is \textbf{the limit of \( f(z) \)} as \( z  \) approaches to \( a  \) if for all \( \epsilon > 0 \), there is \( \delta> 0  \) such that for all \( z \in D  \) with \( 0 < |  z - a  |  < \delta \), we have
@@ -163,11 +163,91 @@ Observe that
     \end{enumerate}
 \end{problem}
 
-\subsection{Continuity}
+\subsection{Continuity}\label{Continuity}
 
 \begin{definition}[Continuity]
     Let \( D \subseteq \C   \) and \( f: D \to \C  \) be a function. We say \textbf{\( f  \) is continuous at \( a \in D  \)} if for all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that for all \( z \in B(a,\delta) \cap D \), we have \( f(z) \in B(f(a), \epsilon) \).
 \end{definition}
+
+\begin{eg}
+    Compute \( \lim_{ z \to \infty   }  \frac{ z - i  }{  z + i  }  \). Observe that 
+    \begin{align*}
+        \lim_{ w \to 0 } \frac{ \frac{ 1 }{ w }  - i  }{  \frac{ 1 }{ w }  + i  } &= \lim_{ w \to 0 }  \frac{ 1 - wi }{  1+ wi }  
+                                                                                  = 1.
+    \end{align*}
+\end{eg}
+
+\begin{lemma}
+    Let \( f: D \to \C  \) be a function. Then the following statements are equivalent.
+    \begin{enumerate}
+        \item[(i)] If \( f  \) is continuous at \( a \in D  \).
+        \item[(ii)] For any sequence \( ({a}_{n}) \) and \( {a}_{n} \in D  \) such that \( {a}_{n} \to a  \), we have
+            \[  f({a}_{n})  \to f(a).\]
+    \end{enumerate}
+    We say that \( f: D \to \C  \) is continuous if \( f  \) is continuous if \( f  \) is continuous for every \( a \in D  \).
+\end{lemma}
+
+Some facts that we can prove as an exercise:
+
+\begin{lemma}
+Let \( f: D \to \C  \) with \( D \subseteq \C \). Then we have
+\begin{enumerate}
+    \item[(1)] \( f  \) is continuous if and only if \( \Re(f) \) and \( \Im(f) \) are continuous (Note that \( \Re(f) \) and \( \Im(f) \) are functions of two variables in \( \R  \); that is, \( \Re(f) : D \to \R  \) an \( \Im(f) : D \to \R  \) ).
+    \item[(2)] Linear combinations and products of continuous functions are continuous.
+    \item[(3)] Composition of functions are continuous. 
+    \item[(4)] If \( f  \) is continuous on \( D  \) and \( f(z) \neq 0  \) for all \( z \in D  \), then \( \frac{ 1 }{ f }  \) is continuous on \( D  \).
+    \item[(5)] If \( f  \) is continuous, then \( | f |   \) is also continuous (note that \( | f |  = \sqrt{ (\Re(f))^{2} + (\Im(f))^{2} }  \)).
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\textbf{Left as an exercise.}
+\end{proof}
+
+\begin{eg}
+    \begin{enumerate}
+        \item[(1)] \( \exp: \C \to \C^{\bullet} \) is continuous.
+        \item[(2)] \( \sin, \cos, \sinh, \cosh \) are all continuous.
+        \item[(3)] \( \Arg: \C^{\bullet} \to (-\pi, \pi] \) is continuous on \( \C_{-} = \C^{\bullet} \setminus  \{ \text{negative real axis} \}  \) (\textbf{this will be on the next homework}).
+        \item[(4)] \( \Log: \C^{\bullet} \to \{ x + iy: -\pi < y \leq \pi  \}  \) is continuous on \( \C_{-} \) (\textbf{this will be on the next homework})
+        \item[(5)] \( \Arg  \) and \( \Log  \) are both not continuous at any \( z < 0  \) (that is, points on negative axis).
+        \item[(6)] Fix \( {a}_{0}, {a}_{1}, \dots, {a}_{n} \in \C  \). Then
+            \[  f(z) = {a}_{0} + {a}_{1} z + \cdots + {a}_{n} {z}_{n} \]
+            is continuous on \( \C  \); that is, any polynomial with complex coefficients will be continuous.
+    \end{enumerate}
+\end{eg}
+
+Note that \( \Arg: \C^{\bullet} \to (-\pi, \pi] \subseteq  \R \subseteq \C  \) is a discontinuous.
+
+\subsection{Complex Derivative}\label{Derivative}
+
+\begin{lemma}
+    Let \( f: D \to \C  \) be a function and \( a \) is an accumulation point of \( D  \). Then the following statements are equivalent.
+    \begin{enumerate}
+        \item[(1)] \( \lim_{ z \to a } f(z) = \ell  \)
+        \item[(2)] Define \( \tilde{f} : D \cup \{ a \} \to \C   \) by
+                \[  \tilde{f}(z) = 
+                \begin{cases}
+                    f(z) &\text{if} \ z \in D \\
+                    \ell &\text{if} \ z = a.
+                \end{cases} \]
+            Then \( \tilde{f} \) is continuous at \( a  \).
+    \end{enumerate}
+\end{lemma}
+The reason we define (2) the way it is is because we may have a removable discontinuity.
+
+
+We will us the lemma above to define complex differentiability.
+
+\begin{definition}[Differentiability]
+    Let \( f: D \to \C  \) be a function and \( a \in D  \) such that \( a \) is an accumulation point of \( D \setminus  \{ a \}  \). We say that \( f  \) is differentiable at \( a  \) if  
+    \[  \lim_{ z \to a }  \frac{ f(z) - f(a) }{ z -a  } \ \text{exists}.  \] 
+    If \( f  \) is differentiable at \( a \), we denote this limit by \( f'(a) \). We say \( f  \) is differentiable on \( D  \) if \( f  \) is differentiable at each \( a \in D  \). In this case, we can define a new function \( f': D \to \C  \) where \( z \mapsto f'(z) \).
+\end{definition}
+
+
+
+
+
 
 
 \end{document}

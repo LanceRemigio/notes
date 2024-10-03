@@ -47,9 +47,9 @@
 \DeclareMathOperator{\dist}{dist}
 \usepackage{systeme}
 \let\svlim\lim\def\lim{\svlim\limits}
-\let\implies\Rightarrow
-\let\impliedby\Leftarrow
-\let\iff\Leftrightarrow
+\renewcommand\implies\Longrightarrow
+\let\impliedby\Longleftarrow
+\let\iff\Longleftrightarrow
 \let\epsilon\varepsilon
 \usepackage{stmaryrd} % for \lightning
 \newcommand\contra{\scalebox{1.1}{$\lightning$}}
@@ -157,29 +157,44 @@
 \declaretheorem[
     style=thmbox, 
     name=Example,
-    numberwithin = section]{eg}
+    ]{eg}
 
 \declaretheorem[
     style=thmbox, 
     % numberwithin = section,
     name=Proposition]{prop}
 
+\declaretheorem[
+    style=thmbox, 
+    numbered=yes,
+    name =Problem
+    ]{problem}
+
 \declaretheorem[style=thmbox, name=Theorem]{theorem}
 \declaretheorem[style=thmbox, name=Lemma]{lemma}
 \declaretheorem[style=thmbox, name=Corollary]{corollary}
 
 \declaretheorem[style=thmproofbox, name=Proof]{replacementproof}
+
 \declaretheorem[style=thmproofbox, 
-name = Solution]{solution}
+                name = Solution
+                ]{replacementsolution}
 
 \renewenvironment{proof}[1][\proofname]{\vspace{-10pt}\begin{replacementproof}}{\end{replacementproof}}
+
+\newenvironment{solution}
+    {
+        \vspace{-10pt}\begin{replacementsolution}
+    }
+    { 
+            \end{replacementsolution}
+    }
 
 \declaretheorem[style=thmexplanationbox, name=Proof]{tmpexplanation}
 \newenvironment{explanation}[1][]{\vspace{-10pt}\begin{tmpexplanation}}{\end{tmpexplanation}}
 
 \declaretheorem[style=thmbox, numbered=no, name=Remark]{remark}
 \declaretheorem[style=thmbox, numbered=no, name=Note]{note}
-\declaretheorem[style=thmbox, numbered=yes, name =Problem]{problem}
 
 \newtheorem*{uovt}{UOVT}
 \newtheorem*{notation}{Notation}

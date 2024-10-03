@@ -169,51 +169,106 @@ So,
 \end{itemize}
 
 \begin{theorem}[ ]\label{Theorem 2.35}
-    Closed subsets of compact sets are compact.
+    Let \( (X,d) \) be a metric space and let \( K \subseteq  X  \) be a compact set, and \( E \subseteq  K  \) is closed. Then \( E  \) is compact.
 \end{theorem}
 \begin{proof}
-
+    Let \( \{ {O}_{\alpha} \}_{\alpha \in \Lambda} \) be an open cover of \( E  \). Our goal is to show that this cover contains a finite subcover. Note that, \( E  \) is closed by assumption and so \( E^{c} \) is open. Thus, we have \[ E \subseteq  K  \subseteq  X  = E  \cup E^{c} \subseteq  \Big(  \bigcup_{ \alpha \in \Lambda }^{  }  {O}_{\alpha} \Big) \cup E^{c}.  \]
+    Thus, \( E^{c}  \) together with \( \{ {O}_{\alpha} \}_{\alpha \in \Lambda} \) is an open cover for the compact set \( K  \). Since \(  K  \) is compact, this open cover contains a finite subcover. So, there exists \( {\alpha}_{1}, \dots, {\alpha}_{n} \in \Lambda \) such that 
+    \[  K \subseteq  \Big( \bigcup_{ i = 1  }^{ n }  {O}_{{\alpha}_{i}} \Big) \cup E^{c}. \]
+    Considering that \( E \subseteq K \), we can write 
+    \[  E \subseteq  \Big( \bigcup_{ i = 1  }^{ n }  {O}_{{\alpha}_{i}} \Big) \cup E^{c}. \]
+    However, \(E \cap E^{c} \neq \emptyset \), so
+    \[  E \subseteq \bigcup_{ i = 1  }^{ n   }  {O}_{{\alpha}_{i}}. \]
+    So, we have \( {O}_{{\alpha}_{1}}, \dots, {O}_{{\alpha}_{n}} \) can be considered as the finite subcover that we were looking for.
 \end{proof}
 
 \begin{corollary}
     If \( F  \) is closed and \( K  \) is compact, then \( F \cap K  \) is compact.
 \end{corollary}
 \begin{proof}
-
+Note \( F \cap K  \) is a closed subset of the compact set \(  K  \). Since \( K   \) is closed and \( F  \) is closed along with \( F \cap K \subseteq  K   \). Thus, \( K  \) contains a finite subcover of \( F \cap K  \). Thus, \( F \cap K  \) is compact.
 \end{proof}
-
 
 \begin{theorem}[ ]\label{Theorem 2.33}
-    Suppose \( K \subseteq Y \subseteq X  \). We have \( E  \) is compact if and only if \( K  \) is compact relative to \( Y  \).
+   Let \( (X,d) \) be a metric space and Suppose \( K \subseteq Y \subseteq X  \). We have \( K  \) is compact relative to \( X  \) if and only if \( K  \) is compact relative to \( Y  \).
 \end{theorem}
 \begin{proof}
+    \( (\impliedby) \) Assume that \( K  \) is compact relative to \( Y  \). Our goal is to show that \( K  \) is compact relative to \( X  \). Let \( \{ {O}_{\alpha} \}_{\alpha \in \Lambda} \) be a collection of open sets in \( X  \) that covers \( K  \). Our goal is to show that this cover has a finite subcover. Note that the set \(  K = K \cap Y  \) since \( K \subseteq  Y  \). Hence, we have 
+    \[  K = K \cap Y \subseteq  \Big(  \bigcup_{ \alpha \in \Lambda }^{  }  {O}_{\alpha} \Big) \cap Y = \bigcup_{ \alpha \in \Lambda }^{  }  ({O}_{\alpha} \cap Y). \]
+    By Theorem 2.30, for each \( \alpha \in \Lambda  \), \( {O}_{\alpha} \cap Y  \) is an open set in the metric space \( (Y, d^{Y}) \). So, \( \{ {O}_{\alpha} \cap Y  \}_{\alpha \in \Lambda}  \) is a collection of open sets in \( (Y, d^{Y}) \) that covers \( E  \). Since \( K  \) is compact relative to \( Y  \), there exists a finite subcover; that is, there exists \( {\alpha}_{1}, \dots, {\alpha}_{n} \in \Lambda \) such that  
+    \[  K \subseteq  \bigcup_{ i =1  }^{ n }  ({O}_{{\alpha}_{i}} \cap Y) \subseteq \Big(  \bigcup_{ i=1  }^{ n }  {O}_{{\alpha}_{i}} \Big) \cap Y \subseteq  \bigcup_{ i=1  }^{ n }  {O}_{{\alpha}_{i}}.    \]
 
+    \( (\implies) \) Assume that \( K  \) is compact relative to \( X  \). Our goal is to show that \( K   \) is compact relative to \( Y  \). Let \( \{ {G}_{\alpha} \}_{\alpha \in \Lambda} \) be a collection of open sets in \( (Y, d^{Y})  \) that covers \( K  \). Our goal is to show that this cover contains a finite subcover. It follows from Theorem 2.30 that for all \( \alpha \in \Lambda  \), there exists an open set \( {O}_{\alpha} \subseteq X  \) such that \( {G}_{\alpha} = {O}_{\alpha} \cap Y  \). We have 
+    \[  K \subseteq  \bigcup_{ \alpha \in \Lambda  }^{  }  {G}_{\alpha} = \bigcup_{ \alpha \in \Lambda  }^{  }  ({O}_{\alpha} \cap Y ) = \Big(  \bigcup_{ \alpha \in \Lambda  }^{  }  {O}_{\alpha} \Big) \cap Y \subseteq  \bigcup_{ \alpha \in \Lambda  }^{  }  {O}_{\alpha}. \]
+    Thus, \( \{ {O}_{\alpha} \}_{\alpha \in \Lambda} \) is an open cover for \( K  \) i n the metric space \( (X,d) \). Since \( K  \) is compact, there exists \( {\alpha}_{1}, \dots, {\alpha}_{n} \in \Lambda  \) such that 
+    \[  K \subseteq  \bigcup_{ i=1  }^{ n }  {O}_{{\alpha}_{i}}. \]
+    Hence, we see that 
+    \begin{align*}
+        K = K \cap Y \subseteq  \Big(  \bigcup_{ i=1  }^{ n }  {O}_{{\alpha}_{i}} \Big) \cap Y &= \bigcup_{ i=1 }^{ n }  ({O}_{{\alpha}_{i}} \cap Y ) \\
+                                                                                               &= \bigcup_{ i=1  }^{ n }  {G}_{{\alpha}_{i}}.
+    \end{align*}
+    That is, this is a finite subcover we were looking for and we are done.
 \end{proof}
+
+Note that the property of compactness gets preserved in \( X  \), but when we are referring to open and closed sets these properties do not get preserved in \( X  \).
 
 \begin{theorem}[ ]\label{Theorem 2.37}
-    If \( E  \) is an infinite subset of a compact set \( K  \), then \( E  \) has a limit point in \( K  \).
+   Let \( (X,d) \) be a metric space. If \( E  \) is an infinite subset of a compact set \( K  \), then \( E  \) has a limit point in \( K  \). (In fact, these two statements are equivalent, but we will only prove the forwards direction)
 \end{theorem}
 \begin{proof}
-
+    Let \( (X,d) \) be a metric space. Assume that \( K \subseteq  X  \) is compact and \( E  \) is infinite. We will show that \( E  \) has a limit point in \( K  \). Assume for sake of contradiction that \( E  \) has no limit point in \( K  \); that is, every limit point in \( K \) will never be a limit point of \( E  \). In other words, for all \( a \in E  \), \( a \notin E' \). Furthermore, for all \( b \in K \setminus  E   \), we have \( b \notin E' \). Therefore, for all \( a \in E  \), there exists \( \epsilon_a > 0  \) such that 
+    \[  {N}_{{\epsilon}_{a}} \cap (E \setminus  \{ a \} ) = \emptyset. \tag{1} \]
+    Likewise, for all \( b \in K \setminus  E  \), there exists \( \delta_b  > 0  \) such that 
+    \[  {N}_{{\delta}_{b}} \cap (E \setminus  \{ b \} ) = \emptyset \iff {N}_{{\delta}_{b}} \cap E = \emptyset. \tag{2} \]
+Notice that (1) implies that 
+\[  {N}_{{\epsilon}_{a}} \cap E = \{ a \}. \]
+Clearly, \( K  \) is a subset of \( \bigcup_{ a \in E  }^{  }  {N}_{{\epsilon}_{a}} (a) \cup \Big(  \bigcup_{ b \in K \setminus  E  }^{  } {N}_{{\delta}_{b}}(b) \Big) \). Since \( K \) is compact, there exists \( {a}_{1}, \dots, {a}_{n} \in E  \) and \( {b}_{1}, \dots, {b}_{m} \in K \setminus  E  \) such that 
+\begin{align*}
+   K \subseteq  \Big(  \bigcup_{ i=1  }^{ n }  {N}_{{\epsilon}_{{a}_{i}}}({a}_{i}) \Big) \cup \Big(  \bigcup_{ i=1  }^{ m  } {N}_{{\delta}_{{b}_{i}}}({b}_{i}) \Big). 
+\end{align*}
+Since for all \( b \in K \setminus  E  \) and the fact that \( {N}_{{\delta}_{b}}(b) \cap E = \emptyset \), we have 
+\[  E \subseteq \bigcup_{ i =1  }^{ n }  {N}_{{\epsilon}_{{a}_{i}}}({a}_{i}). \]
+Hence, 
+\begin{align*}
+    E &= E \cap \Big[ \bigcup_{ i=1  }^{ n }  {N}_{{\epsilon}_{{a}_{i}}} ({a}_{i}) \Big]  \\
+      &=  \bigcup_{ i=1  }^{ n }  ( E \cap {N}_{{\epsilon}_{{a}_{i}}}({a}_{i})) \\
+      &= \bigcup_{ i=1  }^{ n }  \{ {a}_{i} \} \\
+      &= \{ {a}_{i} : 1 \leq i \leq n \}.
+\end{align*}
+But this implies that \( E  \) is finite which is a contradiction of our assumption that \( E  \) is infinite.
 \end{proof}
-
 
 \begin{remark}
     Let \( (X,d) \) be a metric space and \( K \subseteq X . \) The following statements are equivalent:
     \begin{enumerate}
         \item[(i)] \( K  \) is compact.
-        \item[(ii)] Every infinite subset of \( K  \) has a limit point in \( K  \).
-        \item[(iii)] Every sequence in \( K  \) has a subsequence that converges to a point in \( K  \).
+        \item[(ii)] Every infinite subset of \( K  \) has a limit point in \( K  \) (limit point compactness).
+        \item[(iii)] Every sequence in \( K  \) has a subsequence that converges to a point in \( K  \) (sequential compactness).
     \end{enumerate}
 \end{remark}
 
+\begin{eg}
+    Consider the set of intervals \( {A}_{i} = [i,\infty )\), then 
+    \[  \bigcap_{  i = 1  }^{ \infty   }  {A}_{i} = \emptyset. \]
+\end{eg}
+
 \begin{corollary}
-If \( {K}_{1} \supseteq {K}_{2} \supseteq \dots  \) is a sequence of nonempty compact sets, then \( \bigcap_{ n=1  }^{ \infty   }  {K }_{n} \) is nonempty.
+If \( {K}_{1} \supseteq {K}_{2} \supseteq \dots  \) is a sequence of nonempty compact sets, and every finite intersection of these sets is nonempty, then \( \bigcap_{ n=1  }^{ \infty   }  {K }_{n} \) is nonempty.
 \end{corollary}
 \begin{proof}
+   Suppose for sake of contradiction that the intersection 
+   \[  \bigcap_{ \alpha \in \Lambda }^{  }  {K}_{\alpha} = \emptyset. \]
+   Let \( {\alpha}_{0} \in \Lambda  \). We have
+   \[  {K}_{{\alpha}_{0}} \cap \Big(  \bigcap_{  \alpha \in \Lambda  }^{  }  {K}_{\alpha} \Big) = \emptyset. \]
+   So, 
+   \[  {K}_{{\alpha}_{0}} \subseteq  \Big(  \bigcup_{ \alpha \in \Lambda  }^{  }  {K}_{\alpha} \Big)^{c} \implies {K}_{{\alpha}_{0}} \subseteq  \bigcup_{ \alpha \in \Lambda  }^{  }  {K}_{\alpha}^{c}. \]
+   Note that \( {K}_{\alpha}^{c}  \) is open because \( {K}_{\alpha} \) is closed. So, \( \{ {K}_{\alpha}^{c} \}   \) is an open cover of \( {K}_{{\alpha}_{0}} \). Since \( {K}_{\alpha_0} \) is compact, there exists \( {\alpha}_{1}, \dots, {\alpha}_{n} \) such that 
+   \[  {K}_{{\alpha}_{0}} \subseteq  \bigcup_{ i=1  }^{ n } {K}_{{\alpha}_{i}}^{c} \subseteq  \Big(  \bigcap_{  i=1  }^{ n }  {K}_{{\alpha}_{i}}  \Big)^{c}.   \]
+   So, we have 
+   \[  {K}_{{\alpha}_{0}} \cap \Big(  \bigcap_{  i =1  }^{ n }  {K}_{{\alpha}_{i}} \Big) = \emptyset. \]
+   This contradicts the assumption that every finite intersection is nonempty.
 
 \end{proof}
-
 
 
 \begin{theorem}[ ]\label{Theorem 2.36}

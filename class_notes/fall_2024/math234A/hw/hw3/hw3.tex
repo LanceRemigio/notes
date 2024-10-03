@@ -15,4 +15,91 @@
 \chead{Lance Remigio}
 \rhead{\thepage}
 
+\begin{problem}[Complex Logarithms]
+    Compute the following:
+    \begin{enumerate}
+        \item[(i)] \( \Log(i)  \) and \( \log(i) \)
+        \item[(ii)] \( \Log(1+i)   \) and \( \log(1+i) \).
+        \item[(iii)] \( \Log(-1)  \) and \( \log(-1) \).
+    \end{enumerate}
+    Note: for \( z \in \C^{\bullet} \), \( \log z  \) is a set not a single number.
+\end{problem}
+
+\begin{solution}
+    
+\end{solution}
+
+\begin{problem}[Complex Powers]
+   Compute the following: 
+   \begin{enumerate}
+       \item[(i)] \( (1 + i)^{3 +i} \)
+        \item[(ii)] \( \Big(  \frac{ 1 + i  }{  1 - i  }  \Big)^{i} \)
+        \item[(iii)] \( (-e)^{i/2} \).
+   \end{enumerate}
+\end{problem}
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}
+   \begin{enumerate}
+       \item[(a)] Let \( A \subseteq  \C  \). Show that the following statements are equivalent.
+           \begin{enumerate}
+               \item[(i)] \( A  \) is closed.
+                \item[(ii)] For any sequence \( ({a}_{n}) \) in \( A  \) such that \( {a}_{n} \to a \in \C  \) implies that \( a \in A  \).
+                \item[(iii)] \( A  \) contains all its accumulation points;  that is, if \( a \in \C  \) is an accumulation point of \( A  \), then \( a \in A  \). 
+           \end{enumerate}
+        \item[(b)] Given a set \( A \subseteq \C \), we define 
+            \[  {\mathcal{F}}_{A} = \{ F \subseteq \C : F \ \text{is closed and} \ A \subseteq F  \}. \]
+            Define \( \overline{A} = \bigcup_{ F \in {\mathcal{F}}_{A} }^{  }  F  \). Show that \( \overline{A} = A \cup A' \) where 
+            \[  A' = \{ z \in \C : z \ \text{is an accumulation point} \}.  \]
+   \end{enumerate} 
+\end{problem}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] To show that all the statements are equivalent, we will show that \( (i) \implies (ii) \implies (iii) \implies (i) \).  
+
+        \( (i) \implies (ii) \) Suppose \( A  \) is closed. Let \( ({a}_{n}) \) be a sequence in \( A  \) where \( {a}_{n} \to a \in \C  \) (note that \( {a}_{n} \neq a  \). Our goal is to show that \( a \in A  \). Suppose for sake of contradiction that \( a \notin A  \). Then there exists some \( \epsilon > 0  \) such that \( {N}_{\epsilon}(a) \cap E = \emptyset  \); that is, \( {N}_{\epsilon}(a) \subseteq A^{c} \). Hence, we have that \( a \in A^{c} \). But \( ({a}_{n}) \to a \in \C  \) implies that there exists at least one \( {a}_{n} \neq a   \) such that \( {a}_{n} \in A^{c} \). However, the sequence \( ({a}_{n}) \) must be entirely contained in \( A  \) by assumption which is a contradiction. Thus, \( a \in A   \).
+
+        \( (ii) \implies (iii) \) Let \( ({a}_{n}) \) be a sequence in \( A  \) where \( {a}_{n} \neq a \in \C  \) where \( a \in A  \). Our goal is to show that \( A  \) contains all of its limit points. Let \( a  \) be a limit point of \( A  \). Choose \( \epsilon = 1/n \) and choose \( {a}_{n} \neq a  \) to be a sequence of points in \( A  \). Then by assumption, the sequence \( ({a}_{n}) \to a \in \C   \) implies that \( a \in A  \); that is, we have that 
+        \[  {N}_{1/n}(a) \cap A  \neq \emptyset.   \]
+        Because \( a \in A  \), we can conclude that \( A  \) must contain all of it's accumulation points.
+       
+        \( (iii) \implies (i) \) Suppose \( A  \) contains all of its accumulation points. Our goal is to show that \( A  \) is closed. It suffices to show that \( A^{c} \) is an open set; that is, we need to find an \( \delta > 0  \) such that \( {N}_{\delta}(x) \subseteq A^{c} \) for all \( x \in A^{c} \). To this end, let \( x \in A^{c} \). Then \( x \notin A  \). This tells us that \( x  \) cannot be a limit point of \( A  \). That is, there exists an \( \delta > 0  \) such that \( {N}_{\delta}(x) \cap A = \emptyset \). This implies that \( {N}_{\delta}(x) \subseteq A^{c} \) for some \( \delta > 0  \), and so \( A^{c} \) must be open. Hence, \( A  \) must be closed.
+    \item[(b)] Our goal is to show that \( \overline{A} = A \cup A' \). First, we would like to show two lemmas:   
+        \begin{enumerate}
+            \item[(*)] \( A \cup A' \) is a closed set.
+            \item[(**)] If \( F  \) is a closed set and \( A \subseteq F \), then \( A \cup A' \subseteq F  \) as well. 
+        \end{enumerate}
+        To show that (*) holds, let \( x  \) be a accumulation point of \( A \cup A' \). Our goal is to show that this accumulation point is contained in \( A \cup A' \). By definition, we see that for all \( \epsilon > 0  \), we have 
+        \[  {B}(x,\epsilon) \cap ((A \cup A') \setminus  \{ x \} ) \neq \emptyset. \]
+        To this end, pick a point in this intersection, say, \( a  \) such that \( a \in {B(x,\epsilon})  \) and \( a \in (A \cup A') \setminus  \{ x \}  \). That is, we have \( a \in A  \) or \( a \in A' \). If \( a \in A  \), then \( x  \) is a accumulation point of \( A  \), and so \( x \in A \cup A' \). If \( a \in A' \), then \( a  \) is a accumulation point of \( A' \). That is, for all \( \delta> 0  \), we have 
+        \[ B(a,\delta) \cap A' \setminus  \{ a \} \neq \emptyset.  \]
+        Pick a point in this intersection, say, \( p \neq a  \) such that \( p \in A' \). But this implies that \( x  \) must be a limit point of \( A  \), and so \( x  \in A'  \) and thus \( A \cup A' \) must be a closed set.
+
+        To show that (**) holds, suppose \( F  \) is a closed set and that \( A \subseteq  F  \). Our goal is to show that \( A \cup A' \subseteq F  \). Let \( x \in A \cup A' \). Then either \( x \in A  \) or \( x \in A' \). If \( x \in A  \), then \( x \in F  \) since \( A \subseteq F  \). On the other hand, if \( x \in A' \), then \( x  \) is a limit point of \( A  \). That is, for all \( \delta > 0  \), we have 
+        \[  B(x,\delta) \cap (A \setminus  \{ x \} ) \neq \emptyset. \]
+         Since \( A \subseteq F  \), we can see that 
+         \[  B(x,\delta) \cap (F \setminus  \{ x \} ) \neq \emptyset \]
+         which implies that \( x  \) is a limit point of \( F  \). But \( F  \) is closed, so \( x  \) must be contained in \( F  \). Thus, we have \( A \cup A' \subseteq  F  \) in both cases.
+
+    In what follows, we will show that \( \overline{A} = A \cup A' \). To do this, we need to show two inclusions:
+    \begin{enumerate}
+        \item[(1)] \( \overline{A} \subseteq  A \cup A'  \)
+        \item[(2)] \( A \cup A'  \subseteq \overline{A}\).
+    \end{enumerate}
+    Starting with (1), we see that \( A \cup A'  \subseteq F \) by (*). But this implies that \( A \cup A' \) is the smallest closed set containing \( F  \), we must have that 
+    \[  A \cup A' \subseteq  \bigcap_{ F \in {\mathcal{F}}_{A} }^{  }  F = \overline{A} \]
+    which satisfies (1).
+    
+    With (2), we want to show that \( \overline{A} \subseteq A \cup A' \).
+
+\end{enumerate}
+\end{proof}
+
+
+
+
+
+
 \end{document}
