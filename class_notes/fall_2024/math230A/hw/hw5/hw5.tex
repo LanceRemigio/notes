@@ -119,10 +119,10 @@
    \end{proof}
 
    \begin{problem}
-      Let \( X  \) be a metric space in which every infinite subset has a limit point. Prove that \( X  \) is separable. (Hint: Fix \( \delta > 0  \), and pick \( {x}_{1} \in X  \).) Having chosen \( {x}_{1}, \dots, {x}_{j} \in X  \), choose \( {x}_{j+1} \in X  \), if possible, so that \( d({x}_{i}, {x}_{j+1}) \geq \delta \) for \( i = 1,\dots, j \). Show that this process must stop after a finite number of steps, and that \( X  \) can therefore be covered by finitely many neighborhoods of radius \( \delta  \). Take \( \delta = 1/n \ (n = 1,2,3,\dots) \), and consider the centers of the corresponding neighborhoods.
+      Let \( X  \) be a metric space in which every infinite subset has a limit point. Prove that \( X  \) is separable. (Hint: Fix \( \delta > 0  \), and pick \( {x}_{1} \in X  \). Having chosen \( {x}_{1}, \dots, {x}_{j} \in X  \), choose \( {x}_{j+1} \in X  \), if possible, so that \( d({x}_{i}, {x}_{j+1}) \geq \delta \) for \( i = 1,\dots, j \). Show that this process must stop after a finite number of steps, and that \( X  \) can therefore be covered by finitely many neighborhoods of radius \( \delta  \). Take \( \delta = 1/n \ (n = 1,2,3,\dots) \), and consider the centers of the corresponding neighborhoods.)
    \end{problem}
    \begin{proof}
-   
+   Let \( (X,d) \) be a metric space in which every infinite subset has a limit point. Our goal is to show that \( X  \) is separable. Fix \( \delta > 0  \), and pick \( {x}_{1} \in X  \). Now, choose \( {x}_{1}, \dots, {x}_{j } \in X  \) and then choose \( {x}_{j+1} \in X  \) such that \( d({x}_{i}, {x}_{j+1}) \geq \delta \) for \( i = 1, \dots, j  \).
    \end{proof}
 
    \begin{problem}[Extra Credit]
@@ -158,11 +158,14 @@
     \end{align*}
     which shows (2). Hence, (1) and (2) imply that \( E = A \cap Y  \) for some closed set \( A \subseteq  Y \).
 
-    \( (\impliedby) \) Suppose \( E = A \cap Y  \) for some closed set \( A \subseteq X  \). Our goal is to show that \( E  \) is closed relative to \( Y  \). Let \( p  \) be a limit point of \( E  \). 
-
-
-
-   \end{proof}
+    \( (\impliedby) \) Suppose \( E = A \cap Y  \) for some closed set \( A \subseteq X  \). Our goal is to show that \( E  \) is closed relative to \( Y  \). Let \( p  \) be a limit point of \( E  \). Since \( E = A \cap Y  \) and \( p \in Y  \), we see that 
+    \begin{align*}
+        {N}_{\epsilon}(p) \cap (E \setminus  \{ p \} ) &\implies {N}_{\epsilon}(p) \cap ((A \cap Y) \setminus  \{ p \} ) \neq \emptyset \\
+                                                       &\implies ({N}_{\epsilon}(p) \cap Y) \cap (A \setminus  \{ p \} ) \neq \emptyset \\
+                                                       &\implies {N}_{\epsilon}^{Y}(p) \cap (A \setminus  \{ p \} ) \neq \emptyset.
+    \end{align*}
+    This implies that \( p  \) is a limit point of \( A  \). But \( A  \) is a closed set in \( Y  \). Thus, \( p  \) must be contained in \( A  \), showing that \( E  \) is closed relative to \( Y  \).
+\end{proof}
    
    \begin{problem}[Extra Credit]
    Let \( (X,d) \) be a metric space. Let \( E \subseteq  X \). Prove that the following definitions of boundedness are equivalent:
@@ -172,7 +175,13 @@
     \end{itemize}
    \end{problem}
    \begin{proof}
-     
+    \( (\implies) \) Suppose there exists \( q \in X  \) and \(  \epsilon > 0 \) such that \( E \subseteq  {N}_{\epsilon}(q) \). Let \( x,y \in E  \). Our goal is to show that there exists \( R > 0  \) such that for all \( x,y \in E  \), \( d(x,y) < R  \). To this end, let \( x,y \in E  \) be given. Choose \( R = 2 \epsilon > 0   \). Since \( E \subseteq  {N}_{\epsilon}(q) \), we have that         
+    \[  d(x,y) \leq d(x,q) + d(q,y) < \epsilon + \epsilon = 2 \epsilon = R.  \]
+    Thus, we see that \( d(x,y) < R  \) for any \( x,y \in E  \).
+
+    \( (\impliedby) \) Suppose there exists \( R > 0  \) such that for all \( x,y \in E  \), \( d(x,y) < R  \). We will show that there exists \( q \in X  \) and \( \epsilon > 0  \) such that \( E \subseteq {N}_{\epsilon}(q) \). Let \( x \in E  \). Fix \( y \in E  \) such that \( q = y  \). Choose \( \epsilon = R + 1 > 0  \). By assumption,  
+    \[  d(x,q) < R < R + 1 = \epsilon.  \]
+    Hence, \( x \in {N}_{\epsilon}(q) \).
    \end{proof}
 
 
