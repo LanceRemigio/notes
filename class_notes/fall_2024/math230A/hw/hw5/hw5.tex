@@ -18,27 +18,16 @@
 \begin{problem}
    Mark each statement True or False. Let \( (X,d) \) be a metric space and \( K \subseteq X  \). 
    \begin{enumerate}
-       \item If \( Y \subseteq X   \) and \( \{ {G}_{\alpha} \}  \) is a collection of subsets of \( Y  \) that are open relative to \( Y  \), then \( \bigcup_{ \alpha }^{  } {G}_{\alpha} \) is open relative to \( Y  \).
-        \item If there exists some open cover of \( K   \) which has a finite subcover, then \( K  \) is compact. 
-        \item If \( K  \) is compact, then \( K' \subseteq K  \).
-        \item If \( K  \) is closed, then \( K  \) is compact.
-        \item If \( K  \) is compact and \( E \subseteq K \), then \( E  \) is compact.
-        \item Consider \( E = [-10,10] \subseteq \R  \) and the open cover of \( E  \) by \( \Phi = \{ (x-1,x + 1) : x \in E  \}  \). Then the collection \( \{ (x - \frac{ 1 }{ 2 }  , x + \frac{ 1 }{ 2 } ) : x \in E  \}  \) is a subcover of \( \Phi \).
-        \item Let \( E  \) and \( \Phi \) be as above. Then the collection \( \{ (x-1, x+1): x = -10,-9,-8, \dots, 8, 9, 10 \}  \) is a subcover of \( \Phi \).
-        \item Let \( E  \) and \( \Phi \) be as above. Then the collection \( \{ (x-1, x+1): x = -10,-8, -6, \dots, 6, 8, 10 \}  \) is a subcover of \( \Phi \).
+       \item If \( Y \subseteq X   \) and \( \{ {G}_{\alpha} \}  \) is a collection of subsets of \( Y  \) that are open relative to \( Y  \), then \( \bigcup_{ \alpha }^{  } {G}_{\alpha} \) is open relative to \( Y  \). \textbf{True.}
+        \item If there exists some open cover of \( K   \) which has a finite subcover, then \( K  \) is compact. \textbf{False.}
+        \item If \( K  \) is compact, then \( K' \subseteq K  \). \textbf{True.}
+        \item If \( K  \) is closed, then \( K  \) is compact. \textbf{False.}
+        \item If \( K  \) is compact and \( E \subseteq K \), then \( E  \) is compact. \textbf{False.}
+        \item Consider \( E = [-10,10] \subseteq \R  \) and the open cover of \( E  \) by \( \Phi = \{ (x-1,x + 1) : x \in E  \}  \). Then the collection \( \{ (x - \frac{ 1 }{ 2 }  , x + \frac{ 1 }{ 2 } ) : x \in E  \}  \) is a subcover of \( \Phi \). \textbf{False.}
+        \item Let \( E  \) and \( \Phi \) be as above. Then the collection \( \{ (x-1, x+1): x = -10,-9,-8, \dots, 8, 9, 10 \}  \) is a subcover of \( \Phi \). \textbf{True.}
+        \item Let \( E  \) and \( \Phi \) be as above. Then the collection \( \{ (x-1, x+1): x = -10,-8, -6, \dots, 6, 8, 10 \}  \) is a subcover of \( \Phi \). \textbf{True.}
    \end{enumerate}
 \end{problem}
-   \begin{solution}
-   \begin{enumerate}
-       \item True.
-        \item False.
-        \item True.
-        \item False.
-        \item 
-        \item 
-        \item
-   \end{enumerate}
-   \end{solution}
 
    \begin{problem}
        Show that compact implies bounded.
@@ -119,10 +108,34 @@
    \end{proof}
 
    \begin{problem}
-      Let \( X  \) be a metric space in which every infinite subset has a limit point. Prove that \( X  \) is separable. (Hint: Fix \( \delta > 0  \), and pick \( {x}_{1} \in X  \). Having chosen \( {x}_{1}, \dots, {x}_{j} \in X  \), choose \( {x}_{j+1} \in X  \), if possible, so that \( d({x}_{i}, {x}_{j+1}) \geq \delta \) for \( i = 1,\dots, j \). Show that this process must stop after a finite number of steps, and that \( X  \) can therefore be covered by finitely many neighborhoods of radius \( \delta  \). Take \( \delta = 1/n \ (n = 1,2,3,\dots) \), and consider the centers of the corresponding neighborhoods.)
+      Let \( (X,d)  \) be a metric space in which every infinite subset has a limit point. Prove that \( X  \) is separable. (Hint: Fix \( \delta > 0  \), and pick \( {x}_{1} \in X  \). Having chosen \( {x}_{1}, \dots, {x}_{j} \in X  \), choose \( {x}_{j+1} \in X  \), if possible, so that \( d({x}_{i}, {x}_{j+1}) \geq \delta \) for \( i = 1,\dots, j \). Show that this process must stop after a finite number of steps, and that \( X  \) can therefore be covered by finitely many neighborhoods of radius \( \delta  \). Take \( \delta = 1/n \ (n = 1,2,3,\dots) \), and consider the centers of the corresponding neighborhoods.)
    \end{problem}
    \begin{proof}
-   Let \( (X,d) \) be a metric space in which every infinite subset has a limit point. Our goal is to show that \( X  \) is separable. Fix \( \delta > 0  \), and pick \( {x}_{1} \in X  \). Now, choose \( {x}_{1}, \dots, {x}_{j } \in X  \) and then choose \( {x}_{j+1} \in X  \) such that \( d({x}_{i}, {x}_{j+1}) \geq \delta \) for \( i = 1, \dots, j  \).
+   Let \( (X,d) \) be a metric space in which every infinite subset has a limit point. Our goal is to show that \( X  \) is separable. Fix \( \delta > 0  \), and pick \( {x}_{1} \in X  \). Now, choose \( {x}_{1}, \dots, {x}_{j } \in X  \) and then choose \( {x}_{j+1} \in X  \) such that \( d({x}_{i}, {x}_{j+1}) \geq \delta \) for \( i = 1, \dots, j  \). 
+
+   We claim that if this leads to an infinite subset \( E =  \{ {x}_{1}, {x}_{2}, \dots \}   \) of \( X  \) that has the property that for any \( {x}_{i}, {x}_{j} \in E   \), \( d({x}_{i}, {x}_{j}) \geq \delta \), then \( E  \) contains no limit points. Suppose for sake of contradiction that \( E  \) does have a limit point. Denote this limit point of \( E  \) as \( w  \). Thus, for any \( \delta > 0  \), we have  
+   \[  {N}_{\delta}(w) \cap (E \setminus  \{ w \} ) \neq \emptyset.  \tag{1} \]
+   Now, pick a point in this intersection, say, \( x  \) such that 
+   \begin{center}
+       \( x \in {N}_{\delta}(w)  \) and \( x \in E  \).
+   \end{center}
+   Hence, we see that \( d(x,w) < \delta \). Similarly, pick \( y  \) in the intersection in (1) such that \( y \in {N}_{\delta}(w) \). Then we have \( d(y,w) < \delta \). Our goal is to find some \( \epsilon > 0  \) such that \( d(x,y) < \epsilon  \), contradicting our assumption that \( d(x,y) \geq \delta \) for all \( \delta > 0 \). Choose \( \epsilon = 2 \delta \). Using the triangle inequality, we see that 
+   \[  d(x,y) \leq d(x,w) + d(w,y) < \delta + \delta = 2 \delta = \epsilon \]
+   which produces desired contradiction. Hence, the process outlined in the first paragraph must terminate; that is, \( E =  \{ {x}_{1}, {x}_{2}, \dots \}  \) must be finite. From this, we denote this set as \( {E}_{n} = \{ {x}_{1}, {x}_{2}, \dots, {x}_{n}  \}  \).
+
+   Now, our goal is to find a subset of \( X  \) that is both dense and countable. Consider the set
+   \[  {E}_{n} = \{ {x}_{1}, {x}_{2}, \dots, {x}_{n} \}. \]
+   Clearly, this set is at most countable. Now, consider the countable union
+   \[  S = \bigcup_{ n=1  }^{ \infty   }  {E}_{n}. \]
+   Since each \( {E}_{n} \) is at most countable, we know that \( E  \) must be at most countable.
+
+   Now, we will show that \( S  \) is dense in \( X  \); that is, \( \overline{S} = X  \). Note that we can now cover \( X  \) by finitely many neighborhoods of radius \( \delta \)(By the process outlined in the hint). Fix \( \delta = \frac{ 1 }{ n }  \) and denote 
+   \[  X = \bigcup_{ x \in {E}_{n} }^{  }  {N}_{1/n}(x). \]
+   Hence, pick \( n \in \N  \) such that \( \frac{ 1 }{ n }  < \epsilon  \) by the Archimeadean Property. Consider the neighborhood \( {N}_{\epsilon}(x)  \). If we let \( y \in {E}_{n} \) with \( x \in {N}_{1/n}(y) \), then we see that  
+   \[  d(x,y) < \frac{ 1 }{ n }  < \epsilon. \]
+   This implies that \( y \in {N}_{\epsilon}(x) \). Since \( y  \) is also contained in \( S  \), we can conclude that
+   \[  y \in {N}_{\epsilon}(x) \cap S \implies {N}_{\epsilon}(x) \cap S \neq \emptyset, \]
+   showing that \( S  \) is dense in \( X  \). Hence, \( X  \) is a separable metric space.
    \end{proof}
 
    \begin{problem}[Extra Credit]

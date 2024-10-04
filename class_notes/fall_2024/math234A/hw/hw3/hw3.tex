@@ -26,7 +26,37 @@
 \end{problem}
 
 \begin{solution}
-    
+\begin{enumerate}
+    \item[(i)] Observe that 
+        \begin{align*}
+            \Log(i) &= \ln | i |  + i \Arg(i) \\
+                    &= \ln(1) + i \frac{ \pi }{ 2 }  \\
+                    &= i \frac{ \pi }{ 2 } 
+        \end{align*}
+        and
+        \begin{align*}
+            \log(i) &= \{ \ln | i |  + i (\Arg(i) + 2\pi i k): k \in \Z  \} \\
+                    &= \Big\{ \ln(1) + i \Big(  \frac{ \pi  }{  2  }  + 2 \pi i k\Big) : k \in \Z  \Big\} \\
+                    &= \Big\{ i \Big(  \frac{ \pi }{ 2 }  + 2 \pi k  \Big): k \in \Z \Big\}. 
+        \end{align*}
+    \item[(ii)] Notice that 
+        \begin{align*}
+            \Log(1+i) &= \ln | 1 + i  | + i \Arg(1+i) \\
+                      &= \ln(\sqrt{ 2 }) + i \frac{ \pi }{ 4 }
+        \end{align*}
+        and
+        \begin{align*}
+            \log(1+i) &= \Big\{\ln(\sqrt{ 2 }) + i \Big(\frac{ \pi }{ 4 }  + 2 \pi k   \Big) : k \in \Z \Big\}.   
+        \end{align*}
+    \item[(iii)] Observe that
+        \begin{align*}
+            \Log(-1) &= \ln | -1 |  + i \Arg(-1) \\
+                     &= \ln | 1 |  + i \pi \\  
+                     &= i \pi
+        \end{align*}
+        and
+        \[ \log(-1) = \{ i (\pi + 2 \pi k ) : k \in \Z  \}.  \]
+\end{enumerate}    
 \end{solution}
 
 \begin{problem}[Complex Powers]
@@ -38,7 +68,28 @@
    \end{enumerate}
 \end{problem}
 \begin{solution}
-
+    \begin{enumerate}
+        \item[(i)] Observe that 
+            \[  (1+i)^{3+i} = \exp((3+i)\log(1+i)). \]
+            Note that from part (ii) in problem 1, we have  
+            \[  \log(1+i) = \ln(\sqrt{ 2 } ) + i \Big(  \frac{ \pi }{ 4 }  + 2 \pi k  \Big); \ \text{for} \ k \in \Z.  \]
+            Then we see that
+            \begin{align*}
+                \exp((3+i)\log(1+i)) &= \exp(3+i) \exp(\log(1+i)) \\
+                                     &= e^{3} \cdot e^{i} \cdot e^{\ln \sqrt{ 2 } } \cdot e^{i \Big(  \frac{ \pi  }{ 4 }  + 2 \pi k \Big)} \\
+                                     &= e^{3} \sqrt{ 2 } \cdot e^{i \Big(  \frac{ 5 \pi  }{ 4  }  + 2 \pi k  \Big)}; \ \text{for} \ k \in \Z.  
+            \end{align*}
+        \item[(ii)] Notice that  
+            \[  \Big(  \frac{ 1 + i  }{  1 - i  }   \Big)^{i} = i^{i}.  \]
+            So, we must have
+            \begin{align*}
+                i^{i} &= \exp(i \log(i)) \\
+                      &= \exp \Big(  i \Big(  \frac{ \pi }{ 2 }  i + 2 \pi k i  \Big) \Big)\\
+                      &= \exp \Big(  - \Big(  \frac{ \pi }{ 2 }  + 2 \pi k  \Big) \Big) ; \ \text{for} \ k \in \Z.  
+            \end{align*}
+        \item[(iii)] Observe that 
+            \[  (-e)^{i/2} = (-1)^{1/2} \exp(i) = i \exp(i).  \]
+    \end{enumerate}
 \end{solution}
 
 \begin{problem}
@@ -92,12 +143,153 @@
     \[  A \cup A' \subseteq  \bigcap_{ F \in {\mathcal{F}}_{A} }^{  }  F = \overline{A} \]
     which satisfies (1).
     
-    With (2), we want to show that \( \overline{A} \subseteq A \cup A' \).
+    With (2), we want to show that \( \overline{A} \subseteq A \cup A' \). Note that \( A \cup A' \) is a closed set and \( A \subseteq  A \cup A' \). Then immediately we see that \( \overline{A} \subseteq A \cup A' \), satisfying (2). Thus, we conclude that \( \overline{A} = A \cup A' \).
+\end{enumerate}
+\end{proof}
+
+\begin{problem}[Discontinuity of "Arg" Function]
+   \begin{enumerate}
+       \item[(i)] Consider the sequence \( ({z}_{n}) \) with \( {z}_{n} = -1 + \frac{ i }{ n }  \). Show that \( {z}_{n} \to -1 \).
+       \item[(ii)] Consider the sequence \( ({w}_{n}) \) with \( {w}_{n} = - 1 - \frac{ i }{ n }  \). Show that \( {w}_{n} \to -1  \) as well.
+       \item[(iii)] Show that \( \Arg({z}_{n})  \to \pi \) and \( \Arg({w}_{n}) \to - \pi \). 
+        \item[(iv)] What did you observe from part (iii)?
+   \end{enumerate} 
+\end{problem}
+
+\begin{proof}
+    \begin{enumerate}
+        \item[(i)] Consider the real and imaginary part of \( {z}_{n} \) 
+            \[  \Re({z}_{n}) = -1 \ \text{and} \ \Im({z}_{n}) = \frac{ 1 }{ n }.  \]
+            Clearly, \( \Re({z}_{n}) \to -1  \) and \( \Im({z}_{n}) \to 0  \) as \( n \to \infty  \). Thus, \( ({z}_{n}) \to -1 + i 0 = -1 \).
+        \item[(ii)] Similarly, notice that 
+            \begin{center}
+                \( \Re({w}_{n}) \to -1 \) and \( \Im({w}_{n}) = \frac{ -1 }{ n }  \to 0   \)
+            \end{center}
+            as \( n \to \infty  \). So, \( ({w}_{n}) \to -1 \) as well.
+        \item[(iii)] From parts (i), we see that
+            \[  \Arg({z}_{n}) \to \Arg(-1) = \pi. \]
+            However, from part (ii), we see that 
+            \[  \Arg({w}_{n}) = \tan^{-1} \Big(  \frac{ -1/n }{ -1 }  \Big) = - \tan^{-1} \Big(  \frac{ 1/n }{ -1 }  \Big) \]
+            implies
+            \[  \lim_{ n \to \infty  }  \Arg({w}_{n}) = - \lim_{ n \to \infty   } \tan^{-1} \Big(  \frac{ 1/n }{ -1 }  \Big) = - \tan \Big(  \frac{ 0  }{ -1 }  \Big) = -\pi. \]
+            Hence, \( \Arg({z}_{n}) \to \pi  \) but \( \Arg({w}_{n}) = - \pi \).
+        \item[(iv)] I observed that by the sequential criterion of continuity, the argument function \( \Arg(z)  \) is not a continuous function.
+    \end{enumerate}
+\end{proof}
+
+\begin{problem}
+    \begin{enumerate}
+        \item[(i)] Let \( a \in \C  \) and \( \epsilon > 0  \). Show that 
+            \[  \overline{B(a,\epsilon)} = \overline{B}(a,\epsilon). \]
+        \item[(ii)] Let \( A = \{ x + iy : x,y \in \Q  \}. \)
+            Show that \( \overline{A} = \C  \). (Hint: 3(b) can be useful here)
+        \item[(iii)] Let \( A,B \subseteq \C  \). Show that \( \overline{A \cup B} \subseteq  \overline{A} \cup \overline{B} \).
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\begin{enumerate}
+    \item[(i)] We will show that \( \overline{B(a,\epsilon)} = \overline{B}(a,\epsilon) \). It suffices to show two inclusions:
+        \begin{enumerate}
+            \item[(1)] \( \overline{B(a,\epsilon)} \subseteq  \overline{B}(a,\epsilon) \)
+            \item[(2)] \( \overline{B}(a,\epsilon) \subseteq  \overline{B(a,\epsilon)} \).
+        \end{enumerate}
+    Starting with (1), let \( x \in \overline{B(a,\epsilon)} \). Then either \( x \in B(a,\epsilon) \) and \( x \in (B(a,\epsilon))' \). If \( x \in B(a,\epsilon) \) and \( B(a,\epsilon) \subseteq  \overline{B}(a,\epsilon) \), we see that \( x \in \overline{B}(a,\epsilon) \). Thus, \( B(a,\epsilon) \subseteq  \overline{B}(a,\epsilon) \). Suppose \( x \in (B(a,\epsilon))' \). Suppose for sake of contradiction that \( x \notin \overline{B}(a,\epsilon) \). Then \( d(a,x) > \epsilon  \) for some \( \epsilon > 0  \). But this implies that \( x \in (B(a,\epsilon))^{c} \); that is, \( x \notin B(a,\epsilon) \) and so \( x \notin \overline{B(a,\epsilon)} \) which is a contradiction. Hence, \( B(a,\epsilon) \subseteq  \overline{B}(a,\epsilon) \).
+    
+    With (2), let \( x \in \overline{B}(a,\epsilon) \). By definition of \( \overline{B}(a,\epsilon) \), we have \( d(x,a) \leq \epsilon \). Then either \( d(x,a) < \epsilon \) or \( d(x,a) = \epsilon \). If \( d(x,a) < \epsilon  \), then \( x  \) is contained in \( B(a,\epsilon) \), and so \( x \in \overline{B(a,\epsilon)} \). Now, suppose \( d(x,a) = \epsilon \). Observe that the closure \( \overline{B(a,\epsilon)} \) contains its boundary points. Thus, \( x \in \overline{B(a,\epsilon)} \). Thus, \( \overline{B}(a,\epsilon) \subseteq  \overline{B(a,\epsilon)} \). 
+
+    We conclude that (1) and (2) imply \( \overline{B(a,\epsilon)} = \overline{B}(a,\epsilon) \).
+\item[(ii)] Let \( A = \{ x + iy : x,y \in \Q  \}  \). Our goal is to show that \( \overline{A } = \C  \). Note that, by problem 3(b), we see that \( \overline{A} = A \cup A'  \). We need to show the following two inclusions:
+    \begin{enumerate}
+        \item[(1)] \( A \cup A' \subseteq  \C  \)
+        \item[(2)] \( \C \subseteq  A \cup A' \).
+    \end{enumerate}
+    Starting with (1), suppose \( z \in A \cup A' \). Then either \( z \in A  \) or \( z \in A' \). If \( z \in A  \), then \( z = x + iy  \) with \( x,y \in \Q  \). Since \( \Q \subseteq  \R  \), we see that \( x,y \in \R  \) and so \( z \in \C  \). If \( z \in A' \), then \( z  \) is a limit point of \( A \). That is, for all \( \epsilon > 0  \) 
+    \[  B(z,\epsilon) \cap (A \setminus \{ z \} ) \neq \emptyset.  \]
+    Since \( \Q  \) is dense in \( \R  \), we know that every limit point of \( \Q  \) is contained in \( \R  \). Hence, \( z  \) must be contained in \( \C  \). So, \( A \cup A' \subseteq  \C  \). 
+
+    Let \( z \in \C  \). Then \( z = \alpha + i \beta  \) with \( \alpha, \beta \in \R  \). Our goal is to show that \( z \in A \cup A' \); that is, either \( z  \) is a limit point of \( A  \) or is an element of \( A  \). To this end, suppose that \( z  \) is not an element of \( A  \). Note that \( \alpha, \beta \in \R  \) which are limit points of \( \Q  \). Hence, \( z  \) must be a limit point of \( A  \). Thus, \( z \in A' \) and so, \( z \in A \cup A' \).
+
+    With (1) and (2), we can conclude that \( \overline{A} =\C  \).
+
+\item[(iii)] Our goal is to show that \( \overline{A \cup B} = \overline{A} \cup \overline{B} \); that is, we need to show that  
+    \begin{enumerate}
+        \item[(1)] \( \overline{A \cup B} \subseteq  \overline{A} \cup \overline{B} \)
+        \item[(2)] \( \overline{A} \cup \overline{B} \subseteq \overline{A \cup B} \).
+    \end{enumerate}
+
+    Starting with (1), suppose \( x \in \overline{A \cup B} \). Then either \( x \in A \cup B  \) or \( x \in (A \cup B)' \). If \( x \in A \cup B   \), then either \( x \in A  \) or \(  x \in B  \). If \( x \in A  \), then \( x \in \overline{A}  \) since \( A \subseteq \overline{A}     \) and so \( x \in \overline{A} \cup \overline{B} \). Likewise, if \( x \in B  \), then \( x \in \overline{B} \) since \( B \subseteq  \overline{B} \). Thus, \( x \in \overline{A} \cup \overline{B} \). If \( x \in (A \cup B)' \), then \( x  \) is a limit point of \( A \cup B  \); that is, for all \( \epsilon > 0  \) 
+    \[ B(x,\epsilon) \cap ((A \cup B) \setminus  \{ x \} ) \neq \emptyset. \]
+    Hence, there exists \( q \in B(x,\epsilon) \cap ((A \cup B) \setminus  \{ x \} ) \). Thus, we have \( q \in A \cup B  \); that is, either \( q \in A  \) or \( q \in B  \). If \( q \in A  \), then \( x  \) is a limit point of \( A  \). Thus, \( x \in A' \) and so \( x \in \overline{A} \). Hence, \( x \in \overline{A} \cup \overline{B} \). If \( q \in B  \), then \( x  \) is a limit point of \( B \). Hence, \( x \in B' \) and so \( x \in \overline{B} \). Thus, \( x \in \overline{A} \cup \overline{B} \). Thus, we see that \( \overline{A \cup B} \subseteq \overline{A} \cup \overline{B} \) which shows (1). 
+
+    Now, we will show (2). Let \( x \in \overline{A} \cup \overline{B} \). Then either \( x \in \overline{A} \) or \( x \in \overline{B} \). If \( x \in \overline{A} \), then \( x \in A  \) or \( x \in A' \). If \( x \in A  \), then \( x \in A \cup B  \). Thus, \( x \in \overline{A \cup B} \). If \( x \in A'  \), then \( x  \) is a limit point of \( A  \); that is, for all \( \delta > 0 \) 
+    \[  B(x,\delta) \cap (A \setminus \{ x \}   ) \neq \emptyset. \]
+    Since \( A \subseteq  A \cup B   \), we know that
+    \[  B(x,\delta) \cap ((A \cup B) \setminus  \{ x \} ) \neq \emptyset. \]
+    Hence, \( x  \) is a limit point of \( A \cup B  \) and so \( x \in (A \cup B)' \); that is, \( x \in \overline{A \cup B} \). On the other hand, if \(  x \in \overline{B} \), then the proof is analogous to the case that \( x \in A' \). Thus, \( \overline{A} \cup \overline{B} \subseteq  \overline{A \cup B} \).
+
+    Together with (1) and (2), we have that \( \overline{A \cup B} = \overline{A} \cup \overline{B}  \).
+\end{enumerate} 
+\end{proof}
+
+\begin{problem}
+    \begin{enumerate}
+        \item[(i)] Show that \( \mathbb{H} := \{ z = x + iy : y > 0  \}  \) is open.
+        \item[(ii)] Show that \( {Q}_{1} := \{ z = x + iy : x > 0, y > 0  \}   \) is open.
+        \item[(iii)] Show that \( S = \{ x + iy: -\pi < y < \pi \}  \)
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\begin{enumerate}
+    \item[(i)] Our goal is to show that \( \mathbb{H} \) is an open set. It suffices to show that \( \mathbb{H}^{c} \) is a closed set. Let \( ({z}_{n}) \) be a sequence in \( \mathbb{H}^{c} \) such that \( ({z}_{n}) \to z \in \C  \). Our goal is to show that \( z \in \mathbb{H}^{c} \). Note that for \( z \in \mathbb{H}^{c} \), \( z  \) must have the property that \( \Im(z) \leq 0 \). Let \( \epsilon > 0  \). Choose \( N \in \N  \) such that for any \( n \geq N  \), we have    
+        \[  | \Im({z}_{n})  - \Im(z) | < \epsilon \implies | \Im(z) | < | \Im({z}_{n}) | + \epsilon \leq \epsilon. \tag{\( | \Im({z}_{n}) | \leq 0 \)}  \]
+        Since \( \epsilon > 0 \) is arbitrary, we have that \( \Im(z) \leq 0  \). Hence, \( z \in \mathbb{H}^{c} \). 
+    \item[(ii)] Our goal is to show that \( {Q}_{1} \) is open by showing that \( {Q}_{1}^{c} \) is closed; that is, we need to show that for any sequence \( ({z}_{n}) \subseteq  {Q}_{1}^{c}\), \( ({z}_{n}) \to z \in \C   \) with \( z \in {Q}_{1}^{c} \). Note that \( z \in {Q}_{1}^{c} \) if \( \Im(z) \leq 0 \) and \( \Re(z) \leq 0  \). To this end, let \( ({z}_{n})  \) be a sequence in \( {Q}_{1}^{c} \) that converges to \( z \in \C  \). Let \( \epsilon > 0  \). Our goal is to show that \( z \in {Q}_{1}^{c} \). Since \( ({z}_{n}) \to z  \), we know that the real and imaginary part must converge. Thus, choose \( N \in \N  \) such that for any \( n \geq N   \), we have
+        \[  | \Im({z}_{n}) - \Im(z) | < \epsilon \tag{1} \]
+        and 
+        \[  | \Re({z}_{n}) - \Re(z) | < \epsilon.  \tag{2}\]
+        Since \( \Re({z}_{n}) \leq 0  \) and \( \Im({z}_{n}) \leq 0  \), (1) and (2) imply that
+        \[ | \Im(z) | < | \Im({z}_{n}) |  + \epsilon \leq \epsilon  \]
+        and 
+        \[  | \Re(z) | < | \Re({z}_{n}) | + \epsilon \leq \epsilon. \]
+        Since \( \epsilon > 0  \) is arbitrary, we conclude that \( | \Re(z) | \leq 0  \) and \( | \Im(z) | \leq 0  \). Thus, \( z \in {Q}_{1}^{c} \).
+    \item[(iii)] Our goal is to show that \( S  \) is open; that is, we need to find \( \delta > 0  \) such that \( B(z,\delta) \subseteq  S  \) for any \( z \in S  \). To this end , let \( z \in S  \). Choose \( \delta = \frac{ 1 }{ 2 }  \min \{ \Im(z) - (-\pi), \pi - \Im(z) \}  \). Let \( w \in B(z,\delta) \). By the way we chose \( \delta \), we have
+        \begin{align*}
+            | z - w  | < \delta &\iff | \Im(z-w) | < \delta  \\
+                                &\iff | \Im(w) | < | \Im(z) | + \delta \\
+                                &\iff | \Im(w) | < \pi.
+        \end{align*}
+        Hence, we see that \( w \in S  \) and so, \( S  \) is open.
 
 \end{enumerate}
 \end{proof}
 
+\begin{problem}
+    \begin{enumerate}
+        \item[(i)] Consider the sequence \( ({z}_{n}) \) defined by \( {z}_{n} = - 1 + \frac{ i }{ n }  \). Compute \( \lim_{ n \to \infty  }  \Log({z}_{n}) \). 
+        \item[(ii)] Consider the sequence \( ({w}_{n}) \) defined by \( {w}_{n} = - 1 - \frac{ i }{ n }  \). Compute \( \lim_{ n \to \infty  }  \Log({w}_{n}) \).
+        \item[(iii)] What did you observe from (i) and (ii)?
+    \end{enumerate}
+\end{problem}
 
+\begin{solution}
+    \begin{enumerate}
+        \item[(i)] Note that \( | {z}_{n} |  = \sqrt{ 1 + \frac{ 1 }{ n^{2} }   } \to 1  \) as \( n \to \infty   \). Then observe that 
+            \begin{align*}
+                \lim_{ n \to \infty   } \Log({z}_{n}) &= \lim_{ n \to \infty   } [ \ln | {z}_{n} | + i \Arg({z}_{n}) ]   \\
+                                                      &=  \lim_{ n \to \infty   }  \ln | {z}_{n} |  + i \lim_{ n \to \infty  }  \Arg({z}_{n}) \\
+                                                      &= \ln(1) + i \pi \tag{4-(iii)} \\
+                                                      &= \pi i.
+            \end{align*}
+        \item[(ii)] Note that \( | {w}_{n}  |  = \sqrt{  1 + \frac{ 1 }{ n^{2} }  } \to 1  \) as \( n \to \infty   \). Then we see that 
+            \begin{align*}
+                \lim_{ n \to \infty  }  \Log({w}_{n}) &= \lim_{ n \to \infty  }  [ \ln | {w}_{n} |  + i \Arg({w}_{n}) ] \\
+                                                      &= \lim_{ n \to \infty  }  \ln | {w}_{n} |  + i \lim_{ n \to \infty  }  \Arg({w}_{n}) \\
+                                                      &= \ln(1) - \pi \tag{4-(iii)} \\
+                                                      &= -\pi  i
+            \end{align*}
+        \item[(iii)] I observed that \( \Log(z) \) is discontinuous by the Sequential Criterion of Continuity.
+    \end{enumerate}
+\end{solution}
 
 
 
