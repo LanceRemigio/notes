@@ -2,6 +2,7 @@
 \usepackage{standalone}
 \usepackage{import}
 \input{../../../../../newpreamble.tex}
+% \usepackage{fourier}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -25,7 +26,7 @@
         \item If \( K  \) is compact and \( E \subseteq K \), then \( E  \) is compact. \textbf{False.}
         \item Consider \( E = [-10,10] \subseteq \R  \) and the open cover of \( E  \) by \( \Phi = \{ (x-1,x + 1) : x \in E  \}  \). Then the collection \( \{ (x - \frac{ 1 }{ 2 }  , x + \frac{ 1 }{ 2 } ) : x \in E  \}  \) is a subcover of \( \Phi \). \textbf{False.}
         \item Let \( E  \) and \( \Phi \) be as above. Then the collection \( \{ (x-1, x+1): x = -10,-9,-8, \dots, 8, 9, 10 \}  \) is a subcover of \( \Phi \). \textbf{True.}
-        \item Let \( E  \) and \( \Phi \) be as above. Then the collection \( \{ (x-1, x+1): x = -10,-8, -6, \dots, 6, 8, 10 \}  \) is a subcover of \( \Phi \). \textbf{True.}
+        \item Let \( E  \) and \( \Phi \) be as above. Then the collection \( \{ (x-1, x+1): x = -10,-8, -6, \dots, 6, 8, 10 \}  \) is a subcover of \( \Phi \). \textbf{False.} (this is a subcollection of \( \Phi  \) but it is NOT a subcover)
    \end{enumerate}
 \end{problem}
 
@@ -33,29 +34,34 @@
        Show that compact implies bounded.
    \end{problem}
    \begin{proof}
-    Let \( E \subseteq X  \). Suppose \( E  \) is compact. Our goal is to show that \( E  \) is bounded set in \( X  \); that is, there exists \( p \in X  \) and \( \delta > 0  \) such that \( E \subseteq {N}_{\delta}(q) \). Let \( x \in E  \). To this end, we will show that there exists a \( p \in X  \) and \( \delta > 0  \) such that \( E \subseteq  {N}_{\delta}(x) \). Since \( E  \) is compact, \( E  \) is a closed set. Hence, we know that 
-    \[  E = \overline{E}  =  \{ x \in X : \forall \epsilon > 0 \ {N}_{\epsilon}(x) \cap E \neq \emptyset \}.  \]
-    Choose \( \delta = \epsilon + 1  \). Since \( E  \) is closed, then there exists \(  \) a \(p \in {N}_{\epsilon}(x) \cap E  \) such that \( p \in {N}_{\epsilon}(x) \) and \( p \in E  \) (that is, \( p \in X  \)). Since \( p \in {N}_{\epsilon}(x) \), we have
-    \[  d(x,p) < \epsilon < \epsilon + 1 = \delta. \]
-    Hence, we see that \( p \in {N}_{\delta}(x) \). Thus, \( E \subseteq  {N}_{\delta}(x) \) and so \( E  \) is bounded.
+       Assume that \( K  \) is compact. We want to show that \( K  \) is bounded. Fix \( \delta > 0  \) and consider \( K \subseteq \bigcup_{ x \in k  }^{  } {N}_{\delta}(x) \) where \( \{ {N}_{\delta}(x) \}_{x \in K} \) is an open cover of \( K  \). Since \( K  \) is compact, we can find a finite subcover; that is, there exists \( {x}_{1}, \dots, {x}_{n} \in K     \) such that 
+       \[ K \subseteq \bigcup_{ i=1  }^{ n } {N}_{\delta}({x}_{i}). \tag{*}  \]
+       Note that each \( {N}_{\delta}({x}_{i}) \) is bounded. Using the results from lemmas {\hyperref[lemma 1]{1}} and {\hyperref[lemma 2]{2}}, we can conclude that the finite union in (*) must be bounded as well as its subset \( K  \). Thus, we can see that \( K  \) must be bounded and we are done.   
    \end{proof}
+
+
 
    \begin{problem}
       Show the union of finitely many compact sets is compact. 
    \end{problem}
-   \begin{proof}
-       Let \( (X,d)  \) be a metric space. Set \( K =  \bigcup_{ i=1 }^{ n } {K}_{i} \) with \( {K}_{i} \) compact for all \( 1 \leq i \leq n  \). Our goal is to show that \( K  \) is compact. Let \( \{ {O}_{\alpha} \}_{\alpha \in \Lambda} \) be a collection of open sets in \( X  \) that forms an open cover for \( K  \). Since \( {K}_{i} \) is compact for all \( 1 \leq i \leq n  \), we can find a finite subcover for each \( {K}_{i} \). Thus, we have  
-       \[  {K}_{i} \subseteq \bigcup_{ j=1  }^{ {m}_{i} } {O}_{i,j} \ \ 1 \leq j \leq {n}_{i}.  \]
-       Note that each \( \bigcup_{ j=1 }^{ {m}_{i} } {O}_{i,j} \) is open since each \( {O}_{i,j} \) is open. Furthermore, 
-       \[  \sum {m}_{i} = n.  \]
-       Denote each of these unions as 
-       \[  {Q}_{\alpha_i} = \bigcup_{ j=1  }^{ {m}_{i} }  {O}_{i,j}. \]
-       Thus, we see that 
-       \begin{align*}
-           K = \bigcup_{ i=1  }^{ n }  {K}_{i} &\subseteq \bigcup_{ i=1  }^{ n } {Q}_{{\alpha}_{i}}
-       \end{align*}
-       and so \( K  \) is compact.
-   \end{proof}
+\begin{proof}
+    Let \( {E}_{1}, \dots, {E}_{n} \) be compact sets in the metric space \( (X,d) \). Our goal is to show that  
+    \[  K = \bigcup_{ i=1  }^{ \infty   }  {K}_{i}  \]
+    is a compact set in \( X \). We proceed to show this result via induction on \( n  \).
+    Let \( n = 2  \) be our base case. Our goal is to show that \( {E}_{1} \cup {E}_{2} \) is compact. Let \( \{ {O}_{\alpha} \}_{\alpha \in \Lambda} \) be an open cover of \( {E}_{1} \cup {E}_{2} \); that is,
+    \[  {E}_{1} \subseteq  \bigcup_{ \alpha \in \Lambda }^{  }  {O}_{\alpha} \ \text{and} \ {E}_{2} \subseteq  \bigcup_{ \alpha \in \Lambda }^{  }  {O}_{\alpha}. \]
+    Since \( {E}_{1} \) is compact, there exists \( {\alpha}_{1}, \dots, {\alpha}_{n} \in \Lambda  \) such that 
+    \[  {E}_{1} \subseteq  \bigcup_{ i=1  }^{ n }  {O}_{{\alpha}_{i}}. \]
+    Likewise, \( {E}_{2} \) being compact implies that there exists \( {\beta}_{1}, \dots, {\beta}_{m} \in \Lambda \) such that  
+    \[  {E}_{2} \subseteq  \bigcup_{ j=1  }^{ m  }  {O}_{{\beta}_{j}}. \]
+    Thus, we see that 
+    \[  {E}_{1} \cup {E}_{2} \subseteq \Big( \bigcup_{ i=1  }^{ n  } {O}_{{\alpha}_{i}} \Big) \cup \bigcup_{ j=1  }^{ m }  {O}_{{\beta}_{j}}.  \]
+    Suppose the claim is true for \( n = k \geq 1  \). If \( {E}_{1}, \dots, {E}_{k} \) are compact sets, then \( \bigcup_{ i=1  }^{ k  }  {E}_{i} \) is compact. Observe that 
+    \begin{align*}
+        \bigcup_{ i=1  }^{ k + 1  } {E}_{i} &= \Big(  \bigcup_{ i=1  }^{ k  }  {E}_{i} \Big) \cup {E}_{k+1} \tag{\( \bigcup_{ i=1  }^{ k  } {E}_{i}  \) is compact}.
+    \end{align*}
+    But by our base case \( n = 2  \), we know that the right-hand side of the equation above is compact and we are done.
+\end{proof}
 
    \begin{problem}
        Show that an arbitrary intersection of compact sets is compact. (Hint. A closed subset of a compact set is compact)
@@ -64,7 +70,7 @@
        Let \( \{ {O}_{\alpha} \}_{\alpha \in \Lambda} \) be a collection of open sets in \( X  \) and let \( \{ {K}_{\alpha} \}_{\alpha \in \Lambda} \) be a collection of compact sets in \( X  \). Define
        \[  K = \bigcap_{  \alpha  }^{  } {K}_{\alpha}. \tag{1} \]
        Since each \( {K}_{\alpha} \) is compact, we know that each \( {K}_{\alpha} \) must be closed. Therefore, the arbitrary intersection above must be closed and so \( K  \) is closed. But observe that 
-       \[  \bigcup_{ \alpha }^{  } {K}_{\alpha} \subseteq  {K}_{\alpha} \]
+       \[  \bigcap_{ \alpha }^{  } {K}_{\alpha} \subseteq  {K}_{\alpha} \]
        and that \( K_{\alpha}  \) is a closed set. Thus, \( K  \) must be compact as well! 
    \end{proof}
 
@@ -72,20 +78,50 @@
         A metric space \( (X,d) \) is called \textbf{separable} if it contains a countable subset \( E  \) which is dense in \( X  \). For example, \( \R  \) is separable because \( \Q  \) is a countable set which is dense in \( \R  \). Show that \( \R^{2}  \) is separable. (Hint: Consider the set of points which have only rational coordinates.) 
     \end{problem}
     \begin{proof}
-        Note that \( \R^{2} \) is just \( \R \times \R  \). Recall that a finite product of countable sets is countable. Thus, we see that \( \Q^{2} = \Q \times \Q  \) is countable. All that is left to show is that \( \Q^{2} \) is dense in \( \R^{2} \). Let \( {x}_{1}, {x}_{2}, {y}_{1}, {y}_{2} \in \R  \) with \( {x}_{1} < {x}_{2} \) and \( {y}_{1} < {y}_{2} \). Since \( \Q  \) is dense in \( \R  \), there must exists \( p \in \Q  \) and \( q \in \Q  \) such that \( {x}_{1} < p < {x}_{2} \) and \( {y}_{1} < q < {y}_{2} \), respectively. Denote the points in \( \R^{2} \) as \( {p}_{1} = ({x}_{1}, {y}_{1}) \),  \( {p}_{2} = ({x}_{2}, {y}_{2}) \) and \( r = (p,q) \). Thus, we have that   
-        \[  {p}_{1} < r < {p}_{2}.  \]
-        Thus, \( \Q^{2}  \) must be dense in \( \R^{2} \).
+        Let 
+        \[  E  = \Q \times \Q = \{ (p,q) \in \R^{2} : p,q \in \Q  \}. \]
+        Since \( \Q  \) is a countable set and that a finite product of countable sets is countable, we must have that \( E  \) is countable. All that is left to show is that \( E  \) is dense in \( \R^{2} \). Our goal is to show that \( \overline{E} = \R^{2} \); that is, 
+        \[  \overline{E} = \{ (x,y) \in \R^{2} : \forall \epsilon > 0, \ {N}_{\epsilon}((x,y)) \cap E \neq \emptyset \}. \]
+        Hence, our goal is to show that for all \( (x,y) \in \R^{2} \) and for all \( \epsilon > 0  \) that 
+        \[  {N}_{\epsilon}((x,y)) \cap E \neq \emptyset. \]
+        To this end, let \( (x,y) \in \R^{2} \) and let \( \epsilon > 0  \) be given. Since \( x \in \R  \) and \( \Q  \) is dense in \( \R  \), we know that there exists \( p \in \Q  \) such that  
+        \[ p \in {N}_{\frac{ \epsilon }{ \sqrt{ 2 }  } }(x) \iff  | x - p  | < \frac{ \epsilon }{ \sqrt{ 2 }  }. \tag{1} \]
+            Likewise, \( y \in \R  \) implies that there exists \( q \in \Q  \) such that 
+            \[  q \in {N}_{\frac{ \epsilon }{ \sqrt{ 2 }  } } \iff | y - q  |  < \frac{ \epsilon }{ \sqrt{ 2 }  }. \tag{2} \]
+            We claim that \( (p,q) \in {N}_{\epsilon}((x,y)) \cap E  \) so that 
+            \[  {N}_{\epsilon}((x,y)) \cap E \neq \emptyset. \]
+            By using (1) and (2) as well as the triangle inequality, we see that 
+            \[  d((p,q), (x,y)) = \sqrt{ | x - p |^{2} + | y - q  |^{2} } < \sqrt{ \frac{ \epsilon^{2} }{ 2 }  + \frac{ \epsilon^{2} }{ 2 }  }  = \sqrt{ \epsilon^{2} }  = \epsilon.  \]
+            Hence, we see that \( {N}_{\epsilon}((x,y)) \). Clearly, we see that \( (p,q) \in E  \) and so we conclude that 
+            \[  {N}_{\epsilon}((x,y)) \cap E \neq \emptyset. \]
+            Thus, \( E = \Q^{2} \) is dense in \( \R^{2} \).
     \end{proof}
-
    \begin{problem}
        Let \( (X,d) \) be a separable metric space and \( \O \neq A \subseteq X  \). Prove that the collection of the isolated points of \( A  \) is at most countable.
    \end{problem}
    \begin{proof}
-       Let \( (X,d) \) be a separable metric space and \( \O = A \subseteq  X  \). Denote the set of isolated points as 
-       \[  {A}_{I} = \{ x \in X : \exists \epsilon > 0 \ \text{such that} \ {N}_{\epsilon}(x) \cap A = \emptyset \}.  \]
-       By assumption, \( X  \) contains a subset \( E  \) such that \( E  \) is countable and \( \overline{E} = X  \). Our goal is to show that \( {A}_{I} \) is at most countable. It suffices to show that \( {A}_{I} \subseteq E  \). Let \( x \in {A}_{I} \). Then there exists \( \epsilon > 0  \) such that \( {N}_{\epsilon}(x) \cap A = \emptyset \). Hence, \( {N}_{\epsilon}(x) \subseteq  A^{c} \) for some \( \epsilon > 0  \) and so \( A^{c} \) is an open set in \( X  \). By problem 19 of homework 4, we see that  
-       \[  A^{c} \cap E \neq \emptyset. \]
-       Thus, \( x  \) must be contained in the intersection above. So, \( {A}_{I} \subseteq E  \). Since \( E  \) is countable, \( {A}_{I} \) must be at most countable and we are done. 
+   Let \( (X,d) \) be a separable metric space and \( \emptyset \neq A \subseteq  X  \). Denote the set \( {A}_{I} \) as the set of all isolated points of \( A  \). Since \( (X,d) \) is separable, we know that there must exists a subset of \( X  \) denoted by \( E  \) such that \( E  \) is both countable and dense in \( X  \). Our goal is to construct an injective map \( f: {A}_{I} \to E  \) which proves that \( {A}_{I} \) is at most countable. 
+   
+   Observe that for every \( p \in {A}_{I} \), we know that \( p \in A \setminus  A'  \) if and only if there exists \( {\epsilon}_{p} > 0  \) such that 
+   \[  {N}_{{\epsilon}_{p}}(p) \cap A = \{ p \}. \tag{1} \]
+   Furthermore, since \( E  \) is dense in \( X  \), we know that there exists \( {\epsilon}_{p} > 0  \) such that  
+   \[  {N}_{{\epsilon}_{p}}(p) \cap E \neq \emptyset. \tag{2} \]
+   Hence, (1) and (2) imply that there exists \( {y}_{p} \in X  \) such that \( {y}_{p} \in {N}_{\frac{ {\epsilon}_{p} }{ 2 }} \cap E  \). We define \( f: {A}_{I} \to E  \) by
+   \[  f(p) = {y}_{p}. \]
+   Our goal is to show that \( f  \) is injective. Let \( p,q \in X  \). Suppose \( f(p) = f(q) \). From this, we will show that \( p = q  \). Since \( f(p) = f(q) \), we know that    \[  {y}_{p} = {y}_{q}. \] 
+   Observe that  
+   \begin{center} 
+       \( {y}_{p} \in {N}_{\frac{ {\epsilon}_{p} }{ 2 } } \cap E  \) and \( {y}_{q} \in {N}_{\frac{ {\epsilon}_{q} }{ 2 } }(q) \cap E  \),
+   \end{center}
+   Since \( {y}_{p} = {y}_{q} \), we have 
+   \[  {N}_{\frac{ {\epsilon}_{p} }{ 2 }  }(p) \cap {N}_{\frac{ {\epsilon}_{q} }{ 2 } }(q) \neq \emptyset. \]
+   Let \( z \in {N}_{\frac{ {\epsilon}_{p} }{ 2 } } \cap {N}_{ \frac{ {\epsilon}_{q} }{ 2 } }(q) \). Then we have 
+   \[  d(p,z) < \frac{ {\epsilon}_{p} }{ 2 }  \ \text{and} \ d(z,q) < \frac{ {\epsilon}_{q} }{ 2 } \]
+   which implies that 
+   \[  d(p,z) + d(z,q) < \frac{ {\epsilon}_{p} }{ 2 }  + \frac{ {\epsilon}_{q} }{ 2 }.  \]
+   Without loss of generality, assume that \( {\epsilon}_{q} < {\epsilon}_{p}    \). By the triangle inequality, we see that 
+   \[  d(p,q) \leq d(p,z) + d(z,q) < \frac{ {\epsilon}_{p} }{ 2 }  + \frac{ {\epsilon}_{q} }{ 2 } < {\epsilon}_{p}.  \]
+ This implies that \( q  \) must be contained in \( {N}_{{\epsilon}_{p}}(p) \cap A  \). However, the only point contained in \( {N}_{{\epsilon}_{p}} \cap A  \) is \( p  \). Hence, we must have \( p = q  \) and so \( f  \) is injective. Thus, \( {A}_{I} \) is at most countable.
    \end{proof}
 
    \begin{problem}
@@ -94,16 +130,14 @@
        Prove that the every separable metric space has a countable base. (Hint: Take all neighborhoods with rational radius and center in some countable dense subset of \( X  \).)
    \end{problem}
    \begin{proof}
-   Since \( (X,d) \) is a separable metric space, we know that \( X  \) contains a countable dense subset \( E  \); that is, we have 
-   \[  X = \overline{E} = E = \{ x \in X : \forall \epsilon > 0 \ {N}_{\epsilon}(x) \cap E \neq \emptyset \}. \]
-   Let \( \{ {V}_{\alpha} \}_{\alpha \in \Lambda} \). Let \( x \in X  \) and let \( G \subseteq  X   \) be an open set such that \( x \in G  \). Our goal is to show that \( {V}_{\alpha} \subseteq  G  \) for some \( \alpha \). Since \( X = \overline{E } \), we must have \( x \in \overline{E} \); that is, for all \( \epsilon > 0  \),
+   Since \( (X,d) \) is a separable metric space, we know that \( X  \) contains a countable dense subset \( E  \). Let \( \{ {V}_{\alpha} \}_{\alpha \in \Lambda} \) be a collection of open subsets in \( X  \). Let \( x \in X  \) and let \( G \subseteq  X   \) be an open set such that \( x \in G  \). Our goal is to show that \( {V}_{\alpha} \subseteq  G  \) for some \( \alpha \). Since \( X = \overline{E } \), we must have \( x \in \overline{E} \); that is, for all \( \epsilon > 0  \),
    \[  {N}_{\epsilon}(x) \cap E \neq \emptyset. \]
-   To this end, let \( \epsilon = \frac{ 1 }{ n }  \) and pick a point \( y \in {N}_{\epsilon}(x) \cap E  \). Then
+   To this end, let \( \epsilon > 0 \) be rational and pick a point \( y \in {N}_{\epsilon}(x) \cap E  \). Then
    \begin{center}
-       \( y \in {N}_{1/n}(x) \) and \( y \in E  \).
+       \( y \in {N}_{\epsilon}(x) \) and \( y \in E  \).
    \end{center}
-    Note that \( {N}_{1/n}(x) \) is an open set in \( X  \). Thus, we can write this set in the following way
-    \[  {N}_{1/n}(x) = \bigcup_{ \alpha }^{  } {V}_{\alpha}. \]
+    Note that \( {N}_{\epsilon}(x) \) is an open set in \( X  \). Thus, we can write \( {N}_{\epsilon}(x) \) as a union of open sets \( {V}_{\alpha} \) where \( \alpha \in \Lambda \); that is, 
+    \[  {N}_{\epsilon}(x) = \bigcup_{ \alpha }^{  } {V}_{\alpha}. \]
     Thus, \( y  \) must be contained in the union above and so \( y \in {V}_{\alpha_0} \) for some \( {\alpha}_{0} \in \Lambda \). Since \( y \in G  \), we must also have \( {V}_{\alpha} \subseteq G  \) and we are done.
    \end{proof}
 
@@ -113,28 +147,19 @@
    \begin{proof}
    Let \( (X,d) \) be a metric space in which every infinite subset has a limit point. Our goal is to show that \( X  \) is separable. Fix \( \delta > 0  \), and pick \( {x}_{1} \in X  \). Now, choose \( {x}_{1}, \dots, {x}_{j } \in X  \) and then choose \( {x}_{j+1} \in X  \) such that \( d({x}_{i}, {x}_{j+1}) \geq \delta \) for \( i = 1, \dots, j  \). 
 
-   We claim that if this leads to an infinite subset \( E =  \{ {x}_{1}, {x}_{2}, \dots \}   \) of \( X  \) that has the property that for any \( {x}_{i}, {x}_{j} \in E   \), \( d({x}_{i}, {x}_{j}) \geq \delta \), then \( E  \) contains no limit points. Suppose for sake of contradiction that \( E  \) does have a limit point. Denote this limit point of \( E  \) as \( w  \). Thus, for any \( \delta > 0  \), we have  
-   \[  {N}_{\delta}(w) \cap (E \setminus  \{ w \} ) \neq \emptyset.  \tag{1} \]
-   Now, pick a point in this intersection, say, \( x  \) such that 
-   \begin{center}
-       \( x \in {N}_{\delta}(w)  \) and \( x \in E  \).
-   \end{center}
-   Hence, we see that \( d(x,w) < \delta \). Similarly, pick \( y  \) in the intersection in (1) such that \( y \in {N}_{\delta}(w) \). Then we have \( d(y,w) < \delta \). Our goal is to find some \( \epsilon > 0  \) such that \( d(x,y) < \epsilon  \), contradicting our assumption that \( d(x,y) \geq \delta \) for all \( \delta > 0 \). Choose \( \epsilon = 2 \delta \). Using the triangle inequality, we see that 
-   \[  d(x,y) \leq d(x,w) + d(w,y) < \delta + \delta = 2 \delta = \epsilon \]
-   which produces desired contradiction. Hence, the process outlined in the first paragraph must terminate; that is, \( E =  \{ {x}_{1}, {x}_{2}, \dots \}  \) must be finite. From this, we denote this set as \( {E}_{n} = \{ {x}_{1}, {x}_{2}, \dots, {x}_{n}  \}  \).
+     By the lemma {\hyperref[lemma 3]{3}}, the process outlined in the first paragraph must terminate; that is, we can consider finitely many neighborhoods of radius \( \delta > 0   \) that cover \( X  \).
 
-   Now, our goal is to find a subset of \( X  \) that is both dense and countable. Consider the set
-   \[  {E}_{n} = \{ {x}_{1}, {x}_{2}, \dots, {x}_{n} \}. \]
-   Clearly, this set is at most countable. Now, consider the countable union
-   \[  S = \bigcup_{ n=1  }^{ \infty   }  {E}_{n}. \]
-   Since each \( {E}_{n} \) is at most countable, we know that \( E  \) must be at most countable.
+   Define
+   \[  S = \{ {x}_{{n}_{j}} : 1 \leq j \leq {N}_{n} : n = 1,2,3,\dots \} \]
+    and fix \( \delta = \frac{ 1 }{ n }   \) for \( n = 1,2,3,\dots \ \) such that  
+   \[  X = \bigcup_{ j=1  }^{ {N}_{n} }  {N}_{\delta}({x}_{{n}_{j}}) \ \ n = 1,2,3,\dots \ . \]
+   Clearly, \( S \) is countable. Hence, all that is left to show is that \( S  \) is dense in \( X  \). That is, we would like to show that for every \( x \in X  \) and \( \epsilon > 0  \) that
+   \[  {N}_{\epsilon}(x) \cap S \neq \emptyset.  \]
 
-   Now, we will show that \( S  \) is dense in \( X  \); that is, \( \overline{S} = X  \). Note that we can now cover \( X  \) by finitely many neighborhoods of radius \( \delta \)(By the process outlined in the hint). Fix \( \delta = \frac{ 1 }{ n }  \) and denote 
-   \[  X = \bigcup_{ x \in {E}_{n} }^{  }  {N}_{1/n}(x). \]
-   Hence, pick \( n \in \N  \) such that \( \frac{ 1 }{ n }  < \epsilon  \) by the Archimeadean Property. Consider the neighborhood \( {N}_{\epsilon}(x)  \). If we let \( y \in {E}_{n} \) with \( x \in {N}_{1/n}(y) \), then we see that  
+   To this end, pick \( n \in \N  \) such that \( \delta =  \frac{ 1 }{ n }  < \epsilon  \) by the Archimeadean Property. Consider the neighborhood \( {N}_{\epsilon}(x)  \). If we let \( y \in S \) with \( x \in {N}_{\delta}(y) \), then we see that  
    \[  d(x,y) < \frac{ 1 }{ n }  < \epsilon. \]
    This implies that \( y \in {N}_{\epsilon}(x) \). Since \( y  \) is also contained in \( S  \), we can conclude that
-   \[  y \in {N}_{\epsilon}(x) \cap S \implies {N}_{\epsilon}(x) \cap S \neq \emptyset, \]
+   \[  y \in {N}_{\epsilon}(x) \cap S \iff {N}_{\epsilon}(x) \cap S \neq \emptyset, \]
    showing that \( S  \) is dense in \( X  \). Hence, \( X  \) is a separable metric space.
    \end{proof}
 
@@ -145,39 +170,22 @@
       \end{center}
    \end{problem} 
    \begin{proof}
-    \( (\Longrightarrow) \) Assume that \( E  \) is closed relative to \( Y  \). Our goal is to show that \( E = A \cap Y  \); that is, we need to show two inclusions:
-    \begin{enumerate}
-        \item[(1)] \( E \subseteq A \cap Y  \),
-        \item[(2)] \( A \cap Y \subseteq E  \).
-    \end{enumerate}
-    By assumption, we know that 
-    \[  E = \overline{E} = \{ \forall x \in Y, \forall \epsilon > 0 : {N}_{\epsilon}^{Y}(x) \cap E \neq \emptyset \}. \]
-    Note that \( {N}_{\epsilon}(x) \subseteq  \overline{{N}_{\epsilon}(x)} \). Set 
-    \[  A = \bigcup_{ i=1 }^{ n } \overline{{N}_{{\epsilon}_{i}}(x)}  \]
-    with radius \( {\epsilon}_{i} > 0  \) for each \( {N}_{{\epsilon}_{i}} \). Notice that \( A  \) must be a closed set in \( Y  \) because each \( \overline{{N}_{{\epsilon}_{i}}(x)} \) is a closed set. Since 
-    \[ {N}_{\epsilon}(x) \cap Y \subseteq  \overline{{N}_{\epsilon}(x)} \cap Y \subseteq E,   \]
-    we must have 
+    \( (\Longrightarrow) \) Assume that \( E  \) is closed relative to \( Y  \). Our goal is to show that \( E = A \cap Y  \). Since \( E  \) is closed relative in \( Y \), we know that \( E^{c} \) is open relative in \( Y  \); that is, 
+    \[ (Y \setminus  E ) = G \cap Y \ \text{for some} \  G \subseteq Y. \]
+    Our goal is to show that \( E = G^{c} \cap Y  \) for some \( G^{c} \subseteq Y \) (\( G \) is open \( \iff \) \( G^{c} \) is closed). Observe that 
     \begin{align*}
-        A \cap Y = \Big(  \bigcup_{ i=1  }^{ n }  \overline{{N}_{{\epsilon}_{i}}(x)}  \Big) \cap Y &\subseteq \bigcup_{ i=1 }^{ n } (\overline{{N}_{{\epsilon}_{i}}(x)} \cap Y)  \\
-                                                                                                   &\subseteq \bigcup_{ i=1 }^{ n }  E \\
-                                                                                                   &= E.
+        E = Y \setminus  (Y \setminus  E ) &= Y \setminus  ( G \cap Y) \\
+                                           &= (Y \cap Y) \setminus  (G \cap Y) \\
+                                           &=  (Y \setminus  G) \cap Y \\
+                                           &=  G^{c} \cap Y \tag{for some \( G^{c} \subseteq Y \)}
     \end{align*}
-    Thus, we see that \( A \cap Y \subseteq E   \) which proves (1).
-
-    Now, we want to show (2). Let \( p \in E  \). Using our definition of \( A  \) and the fact that \( {N}_{\epsilon}(p) \subseteq \overline{{N}_{\epsilon}(p)} \), 
-    \begin{align*}
-        E \subseteq  {N}_{\epsilon}(p) \cap Y \subseteq \overline{{N}_{\epsilon}(p)} \cap Y &\subseteq \Big[ \bigcup_{ i=1  }^{ n }  \overline{{N}_{{\epsilon}_{i}}(x)}\Big] \cap Y   \\
-                                                                                            &= A \cap Y
-    \end{align*}
-    which shows (2). Hence, (1) and (2) imply that \( E = A \cap Y  \) for some closed set \( A \subseteq  Y \).
-
-    \( (\impliedby) \) Suppose \( E = A \cap Y  \) for some closed set \( A \subseteq X  \). Our goal is to show that \( E  \) is closed relative to \( Y  \). Let \( p  \) be a limit point of \( E  \). Since \( E = A \cap Y  \) and \( p \in Y  \), we see that 
-    \begin{align*}
-        {N}_{\epsilon}(p) \cap (E \setminus  \{ p \} ) &\implies {N}_{\epsilon}(p) \cap ((A \cap Y) \setminus  \{ p \} ) \neq \emptyset \\
-                                                       &\implies ({N}_{\epsilon}(p) \cap Y) \cap (A \setminus  \{ p \} ) \neq \emptyset \\
-                                                       &\implies {N}_{\epsilon}^{Y}(p) \cap (A \setminus  \{ p \} ) \neq \emptyset.
-    \end{align*}
-    This implies that \( p  \) is a limit point of \( A  \). But \( A  \) is a closed set in \( Y  \). Thus, \( p  \) must be contained in \( A  \), showing that \( E  \) is closed relative to \( Y  \).
+    and we are done.
+    
+    
+        
+    \( (\impliedby) \) Suppose \( E = A \cap Y  \) for some closed set \( A \subseteq X  \). Observe that  
+    \[  Y \setminus  E = (X \setminus  A ) \cap Y  \tag{1} \]
+    where \( X \setminus  A  \) is open in \( X  \). By (1), we must have \( Y \setminus  E  \) is open in \( Y  \). Hence, \( E  \) is closed relative to \( Y  \). 
 \end{proof}
    
    \begin{problem}[Extra Credit]
@@ -197,10 +205,53 @@
     Hence, \( x \in {N}_{\epsilon}(q) \).
    \end{proof}
 
+   \begin{lemma}[1]\label{lemma 1}
+   Let \( (X,d) \) be a metric space. A subset of a bounded set is bounded. 
+\end{lemma}
+\begin{proof}
+Since \( B  \) is bounded, there exists \( q \in X  \) and \( \epsilon > 0  \) such that \(  B \subseteq  {N}_{\epsilon}(q) \). Since \(  A \subseteq  B  \), we conclude that \( A \subseteq  {N}_{\epsilon}(q) \). So, \( A  \) is bounded.
+\end{proof}
 
+\begin{lemma}[2]\label{lemma 2}
+    Let \( (X,d) \) be a metric space. A finite union of bounded sets is bounded.    
+\end{lemma}
+\begin{proof}
+    Let \( {E}_{1}, \dots, {E}_{n} \) be a bounded sets in a metric space \( (X,d) \). We will show via induction on \( n  \) that 
+    \[  \bigcup_{ i=1  }^{ n } {E}_{i}  \]
+    is bounded. Note that if \( n = 1  \), then \( {E}_{1} \) is bounded and so the result is immediate. Thus, let our base case be \( n = 2  \). We will show that the union \( {E}_{1} \cup {E}_{2} \) is bounded. If \( {E}_{1} \) is bounded, then we can find an \( {\epsilon}_{1} > 0  \) and \( {q}_{1} \in X  \) such that 
+    \[  {E}_{1} \subseteq {N}_{{\epsilon}_{1}}({q}_{1}). \tag{1} \]
+    Likewise, if \( {E}_{2} \) is bounded, then we can find an \( {\epsilon}_{2} > 0  \) and \( {q}_{2} \in X  \) such that 
+    \[  {E}_{2} \subseteq {N}_{{\epsilon}_{2}}({q}_{2}). \tag{2} \]
+    Choose \( \delta = 2 [ {\epsilon}_{1} + {\epsilon}_{2} + d({q}_{1}, {q}_{2})]  \). From this, we will show that \( {E}_{1} \cup {E}_{2} \subseteq  {N}_{\delta}({q}_{1}) \) so that \( {E}_{1} \cup {E}_{2} \) will be bounded. Let \( x \in {E}_{1} \cup {E}_{2} \). Then we either have \( x \in {E}_{1} \) or \( x \in {E}_{2} \). If \( x \in {E}_{1} \), then   
+    \[  x \in {N}_{{\epsilon}_{1}}(q) \subseteq {N}_{\delta}({q}_{1}) \tag{\( {\epsilon}_{1} < \delta \)}. \]
+    If \( x \in {E}_{2} \), then 
+    \begin{align*}
+        d(x,{q}_{1}) &\leq d(x,{q}_{2}) + d({q}_{2}, {q}_{1}) \\
+                     &\leq {\epsilon}_{2} + d({q}_{1}, {q}_{2}) \\
+                     &< \delta.
+    \end{align*} 
+    This implies that \( x \in {N}_{\delta}({q}_{1}) \). Thus, (i) and (ii) imply that \( {E}_{1} \cup {E}_{2} \subseteq {N}_{\delta}({q}_{1}) \). Now, assume that the result holds for the \( n \)th case. We will now show that the result holds for \( n = k + 1  \). Thus, observe that 
+    \begin{align*}
+        \bigcup_{ n=1 }^{ k + 1  } {E}_{n} &= \Big( \bigcup_{ n=1  }^{ k  }  {E}_{n}   \Big) \cup {E}_{k+1}. \tag{3} 
+    \end{align*}
+    By our inductive hypothesis, we know that 
+    \[  \bigcup_{ n=1  }^{ k  }  {E}_{n} \]
+    is bounded. Clearly, with \( {E}_{k+1} \) being also bounded along with our base case \( n = 2  \), we can conclude that the union in (3) is also bounded which concludes our induction proof.
+\end{proof}
 
-
-
-
+\begin{lemma}[3]\label{lemma 3}
+  Let \( (X,d) \) be a metric space and \( E \subseteq  X \) be infinite. Suppose \( d({x}_{n},{x}_{m}) > \epsilon  \) for all \( n \neq m  \in \N  \) such that \( {x}_{n} \neq {x}_{m} \). Then \( E  \) has no limit points.  
+\end{lemma}
+\begin{proof}
+Suppose for sake of contradiction that \( E  \) does have a limit point. Denote this limit point of \( E  \) as \( x  \). Thus, for any \( \delta > 0  \), we have  
+   \[  {N}_{\delta}(x) \cap (E \setminus  \{ x \} ) \neq \emptyset.  \tag{1} \]
+   Since \( E  \) is an infinite subset of \( X  \), pick \( n \in \N  \) such that 
+   \begin{center}
+       \( {x}_{n} \in {N}_{\delta}(x)  \) and \( {x}_{n} \in E  \).
+   \end{center}
+   Hence, we see that \( d(x,{x}_{n}) < \delta \). Similarly, pick \( m \in \N   \) such that \( n \neq m  \) in the intersection in (1) such that \( {x}_{m} \in {N}_{\delta}(w) \). Then we have \( d({x}_{m},x) < \delta \). Our goal is to find some \( \epsilon > 0  \) such that \( d({x}_{n},{x}_{m}) < \epsilon  \), contradicting our assumption that \( d({x}_{n},{x}_{m}) \geq \delta \) for all \( \delta > 0 \) and \( n \neq m \in \N \). Choose \( \epsilon = 2 \delta \). Using the triangle inequality, we see that 
+   \[  d({x}_{n},{x}_{m}) \leq d({x}_{n},x) + d(x,{x}_{m}) < \delta + \delta = 2 \delta = \epsilon \]
+   which produces desired contradiction.
+\end{proof}
 
 \end{document}
