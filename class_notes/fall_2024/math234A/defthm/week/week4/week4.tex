@@ -1,0 +1,83 @@
+\documentclass[a4paper]{article}
+
+\usepackage{standalone}
+
+\usepackage{import}
+
+\input{../../../../../../newpreamble.tex}
+
+\begin{document}
+
+
+\subsection*{Open Ball}
+\begin{ocg}{l3}{l3}{1}
+  Consider the usual metric \( d(z,w) = | z - w  |   \) in \( \C  \). Let \( \epsilon > 0  \) and \( a \in \C  \). By an \textbf{open ball} centered at \( a  \), and radius \( \epsilon > 0  \), we mean the set
+  \[ B(a,\epsilon)  =  \{ z \in \C : d(z,a) < \epsilon \}. \]
+\end{ocg}
+\newline
+\switchocg{l3}{\textbf{Click here for the definition}}
+
+\subsection*{Open Sets}
+
+\begin{ocg}{l4}{l4}{1}
+   Let \( D \subseteq  \C .  \) We say \( D  \) is \textbf{open} if for each \( a \in D  \), we can find \( \epsilon > 0  \) such that  
+   \(  B(a,\epsilon) \subseteq D  \).
+\end{ocg}
+\newline
+\switchocg{l4}{\textbf{Click here for the definition}}
+
+\subsection*{Interior Points}
+
+\begin{ocg}{l5}{l5}{1}
+  Let \( D \subseteq \C \) and \( a \in D  \). We say that \( a  \) is an \textbf{interior point} of \( D  \) if we can find \( \epsilon > 0  \) such that \( B(a, \epsilon) \subseteq  D  \).
+\end{ocg}
+\newline
+\switchocg{l5}{\textbf{Click here for the definition}}
+
+\subsection*{Closed Sets}
+
+\begin{ocg}{l6}{l6}{1}
+    We say \( A \subseteq \C   \) \textbf{closed} if its complement     
+    \[  \C \setminus  A = \{ z \in \C : z \notin A  \}   \] is open.
+\end{ocg}
+\newline
+\switchocg{l6}{\textbf{Click here for the definition}}
+
+\subsection*{Boundary Points}
+
+\begin{ocg}{l7}{l7}{1}
+   Let \( D \subseteq  \C  \). We say \( a \in \C  \) is a \textbf{boundary point} of \( D  \) if for all \( \epsilon > 0  \), \( B(a,\epsilon) \cap D \neq \emptyset \) and \( B(a,\epsilon) \cap (\C \setminus  D ) \neq \emptyset  \); that is, \( B(a,\epsilon) \) intersects \( D  \) and \( \C \setminus  D   \) non-trivially.  
+\end{ocg}
+\newline
+\switchocg{l7}{\textbf{Click here for the definition}}
+
+\subsection*{Accumulation Points}
+
+\begin{ocg}{l8}{l8}{1}
+Let \( D \subseteq  \C . \) We say \( a \in \C  \) is an \textbf{accumulation point} of \( D  \) if for any \( \epsilon > 0  \),
+\[  B(a,\epsilon) \cap (D \setminus  \{ a \} ) \neq \emptyset. \]
+\end{ocg}
+\newline
+\switchocg{l8}{\textbf{Click here for the definition}}
+
+\subsection*{Closure}
+
+\begin{ocg}{l9}{l9}{1}
+    Let \( D \subseteq \C \). We denote the \textbf{closure of \( D \)} by \( \textbf{D} \) and define \( \overline{D} \) as 
+    \[  \overline{D} = D \cup \{ x \in D : \forall \epsilon > 0  \  B(x,\epsilon) \cap D \neq \emptyset \}.  \]
+\end{ocg}
+\newline
+\switchocg{l9}{\textbf{Click here for the definition}}
+
+\subsection*{Bounded}
+
+\begin{ocg}{l10}{l10}{1}
+    We say \( D \subseteq \C  \) is \textbf{bounded} if there exists \( R > 0  \) such that \( D \subseteq \overline{B}(0,R) \); that is, \( | z  |  \leq R  \) for all \( z \in D  \); that is, \( D \subseteq  \overline{B}(0,R) \).
+\end{ocg}
+\newline
+\switchocg{l10}{\textbf{Click here for the definition}}
+
+
+
+
+\end{document}

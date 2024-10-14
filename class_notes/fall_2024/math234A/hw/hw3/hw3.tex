@@ -72,20 +72,20 @@
         \item[(i)] Observe that 
             \[  (1+i)^{3+i} = \exp((3+i)\log(1+i)). \]
             Note that from part (ii) in problem 1, we have  
-            \[  \log(1+i) = \ln(\sqrt{ 2 } ) + i \Big(  \frac{ \pi }{ 4 }  + 2 \pi k  \Big); \ \text{for} \ k \in \Z.  \]
+            \[  \log(1+i) = \Big\{ \ln(\sqrt{ 2 } ) + i \Big(  \frac{ \pi }{ 4 }  + 2 \pi k  \Big); k \in \Z \Big\}.  \]
             Then we see that
             \begin{align*}
                 \exp((3+i)\log(1+i)) &= \exp(3+i) \exp(\log(1+i)) \\
-                                     &= e^{3} \cdot e^{i} \cdot e^{\ln \sqrt{ 2 } } \cdot e^{i \Big(  \frac{ \pi  }{ 4 }  + 2 \pi k \Big)} \\
-                                     &= e^{3} \sqrt{ 2 } \cdot e^{i \Big(  \frac{ 5 \pi  }{ 4  }  + 2 \pi k  \Big)}; \ \text{for} \ k \in \Z.  
+                                     &= \Big\{ e^{3} \cdot e^{i} \cdot e^{\ln \sqrt{ 2 } } \cdot e^{i \Big(  \frac{ \pi  }{ 4 }  + 2 \pi k \Big)} : k \in \Z  \Big\} \ \\
+                                     &= \Big\{ e^{3} \sqrt{ 2 } \cdot e^{i \Big(  \frac{ 5 \pi  }{ 4  }  + 2 \pi k  \Big)}: k \in \Z \Big\}.  
             \end{align*}
         \item[(ii)] Notice that  
             \[  \Big(  \frac{ 1 + i  }{  1 - i  }   \Big)^{i} = i^{i}.  \]
             So, we must have
             \begin{align*}
                 i^{i} &= \exp(i \log(i)) \\
-                      &= \exp \Big(  i \Big(  \frac{ \pi }{ 2 }  i + 2 \pi k i  \Big) \Big)\\
-                      &= \exp \Big(  - \Big(  \frac{ \pi }{ 2 }  + 2 \pi k  \Big) \Big) ; \ \text{for} \ k \in \Z.  
+                      &= \Big\{ \exp \Big(  i \Big(  \frac{ \pi }{ 2 }  i + 2 \pi k i  \Big) \Big) : k \in \Z  \Big\} \\
+                      &= \Big\{ \exp \Big(  - \Big(  \frac{ \pi }{ 2 }  + 2 \pi k  \Big) \Big): k \in \Z \Big\}.  
             \end{align*}
         \item[(iii)] Observe that 
             \[  (-e)^{i/2} = (-1)^{1/2} \exp(i) = i \exp(i).  \]
@@ -168,11 +168,11 @@
             as \( n \to \infty  \). So, \( ({w}_{n}) \to -1 \) as well.
         \item[(iii)] From parts (i), we see that
             \[  \Arg({z}_{n}) \to \Arg(-1) = \pi. \]
-            However, from part (ii), we see that 
-            \[  \Arg({w}_{n}) = \tan^{-1} \Big(  \frac{ -1/n }{ -1 }  \Big) = - \tan^{-1} \Big(  \frac{ 1/n }{ -1 }  \Big) \]
-            implies
-            \[  \lim_{ n \to \infty  }  \Arg({w}_{n}) = - \lim_{ n \to \infty   } \tan^{-1} \Big(  \frac{ 1/n }{ -1 }  \Big) = - \tan \Big(  \frac{ 0  }{ -1 }  \Big) = -\pi. \]
-            Hence, \( \Arg({z}_{n}) \to \pi  \) but \( \Arg({w}_{n}) = - \pi \).
+            Consider \( \Arg\Big(-1 + \frac{ i }{ n } \Big) \). Then we see that 
+            \[   \Arg({w}_{n}) = \Arg\Big( -1 + \frac{ i }{ n } \Big) = \Arg(-1) + \Arg \Big(  \frac{ i }{ n }  \Big) = -\pi + \tan^{-1} \Big(  \frac{ i }{ n }  \Big). \tag{1} \] 
+            If we take the limit as \( n \to \infty   \) of (1), then we obtain
+            \[  \Arg({w}_{n}) \to -\pi \]
+            which is different result from part (i).
         \item[(iv)] I observed that by the sequential criterion of continuity, the argument function \( \Arg(z)  \) is not a continuous function.
     \end{enumerate}
 \end{proof}
@@ -193,7 +193,7 @@
             \item[(1)] \( \overline{B(a,\epsilon)} \subseteq  \overline{B}(a,\epsilon) \)
             \item[(2)] \( \overline{B}(a,\epsilon) \subseteq  \overline{B(a,\epsilon)} \).
         \end{enumerate}
-    Starting with (1), let \( x \in \overline{B(a,\epsilon)} \). Then either \( x \in B(a,\epsilon) \) and \( x \in (B(a,\epsilon))' \). If \( x \in B(a,\epsilon) \) and \( B(a,\epsilon) \subseteq  \overline{B}(a,\epsilon) \), we see that \( x \in \overline{B}(a,\epsilon) \). Thus, \( B(a,\epsilon) \subseteq  \overline{B}(a,\epsilon) \). Suppose \( x \in (B(a,\epsilon))' \). Suppose for sake of contradiction that \( x \notin \overline{B}(a,\epsilon) \). Then \( d(a,x) > \epsilon  \) for some \( \epsilon > 0  \). But this implies that \( x \in (B(a,\epsilon))^{c} \); that is, \( x \notin B(a,\epsilon) \) and so \( x \notin \overline{B(a,\epsilon)} \) which is a contradiction. Hence, \( B(a,\epsilon) \subseteq  \overline{B}(a,\epsilon) \).
+    With (1), observe that \( B(a,\epsilon) \subseteq \overline{B}(a,\epsilon) \). Since \( \overline{B}(a,\epsilon) \) is closed, we know by the hint given in part (b) of problem 3 that \( \overline{B(a,\epsilon)} \subseteq \overline{B}(a,\epsilon) \).
     
     With (2), let \( x \in \overline{B}(a,\epsilon) \). By definition of \( \overline{B}(a,\epsilon) \), we have \( d(x,a) \leq \epsilon \). Then either \( d(x,a) < \epsilon \) or \( d(x,a) = \epsilon \). If \( d(x,a) < \epsilon  \), then \( x  \) is contained in \( B(a,\epsilon) \), and so \( x \in \overline{B(a,\epsilon)} \). Now, suppose \( d(x,a) = \epsilon \). Observe that the closure \( \overline{B(a,\epsilon)} \) contains its boundary points. Thus, \( x \in \overline{B(a,\epsilon)} \). Thus, \( \overline{B}(a,\epsilon) \subseteq  \overline{B(a,\epsilon)} \). 
 

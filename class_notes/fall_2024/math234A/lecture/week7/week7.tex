@@ -1,0 +1,149 @@
+\documentclass[a4paper]{report}
+\usepackage{standalone}
+\usepackage{import}
+
+\input{../../../../../newpreamble.tex}
+
+\begin{document}
+
+\section{Lecture 10}
+
+\subsection{Topics}
+\begin{itemize}
+    \item Discuss few leftover limit topics from last lecture.
+    \item Discuss differentiability of a function \( f: D \to \C  \).
+\end{itemize}
+
+Recall the following lemma:
+
+\begin{lemma}
+    Let \( f: D \to \C  \) be a function where \( D \subseteq \C  \), and \( \ell \in \C  \). Then the following statements are equivalent:
+    \begin{enumerate}
+        \item[(1)] \( \lim_{ z \to a } f(z) = \ell  \)
+        \item[(2)] Define \( \tilde{f} : D \cup \{ a \}  \to \C  \) by
+            \[  \tilde{f}(z) = 
+            \begin{cases}
+                f(z) &\text{if} \ z \in D \\
+                \ell &\text{if} \ z = a.
+            \end{cases} \]
+            Then \( \tilde{f} \) is continuous at \( a  \).
+    \end{enumerate}
+\end{lemma}
+
+\subsection{Complex Differentiability}
+
+\begin{definition}[Complex Differentiability]
+    Let \( f: D \to \C  \) be a function, and \(a \in D  \) such that \( a  \) is an accumulation point of \( D \setminus  \{ a \}  \). We say that \( f  \) is \textbf{complex differentiable at \( a  \)} if the limit 
+    \[  \lim_{ z \to a } \frac{ f(z) - f(a)  }{  z - a  } \ \ \text{exists}.  \]
+\end{definition}
+
+\begin{remark}
+    Note that \( D  \) may not always be open!
+\end{remark}
+
+If \( f  \) is complex differentiable at \( a  \), we write
+\[  f'(a) = \lim_{ z \to a }  \frac{ f(z) - f(a) }{  z - a  }. \]
+We call \( f  \) is complex differentiable on \( D  \) if the limit above exists for every \( a \in D  \). Furthermore, we can define a function \( f'  \) by mapping \( z \in D  \) to \( f'(z) \in \C  \). This \( f'  \) is called the \textbf{complex derivative} of \( f  \).  
+
+In our definition of complex differentiability, we are allowed to choose 
+\[  D = [c,d] \subseteq  \R  \]
+which allows us to write \( f \) in terms of real functions \( u(x) \) and \( v(x) \); that is, we have
+\[  f(x) = u(x) + i v(x) , \ \ x \in [c,d]. \]
+
+\begin{eg}
+    \begin{enumerate}
+        \item[(i)] Let \( f: \C \to \C  \) be defined by \( f(z) = z  \). Let \( a \in \C  \). We will compute \( f'(a)   \). Clearly, we have
+            \[  f'(a) = 1.  \]
+        \item[(ii)] Let \( f: \C \to \C  \) be defined by \( f(z) = \overline{z} \). If we fix \( \Im(z) = 0  \) and \( z \to 0  \) along the real axis, we have  
+            \[  \lim_{ z \to 0 }  \frac{ f(z) - f(0) }{  z -  0  }  = \lim_{ z \to 0 }  \frac{ \overline{z} }{ z } = 1. \]
+            If we fix \( \Re(z) = 0  \) and let \( z \to 0  \) along the imaginary axis, we have
+            \[  \lim_{ z \to 0 }  \frac{ f(z) - f(0) }{ z - 0  }  = \lim_{ z \to 0 }  \frac{ \overline{z} }{ z }  = -1. \]
+            Thus, we see that the function \( f(z) = \overline{z} \) is not complex differentiable at \( 0  \).
+    \end{enumerate}
+\end{eg}
+
+\begin{remark}
+    The definition of complex differentiability depends on the domain \( D  \). In most textbooks, the domain \( D  \) of a function in \( \C  \) is frequently stated to be an open set. Different properties can arise when we compare real and complex functions defined on open sets in terms of looking at their differentiability.
+\end{remark}
+
+\begin{lemma}
+    Let \( f: D \to \C  \) and \( a \in D  \) such that \( a  \) is an accumulation point of \( D \setminus  \{ a \}  \). Suppose that \( f  \) is complex differentiable at \( a  \). Define \( g: D \to \C  \) by
+    \[  g(z) = 
+    \begin{cases}
+        \frac{ f(z) - f(a) }{  z-  a  }  &\text{if} \ z \neq a \\
+        f'(a) &\text{if} \ z = a. 
+    \end{cases} \]
+    Then \( g  \) is continuous at \( z= a  \). 
+\end{lemma}
+\begin{proof}
+\textbf{Left as an exercise.}
+\end{proof}
+The main take away from this lemma is that we now have the ability to rewrite our function in a different way; that is,
+we can write \( f  \) in terms of 
+\[ f(z) = f(a) + (z-a)g(z) \]
+where \( g  \) is a continuous at \( a  \).
+
+\begin{corollary}
+   If the function \( f  \) is complex differentiable at \( a \in D  \), then \( f  \) is continuous at \( a  \).
+\end{corollary}
+
+\begin{problem}
+    Let \( a \in D  \) be a accumulation point of \( D \setminus  \{ a  \}  \) and \( \ell \in \C  \). Then the following statements are equivalent:
+    \begin{enumerate}
+        \item[(1)] \( f  \) is complex differentiable at \( a  \) and \( f'(a) = \ell \).
+        \item[(2)] Define \( \gamma : D \to \C  \) by
+            \[  f(z) = f(a) + \ell(z-a) + \gamma(z); \]
+            that is, 
+            \[  r(z) = [f(z) - f(a)] + \ell(z-a), \]
+            then 
+        \[  \lim_{ z \to a } \Big|  \frac{ \gamma(z) }{ z - a  } \Big|  = 0.  \]
+            In this case, \( \ell = f'(a) \).
+    \end{enumerate}
+\end{problem}
+
+\begin{theorem}
+    Assume that \( f  \) and \( g  \) are complex differentiable at \( a \).
+    \begin{enumerate}
+        \item[(i)] \( f + g , \lambda f  \) where \( \lambda \in \C  \) are also complex complex differentiable at \( a  \) and 
+            \[  (f+g)' = f'(a) + g'(a)  \]
+            and
+            \[  (\lambda f)' (a) = \lambda f'(a). \]
+        \item[(ii)] The product \( fg  \) is complex differentiable and \( (fg)'(a) = f'(a) g(a) + f(a) g'(a) \).
+        \item[(iii)] Assume that \( f(a) \neq 0  \), then \( \frac{ 1 }{ f }   \) is also complex differentiable at \( a  \) and 
+            \[  \Big(  \frac{ 1 }{ f }  \Big)'(a) = \frac{ f'(a) }{ (f(a))^{2} }.  \]
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+\textbf{Left as an exercise.}
+\end{proof}
+
+\begin{theorem}[Chain Rule]
+    Let \( f: D \to \C  \) and \( g: D' \to \C  \) such that \( f(D) \subseteq D'  \). Let \( a \in D  \). Assume that \( f \) is complex differentiable at \( a \in D  \) and \( g  \) is complex differentiable at \( f(a) \). Then \( g \circ f  \) is complex differentiable at \( a \in D  \) and 
+    \[  (g \circ f)'(a) = g'(f(a)) \cdot f'(a). \]
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+\begin{eg}
+   \begin{enumerate}
+       \item[(i)] Let \( f: \C \to \C  \) and \( n  \) is a positive integer such that \( f \) is defined as \( f(z) = z^{n} \). Then \( f  \) is complex differentiable at any \( z \in \C  \). Show that \( f'(z) = n z^{n-1} \).
+        \item[(ii)] Let \( f: \C^{\bullet} \to \C  \) be defined by 
+            \[  f(z) = \frac{ 1 }{ z }. \]
+            Then we have 
+            \[  f'(z) = - \frac{ 1 }{ z^{2} }. \]
+        \item[(iii)] Let \( f: \C^{\cdot} \to \C  \) defined by \( f(z) = z^{-n} \) where \(  n \) is a positive integer. Then \( f  \) is complex differentiable on \( \C^{\cdot} \) and
+            \[  f'(z) = -z z^{-n-1}. \]
+        \item[(iv)] Let \( f: \C \to \C  \) be defined by
+            \[  f(z) = {a}_{0} + {a}_{1}z + {a}_{2} z^{2} + \cdots + {a}_{n} z^{n}. \]
+            Then \( f  \) is complex differentiable on \( \C  \) and 
+            \[  f'(z) = \sum_{ k=1  }^{ n } k {a}_{k} z^{k-1}. \]
+        \item[(v)] Let \( f: \C \to \C  \) and \( f(z) = e^{z} \).
+   \end{enumerate} 
+\end{eg}
+
+Regarding example (v) from above, we have that \( f'(z) = f(z) \).
+
+
+\end{document}
+

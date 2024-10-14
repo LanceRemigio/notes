@@ -20,7 +20,7 @@
 \usepackage{subcaption}
 \usepackage{multicol}
 \usepackage[usenames,dvipsnames]{xcolor}
-
+\usepackage{ocgx}
 % \usepackage{cmbright}
 
 
@@ -152,7 +152,8 @@
     style=thmbox, 
     % numberwithin = section,
     numbered = no,
-    name=Definition]{definition}
+    name=Definition
+    ]{definition}
 
 \declaretheorem[
     style=thmbox, 
@@ -203,7 +204,6 @@
 \newtheorem*{observe}{Observe}
 \newtheorem*{property}{Property}
 \newtheorem*{intuition}{Intuition}
-
 
 \usepackage{etoolbox}
 \AtEndEnvironment{vb}{\null\hfill$\diamond$}%

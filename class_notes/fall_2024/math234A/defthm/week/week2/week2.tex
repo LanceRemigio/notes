@@ -1,0 +1,83 @@
+\documentclass[a4paper]{article}
+
+
+\input{../../../../../../newpreamble.tex}
+
+\usepackage{standalone}
+
+\begin{document}
+   
+\subsection*{Polar Representation of Complex Numbers}
+\begin{ocg}{layer1}{ocg1}{1}
+   Let \( (\alpha , \beta) \in \R^{2}  \). The polar representation of \( (\alpha, \beta) \) is 
+   \[  (\alpha, \beta) = \gamma (\cos \varphi, \sin \varphi) \]
+   with \( \tan \varphi = \frac{ \beta }{ \alpha }  \). Note that if \( \psi = 2 \pi + \varphi \), then
+   \[  (\alpha, \beta) = \gamma (\cos \psi, \sin \psi) \]
+   where \( \gamma  \) is uniquely defined and \( \varphi  \) is defined up to the addition of a multiple of \( 2 \pi \).
+\end{ocg}
+
+\switchocg{ocg1}{\textbf{Click here for the definition}}
+
+\subsection*{Argument and Principle Argument}
+
+\begin{ocg}{layer2}{ocg2}{1}
+    Let \( z \in \C^{\cdot} \) and \( z = \gamma (\cos \varphi + i \sin \varphi) \) be a polar representation of \( z  \). Then \( \varphi  \) is called \textbf{an argument of \( z  \)}. If \( - \pi < \varphi \leq \pi \), then \( \varphi  \) is called \textbf{the principal argument of \( z \)} and it is denoted by \( \Arg(z) \). 
+\end{ocg}
+\switchocg{ocg2}{\textbf{Click here for the definition}}
+
+\subsection*{Convergence of Sequences}
+
+\begin{ocg}{layer3}{ocg3}{1}
+    Let \( {\{ {z}_{n} \} }_{n=1}^{\infty }     \) be a sequence in \( \C  \). We say that \( \{ {z}_{n} \}   \) converges to \( z \in \C  \) if for all \(  \epsilon > 0  \), we can find \( {N}_{\epsilon} \in \N  \) such that  
+    \[  | {z}_{n} - z  |  < \epsilon \]
+    for all \( n \geq {N}_{\epsilon} \).
+\end{ocg}
+\newline
+\switchocg{ocg3}{\textbf{Click here for the definition}}
+
+\subsection*{Convergence of Series}
+
+\begin{ocg}{layer4}{ocg4}{1}
+    Let \( \{ {z}_{n} \}_{n=1}^{\infty } \) be a sequence in \( \C  \). Define 
+    \[  {s}_{k} = \sum_{ k=1  }^{ n } {z}_{k } = {z}_{1} + \cdots + {z}_{n} \]
+    where \( ({s}_{n}) \) is called the \textbf{sequence of partial sums} of \( \{ {z}_{n} \}  \). If \( {s}_{n} \to s \), then we say that the series \( \sum_{ n=1  }^{ \infty  } {z}_{n} \) converges and write \( \sum_{ n=1  }^{ \infty  } {z}_{n} = s  \).
+\end{ocg}
+\newline
+\switchocg{ocg4}{\textbf{Click here for the definition}}
+
+\subsection*{Absolute Convergence of Infinite Series}
+\begin{ocg}{layer5}{ocg5}{1}
+    Let \( ({z}_{n}) \) be a sequence of complex numbers. We say that the series \( \sum_{  n = 1  }^{  \infty  } {z}_{n} \) converges absolutely if the series of real numbers 
+    \[  \sum_{ n=1  }^{ \infty   } | {z}_{n} |  \] converges.
+\end{ocg}
+\newline
+\switchocg{ocg5}{\textbf{Click here for the definition}}
+
+\subsection*{Complex Version of Exponential Function}
+
+\begin{ocg}{layer6}{ocg6}{1}
+    For \( z \in \C  \), we define 
+    \[ \exp(z) = \sum_{ n=0  }^{  \infty  } \frac{ z^{n} }{ n!  }   \]
+\end{ocg}
+\newline
+\switchocg{ocg6}{\textbf{Click here for the definition}}
+
+\subsection*{Sine and Cosine Series}
+
+\begin{ocg}{layer7}{ocg7}{1}
+         We define  \( \sin z  \) as
+            \[ \sin z = \sum_{ n=0 }^{ \infty  } (-1)^{2n+1} \frac{ z^{2n+1} }{ (2n+1)! } \]
+            and \( \cos z  \) as 
+            \[  \cos z  =  \sum_{ n = 0  }^{ \infty  } (-1)^{n} \frac{ z^{2n} }{ (2n)! }.  \]
+\end{ocg}
+\newline
+\switchocg{ocg7}{\textbf{Click here for the definition}}
+
+
+
+
+    
+
+
+
+\end{document}

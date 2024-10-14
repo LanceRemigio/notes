@@ -1,0 +1,66 @@
+\documentclass[a4paper]{article}
+
+\usepackage{standalone}
+
+\usepackage{import}
+
+\input{../../../../../../newpreamble.tex}
+
+\begin{document}
+    
+\subsection*{Complex Powers}
+
+\begin{ocg}{l11}{l11}{1}
+   We define \( z^{w} = \exp(w \log z) \). Note that  
+   \begin{align*}
+       \log z &= \Log z + 2 \pi i k  \\
+              &= \ln | z  |  + i (\Arg(z) + 2\pi k), \ k \in \Z 
+   \end{align*}
+   is a multi-valued function.
+\end{ocg}
+\newline
+\switchocg{l11}{\textbf{Click here for the definition}}
+
+\subsection*{Functional Limit}
+
+\begin{ocg}{l12}{l12}{1}
+    Let \( D \subseteq \C   \) and \( f: D \to \C  \) be a function. Let \( a \) be an accumulation point of \( D  \). Let \( \ell \in \C  \). We say that \( \ell  \) is \textbf{the limit of \( f(z) \)} as \( z  \) approaches to \( a  \) if for all \( \epsilon > 0 \), there is \( \delta> 0  \) such that for all \( z \in D  \) with \( 0 < |  z - a  |  < \delta \), we have
+    \[  | f(z) - \ell | < \epsilon; \]
+    that is, \( z \in D \cap (B(a,\delta) \setminus  \{ a \} ) \) implies \( f(z) \in B(\ell, \epsilon) \).
+\end{ocg}
+\newline
+\switchocg{l12}{\textbf{Click here for the definition}}
+
+\subsection*{Limits at Infinity}
+\begin{ocg}{l13}{l13}{1}
+    \begin{enumerate}
+        \item[(i)] Let \( f: D \to \C  \) be a function and \( a \in \C  \) be an accumulation point of \( D  \). Then we say \( \lim_{ z \to a } f(z) = \infty   \) if for all \( M > 0  \), there exists \( \delta > 0  \) such that
+            \[  z \in D \cap (B(a,\delta) \setminus  \{ a \} ) \]
+            implies \( | f(z) | \geq  M \); that is, \( f  \) is unbounded as \( z  \) approaches to \( a  \).
+        \item[(ii)] Let \( f  \) be a complex function defined on the complement of a ball in \( \C  \). We say \( \lim_{ z \to \infty  } f(z) = \ell  \) if for all \( \epsilon > 0  \), there exists \( R > 0  \) such that \( | z  |  > R  \) implies 
+            \[  | f(z) - \ell  | < \epsilon. \]
+    \end{enumerate}
+\end{ocg}
+\switchocg{l13}{\textbf{Click here for the definition}}
+
+\subsection*{Complex Continuity}
+
+\begin{ocg}{l14}{l14}{1}
+    Let \( D \subseteq \C   \) and \( f: D \to \C  \) be a function. We say \textbf{\( f  \) is continuous at \( a \in D  \)} if for all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that for all \( z \in B(a,\delta) \cap D \), we have \( f(z) \in B(f(a), \epsilon) \).
+\end{ocg}
+\newline
+\switchocg{l14}{\textbf{Click here for the definition}}
+
+\subsection*{Complex Differentiability}
+
+\begin{ocg}{l15}{l15}{1}
+    Let \( f: D \to \C  \) be a function, and \(a \in D  \) such that \( a  \) is an accumulation point of \( D \setminus  \{ a \}  \). We say that \( f  \) is \textbf{complex differentiable at \( a  \)} if the limit 
+    \[  \lim_{ z \to a } \frac{ f(z) - f(a)  }{  z - a  } \ \ \text{exists}.  \]
+\end{ocg}
+\newline
+\switchocg{l15}{\textbf{Click here for the definition}}
+
+
+
+\end{document}
+

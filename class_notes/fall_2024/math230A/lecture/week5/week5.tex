@@ -100,7 +100,8 @@ Let \( (X,d) \) be a metric space and \( E \subseteq X  \).
 \end{enumerate}
 \end{theorem}
 \begin{proof}
-Our goal is to show that \( (\overline{E})^{c} \) is open. We need to show that every point of \( (\overline{E})^{c} \) is an interior point of \( (\overline{E})^{c} \). Let \( p \in (\overline{E})^{c} \). We have 
+    \begin{enumerate}
+        \item[(1)] Our goal is to show that \( (\overline{E})^{c} \) is open. We need to show that every point of \( (\overline{E})^{c} \) is an interior point of \( (\overline{E})^{c} \). Let \( p \in (\overline{E})^{c} \). We have 
 \begin{align*}
     p \in (\overline{E})^{c} &\Longrightarrow p \notin \overline{E} \\ 
                              &\Longrightarrow p \notin (E \cup E') \\
@@ -117,9 +118,10 @@ In what follows, we will show that \( {N}_{\epsilon}(p) \cap E' = \emptyset \). 
                                        &\Longrightarrow {N}_{\epsilon}(p) \cap \overline{E} = \emptyset \\
                                        &\Longrightarrow {N}_{\epsilon}(p) \subseteq (\overline{E})^{c}.
 \end{align*}
-Thus, we have that \( p  \) is an interior point of \( (\overline{E})^{c}\). It remains to show that \( {N}_{\epsilon}(p) \cap E'  = \emptyset\). Assume for sake of contradiction that \( {N}_{\epsilon}(p) \cap E' \neq \emptyset \). Let \( q \in {N}_{\epsilon}(p) \cap E' \). Then we have \( q \in {N}_{\epsilon}(p)  \) and \( q \in E' \). Hence, there exists \( \delta > 0  \) such that \( {N}_{\delta}(q) \subseteq {N}_{\epsilon}(p) \) and that \( {N}_{\delta}(q) \cap (E \setminus  \{ q \} ) \neq \emptyset \), respectively. But note that since \( {N}_{q}(p) \subseteq  {N}_{\epsilon}(p)  \) and \( E \setminus  \{ q  \} \subseteq E   \) implies that 
+Thus, we have that \( p  \) is an interior point of \( (\overline{E})^{c}\). It remains to show that \( {N}_{\epsilon}(p) \cap E'  = \emptyset\). Assume for sake of contradiction that \( {N}_{\epsilon}(p) \cap E' \neq \emptyset \). Let \( q \in {N}_{\epsilon}(p) \cap E' \). Then we have \( q \in {N}_{\epsilon}(p)  \) and \( q \in E' \). Because \( {N}_{\epsilon}(p) \) is an open set, there exists \( \delta > 0  \) such that \( {N}_{\delta}(q) \subseteq {N}_{\epsilon}(p) \) and that \( {N}_{\delta}(q) \cap (E \setminus  \{ q \} ) \neq \emptyset \), respectively. But note that since \( {N}_{\delta}(q) \subseteq  {N}_{\epsilon}(p)  \) and \( E \setminus  \{ q  \} \subseteq E   \) implies that 
 \[  {N}_{\epsilon}(p) \cap E \neq \emptyset \]
 which contradicts (1).
+    \end{enumerate}
 \end{proof}
 
 \begin{definition}[Metric Subspace]

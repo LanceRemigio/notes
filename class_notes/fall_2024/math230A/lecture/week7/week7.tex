@@ -1,0 +1,167 @@
+\documentclass[a4paper]{report}
+\usepackage{standalone}
+\usepackage{import}
+\input{../../../../../newpreamble.tex}
+
+
+\begin{document}
+
+\section{Lecture 12}
+
+\subsection{Topics}
+
+\begin{itemize}
+    \item Definition of \( K- \)cell. 
+    \item Theorem: If \( {I}_{1} \supseteq {I}_{2} \supseteq {I}_{3} \supseteq \dots  \) is a sequence of \( k- \)cells, then \( \bigcap_{ n = 1  }^{ \infty    }  {I}_{n} \) is nonempty.
+    \item Theorem: Every \( k - \)cell is compact.
+    \item Theorem: Suppose \( E \subseteq \R^{k} \). Then
+    \item Connected sets
+        \begin{center}
+            \( E  \) is closed and bounded \( \iff  \) \( E  \) is compact \( \iff  \) Every infinite subset of \( E  \) has a limit point in \( E  \).
+        \end{center}
+    \item Theorem: Every bounded infinite subset of \( \R^{k} \) has a limit point in \( \R^{k } \). 
+\end{itemize}
+
+\begin{corollary}
+If \( {I}_{1} \supseteq {I}_{2} \supseteq {I}_{3} \supseteq \dots  \) is a sequence of compact sets, then \( \bigcap_{ n = 1  }^{ \infty    }  {I}_{n} \) is nonempty.
+\end{corollary}
+
+
+\begin{theorem}[Nested Interval Property]
+    If \( {I}_{n} = [{a}_{n}, {b}_{n}] \) is a sequence of closed intervals in \( \R  \) such that \( {I}_{1} \supseteq {I}_{2} \supseteq {I}_{3} \supseteq \dots  \), then \( \bigcap_{  n = 1 }^{ \infty   }  {I}_{n} \) is nonempty.
+\end{theorem}
+
+\begin{definition}[K-cell]
+    The set \( I = [{a}_{1}, {b}_{1}] \times \cdots \times [{a}_{k}, {b}_{k}] \) is called a \( k- \)cell in \( \R^{k} \).  
+\end{definition}
+\begin{eg}
+ Let \( I = [{a}_{1}, {a}_{2}]  \times [{a}_{2}, {b}_{2}] \) is a \( 2- \)cell in \( \R^{2} \).
+\end{eg}
+
+\begin{theorem}[Nested Cell Property]
+   If \( {I}_{1} \supseteq {I}_{2} \supseteq {I}_{3} \cdots  \) is a nested sequence of \( k - \)cells, then \( \bigcap_{ n=1 }^{ \infty  }  {I}_{n} \neq \emptyset \). 
+\end{theorem}
+\begin{proof}
+    For each \( n \in \N  \), let 
+    \begin{align*}
+        {I}_{n} = [{a}_{1}^{(n)}, {b}_{1}^{(n)}] \times \cdots \times [{a}_{k}^{(n)}, {b}_{k}^{(n)}]  \\
+    \end{align*}
+    Also, let 
+    \begin{center}
+        \( \forall n \in \N  \) and \( \forall 1 \leq i \leq k  \), we have \( {A}_{i}^{(n)} = [{a}_{i}^{(n)}, {b}_{i}^{(n)}] \)
+    \end{center}
+    Since for each \( n \in \N  \), \( {I}_{n} \supseteq {I}_{n+1} \), we have
+    \[  {A}_{i}^{(n) }  \supseteq {A}_{i}^{(n+1)}\ \forall 1 \leq i \leq k.  \]
+    That is,
+    \begin{align*}
+       {I}_{1} &= {A}_{1}^{(1)} \times \cdots \times {A}_{k }^{(1)} \\
+       {I}_{2} &= {A}_{1}^{(2)} \times \cdots \times {A}_{k}^{(2)} \\
+               &\vdots  \\
+        {I}_{n} &= {A}_{1}^{(n)} \times \cdots {A}_{k}^{(n)}.
+    \end{align*}
+    Hence, it follows from the nested interval property that there exists 
+    \begin{align*}
+        \exists {x}_{1} &\in \bigcap_{ n=1  }^{ \infty  } {A}_{1}^{(n)} \\
+        \exists {x}_{2} &\in \bigcap_{ i=1  }^{ \infty   }  {A}_{2}^{(n)} \\
+                        &\vdots \\
+        \exists {x}_{k} &\in \bigcap_{ n=1  }^{ \infty  }  {A}_{k}^{(n)}. 
+    \end{align*}
+    Thus, by a fact in set theory; that is,  
+    \[  (A \cap B) \times (C \cap D ) \subseteq  (A \times C ) \cap (B \times D). \]
+    \begin{align*}
+        ({x}_{1}, \dots, {x}_{k}) &\in \Big[\bigcup_{ n=1  }^{ \infty   }  {A}_{1}^{(n)} \Big] \times \Big[\bigcap_{ n=1  }^{ \infty  } {A}_{2}^{(n)} \Big] \times \cdots \times \Big[ \bigcap_{  n = 1 }^{ \infty  }  {A}_{k}^{(n)}\Big] \\
+                                  &\subseteq \bigcap_{ n=1  }^{ \infty  }  [{A}_{1}^{(n)} \times \cdots \times {A}_{k}^{(n)}] \\
+                                  &= \bigcap_{ n=1  }^{ \infty  }  {I}_{n}.
+    \end{align*}
+    Hence, we see that 
+    \[  \bigcap_{ n=1  }^{ \infty  }  {I}_{n} \neq \emptyset. \]
+\end{proof}
+
+\begin{theorem}[ ]
+Every \( k- \)cell in \( \R^{k} \) is compact.    
+\end{theorem}
+\begin{proof}
+    Here we will prove the claim for \( 2- \)cells. The proof for a general \( k- \)cell is completely analogous. Let \( I = [{a}_{1}, {b}_{1}] \times [{a}_{2}, {b}_{2}] \) be a \( 2- \)cell. Let \( a = ({a}_{1}, {a}_{2})  \) and \( b = ({b}_{1}, {b}_{2}) \). Let \[ \delta = d(a,b) = \| a - b\| = \sqrt{ | {a}_{1} - {b}_{1} |^{2} + | {a}_{2} - {b}_{2} |^{2} }  \]. Note that if \( x = ({x}_{1}, {x}_{2}) \) and \( y = ({y}_{1}, {y}_{2}) \) are any two points in \( I  \), then
+    \begin{align*}
+    {x}_{1}, {y}_{1} \in [{a}_{1}, {b}_{2}] &\implies | {x}_{1} - {y}_{1}  |  \leq | {b}_{1} - {a}_{1} |  \\
+    {x}_{2}, {y}_{2} \in [{a}_{2}, {b}_{2}]                     &\implies  | {x}_{2} - {y}_{2} |  \leq | {b}_{2} - {a}_{2} |
+\end{align*}
+which implies that 
+\[ \sqrt{ | {x}_{1} - {y}_{1} |^{2} + | {x}_{2} - {y}_{2} |^{2} } \leq \sqrt{ | {a}_{1} - {b}_{1} |^{2} + | {a}_{2} - {b}_{2}  |^{2} } = \delta.  \]
+So, \( d(x,y) \leq \delta \).
+Let us assume for contradiction that \( I  \) is NOT compact. So, there exists an open cover \( \{ {G}_{\alpha} \}_{\alpha \in \Lambda} \) of \( I  \) that does NOT have a finite subcover; that is, \( I \subseteq \bigcup_{ \alpha \in \Lambda }^{  } {G}_{\alpha} \). For each \( 1 \leq i \leq 2  \), divide \( [{a}_{i}, {b}_{i}] \) into two subintervals of equal length:
+\[  {c}_{i} = \frac{ {a}_{i} + {b}_{i} }{ 2 }  \ \ [{a}_{i}, {b}_{i}] = [{a}_{i}, {c}_{i}] \cup [{c}_{i}, {b}_{i}]. \]
+These subintervals determine \( 4  \) \( 2 - \)cells. There is at least one of these \( 4  \) \( 2- \)cells that is not covered by any finite subcollection of \( \{ {G}_{\alpha} \}_{\alpha \in \Lambda} \). Let us call this \( 2- \)cell as \( {I}_{1} \). Notice that 
+\begin{align*}
+    \forall x,y \in {I}_{1}  \ \  \|x - y\|_2 \leq \frac{ \delta }{ 2 }.
+\end{align*}
+Now, subdivide \( {I}_{1} \) into \( 4  \) \( 2- \)cells and continue this process inductively. In this manner, we will obtain a sequence of \( 2- \)cells 
+\[ I, {I}_{1}, {I}_{2}, {I}_{3}, \dots  \]
+such that 
+\begin{align*}
+    &I \supseteq {I}_{1} \supseteq {I}_{2} \supseteq {I}_{3} \supseteq \dots  \tag{1} \\
+    &\forall x,y \in {I}_{n},  \ \ \| x - y \| \leq \frac{ \delta }{ 2 }  \tag{2} \\
+    &\forall n \in \N  \ \   {I}_{n} \  \text{cannot be covered by a finite subcollection of} \ \  \{ {G}_{\alpha} \}_{\alpha \in I}
+\end{align*}
+
+\end{proof}
+
+
+\begin{theorem}[Heine-Borel Theorem]
+   Let \( E \subseteq \R^{k} \). The following statements are equivalent:
+   \begin{enumerate}
+       \item[(a)] \( E  \) is closed and bounded. 
+        \item[(b)] \( E  \) is compact.
+        \item[(c)] Every infinite subset of \( E  \) has a limit point of \( E  \). 
+   \end{enumerate}
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+
+\begin{remark}
+    Note that in any general metric space, we have \( (a) \implies (b) \) is not necessarily true.
+\end{remark}
+
+
+\begin{theorem}[Bolzano-Weierstrass Theorem]
+ Let \( E \subseteq \R^{k }  \) and \( E  \) is an infinite set and bounded. Then \( E' \neq \emptyset \).   
+\end{theorem}
+\begin{proof}
+Suppose that \( E  \) is bounded. Then there exists a \( k- \)cell \( I  \) such that \( E \subseteq  I  \). By Theorem 2.40, we know that \( I  \) is a compact set. Furthermore, we know that \( I  \) is limit point compact by Theorem 2.41. So, every infinite set in \( I  \) has a limit point in \( I  \). In particular, \( E  \) has a limit point in \( I  \). So, \( E \neq \emptyset \).
+\end{proof}
+
+\begin{definition}[Connected Sets, Disconnected, connected]
+    Let \( (X,d) \) be a metric space. 
+    \begin{enumerate}
+        \item[(i)] Two sets \( A,B \subseteq X   \) are aid to be disjoint if \( A \cap B = \emptyset \).
+        \item[(ii)] Two sets \( A,B \subseteq X  \) are said to be \textbf{separated} if \( \overline{A} \cap B  \) and \( A \cap \overline{B}  \) are both empty.
+        \item [(iii)] A set \( E \subseteq X   \) is said to \textbf{disconnected} if it can be written as a union of tow nonempty separated sets \( A  \) and \( B  \); that is, \( E = A \cup B  \).
+        \item[(iv)] A set \( E \subseteq X  \) is said to be connected if it is NOT disconnected.
+    \end{enumerate}
+\end{definition}
+
+\begin{eg}[\( \R  \) with the standard metric]
+\begin{enumerate}
+    \item[(*)] If we have \( A = (1,2)  \) and \( B = (2,5) \) are separated, then
+        \begin{align*}
+            \overline{A} \cap B &= [1,2] \cap (2,5) = \emptyset \\
+            A \cap \overline{B} &= (1,2) \cap [2,5] = \emptyset.
+        \end{align*}
+        Hence, \( E = A \cup B  \) is disconnected.
+    \item[(*)] We have \( C = (1,2] \) and \( D = (2,5) \) are disjoint but not separated; that is, we have
+        \begin{align*}
+            C \cap \overline{D} &= (1,2] \cap [2,5] = \{ 2 \}  \\
+            C \cup D &= (1,5) \ \text{is indeed connected.}
+        \end{align*}
+\end{enumerate}    
+\end{eg}
+
+\section{Lecture 12}
+
+
+
+
+\end{document}
+

@@ -77,7 +77,7 @@ Hence, we see that
 \end{eg}
 
 \begin{definition}[Compactness]
-    Let \( (X,d) \) be a metric space and \( K \subseteq X  \). We say that \(  K \) is \textbf{compact} if every open cover of \(  K  \) has a finite subcover; that is, if \( \{ {O}_{\alpha} \}_{\alpha \in \Lambda}  \) is an open cover of \( K  \), then there exists \( {\alpha}_{1}, {\alpha}_{2}, \dots, {\alpha}_{n} \), we have
+    Let \( (X,d) \) be a metric space and \( K \subseteq X  \). We say that \(  K \) is \textbf{compact} if every open cover of \(  K  \) has a finite subcover; that is, for every open cover \( \{ {O}_{\alpha} \}_{\alpha \in \Lambda}  \) of \( K  \), there exists \( {\alpha}_{1}, {\alpha}_{2}, \dots, {\alpha}_{n} \) such that
     \[  K \subseteq \bigcup_{ i = 1  }^{ n }  {O}_{{\alpha}_{i}}. \]
 \end{definition}
 
@@ -125,7 +125,7 @@ Hence, we see that
 \end{remark}
 
 \begin{theorem}[Compactness implies Closed]
-Let \( (X,d) \) be a metric space and \( K \subseteq X   \) is compact. Then \(  K  \) is compact.
+Let \( (X,d) \) be a metric space and \( E \subseteq K   \) is closed and \( K  \) is compact. Then \(  E  \) is compact.
 \end{theorem}
 \begin{proof}
 It is enough to show that \( K^{c} \) is open; that is, we need to find \( \epsilon > 0 \) such that \( {N}_{\epsilon}(x) \subseteq K^{c} \) for every \( x \in K^{c} \). That is, we want to show that   

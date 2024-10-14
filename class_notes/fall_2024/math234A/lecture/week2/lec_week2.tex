@@ -24,12 +24,13 @@ First, let us introduce some notation:
     \item \( {\R}_{+} = \{ \alpha \in \R : \alpha > 0  \}. \)
 \end{itemize}
 
-Recall that any non-zero \( (\alpha , \beta ) \in \R^{2} \) can be represented as 
-\[  (\alpha, \beta) = \gamma (\cos \varphi, \sin \varphi) \]
-with \( \tan \varphi = \frac{ \beta  }{ \alpha }\).
-
-Note that if \( \psi = 2 \pi + \varphi  \), then
-\[  (\alpha , \beta ) = \gamma (\cos \psi , \sin \psi). \]
+\begin{definition}[Polar Representation of Complex Numbers]
+   Let \( (\alpha , \beta) \in \R^{2}  \). The polar representation of \( (\alpha, \beta) \) is 
+   \[  (\alpha, \beta) = \gamma (\cos \varphi, \sin \varphi) \]
+   with \( \tan \varphi = \frac{ \beta }{ \alpha }  \). Note that if \( \psi = 2 \pi + \varphi \), then
+   \[  (\alpha, \beta) = \gamma (\cos \psi, \sin \psi) \]
+   where \( \gamma  \) is uniquely defined and \( \varphi  \) is defined up to the addition of a multiple of \( 2 \pi \).
+\end{definition}
 
 \begin{itemize}
     \item \( \gamma  \) is uniquely defined. 
@@ -101,7 +102,7 @@ The proposition above allows us to visualize the multiplication of complex numbe
 The corollary above allows us to compute the \( n \)th roots of a non-zero complex number.
 
 \begin{eg}[An example of De Moivre's Theorem]
-   Suppose we had the complex number  
+   Suppose we have the complex number  
    \[  z = \frac{ 1 }{ 2 }  + i \frac{ \sqrt{ 3 }  }{ 2 }. \]
   Suppose we want to find \( z^{10} \). First, we need to find the angle that makes this complex number. Since the \( x  \) and \( y  \) coordinates are both positive this means that the angle must lie in the first quadrant. Thus, we have 
   \[  \varphi = \arg(z) = \frac{ \pi }{ 3  }. \]
