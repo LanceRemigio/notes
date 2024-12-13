@@ -118,7 +118,20 @@
 
 \begin{solution}[a]
    \begin{enumerate}
-       \item[(i)]
+       \item[(i)] Note that the circle defined by \( \alpha \) is contained inside the ellipse \( \beta \). Our goal is to show that 
+           \[  \int_{ \alpha }^{  } \frac{ 1 }{ z }  \ dz = \int_{ \beta }^{  } \frac{ 1 }{ z }  \ dz. \]
+           Suppose \( \alpha \) has a negative orientation and \( \beta \) has a positive orientation. Now, we will introduce two new curves \( {\gamma}_{1} \) and \( {\gamma}_{2} \) by splitting \( \beta  \) containing \( \alpha \) in two regions down the middle. We define \( {\gamma}_{1}  \) to have a positive orientation and \( {\gamma}_{2} \) to have a negative orientation. Note that \( {\gamma}_{1} \) and \( {\gamma}_{2} \) formed from this process are star-shaped regions. Since \( \frac{ 1 }{ z } \) is holomorphic on \( {\gamma}_{1} \) and \( {\gamma}_{2} \), we can use Cauchy's Integral Theorem for star-shaped regions to state that 
+           \[ \int_{ {\gamma}_{1} }^{  } \frac{ 1 }{ z }  \ dz = 0 \ \ \text{and} \ \ \int_{ {\gamma}_{2} }^{  } \frac{ 1 }{ z }  \ dz = 0. \]
+           Adding these two integrals together, we get that 
+           \[  \int_{ {\gamma}_{1} }^{  } \frac{ 1 }{ z }  \ dz + \int_{ {\gamma}_{2} }^{  } \frac{ 1 }{ z }  \ dz = 0.  \]
+           Note that this is equivalent to the composition of these two curves. Thus, we have 
+           \[  \int_{ {\gamma}_{1} \circ {\gamma}_{2} }^{  } \frac{ 1 }{ z }  \ dz = 0.  \]
+           But note that this is also equivalent to 
+           \[  - \int_{ \alpha }^{  } \frac{ 1 }{ z }  \ dz + \int_{ \beta }^{  } \frac{ 1 }{ z }  \ dz  = 0.  \]
+           Hence, we have 
+           \[  \int_{ \alpha }^{  } \frac{ 1 }{ z }  \ dz = \int_{ \beta }^{  } \frac{ 1 }{ z }  \ dz. \]
+           In particular, we see by Cauchy's Integral Theorem that 
+           \[  \int_{ \alpha }^{  } \frac{ 1 }{ z }  \ dz = 2 \pi i.  \]
        \item[(ii)] From the parametrization \( \beta (t) = 3 \cos (2 \pi t ) + i 4 \sin (2 \pi t) \) with \( t \in [0,1] \), we can rewrite \( \beta(t) \) with bounds similar to the left-hand side of our desired integral. Thus, we have  
            \[  \beta(t) = 2 \cos t + 4 i \sin t \ \ \text{with} \ t \in [0,2\pi]. \]
            Using this new parametrization, we can write
@@ -240,7 +253,7 @@ Thus, we conclude that
         \[  | {\alpha}_{R}'(t) | = | R i e^{it } | =   | Ri | | e^{it } |  = R. \tag{3} \]
         Using (1), (2), and (3), we can see that
         \begin{align*}
-            \Big| \int_{ {\alpha}_{R} }^{  } f(z) \ dz  \Big| &= \Big| \int_{ 0 }^{ \frac{ \pi }{ 4 }  } f({\alpha}_{R}(t)) {\alpha}_{R}'(t) \ dt  \Big|  \\
+            \Big| \int_{ {\alpha}_{R} }^{  } f(z) \ dz  \Big| &= \Big| \int_{ 0 }^{ \frac{ \pi }{ 4 }  } f({\alpha}_{R}(t)) {\alpha}_{R}'(t) \ dt  \Big|  \\C 
                                                               &\leq \int_{ 0 }^{ \frac{ \pi }{ 4 }  } | f({\alpha}_{R}(t)) | | {\alpha}_{R}'(t) |  \ dt \\
                                                               &= \int_{ 0 }^{ \frac{ \pi }{ 4 }  } R e^{- R^{2} \sin 2t } \ dt \\
                                                               &\leq \int_{ 0 }^{  \frac{ \pi }{ 4 }  } R e^{-\frac{ 4 R^{2} }{ \pi  } t } \ dt \\
@@ -256,6 +269,13 @@ Thus, we conclude that
             Using the Squeeze Theorem, we can see that
             \[  \lim_{ R \to \infty  }  \int_{ {\alpha}_{R} }^{  } f(z) \ dz = 0.  \]
         \item[(iii)] 
+            Our goal is to show that 
+            \[ \int_{ {C}_{R} }^{  } f(z) \ dz = \int_{ {L}_{R} }^{  } f(z) \ dz + \int_{ {\alpha}_{R} }^{   } f(z) \ dz. \]
+            Denote the closed piecewise curve \( \Gamma \) formed by \( {C}_{R}, {L}_{R},  \) and \( {\alpha}_{R} \). We define our orientation for both \( {L}_{R}  \) and \( {\alpha}_{R} \) to be positively oriented (counter-clockwise) and \( {C}_{R} \) to be negatively oriented (clockwise). Notice that \( \Gamma \) is also a star-shaped region and that \( f(z) = e^{i z^{2}}  \) is holomorphic on \( \C  \), and is therefore holomorphic on \(  \Gamma \). Taking into account our orientation for each curve making up \( \Gamma \), we can apply Cauchy's Integral Formula for Star Domains to state that
+            \[ \Big( \int_{ {L}_{R} }^{  } f(z) \ dz + \int_{ {\alpha}_{R} }^{  } f(z) \ dz \Big) - \int_{ {C}_{R} }^{  } f(z) \ dz = 0   \]
+            which implies that 
+            \[  \int_{ {C}_{R} }^{  } f(z) \ dz = \int_{ {L}_{R} }^{  } f(z)  \ dz + \int_{ {\alpha}_{R} }^{  } f(z) \ dz  \]
+            which is our desired result.
 
             From the first equation, we can see that  
             \begin{align*}
@@ -333,7 +353,82 @@ Thus, we conclude that
 \end{enumerate} 
 \end{proof}
 
+\begin{problem}
+    Compute the following limits.
+    \begin{enumerate}
+        \item[(i)] \( \displaystyle \lim_{ z \to \infty  }  \displaystyle \frac{ z^{3} + iz  + 1  }{ z^{3} - z  }  \)
+        \item[(ii)] \( \displaystyle \lim_{ z \to \infty  }  \displaystyle \frac{ e^{-i | z | } }{ z^{2} }  \).
+        \item[(iii)] \( \displaystyle \lim_{ z \to \infty  } z \sin (1 /z)  \).      
+    \end{enumerate}
+\end{problem}
 
+\begin{solution}
+\begin{enumerate}
+    \item[(i)] Notice that 
+        \[  \frac{ z^{3} + iz + 1  }{ z^{3} - z  }  = \frac{ 1 + \frac{ i }{ z^{2} }  + \frac{ 1 }{ z^{3} }  }{ 1 - \frac{ 1 }{ z^{2} }  }. \]
+        Hence, we can see by the Algebraic Limit Theorem for functions that 
+        \[  \lim_{ z \to \infty  } \frac{ z^{3} + iz + 1 }{ z^{3} - z  }  = \lim_{ z \to \infty  }   \frac{ 1 + \frac{ i }{ z^{2} }  + \frac{ 1 }{ z^{3} }  }{ 1 - \frac{ 1 }{ z^{2} }  } = \frac{ 1 + 0 + 0  }{ 1 - 0 } = 1. \]
+    \item[(ii)] Set \( f(z) = \frac{ e^{-i | z | } }{ z^{2} }  \) and notice that 
+        \[  f(z) = \frac{ e^{-i | z | } }{ z^{2} } = \frac{ 1 }{ e^{i | z | } z^{2} }.  \]
+        Taking \( z \to \infty   \), we can see that 
+        \[  f(z) \to 0. \]
+    \item[(iii)] Set \( f(z) = z \sin (1/z) \) and notice that 
+        \[  f(1/z) = \frac{ \sin (z) }{ z }. \]
+        Furthermore, computing
+        \[  \lim_{ z \to \infty   } z \sin (1/z)  \]
+        is equivalent to computing the limit
+        \[  \lim_{ z \to 0 }  \frac{ \sin (z) }{ z }. \tag{*} \]
+        Using a fact from real analysis, we see that the limit of (*) is just \( 1  \). Hence,  
+        i\[  \lim_{ z \to \infty  }  z \sin (1/z) = 1. \]
+\end{enumerate}
+\end{solution}
+
+\begin{problem}
+   Examine whether the following functions \( f: D \to \C  \) are holomorphic. If you are using certain statements, make sure to check all the conditions.
+   \begin{enumerate}
+       \item[(i)] \( D = \C \setminus  \{ 0 \}  \) and \( f(z) = e^{1/ \overline{z}} \).
+        \item[(ii)] \( D = \{ z \in \C : | z - 5i |  < 1 \}   \) and \( f(z) = \displaystyle \frac{ \Log z }{ z^{2} }  \).
+        \item[(iii)] \( D = \C  \) with \( f(x  + iy) = (x^{3} - 3x y^{2} + 1) + i (3 x^{2} y - y^{3} - 1). \)
+        \item[(iv)] \( D = \{ z \in \C : | z  |  \neq 1  \}  \) and \( f(z) = \displaystyle \frac{ 1 }{ 1 - | z |^{2} } \).
+   \end{enumerate}
+\end{problem}
+
+\begin{solution}
+\begin{enumerate}
+    \item[(i)] Let \( D = \C \setminus  \{ 0 \}  \). Note that \( f: D \to \C   \) is a composition of \( e^{z} \) and \( \frac{ 1 }{ \overline{z} }  \). But note that \( \frac{ 1 }{ \overline{z} }  \) is not complex differentiable anywhere on \( \C  \) (By the last problem of the last exam). Hence, the composition \( f  \) fails to be holomorphic on \( D  \).
+    \item[(ii)] Let \( D = \{ z \in \C : | z - 5i |  < 1 \}  \) and \( f(z) = \frac{ \Log(z) }{ z^{2} } \). Since \( D  \) does not include the negative real axis and \( 0  \), we know by problem 8 in Homework 4 that \( \Log(z) \) is complex differentiable as well as \( \frac{ 1 }{ z^{2} }  \). Hence, the product of these two functions   
+        \[  f(z) = \frac{ \Log(z) }{ z^{2} }  \]
+        is also complex differentiable and thus, holomorphic on \( D  \). 
+    \item[(iii)] Let \( D = \C  \) and
+        \[  f(x+iy) = (x^{3} - 3x y^{2} + 1) + i (3 x^{2} y - y^{3} - 1). \]
+        We will proceed by showing that the function \( f  \) satisfies the Cauchy-Riemann Equations. Notice that real and imaginary parts of \( f  \) are both differentiable and have continuous partial derivatives. Now, set 
+        \[  u(x,y) = x^{3} - 3xy + 1 \ \ \text{and} \ \ v(x,y) = 3x^{2}y - y^{3} -1. \]
+        Observe that 
+        \[ \frac{\partial u }{\partial x }  = 3 x^{2} - 3 y^{2} \ \ \text{and} \ \ \frac{\partial u }{\partial y } = - 6xy \tag{1} \] 
+       and 
+       \[  \frac{\partial v }{\partial x } = 6xy  \ \ \text{and} \ \ \frac{\partial v  }{\partial y }  = 3x^{2} - 3y^{2}. \tag{2} \]
+       Clearly, (1) and (2) imply that 
+       \[  \frac{\partial u }{\partial x }  = \frac{\partial v }{\partial y } \ \ \text{and} \ \ \frac{\partial u }{\partial y }  = - \frac{\partial v }{\partial x }. \]
+       Hence, we conclude that \( f  \) is complex differentiable on \( D  \) and so \( f \) must be holomorphic on \( D  \).
+    \item[(iv)] Let \( D = \{ z \in \C : | z  | \neq 1  \}  \) and \( f(z) = \frac{ 1 }{ 1 - | z |^{2} }  \).
+        Notice that \( z = x + iy \) implies that \( \overline{z} = x^{2} + y^{2}  \).
+        Now, we have 
+        \[  f(z) = \frac{ 1 }{ 1 - | z |^{2} }  = \frac{ 1 }{ 1 - (x^{2} + y^{2}) }.  \]
+        Clearly, we can see that the real part 
+        \[  \Re(f(z)) = \frac{ 1  }{ 1 - (x^{2} - y^{2}) }   \]
+        while the imaginary part
+        \[  \Im(z) = 0.  \]
+        If we label \( u(x,y) = \Re(f(z)) \) and \( v(x,y) = \Im(f(z)) = 0 \), we immediately have
+        \[  \frac{\partial u }{\partial x } = 2x (1 - (x^{2} + y^{2}))^{-2} \]
+        but
+        \[  \frac{\partial v }{\partial y }  = 0 \implies \frac{\partial u }{\partial x }  \neq \frac{\partial v }{\partial y }. \]
+        Similarly, 
+        \[  \frac{\partial u }{\partial y }  = 2y ( 1 - (x^{2} + y^{2}))^{-2} \]
+        but 
+        \[  \frac{\partial v }{\partial x } = 0 \implies \frac{\partial u }{\partial y }  \neq - \frac{\partial v }{\partial x }. \]
+        Thus, \( f  \) does not satisfy the Cauchy-Riemann Equations and so \( f  \) cannot be complex differentiable on \( D  \). Therefore, \( f  \) cannot be holomorphic on \( D  \) as well.
+\end{enumerate} 
+\end{solution}
 
 
 
