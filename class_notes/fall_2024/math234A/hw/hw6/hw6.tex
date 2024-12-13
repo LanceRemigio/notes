@@ -1,0 +1,366 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{Math 234A: Homework 6}
+
+\author{Lance Remigio}
+
+\begin{document}
+\maketitle
+
+\begin{lemma}
+    Let \( B(a, r)  \) be the open ball with center at \( a \in \C  \) and radius \( r >0 \). Let \( g: B(a,r) \to \C  \) be holormorphic. Let \( L  \) be a line segment contained in the ball \( B(a,r) \). If \( g(z) = 0  \) for all \( z \in L  \), then \( g(z) = 0  \) for all \( z \in B(a,r) \).
+\end{lemma}
+
+\begin{lemma}
+    Let \( L  \) be a polygonal path joining \( P,Q \in D  \), then we can find open balls \[ B({z}_{1}, {r}_{1}), \dots , B({z}_{n}, {r}_{n}) \] such that 
+    \begin{enumerate}
+        \item[(i)] \( {z}_{1}, {z}_{2}, \dots , {z}_{n} \) with \( {z}_{1} = P  \) and \( {z}_{n} = Q  \).
+        \item[(ii)] \( B({z}_{i}, {r}_{i}) \cap B({z}_{i+1}, {r}_{i+1}) \neq \emptyset \) for all \( i = 1,2,3, \dots, n - 1 \).
+    \end{enumerate}
+\end{lemma}
+
+
+\begin{problem}
+   Let \( D \subseteq  \C  \) be open and connected and \( f: D \to \C  \) be a holomorphic function. 
+   \begin{enumerate}
+       \item[(a)] Let \( L  \) be a polygonal path in \( D  \). Assume that \( f(z) = 0  \) for all \( z \in L  \). Show that \( f(z) = 0  \) for all \( z \in D  \).
+        \item[(b)] Let \( D' \subseteq D   \) be an open set. Assume that \( f(z) = 0  \) for all \( z \in D' \). Show that \( f(z)= 0 \) for all \( z \in D  \).
+        \item[(c)] Let \( {f}_{1}, {f}_{2} : D \to \C  \) be holomorphic. Assume that \( {f}_{1}(z) = {f}_{2}(z) \) for all \( z \in L  \) where \( L \subseteq  D   \) is a line segment. Show that \( {f}_{1}(z) = {f}_{2}(z) \) for all \( z \in D  \).
+        \item[(d)] Let \( D = \C  \), \( {f}_{1}(z) = e^{z} \). Let \( {f}_{2} : \C \to \C  \) be a holormorphic function such that 
+            \[  f(x + i \cdot 0) = e^{x} \] 
+            for all \( x \in \R  \). Prove that \( {f}_{2}(z) = {f}_{1}(z) \) for all \( z \in \C  \).
+   \end{enumerate} 
+\end{problem}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Suppose that \( f  \) is a holomorphic function on \( D  \). Let \( L  \) be a polygonal path in \( D  \). Assume that \( f(z) = 0  \) for all \( z \in L  \). Let \( p  \in D  \) and set \( p = {z}_{1} \). We will show that \( f(z) = 0  \) for all \( z \in D  \). 
+
+        We will induct on \( n  \) to show this result. Let \( n = 1  \) be our base case. Since \( D  \) is a connected set, we can connect \( {z}_{1} \) to a point \( z  \) at the end of \( L  \) via a line segment \( {L}_{1} \). Since \( D  \) is open, we can find an \( {r}_{1} > 0  \) such that \( B({z}_{1}, {r}_{1}) \subseteq  D  \). Since \( f(z) = 0  \) for all \( z \in L  \), we can use the second lemma above to find a open ball in \( L  \) such that it intersects \( B({z}_{1} , {r}_{1}) \). Since \( {L}_{1}  \) is contained in that intersection and that \( f(z) = 0  \) for all \( z \in {L}_{1}  \), we have \( f(z) = 0  \) for all \( z \in D  \).
+
+        Suppose that this process holds for \( n = k  \). We will show that it holds for \( n = k + 1  \). Now, take \( {z}_{k+1} \in D  \) and connect it to \( {z}_{k} \) via a line segment \( {L}_{k+1} \) since \( D  \) is a connected set. Since \( D  \) is open, we can find an \( {r}_{k+1} > 0  \) such that \( B({z}_{k+1}, {r}_{k+1}) \subseteq  D  \). By our induction hypothesis \( f(z) = 0  \) for all \( z \in {L}_{k} \). By the second lemma, we can find an open ball in \( {L}_{k} \) such that it intersects \( B({z}_{k+1}, {r}_{k+1}) \) nontrivially. Furthermore, we have that \( f(z)= 0  \) for all \(  z \in {L}_{k} \). Since \( {L}_{k+1} \) is contained in that intersection and \( {z}_{k+1} \in {L}_{k+1} \), we know that \( f(z_{k+1}) = 0  \). In particular, we must have that \( f(z) = 0  \) for all \( z \in {L}_{k+1} \) This concludes our induction proof. As a consequence, we must have that \( f(z)  = 0  \) for all \( z \in D  \). 
+
+    \item[(b)] Let \( D' \subseteq D  \) be an open set and let \( L  \) be a polygonal path in \( D' \) and let \( f(z) = 0  \) for all \( z \in L  \). Since \( D' \subseteq  D   \) and \( L  \) is contained in \( D' \), we know that \( L  \) is also contained in \( D' \). By assumption, \( f(z) = 0  \) for all \( z \in L  \). Therefore, \( f(z) = 0  \) for all \( z \in D  \) by part (a).
+    \item[(c)] Let \( {f}_{1}, {f}_{2} : D \to \C  \) be holomorphic and let \( L  \) be a polygonal path in \( D  \). Assume that \( {f}_{1}(z) = {f}_{2}(z)  \) for all \( z \in L  \). Our goal is to show that   
+        \[  {f}_{1}(z) = {f}_{2}(z) \ \ \forall z \in D.  \]
+        To this end, let \( z \in D  \) be arbitrary. By assumption, we can write
+        \[  {f}_{1}(z) = {f}_{2}(z) \implies ({f}_{1} - {f}_{2})(z) = 0 \ \ \forall z \in L.  \]
+        By part (a), we can write that 
+        \[  ({f}_{1} - {f}_{2})(z) = 0 \iff {f}_{1}(z) = {f}_{2}(z) \ \ \forall z \in D \]
+        and we are done.
+    \item[(d)] Note that \( {f}_{1}  \) and \( {f}_{2} \) are equal for all \( z  \) in the real axis of \( \C  \) (This is our line \( L  \)). Since \( {f}_{1} \) and \( {f}_{2} \) are clearly holomorphic on the real axis, we can use part (c) to conclude that \( {f}_{2}(z) = {f}_{1}(z) \) for all \( z \in \C  \).
+\end{enumerate}
+\end{proof}
+
+
+
+\begin{theorem}[Leibniz Rule]\label{Fact}
+    Let \( g: [a,b] \times [c,d] \to \R  \) be continuous. Suppose that \( (x,y) \to \frac{\partial g }{\partial x } (x,y) \) exists and is continuous. Then the function 
+    \begin{align*}
+        h(x) &= \int_{ c }^{ d }  g(x,y) \ dy \ \text{is differentiable and} \\
+        h'(x) &= \int_{ c }^{ d }  \frac{\partial g }{\partial x } (x,y) \ dy \ \text{exists}.
+    \end{align*}
+\end{theorem}
+
+
+\begin{problem}
+    Let \( D  \) be an open rectangle such that its sides are parallel to real and imaginary axes. Let \( u: D \to \R  \) be a harmonic function. Fix \( {x}_{0} + i {y}_{0} \in D  \). In the lecture, we sketched that if we define
+    \[  v(x,y) = \int_{ {y}_{0} }^{ y }  \frac{\partial u }{\partial x } (x,t) \ dt - \int_{ {x}_{0} }^{ x }  \frac{\partial u }{\partial y }(s, {y}_{0})  \ ds, \]
+    then \( f = u + iv \) is holomorphic on \( D  \). In this problem, we fill in some details.
+    Use the {\hyperref[Fact]{fact}} above to establish the following properties:
+    \begin{enumerate}
+        \item[(i)] Show that \( \displaystyle \frac{\partial v }{\partial x }   \) and \( \displaystyle \frac{\partial v }{\partial y }  \) exists and are continuous functions such that the Cauchy-Riemann equations hold.
+        \item[(ii)] Conclude that \( f  \) is holomorphic. Make sure to justify \( \hat{f} = \begin{pmatrix} u \\ v \end{pmatrix}   \) is differentiable in the sense of Calculus.
+        \item[(iii)] Let us fix \( {x}_{1} + i {y}_{1} \) and define \( {v}_{1} \) by 
+            \[  {v}_{1}(x,y) = \int_{ {y}_{1} }^{ y }  \frac{\partial u }{\partial x } (x,t) \ dt - \int_{ {x}_{1} }^{ x } \frac{\partial u }{\partial y } (s, {y}_{1}) \ ds. \]
+            Let \( {f}_{1} = u + i {v}_{1} \). Then we know \( {f}_{1}  \) is holomorphic by the above. Show that \( f - {f}_{1}  \) is constant on \( D  \).
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+    \begin{enumerate}
+        \item[(i)] From the assumption that \( u: D \to \R  \) is a harmonic function, we can see that \( u  \) is a twice differentiable function whose first partial derivatives are continuous as well as \( u  \) itself being a continuous function. By the Leibniz Rule, we can see that 
+            \begin{center}
+                \( \displaystyle \int_{{y}_{0}}^{y}  \frac{\partial u }{\partial x } (x,t) \ d t  \) and \( \displaystyle \int_{{x}_{1}}^{x} \frac{\partial u }{\partial y } (s,{y}_{1})  \ ds \)
+            \end{center}
+            are differentiable,  
+            \[  \frac{\partial  }{\partial y }  \int_{ {y}_{0} }^{ y } \frac{\partial u }{\partial x } (x,t)  \ dt \ \ \text{and} \ \ \frac{\partial  }{\partial x }  \int_{ {x}_{0} }^{ x } \frac{\partial u }{\partial y } (s, {y}_{0}) \ ds. \]
+            exists as well as 
+            \[ -\int_{ {y}_{0} }^{ y }  \frac{\partial^{2} u  }{\partial y^{2} } (x,t) \ dt \ \ \text{and} \ \  \int_{ {y}_{0} }^{ y }  \frac{\partial ^{2} u  }{\partial  x^{2} }  \ dx \]
+            Thus, we see that \( \displaystyle \frac{\partial v }{\partial x }  \) and \( \displaystyle \frac{\partial v }{\partial y }  \) are continuous. Hence, we want to show that \( f  \) satisfies the Cauchy-Riemann equations. That is,   
+            \begin{align*}
+                \frac{\partial u }{\partial x }  &= \frac{\partial v }{\partial y }, \tag{1}  \\
+                -\frac{\partial u }{\partial y }  &= \frac{\partial v }{\partial x }. \tag{2}
+            \end{align*}
+            Observe that
+            \begin{align*}
+                \frac{\partial v }{\partial y }(x,y)  &= \frac{\partial  }{\partial y } \Big[ \int_{ {y}_{0} }^{ y }  \frac{\partial u }{\partial x } (x,t) \ dt - \int_{ {x}_{0} }^{ x }  \frac{\partial u }{\partial y } (s, {y}_{0}) \ ds \Big]  \\
+                                                 &= \frac{\partial  }{\partial y }  \int_{ {y}_{0} }^{ y }  \frac{\partial u }{\partial x } (x,t) \ dt - \frac{\partial  }{\partial y }  \int_{ {x}_{0} }^{ x }  \frac{\partial u }{\partial y }  (s,{y}_{0}) \ ds \\
+                                                 &= \frac{\partial  }{\partial y }  \Big[ u(x,y) - u(x,{y}_{0})\Big] - 0 \\
+                                                 &= \frac{\partial u }{\partial y } (x,y)
+            \end{align*}
+            and that
+            \begin{align*}
+                \frac{\partial v }{\partial x } (x,y) &= \frac{\partial  }{\partial x }  \Big[ \int_{ {y}_{0} }^{ y }  \frac{\partial u }{\partial x } (x,t) \ dt - \int_{ {x}_{0} }^{ x }  \frac{\partial u }{\partial y } (s,{y}_{0}) \ ds  \Big]   \\
+                                                      &= \frac{\partial  }{\partial x }  \int_{ {y}_{0} }^{ y }  \frac{\partial u }{\partial x } (x,t) \ dt - \frac{\partial  }{\partial x }  \int_{ {x}_{0} }^{ x }  \frac{\partial u }{\partial y } (s, {y}_{0}) \ ds \\
+                                                      &= \int_{ {y}_{0} }^{ y } \frac{\partial^{2} u }{\partial x^{2} } (x,t) \ dt - \frac{\partial u }{\partial y } (x,{y}_{0})  \\
+                                                      &= - \int_{ {y}_{0} }^{ y }  \frac{\partial^{2} u }{\partial y^{2} } (x,t) \ dt - \frac{\partial u }{\partial y  }(x, {y}_{0}) \\ 
+                                                      &= - \frac{\partial  }{\partial y }  \Big[ \int_{ {y}_{0} }^{ y }  \frac{\partial u }{\partial y } (x,t) \ dt - u(x,{y}_{0}) \Big] \\
+                                                      &= - \frac{\partial u }{\partial y } (x,y).
+            \end{align*}
+Hence, (1) and (2) are established.
+    \item[(ii)] From part (i), we can see that \( f  \) is a holomorphic. As a consequence, we know that \( f  \) is complex differentiable. By Problem 8 of Homework 5, we can see that \( f  \) is differentiable in the sense of Calculus.
+    \item[(iii)] Let us fix \( {x}_{1} + i {y}_{1} \in D  \) and define \( {v}_{1} \) by 
+        \[  {v}_{1}(x,y) = \int_{ {y}_{1} }^{ y }  \frac{\partial u }{\partial x } (x,t)  \ dt - \int_{ {x}_{1} }^{ x } \frac{\partial u }{\partial y } (s,t) \ dt. \]
+        Let \( {f}_{1} = u + i {v}_{1} \). From the above, we can see that \( {f}_{1}  \) is holomorphic. Our goal is to show that \( f - {f}_{1}  \) is constant on \( D  \). Set \( g = f - {f}_{1} \). Note that 
+        \begin{align*}
+            g = f - {f}_{1} &= (u+iv) - (u + i {v}_{1})  \\
+                            &= 0 + i (v - {v}_{1}).
+        \end{align*}
+        Set \( \hat{v} = v - {v}_{1} \) and \( \hat{u} = 0  \) (These are functions in \( \R^{2} \)). First, we will need to ensure that \( g  \) is holomorphic. To do this, we will need to satisfy the Cauchy-Riemann equations; that is,
+        \begin{center}
+            \( \displaystyle \frac{\partial \hat{u} }{\partial x }  = \displaystyle \frac{\partial \hat{v} }{\partial y }  \) and \( \displaystyle \frac{\partial \hat{v} }{\partial x }  = \displaystyle - \frac{\partial \hat{u} }{\partial y }  \).
+        \end{center}
+        Clearly, we can see that both 
+        \[ \frac{\partial \hat{u} }{\partial x  }  = 0 \ \ \text{and} \ \ \frac{\partial \hat{u} }{\partial y } = 0. \tag{1}  \]
+        Because \( f  \) and \( {f}_{1} \) are holomorphic functions, we can see that 
+        \begin{align*}
+            \frac{\partial \hat{v} }{\partial x  }  = \frac{\partial  }{\partial x }  [ v - {v}_{1}] 
+                                                    &=  \frac{\partial v }{\partial x }  - \frac{\partial {v}_{1} }{\partial x }  \\ 
+                                                    &= \frac{\partial v }{\partial x }  + \frac{\partial u }{\partial y }  \tag{\( {f}_{1} \) is holormorphic}\\ 
+                                                    &=  - \frac{\partial u }{\partial y } + \frac{\partial u }{\partial y } \tag{\( f \) is holormorphic} \\
+                                                    &= 0
+        \end{align*}
+        and similarly, we have
+        \begin{align*}
+            \frac{\partial \hat{v} }{\partial y }  = \frac{\partial  }{\partial y } [v - {v}_{1}] &= \frac{\partial v }{\partial y }  - \frac{\partial {v}_{1} }{\partial y }  \\
+                                                                                                  &= \frac{\partial u }{\partial x }  - \frac{\partial u }{\partial x } \tag{\( f, {f}_{1} \) holormorphic} \\
+                                                                                                  &= 0.
+        \end{align*}
+        Hence, we see that \( g  \) is, indeed, holormorphic.
+        In order to show that \( g  \) is constant, we will show that \( g'(z) = 0 \). Immediately, we see from the Cauchy-Riemann equations that \( g = f - {f}_{1} \) is constant on \( D  \).
+
+            
+    \end{enumerate}
+\end{proof}
+
+
+
+
+\begin{problem}
+   Define \( u: \C \to \R  \) by \( u(x,y) = x^{3} - 3x y^{2} \). 
+   \begin{enumerate}
+       \item[(i)] Show that \( u  \) is harmonic.
+        \item[(ii)] Find a holomorphic function \( f: \C \to \C  \) such that \( \Re(f) = u  \).
+   \end{enumerate}
+\end{problem}
+
+\begin{proof}
+\begin{enumerate}
+    \item[(i)] Clearly, the first and second partial derivatives of \( u  \) exists. Hence, we compute them as follows:
+        \begin{align*}
+            &\frac{\partial u }{\partial x }  = 3 x^{2} - 3y^{2} \implies \frac{\partial ^{2} u  }{\partial x^{2} }  = 6x \tag{1} \\
+                                                                &\frac{\partial u }{\partial y } = - 6xy \implies \frac{\partial^{2} u  }{\partial y^{2} } = - 6 x. \tag{2} 
+        \end{align*}
+        From (1) and (2), we have that 
+        \[  \frac{\partial^{2} u  }{\partial x^{2} } + \frac{\partial ^{2} u }{\partial y^{2} }  = 6x + (-6x) = 0. \]
+        Hence, \( u  \) is a harmonic function.
+    \item[(ii)] Let \( ({x}_{0}, {y}_{0}) = (0,0) \). Then we see that 
+        \begin{align*}
+            v(x,y) &= \int_{ 0 }^{ y }  \frac{\partial u }{\partial x } (x,t) \ dt - \int_{ 0 }^{ x }  \frac{\partial u }{\partial y }  (s,0) \ ds \\
+                   &= \int_{ 0 }^{ y } [3 x^{2} - 3 t^{2}] \ dt - \int_{ 0 }^{ x } -6s(0) \ ds \\
+                   &= \int_{ 0 }^{ y } [3 x^{2} - 3 t^{2}] \ dt \\
+                   &= 3 x^{2} y - y^{3}.
+        \end{align*}
+        Clearly, \( u(x,y) \) and \( v(x,y) \) are continuously differentiable functions by (1) and (2). In what follows, we will show that \( u  \) and \( v  \) satisfy the Cauchy-Riemann equations. Thus, we see that
+        \!\begin{align*}
+            &\frac{\partial u }{\partial x }  = 3x^{2} - 3y^{2},  \ \   \frac{\partial u }{\partial y }  = -6xy \\
+        \end{align*}
+        and
+        \begin{align*}
+            \frac{\partial v }{\partial x }  = 6xy, \ \     \frac{\partial v }{\partial y }  = 3 x^{2} - 3 y^{2}.
+        \end{align*}
+        Hence, we see that 
+        \[  \frac{\partial u }{\partial x }  = \frac{\partial v }{\partial y }  \ \text{and} \ \ \frac{\partial u }{\partial y }  = - \frac{\partial v }{\partial x }. \]
+        So, we have that 
+        \[  f(z) = u(z) + i v(z) = (x^{3} - 3x y^{2})  + i (3 x^{2} y - y^{3}). \]
+\end{enumerate}
+\end{proof}
+
+
+
+\begin{problem}
+   Compute \( \displaystyle \int_{\alpha}^{}  z e^{z^{2}} \ dz \) where 
+   \begin{enumerate}
+       \item[(i)] \( \alpha  \) is the line segment joining the point \( 0  \) and to \( 1 + i \).
+        \item[(ii)] \( \alpha \) is a piece of parabola \( y = x^{2} \) that lies between \( 0  \) and \( 1 + i \).
+        \item[(iii)] What did you observe? Is there a direct way to justify your observation?
+   \end{enumerate}
+\end{problem}
+
+\begin{solution}
+\begin{enumerate}
+    \item[(i)] Let \( z = \alpha(t) = (1+i)t \) be a complex valued function defined for all \( t \in [0,1] \). Observe that   
+        \begin{align*}
+            \int_{ \alpha }^{  }  z e^{z^{2}}  \ dz &= \int_{ 0 }^{ 1 }  \alpha(t) e^{(\alpha(t))^{2}} \alpha'(t) \ dt \\
+                                                    &= \int_{ 0 }^{ 1 }  (1+i)^{2} t e^{2i t^{2}} \ dt
+        \end{align*}
+        where \( dz = \alpha'(t) = (1+i) t \ dt \). Using a change of variable by letting \( u = 2i t^{2} \), we have 
+        \[  du = 4i t \ dt \implies t \ dt = \frac{ 1 }{ 4i } du. \tag{*} \]
+        Thus, (*) implies that 
+        \[  \frac{ 1 }{ 2 }  \int_{ 0  }^{ 2i }  e^{u} \ du = \frac{ 1 }{ 2 }  e^{u}  \Big|_{0}^{2i} = \frac{ 1 }{ 2 }  \Big[ e^{2i} -  1 \Big]. \]
+    \item[(ii)] Let \( x = t \) and \( y = t^{2} \) such that 
+        \begin{align*}
+        z = x + iy &\implies z = \alpha(t) = t + i t^{2} \\
+                   &\implies dz = \alpha'(t) = 1 + 2it
+    \end{align*}
+    where \( \alpha(t) \) is a complex valued function defined for all \( t \in [0,1] \).
+    Now we have
+    \begin{align*}
+        \int_{ \alpha }^{  } z e^{z^{2}}  \ dz &= \int_{ 0 }^{ 1 }  (t+ i t^{2})(1+2it) e^{(t + i t^{2})^{2}} \ dt. \tag{**}
+    \end{align*}
+    Using a change of variable by letting \( u = t + i t^{2} \) where \( du = 1 + 2it \), we see that (**) can be written as
+    \begin{align*}
+        \int_{ \alpha }^{  } z e^{z^{2}} \ dz &= \int_{ 0 }^{ 1 + i } u e^{u^{2}} \ du.
+    \end{align*}
+    Another change of variable by letting \( w =  u^{2} \) gives us \( dw = 2u du \) which we can write the integral above further by
+    \begin{align*}
+        \int_{ \alpha }^{  } z e^{z^{2}} \ dz &= \frac{ 1 }{ 2 } \int_{ 0 }^{ 2i }  e^{w} \ dw \\
+                                              &= \frac{ 1 }{ 2 } \Big[ e^{2i} -  1 \Big].  
+    \end{align*}
+\item[(iii)] I observe that the values of each integral found in parts (i) and (ii) are the same which lead me to observe further that computing the integrals in the previous parts only depend on the initial and final points of the path taken. I believe there is a direct way to justify this observation by confirming whether \( f(z) =  z e^{z^{2}} \) which it does; that is, the primitive of \( f(z)   \)is \( \frac{ 1 }{ 2 }  e^{z^{2}} \).
+\end{enumerate}
+\end{solution}
+
+\begin{problem}
+    Consider the curve \( \alpha \) as shown in the picture (refer to figure in handout). 
+    \begin{enumerate}
+        \item[(i)] Compute \( \displaystyle \frac{ 1 }{ 2 \pi i  } \displaystyle \int_{ \alpha }^{  }  \frac{ 1 }{ z }   \ dz  \).
+        \item[(ii)] Compute \( \displaystyle \frac{ 1 }{ 2 \pi i  } \displaystyle \int_{\alpha}^{}  \frac{ 1 }{ z^{2} }  \ dz  \).
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+\begin{enumerate}
+    \item[(i)] We can parametrize \( \alpha  \) in the following way:
+        \begin{center}
+            \( \alpha(t) =  i^{k} + (i^{k+1} - i^{k})(t-k) \), \( k \leq t \leq k + 1  \), \( k = 0,1,2,3 \)
+        \end{center}
+        Observe that 
+        \begin{align*}
+            \int_{ \alpha }^{  } \frac{ 1 }{ z }  \ dz &= \sum_{ k=0 }^{ 3 } \int_{ k  }^{  k+1 } \frac{ i - 1  }{ 1 + (i-1)(t-k) }  \ dt \\
+                                                       &= \sum_{ k=0  }^{  3  } \int_{  0  }^{ 1  }  \frac{  i - 1  }{ 1 + (i-1)u }  \ du \tag{Let \( u = t - k \)} \\
+                                                       &= 4 \int_{  0  }^{  1  }  \frac{  i - 1  }{  1 + (i-1 )u }  \ du  \\
+                                                       &= 4 \int_{  1  }^{ i  }  \frac{ 1  }{ w  }   \ dw \tag{Let \( w = 1 + (i-1)u \)} \\
+                                                       &= 4 \Big[ \Log(i) - \Log(1) \Big] \\
+                                                       &= 4 \cdot \frac{ \pi i  }{ 2  } \\
+                                                       &= 2 \pi i.
+        \end{align*}
+        Hence, we can compute the line integral in the following way:
+        Hence, we have
+        \[  \frac{ 1 }{ 2 \pi i  }  \int_{ \alpha }^{  }  \frac{ 1 }{ z }  \ dz =  \frac{ 1  }{  2 \pi i  } \cdot 2 \pi i  = 1.  \]
+
+    \item[(ii)] Note that \( f(z) = \frac{ 1 }{ z^{2} }  \) has a primitive \( F(z) = \frac{ -1 }{ z }  \); that is, 
+        \[  F'(z) = f(z) =  \frac{ 1 }{ z^{2} }.  \]
+        Note that \( f  \) is also holomorphic, and so together with the fact that \( \alpha  \) is a closed curve, we can conclude that 
+        \[  \frac{ 1 }{ 2 \pi i  }  \int_{ \alpha }^{  }  \frac{ 1 }{ z^{2} }  \ dz = 0.  \]
+\end{enumerate}
+\end{solution}
+
+\begin{problem}
+    \begin{enumerate}
+        \item[(i)] Let \( D = \C^{\bullet} \). Show that we cannot find a holormorphic function \( f: D \to \C  \) such that 
+            \[  f'(z) = \frac{ 1 }{ z } \   \forall z \in \C^{\bullet}. \]
+        \item[(ii)] Does it contradict with \[  \frac{ d }{ dz  }  (\Log z ) = \frac{ 1 }{ z }?  \] Why or why not? Justify your answer.
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}
+        \item[(i)] Let \( D = \C^{\bullet} \). Suppose for sake of contradict that we CAN find a holormorphic function \( f: D \to \C  \) such that \( f'(z) = \frac{ 1 }{ z }  \) for all \( z \in \C^{\bullet} \). Then seperating \( \frac{ 1 }{ z }  \) into its real and imaginary parts, we see that 
+            \[  \frac{ 1 }{ z }  = \frac{ \overline{z} }{ | z |^{2} } = \frac{ x }{ x^{2} + y^{2} }  - i \frac{ y }{ x^{2} + y^{2} }. \]
+    \end{enumerate}
+    Calculating the first partial derivatives of \( \frac{ 1 }{ z }  \) gives us the following equations:
+    \[  \frac{\partial u }{\partial x } = (x^{2} + y^{2})^{-1} - 2x^{2} (x^{2} + y^{2}) \tag{1} \]
+    and
+    \[  \frac{\partial v }{\partial y }  = (x^{2} + y^{2})^{-1} - 2 y^{2} (x^{2} + y^{2})^{-2}. \tag{2} \]
+    Clearly, we have (1) and (2) imply that 
+    \[  \frac{\partial u }{\partial x }  \neq \frac{\partial v }{\partial y }  \]
+    which contradicts the fact that \( \frac{ 1 }{ z }  \) satisfies the Cauchy-Riemann equations.
+    \item[(ii)] It depends on the domain and whether or not the Primitive of the function we are integrating exists or not. In the domain \( D = \C^{\bullet} \), \( \Log(z) \) cannot be continuous on the negative real axis. Therefore, it cannot be integrable there and so we cannot have a primitive exists there. In this case, it would contradict 
+        \[  \frac{ d }{ dz } (\Log z) = \frac{ 1 }{ z }. \]
+        On the other hand, the primitive of \( \frac{ 1 }{ z }  \) exists if we restricted our domain to \( \C^{\bullet} \) without the negative real axis. Hence, it would not contradict the equation above in this case.
+
+\end{solution}
+
+
+\begin{problem}
+    \begin{enumerate}
+        \item[(i)] Let \( D \subseteq \C  \) and \( f : D \to \C  \) is a continuous function. Let \( \alpha : [a,b] \to \C  \) be a smooth curve. Assume that \( \alpha ([a,b]) \subseteq D  \) and \( \int_{ \alpha }^{  }  f(z) \ dz   \) exists. Let \( \varphi : [c,d] \to [a,b] \) a continuously differentiable function such that \( \varphi(c) = a  \) and \( \varphi (d) = b \). Show that 
+            \[  \int_{ \alpha }^{  }  f(z) \ dz = \int_{ \alpha \circ \varphi }^{  }  f(w) \ dw. \]
+        \item[(ii)] Assume that \( \alpha  \) is piecewise smooth instead of smooth in part (i). Show that 
+            \[ \int_{ \alpha }^{  } f(z) \ dz = \int_{ \alpha \circ \varphi }^{  } f(w) \ dw. \]
+    \end{enumerate} 
+\end{problem}
+
+\begin{proof}
+\begin{enumerate}
+    \item[(i)] Let \( D \subseteq \C  \) and \( f: D \to \C  \) be a continuous function. Let \( \alpha: [a,b] \to \C  \) be a smooth curve and assume that \( \alpha([a,b]) \subseteq D  \) and \( \displaystyle \int_{\alpha}^{}  f(z) \ d z \) exists. Let \( \varphi : [c,d] \to [a,b]  \) be a continuously differentiable function such that \( \varphi(c) = a  \) and \( \varphi(a) = b \). Let \( z = \alpha(t) \) where \( t \in [a,b] \) and \( t = \varphi(s) \) and also, label \( w = \varphi(s)  \) where \( s \in [c,d] \). Because \( \alpha \) is a smooth curve, we have that \( dz = \alpha'(t) \  dt \). Furthermore, \( \varphi \) is a continuously differentiable function, so we have \( dw = (\alpha \circ \varphi)'(s) ds \). Thus, we can see that      
+        \begin{align*}
+           \int_{ \alpha }^{  } f(z) \ dz &= \int_{ a }^{ b } f(\alpha(t)) \alpha'(t) \ dt \\
+                                          &= \int_{ \varphi(c) }^{ \varphi(d) } f\Big(\alpha(\varphi(s))\Big) \alpha' \Big(  \varphi(s) \Big) \varphi'(s)  \ ds \\
+                                          &= \int_{ \varphi(c) }^{ \varphi(d) } f \Big(  (\alpha \circ \varphi)(s) \Big) (\alpha \circ \varphi)'(s) \ ds \tag{Chain Rule} \\
+                                          &= \int_{ \alpha \circ \varphi  }^{  }  f(w) \ dw. 
+        \end{align*}
+        Hence, we conclude that 
+            \[ \int_{ \alpha }^{  } f(z) \ dz = \int_{ \alpha \circ \varphi }^{  } f(w) \ dw. \]
+        \item[(ii)] Assume that \( \alpha  \) is a piecewise smooth curve on \( D \subseteq  \C  \). Then by definition, there exists a partition  
+            \[  a = {a}_{0} < {a}_{2} < \cdots < {a}_{n} =  b \]
+            such that \( \alpha \big|_{[{a}_{i-1}, {a}_{i}]} \) is smooth for all \( 1 \leq i \leq n \). Similarly, let \( \alpha \circ \varphi  \) be a piecewise smooth curve on \( [c,d] \). Hence, there exists a partition  
+            \[  c = {k}_{0} < {k}_{2} < \cdots < {k}_{n} = d \]
+            such that \( \alpha \circ \varphi \big|_{[{k}_{i-1}, {k }_{i} ]} \). As a consequence, we can apply part (a) for all \( 1 \leq i \leq n \) so that 
+            \[  \int_{ {\alpha}_{i} }^{  } f(z) \ dz = \int_{ (\alpha \circ \varphi)_i }^{  } f(w) \ dw. \]
+            Hence, observe further that 
+            \begin{align*}
+                \int_{ \alpha }^{  } f(z) \ dz &= \sum_{ i=1  }^{ n } \int_{ {\alpha}_{i} }^{  } f(z) \ dz \\
+                                               &= \sum_{ i=1  }^{ n } \int_{ (\alpha \circ \varphi)_i }^{  } f(w) \ dw \\
+                                               &= \int_{ \alpha \circ \varphi  }^{  } f(w) \ dw.
+            \end{align*}
+            Therefore, we have 
+            \[  \int_{ \alpha }^{  } f(z) \ dz = \int_{ \alpha \circ \varphi }^{  } f(w) \ dw. \]
+\end{enumerate}
+\end{proof}
+
+\begin{problem}
+    Let \( \mathcal{F} = \{ f: [a,b] \to \C : f \ \text{is integrable} \}  \) and define \( I: \mathcal{F} \to \C  \) by
+    \[  I(f) = \int_{ a }^{ b } f(t) \ dt. \]
+    \begin{enumerate}
+        \item[(i)] Show that \( I  \) is \( \C- \)linear.
+        \item[(ii)] Let \( f,g \in \mathcal{F} \) and assume that \( \Re(f), \Re(g), \Im(f), \Im(g) \) are continuously differentiable. Show that 
+            \[  \int_{ a }^{ b } f(t)g'(t) \ dt = f(b)g(b) - f(a)g(a) - \int_{ a }^{ b }  f'(t) g(t) \ dt.   \]
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\begin{enumerate}
+    \item[(i)] To prove that \( I \) is \( \C- \)linear, it suffices to show that  
+        \[  I(if) = i I(f) \]
+        for all \( f \in \mathcal{F} \) To this end, let \( f \in \mathcal{F} \). Then observe that 
+        \begin{align*}
+            I(if) = \int_{ a }^{ b } (if)(t)  \ dt &= \int_{ a }^{ b }  i \cdot f(t) \ dt \\
+                                                   &= i \int_{ a }^{ b } f(t) \ dt \\
+                                                   &= i I(f).
+        \end{align*}
+        Hence, we conclude that \( I  \) is \( \C - \)linear.
+    \item[(ii)] Let \( f,g \in \mathcal{F} \) and assume that \( \Re(f), \Re(g), \Im(f), \Im(g) \) are continuously differentiable. By assumption, we see immediately that \( f  \) and \( g  \) must be continuously differentiable. As a consequence, \( fg  \) must be continuously differentiable. Hence, we have
+        \[  \int_{ a }^{ b } \frac{ d }{ dt } [ (fg)(t)] \ dt = (fg)(b) - (fg)(a). \tag{*} \]
+        By the product rule, we can see that 
+        \[  \frac{ d }{ dt } [(fg)(t)] = f(t)g'(t) + f'(t)g(t). \]
+        Thus, (*) can be written as 
+        \[  \int_{ a }^{ b } [ f(t)g'(t) + f'(t) g(t) ] \ dt = f(b)g(b) - f(a)g(a).  \]
+        By part (a), we know that \( I  \) is \( \C- \)linear. Hence, the above can be further written as
+        \[  \int_{ a }^{ b } f(t)g'(t) \ dt + \int_{ a }^{ b }  f'(t)g(t) \ dt = f(b)g(b) - f(a)g(a). \]
+        Now, subtracting the second term on the left-hand side of the equation above on both sides, we have
+        \[  \int_{ a }^{ b }  f(t)g'(t) \ dt = f(b)g(b) - f(a)g(a) - \int_{ a }^{ b } f'(t)g(t) \ dt \]
+        which is our desired result.
+\end{enumerate}
+\end{proof}
+
+
+\end{document}

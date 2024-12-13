@@ -1,0 +1,217 @@
+\documentclass[a4paper]{book}
+
+\input{../../../../../newpreamble.tex}
+
+\begin{document}
+
+\section{Lecture 14}
+
+\subsection{Topics}
+
+\begin{itemize}
+    \item Convergence of a sequence
+    \item Bounded Sequence
+    \item Theorem: \( {x}_{n} \to x \iff \) every neighborhood of \( x  \) contains \( {x}_{n} \) for all but at most finitely many \( n \).
+    \item Theorem: A sequence cannot have more than one limit.
+    \item Theorem: Convergent sequence \( \implies \) Bounded sequence.
+    \item If \( x \in E' \), there is a sequence \( ({x}_{n}) \) of distinct points in \( E \setminus  \{ x  \}  \) such that \( {x}_{n} \to x  \).
+\end{itemize}
+
+
+\begin{definition}[Convergence of Sequence]
+  Let \( (X,d) \) be a metric space. Let \( ({x}_{n}) \) be a sequence in \( X  \). We say that \( ({x}_{n}) \) converges to a limit \( x \in X  \) if for every \( \epsilon > 0  \), we can find an \( N \in \N  \) such that if \( n > N  \), \( d({x}_{n}, x) < \epsilon \).
+\end{definition}
+
+\begin{definition}[Bounded Sequence]
+    Let \( (X,d) \) be a metric space. Let \( ({x}_{n}) \) be a sequence in \( X  \). We say that \( ({x}_{n}) \) is \textbf{bounded} if the set \( \{ {x}_{n} : n \in \N  \}  \) is a bounded set in the metric space \( X  \); that is,
+    \begin{center}
+        \( ({x}_{n}) \) is bounded if and only if there exists \( q \in X  \), there exists \( r > 0  \) such that \( \{ {x}_{n}: n \in \N  \}  \subseteq  {N}_{r}(q) \).
+    \end{center}
+\end{definition}
+
+
+\begin{theorem}[An Equivalent Characterization of Convergence]
+   Let \( (X,d) \) be a metric space. We say that \( ({x}_{n}) \to x  \) if and only if for all \( \epsilon > 0  \), \( {N}_{\epsilon}(x)  \) contains \( {x}_{n}  \) for all but at most finitely many \( n \). 
+\end{theorem}
+
+\begin{proof}
+We have \( ({x}_{n}) \to x  \) if and only if for all \( \epsilon > 0 \), there exists \( N \in \N  \) such that for any \( n > N  \), we have \( d({x}_{n} , x ) < \epsilon \). This holds if and only if for all \( \epsilon > 0  \), there exists an \( N \in \N  \) such that for any \( n > N  \), we have \( {x}_{n} \in {N}_{\epsilon}(x)  \). This holds if and only if for all \( \epsilon > 0  \) there exists an \( N \in \N  \) such that \( {N}_{\epsilon}(x) \) contains \( {x}_{n} \) for all \( n > N  \). This is equivalent to saying that for all \( \epsilon > 0  \), \( {N}_{\epsilon}(x) \) contains \( {x}_{n} \) for all but at most finitely many \( n \). 
+\end{proof}
+
+\begin{theorem}[Uniqueness of Limit]
+    Let \( (X,d) \) be a metric space. Let \( ({x}_{n}) \) be a sequence in \( X  \). If \( {x}_{n} \to x  \) in \( X  \) and \( {x}_{n} \to \tilde{x} \), then \( x = \tilde{x} \).
+\end{theorem}
+
+\begin{proof}
+    In order to show that \( \tilde{x} = d  \), it suffices to show that \( d(\tilde{x}, x) = 0  \). That is, it suffices to show that for all \( \epsilon > 0  \), \( d(x, \tilde{x}) < \epsilon \). Let \( \epsilon > 0  \) be given. Since \( {x}_{n} \to x  \), there exists an \( {N}_{1} \in \N  \) such that for any \( n > {N}_{1} \), we have \[ d({x}_{n}, x) < \frac{ \epsilon }{ 2 }.  \] Similarly, \( {x}_{n} \to \tilde{x} \) implies that there exists an \( {N}_{2} \in \N  \) such that for any \( n > {N}_{2} \), we have 
+    \[  d({x}_{n}, \tilde{x}) < \frac{ \epsilon }{ 2 }. \]
+    Choose \( N = \max \{{N}_{1}, {N}_{2}\} \). So, for any \( n > N  \), we have 
+    \[  d(x, \tilde{x}) \leq d(x, {x}_{n}) + d({x}_{n}, \tilde{x}) < \frac{ \epsilon }{ 2 }  + \frac{ \epsilon }{ 2 }  = \epsilon. \]
+    Hence, we have \( x = \tilde{x} \).
+\end{proof}
+
+\begin{theorem}[Convergent \( \implies \) Bounded]
+   Let \( (X,d) \) be a metric space. Let \( ({x}_{n}) \) be a sequence in \( X  \). If \( {x}_{n}  \to x \) in \( X  \), then \( ({x}_{n}) \) is bounded.  
+\end{theorem}
+\begin{proof}
+By the definition of convergence with (\( \epsilon = 1  \)), we have  
+\[  \exists N \in \N \ \text{such that} \ \forall n > N \ {x}_{n} \in {N}_{1}(x). \]
+Now, let 
+\[  r = \max \{  1 , d({x}_{1}, x), d({x}_{2},x), \dots , d({x}_{N}, x) \} + 1. \]
+Then, clearly, we have 
+\[  \forall n \in \N \ d({x}_{n},x) < r. \]
+Hence, 
+\[  \forall n \in \N  \ {x}_{n} \in {N}_{r}(x). \]
+
+\end{proof}
+
+\begin{corollary}[Contrapositive]
+    If \( ({x}_{n}) \) is NOT bounded, then \( ({x}_{n}) \) does NOT converge. 
+\end{corollary}
+
+\begin{theorem}[Limit Point is a Limit of a Sequence]
+    Let \( (X,d) \) be a metric space. Let \( E \subseteq  X \). Suppose \( x \in E' \). Then there exists a sequence \( {x}_{1}, {x}_{2}, \dots  \) of distinct points in \( E \setminus  \{ x \}  \) that converges to \( x  \). 
+\end{theorem}
+\begin{proof}
+Since \( x \in E' \), we have 
+\[  \forall \epsilon > 0  \ \ {N}_{\epsilon}(x) \cap (E \setminus  \{ x \} ) \ \text{is infinite}. \]
+In particular, we have 
+\begin{align*}
+    &\text{For} \ \epsilon = 1 \ \exists {x}_{1} \in E \setminus  \{ x \} \ \text{such that} \ d({x}_{1}, x) < 1  \\
+    &\text{For} \ \epsilon = \frac{ 1 }{ 2 }  \ \exists {x}_{2} \in E \setminus  \{ x \}  \ \text{such that} \ {x}_{2} \neq {x}_{1} \ \text{and} \ d({x}_{2}, x) < \frac{ 1 }{ 2 }  \\
+    &\text{For} \ \epsilon = \frac{ 1 }{ 3 }  \ \exists {x}_{3} \in E \setminus  \{ x \}  \ \text{such that} \ {x}_{3} \neq {x}_{1}, {x}_{2} \ \text{and} \ d({x}_{3}, x) < \frac{ 1 }{ 3 }  \\
+    &\vdots \\
+    &\text{For} \ \epsilon = \frac{ 1 }{ n } \ \exists {x}_{n} \in E \setminus  \{ x \}  \ \text{such that} \ {x}_{n} \neq {x}_{1}, {x}_{2}, \dots, {x}_{n-1} \ \text{and} \ d({x}_{n}, x) < \frac{ 1 }{ n } \\ 
+    &\vdots
+\end{align*}
+In this way, we claim that the sequence \( {x}_{1}, {x}_{2}, {x}_{3}, \dots \) of distinct points in \( E \setminus  \{ x \}  \) converges to \( x  \). 
+
+Indeed, let \( \epsilon > 0   \) be given. We need to find an \( N \in \N  \) such that for any \( n > N  \), \( d({x}_{n}, x) < \epsilon \). Choose \( N  \) such that \( \frac{ 1 }{ N } < \epsilon  \). Then for all \( n > N  \), we have 
+\[  d({x}_{n},x) < \frac{ 1 }{ n }  < \frac{ 1 }{ N }  < \epsilon \]
+as desired.
+\end{proof}
+
+\section{Lecture 15}
+
+\begin{definition}[Subsequence]
+    Let \( (X,d) \) be a metric space. Let \( ({x}_{n}) \) be a sequence in \( X  \) and let 
+    \[  {n}_{1} < {n}_{2} < {n}_{3} < \cdots    \]
+    be a strictly increasing sequence of natural numbers. Then \( ({x}_{{n}_{1}}, {x}_{{n}_{2}}, {x}_{{n}_{3}}, \dots ) \) is called a \textbf{subsequence} of \( ({x}_{1}, {x}_{2}, {x}_{3}, \dots ) \) and is denoted by \( ({x}_{{n}_{k }}) \), where \( k \in \N  \) indexes the subsequence.
+\end{definition}
+
+\begin{theorem}[ ]
+    Let \( (X,d) \) be a metric space. Let \( ({x}_{n}) \) be a sequence in \( X  \). If \( \lim_{ n \to \infty  } {x}_{n} = x  \), then every subsequence of \( ({x}_{n}) \) converges to \( x  \).
+\end{theorem}
+
+\begin{proof}
+Let \( ({x}_{{n}_{k }}) \) be a subsequence of \( ({x}_{n}) \). Our goal is to show that \( \lim_{ k  \to  \infty  }  {x}_{{n}_{k }} = x  \). That is, we want to show that 
+\[  \forall \epsilon > 0 \ \ \exists N \in \N \ \text{such that} \ \forall k > N \  d({x}_{{n}_{k }}, x) < \epsilon.  \]
+
+Let \( \epsilon > 0  \) be given. Our goal is to find an \( N \in \N  \) such that
+\[ \text{if} \ k > N \ \text{then} \ d({x}_{{n}_{k }}, x) < \epsilon. \tag{I} \]
+Since \( {x}_{n} \to x  \), we have
+\[  \exists \hat{N} \ \text{such that} \ \forall n > \hat{N} \ d({x}_{n}, x) < \epsilon. \tag{II} \]
+We claim that this \( \hat{N} \) can be used as the same \( N  \) we were looking for. Indeed, if we let \( N = \hat{N} \), then for any \( k > N  \), we can conclude that \( {n}_{k} \geq k > N  \) and so, by (II) we can write \( d({x}_{{n}_{k}},x) < \epsilon \).
+\end{proof}
+
+\begin{corollary}
+    \begin{enumerate}
+        \item[(1)] If  a subsequence of \( ({x}_{n}) \) does NOT converge to \( x  \), then \( ({x}_{n})  \) does NOT converge to \( x  \).
+        \item[(2)] If \( ({x}_{n})  \) has a pair of subsequences converging to different limits, then \( ({x}_{n}) \) does not converge.
+    \end{enumerate}
+\end{corollary}
+
+\begin{theorem}[ ]
+    Let \( (X,d) \) be a metric space. Let \( ({x}_{n}) \) be a sequence in \( X  \). The subsequential limits of \( ({x}_{n}) \) form a closed set in \( X  \).
+\end{theorem}
+
+\begin{proof}
+    Let \( E = \{ b \in X : b \ \text{is a limit of a subsequence of} \ ({x}_{n}) \}  \). Our goal is to show that \( E' \subseteq E  \). To this end, we pick an arbitrary element \( a \in E' \) and we will prove that \( a \in E  \), that is, we will show that there is a subsequence of \( ({x}_{n}) \) that converges to some \( a \in X  \). We may considering two cases:
+    \begin{enumerate}
+        \item[(1)] \( \forall n \in \N \), we have \( {x}_{n} = a  \). In this case, \( ({x}_{n}) \) and any subsequence of \( ({x}_{n}) \) converges to \( a  \). So, \( a \in E  \).
+        \item[(2)] \( \exists {n}_{1} \in \N  \) such that \( {x}_{{n}_{1}} \neq a  \). In this case, let \( \delta = d(a, {x}_{{n}_{1}}) > 0  \). Since \( a \in E' \), we have \( {N}_{\frac{ \delta }{ 2^{2} } }(a) \cap (E \setminus  \{ a \} ) \neq \emptyset \). So,  
+            \[  \exists b \in E \setminus  \{ a \}  \ \text{such that} \ d(b,a) < \frac{ \delta }{ 2^{3} }. \]
+            Since \( n \in E  \), \( b  \) is a limit of a subsequence of \( ({x}_{n}) \), so
+            \[  \exists {n}_{3} > {n}_{2} \ \text{such that} \ d({x}_{{n}_{3}}, b) < \frac{ \delta }{ 2^{3} }. \]
+            By the triangle inequality, we have that 
+            \[  d({x}_{{n}_{3}}, a) \leq d({x}_{{n}_{3}}, b) + d(b,a) < \frac{ \delta }{ 2^{3} }  + \frac{ \delta }{ 2^{3} }  = \frac{ \delta }{ 2^{2} }. \]
+            In this way, we obtain a subsequence \( {x}_{{n}_{1}}, {x}_{{n}_{2}}, {x}_{{n}_{3}}, \dots  \) of \( ({x}_{n}) \) such that
+            \[  \forall k \geq 2 \ \ d({x}_{{n}_{k }} , a) < \frac{ \delta }{ 2^{k-1} }. \]
+           From this construction, we can see that \( {x}_{{n}_{k }} \to a  \). Thus, \( a \in E  \). 
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}[Compactness implies Sequential Compactness]\label{SeqCompact}
+   Let \( (X,d) \) be a compact metric space. Then every sequence in \( X  \) has a convergent subsequence. 
+\end{theorem}
+
+\begin{proof}
+Let \( ({x}_{n}) \) be a sequence is the compact metric space \( X  \). Let \( E = \{ {x}_{1}, {x}_{2}, \dots  \}  \). If \( E  \) is finite, then there exists \( x \in X  \) and \( {n}_{1} < {n}_{2} < {n}_{3} < \cdots     \) such that 
+\[  {x}_{{n}_{1}} = {x}_{{n}_{2}} = {x}_{{n}_{3}} = \cdots = x. \]
+Clearly, the subsequence \( ({x}_{{n}_{1}}, {x}_{{n}_{2}}, {x}_{{n}_{3}}, \dots ) \) converges (it converges to \( x  \)).
+
+If \( E  \) is infinite, then since \( X  \) is compact by Theorem 2.3.7, \( E  \) has a limit point \( x \in X  \) (that is, there exists \( x \in X  \) such that \( x \in E' \)). Thus, we have 
+\[  \forall \epsilon > 0 \ \ {N}_{\epsilon}(x) \cap (E \setminus  \{ x \} ) \ \text{is infinite.} \]
+In particular, 
+\begin{align*}
+    &\text{For} \ \epsilon = 1, \ \exists {n}_{1} \in \N \ \text{such that} \ d({x}_{{n}_{1}}, x) < 1  \\
+    &\text{For} \ \epsilon = \frac{ 1 }{ 2 } , \ \exists {n}_{2} \in \N \ \text{such that} \ d({x}_{{n}_{2}}, x) < \frac{ 1 }{ 2 }   \\
+    &\text{For} \ \epsilon = \frac{ 1 }{ 3 } , \ \exists {n}_{3} \in \N \ \text{such that} \ d({x}_{{n}_{3}}, x) < \frac{ 1 }{ 3 }   \\
+    &\vdots \\
+    &\text{For} \ \epsilon = \frac{ 1 }{ m } , \ \exists {n}_{m} \in \N \ \text{such that} \ d({x}_{{n}_{m}}, x) < \frac{ 1 }{ m }   \\
+    &\vdots
+\end{align*}
+In this way, we obtain a subsequence \( {x}_{{n}_{1}}, {x}_{{n}_{2}}, \dots  \) of \( ({x}_{n}) \) that converges (it converges to \( x \)). 
+\end{proof}
+
+\begin{corollary}
+    Every bounded sequence in \( \R^{k} \) has a convergent subsequence.
+\end{corollary}
+
+\begin{proof}
+Let \( ({x}_{n}) \) be a bounded sequence in \( \R^{k} \). Then we have
+\[  \exists q \in \R^{k} \ \text{and} \ r > 0 \ \text{such that} \ \{ {x}_{n} : n \in \N  \} \subseteq {N}_{r}(q). \]
+Note that \( {N}_{r}(q) \) is a bounded set and so \( \overline{{N}_{r}(q)} \) is closed and bounded. So, \( \overline{{N}_{r}(q)} \) is a compact subset of \( \R^{k} \). So, we have \( \overline{{N}_{r}(q)} \) is a compact metric space and \( ({x}_{n}) \) is a sequence in \( \overline{{N}_{r}(q)} \) implies, by the {\hyperref[SeqCompact]{previous theorem}}, there exists a subsequence \( ({x}_{{n}_{k}}) \) of \( ({x}_{n}) \) that converges in the metric space \( \overline{{N}_{r}(q)} \). Since the distance \( \overline{{N}_{r}(q)} \) is the same as distance function in \( \R^{k } \), we can conclude that \( ({x}_{{n}_{k}}) \) converges in \( \R^{k } \) as well.
+\end{proof}
+
+\begin{definition}[Cauchy Sequence]
+    Let \( (X,d) \) be a metric space. A sequence \( ({x}_{n}) \) in \( X  \) is said to be a \textbf{Cauchy Sequence} if 
+    \[  \forall \epsilon > 0 \ \exists N \in \N \ \text{such that} \ \forall n,m > N  \ d({x}_{n}, {x}_{m}) < \epsilon. \]
+\end{definition}
+
+\begin{theorem}[Convergent implies Cauchy]
+    Let \( (X,d) \) be a metric space. Let \( ({x}_{n}) \) be a sequence in \( X  \). Then
+    \[  ({x}_{n}) \ \text{converges} \ \implies \ ({x}_{n}) \ \text{is Cauchy}.  \]
+\end{theorem}
+
+\begin{proof}
+Suppose \( ({x}_{n}) \to x  \) for some \( x \in X  \). Our goal is to show that \( ({x}_{n}) \) is a Cauchy sequence. Our goal is to show that  
+\[  \forall \epsilon > 0 \ \exists N \in \N \ \text{such that} \ \forall n,m > N \ d({x}_{n}, {x}_{m}) < \epsilon. \]
+By assumption, there exists an \( \hat{N} \in \N  \) such that for any \( n > \hat{N}  \), we have
+\[ d({x}_{n} ,x) < \frac{ \epsilon }{ 2 }. \tag{1}  \]
+Similarly, for any \( m > \hat{N}  \)
+\[  d({x}_{m}, x) < \frac{ \epsilon }{ 2 }.  \tag{2} \]
+We claim that \( \hat{N} \) can be used as the \( N  \) we were looking for. Set \( N = \hat{N} \) and suppose for any \( n,m > N \), we have 
+\begin{align*}
+   d({x}_{n}, {x}_{m})  \leq d({x}_{n}, x) + d(x, {x}_{m}) 
+                        < \frac{ \epsilon }{ 2 }  + \frac{ \epsilon }{ 2 }  
+                        = \epsilon.
+\end{align*}
+\end{proof}
+
+\begin{remark}
+    The converse of the theorem above does not necessarily hold. For example, consider \( \Q  \) as a subspace of \( \R  \). In \( \Q  \), it is not true that every Cauchy sequence is convergent. For example, let \( ({q}_{n}) \) be a sequence in \( \Q  \) such that \( {q}_{n} \to \sqrt{ 2 }  \). That is,  
+    \begin{align*}
+        {q}_{n} \to \sqrt{ 2 } \ \text{in} \ \R &\implies ({q}_{n}) \ \text{is convergent in} \ \R  \\
+                                                &\implies ({q}_{n}) \ \text{is Cauchy in} \ \R \\ 
+                                                &\implies ({q}_{n})  \ \text{is Cauchy in} \ \Q.
+    \end{align*}
+    However, we know that \( ({q}_{n})  \) does not converge in \( \Q  \).
+\end{remark}
+
+\begin{definition}[Complete Metric Space]
+    A metric space in which every Cauchy sequence is convergent is called a \textbf{complete metric space}.
+\end{definition}
+
+
+\end{document}

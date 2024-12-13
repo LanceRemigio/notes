@@ -116,14 +116,57 @@ such that
    \end{enumerate}
 \end{theorem}
 \begin{proof}
+We will show that \( (a) \implies (b) \implies (c) \implies (a) \).
 
+\( ((a) \implies (b) ) \) Assume that \( E  \) is closed and bounded. Our goal is to show that \( E  \) is compact. Since \( E  \) is bounded, \label{See Explanation} there exists a \( K- \)cell, \( I  \), such that \( E \subseteq I \). Note that by Theorem 2.40, we see that \( I  \) is compact. By Theorem 2.3.5, \( E  \) is compact.  
+
+\( ((b) \implies (c)) \) Assume that \( E  \) is compact. Our goal is to show that \( E  \) is limit point compact; that is, every infinite subset of \( E  \) has a limit point in \( E  \). See proof from last week.
+
+\( ((c) \implies (a)) \) Assume that every infinite subset of \( E  \) has a limit point in \( E  \). Our goal is to show that \( E  \) is closed and bounded. Suppose for sake of contradiction that \( E  \) is NOT bounded and NOT closed. 
+
+Suppose that \( E  \) is NOT bounded. In what follows, we will construct a sequence of points \( {x}_{1}, {x}_{2}, \dots  \) in \( E  \). Since \( E  \) is not bounded, we know that 
+\begin{align*}  E \not\subseteq {N}_{1}(0) &\implies \exists {x}_{1} \in E \ \text{such that}  \ d({x}_{1}, 0) = \|{x}_{1}\|_2 \geq 1. \\  
+    E \not\subseteq {N}_{2}(0) &\implies \exists {x}_{2} \in E \ \text{such that} \ d({x}_{2}, 0) = \|{x}_{2}\|_{2} \geq 2 \\
+    E \not\subseteq {N}_{3}(0) &\implies \exists {x}_{3} \in E \ \text{such that} \ d({x}_{3}, 0) = \|{x}_{3}\|_2 \geq 3 \\
+                               &\vdots \\
+    E \not\subseteq {N}_{n}(0) &\implies \exists {x}_{n} \in E \ \text{such that} \ d({x}_{n}, 0) = \|{x}_{n}\|_2 \geq n \\
+                               &\vdots \\
+\end{align*}
+That is, we have a sequence of points \( S = \{ {x}_{n} : n \in \N  \}    \) in \( E  \) with the property that 
+\[  d({x}_{n}, 0) = \|{x}_{n}\|_2 \geq n. \]
+Note that \( S  \) is an infinite set; indeed, if \( S  \) were finite, then
+\[  S = \{ {a}_{1}, \dots, {a}_{m} \}. \]
+Now, let 
+\[  r = \max \{ d({a}_{n},0) : 1 \leq n \leq m \} \]
+and let \( n \in \N  \) be such that \( n > r + 1  \) (By the Archimedean Property). Since \( \|{x}_{n}\|_2 \geq n  > r + 1  \), we can conclude that none of the \( {a}_{1}, \dots, {a}_{m} \) is \( {x}_{n} \) and this contradicts how \( S  \) was constructed.
+
+Now, we will show that \( E  \) is closed. Assume for contradiction that \( E  \) is NOT closed; that is, \( E' \not\subseteq E  \). That is, there exists \( {y}_{0} \in \R^{k} \) such that \( {y}_{0} \in E' \) but \( {y}_{0} \in E \). We will construct a sequence of points \( {y}_{1}, {y}_{2}, \dots  \) in \( E  \) as follows:
+\begin{align*}
+    {y}_{0} \in E' &\implies {N}_{1}({y}_{0}) \cap (E \setminus  \{ {y}_{0} \} ) \ \text{is infinite} \ \text{such that} \ \|{y}_{1} - {y}_{0}\| < 1  \\
+    {y}_{0} \in E' &\implies {N}_{\frac{ 1 }{ 2 } }({y}_{0}) \cap (E \setminus  \{ {y}_{0} \} ) \ \text{is infinite such that} \ \| {y}_{2} - {y}_{0} \| < \frac{ 1 }{ 2 }  \\
+                   &\vdots \\
+    {y}_{0} \in E' &\implies {N}_{\frac{ 1 }{ m } }({y}_{0}) \cap (E \setminus  \{ {y}_{0} \} ) \ \text{is infinite such that} \ \| {y}_{m} - {y}_{0}\| < \frac{ 1 }{ m } \\
+                   &\vdots
+\end{align*}
+Let \( T = \{ {y}_{1}, {y}_{2}, {y}_{3}, \dots  \}  \) and note that \( T \subseteq E  \). Note \( T  \) is infinite (by construction \( {y}_{1}, {y}_{2}, {y}_{3}, \dots  \) are distinct elements. We claim that if \( z \neq {y}_{0} \), then \( z \in T' \). To this end, we have for all \( n \in \N  \)
+        \[ d({y}_{0}, z) = \|{y}_{0} - z \|_2 \leq \|{y}_{0} - {y}_{n}\|_2 + \|{y}_{n} - z \|_2 \]
+        which implies further that 
+        \[  \|{y}_{n} - z \|_2 \geq \|{y}_{0} - z \|_2 - \|{y}_{n} - {y}_{0}\|_2 > \|{y}_{0} - z\|_2 - \frac{ 1 }{ n }. \]
+        Hence, for all \( n \in \N  \) with \( \frac{ 1 }{ n }  < \frac{ 1 }{ 2 }  \|{y}_{0} - z \|_2 \), we have 
+        \begin{align*}
+            d({y}_{n},z)&> \|{y}_{0} - z \|_2 - \frac{ 1 }{ n }  \\
+                        &> \|{y}_{0} - z\|_2 - \frac{ 1 }{ 2 }  \|{y}_{0} - z \|_2 \\
+                        &= \frac{ 1 }{ 2 }  \|{y}_{0} - z \|_2. 
+        \end{align*}
+        So, for all but finitely many \( n  \), we see that 
+        \[  d({y}_{n},z) > \frac{ 1 }{ 2 }  \|{y}_{0} - z \|_2. \]
+        Hence, if we let \( \epsilon = \frac{ 1 }{ 4 }  \|{y}_{0} - z\|_2 \), then \( {N}_{\epsilon}(z) \cap T  \) is a finite set which proves \( z \notin T' \). 
+        But this implies that the only possible limit point of \( T  \) is \( {y}_{0} \), but \( {y}_{0} \notin E  \). Hence, \( T  \) is an infinite subset of \( E  \) with not limit point in \( E  \). This contradicts our hypothesis that every infinite subset of \( E  \) has a limit point of \( E  \).
 \end{proof}
-
 
 \begin{remark}
     Note that in any general metric space, we have \( (a) \implies (b) \) is not necessarily true.
 \end{remark}
-
 
 \begin{theorem}[Bolzano-Weierstrass Theorem]
  Let \( E \subseteq \R^{k }  \) and \( E  \) is an infinite set and bounded. Then \( E' \neq \emptyset \).   
@@ -131,6 +174,19 @@ such that
 \begin{proof}
 Suppose that \( E  \) is bounded. Then there exists a \( k- \)cell \( I  \) such that \( E \subseteq  I  \). By Theorem 2.40, we know that \( I  \) is a compact set. Furthermore, we know that \( I  \) is limit point compact by Theorem 2.41. So, every infinite set in \( I  \) has a limit point in \( I  \). In particular, \( E  \) has a limit point in \( I  \). So, \( E \neq \emptyset \).
 \end{proof}
+
+\section{Lecture 13}
+
+\subsection{Topics}
+
+\begin{itemize}
+    \item Separated sets, disconnected sets, connected set.
+    \item Theorem: \( E \subseteq \R   \) is connected if and only if \( x,y \in E  \) and \( z \in (x,y) \) implies \( z \in E  \).
+    \item Perfect Sets
+    \item Theorem: \( P \subseteq \R^{k} \) is nonempty perfect implies \( P  \) is uncountable.
+    \item The Cantor Set
+\end{itemize}
+
 
 \begin{definition}[Connected Sets, Disconnected, connected]
     Let \( (X,d) \) be a metric space. 
@@ -158,7 +214,176 @@ Suppose that \( E  \) is bounded. Then there exists a \( k- \)cell \( I  \) such
 \end{enumerate}    
 \end{eg}
 
-\section{Lecture 12}
+\begin{theorem}[ ]
+    Let \( E \subseteq \R \). \( E  \) is connected if and only if \( E  \) contains the following property
+    \begin{center}
+        If \( x,y \in E  \) and \( x < z < y  \), then \( z \in E  \).
+    \end{center}
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+\begin{remark}[Proposition 3.3.5, "Differential Calculus on Normed Space", Cartan]
+    Let \( U  \) be an open set in a normed (real) vector space. The following conditions are equivalent:
+    \begin{enumerate}
+        \item[(a)] \( U \) is connected
+        \item[(b)] \( U  \) is path connected (any two points in \( U  \) can be connected by a path in \( U  \))
+    \end{enumerate}
+\end{remark}
+
+\begin{remark}[Chapter 4, "Introduction" to Topological Manifolds", John Lee]
+   In any metric space,  
+   \begin{center}
+       path connected \( \implies \) connected.
+   \end{center}
+   However, the converse is not always true!
+\end{remark}
+
+\begin{definition}[Perfect Set]
+    Let \( (X,d) \) be a metric space. Let \( E \subseteq  X  \). The following are equivalent definitions:
+    \begin{enumerate}
+        \item[(i)] \( E  \) is said to be \textbf{perfect} if \( E' = E \) 
+        \item[(ii)] \( E  \) is said to be \textbf{perfect} if \( E' \subseteq E   \) and \( E \subseteq  E' \). 
+        \item[(iii)] \( E  \) is said to be perfect if \( E  \) is closed and every point of \( E  \) is a limit point of \( E  \).
+        \item[(iv)] \( E  \) is said to be perfect if \( E  \) is closed and \( E  \) does not have any isolated points.
+    \end{enumerate}
+\end{definition}
+
+\begin{eg}
+    \begin{itemize}
+        \item \( E = [0,1] \implies E' = [0,1] \). Thus, we have \( E = E' \) and so \( E  \) is perfect.
+        \item \( E = [0,1] \cup \{ 2 \} \implies  \) \( 2  \) is an isolated point of \( E  \) \( \implies  \) \( E  \) is NOT perfect.
+        \item \( E = \Big\{ \frac{ 1 }{ n } : n \in \N   \Big\} \implies E' = \{ 0  \} \implies  E \neq E' \), so \( E  \) is not perfect. 
+        \item Is \( E' \) from the last example perfect? Indeed, \( E' = \{ 0  \}  \implies (E')' = \emptyset\). Thus, \( E' \neq (E')' \implies E' \) is NOT perfect.
+        \item \( E = \emptyset \) and \( E' = \emptyset \). Thus, \( E = E' \) so \( E  \) is perfect.
+    \end{itemize}  
+\end{eg}
+
+\begin{theorem}[ ]
+    Let \( P  \) be a nonempty perfect set in \( \R^{k} \). Then \( P \) is uncountable.
+\end{theorem}
+
+Our proof of the theorem above will use the following two lemmas:
+
+\begin{lemma}
+   Let \( (X,d) \) be a metric space. Let \( E \subseteq  X  \) be perfect. If \( V \) is any open set in \( X  \) such that \( V \cap E \neq \emptyset \), then \( V \cap E  \) is an infinite set.  
+\end{lemma}
+\begin{proof}
+Let \( q \in V \cap E  \). Thus, \( q \in V  \) and \( q \in E  \). Then \( q \in V  \) implies that there exists \( \delta > 0  \) such that \( {N}_{\delta}(q) \subseteq  V   \) and \( q \in E  \) implies \( q \in E' \). As a consequence of these two results, we see that \( {N}_{\delta}(q) \cap E  \) is an infinite set. Thus, \( V \cap E  \) is an infinite set (Here, we are using the fact that an open set intersected with a perfect set is infinite whenever the intersection is nonempty). 
+\end{proof}
+\begin{lemma}
+    Let \( q \in \R^{k} \). Let \( r > 0  \). Then \(  \overline{{N}_{r}(q)} = {C}_{r}(q). \)
+\end{lemma}
+\begin{proof}
+    Note that since \( P' = P  \) and \( P \neq \emptyset \), we have \( P' \neq \emptyset \). Thus, \( P  \) is infinite. Assume for contradiction that \( P  \) is countable. Let's denote the distinct elements of \( P  \) by \( {x}_{1}, {x}_{2}, {x}_{3}, \dots \); that is, we can denote  
+    \[  P = \{ {x}_{1}, {x}_{2}, {x}_{3}, \dots \}. \]
+    In what follows, we will construct a sequence of neighborhoods \( {V}_{1}, {B}_{2}, {V}_{3}, \dots  \) such that
+    \begin{enumerate}
+        \item[(i)] For all \( n \in \N  \), we have \( \overline{{V}_{n+1}} \subseteq  {V}_{n} \).
+        \item[(ii)] For all \( n \in \N  \), \( {x}_{n} \notin \overline{{V}_{n+1}} \).
+        \item[(iii)] For all \( n \in \N  \), \( {V}_{n} \cap P \neq \emptyset \).
+    \end{enumerate}
+    Let's assume that we have constructed these neighborhoods ({\hyperref[Construction of neighborhoods]{Construction of neighborhoods}} ). Then for each \( n \in \N  \), let 
+    \[  {K}_{n} = \overline{{V}_{n}} \cap P \neq \emptyset. \]
+   Note that  
+   \begin{enumerate}
+       \item[(I)] \( \overline{{V}_{n+1}} \subseteq  {V}_{n} \subseteq \overline{{V}_{n}} \) so \( \overline{{V}_{n+1}} \cap P \subseteq  \overline{{V}_{n}} \cap P  \) and so \( {K}_{n+1} \subseteq  {K}_{n} \) for each \( n  \). 
+        \item[(II)] Since \( \overline{{V}_{n}} \) is a closed and bounded set in \( \R^{k} \), we have that \( \overline{{V}_{n}} \) is compact. Furthermore, \( P \) being a perfect set implies that \( P \) is a closed set. As a consequence of these two facts, we can conclude that \( {K}_{n} = \overline{{V}_{n}} \cap P  \) is compact. 
+   \end{enumerate}
+   Using facts (I) and (II), we can conclude that 
+   \[  \bigcap_{ n=1  }^{ \infty    } {K}_{n} \neq \emptyset \tag{*} \]
+   by Theorem 2.3.6. Recall that for all \( n  \), we have \( {K}_{n} \subseteq  P  \), and so we have 
+   \[  \bigcap_{ n = 1  }^{ \infty  } {K}_{n} \subseteq P. \]
+   In what follows, we will contradict (*). Let \( b \in P  \) be arbitrary. Then \( b = {x}_{m} \) for some \( m \in \N  \). By property (ii), we see \( {x}_{m} \notin \overline{{V}_{m+1}} \) and so \( {x}_{m} \notin \overline{{V}_{m+1}} \cap P = {K}_{m+1}  \). This tells us that 
+   \[  \bigcap_{ n = 1  }^{ \infty  }  {K}_{n} = \emptyset.  \]
+\end{proof}
+\begin{remark}[On the construction of neighborhoods \( V_1, V_2, \dots \)]\label{Construction of neighborhoods}
+   Fix \( {r}_{1} > 0  \). Let \( {V}_{1} = {N}_{{r}_{1}}({x}_{1})  \). Clearly, \( {V}_{1} \cap P \neq \emptyset \) (because \( {x}_{1} \in {V}_{1}  \) and \( {c}_{1} \in P \)). Our goal is to construct an open neighborhood \( {V}_{2} \) such that 
+   \begin{enumerate}
+       \item[(i)] \( \overline{{V}_{2}} \subseteq {V}_{1} \),
+       \item[(ii)] \( {x}_{1} \notin \overline{{V}_{2}} \),
+        \item[(iii)] \( {V}_{2} \cap P \neq \emptyset \).
+   \end{enumerate}
+   We can do this just by using the fact that \( {V}_{1} \cap P \neq \emptyset \). By the first lemma found above, there exists \( {y}_{1} \in {V}_{1} \cap P  \) such that \( {y}_{1} \neq {x}_{1} \). Since \( {V}_{1}  \) is open and \( {y}_{1} \in {V}_{1} \), there exists \( {\delta}_{1} > 0  \) such that \( {N}_{{\delta}_{1}} ({y}_{1}) \subseteq  {V}_{1} \). 
+   \begin{center}
+        Let \( {r}_{2} = \frac{ 1 }{ 2 }  \min \{ d({x}_{1}, {y}_{1}), {\delta}_{1} \}.  \) 
+   \end{center}
+   Let \( {V}_{2} = {N}_{{r}_{2}}({y}_{1}) \). We claim \( {V}_{2} \) has all the desired properties above. Indeed, we see that 
+   \begin{enumerate}
+       \item[(i)] Observe that \begin{align*}
+           \overline{{V}_{2}} = \overline{{N}_{{r}_{2}}({y}_{1})} &= \{ z \in \R^{k} : \| z - {y}_{1}\|_2 \leq {r}_{2} \} \\
+                                                                  &\subseteq \{ z \in \R^{k} : \|z - {y}_{1}\|_2 < {\delta}_{1} \} = {N}_{{\delta}_{1}}({y}_{1}) \\ 
+                                                                  &\subseteq {V}_{1}.
+       \end{align*}
+    \item[(ii)] Notice that \( d({x}_{1}, {y}_{1}) > {r}_{2} \) implies that 
+        \[  {x}_{1} \notin \overline{{N}_{{r}_{2}}({y}_{1})} = \{ z \in \R^{k} : \| z - {y}_{1} \|_2 \leq {r}_{2} \}.  \]
+    \item[(iii)] Since \( {y}_{1} \in {V}_{2}  \) and \( {y}_{1} \in P  \), we clearly have that \( {V}_{2} \cap P  \neq \emptyset \).
+   \end{enumerate}
+   We can construct \( {V}_{3}, {V}_{4}, \dots \) in a similar manner.
+\end{remark}
+
+As a consequence of the theorem above, we have
+
+\begin{corollary}
+    The interval \( [0,1]  \) is uncountable.
+\end{corollary}
+
+\subsection{The Cantor Set}
+
+The construction of the Cantor set is typically done in stages.
+
+\subsubsection{Step 0:}
+
+Let \( {E}_{0} = [0,1] \).
+
+\subsubsection{Step 1:}
+Remove the segment \( \Big(  \frac{ 1 }{ 3 } , \frac{ 2 }{ 3 }  \Big)  \), that is, remove the middle third, and define
+\[  {E}_{1} = \Big[ 0 , \frac{ 1 }{ 3 } \Big] \cup \Big[ \frac{ 2 }{ 3 } , 1 \Big]. \] The middle third, in this case, will be calculated by the following
+\[  \Big(  \frac{ 1 }{ 3 } , \frac{ 2 }{ 3 }  \Big) = \Big(  \frac{ 3(0) + 1  }{ 3^{2} } , \frac{ 3 (0) + 2  }{ 3^{2} }  \Big). \]
+
+\subsubsection{Step 2:}
+
+Take each of the intervals \( \Big[0 , \frac{ 1 }{ 3 } \Big]  \) and \( \Big[ \frac{ 2 }{ 3 } , 1 \Big] \) and remove the middle third of each of those, and define 
+\[  {E}_{2} = \Big[ 0 , \frac{ 1 }{ 9 } \Big] \cup \Big[ \frac{ 2 }{ 9 }, \frac{ 3 }{ 9 } \Big] \cup \Big[ \frac{ 6 }{ 9 } , \frac{ 7 }{ 9 } \Big] \cup \Big[ \frac{ 8 }{ 9 }  , 1 \Big].  \]
+Likewise, we can remove the middle third move explicitly by calculating the following
+\[  \Big(  \frac{ 3(0) + 1  }{ 3^{2} } , \frac{ 3(0) + 2  }{ 3^{2} }  \Big) \ \ \text{and} \ \ \Big(  \frac{ 3(2) + 1  }{ 3^{2} } , \frac{ 3(2) + 2  }{ 3^{2} }  \Big). \]
+
+Continue in this manner until we obtain a sequence of compact sets:
+\[ {E}_{1}, {E}_{2}, {E}_{3}, {E}_{4}, \dots \]
+with the following properties
+\begin{enumerate}
+    \item[(1)] \( {E}_{1} \supseteq {E}_{2} \supseteq {E}_{3} \supseteq {E}_{4} \ \cdots  \)
+    \item[(2)] For each \( n \in \N  \), \( {E}_{n} \) is the union of \( 2^{n} \) intervals of length \( \frac{ 1 }{ 3^{n} }  \).
+\end{enumerate}
+
+The set \( P = \bigcap_{ n=1  }^{ \infty    }  {E}_{n} \) is called the \textbf{Cantor Set}.
+
+\begin{remark}
+    Notice that in order to obtain \( {E}_{n} \), we remove intervals of the form \( \Big(  \frac{ 3 k + 1  }{ 3^{n} } , \frac{ 3 k + 2  }{ 3^{n} }  \Big) \) from \( {E}_{n-1} \); that is, \( k  \) is such that \( 0 \leq k  \) and \( 3 k + 2 < 3^{n} \).
+\end{remark}
+
+\begin{theorem}[Properties of the Cantor Set]
+    Let \( P  \) denote the Cantor set. Then
+    \begin{enumerate}
+        \item[(1)] \( P \) is compact
+        \item[(2)] \( P  \) is nonempty
+        \item[(3)] \( P  \) contains no segment
+        \item[(4)] \( P  \) is perfect (and so it is uncountable)
+        \item[(5)] \( P  \) has measure zero.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\begin{enumerate}
+    \item[(1)] Note that \( P  \) is an intersection of compact sets. Hence, \( P  \) is compact (see hw5).
+    \item[(2)] It follows from Theorem 2.3.6 that the intersection of a sequence of nested nonempty compact sets is nonempty. (In fact, the endpoint of each interval that appears at any state belong to \( P \))
+    \item[(3)] Our goal is to show that \( P  \) does NOT contain any set of the form \( (\alpha, \beta) \) (where \( 0 \leq \alpha, \beta \leq 1 \)). Note that, by the construction of \( P  \), the intervals of the form:
+        \[  {I}_{k,n} = \Big(  \frac{ 3k+1 }{  3^{n} } , \frac{ 3k + 2  }{ 3^{n} }  \Big) \  n \in \N, \\ 3k + 2 < 3^{n}  \]
+        have no intersection with \( P  \). However, \( (\alpha, \beta) \) contains at least one of \( {I}_{k,n} \)'s. Indeed, \( (\alpha, \beta) \) contains \( \Big(  \frac{ 3k+1  }{ 3^{n} } , \frac{ 3k+2  }{ 3^{n} }  \Big) \). That is,  
+\end{enumerate}
+\end{proof}
+
 
 
 

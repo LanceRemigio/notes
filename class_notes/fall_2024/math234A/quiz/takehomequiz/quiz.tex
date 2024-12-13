@@ -1,0 +1,149 @@
+\documentclass[a4paper]{article}
+
+\input{../../../../../newpreamble.tex}
+
+\title{Math 234A Take Home Quiz}
+\author{Lance Remigio}
+\begin{document}
+\maketitle   
+
+\begin{enumerate}
+    \item Indicate whether the following statements are True or False. You \textbf{do not} need to justify your answer.
+        \begin{enumerate}
+            \item[(a)] Let \( f: D \to \C  \) where \( D \subseteq  \C   \) is open. Let \( a \in D  \) and suppose that \( f  \) is holomorphic at \( a  \). Then, we can find an open set \( D' \subseteq D  \) such that \( a \in D' \) and \( f  \) is complex differentiable at each \( z \in D' \). \textbf{True}. 
+            \item[(b)] Let \( f: D \to \C  \) where \( D \subseteq  \C   \) is an open set. Let \( f(z) = u + iv \) with \( u: D \to \R  \) and \( v : D \to \R  \). Suppose that \( u  \) and \( v  \) satisfy the Cauchy-Riemann Equations on \( D  \). Then, \( f  \) is holomorphic on \( D  \). \textbf{False.}
+            \item[(c)] Let \( f: \C \to \C  \) defined by \( f(z) = \sin (\overline{z}) \). Then, \( f  \) is holomorphic at \( 0 \in \C  \). \textbf{False.}
+            \item[(d)] Let \( f: [0,1] \to \C  \) be defined by \( f(t) = 2z(1-t) + 2tw \) where \( z,w \in \C  \) are fixed complex numbers. Then \( \int_{ 0 }^{ 1 } f(t) \ dt = w - z  \). \textbf{False.}
+        \end{enumerate}
+    \item Give definitions of the following terms.
+        \begin{enumerate}
+            \item[(a)] Cauchy-Riemann equations for a pair of functions \( u,v: D \to \R  \) where \( D  \) is an open subset of \( \R^{2} \).
+                \begin{solution}
+                Suppose that \( u,v : D \to \R  \) where \( D  \) is an open subset of \( \R^{2} \) and \( u \) and \( v  \) contain partial derivatives that exists and are continuous on every point of \( D  \). Then the Cauchy-Riemann equations are
+                \[  \frac{ \partial u  }{ \partial x  }  = \frac{ \partial v }{ \partial y } \ \ \text{and} \ \ \frac{ \partial u }{  \partial y  }  = -\frac{ \partial v   }{ \partial x   }.  \]
+                \end{solution}
+            \item[(b)] A piecewise smooth curve in \( \C  \).
+                \begin{solution}
+                    A curve \( \alpha: [a,b] \to \C  \) is \textbf{piecewise smoooth} if there is a partition 
+                    \[  a = {a}_{0} < {a}_{1} < \cdots < {a}_{n} = b \]
+                    such that \( \alpha \big|_{[{a}_{i-1}, {a}_{i}]} \) is smooth for \( i = 1,2,\dots, n \).
+                \end{solution}
+            \item[(c)] A complex line integral of a continuous function \( f: D \to \C  \) over a piecewise smooth curve in \( D  \), where \( D \subseteq \C . \)
+                \begin{solution}
+                    Assume \( \alpha: [a,b] \to \C  \) is a piecewise smooth curve with partition
+                    \[  a = {a}_{0} < {a}_{1} < \dots, < {a}_{n} = b \]
+                    such that \( \alpha \big|_{[{a}_{i-1}, {a}_{i}]} \) smooth for \( i = 1,2,\dots, n \). Let \( f: D \to \C  \) continuous and \( \alpha([a,b]) \subseteq  D  \). Then we define
+                    \[  \int_{ \alpha }^{  } f(z) \ dz = \sum_{ i=1  }^{ n } \int_{ \alpha |_{[{a}_{i-1}, {a}_{i}]} } f(z) \ dz \]
+                    to be the \textbf{complex line integral of \( f  \) over a piecewise smoooth curve in \( D  \), where \( D \subseteq \C  \)}.
+                    
+                \end{solution}
+        \end{enumerate}
+    \item Suppose that \( D \subseteq \C  \) is open and connected. Assume that \( f: D \to \C  \) is holomorphic. Assume that \( g: D \to \C  \) defined by \( g(z) = \overline{f(z)} \) is also holomorphic. Prove that \( f  \) and \( g  \) are both constant functions. Use this to deduce that \( f: \C \to \C  \) defined by \( f(z) = \overline{\sin z} \) is not holomorphic.
+        \begin{proof}
+        Our goal is to show that \( f  \) and \( g  \) are both constant. It suffices to show that \( \Re(f) \) is constant and \( \Re(g) = \Re(\overline{f}) \) is constant. Note that \( f = u + iv  \) with \( u,v  \) are real-valued functions. Since \( f  \) and \( g  \) are holomorphic, we 
+        \begin{align*}
+        \frac{\partial f }{\partial x }  &= \frac{\partial u }{\partial x }  + i \frac{\partial v }{\partial x } \\   
+        \frac{\partial \overline{f} }{\partial x  }             &= \frac{\partial u }{\partial x }  - i\frac{\partial v }{\partial x } 
+    \end{align*}
+        
+        Note that if \( f  \) and \( g  \) are holomorphic, then we have
+        \begin{align*}
+            \frac{ \partial f  }{  \partial \overline{z} } &= \frac{ 1 }{ 2 }  \Big[ \frac{ \partial f  }{  \partial x  }  + i \frac{ \partial f  }{  \partial y  } \Big] = 0 \tag{1}  \\
+            \frac{ \partial \overline{f} }{ \partial \overline{z } } &= \frac{ 1 }{ 2 }  \Big[ \frac{ \partial \overline{f} }{ \partial x  }  + i \frac{ \partial \overline{f} }{ \partial y  } \Big] = 0 \tag{2}. 
+        \end{align*}
+        Adding equations (1) and (2), we have 
+        \begin{align*}
+            \frac{ 1 }{ 2 }  \Big[ \frac{\partial f }{\partial x }  + i \frac{\partial f }{\partial y } \Big] = - \frac{ 1 }{ 2 }  \Big[ \frac{\partial \overline{f} }{\partial x }  + i \frac{\partial \overline{f} }{\partial y } \Big] &\implies \frac{\partial f }{\partial x }  + i \frac{\partial f }{\partial y }  = -\Big[ \frac{\partial \overline{f} }{\partial x  }  + i \frac{\partial \overline{f} }{\partial y } \Big].
+        \end{align*} 
+        Furthermore, we have 
+        \begin{align*}
+          \Big(  \frac{\partial u }{\partial x }  + i \frac{\partial v }{\partial x }   \Big) + i \Big( \frac{\partial u }{\partial y }  - i \frac{\partial v }{\partial y }    \Big) = -\Big(  \frac{\partial u }{\partial x }  - i \frac{\partial v }{\partial x }  \Big) - i  \Big( \frac{\partial u }{\partial y } - i\frac{\partial v }{\partial y }    \Big)   
+        \end{align*}
+        and hence,
+        \[  \frac{\partial u }{\partial x }  + i \frac{\partial v }{\partial x }  = - \frac{\partial u }{\partial x }  + i \frac{\partial v }{\partial x } \implies 2 \frac{\partial u }{\partial x }  = 0 \implies \frac{\partial u }{\partial x }  = 0.    \]
+        Since \( u = \Re(f) \), we can see that \( \Re(f) \) is a constant function. Since \( \Re(f) = \Re(\overline{f}) \) (By Exercise 4(a) of Homework 5), we also have that \( \Re(\overline{f}) \) is a constant function. Thus, \( f  \) and \( g  \) are constant functions.
+
+        To show that \( f(z) = \overline{\sin z } \) is not holomorphic, we can just show that the real and imaginary parts of \( \overline{\sin z } \) are not constant. By Exercise 6 (a) of homework 5, we see that  
+        \[  h(z) = \sin z = \frac{ 1 }{ 2 }  (e^{-y} + e^{y}) \sin x  + i \Big[ - \frac{ 1 }{ 2 }  (e^{-y} + e^{y}) \cos x \Big] \]
+        is a holomorphic function on \( \C  \). Note that \( f(z) = \overline{h(z)} \).
+        Hence, we see that 
+        \[  \overline{\sin z} = \frac{ 1 }{ 2 }  (e^{-y} + e^{y}) \sin x  + i \Big[ \frac{ 1 }{ 2 }  (e^{-y} + e^{y}) \cos x \Big]. \]
+        Clearly, both real and imaginary parts of \( h(z) = \overline{\sin z } \) and \( f(z) = \sin z  \) are NOT constant. Hence, \( f(z) = \overline{\sin z } \) is NOT a holomorphic function.   
+        \end{proof}
+    \item Assume that \( f: [a,b] \to \C  \) be integrable.
+        \begin{enumerate}
+            \item[(a)] Prove that \( \Big| \int_{ a }^{ b } f(t) \ dt \Big| \leq \int_{ a }^{ b }  | f(t) |  \ dt \).
+                \begin{proof}
+                    Let \( x: [a,b] \to \R  \) and \( y: [a,b] \to \R  \) such that \( f(t) = x(t) + i y(t) \). Our goal is to show that 
+                    \[  \Big| \int_{ a }^{ b }  f(t) \ dt \Big| \leq \int_{ a }^{ b }  | f(t) |  \ dt. \]
+                    It suffices to show that 
+                \[  \Big| \int_{ a }^{ b } f(t) \ dt \Big|^{2} \leq \Big( \int_{ a }^{ b }  | f(t) | \ dt \Big)^{2}.  \]
+                Observe that 
+                \begin{align*}
+                    \Big| \int_{ a }^{ b }  f(t) \ dt \Big|^{2} &= \Big(  \int_{ a }^{ b }  f(t) \ dt \Big) \overline{\Big(  \int_{ a }^{ b } f(s) \ ds \Big)} \\
+                                                                &= \Big[ \int_{ a }^{ b }  (x(t) + i y(t)) \ dt \Big] \cdot \Big[ \int_{ a }^{ b } (x(s) - i y(s)) \ ds \Big] \\
+                                                                &= \int_{ a }^{ b } \int_{ a }^{ b }  (x(t) + iy(t) ) (x(s) - i y(s)) \ dt  ds \\
+                                                                &= \int_{ a }^{ b }  \int_{ a }^{ b } (x(t) x(s) + i (y(t)x(s) - x(t)y(s)) + y(t)y(s) ) \ dt ds \\
+                                                                &= \int_{ a }^{ b }  \int_{ a }^{ b } [x(t) x(s) + y(s) x(t)] \ dt ds + i \int_{ a }^{ b } \int_{ a }^{ b } [y(t) x(s) - x(t) y(s)] \ dt ds.
+                \end{align*}
+                Note that 
+                \[ \int_{ a }^{ b } \int_{ a }^{ b }  [y(t) x(s) - x(t) y(s)] \ dt \ ds =  \int_{ a }^{ b }  \int_{ a }^{ b }  y(t) x(s)  \ dt ds - \int_{ a }^{ b }  \int_{ a }^{ b }  x(t) y(s) \ dt \ ds = 0. \]
+                Hence, we see that
+                \[ \Big| \int_{ a }^{ b } f(t) \ dt  \Big|^{2} = \int_{ a }^{ b } \int_{ a }^{ b } [x(t) x(s) + y(s) x(t)] \ dt ds. \tag{*} \]
+                Now, notice we have
+                \begin{align*}
+                | x(t)x(s) + y(s) x(t) | &\leq \sqrt{ ((x(t))^{2} + (y(t))^{2}) ((x(s))^{2} + (y(s))^{2}) } \\      
+                                             &= \sqrt{ ((x(t))^{2} + (y(t))^{2}) } \cdot \sqrt{ ((x(s))^{2} + (y(s))^{2}) } 
+            \end{align*}
+            by the Cauchy-Schwarz inequality. So, (*) implies that 
+            \begin{align*}
+                \Big| \int_{ a }^{ b } f(t) \ dt \Big|^{2} &= \int_{ a }^{ b }  \int_{ a }^{ b }  [x(t) x(s) + y(s) x(t)] \ dt ds \\
+            &\leq \int_{ a }^{ b }  \int_{ a }^{ b } \sqrt{ ((x(t))^{2} + (y(t))^{2}) }  \cdot \sqrt{ ((x(s))^{2} + (y(s))^{2}) }   \ dt  ds  \\ 
+                                                       &= \Big( \int_{ a }^{ b }  \sqrt{ ((x(t))^{2} + (y(t))^{2}) }  \ dt \Big) \cdot \Big(  \int_{ a }^{ b }  \sqrt{ (x(s))^{2} + (y(s))^{2} }  \ ds  \Big) \\
+                                                       &= \Big(  \int_{ a }^{ b }  \sqrt{ (x(t))^{2} + (y(t))^{2} }  \ dt \Big)^{2} \\
+                                                       &= \Big( \int_{ a }^{ b } | f(t) |  \ dt \Big)^{2}.
+        \end{align*}
+        Hence, squaring both sides will gives us our desired result; that is,
+        \[  \Big| \int_{ a }^{ b } f(t) \ dt \Big|^{2} \leq \int_{ a }^{ b } | f(t) |  \ dt. \]
+                \end{proof}
+            \item[(b)] Prove that \( \int_{ a }^{ b } f(t) \ dt = - \int_{ a }^{ b }  f(s) \ ds \). 
+                \begin{proof}
+                    By definition, \( f(t) = x(t) + i y(t) \) with \( x,y : [a,b] \to \R  \). Our goal is to show that 
+                \[  \int_{ a }^{ b } f(t) \ dt = - \int_{ a }^{ b }  f(s) \ ds.  \tag{*} \]
+                By definition of the complex integral, we see that 
+                \[  \int_{ a }^{ b } f(t) \ dt = \int_{ a }^{ b } x(t) \ dt + i \int_{ a }^{ b }  y(t) \ dt. \]
+                Since \( x(t) \) and \( y(t)  \) are real-integrable functions for all \( t \in [a,b] \), we see that 
+                \[  -\int_{ a }^{ b } x(s) \ ds = \int_{ a }^{ b } x(t) \ dt  \ \ \text{and} \ \ - \int_{ a }^{ b } y(s) \ ds = \int_{ a }^{ b } y(t) \ dt.  \]
+                Starting with the right-hand side of (*), we get
+                \begin{align*}
+                    - \int_{ a }^{ b } f(s) \ ds &= - \Big[ \int_{ a }^{ b } x(s)  \ ds + i \int_{ a }^{ b }  y(s) \ ds \Big] \\
+                                                 &= - \int_{ a }^{ b }  x(s) \ ds + i \Big(  - \int_{ a }^{ b } y(s) \ ds \Big) \\
+                                                 &= \int_{ a }^{ b } x(t) \ dt + i \int_{ a }^{ b } y(t) \ dt \\
+                                                 &= \int_{ a }^{ b } f(t) \ dt.
+                \end{align*}
+               Thus, we have established (*).
+                \end{proof}
+        \end{enumerate}
+    \item Compute the integral \( \displaystyle \int_{ 0 }^{ 2 } f(t) \ dt \), where \( f: [0,2] \to \C  \) is defined by 
+        \[  f(t) = 
+        \begin{cases}
+            (1+i)t  &\text{if} \ 0 \leq t \leq 1 \\
+            1 + i t^{2} &\text{if} \ 1 < t \leq 2. 
+        \end{cases} \]
+        \begin{solution}
+        Observe that 
+        \begin{align*}
+            \int_{ 0 }^{ 2 } f(t) \ dt &= \int_{ 0 }^{ 1 }  (1+i)t \ dt + \int_{ 1 }^{ 2 }  (1+i) t^{2} \ dt \\
+                                       &= \Big[ \frac{ (1+i)t^{2} }{ 2 } \Big]_{0}^{1} + \Big[ \frac{ (1+i)t^{3} }{ 3 } \Big]^{2}_{1} \\
+                                       &= \frac{ 1+i }{ 2 }  + \Big(  \frac{ (1+i) 8  }{ 3 }  + \frac{ 1 + i  }{ 3 }  \Big) \\
+                                       &= \frac{ 17 (1+i) }{ 6 }.
+        \end{align*}
+        Hence, we have
+        \[  \int_{ 0 }^{ 2 }  f(t) \ dt = \frac{ 17 (1 + i) }{ 6 }. \]
+        \end{solution}
+\end{enumerate}
+
+
+
+
+\end{document}

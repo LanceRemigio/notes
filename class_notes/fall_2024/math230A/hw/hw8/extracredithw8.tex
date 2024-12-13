@@ -1,0 +1,130 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{Homework 8 Extra Credit}
+
+\author{Lance Remigio}
+
+\begin{document}
+\maketitle
+
+\begin{problem}
+   Prove that  
+   \[  \lim \inf {a}_{n} + \lim \inf {b}_{n} \leq \lim \inf({a}_{n} + {b}_{n}) \leq \lim \sup {a}_{n} + \lim \inf {b}_{n}  \]
+   provided that all expressions are meaningful.
+\end{problem}
+\begin{proof}
+Our goal is to show that 
+\begin{enumerate}
+    \item[(1)] \( \lim \inf {a}_{n} + \lim \inf {b}_{n} \leq \lim \inf({a}_{n} + {b}_{n})  \)
+    \item[(2)]\( \inf({a}_{n} + {b}_{n}) \leq \lim \sup {a}_{n} + \lim \inf {b}_{n} \). 
+\end{enumerate}
+To show (1), we will assume that the left-hand side is NOT of the form \( \infty  + \infty   \). Hence, there exists \( n \geq {n}_{0}  \) and \( \ell \geq n  \) such that 
+\begin{align*}
+    {a}_{\ell} &\geq \inf \{ {a}_{k} : k \geq n  \},  \\
+    {b}_{\ell} &\geq \inf \{ {b}_{k} : k \geq n \}. 
+\end{align*}
+Adding both inequalities above gives us 
+\[  {a}_{\ell} + {b}_{\ell} \geq \inf \{ {a}_{k} : k \geq n  \}  + \inf \{ {b}_{k} : k \geq n  \}.  \]
+Using the order limit theorem and algebraic limit theorem, we can write
+\begin{align*}
+    \lim_{ n \to \infty  }  \inf \{ {a}_{\ell } + {b}_{\ell} : \ell \geq n  \}   &\geq \lim_{ n \to \infty  }  [ \inf \{ {a}_{k } : k \geq n  \}  + \inf \{ {b}_{k } : k \geq n  \} ] \\
+                                                                                 &= \lim_{ n \to \infty  }  \inf \{ {a}_{k } : k \geq n  \}  + \lim_{ n \to \infty  }  \inf \{ {b}_{k } : k \geq n  \}.
+\end{align*}
+Thus, we can conclude that 
+\[  \lim \inf ({a}_{n} + {b}_{n}) \geq \lim \inf ({a}_{n}) + \lim \inf ({b}_{n}) \]
+which establishes (1).
+
+To show (2), we will consider the three cases; that is, 
+\begin{itemize}
+    \item \( \lim \inf ({a}_{n} + {b}_{n}) \neq -\infty \)
+    \item \( \lim \sup {a}_{n} = \infty \)
+    \item \( \lim \inf ({a}_{n} + {b}_{n}) \neq - \infty   \) and \( \lim \sup {a}_{n} \neq \infty \).
+\end{itemize}
+
+Suppose \( \lim \inf ({a}_{n} + {b}_{n}) \neq - \infty   \). If this is the case, the right-hand side of (2) will always hold. Next, suppose \( \lim \sup {a}_{n} = \infty \). Note that the right-hand side of (2) is NOT of the form \( \infty  + \infty   \). So, we can conclude that \( \lim \inf {b}_{n} \neq - \infty  \) and so 
+\[ \lim \inf {b}_{n} + \lim \sup {a}_{n} = \infty. \]
+
+Now, suppose that \( \lim \inf ({a}_{n} + {b}_{n}) \neq - \infty   \) and \( \lim \sup {a}_{n} \neq \infty \). Then using (1) and the algebraic limit theorem, we can write
+\begin{align*}
+    \lim \inf {b}_{n} &= \lim \inf [({b}_{n} + {a}_{n}) + (- {a}_{n})] \\
+                      &\geq \lim \inf ({a}_{n} + {b}_{n}) + \lim \inf ({a}_{n}) \tag{ALT and (1)} \\
+                      &= \lim \inf ({a}_{n} + {b}_{n}) - \lim \sup ({a}_{n})   \tag{Exercise 9}.
+\end{align*}
+Then we have 
+\[  \lim \inf ({a}_{n} + {b}_{n}) \leq \lim \inf {b}_{n} + \lim \sup {a}_{n} \]
+which establishes (2). Hence, we now conclude that 
+   \[  \lim \inf {a}_{n} + \lim \inf {b}_{n} \leq \lim \inf({a}_{n} + {b}_{n}) \leq \lim \sup {a}_{n} + \lim \inf {b}_{n}  \]
+\end{proof}
+
+\begin{problem}
+    Suppose \( X  \) is a nonempty complete metric space, and \( ({G}_{n}) \) is a sequence of dense open subsets of \( X  \). Prove Baire's Theorem, namely, \( \bigcap_{ n=1  }^{ \infty  }  {G}_{n}  \) is nonempty.
+\end{problem}
+\begin{proof}
+
+\end{proof}
+
+\begin{problem}
+   Prove the following theorem: 
+   \begin{center}
+       Suppose \( ({s}_{n}) \) and \( ({b}_{n}) \) are two sequences of real numbers, \( ({b}_{n}) \) is a strictly increasing sequence that diverges to \( \infty   \), and \( \lim_{ n \to \infty  }  \frac{ {s}_{n+1} - {s}_{n}  }{ {b}_{n+1} - {b}_{n} } = L \in \R  \). Then \( \lim_{ n \to \infty  }  \frac{ {s}_{n} }{  {b}_{n} }  = L  \).
+   \end{center}
+\end{problem}
+\begin{proof}
+Suppose \( ({s}_{n}) \) and \( ({b}_{n}) \) are two sequences of real numbers and \( ({b}_{n}) \) is a strictly increasing sequence that diverges to \( \infty  \), and that 
+\[  \lim_{ n \to \infty  }  \frac{ {s}_{n+1} - {s}_{n} }{  {b}_{n+1} - {b}_{n} }  =  L \in \R.  \]
+Our goal is to show that \( \lim_{ n \to \infty  }  \frac{ {s}_{n} }{ {b}_{n} }  = L  \). In order to do this, we need to show that for any given \( \epsilon > 0  \), we have
+\begin{align*}
+    \lim \sup \frac{ {s}_{n} }{ {b}_{n} } &\leq L + \epsilon \tag{1}  \\
+    \lim \inf \frac{ {s}_{n} }{ {b}_{n}  }  &\geq L + \epsilon \tag{2}
+\end{align*}
+To this end, let \( \epsilon > 0  \) be given. Since \( \lim_{ n \to \infty  }  \frac{ {s}_{n+1} - {s}_{n} }{  {b}_{n+1} - {b}_{n} }  = L  \), there exists an \( N \in \N  \) such that for any \( n > N \), we have 
+\[  \Big|  \frac{ {s}_{n+1} - {s}_{n} }{  {b}_{n+1} - {b}_{n} } - L  \Big| < \epsilon \]
+which can be written in the following way:
+\[  (L-\epsilon) ({b}_{n+1} - {b}_{n}) < {s}_{n+1} - {s}_{n} < (L + \epsilon)({b}_{n+1} - {b}_{n}). \tag{*} \]
+Now, fix an \( \hat{N} > N    \) denoted by \( \hat{N} = N + 2 \). Then observe that 
+\[  {s}_{n} = [({s}_{n} - {s}_{n-1}) + ({s}_{n-1} - {s}_{n-2}) + \cdots + ({s}_{\hat{N}} - {s}_{\hat{N} - 1})] + {s}_{\hat{N} - 1}. \]
+Applying (*) to the equation above gives us 
+\begin{align*}
+    {s}_{n} &< (L+\epsilon)[({b}_{n} - {b}_{n-1}) + ({b}_{n-1} - {b}_{n-2}) + \cdots + ({b}_{\hat{N}} - {b}_{\hat{N} -1})] + {s}_{\hat{N}-1} \\
+            &= (L+\epsilon)[{b}_{n} - {b}_{\hat{N} - 1}] + {s}_{\hat{N} - 1}
+\end{align*}
+Multiplying by \( {b}_{n} \) on both sides, we get
+\begin{align*} \frac{ {s}_{n} }{ {b}_{n} }  &< (L+\epsilon) \Big[ \frac{ {b}_{n} - {b}_{\hat{N} - 1} }{ {b}_{n} } \Big]  + \frac{ {s}_{\hat{N} - 1} }{ {b}_{n} } \\ 
+    &= (L+\epsilon) +  \frac{ {s}_{\hat{N} -1} -  {b}_{\hat{N} -1} (L+\epsilon) }{ {b}_{n} } 
+\end{align*}
+Since we have \( ({b}_{n}) \) is a strictly increasing sequence that diverges to \( \infty   \), we must have \( \frac{ 1 }{ {b}_{n} }  \to 0  \). Since 
+\[  \alpha = {s}_{\hat{N} - 1} - {b}_{\hat{N} - 1} (L+\epsilon)  \]
+is a fixed quantity (because \( \hat{N} \) is fixed), we have that \( \frac{ \alpha }{ {b}_{n} } \to 0  \) by the algebraic limit theorem. By the order limit theorem, we can see that 
+\begin{align*}
+    \lim_{n \to \infty } \sup \frac{ {a}_{n} }{ {b}_{n} } &\leq  \lim_{ n \to \infty  }  \Big[ (L+\epsilon) + \frac{ \alpha  }{ {b}_{n} } \Big]  \\
+                                                          &= (L+\epsilon) + \lim_{ n \to \infty  }  \frac{ \alpha }{ {b}_{n} } \tag{ALT}  \\
+                                                          &= L+\epsilon + 0 \\ 
+                                                          &= L + \epsilon.
+\end{align*}
+which establishes (1).
+
+We can apply an analogous process to establish (2). By applying (*), we can see that 
+\[ \frac{ {s}_{n} }{ {b}_{n} }  > (L - \epsilon) + \frac{ {s}_{\hat{N} - 1} - {b}_{\hat{N} - 1}(L-\epsilon) }{ {b}_{n} }.  \]
+Now, set
+\[  \beta = {s}_{\hat{N} - 1} - {b}_{\hat{N} - 1}(L - \epsilon). \]
+By the order limit theorem, we see that 
+\begin{align*}
+    \lim_{ n \to \infty  }  \inf \frac{ {s}_{n} }{ {b}_{n} }  &\geq \lim_{ n \to \infty  }  \Big[ (L-\epsilon) + \frac{\beta}{ {b}_{n} } \Big]  \\
+                                                              &= (L-\epsilon) + \lim_{ n \to \infty  }  \frac{ \beta }{ {b}_{n} } \tag{ALT}  \\
+                                                              &= L - \epsilon + 0 \\
+                                                              &= L - \epsilon
+\end{align*} 
+which establishes (2). Since \( \epsilon > 0  \) is arbitrary, (1) and (2) imply that 
+\[  \lim \sup \frac{ {s}_{n} }{ {b}_{n} }  \leq L \ \ \text{and} \ \ \lim \inf \frac{  {s}_{n} }{ {b}_{n} } \geq L.   \]
+Thus, we can see that
+\[  \lim \sup \frac{ {s}_{n} }{ {b}_{n} }  = \lim \inf \frac{ {s}_{n} }{ {b}_{n} }  = L.   \]
+This tells us that 
+\[  \lim_{ n \to \infty  }  \frac{ {s}_{n} }{ {b}_{n} }  = L.  \]
+
+
+
+\end{proof}
+
+
+
+\end{document}

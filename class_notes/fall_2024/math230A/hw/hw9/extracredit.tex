@@ -1,0 +1,69 @@
+\documentclass[a4paper]{article}
+
+\input{../../../../../newpreamble.tex}
+
+\title{Homework 9 Extra Credit}
+\author{Lance Remigio}
+
+\begin{document}
+   \maketitle 
+
+   \begin{lemma}\label{lemma}
+    Let \( (X,\|\cdot\|) \) be a normed space and let \( ({x}_{n}) \) and \( ({y}_{n}) \) be two sequences in \( X  \) where \( {y}_{n} = {x}_{n+1} - {x}_{n} \).  If \( \sum_{ n=1  }^{ \infty  } {y}_{n} \) converges, then \( ({x}_{n}) \) converges.
+\end{lemma}
+\begin{proof}
+Let \( {y}_{n} = {x}_{n+1} - {x}_{n} \) and suppose \( \sum_{ n=1  }^{ \infty  } {y}_{n} \) converges. Define
+\[  {s}_{n} = \sum_{ k=1  }^{ n } {y}_{k} = \sum_{ k=1 }^{ n } ({x}_{k+1} - {x}_{k}). \]
+Since \( \sum_{ n=1  }^{ \infty  } {y}_{n} \) converges, the sequence of partial sums \( ({s}_{n}) \) of \( \sum_{ n=1  }^{ \infty  } {y}_{n} \) must converge to some \( s \in X  \). Our goal is to show that \( ({x}_{n}) \) converges. Observe that 
+\begin{align*}
+    {x}_{1} + \sum_{ k=1  }^{ n - 1  } {y}_{k} &= {x}_{1} + \sum_{ k=1  }^{ n-1  } ({x}_{k+1} - {x}_{k}) \\
+                                               &= {x}_{1} + ({x}_{2} - {x}_{1}) + ({x}_{3} - {x}_{2}) + \cdots + ({x}_{n} - {x}_{n-1}) \\
+                                               &= {x}_{n}.
+\end{align*}
+Hence, we have for all \( n \in \N  \) that 
+\[  {x}_{n} = {x}_{1} + \sum_{ k=1  }^{ n - 1  } {y}_{k }. \]
+Since \( \sum_{ n=1  }^{ \infty  } {y}_{n} \) converges, we can use the algebraic limit theorem on the equation above to conclude that 
+\[  \lim_{ n \to \infty  }  {x}_{n} = {x}_{1} + s.  \]
+
+\end{proof}
+
+\begin{problem}
+    Prove that a normed space \( (X, \| \cdot \|) \) is a Banach space if and only if every absolutely convergent series is convergent. 
+\end{problem}
+
+\begin{proof}
+\( (\Longrightarrow) \) Note that this direction was proven during class.
+
+\( (\Longleftarrow) \) Suppose every absolutely convergent series converges. Our goal is to show that \( X  \) is a Banach Space; that is, we need to show that \( X  \) is a complete normed space. Hence, we need to show that every Cauchy sequence in \( X  \) is convergent. To this end, let \( ({x}_{n}) \) be a Cauchy sequence in \( X  \). Our strategy is to find a subsequence \( ({x}_{{n}_{k }}) \) of \( ({x}_{n}) \) that converges to some \( x \in X  \).
+
+Since \( ({x}_{n}) \) is a Cauchy Sequence, there exists an \( N \in \N  \) such that for any \( n > m > N  \), we have
+\[  \|{x}_{n} - {x}_{m} \| < \epsilon.  \]
+We claim that for all \( k \in \N  \), there exists \( {m}_{k} \in \N  \) such that for all \( n > m  > {m}_{k} \),  
+\[  \|{x}_{n} - {x}_{m}\| < \frac{ 1 }{ 2^{k-1} }. \]
+Indeed, using the fact that \( ({x}_{n}) \) is Cauchy, we have
+\begin{align*}
+    &\text{For} \ \epsilon = 1  \ \exists {m}_{1} \in \N \ \text{such that} \ \forall n,m > {m}_{1}, \ \|{x}_{n} - {x}_{m} \| < 1    \\
+    &\text{For} \ \epsilon = \frac{ 1 }{ 2^{1} }  \ \exists {m}_{2} \in \N \ \text{such that} \ \forall n,m > {m}_{2}, \ \|{x}_{n} - {x}_{m} \| < \frac{ 1 }{ 2^{1} }    \\
+    &\text{For} \ \epsilon = \frac{ 1 }{ 2^{2} }  \ \exists {m}_{3} \in \N \ \text{such that} \ \forall n,m > {m}_{3}, \ \|{x}_{n} - {x}_{m} \| < \frac{ 1 }{ 2^{2} }    \\
+                                               &\vdots \\
+                                               &\text{For} \ \epsilon = \frac{ 1 }{ 2^{k-1} }  \ \exists {m}_{k} \in \N \ \text{such that} \ \forall n,m > {m}_{k}, \ \|{x}_{n} - {x}_{m} \| < \frac{ 1 }{ 2^{k-1} } \\
+                                                     &\vdots
+\end{align*}
+More generally, we see that for any \( k \in \N  \), there exists \( {m}_{k} \) such that for any \( n > m > {m}_{k} \)
+\[  \|{x}_{n} - {x}_{m} \| < \frac{ 1 }{ 2^{k-1} }. \tag{*}  \]
+In what follows, we will construct \( ({x}_{{n}_{k}}) \) of \( ({x}_{n}) \). For every \( k \in \N  \), choose \( {n}_{k} > {m}_{k} \) defined by \( {n}_{k} = {m}_{k} + 1     \) such that \( {n}_{k} > {m}_{k} \). Similarly, for all \( k \in \N \), we can choose \( {n}_{k+1} > {n}_{k}   \) where \( {n}_{k+1} = {n}_{k} + 1  \).  Clearly, we see that for any \( k \in \N  \), we have \( {n}_{k+1} > {n}_{k} > {m}_{k} \). By (*), we can see that        
+\[  \|{x}_{{n}_{k+1}} - {x}_{{n}_{k}} \| < \frac{ 1 }{ 2^{k-1} }. \]
+Now, observe that 
+\begin{align*}
+    0 < \underbrace{\sum_{ k=1  }^{ \infty   } \| {x}_{{n}_{k+1}} - {x}_{{n}_{k}} \|}_{\text{This is a series in \( \R  \)}} &< \sum_{ k=1  }^{ \infty   } \frac{ 1 }{ 2^{k-1} } = 1.
+\end{align*}
+Note that the above holds because of (*) and the fact that \( \displaystyle \sum_{ k=1  }^{ \infty    } \frac{ 1 }{ 2^{k-1} } = 1  \) is a geometric series. Hence, we see that the series above converges absolutely. By assumption, we must have 
+\[  \sum_{ k=1  }^{ \infty  } ({x}_{{n}_{k+1}} - {x}_{{n}_{k}} ) \ \text{converges}. \]
+From the {\hyperref[lemma]{lemma}} above, we can see that \( \lim_{ k  \to  \infty   }  {x}_{{n}_{k}} = x \) for some \( x \in X \). Using this result along with the result found in exercise 18 from homework 8, we can say that \( ({x}_{n}) \) must converge to \( x  \) as well. Thus, we conclude that \( X  \) is a Banach Space.
+\end{proof} 
+
+If \( ({x}_{n}) \) is a Cauchy sequence, then \( ({x}_{n}) \) contains a subsequence \( ({x}_{{n}_{k}}) \) such that for all \( k \in \N  \), we have
+\[  \| {x}_{{n}_{k+1}} - {x}_{{n}_{k}} \| < \frac{ 1 }{ 2^{k} }.  \]
+
+
+\end{document}

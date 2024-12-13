@@ -1,0 +1,344 @@
+\documentclass[a4paper]{article}
+
+\title{Math 234 Final Exam}
+\input{../../../../../newpreamble.tex}
+
+\author{Lance Remigio}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem} 
+   Decide whether the following statements are true or false. You \textbf{do not need} to justify your answer. 
+   \begin{enumerate}
+       \item[(a)] Let \( f: \C \to \R \subset \C  \) be defined by \( f(z) = \cos(\overline{z}) \). Then, \( f  \) is complex differentiable at \( z = 0  \). \textbf{False.}
+       \item[(b)] Let \( A = \{ z \in \C : 0 < | z  |  < 1  \}  \). Then, we can find a point \( z \in A  \) such that it is not an accumulation point of \( A  \). \textbf{False.}
+        \item[(c)] Consider the power series \( \sum_{ n=1  }^{ \infty  } \frac{ n^{n} (z - 2i)^{n} }{ n }  \). Then, the radius of convergence of the power series is \( 1  \). \textbf{False.}
+        \item[(d)] Let \( D \subseteq  \C  \) open, and \( f: D \to \C  \) be holomorphic. If \( f'(z) = 0  \) for all \( z \in D  \), then \( f  \) is a constant function. \textbf{False.}
+        \item[(e)] Let \( D \subseteq  \C   \) open, and \( f : D \to \C  \) be holomorphic. Then, all derivatives of \( f  \) are also holomorphic functions. \textbf{True.}
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}
+    Show that the series \( \displaystyle \sum_{ n=0 }^{ \infty  } \frac{ 5  }{  ((n+2) + i) ((n+3) + i) }   \) converges and compute its sum explicitly.
+\end{problem}
+\begin{proof}
+    Consider the sequence \( ({z}_{n}) \) by
+    \[  {z}_{n} = \frac{ 5  }{ ((n+2) + i)((n+3) + i) } \]
+    observe through partial fraction decomposition that 
+    \[  \frac{ 5  }{  ((n+2) + i)((n+3) +i) } = \frac{ 5  }{ n + (2+i) } - \frac{ 5 }{ (n+1) + (2+i) }.  \]
+    Denote another sequence \( ({w}_{n}) \) by
+    \[  {w}_{n} = \frac{ 5  }{  n + (2+i) }.  \]
+    Note that \( {z}_{n} = {w}_{n} - {w}_{n+1} \). 
+    To show that \( \sum_{ n=0 }^{ \infty   } {z}_{n} \) converges, we will show that \( {w}_{n} \) converges (by problem 5 of homework 2). Clearly, we can see that as \( n \to \infty  \), we have \( {w}_{n} \to 0  \). So, we see that       \( \sum_{ n=0 }^{ \infty  } {z}_{n} \) must converge. Now, we can see that 
+    \begin{align*}
+        \sum_{ n=0  }^{ \infty  } {z}_{n} &= \sum_{ n=0  }^{ \infty  } ({w}_{n} - {w}_{n+1}) \\
+                                          &= {w}_{0} - \lim_{ n \to \infty  }  {w}_{n+1} \\
+                                          &= \frac{ 5 }{ 2 + i  } - \lim_{ n \to \infty  } \frac{ 5 }{ (n+1) + (2+i) } \\
+                                          &= \frac{ 5  }{  2 + i }  - 0 \\
+                                          &= \frac{ 5  }{ 2 + i  }.
+\end{align*}
+    converges.
+\end{proof}
+
+\begin{problem}[Differential Equation Characterization of the exponential function]
+   Fix \( c,w \in \C  \) and consider the function \( f: \C \to \C  \) defined by \( f(z) = w e^{cz} \). Then, \( f  \) is holomorphic and it can be shown that \( f  \) satisfies \( f'(z) = c f(z) \) for all \( z \in \C  \) and \( f(0) = w \). Assume that we have a holomorphic function \( g: \C \to \C  \) that also satisfies \( g'(z) = c g(z) \) for all \( z \in \C  \) and \( g(0) = w  \). Prove that \( g(z) = f(z)  \) for all \( z \in \C  \).   
+\end{problem}
+\begin{proof}
+    Fix \( c,w \in \C \) and define the function \( f(z) = w e^{cz} \). Our goal is to show that \( f  \) is holomorphic and it can be shown that \( f  \) satisfies \( f'(z) = c f(z) \) for all \( z \in \C  \) and \( f(0) = w \). As a consequence, we will show that if we have another holomorphic function \( g: \C \to \C  \) that also satisfies \( g'(z) = c g(z) \) for all \( z \in \C  \) and \( g(0) = w  \), we will also show that \( g(z) = f(z)  \) for all \( z \in \C  \).
+
+    By definition of \( f  \), we see that \( f  \) must be a holomorphic function (because \( e^{cz} \) is a holomorphic function and therefore complex differentiable). Now, we can see that 
+    \[  f'(z) = w  c e^{cz} = c w e^{cz} = c f(z).   \]
+    Furthermore, we have 
+    \[  f(0) = w e^{c \cdot 0} = w e^{0} = w. \]
+    Denote \( h(z) = e^{-cz} g(z)  \). We can see that 
+    \begin{align*}
+        h'(z) &= -c e^{-cz} g(z) + e^{-cz} g'(z) \\
+              &= - c e^{-cz} g(z) + e^{-cz} (c g(z)) \\
+              &= 0. 
+    \end{align*}
+    This tells us that \( h  \) must be constant and so, for all \( z \in \C  \), we have \( h(z) = k  \) for some \( k \in \C  \).
+    \[ h(z) = k \iff e^{-cz}g(z) = k \iff g(z) = k e^{cz}.  \]
+    Since \( g(0) = w \), we can see that \( w = k \) and so, \( f(z) = g(z) \) for all \( z \in \C  \). 
+\end{proof}
+
+\begin{problem}[\( n \)th Root of Nowhere Vanishing Holomorphic Functions]
+   A nonempty open and connected set \( D \subseteq  \C   \) is called an  \textit{elementary domain} if every holormorphic function on \( D  \) has a primitive.
+
+   Let \( D  \) be an elementary domain and \( f: D \to \C  \) be a nowhere vanishing holomorphic function. Here, nowhere vanishing means \( f(z) \neq 0  \) for all \( z \in D  \).
+   \begin{enumerate}
+       \item[(a)] Show that there exists a holormorphic function \( g : D \to \C  \) such that \( f(z) = e^{g(z)} \) for all \( z \in D  \). 
+        \item[(b)] Let \( n  \) be a positive integer. Use (a) to show that there is a holomorphic function \( G : D \to \C  \) such that \( (G(z))^{n} = f(z)  \) for all \( z \in D  \).
+   \end{enumerate}
+\end{problem}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Let \( f: D \to \C  \) be a holomorphic function. Let \( G: D \to \C   \) be defined by
+        \[  G(z) =  \frac{ e^{F(z)} }{ f(z) }  \]
+        where \( F: D \to \C  \) is a primitive of the function \( f' / f  \). Indeed, since \( f  \) defined on the elementary domain \( D  \), and \( f' / f  \) must is holomorphic, we see that \( F  \) must be the primitive of \( f' / f \). Note that since \( e^{z} \) and \( F(z) \) are holomorphic functions (\( e^{z} \) is also continuous), their composition \( e^{F(z)} \) is also holomorphic. Since \( f: D \to \C  \) is nonwhere vanishing, we can see that \( G =  e^{F} / f  \) must be a holomorphic function. Thus, observe that for all \( z \in \C  \)
+        \begin{align*}
+            G'(z) &= \frac{ F'(z) }{ f(z)  } e^{F(z)} - \frac{ f'(z)  }{  (f(z))^{2} } e^{F(z)} \\
+                  &= \frac{ f'(z)  }{  (f(z))^{2} }  e^{F(z)} - \frac{ f'(z)  }{ (f(z))^{2} }  e^{F(z)} \\
+                  &= 0. 
+        \end{align*}
+        This implies that \( G(z) = k  \) for some nonzero \( k \in \C  \). Hence, we have
+        \[  G(z) = k  \iff \frac{ e^{F(z)} }{ f(z) }  = k \iff kf(z) = e^{F(z)}. \]
+        Since \( e^{z} \) is a surjective function \( \C  \) to \( \C^{\bullet} \), we can find a \( c \in \C  \) such that \( e^{c} = k  \). Now, observe that 
+        \[  k f(z) = e^{F(z)} \iff e^{c} f(z) = e^{F(z)} \iff f(z) = e^{F(z) - c}. \]
+        Now, define \( g: D \to \C   \) by 
+        \[  g(z) = F(z) - c. \]
+        Clearly, \( F  \) is a primitive which is holomorphic and \( c \in \C   \) implies that \( g(z) \) is a holomorphic function which is our desired result.
+
+    \item[(b)] Let \( n \in \Z^{+} \). Define \( G: D \to \C  \) in the following way:
+        \[  G(z) = e^{\frac{ 1 }{ n } g(z)} = ( e^{g(z)} )^{\frac{ 1 }{ n } }. \]
+        By part (a), we see that \( f(z) = e^{g(z)} \) is a nowhere vanishing holomorphic function defined on an elementary domain \( D  \) where \( g  \) is some holomorphic function from \( D  \) to \( \C  \). In general, we cannot guarantee complex differentiability of \( z^{1/n} \) on all of \( \C  \), but since we have restricted our domain to an elementary domain, we will not run into any problems where \( z^{1/n} \) can take on multivalues. Hence, \( G(z) \) must be a holomorphic. Now, we see that  
+        \[  (G(z))^{n} = (e^{\frac{ 1 }{ n } g(z)})^{n} = e^{g(z)} = f(z) \]
+        as desired.
+    \end{enumerate}
+\end{proof}
+
+\begin{problem}[Computation of Some Real Integrals using Complex Analysis-I]
+    \begin{enumerate}
+    \item[(a)]    Define \( \alpha, \beta : [0,1] \to \C   \) by \( \alpha(t) = 3 e^{2 \pi i t } \) and \( \beta (t) = 3 \cos (2 \pi t) + 4 i \sin (2\pi t) \). Note that the trace of \( \alpha \) is the circle \( \{ z \in \C : | z  |  = 3  \}  \) where as the trace of \( \beta \) is the ellipse whose equation is given by \( x^{2}/9 + y^{2}/16 = 1  \).
+        \begin{enumerate}
+            \item[(i)] Show that 
+                \[  \int_{ \alpha }^{  } \frac{ 1 }{ z }  \ dz = \int_{ \beta }^{  }  \frac{ 1 }{ z }   \ dz. \]
+            \item[(ii)] Use (i) to show 
+                \[  \int_{ 0 }^{ 2\pi }  \frac{ 1 }{ 9 \cos^{2} t + 16 \sin^{2} t }  \ dt = \frac{ \pi  }{ 6 }. \]
+        \end{enumerate}
+    \item[(b)] Let \( f,g : B(0,R) \setminus  \{ 0 \}  \to \C  \) be defined by \( f(z) = \frac{ 1 }{ z }  + \frac{ 2 }{ R-z }, \ g(z) = \frac{ 2 }{ R -z  }   \), where \( R > 0  \) and \( B(0,R) \) is the open ball centered at \( 0 \in \C  \) and radius \( R  \). Let \( 0 < r < R  \).
+        \begin{enumerate}
+            \item[(i)] Compute \( \displaystyle \int_{\partial B(0,R) }^{} f(z) \ dz   \) and \( \displaystyle \int_{\beta B (0,R) }^{} g(z) \ d z \).
+            \item[(ii)] Show that 
+                \[  \frac{ 1 }{ 2 \pi }  \int_{ 0 }^{ 2 \pi }  \frac{ R^{2} - r^{2}  }{  R^{2} - 2 Rr \cos t + r^{2} }  \ dt = 1 \ \ \text{and} \ \ \frac{ 1 }{ 2 \pi }  \int_{ 0 }^{ 2 \pi }  \frac{ R \cos t  }{  R^{2} - 2R r \cos t + r^{2} }  \ dt = \frac{ r  }{ R^{2} - r^{2} }. \]
+        \end{enumerate}
+    \end{enumerate}
+\end{problem} 
+
+\begin{solution}[a]
+   \begin{enumerate}
+       \item[(i)]
+       \item[(ii)] From the parametrization \( \beta (t) = 3 \cos (2 \pi t ) + i 4 \sin (2 \pi t) \) with \( t \in [0,1] \), we can rewrite \( \beta(t) \) with bounds similar to the left-hand side of our desired integral. Thus, we have  
+           \[  \beta(t) = 2 \cos t + 4 i \sin t \ \ \text{with} \ t \in [0,2\pi]. \]
+           Using this new parametrization, we can write
+           \begin{align*}
+               \int_{ \beta  }^{  } \frac{ 1 }{ z } \ dz &= \int_{ 0 }^{ 2 \pi }   \frac{ -3 \sin t + 4 i \cos t  }{ 3 \cos t  4i \sin t  }  \ dt  \\
+                                                         &= \int_{ 0 }^{ 2 \pi  } \frac{ (-3 \sin t + 4 i \cos t ) (3 \cos t - 4i \sin t ) }{ 9 \cos^{2} t + 16 \sin^{2} t  }  \ dt \\
+                                                         &= \int_{ 0 }^{ 2\pi  }  \frac{ 12i - 7 \sin t \cos t  }{ 9 \cos^{2} t + 16 \sin^{2}t  }  \ dt \\
+                                                         &= i \int_{ 0 }^{ 2\pi  } \frac{ 12 }{ 9 \cos^{2} t + 16 \sin^{2}t  } \ dt - \int_{ 0 }^{ 2\pi  } \frac{ 7 \sin t \cos t  }{ 9 \cos^{2}t + \sin^{2} t  }  \ dt 
+           \end{align*}
+           From part (i), we notice that 
+           \[   2 \pi i = \int_{ \alpha  }^{  } \frac{ 1 }{ z }   \ dz = \int_{ \beta  }^{  }  \frac{ 1 }{ z }  \ dz. \]
+           Equating imaginary parts, we can see that
+           \[ \int_{ 0 }^{ 2 \pi  } \frac{ 12 }{ 9 \cos^{2}t + 16 \sin^{2} t  }  \ dz = 2 \pi.  \]
+           Dividing by \( 12  \) on both sides, we have
+           \[  \int_{ 0 }^{ 2 \pi  } \frac{ 1 }{ 9 \cos^{2}t + 16 \sin^{2} t  }  \ dz = \frac{ \pi }{ 6 } \]
+           which is our desired integral.
+   \end{enumerate} 
+\end{solution}
+
+\begin{solution}[b]
+    \begin{enumerate}
+        \item[(i)] Since \( 0 \in B(0,R) \), we can use Cauchy's Integral Formula to write
+            \[ \int_{ \partial B(0,R) }^{  } \frac{ 1 }{ z }  \ dz = 2 \pi i  \cdot  f(0) = 2 \pi i.   \]
+            On the other hand, we see that \( R \notin B(0,R) \), so we have 
+            \[  \int_{ \partial B(0,R) }^{  } g(z) \ dz = \int_{ \partial B(0,R) }^{  } \frac{ 2 }{ R - z }  \ dz = 0. \]
+            By the linearity of the complex integral, we have that 
+            \begin{align*}
+                \int_{ \partial B(0,R) }^{  }  f(z) \ dz &= \int_{ \partial B(0,R) }^{  } \Big[   \frac{ 1 }{ z }  + \frac{ 2 }{ R-z } \Big]  \ dz   \\
+                &= \int_{ \partial B(0,R) }^{  }  \frac{ 1 }{ z }  \ dz + \int_{ \partial B(0,R) }^{  }  \frac{ 2  }{  R - z }  \ dz \\
+                &= 2 \pi i  + 0 \\
+                &= 2 \pi i.
+            \end{align*}
+        \item[(ii)] To compute the first integral, we first notice that \( f(z) \) can be written in the following way 
+            \[  f(z) = \frac{ R +z  }{  (R-z) z }.  \]
+            Now, parametrizing using \( \alpha(t) = r e^{i t  } \) with \( t \in [0, 2\pi] \), we can write
+            \begin{align*}
+                2 \pi i = \oint_{ \partial B(0,R) }^{  } f(z) \ dz    &=  \int_{ 0  }^{ 2 \pi } \frac{ R + r e^{i t } }{ (R - r e^{it }) r e^{it } } ri e^{i t}  \ dt \\
+                                                           &= i \int_{ 0  }^{  2 \pi  } \frac{ R + r e^{it } }{ R - r e^{it } }  \ dt \\
+                                                           &= i \int_{ 0 }^{ 2 \pi } \frac{ R + r(\cos t + i \sin t) }{ R - r (\cos t + i \sin t ) }  \ dt \\  
+                                                           &= i \int_{ 0 }^{ 2 \pi  }  \frac{  [(R + r\cos t) + i r \sin t ] [ (R - r \cos t ) + ir \sin t ] }{ (R - r\cos t )^{2} + r^{2} \sin^{2} t }  \ dt \\
+                                                           &= \int_{ 0  }^{ 2 \pi }  \frac{ i (R^{2} - r^{2}) - 2Rr \sin t }{ R^{2} - 2Rr \cos t + r^{2} }  \ dt \\
+                                                           &= i \int_{ 0  }^{  2 \pi  }  \frac{ R^{2} - r^{2} }{ R^{2} - 2R r \cos t + r^{2} }  \ dt - \int_{  0 }^{ 2\pi  } \frac{ Rr \sin t  }{ R^{2} - 2Rr \cos t + r^{2} }  \ dt.
+            \end{align*}
+           By equating the imaginary part, we see that  
+           \[  \int_{  0  }^{ 2 \pi } \frac{ R^{2} - r^{2} }{ R^{2} - 2Rr \cos t + r^{2} }  \ dt = 2 \pi \implies \frac{ 1 }{ 2 \pi }  \int_{ 0 }^{  2 \pi  } \frac{ R^{2} - r^{2} }{ R^{2} - 2Rr \cos t + r^{2} }  \ dt = 1  \]
+           which establishes the first integral.
+
+           To get the second integral, we will consider the following function
+           \[  h(z) = \frac{ 1 }{ R - z  }. \]
+           Using the same parametrization to establish the first integral, we write
+           \begin{align*}
+                 \oint_{  \partial B(0,R) }^{  } h(z) \ dz &= \oint_{ \partial B(0,R) }^{  } \frac{ 1  }{ R - z  }  \ dz    \\
+                                                           &= \int_{ 0 }^{ 2 \pi } \frac{ ri e^{it  }  }{ R - r e^{it } }  \ dt \\
+                                                           &= \int_{ 0 }^{ 2\pi  }  \frac{ ri [\cos t + i \sin t] }{ R - r[\cos t + i \sin t] }  \ dt \\
+                                                           &= ri \int_{ 0  }^{ 2 \pi  } \frac{ [\cos t + i \sin t][ (R - r \cos t ) + ir \sin t ] }{ (R - r \cos t )^{2} + r^{2} \sin^{2} t  }   \ dt \\
+                                                           &= ri \int_{ 0 }^{ 2 \pi  } \frac{ R \cos t + i R \sin t - r  }{ R^{2} - 2 R  r \cos t + r^{2} }  \ dt \\
+                                                           &= i \int_{ 0 }^{ 2\pi  } \frac{ R r \cos t - r^{2} }{ R^{2} - 2Rr \cos t + r^{2} }  \ dt - \int_{ 0 }^{ 2 \pi  } \frac{ Rr \sin t  }{ R^{2} - 2 R r \cos t + r^{2} }  \ dt \\
+           \end{align*}
+    \end{enumerate}
+    By part (i), we see that 
+    \[  \oint_{ \partial B(0,R)  }^{  } h(z) \ dz = 0. \]
+    By equating the imaginary part, we see that 
+    \begin{align*}
+        \int_{ 0 }^{ 2 \pi  }  \frac{ Rr \cos t - r^{2} }{ R^{2} - 2 R r \cos t + r^{2} }  \ dt = 0 
+    \end{align*}
+    By using the linearity of the complex integral, we see that
+    \begin{align*}
+        \int_{ 0 }^{ 2 \pi  } \frac{ Rr \cos t - r^{2}  }{ R^{2} - 2 R r \cos t + r^{2} }  \ dt = 0 &\implies \int_{ 0 }^{ 2 \pi  } \frac{ Rr \cos t  }{ R^{2} - 2Rr \cos t + r^{2} }  \ dt = \int_{ 0 }^{ 2 \pi  } \frac{ r^{2} }{ R^{2} - 2 R r \cos t + r^{2} }  \ dt \\
+    \end{align*}
+    Simplifying the right-hand side of the above further, we obtain
+    \[  \int_{ 0 }^{ 2 \pi  } \frac{ R \cos t  }{ R^{2} - 2Rr \cos t + r^{2} }  \ dt = \frac{ r  }{ R^{2} - r^{2} } \int_{ 0 }^{ 2 \pi  } \frac{ R^{2} -r^{2} }{ R^{2} - 2 R r \cos t + r^{2} }  \ dt. \]
+    Multiplying by \( \frac{ 1 }{ 2\pi  }  \) on both sides of the above, we obtain
+    \begin{align*}
+        \frac{ 1 }{ 2 \pi  }  \int_{ 0 }^{ 2 \pi  } \frac{ R \cos t  }{ R^{2} - 2 R r \cos t + r^{2} }  \ dt &= \frac{ r  }{ R^{2} - r^{2} } \cdot \underbrace{   \frac{ 1 }{ 2 \pi  }  \int_{ 0 }^{ 2 \pi  }  \frac{ R^{2} - r^{2} }{ R^{2} - 2 R r \cos t + r^{2} }  \ dt}_{\text{Apply the first integral}} \\
+                                                                                                             &= \frac{ r  }{ R^{2} -r^{2}  } \cdot 1  \\
+                                                                                                             &= \frac{ r  }{ R^{2} -r^{2} }.  
+\end{align*}
+Thus, we conclude that 
+                \[  \frac{ 1 }{ 2 \pi }  \int_{ 0 }^{ 2 \pi }  \frac{ R^{2} - r^{2}  }{  R^{2} - 2 Rr \cos t + r^{2} }  \ dt = 1 \ \ \text{and} \ \ \frac{ 1 }{ 2 \pi }  \int_{ 0 }^{ 2 \pi }  \frac{ R \cos t  }{  R^{2} - 2R r \cos t + r^{2} }  \ dt = \frac{ r  }{ R^{2} - r^{2} }. \]
+    
+\end{solution}
+
+
+
+\begin{problem}[Computation of Some Integrals Using Complex Analysis-II]
+   Consider the holomorphic function \( f: \C \to \C  \) defined by \( f(z) = e^{i z^{2}} \). 
+   \begin{enumerate}
+       \item[(i)] Let \( R > 0  \), and define \( {\alpha}_{R}: [0, \pi /4] \to \C  \) by \( {\alpha}_{R }(t) = R r^{i t} \). Show that 
+           \[  \Big| \int_{ {\alpha}_{R} }^{  } f(z) \ dz   \Big|  \leq \frac{ \pi (1 - e^{- R^{2}}) }{ 4 R }. \]
+       \item[(ii)] Use (i) to show \( \lim_{ R \to \infty  } \displaystyle \int_{{\alpha}_{R}}^{} f(z)  \ d z = 0  \).
+        \item[(iii)] consider the line segment \( {L}_{R} \) joining \( 0  \) to to \( R  \) on the real axis and the line segment \( {C}_{R} \) joining \( R e^{i\pi /4} \). Show that 
+            \[  \int_{ {C}_{R} }^{  } f(z) \ dz = \int_{ {L}_{R} }^{  } f(z) \ dz + \int_{ {\alpha}_{R} }^{  } f(z) \ dz \ \ \text{and} \ \ \lim_{ R  \to \infty  }  \int_{ {C}_{R} }^{  } f(z) \ dz = \lim_{ R \to \infty  } \int_{ {L}_{R} }^{  } f(z) \ dz.  \]
+        \item[(iv)] Show that 
+            \[  \lim_{ R \to \infty  }  \int_{ {L}_{R} }^{  } f(z) \ dz = \int_{ 0 }^{ \infty  }  \cos (t^{2})  \ dt + i \int_{ 0  }^{ \infty  }  \sin (t^{2}) \ dt \ \  \]
+        \item[(v)] Show that \( \lim_{ R \to \infty  }  \displaystyle \int_{{C}_{R}}^{}  f(z) \ d z = \frac{ (1+i) \sqrt{ 2\pi }  }{ 4 }  \) and use it to show \( \displaystyle \int_{0}^{\infty } \cos (t^{2})  \ d t = \displaystyle \int_{0}^{\infty }  \sin (t^{2}) \ d t = \frac{ \sqrt{ 2\pi }  }{ 4 }  \).
+   \end{enumerate}
+\end{problem}
+
+\begin{solution}
+\begin{enumerate}
+    \item[(i)] Our goal is to show that 
+           \[  \Big| \int_{ {\alpha}_{R} }^{  } f(z) \ dz   \Big|  \leq \frac{ \pi (1 - e^{- R^{2}}) }{ 4 R }. \]
+        We will first show that \( | f(\alpha_R(t)) | = e^{-R^{2} \sin 2 t} \). Observe that 
+        \begin{align*}
+            f({\alpha}_{R}(t)) = e^{i(R  e^{it })^{2}} &= e^{i R^{2} e^{2it}} \\
+                                                       &= e^{R^{2} (i \cos 2 t - \sin 2 t)} \\
+                                                       &= e^{i R^{2} \cos 2 t} \cdot e^{- R^{2} \sin 2t}.
+        \end{align*}
+        Furthermore, we have 
+        \[  | f({\alpha}_{R}(t)) | = | e^{i R^{2} \cos 2t } | \cdot | e^{- R^{2} \sin 2t} | = e^{- R^{2} \sin 2t} \tag{1}.  \]
+        Secondly, we will show that for \( 0 \leq t \leq \frac{ \pi  }{ 4  }  \), we see that 
+        \begin{align*}
+            e^{- R^{2} \sin 2t } &\leq  e^{\frac{ -4 R^{2} }{ \pi  } t }.
+        \end{align*}
+        Indeed, using the fact that \( \sin 2t \geq \frac{ 4  }{ \pi  } t  \) for all \( 0 \leq t \leq \frac{ \pi }{ 4 }  \), we have
+        \[  \frac{ 1 }{ e^{R^{2} \sin 2t } }  \leq \frac{ 1  }{ e^{\frac{ 4 R^{2} }{ \pi  } t } } \implies e^{- R^{2} \sin 2t } \leq e^{- \frac{ 4 R^{2} }{ \pi  } t }. \tag{2} \]
+        Lastly, we see that 
+        \[  {\alpha}_{R}'(t) = R i e^{it }  \] implies
+        \[  | {\alpha}_{R}'(t) | = | R i e^{it } | =   | Ri | | e^{it } |  = R. \tag{3} \]
+        Using (1), (2), and (3), we can see that
+        \begin{align*}
+            \Big| \int_{ {\alpha}_{R} }^{  } f(z) \ dz  \Big| &= \Big| \int_{ 0 }^{ \frac{ \pi }{ 4 }  } f({\alpha}_{R}(t)) {\alpha}_{R}'(t) \ dt  \Big|  \\
+                                                              &\leq \int_{ 0 }^{ \frac{ \pi }{ 4 }  } | f({\alpha}_{R}(t)) | | {\alpha}_{R}'(t) |  \ dt \\
+                                                              &= \int_{ 0 }^{ \frac{ \pi }{ 4 }  } R e^{- R^{2} \sin 2t } \ dt \\
+                                                              &\leq \int_{ 0 }^{  \frac{ \pi }{ 4 }  } R e^{-\frac{ 4 R^{2} }{ \pi  } t } \ dt \\
+                                                              &= \frac{ -\pi  }{ 4R } \int_{ 0 }^{ - \frac{ 4 R^{2} }{ \pi  }  }  e^{u} \ du \tag{Let \( u = - \frac{ 4 R^{2} }{ \pi  } t  \)} \\
+                                                              &= \frac{ \pi (1 - e^{- R^{2}}) }{ 4R }.
+        \end{align*}
+        Thus, we can conclude that
+        \[  \Big| \int_{ {\alpha}_{R} }^{  } f(z) \ dz \Big| \leq \frac{ \pi (1 - e^{- R^{2}}) }{ 4R }. \]
+        \item[(ii)] Notice that 
+            \[  \Big| \int_{ {\alpha}_{R} }^{  } f(z) \ dz  \Big|  \leq \frac{ \pi (1 - e^{- R^{2}}) }{ 4R  } \iff - \frac{ \pi (1 - e^{- R^{2}}) }{ 4 R  }  \leq \int_{ {\alpha}_{R} }^{  } f(z) \ dz \leq \frac{ \pi (1 - e^{-R^{2}}) }{ 4R }. \]
+            Clearly, we see that as \( R \to \infty   \), we have
+            \[  \frac{ \pi (1 - e^{- R^{2}}) }{ 4R  } \to 0 \ \ \text{and} \ \ - \frac{ \pi (1 - e^{- R^{2}}) }{ 4 R  } \to 0.  \]
+            Using the Squeeze Theorem, we can see that
+            \[  \lim_{ R \to \infty  }  \int_{ {\alpha}_{R} }^{  } f(z) \ dz = 0.  \]
+        \item[(iii)] 
+
+            From the first equation, we can see that  
+            \begin{align*}
+                \lim_{ R \to \infty  }  \int_{ {C}_{R} }^{  } f(z) \ dz &= \lim_{ R \to \infty  }  \Big[ \int_{ {L}_{R} }^{  } f(z) \ dz + \int_{ {\alpha}_{R} }^{  } f(z) \ dz \Big] \\
+                                                                        &= \lim_{ R \to \infty  }  \int_{ {L}_{R} }^{  } f(z) \ dz + \lim_{ R \to \infty  }  \int_{ {\alpha}_{R} }^{  } f(z) \ dz \\
+                                                                        &= \lim_{ R \to \infty  }  \int_{ {L}_{R} }^{  } f(z) \ dz + 0 \tag{part(ii)} \\
+                                                                        &= \lim_{ R \to \infty  }  \int_{ {L}_{R} }^{  } f(z) \ dz.
+            \end{align*}
+        \item[(iv)] We will start with the right-hand side of our desired result. Observe that 
+            \begin{align*}
+                \int_{ 0 }^{ \infty  }  \cos (t^{2}) \ dt + i \int_{ 0 }^{ \infty  }  \sin (t^{2}) \ dt &= \int_{ 0 }^{ \infty  } [ \cos (t^{2}) + i \sin (t^{2}) ] \ dt \\
+                                                                                                        &= \lim_{ R \to \infty  } \int_{ 0 }^{ R  } [\cos(t^{2}) + i\sin (t^{2}) ] \ dt \\
+                                                                                                        &= \lim_{ R \to \infty  } \int_{ 0 }^{ R } e^{i t^{2}} \ dt \\
+                                                                                                        &= \lim_{ R \to \infty  }   \int_{ 0 }^{ 1 } R e^{i (Ru)^{2} }    \ du \\
+                                                                                                        &= \lim_{ R \to \infty  } \int_{ {L}_{R} }^{  } f(z) \ dz. 
+            \end{align*}
+            Notice that in the second to last equality, we have the parametrization of the line \( {L}_{R} \) from \( 0  \) to \( R  \). Hence, we have 
+            \[ \lim_{ R \to \infty  }  \int_{ {L}_{R} }^{  } f(z) \ dz =  \int_{ 0 }^{ \infty  }  \cos (t^{2}) \ dt + i \int_{ 0 }^{ \infty  }  \sin (t^{2}) \ dt  \]
+        \item[(v)] Note that \( {C}_{R} \) is the line segment connecting \( 0  \) to the point \( R e^{ \frac{ \pi  }{ 4 } i}  \) can be parametrized by the following function 
+            \[  {C}_{R}(t) = (R e^{\frac{ \pi }{ 4 }  i} )t \ \ \text{with} \ t \in [0,1]. \]
+            Then observe that 
+            \begin{align*}
+                \lim_{ R \to \infty  }  \int_{ {C}_{R} }^{  } f(z) \ dz &= \lim_{ R \to \infty  }  \int_{ 0 }^{ 1 }  f({C}_{R}(t)) {C}_{R}'(t) \ dt \\
+                                                                        &= \lim_{ R \to \infty  } e^{\frac{ \pi }{ 4 } i} \int_{ 0 }^{ 1 } R e^{i R^{2} e^{i \frac{ \pi }{ 2 } } t^{2} } \ dt \\
+                                                                        &= \lim_{ R \to \infty  } e^{\frac{ \pi }{ 4 } i}  \int_{ 0 }^{ 1 } R e^{i^{2} R^{2} t^{2}} \ dt \\
+                                                                        &= \frac{ \sqrt{ 2 }  }{ 2 }  (1 + i) \lim_{ R \to \infty  }  \int_{ 0 }^{ 1 }  R e^{- (R t )^{2}} \ dt \\ 
+                                                                        &= \frac{ \sqrt{ 2 }  }{ 2 } ( 1 + i) \lim_{ R \to \infty  }    \int_{ 0 }^{ R }  e^{- u^{2}} \ du  \tag{Let \( u = Rt \)}\\
+                                                                        &= \frac{ \sqrt{ 2 }  }{ 2 } ( 1 + i ) \int_{ 0 }^{ \infty  } e^{- u^{2}} \ du \\
+                                                                        &= \frac{ \sqrt{ 2 }  }{ 2 }  (1 + i) \cdot \frac{ \sqrt{ \pi  }  }{ 2 } \\
+                                                                        &= \frac{ (1+i)   }{  4 } \sqrt{ 2 \pi }.  
+            \end{align*}
+            Hence, we see that
+            \[  \lim_{ R \to \infty  } \int_{ {C}_{R} }^{  } f(z) \ dz = \frac{ (1+i) \sqrt{ 2 \pi }  }{ 4 }. \]
+            From part (iii), we see that 
+            \[  \lim_{ R \to \infty  }  \int_{ {C}_{R} }^{  } f(z) \ dz = \lim_{ R \to \infty  }  \int_{ {L}_{R} }^{  } f(z) \ dz \]
+            and 
+            \[  \lim_{ R \to \infty  }  \int_{ {L}_{R} }^{  } f(z) \ dz = \int_{ 0 }^{ \infty  } \cos(t^{2}) \ dt + i \int_{ 0 }^{ \infty  } \sin(t^{2}) \ dt. \tag{*}  \]
+            As a consequence, we have 
+            \[  \lim_{ R \to \infty  }  \int_{ {L}_{R} }^{  } f(z) \ dz = \frac{ (1+i) \sqrt{ 2 \pi  }  }{ 4  } = \frac{ \sqrt{ 2 \pi  }  }{ 4 } + i \frac{ \sqrt{ 2 \pi  }  }{ 4 }.   \]
+            Equating real and imaginary parts with (*), we see that
+            \[  \int_{ 0 }^{ \infty  }  \cos (t^{2}) \ dt = \frac{ \sqrt{ 2 \pi  }  }{ 4  } \ \ \text{and} \ \ \int_{ 0 }^{ \infty  }  \sin (t^{2}) \ dt = \frac{ \sqrt{ 2 \pi  }  }{ 4  }. \]
+
+\end{enumerate}
+\end{solution}
+
+\begin{problem}[Behavior of a non-constant holomorphic function on \( \C  \)]
+   Let \( f: \C \to \C  \) be a holomorphic function. 
+   \begin{enumerate}
+       \item[(i)] Assume that the complement of \( \overline{f(\C)} \) is nonempty, where \( \overline{f(\C)} \) is the closure of \( f(\C) \). Let \( w \in \C \setminus  \overline{f(\C)} \), and define \( g: \C \to \C  \) by \( g(z) = \frac{ 1  }{  f(z) - w  }  \). Explain why \( g  \) is holomorphic. Show that \( g  \) is bounded; that is, there exists \( M  > 0  \) such that \( | g(z) | \leq M  \) for all \( z \in \C  \). Using Liouville's Theorem, deduce that \( g  \) is constant and from this deduce that \( f  \) is constant.
+        \item[(ii)] Show that if \( f  \) is non-constant, then \( \overline{f(\C)} = \C  \). 
+   \end{enumerate}
+\end{problem}
+
+\begin{proof}
+\begin{enumerate}
+    \item[(i)] Let \( w \in \C \setminus  \overline{f(\C)} \) and let 
+        \[  g(z) = \frac{ 1  }{  f(z) - w  }  \]
+        where \( g: \C \to \C  \). Since \( w \in \C \setminus  \overline{f(\C)} \), it follows that \( w \neq f(z) \) for all \( z \in \C  \). Since \( f: \C \to \C   \) is holomorphic, we can see that \( g  \) must also be holormorphic.
+
+        Now, we will show that \( g  \) is bounded; that is, we will show that there exists an \( M > 0  \) such that \( | g(z) |  \leq M  \) for all \( z \in \C  \). Since \( w \in \C \setminus  \overline{f(\C)} \), we know that 
+        \[  \exists \ \epsilon > 0 \ \text{such that} \ B(w,\epsilon) \cap f(\C ) = \emptyset. \]
+        This implies that for any \( y \in f(\C) \), we must have \( y \notin B(w,\epsilon)  \). That is, \( | y - w  |  \geq \epsilon \).
+        In particular, for any \( z \in \C  \), we have \( | f(z) - w  |  \geq \epsilon \); that is,
+        \[  \frac{ 1  }{  | f(z) - w  |  }  \leq \frac{ 1 }{ \epsilon  }.  \]
+        Set \( M = 1 /\epsilon  \). By definition of \( g  \), we must have 
+        \[  | g(z) |  = \frac{ 1 }{  | f(z) - w  |  } \leq M.  \]
+        So, \( g  \) must be bounded. By applying Liouville's Theorem, we can see that \( g  \) must be a constant function. As a consequence, \( g'(z) = 0  \) for all \( z \in \C  \), and so
+        \[  g'(z) = 0 \iff \frac{ - f'(z) }{ (f(z) - w)^{2} } = 0 \iff f'(z) = 0    \]
+        since \( f(z) \neq w  \) for all \( z \in \C \). Thus, \( f  \) must be a constant function as desired.
+    \item[(ii)] We will proceed by proving the result via contrapositive. Suppose that \( \overline{f(\C) } \neq \C  \); that is, \( f(\C) \) is NOT dense in \( \C  \). Our goal is to show that \( f  \) is constant. Since \( f(\C) \) is not dense in \( \C  \), we know that there exists an open set \( V  \) in \( \C  \) such that 
+        \[  V \cap f(\C) = \emptyset. \]
+        Hence, we have that for any \( w \in V \), \( w \notin \overline{f(\C)}  \); that is, \( w \in \C \setminus  f(\C) \). Note that since \( f \) is holomorphic on \( \C  \), \( f  \) must be holormorphic on \( V \subseteq  \C  \). Now, we see that  
+        \[  g(z) = \frac{ 1 }{ f(z) - w  }  \]
+        must both be a holormorphic and bounded function on \( V \) (In fact, it is holormorphic and bounded on \( \C  \)) by part (a). Hence, \( g  \) must be constant and so \( f  \) must be constant as a consequence.
+\end{enumerate} 
+\end{proof}
+
+
+
+
+
+
+
+\end{document}
+
+
