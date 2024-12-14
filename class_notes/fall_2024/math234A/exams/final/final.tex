@@ -46,7 +46,7 @@
    Fix \( c,w \in \C  \) and consider the function \( f: \C \to \C  \) defined by \( f(z) = w e^{cz} \). Then, \( f  \) is holomorphic and it can be shown that \( f  \) satisfies \( f'(z) = c f(z) \) for all \( z \in \C  \) and \( f(0) = w \). Assume that we have a holomorphic function \( g: \C \to \C  \) that also satisfies \( g'(z) = c g(z) \) for all \( z \in \C  \) and \( g(0) = w  \). Prove that \( g(z) = f(z)  \) for all \( z \in \C  \).   
 \end{problem}
 \begin{proof}
-    Fix \( c,w \in \C \) and define the function \( f(z) = w e^{cz} \). Our goal is to show that \( f  \) is holomorphic and it can be shown that \( f  \) satisfies \( f'(z) = c f(z) \) for all \( z \in \C  \) and \( f(0) = w \). As a consequence, we will show that if we have another holomorphic function \( g: \C \to \C  \) that also satisfies \( g'(z) = c g(z) \) for all \( z \in \C  \) and \( g(0) = w  \), we will also show that \( g(z) = f(z)  \) for all \( z \in \C  \).
+    Note that \( \C  \) is both open and connected. Fix \( c,w \in \C \) and define the function \( f(z) = w e^{cz} \). Our goal is to show that \( f  \) is holomorphic and it can be shown that \( f  \) satisfies \( f'(z) = c f(z) \) for all \( z \in \C  \) and \( f(0) = w \). As a consequence, we will show that if we have another holomorphic function \( g: \C \to \C  \) that also satisfies \( g'(z) = c g(z) \) for all \( z \in \C  \) and \( g(0) = w  \), we will also show that \( g(z) = f(z)  \) for all \( z \in \C  \).
 
     By definition of \( f  \), we see that \( f  \) must be a holomorphic function (because \( e^{cz} \) is a holomorphic function and therefore complex differentiable). Now, we can see that 
     \[  f'(z) = w  c e^{cz} = c w e^{cz} = c f(z).   \]
@@ -76,7 +76,7 @@
 \begin{enumerate}
     \item[(a)] Let \( f: D \to \C  \) be a holomorphic function. Let \( G: D \to \C   \) be defined by
         \[  G(z) =  \frac{ e^{F(z)} }{ f(z) }  \]
-        where \( F: D \to \C  \) is a primitive of the function \( f' / f  \). Indeed, since \( f  \) defined on the elementary domain \( D  \), and \( f' / f  \) must is holomorphic, we see that \( F  \) must be the primitive of \( f' / f \). Note that since \( e^{z} \) and \( F(z) \) are holomorphic functions (\( e^{z} \) is also continuous), their composition \( e^{F(z)} \) is also holomorphic. Since \( f: D \to \C  \) is nonwhere vanishing, we can see that \( G =  e^{F} / f  \) must be a holomorphic function. Thus, observe that for all \( z \in \C  \)
+        where \( F: D \to \C  \) is a primitive of the function \( f' / f  \). Indeed, since \( f  \) defined on the elementary domain \( D  \), and \( f' / f  \) must is holomorphic, we see that \( F  \) must be the primitive of \( f' / f \). Note that since \( e^{z} \) and \( F(z) \) are holomorphic functions (\( e^{z} \) is also continuous), their composition \( e^{F(z)} \) is also holomorphic. Since \( f: D \to \C  \) is nonwhere vanishing holomorphic function, we can see that \( G =  e^{F} / f  \) must be a holomorphic function. Thus, observe that for all \( z \in \C  \)
         \begin{align*}
             G'(z) &= \frac{ F'(z) }{ f(z)  } e^{F(z)} - \frac{ f'(z)  }{  (f(z))^{2} } e^{F(z)} \\
                   &= \frac{ f'(z)  }{  (f(z))^{2} }  e^{F(z)} - \frac{ f'(z)  }{ (f(z))^{2} }  e^{F(z)} \\
@@ -92,7 +92,7 @@
 
     \item[(b)] Let \( n \in \Z^{+} \). Define \( G: D \to \C  \) in the following way:
         \[  G(z) = e^{\frac{ 1 }{ n } g(z)} = ( e^{g(z)} )^{\frac{ 1 }{ n } }. \]
-        By part (a), we see that \( f(z) = e^{g(z)} \) is a nowhere vanishing holomorphic function defined on an elementary domain \( D  \) where \( g  \) is some holomorphic function from \( D  \) to \( \C  \). In general, we cannot guarantee complex differentiability of \( z^{1/n} \) on all of \( \C  \), but since we have restricted our domain to an elementary domain, we will not run into any problems where \( z^{1/n} \) can take on multivalues. Hence, \( G(z) \) must be a holomorphic. Now, we see that  
+        By part (a), we see that \( f(z) = e^{g(z)} \) is a nowhere vanishing holomorphic function defined on an elementary domain \( D  \) where \( g  \) is some holomorphic function from \( D  \) to \( \C  \). Hence, \( G(z) \) must be a holomorphic. Now, we see that  
         \[  (G(z))^{n} = (e^{\frac{ 1 }{ n } g(z)})^{n} = e^{g(z)} = f(z) \]
         as desired.
     \end{enumerate}
@@ -370,8 +370,14 @@ Thus, we conclude that
         \[  \lim_{ z \to \infty  } \frac{ z^{3} + iz + 1 }{ z^{3} - z  }  = \lim_{ z \to \infty  }   \frac{ 1 + \frac{ i }{ z^{2} }  + \frac{ 1 }{ z^{3} }  }{ 1 - \frac{ 1 }{ z^{2} }  } = \frac{ 1 + 0 + 0  }{ 1 - 0 } = 1. \]
     \item[(ii)] Set \( f(z) = \frac{ e^{-i | z | } }{ z^{2} }  \) and notice that 
         \[  f(z) = \frac{ e^{-i | z | } }{ z^{2} } = \frac{ 1 }{ e^{i | z | } z^{2} }.  \]
-        Taking \( z \to \infty   \), we can see that 
-        \[  f(z) \to 0. \]
+        Clearly, we have that as \( z \to \infty   \), we can see that
+        \[  e^{-i | z | } = \frac{ 1  }{ e^{i | z | } }  \to 0 \]
+        and similarly
+        \[ \frac{ 1 }{ z^{2} }  \to 0.  \]
+        Thus, the Algebraic Limit Theorem for Functions, we can see that
+        \[  f(z)  \to 0  \]
+        as \( z \to \infty  \).
+        \[   \]
     \item[(iii)] Set \( f(z) = z \sin (1/z) \) and notice that 
         \[  f(1/z) = \frac{ \sin (z) }{ z }. \]
         Furthermore, computing
@@ -395,10 +401,19 @@ Thus, we conclude that
 
 \begin{solution}
 \begin{enumerate}
-    \item[(i)] Let \( D = \C \setminus  \{ 0 \}  \). Note that \( f: D \to \C   \) is a composition of \( e^{z} \) and \( \frac{ 1 }{ \overline{z} }  \). But note that \( \frac{ 1 }{ \overline{z} }  \) is not complex differentiable anywhere on \( \C  \) (By the last problem of the last exam). Hence, the composition \( f  \) fails to be holomorphic on \( D  \).
-    \item[(ii)] Let \( D = \{ z \in \C : | z - 5i |  < 1 \}  \) and \( f(z) = \frac{ \Log(z) }{ z^{2} } \). Since \( D  \) does not include the negative real axis and \( 0  \), we know by problem 8 in Homework 4 that \( \Log(z) \) is complex differentiable as well as \( \frac{ 1 }{ z^{2} }  \). Hence, the product of these two functions   
+    \item[(i)] Let \( D = \C \setminus  \{ 0 \}  \). Note that \( f: D \to \C   \) is a composition of \( g(z) =  e^{1/z} \) and \( h(z) =  \overline{z} \). But note that \( h(z) =  \overline{z} \) is not complex differentiable anywhere on \( \C  \) (By handout 11). Hence, the composition \( f(z) = (g \circ h)(z) = e^{1 / \overline{z}}  \) fails to be holomorphic on \( D  \). Indeed, for any \( z = x + i y \in \C  \), we have \( \overline{z } = x - i y \). Immediately, we see that the \( h(z) =  \overline{z} \) does not satisfy the Cauchy-Riemann equations; that is, 
+        \[  \frac{\partial u }{\partial x }  = 1 \neq -1 =  \frac{\partial v }{\partial y }.  \]
+        Therefore, \( f(z) \) cannot be complex differentiable for all \( z \in D  \). 
+    \item[(ii)] Let \( D = \{ z \in \C : | z - 5i |  < 1 \}  \) and \( f(z) = \frac{ \Log(z) }{ z^{2} } \). Since \( D  \) does not include the negative real axis and \( 0  \), we know by problem 8 in Homework 4 that \( \Log(z) \) is complex differentiable as well as \( \frac{ 1 }{ z^{2} }  \). Indeed, for any \( z \in D \), we have that    
+        \begin{align*}
+            \frac{ d }{ dz  }  \Big[ \frac{ 1 }{ z^{2} } \Big] \Big|_{z = c}  = \lim_{ z \to c }  \frac{ \frac{ 1 }{ z^{2} }  - \frac{ 1 }{ c^{2} }  }{ z - c } &= \lim_{ z \to c }  \Big[ \frac{  c^{2} - z^{2} }{ z^{2} c^{2} } \cdot \frac{ 1  }{  z - c  } \Big] \\
+                                                                                            &= \lim_{ z \to c } \frac{ - (c+z)  }{ z^{2} c^{2} }  \\
+                                                                                            &= \frac{ -2c }{ c^{4}  }  \\
+                                                                                            &= \frac{ -2  }{ c^{3} }.
+        \end{align*}
+        Hence, the product of two complex differentiable functions is complex differentiable by Problem 2 of Homework 4. Thus, we have 
         \[  f(z) = \frac{ \Log(z) }{ z^{2} }  \]
-        is also complex differentiable and thus, holomorphic on \( D  \). 
+        is complex differentiable and thus, holomorphic on \( D  \). 
     \item[(iii)] Let \( D = \C  \) and
         \[  f(x+iy) = (x^{3} - 3x y^{2} + 1) + i (3 x^{2} y - y^{3} - 1). \]
         We will proceed by showing that the function \( f  \) satisfies the Cauchy-Riemann Equations. Notice that real and imaginary parts of \( f  \) are both differentiable and have continuous partial derivatives. Now, set 
