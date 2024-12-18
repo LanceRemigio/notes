@@ -1,0 +1,252 @@
+\documentclass[a4paper]{article}
+
+
+\input{../../../../../newpreamble.tex}
+
+\begin{document}
+
+\section{Lecture 18-19}
+
+
+\subsection{Topics}
+
+\begin{itemize}
+    \item \( \lim \sup  \) and \( \lim \inf \) (Two equivalent characterizations)
+    \item Theorem: \( \lim \inf {a}_{n} \leq \lim \sup {a}_{n}  \).
+    \item Theorem: \( \lim_{ n \to \infty  }  {a}_{n} \) exists in \( \overline{\R} \) if and only if \( \lim \inf  {a}_{n} = \lim \sup {a}_{n} \in \overline{\R}\).
+    \item Theorem: \( \lim \sup ({a}_{n} + {b}_{n}) \leq \lim \sup {a}_{n} + \lim \sup  {b}_{n}  \) provided that the right-hand side is not \( \infty  - \infty   \).
+    \item Some special sequences
+\end{itemize}
+
+\subsection{First Characterization of Limsup and Liminf}
+
+Let \( ({x}_{n}) \) be a sequence of real numbers. Let 
+\[  S = \{ x \in \overline{\R }  : \text{there exists a subsequence \( ({x}_{{n}_{k }}) \) of \( ({x}_{n}) \) such that \( {x}_{{n}_{k }} \to x  \)} \}.  \]
+We define,
+\begin{align*}
+    \lim \sup {x}_{n} &= \sup S  \\
+    \lim \inf {x}_{n} &= \inf S.
+\end{align*}
+
+\subsection{Second Characterization of Limsup and Liminf}
+
+Let \( ({x}_{n}) \) be a sequence of real numbers. For each \( n \in \N  \), let \( {F}_{n} = \{ {x}_{k } : k \geq n  \}  \). Clearly, we have 
+\[  {F}_{1} \supseteq {F}_{2} \supseteq {F}_{3} \supseteq \dots \ . \]
+So, 
+\[  \sup {F}_{1} \geq \sup {F}_{2} \geq \sup {F}_{3} \cdots  \tag{A decreasing sequence in \( \overline{\R} \)} \]
+and similarly, we have
+\[  \inf {F}_{1} \leq \inf {F}_{2} \leq \inf {F}_{3} \leq \dots \ . \tag{An increasng sequence in \( \overline{\R} \)} \]
+By the Monotone Convergence Theorem (in \( \overline{\R} \)), we know that \( \lim_{ n \to \infty  }  \sup {F}_{n} \) and \( \lim_{ n \to \infty  }  \inf {F}_{n} \) exists in \( \overline{\R} \). We define
+\begin{align*}
+   \lim \sup {x}_{n} &= \lim_{ n \to \infty  } \sup {F}_{n} \\
+   \lim \inf {x}_{n} &= \lim_{ n \to \infty  }  \inf {F}_{n}.
+\end{align*}
+That is, we have 
+\begin{align*}
+    \lim \sup {x}_{n} &= \lim_{ n \to \infty  }  \sup \{ {x}_{k } : k \geq n  \}  = \inf_{n} (\sup {F}_{n}) \\
+    \lim \inf {x}_{n} &= \lim_{ n \to \infty  }  \inf \{ {x}_{k } : k \geq n  \}  = \sup_{n} (\inf {F}_{n}).
+\end{align*}
+
+Take note of the following notation:
+\begin{align*}
+    \lim \sup  {x}_{n} &= \lim_{ n \to \infty  }  \sup {x}_{n} = \overline{\lim} {x}_{n} \\
+    \lim \inf {x}_{n} &= \lim_{ n \to \infty  }  \inf {x}_{n} = \underline{\lim} {x}_{n}.
+\end{align*}
+
+\begin{eg}
+    \begin{enumerate}
+        \item[(i)] \( {x}_{n} = (-1)^{n} \)
+
+            Notice that 
+            \begin{align*}
+                \lim \sup {x}_{n} &= \lim_{ n \to \infty  }  \sup \{ {x}_{k } : k \geq n  \} = \lim_{ n \to \infty  }  \sup \{ {x}_{n}, {x}_{n+1}, \dots  \}  = \lim_{ n \to \infty  }  \sup \{ -1,1 \}  = \lim_{ n \to \infty  } 1 = 1 \\
+                \lim \inf {x}_{n} &= \lim_{ n \to \infty  }  \inf \{ {x}_{k } : k \geq n  \} = \lim_{ n \to \infty  }  \inf \{ {x}_{n} , {x}_{n+1}, \dots  \}  = \lim_{ n \to \infty  }  \inf \{ -1, 1  \} = \lim_{ n \to \infty   }  - 1 = -1. 
+            \end{align*}
+        \item[(ii)] Consider \( ({a}_{n}) = (-1,2,3,-1,2,3,-1,2,3,\dots) \)
+
+            Then we have
+            \begin{align*}
+                \lim \sup  {a}_{n} &= \lim_{ n \to \infty  }  \sup \{ {a}_{k } : k  \geq n \} = \lim_{ n \to \infty  }  \sup \{ {a}_{n}, {a}_{n+1}, \dots  \}  = \lim_{ n \to \infty  }  \{  - 1 , 2 , 3 \}  = \lim_{ n \to \infty  } 3 =  3 \\
+            \lim \inf {a}_{n} &= \lim_{ n \to \infty  }  \inf \{ {a}_{k } : k \geq n  \}  = \lim_{ n \to \infty  }  \inf \{ {a}_{n} , {a}_{n+1}, \dots  \} = \lim_{ n \to \infty  }  \inf \{ -1 , 2,3 \} = \lim_{ n \to \infty  }  - 1 = -1.
+            \end{align*}
+        \item[(iii)] Consider \( {a}_{n} = n  \)
+            \begin{align*}
+                \lim \sup  {a}_{n} = \lim_{ n \to \infty  }  \sup \{ {a}_{k } : k \geq n  \} = \lim_{ n \to \infty  }  \sup \{ {a}_{n}, {a}_{n+1}, \dots  \}  &= \lim_{ n \to \infty  }  \sup \{ n , n + 1 , n + 2, \dots  \}  \\
+                                                                                                                                                              &= \lim_{ n \to \infty  } n = \infty. 
+            \end{align*}
+            and similarly, we have
+            \begin{align*}
+                \lim \inf {a}_{n} = \lim_{ n \to \infty  }  \inf \{ {a}_{k } : k \geq n  \} = \lim_{ n \to \infty  }  \inf \{ {a}_{n}, {a}_{n+1}, \dots  \} &= \lim_{ n \to \infty  }  \inf \{ n, n + 1 , n + 2 , \dots \}  \\
+                &= \lim_{ n \to \infty  } n = \infty. 
+            \end{align*}
+    \end{enumerate}
+\end{eg}
+
+\begin{remark}
+    \begin{enumerate}
+        \item[(i)] \( \lim \inf {x}_{n} = \sup_{n} \inf \{ {x}_{k } : k \geq n  \} \)
+        \item[(ii)] \( \lim \sup {x}_{n} = \inf_{n} \sup \{ {x}_{k } : k \geq n  \}  \)
+    \end{enumerate}
+\end{remark}
+
+\begin{theorem}[ ]
+    Let \( ({a}_{n}) \) be a sequence of real numbers. Then
+    \[  \lim \inf {a}_{n} \leq \lim \sup {a}_{n}. \]
+\end{theorem}
+\begin{proof}
+Notice that for all \( n \in \N  \)
+\[  \inf \{ {a}_{k } : k \geq n  \}  \leq \sup \{ {a}_{k } : k \geq n  \}.  \]
+Since we already proved that the limits of both sides exists (in \( \overline{\R} \)), it follows from the order limit theorem (in \( \overline{\R} \)) that 
+\[  \lim_{ n \to \infty  }  \inf \{ {a}_{k } : k \geq n  \}  \leq \lim_{ n \to \infty   }  \sup \{ {a}_{k } : k \geq n  \}.  \]
+That is, we have 
+\[ \lim \inf {a}_{n} \leq \lim \sup {a}_{n}. \]
+\end{proof}
+
+\begin{theorem}[ ]
+    Let \( ({a}_{n}) \) be a sequence of real numbers. Then
+    \begin{center}
+        \( \lim_{ n \to \infty  }  {a}_{n} \) exists in \( \overline{\R} \) if and only if \( \lim \sup  {a}_{n} = \lim \inf {a}_{n} \).
+    \end{center}
+    Moreover, in this case, \( \lim {a}_{n} = \lim \sup {a}_{n} = \lim \inf {a}_{n}\).
+\end{theorem}
+
+\begin{proof}
+    (\( \Longleftarrow \)) Let \( A = \lim \sup {a}_{n} = \lim \inf {a}_{n} \) with \( A \in \overline{\R} \). In what follows, we will show that \( \lim {a}_{n} = A  \). We may consider three cases; that is,
+    \begin{enumerate}
+        \item[(1)] \( A \in \R  \)  
+        \item[(2)] \( A = \infty  \) 
+        \item[(3)] \( A = - \infty  \)
+    \end{enumerate}
+    For (1), note that for all \( n \in \N \)
+    \[  \inf \{ {a}_{k } : k \geq n  \}  \leq {a}_{n} \leq \sup \{ {a}_{k } : k \geq n  \}.  \]
+    Since \( \lim_{ n \to \infty  }  \sup \{ {a}_{k } : k \geq n  \}  = \lim_{ n \to \infty  }  \inf \{ {a}_{k } : k \geq n  \}  = A  \), it follows from the squeeze theorem that \( \lim_{ n \to \infty  }  {a}_{n} = A  \).
+
+    For (2) (\( A = \infty  \)), we have for all \( n \in \N \) that \( \inf \{ {a}_{k } : k \geq n  \}  \leq {a}_{n} \) and \( \lim_{ n \to \infty  }  \inf \{ {a}_{k } : k \geq n  \}  = \infty  \) implies \( \lim_{ n \to \infty  } {a}_{n} = \infty  \) by the Order Limit Theorem in \( \overline{\R} \). 
+
+    For (3) (\( A = - \infty  \)), we know that for all \( n \in \N \) that \( {a}_{n} \leq \sup \{ {a}_{k } : k \geq n  \}  \) and \( \lim_{ n \to \infty  }  \sup \{ {a}_{k } : k \geq n  \} = - \infty  \) implies that \( \lim_{ n \to \infty  }  {a}_{n} = - \infty   \) by the Order Limit Theorem in \( \overline{\R} \).
+ 
+    (\( \Longrightarrow \)) Let \( A = \lim_{ n \to \infty  }  {a}_{n}  \) with \( A \in \overline{\R} \). In what follows, we will show that \( \lim \sup  {a}_{n} = A \) and \( \lim \inf {a}_{n} = A  \). We may consider three cases:
+    \begin{enumerate}
+        \item[(1)] \( A \in \R  \)
+        \item[(2)] \( A = \infty  \)
+        \item[(3)] \( A = - \infty  \)
+    \end{enumerate}
+
+    For (1), suppose that \( A \in \R  \). Our goal is to show that  
+    \begin{center}
+        \( A \leq \lim \inf {a}_{n}  \) and \( \lim \sup {a}_{n} \leq A  \),
+    \end{center}
+    and so
+    \[  A \leq \lim \inf {a}_{n} \leq \lim \sup {a}_{n} \leq A.  \]
+    Thus, it suffices to show that for all \( \epsilon > 0  \)
+    \begin{center}
+        \( A - \epsilon \leq \lim \inf {a}_{n} \) and \( \lim \sup {a}_{n} \leq A + \epsilon \).
+    \end{center}
+    To this end, let \( \epsilon > 0  \) be given. Since \( {a}_{n} \to A  \), there exists an \( N \in \N  \) such that 
+    \[  \forall n > N \ \ | {a}_{n} - A  |  < \epsilon; \]
+    that is, 
+    \[  \forall n > N \ \ A - \epsilon < {a}_{n} < A + \epsilon. \]
+    Now, observe that
+    \begin{align*}
+        \forall n > N \ \ {a}_{n} < A + \epsilon &\implies A + \epsilon \ \ \text{is an upper bound of} \ \{ {a}_{k } : k \geq n  \}  \\
+                                                 &\implies \forall n > N \ \ \sup \{ {a}_{k } : k \geq n \}  \leq A + \epsilon \\
+                                                 &\implies \lim_{ n \to \infty  }  \sup \{ {a}_{ k } : k \geq n  \}  \leq \lim_{ n \to \infty  }  (A + \epsilon) \tag{Order Limit Theorem} \\
+                                                 &\implies  \lim \sup  {a}_{n} \leq A + \epsilon
+    \end{align*}
+    and similarly, we have 
+    \begin{align*}
+        \forall n > N \ \  A  - \epsilon <  {a}_{n}  &\implies A - \epsilon \ \text{is a lower bound of} \{ {a}_{k } : k \geq n  \}  \\
+                                                     &\implies \forall n > N  \ \inf \{ {a}_{ k } : k \geq n  \}  \geq A - \epsilon \\
+                                                     &\implies \lim_{ n \to \infty  }  \inf \{ {a}_{k } : k \geq n  \}  \geq \lim_{ n \to \infty  }  A - \epsilon \\
+                                                     &\implies \lim \inf {a}_{n} \geq A - \epsilon.
+    \end{align*}
+
+    Now, suppose (2). Our goal is to show that \( \lim \inf  {a}_{n} = \infty  \) so that \( \lim \inf {a}_{n} \leq \lim \sup {a}_{n} \) will imply that \( \lim \sup  {a}_{n} = \infty  \). In order to show that \( \lim \inf {a}_{n} = \infty  \), it suffices to show that 
+    \[  \forall M > 0 \ \ M \leq \lim \inf {a}_{n}. \]
+    To this end, let \( M > 0  \) be given. Since \( {a}_{n} \to \infty   \), there exists \( N \in \N \) such that 
+    \begin{align*}
+        \forall  n  > N \ \ {a}_{n} > M &\implies \forall n > N  \  \inf \{ {a}_{k } : k \geq n  \}  \geq  M \\
+                                        &\implies \lim_{ n \to \infty  }  \inf \{ {a}_{k } : k \geq n  \}  \geq \lim_{ n \to \infty   }  M \\
+                                        &\implies \lim \inf {a}_{n} \geq M.
+\end{align*}
+
+Note that an analogous process to the above is used to prove (3). 
+\end{proof}
+
+\begin{theorem}[ ]
+    Let \( ({a}_{n}) \) and \( ({b}_{n}) \) be the two sequences of real numbers. Then
+    \[  \lim \sup ({a}_{n} + {b}_{n}) \leq \lim \sup {a}_{n} + \lim \sup {b}_{n}  \]
+    provided that the right-hand side is not of the form \( \infty  - \infty   \) or \( - \infty  + \infty   \).
+\end{theorem}
+
+\begin{proof}
+First note that, by our assumption, \( \lim \sup {a}_{n} + \lim \inf {a}_{n} \) is not of the form \( \infty  - \infty   \) or (\( - \infty  + \infty   \)), there exists \( {n}_{0} \) such that 
+\[  \forall n \geq {n}_{0} \ \ \sup \{ {a}_{k } : k \geq n   \}  + \sup \{ {b}_{k } : k \geq n   \}  \ \text{is not of the form} \ \infty  - \infty \  \text{or }  - \infty  + \infty   \]
+For each \( n \geq {n}_{0} \), we have 
+\begin{align*}
+    \forall k \geq n \ \  {a}_{k } &\leq \sup \{ {a}_{\ell} : \ell \geq n  \}  \\
+    \forall k \geq n \ \ {b}_{k } &\leq \sup \{ {b}_{m} : m \geq n  \}.
+\end{align*}
+Thus, we have 
+\[  \forall k \geq n \ \ {a}_{k } + {b}_{k } \leq \sup \{ {a}_{\ell} : \ell \geq n  \}  + \sup \{ {b}_{m} : m \geq n \}.  \]
+Therefore, 
+\[  \forall n \geq {n}_{0} \ \ \sup \{ {a}_{k } + {b}_{k } : k \geq n  \}  \leq \sup \{ {a}_{\ell} : \ell \geq n  \}  + \sup \{ {b}_{m} : m \geq n  \}.  \]
+
+Now, label \( {R}_{n} = \sup \{ {a}_{k } + {b}_{k } : k \geq n  \}  \), \( {L}_{n} = \sup \{ {a}_{\ell } : \ell \geq n  \}  \) and \( {S}_{n} = \sup \{ {b}_{m} : m \geq n  \}  \). From the above, we can see that \( \lim_{ n \to \infty  }  {R}_{n} \), \( \lim_{ n \to \infty  } {L}_{n} \), and \( \lim_{ n \to \infty  }  {S}_{n} \) all exists in \( \overline{\R} \). Since \( \lim_{ n \to \infty  } {L}_{n} + \lim_{ n \to \infty  } {S}_{n} \) is not of the form \( \infty  - \infty   \), it follows form the Algebraic Limit Theorem that \( \lim_{ n \to \infty  }  ({L}_{n} + {S}_{n}) \) exists and is equal to that of \(\lim {L}_{n} + \lim {S}_{n} \). By the Order Limit Theorem, we see that 
+\[  \lim \sup ({a}_{n} + {b}_{n}) \leq \lim \sup {a}_{n} + \lim \sup {b}_{n}. \]
+
+\end{proof}
+
+\begin{theorem}[(e)]
+    If \( | x |  < 1  \), then \( \lim_{ n \to \infty  } x^{n} = 0  \).
+\end{theorem}
+\begin{proof}
+Clearly, if x = 0, then the claim holds. So, let's assume \( x \in (-1,1) \) and \( x \neq 0  \). Our goal is to show that 
+\[  \forall \epsilon > 0 \ \exists N \in \N \ \text{such that} \ \forall n > N \ | x^{n} - 0  |  < \epsilon. \]
+That is, we need to show, given the setup above, that \( | x^{n} |  < \epsilon \). Since \( 0 < | x  |  < 1  \), there exists \( y > 0  \) such that \( | x  |  = \frac{ 1 }{  1 + y }  \). Note that 
+\[  | x |^{n} < \epsilon \iff \frac{ 1 }{  (1+y)^{n}  }  < \epsilon. \]
+Using the Binomial Theorem (\( (1+y)^{n} \geq 1  + ny \)), we can see that  
+\[  \frac{ 1  }{ (1+y)^{n} } \leq \frac{ 1  }{  1 + ny }  < \frac{ 1 }{ n y }.  \]
+Therefore, in order to ensure that \( | x |^{n} < \epsilon \), we just need to choose \( n  \) large enough so that \( \frac{ 1 }{ ny }  < \epsilon \). To this end, it suffices to choose \( n  \) larger than \( \frac{ 1  }{ \epsilon y }  \); that is, we can take \( N = \frac{ 1  }{  \epsilon y  }\) and the result follows.
+\end{proof}
+
+\begin{theorem}[(b)]
+    If \( p > 0  \), then \( \lim_{ n \to \infty  } \sqrt[n]{ p } = 1    \).
+\end{theorem}
+\begin{proof}
+If \( p = 1  \), the claim obviously holds. If \( p \neq 1  \), we may consider two cases.
+
+For the first case, assume that \( p > 1 \). Then let \( {x}_{n} = \sqrt[n]{ p }  - 1  \). It suffices to show that \( \lim_{ n \to \infty  }  {x}_{n}  = 0 \). Note that since \( p > 1  \), \( {x}_{n} \geq 0  \). Also, we have
+\begin{align*}
+    \sqrt[n]{ p }  = 1 + {x}_{n} &\implies p = (1 + {x}_{n})^{n} \geq 1 + n {x}_{n}  \\
+                                 &\implies {x}_{n} \leq \frac{ p - 1  }{ n }.
+\end{align*}
+Thus, we have 
+\[  0 \leq {x}_{n} \leq \frac{ p - 1  }{ n }. \]
+It follows from the squeeze theorem that \( \lim_{ n \to \infty  }  {x}_{n} = 0  \).
+
+Now, suppose that \( 0  < p < 1  \). Since \( 0 < p < 1  \), we have \( 1 < \frac{ 1 }{ p }  \). So, by the previous case, we have 
+\[  \lim_{ n \to \infty  }  \sqrt[n]{ \frac{ 1 }{p}  } = 1 \iff \lim_{ n \to \infty  }  \frac{ 1  }{  \sqrt[n]{ p }  }  = 1.    \]
+\end{proof}
+
+\begin{theorem}[(c)]
+    \( \lim_{ n \to \infty  } \sqrt[n]{n} = 1  \)
+\end{theorem}
+
+\begin{proof}
+    Let \( {x}_{n} = \sqrt[n]{n} - 1  \). Observe that, by the binomial formula, we have for all \( n \geq 2  \), 
+    \begin{align*}
+        \sqrt[n]{n} =  1 + {x}_{n} &\implies n = (1 + {x}_{n})^{n} \geq \begin{pmatrix} n \\ 2  \end{pmatrix}  {x}_{n}^{2} = \frac{ n(n-1) }{ 2  }  {x}_{n}^{2} \\
+                                   &\implies \frac{ 2n  }{ n (n-1) } \geq {x}_{n}^{2} \\
+                                   &\implies {x}_{n} \leq \sqrt{ \frac{ 2  }{ n - 1 }  }. 
+    \end{align*}
+    Thus, we have 
+    \[  0 \leq {x}_{n} \leq \sqrt{ \frac{ 2  }{ n - 1  }  }. \]
+    It follows from the squeeze theorem that \( {x}_{n} \to 0  \) and so \( \sqrt[n]{n} \to 1  \).
+\end{proof}
+
+
+
+
+
+\end{document}

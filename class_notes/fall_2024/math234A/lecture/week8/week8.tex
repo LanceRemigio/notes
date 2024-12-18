@@ -1,0 +1,52 @@
+\documentclass[a4paper]{article}
+
+\input{../../../../../newpreamble.tex}
+
+\begin{document}
+
+\section{Handout-11}
+
+In this handout, we will relate complex differentiability with differentiability in multivariable calculus.
+
+\begin{definition}[ ]
+    Let \( f: D \to \C  \), \( D \subseteq \C  \) be a function. We say that \( f  \) is complex differentiable on \( D  \) if \( f \) is differentiable at each \( a \in D  \).
+\end{definition}
+ If \( f  \) is differentiable on \( D  \), then we can define a function \( f' : D \to \C  \) by \( z \mapsto f'(z) \). The function \( f'  \) is called the complex derivative of \( f \).
+
+ \begin{remark}
+     Assume that \( D = [a,b] \subseteq \R  \). By abusing notation, let us write \( f(x) \) with \( x \in [a,b] \). Let \( f(x) = u(x) + i v(x) \). Then, one can show that \( f  \) is differentiable if and only if \( u  \) and \( v  \) are differentiable. If \( f  \) is differentiable, then \( f'(x) = u'(x) + i v'(x)  \).
+ \end{remark}
+
+ \begin{eg}[Computing Complex Derivatives]
+    \begin{enumerate}
+        \item[(i)] Let \( f: \C \to \C  \), \( f(z) = z^{n} \), \( n \in \Z^{+} \). Then \( f'(z) = n z^{n-1} \). The result follows from 
+            \[  z^{n} - {w}_{n} = (z-w) (z^{n-1} + z^{n-2} w + \cdots + z w^{n-2} + w^{n-1}). \]
+        \item[(ii)] Let \( P(z) = {a}_{0} + {a}_{1} z + \cdots + {a}_{n-1} z^{n-1} + {a}_{n} z^{n} \) for \( z \in \C  \) and \( {a}_{0}, \dots , {a}_{n} \in \C  \) are constants and \( n \in \Z^{+} \). Then
+            \[  P'(z) = \sum_{ k=1  }^{ n } k {a}_{k} z^{k-1}.  \]
+        \item[(iii)] Power series:
+            Let \( {c}_{0}, {c}_{1}, {c}_{2}, \dots  \) be a sequence of complex numbers and \( a \in \C  \). A series of the form \( \sum_{ n=0  }^{ \infty} {c}_{n} (z- a )^{n}   \) is called a power series centered at \( a  \) with coefficients \( \{ {c}_{n} \}_{n=0}^{\infty } \). Assume that the series converges on an open ball \( B(a,R) \) for some \( R  \); that is, for each \( z \in B(a,R) \), the series \( \sum_{ n=0 }^{ \infty  } {c}_{n} (z-a)^{n} \) exists. Then we can define \( f: B(a,R) \to \C  \) by
+            \[  f(z) = \sum_{ n=0  }^{ \infty  } {c}_{n} (z-a)^{n}. \]
+        \item[(iv)] Let \( f: \C \to \C  \), \( f(z) = \overline{z} \). We claim that \( f \) is not complex differentiable at \( z = 0  \). We have \( f(z) - f(0) = \overline{z} \) and thus,
+            \[  \lim_{ z \to 0 }  \frac{ f(z) }{ z    }  =  \lim_{ z \to 0 } \frac{ \overline{z} }{ z } = 
+            \begin{cases}
+                1 &\text{if} \ z \to 0 \ \text{along the real axis} \\
+                -1 &\text{if} \ z \to 0 \  \text{along the imaginary axis}
+            \end{cases} \]
+    \end{enumerate} 
+    \item[(v)] Consider the function \( \Log: \C^{\bullet} \to \C  \). We say that it is NOT continuous along the negative real axis. Let 
+        \[  D = {\C}_{-} = \C^{\bullet} \setminus  \{ z \in \C | z < 0 \}. \]
+        Then, \( \Log: D \to \C  \) is complex differentiable and 
+        \[  (\Log z)' = \frac{ 1 }{ z }   \]
+        on \( D  \).
+        Assuming complex differentiability, we can use \( e^{\Log z } = z  \) and chain rule:
+        \begin{align*}
+            &\implies e^{\Log z} \cdot (\Log z)' = 1 \\
+            &\implies (\Log z )' = \frac{ 1 }{ e^{\Log z}  }  = \frac{ 1 }{ z }. 
+        \end{align*}
+
+ \end{eg}
+
+
+
+
+\end{document}

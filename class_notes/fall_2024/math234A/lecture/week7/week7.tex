@@ -122,7 +122,12 @@ where \( g  \) is a continuous at \( a  \).
     \[  (g \circ f)'(a) = g'(f(a)) \cdot f'(a). \]
 \end{theorem}
 \begin{proof}
-
+We know \( f(z) = f(a) + (z-a) \varphi(z) \) and \( g(w) = g(f(a)) + (w-a) \psi (w) \) such that \( \varphi  \) is continuous at \( a  \) and \( \psi  \) is continuous at \( f(a) \). Moreover, \( \varphi(a) = f'(a) \) and \( \varphi(f(a))  = g'(f(a))\). Now, \( \psi \circ \varphi  \) is continuous at \( a  \) and 
+\[  g(f(z))  = g(f(a)) + (f(z) - f(a)) \psi (f(z)). \]
+Now, for \( z \neq a  \), then
+\[  \frac{ g(f(z)) - g(f(a)) }{ z - a }  =  \underbrace{\frac{ f(z) - f(a) }{ z - a } }_{\text{limit exists for} \ z \to a}  \underbrace{\psi (f(z))}_{\text{continuous at} a}. \]
+This implies that 
+\[  \lim_{ z \to a }  \frac{ g(f(z)) - g(f(a)j) }{ z - a  } = f'(a) \psi (f(a)) = f'(a) g'(f(a))   \] exists.
 \end{proof}
 
 \begin{eg}
@@ -142,7 +147,12 @@ where \( g  \) is a continuous at \( a  \).
    \end{enumerate} 
 \end{eg}
 
-Regarding example (v) from above, we have that \( f'(z) = f(z) \).
+\begin{problem}
+    \begin{itemize}
+        \item Let \( f: \C \to \C  \), \( f(z) = z^{n} \), \( n \in \Z^{+}  \), then \( f'(a) = n a^{n-1}  \) for all \( a \in \C  \).
+        \item Let \( f: \C^{\bullet} \to \C  \), \( f(z) = z^{-n} \), \( n \in \Z^{+} \). Show that \( f'(a) = -n a^{-n-1} \) for all \( a \in \C^{\bullet} \).
+    \end{itemize}
+\end{problem}
 
 
 \end{document}

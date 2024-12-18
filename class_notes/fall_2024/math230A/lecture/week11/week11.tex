@@ -1,0 +1,271 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+
+\begin{document}
+
+\section{Lecture 20-21}
+\subsection{Topics}
+
+\begin{itemize}
+    \item Infinite series (Basic definitions)
+    \item Telescoping Series, Geometric Series
+    \item Algebraic Limit Theorem for Series
+    \item Divergence Test
+    \item Cauchy Criterion for Series
+    \item Absolute Convergence Test
+\end{itemize}
+
+Consider the following expression:
+\[  \frac{ 1  }{  2  }  + \frac{ 1  }{  4  }  + \frac{ 1  }{  8  }  + \frac{ 1 }{ 16  }  + \cdots \ . \]
+How can we make sense of the infinite sum above? More generally, let \( ({a}_{n}) \) be a sequence of real numbers. Then what does the following expression mean?
+\[  \sum_{ n=1  }^{ \infty  } {a}_{n} = {a}_{1} + {a}_{2} + {a}_{3} + \cdots \ ? \]
+\begin{definition}[Infinite Series]
+    Let \( (X, \|\cdot\|) \) be a normed space. Let \( ({x}_{n}) \) be a sequence in \( X  \). 
+    \begin{enumerate}
+        \item[(*)] An expression of the form 
+            \[  \sum_{ n=1  }^{ \infty  } {x}_{n} = {x}_{1} + {x}_{2} + {x}_{3} + \cdots  \]
+            is called an \textbf{infinite series}.
+        \item[(*)] \( {x}_{1}, {x}_{2}, \dots  \) are called the \textbf{terms} of this infinite series.
+        \item[(*)] The corresponding sequence of \textbf{partial sums} is defined by
+            \[  \forall m \in \N  \ \ {s}_{m} = \text{(finite) sum of the first \(  m  \) terms of the series}; \]
+            that is,
+            \begin{align*}
+                {s}_{1} &= {x}_{1} \\
+                {s}_{2} &= {x}_{1} + {x}_{2} \\
+                {s}_{3} &= {x}_{1} + {x}_{2} + {x}_{3} \\
+                        &\vdots \\
+                {s}_{m} &= {x}_{1} + {x}_{2} + \cdots + {x}_{m} \\
+                        &\vdots
+            \end{align*}
+        \item We say that the infinite series \( \sum_{ n=1  }^{ \infty  } {x}_{n}  \) converges to \( L \in X  \) (and we write \( \sum_{ n=1  }^{ \infty  } {x}_{n} = L  \)) if \( \lim_{ n \to \infty  }  {s}_{m} =  L  \).
+        \item We say that the infinite series \textbf{diverges}, if \( ({s}_{m}) \) diverges.
+        \item If \( X = \R  \) and \( {s}_{m} \to \infty   \), we write \( \sum_{ n=1  }^{ \infty  } {x}_{n} = \infty  \).
+        \item[(*)] If \( X = \R  \) and \( {s}_{m} \to - \infty   \), we write \( \sum_{ n=1  }^{ \infty  } {x}_{n} = - \infty  \).
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}[1]
+    Given an infinite series \( \sum_{ n=1  }^{ \infty  } {x}_{n}  \), it is important to keep a clear distinction between
+    \begin{enumerate}
+        \item[(a)] the sequence of terms: \( ({x}_{1}, {x}_{2}, {x}_{3}, \dots ) \)
+        \item[(b)] the sequence of partial sums: \( ({s}_{1}, {s}_{2}, {s}_{3}, \dots ) \).
+    \end{enumerate}
+\end{remark}
+
+\begin{remark}[2]
+    We may sometimes consider infinite series where the summation begins with \( n = 0  \) or \( n = {n}_{0} \) for some integer \( {n}_{0}  \) different from \( 1  \).
+\end{remark}
+
+As we shall see, some of our theorems apply specifically to series in \( \R  \) or to series with terms in \( [0,\infty) \). Also, in our examples, we will primarily focus on series in \( \R  \); however, we will also consider encounter highly useful theorems that hold in more general normed spaces.  
+
+In most cases it is difficult (or even impossible)  to find a simple formula for the partial sum \( {s}_{m} \). However, there are two types of series for which we can easily find a simple formula for the partial sums. These two types are:
+\begin{enumerate}
+    \item[(1)] Telescoping Series
+    \item[(2)] Geometric Series
+\end{enumerate}
+
+
+\subsection{Telescoping Series}
+
+\begin{eg}
+   Consider the following series 
+   \[  \sum_{ n=1  }^{ \infty  } \Big(  \frac{ 1 }{ n } - \frac{ 1 }{ n + 1 }  \Big). \]
+   Notice that \( {x}_{n} = \frac{ 1 }{ n }  - \frac{ 1 }{ n+1 }  \). The corresponding sequence of partial sums is  
+   \begin{align*}
+       {s}_{1} &= 1 - \frac{ 1 }{ 2 }  \\
+       {s}_{2} &= \Big(  1 - \frac{ 1 }{ 2 }  \Big) + \Big(  \frac{ 1 }{ 2 }  - \frac{ 1 }{ 3 }  \Big) = 1 - \frac{ 1 }{ 3 } \\
+       {s}_{3} &= \Big(  1 - \frac{ 1 }{ 2 }  \Big) + \Big(  \frac{ 1 }{ 2 }  - \frac{ 1 }{ 3 }  \Big) + \Big(  \frac{ 1 }{ 3 }  - \frac{ 1 }{ 4 }  \Big) = 1 - \frac{ 1 }{ 4 } \\
+               &\vdots \\
+       {s}_{m} &= \sum_{ n=1  }^{ m } \Big(  \frac{ 1 }{ n }  - \frac{ 1 }{ n + 1 }  \Big) = \Big(  \sum_{ n=1  }^{ m  } \frac{ 1 }{ n }  \Big) - \Big(  \sum_{ n=1  }^{ m } \frac{ 1 }{ n+1 }  \Big) \\ 
+               &= 1 - \frac{ 1 }{ m + 1 }.
+   \end{align*}
+   Clearly, we see that 
+   \[  \lim_{ m \to \infty  }  {s}_{m} = \lim_{ m \to \infty  }  \Big[ 1 - \frac{ 1 }{  m + 1  } \Big] = 1.  \]
+   Hence, \( \sum_{ n=1  }^{ \infty   \frac{ 1 }{ n (n+1) }  } \) converges to \( 1  \).
+\end{eg}
+
+In general, a telescoping series is an infinite series where partial sums eventually have a finite number of terms after cancellation. For example, if \( ({y}_{n}) \) is a sequence in the normed space \( (X, \|\cdot\|) \), then \( \sum_{ n=1  }^{ \infty   } ({y}_{n} - {y}_{n+1}) \) is a telescoping series; that is, 
+\begin{align*}
+    {s}_{m} = \sum_{ n=1  }^{ m } ({y}_{n} - {y}_{n+1}) = \Big(  \sum_{ n=1  }^{ m } {y}_{n} \Big) - \Big(  \sum_{ n=1  }^{ m } {y}_{n+1} \Big) &= [{y}_{1} + {y}_{2} + \cdots + {y}_{m}] - [{y}_{2} + {y}_{3} + \cdots + {y}_{m+1}] \\
+                                                                                                                                                &= {y}_{1} - {y}_{m}.
+\end{align*}
+
+\subsection{Geometric Series}
+
+Let \( k  \) be a fixed integer and let \( r \neq 0  \) be a fixed real number. The infinite series \( \sum_{ n= k  }^{  \infty   } r^{n} = r^{k } + r^{k +1} + r^{k + 2 } + \cdots   \) is called a \textbf{geometric series} with common ration \( "r" \). For example, 
+\[ \sum_{ n=1  }^{ \infty   } \Big(  \frac{ 1 }{ 2 }  \Big)^{n} = \frac{ 1 }{ 2 }  + \frac{ 1 }{ 4 }  + \frac{ 1 }{ 8 }  + \cdots \ \text{is a geometric series with common ratio} \  \frac{ 1 }{ 2 }. \]
+Another example is that
+\[  \sum_{ n=1  }^{ \infty  } \frac{ 7^{n} }{  29^{n} }  \ \text{is a geometric series with common ratio} \ \frac{ 7  }{  2 9 }. \]
+A non-example is the following:
+\[  \sum_{ n=1  }^{ \infty   } \frac{ 1 }{ n^{2} }. \]
+We can easily find a formula for the \( m \)th partial sum of \( \sum_{ n= k  }^{  \infty   } r^{k } \) where
+\begin{align*}
+    {s}_{1} &= r^{k} \\
+    {s}_{2}&= r^{k } + r^{k+1} \\
+    {s}_{3} &= r^{k } + r^{k+1} + r^{k+2} \\
+            &\vdots \\
+    {s}_{m} &= r^{k } + r^{k+1} + \cdots + r^{k + m - 1} \tag{*}
+\end{align*}
+
+Now, if \( r = 1  \), we have
+\[  {s}_{m} = \underbrace{1 + 1 + \cdots + 1}_{m \text{summands}} = m.  \]
+
+If \( r \neq 1  \), then multiply both sides of (*) by \( r  \):
+\[  r {s}_{m} = r^{k+1} + r^{k+2} + \cdots+ r^{k+m} \tag{**}. \]
+Subtracting (**) from (*), we get
+\[  {s}_{m} - r {s}_{m} = r^{k} - r^{k + m}. \]
+Since \( r \neq 1  \), we have
+\[  {s}_{m} = \frac{ r^{k } - r^{k + m} }{ 1 - r  }  = \frac{ r^{k } (1 - r^{m}) }{  1 - r  }. \]
+
+Note that
+\begin{enumerate}
+    \item[(i)] If \( | r  |  < 1  \), then \( \lim r^{m} = 0  \).
+    \item[(ii)] If \( | r  |  > 1  \) or \( r = -1  \), then \( \lim_{ n \to \infty  }  r^{m}  \) does not exists.
+\end{enumerate}
+Hence, we have 
+\[  \lim_{ m \to \infty  }  {s}_{m} = 
+\begin{cases}
+    \frac{ r^{k } }{  1 - r  }  &\text{if} | r  |  < 1 \\
+    \text{DNE} &\text{if} | r  |  \geq 1. 
+\end{cases} \]
+Thus, 
+\[  \sum_{ n= k  }^{  \infty   } r^{n } = 
+\begin{cases}
+    \frac{ r^{k }  }{  1 - r  }  &\text{if} | r  |  < 1 \\
+    \text{diverges} &\text{if} | r  |  \geq 1.
+\end{cases} \]
+
+\begin{eg}
+    \begin{itemize}
+        \item \( \sum_{ n=1  }^{ \infty   } \Big(  \frac{ 1 }{ 2 }  \Big)^{n} \)
+
+            Observe that 
+            \[  \sum_{ n=1  }^{ \infty  } \Big(  \frac{ 1 }{ 2 }  \Big)^{n} = \frac{ \Big(  \frac{ 1 }{ 2 }  \Big)^{1} }{  1 - \frac{ 1 }{ 2 }  }  = \frac{ \frac{ 1 }{ 2 }  }{ \frac{ 1 }{ 2 }  }  = 1.  \]
+
+        \item \( \sum_{ n=4 }^{ \infty  } \Big(  \frac{ 1 }{ 2 }  \Big)^{n}  \)
+
+            Observe that 
+            \[  \sum_{ n=4 }^{ \infty  } \Big(  \frac{ 1 }{ 2 }  \Big)^{n} = \frac{ \Big(  \frac{ 1 }{ 2 }  \Big)^{4} }{  1 - \frac{ 1 }{ 2 }  } = \frac{ \Big(  \frac{ 1 }{ 2 }  \Big)^{4} }{  \Big(  \frac{ 1 }{ 2 }  \Big) }  = \frac{ 1 }{ 8 }. \]
+    \end{itemize}
+\end{eg}
+
+\begin{theorem}[ ]
+    Let \( (X , \|\cdot\|) \) be a normed space. Let \( ({a}_{n}) \) and \( ({b}_{n}) \) be two sequence in \( X  \). Suppose that 
+    \[  \sum_{ n=1  }^{ \infty  } {a}_{n} = A \ \ (A \in X) , \ \ \sum_{ n=1  }^{ \infty  } {b}_{n} = B \ \ (B \in X). \]
+    Then
+    \begin{enumerate}
+        \item[(i)] For any scalar \( \lambda  \), \( \sum_{ n=1  }^{ \infty   } (\lambda {a}_{n}) = \lambda A  \).
+        \item[(ii)] \( \sum_{ n=1  }^{ \infty  } ({a}_{n} + {b}_{n}) = A + B \).
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+Can easily be proven via the Algebraic Limit Theorem for Sequences.
+\end{proof}
+
+\begin{theorem}[Divergence Test]
+   Let \( (X,\|\cdot\|) \) be a normed space. Let \( ({x}_{n}) \) be a sequence in \( X  \). If \( \sum_{ n=1  }^{ \infty  } {x}_{n}  \) converges, then \( \lim_{ n \to \infty  }  {x}_{n} = 0  \). 
+\end{theorem}
+\begin{proof}
+Let \( {s}_{n} = {x}_{1} + \cdots + {x}_{n} \). Let \( L = \sum_{ n=1  }^{ \infty  } {x}_{n} \). Note that 
+\[  \sum_{ n=1  }^{ \infty  } {x}_{n} = L \implies \lim_{ n \to \infty  }  {s}_{n} = L.  \]
+Also, note that 
+\[  \forall n \geq 2 \ \ {x}_{n} = {s}_{n} - {s}_{n-1}. \]
+Note that \( \lim {s}_{n} = L  \) and \( \lim {s}_{n-1} = L  \). Therefore, 
+\[  \lim_{ n \to \infty  }  {x}_{n} = \lim_{ n \to \infty  }  ({s}_{n} - {s}_{n-1}) = L - L =  0  \]
+by the Algebraic Limit Theorem for normed spaces.
+\end{proof}
+\begin{remark}
+    Note that the divergence test is just the contrapositive of the above.
+\end{remark}
+
+\begin{eg}
+    \begin{itemize}
+        \item \( \sum_{ n=1  }^{ \infty  } (-1)^{n} \) diverges because \( \lim_{ n \to \infty  }  (-1)^{n} \) does not exist.
+        \item \( \sum_{ n=1  }^{ \infty  } \frac{ 3n+1 }{ 7n-4 }  \) diverges because \( \lim_{ n \to \infty  }  \frac{ 3n + 1 }{ 7 n - 4  }  = \frac{ 3 }{ 7 } \neq 0  \).
+    \end{itemize}
+\end{eg}
+
+From the above statements, we can now see make two key observations:
+
+\begin{itemize}
+    \item If \( \lim_{ n \to \infty  }  {x}_{n} = 0  \), then \( \sum_{ n=1  }^{ \infty  } {x}_{n} \) may or may not converge.
+    \item If \( \lim_{ n \to \infty  }  {x}_{n} \neq 0  \), then \( \sum_{ n=1  }^{ \infty  } {x}_{n}  \) diverges.
+\end{itemize}
+
+As for the first observation above, we see that \( \sum_{  }^{  } \frac{ 1 }{ n }  \) diverges, but \( \sum_{   }^{  } \frac{ 1 }{ n^{2} }   \) converges.
+
+\begin{theorem}[Cauchy Criterion]
+    Let \( (X,\|\cdot\|) \) be a complete normed space. Let \( ({x}_{n}) \) be a sequence in \( X  \). Then
+    \[  \sum_{ k=1  }^{ \infty  } {x}_{k } \ \text{converges} \ \iff \forall \epsilon > 0 \ \exists N \in \N \ \text{such that} \ \forall n > m > N \ \ \|\sum_{ k=1  }^{ n } {x}_{k } \| < \epsilon. \]
+\end{theorem}
+\begin{proof}
+Let \( {s}_{n} = {x}_{1} + \cdots + {x}_{k} \). Assuming that  
+\[  \|{s}_{n} - {s}_{m} \| = \Big\|\sum_{ k=m+1 }^{ n } {x}_{k} \Big\| \]
+where \( n > m  \) and from the fact that 
+\begin{align*}
+    {s}_{n} - {s}_{m} &= ({x}_{1} + \cdots + {x}_{m} + \cdots + {x}_{n}) - ({x}_{1} +  \cdots + {x}_{m}) \\
+                      &= \sum_{ k= m+1 }^{ n } {s}_{k}.
+\end{align*}
+Then we have 
+\begin{align*}
+    \sum_{ k=1  }^{ \infty  } {x}_{k } \ \text{converges} &\iff ({s}_{k}) \ \text{converges} \\
+                                                          &\iff ({s}_{k}) \ \text{is Cauchy} \\
+                                                          &\iff \forall \epsilon > 0 \ \exists N \in \N \ \text{such that} \ \forall n > m > N \  \ \|{s}_{n} - {s}_{m} \| < \epsilon \\
+                                                          &\iff \forall \epsilon > 0 \ \exists N \in \N \ \text{such that} \ \forall n > m > N \ \ \|\sum_{ k=m+1 }^{ n } {x}_{k} \| < \epsilon
+\end{align*}
+as desired.
+\end{proof}
+
+From here, we will refer to complete normed spaces as Banach spaces.
+
+\begin{theorem}[Absolute Convergence Test]
+    Let \( (X,\|\cdot\|) \) be a Banach Space. Let \( ({x}_{n}) \) be a sequence in \( X  \). If \( \underbrace{\sum_{ n=1  }^{ \infty  } \|{x}_{n}\| }_{\text{a sum in \( \R  \)}} \) converges, then \( \sum_{ n=1  }^{ \infty  } {x}_{n} \) converges.
+\end{theorem}
+\begin{proof}
+    By the Cauchy Criterion for series, it suffices to show that 
+    \[  \forall \epsilon > 0 \ \exists N \in \N \ \text{such that} \ \forall n > m > N \Big\|\sum_{ k=m+1 }^{ n } {x}_{k }\Big\| < \epsilon. \tag{*} \]
+    Since \( \sum_{ k=1  }^{ \infty   } \|{x}_{k }\|  \) converges, and since \( \R  \) is complete, it follows from the Cauchy Criterion for series that there exists \( \hat{N} \) such that 
+    \[ \forall n> m > \hat{N} \ \ \Big| \sum_{ k= m +1 }^{ n  } \|{x}_{k }\| \Big| < \epsilon.  \]
+    We claim that \( \hat{N} \) is the same \( N  \) we were looking for. Hence, if \( n > m > \hat{N} \), then we have
+    \[  \Big\| \sum_{ k=m+1 }^{ n  } {x}_{k }  \Big\| \leq \sum_{ k= m+1 }^{ n  } \| {x}_{k} \| = \Big|  \sum_{ k= m+1 }^{ n  } \|{x}_{k }\| \Big|  < \epsilon  \]
+    as desired.
+\end{proof}
+
+Please take note of the following observations: 
+
+\begin{enumerate}
+    \item[(1)] If \( \sum_{ n=1  }^{ \infty  } \|{x}_{n}\| \) converges, then \( \sum_{ n=1  }^{ \infty  } {x}_{n} \) converges (in Banach spaces).
+    \item[(2)] If \( \sum_{ n=1  }^{ \infty  } \|{x}_{n}\|  \) diverges, then \( \sum_{ n=1  }^{ \infty  } {x}_{n} \) may converge or diverge.
+\end{enumerate}
+
+From (2), we shall see (in the next lecture) that
+\begin{enumerate}
+    \item[(1)] \( \sum_{ n=1  }^{ \infty  } \Big| \frac{ (-1)^{n+1} }{ n }  \Big|   \) diverges but \( \sum_{ n=1  }^{ \infty   } \frac{ (-1)^{n+1} }{ n }   \) converges.
+    \item[(2)] \( \sum_{ n=1  }^{ \infty  } | (-1)^{n} |  \) diverges, also \( \sum_{ n=1  }^{ \infty  } (-1)^{n} \) diverges (by the divergence test).
+\end{enumerate}
+
+\begin{definition}[Absolute Convergence and Conditional Convergence]
+    We say that a series \( \sum_{  }^{  }{x}_{n} \) \textbf{absolutely converges} if \( \sum_{  }^{  } \|{x}_{n}\| \) converges and \( \sum_{  }^{  } {x}_{n} \) converges. We say that \( \sum_{  }^{  }{x}_{n} \) \textbf{conditionally converges} if \( \sum_{  }^{  } \|{x}_{n}\|  \) diverges but \( \sum_{  }^{  } {x}_{n} \) converges. 
+\end{definition}
+
+\begin{eg}[Conditionally Convergent]
+    Consider \( \sum_{ n=1  }^{ \infty  } \frac{ (-1)^{n+1} }{ n }  \). We see that this series is conditionally convergent since  
+    \[  \Big| \frac{ (-1)^{n+1} }{ n }  \Big|  = \frac{ 1 }{ n } \to 0 \]
+    which tell us that the above series diverges by the divergence test. But the above series converges via the Leibniz Test (As we shall see in the next lecture).
+\end{eg}
+
+\section{Lecture 21-22}
+
+\subsection{Topics}
+
+\begin{itemize}
+    \item Cauchy Condensation Test
+    \item Comparison Test
+    \item More on \( \lim \sup   \) and \( \lim \inf  \)
+    \item Root Test
+    \item Ratio Test
+    \item Dirichlet's Test
+\end{itemize}
+
+
+\end{document}

@@ -2,11 +2,381 @@
 
 \input{../../../../../newpreamble.tex}
 
-
-
 \begin{document}
 
+\section{Lecture 16}
 
+\subsection{Topics}
 
+\begin{itemize}
+    \item Diameter of a set 
+    \item Theorem: \( \diam \overline{E} = \diam E   \)
+    \item Theorem: Nested sequence of nonempty compact sets \( {K}_{n} \) and if \( \diam {K}_{n} \to 0   \), then \( \bigcap_{ n=1  }^{ \infty  }  {K}_{n} \) consists of exactly one point.
+    \item Theorem: Every compact metric space is complete.
+    \item Theorem: \( \R^{k} \) is a complete metric space.
+\end{itemize}
 
+\begin{definition}[Diameter of a Set]
+    Let \( (X,d) \) be a metric space. Let \( E  \) be a nonmempty set in \( X  \). The diameter of \( E  \), denoted by \( \diam E  \), is defined as follows:
+    \[  \diam E = \sup \{ d(a,b) : a,d \in E  \}.  \]
+\end{definition}
+
+\begin{remark}
+    Note that if \( \emptyset \neq A \subseteq  B \subseteq X   \), then 
+    \[  \{ d(a,b) : a,b \in A  \}  \subseteq  \{ d(a,b) : a,b  \in B\}. \]
+    Thus, we have 
+    \[  \sup \{ d(a,b) : a,b  \in A \}  \leq \sup \{ d(a,b) : a,b \in B \}. \]
+    That is, 
+    \[  \diam A \leq \diam B. \]
+\end{remark}
+
+\begin{theorem}[Interesting Observation]
+   Let \( (X,d) \) be a metric space. Let \( ({x}_{n}) \) be a sequence in \( X  \). For all \( n \in \N  \), let \( {E}_{n} = \{ {x}_{n+1}, {x}_{n+1}, \dots  \}  \). Then 
+   \begin{center}
+       \( ({x}_{n})  \) is Cauchy \( \iff  \) \( \lim_{ n \to \infty  }  \diam {E}_{n} = 0  \).
+   \end{center}
+\end{theorem}
+\begin{proof}
+\( ( \Longrightarrow ) \) Assume that \( ({x}_{n}) \) is a Cauchy sequence. Note that 
+\begin{align*}
+    {E}_{1} &= \{ {x}_{2}, {x}_{3}, {x}_{4}, {x}_{5}, \dots  \}  \\
+    {E}_{2} &= \{ {x}_{3}, {x}_{4}, {x}_{5}, \dots  \}  \\
+    {E}_{3}  &= \{ {x}_{4}, {x}_{5}, \dots  \}  \\
+    {E}_{4} &= \dots \\
+            &\vdots
+\end{align*}
+Clearly, we have 
+\[  {E}_{1} \supseteq {E}_{2} \supseteq {E}_{3} \supseteq {E}_{4} \supseteq \cdots .  \]
+So, we have 
+\[  \diam {E}_{1} \geq \diam {E}_{2} \geq \diam {E}_{3} \geq \cdots . \]
+Our goal is to show that 
+\[  \forall \ \epsilon > 0 \ \exists N \in \N \ \forall n > N \ \underbrace{| \diam {E}_{n} - 0 |}_{\diam {E}_{n} \geq 0}  < \epsilon. \tag{*} \]
+So, it suffices to show that \( \diam {E}_{n} < \epsilon \). To this end, let \( \epsilon > 0  \) be given. Since \( ({x}_{n}) \) is Cauchy, there exists \( \hat{N} \in \N \) such that 
+\[  \forall n,m > \hat{N} \ \ d({x}_{n}, {x}_{m}) < \frac{ \epsilon }{ 2 }. \]
+We claim that this \( \hat{N} \) is the same \( N  \) we were looking for. Letting \( N = \hat{N} \), we have 
+\[  {E}_{\hat{N}} = \{ {x}_{\hat{N} + 1} , {x}_{\hat{N} + 2}, {x}_{\hat{N} + 3}, \dots  \}. \]
+Hence, we have
+\[  \forall a,b \in {E}_{\hat{N}} \ \ d(a,b) < \frac{ \epsilon }{ 2 }. \]
+Thus, we have 
+\[  \diam {E}_{\hat{N}} = \sup \{ d(a,b) : a,b \in {E}_{\hat{N}} \} \leq \frac{ \epsilon }{ 2 }  < \epsilon. \]
+If \( n > \hat{N} \), then
+\[  \diam {E}_{n} \leq \diam {E}_{\hat{N}} < \epsilon \]
+as desired.
+
+\( (\Longleftarrow) \) Assume that \( \lim_{ n \to \infty  }  \diam {E}_{n} = 0  \). Our goal is to show that \( ({x}_{n}) \) is Cauchy; that is, 
+\[  \forall \epsilon > 0 \ \exists N \in \N \ \text{such that} \ \forall n,m > N \ d({x}_{n}, {x}_{m}) < \epsilon. \tag{*} \]
+Since \( \lim_{ n \to  \infty  }  \diam {E}_{n} = 0 \), for this given \( \epsilon \), there exists \( \hat{N} \) such that 
+\[  \forall n > \hat{N} \ \ \diam {E}_{n} < \epsilon. \]
+In particular, we have \( \diam {E}_{\hat{N} + 1} < \epsilon \).
+Now, we claim that \( N = \hat{N} + 1  \) can be used as the same \( N  \) we were looking for. Indeed, if we let \( N = \hat{N} = 1 \), we have
+\[  \forall n,m > \hat{N} + 1 , \ {x}_{n}, {x}_{m} \in {E}_{\hat{N} +1}  \]
+and thus
+\[  d({x}_{n}, {x}_{m}) \leq \diam {E}_{\hat{N} + 1} < \epsilon. \]
+\end{proof}
+
+\begin{theorem}[ ]
+    Let \( (X,d) \) be a metric space. Let \( E  \) be a nonempty subset of \( X  \). Then 
+    \[  \diam \overline{E} = \diam E.  \]
+\end{theorem}
+\begin{proof}
+Note that, since \( E \subseteq \overline{E} \), we have \( \diam E \leq \diam \overline{E} \). In what follows, we will prove that \( \diam \overline{E} \leq \diam E  \) by showing that 
+\[  \forall \epsilon > 0  \ \ \diam \overline{E} \leq \diam E + \epsilon. \]
+Let \( \epsilon > 0  \) be given. Our goal is to show that 
+\[  \sup \{ d(a,b) : a, b \in \overline{E} \} \leq \diam E + \epsilon. \]
+To this end, it suffices to show that \( \diam E + \epsilon  \) is an upper bound for \( \{ d(a,b) : a,b \in \overline{E} \}  \). Suppose \( a,b \in \overline{E} \). We have 
+\begin{align*}
+    &a \in \overline{E} \implies {N}_{\frac{ \epsilon }{ 2 } }(a) \cap E \neq \emptyset \implies \exists x \in E \ \text{such that} \ d(x,a) < \frac{ \epsilon }{ 2 }  \\
+    &b \in \overline{E} \implies  {N}_{\frac{ \epsilon }{ 2 } }(b) \cap E \neq \emptyset  \implies \exists y \in E \ \text{such that} \ d(y,b) < \frac{ \epsilon }{ 2 }.
+\end{align*}
+Therefore, we have that 
+\begin{align*}
+    d(a,b) &\leq d(a,x) + d(x,y) + d(y,b) \\
+           &< \frac{ \epsilon  }{ 2 }  + d(x,y) + \frac{ \epsilon }{ 2 } \\
+           &< \frac{ \epsilon  }{ 2  }  + \diam E + \frac{ \epsilon }{ 2 }  \\
+           &= \epsilon + \diam E 
+\end{align*}
+which is our desired result.
+\end{proof}
+
+\begin{theorem}[ ]
+Let \( (X,d) \) be a metric space and let \( {K}_{1} \supseteq {K}_{2} \supseteq {K}_{3} \supseteq \cdots  \) be a nested sequence of nonempty compact sets where
+\( \lim_{ n \to \infty  }  \diam {K}_{n} = 0  \). Then 
+\begin{center}
+    \( \bigcap_{ n=1  }^{ \infty  }  {K}_{n} \) consists of exactly one point.    
+\end{center}
+\end{theorem}
+\begin{proof}
+Let \( K = \bigcap_{ n=1  }^{ \infty  }  {K}_{n} \). By Theorem 2.3.6, we know that \( K \neq \emptyset \). In order to show that \( K  \) has only one element, we suppose that \( a,b \in K  \) and we will prove \( a = b \). In order to show that \( a = b  \), we will prove that \( d(a,b) = 0  \). Showing this is equivalent to showing that 
+\[  \forall \epsilon > 0 \ \ d(a,b) < \epsilon.  \]
+Let \( \epsilon > 0  \) be given. Since \( \lim_{ n \to \infty  }  \diam {K}_{n} = 0  \), there exists \( N \in \N  \) such that 
+\[  \forall n > N  \ \ \diam {K}_{n} < \epsilon. \]
+In particular, \( \diam {K}_{N+1} < \epsilon \). Now, we have 
+\[  a \in \bigcap_{ n=1  }^{ \infty  }  \implies a \in {K}_{N+1}  \]
+and 
+\[  b \in \bigcap_{ n=1  }^{ \infty  }  {K}_{n} \implies b \in {K}_{N+1}  \]
+which implies further that 
+\[  d(a,b) \leq \diam {K}_{N+1} < \epsilon \]
+which is our desired result.
+\end{proof}
+
+\begin{theorem}[Compact Space \( \implies \) Complete Space]
+   Any compact metric space is complete. 
+\end{theorem}
+\begin{proof}
+Let \( (X,d) \) be a compact metric space. Let \( ({x}_{n}) \) be a Cauchy sequence in \( X  \). Our goal is to show that \( ({x}_{n}) \) converges in \( X  \). For each \( n \in \N  \), let \( {E}_{n} =\{  {x}_{n+1}, {x}_{n+2}, {x}_{n+3} \dots  \}  \). We know that 
+\begin{enumerate}
+    \item[(1)] \( {E}_{1} \supseteq {E}_{2} \supseteq {E}_{3} \supseteq \cdots  \)
+    \item[(2)] \( ({x}_{n}) \) is Cauchy \( \implies  \) \( \lim_{ n \to \infty  } \diam {E}_{n} = 0 \).
+\end{enumerate}
+It follows from (1) that
+\[  \overline{{E}_{1}} \supseteq \overline{{E}_{2}} \supseteq \overline{{E}_{3}} \supseteq \cdots \tag{\(\dagger\)} \]
+Since closed subsets of a compact metric space are compact, we know that \( (\dagger) \) is a nested sequence of nonempty compact sets. Since \( \diam {E}_{n} = \diam \overline{{E}_{n}} \), it follows from (2) that \( \lim_{ n \to \infty  }  \diam \overline{{E}_{n}} = 0  \). Hence, we know by the previous theorem that \( \bigcap_{ n=1  }^{ \infty  }  \overline{{E}_{n}} \) has exactly one point. Let us denote this point as \( a  \) where
+\[  \bigcap_{ n=1 }^{ \infty  } \overline{{E}_{n}} = \{ a \}.  \]
+In what follows, we will prove that \( \lim_{ n \to \infty  } {x}_{n} = a  \). To this end, it suffices to show that 
+\[  \forall \epsilon > 0 \ \exists N \in \N \ \text{such that} \ \forall n > N \ d({x}_{n},a) < \epsilon. \tag{*} \]
+Let \( \epsilon > 0  \) be give. Since \( \lim_{ n \to \infty  }  \diam \overline{{E}_{n}} = 0  \), for this given \( \epsilon \), there exists \( \hat{N} \) such that 
+\[  \forall n > \hat{N} \ \ \diam \overline{{E}_{n}} < \epsilon. \]
+We claim that \( \hat{N} + 1 \) can be used as the \( N  \) that we were looking for. Indeed, if we let \( N = \hat{N} + 1 \), then (*) holds. The reason is as follows: If \( n > \hat{N} + 1 \), then
+\[  {x}_{n} \in {E}_{\hat{N} + 1} \implies {x}_{n} \in \overline{{E}_{\hat{N} + 1}}. \tag{I} \]
+Furthermore, 
+\[  a \in \bigcap_{  n = 1  }^{ \infty   }  \overline{{E}_{n}} \implies a \in \overline{{E}_{\hat{N} + 1}}. \tag{II}   \]
+Thus, (I) and (II) imply that 
+\[  d({x}_{n},a) \leq \diam \overline{{E}_{\hat{N} + 1}} < \epsilon. \]
+\end{proof}
+
+\begin{theorem}[\( \R^{k} \) is complete]
+    \( \R^{k} \) is a complete metric space.
+\end{theorem}
+
+\begin{proof}
+Let \( ({x}_{n}) \) be a Cauchy sequence in \( \R^{k} \). By homework 7, we see that \( ({x}_{n}) \) must be bounded; that is,
+\[  \exists p \in \R^{k } , \epsilon > 0 \ \text{such that} \ \forall n \in \N \ {x}_{n} \in {N}_{\epsilon}(p). \]
+Note that \( \overline{{N}_{\epsilon}(p)}  \) is a closed and bounded set in \( \R^{k} \), and so it must be compact by the Heine-Borel Theorem. Thus, if \( \overline{{N}_{\epsilon}(p)}  \) is a compact metric space and \( ({x}_{n}) \) is a Cauchy sequence in \( \overline{{N}_{\epsilon}(p)} \), we have that \( ({x}_{n}) \) converges to a point \( x \in \overline{{N}_{\epsilon}(p)} \) by the previous theorem. Since the metric in \( \overline{{N}_{\epsilon}(p)} \) is exactly the same as the metric in \( \R^{k} \), we can conclude that \( {x}_{n} \to x  \) in \( \R^{k} \).
+
+\end{proof}
+
+\section{Lecture 17}
+
+\subsection{Topics}
+\begin{itemize}
+    \item Algebraic Limit Theorem (for sequences of numbers)
+    \item Divergent sequences
+    \item Monotone sequences 
+    \item Monotone Convergence Theorem
+    \item Extended real numbers
+    \item Properties of limit in \( \overline{\R} \) (Extended Real Numbers)
+\end{itemize}
+
+\begin{theorem}[Algebraic Limit Theorem]
+    Suppose \( ({a}_{n}) \) and \( ({b}_{n}) \) are sequences of real numbers, and \( \lim_{ n \to \infty  }  {a}_{n} = a   \), \( \lim_{ n \to \infty  } {b}_{n} = b  \). Then
+    \begin{enumerate}
+        \item[(i)] \( \lim_{ n \to \infty  }  ({a}_{n} + {b}_{n}) = a + b \)
+        \item[(ii)] n\( \lim_{ n \to \infty  } ({ca}_{n}) = ca \) for any real number \( c  \).
+        \item[(iii)] \( \lim_{ n \to \infty  }  ({a}_{n}{b}_{n}) = ab \)
+        \item[(iv)] \( \lim_{ n \to \infty  } \frac{ {a}_{n} }{ {b}_{n} }  = \frac{ a }{ b }  \), provided that \( b \neq 0  \).
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \textit{Proof left to the reader.}
+\end{proof}
+
+\begin{definition}[ ]
+    Consider \( \R  \) with its standard metric. Let \( ({x}_{n}) \) be a sequence of real numbers. If \( ({x}_{n}) \) does not converge, we say \( ({x}_{n}) \) \textbf{diverges}.
+\end{definition}
+
+Divergence can come in three different forms:
+\begin{enumerate}
+    \item[(i)] \( ({x}_{n}) \) becomes arbitrarily large as \( n \to \infty   \). More precisely, 
+        \[  \forall M > 0 \ \exists N \in \N \ \text{such that} \ \forall n > N \ {x}_{n} > M.  \]
+        From this, we say that \( {x}_{n} \to \infty   \) or \( \lim_{ n \to \infty  }  {x}_{n} = \infty  \).
+    \item[(ii)] \( (-{x}_{n}) \) becomes arbitrarily large as \( n \to \infty   \). More precisely, 
+        \[  \forall M > 0 \ \exists N \in \N \ \text{such that} \ \forall n > N \ \underbrace{-{x}_{n} > M}_{{x}_{n} < -M}.  \]
+        From this, we say that \( {x}_{n} \to - \infty  \) or \( \lim_{ n \to \infty  }  {x}_{n} = - \infty  \).
+    \item[(iii)] \( ({x}_{n}) \) is NOT convergent and it does NOT diverge to \( \infty  \) nor \( - \infty   \). For example, 
+        \[  ({x}_{n}) = ((-1)^{n}) = (-1,+1,-1,+1, \dots) \]
+        or
+        \[  ({x}_{n}) = (n (-1)^{n}) = (-1,2, -3, 4, -5, 6, \dots). \]
+\end{enumerate}
+
+\begin{remark}[Strategies to Prove Divergence]
+    Let \( ({a}_{n}) \) be a sequence of real numbers.
+    \begin{enumerate}
+        \item[(1)] If \( ({a}_{n}) \) is unbounded, then \( ({a}_{n}) \) diverges.
+        \item[(2)] If \( ({a}_{n}) \) has a pair of subsequences converging to different limits, then \( ({a}_{n}) \) diverges.
+        \item[(3)] Let \( a \in \R  \) be fixed but arbitrary. Show that the assumption \( {a}_{n} \to a  \) leads to a contradiction.
+    \end{enumerate}
+\end{remark}
+
+\begin{definition}[Increasing, Decreasing, Monotone]
+    Consider \( \R  \) with the standard metric.
+    \begin{enumerate}
+        \item[(i)] \( ({a}_{n}) \) is said to be \textbf{increasing} if for all \( n \in \N  \), \( {a}_{n} \leq {a}_{n+1}  \).
+        \item[(ii)] \( ({a}_{n}) \) is said to be \textbf{decreasing} if for all \( n \in \N  \), \( {a}_{n+1} \leq {a}_{n} \).
+        \item[(iii)] \( ({a}_{n}) \) is said to be \textbf{monotone} if it is either increasing or decreasing or both.
+        \item[(iv)] \( ({a}_{n}) \) is said to be \textbf{strictly increasing} if for all \( n \in \N  \), \( {a}_{n} < {a}_{n+1}.  \)
+        \item[(v)] \( ({a}_{n})  \) is said to be \textbf{strictly decreasing} if for all \( n \in \N  \), \( {a}_{n+1} < {a}_{n} \).
+    \end{enumerate}
+\end{definition}
+
+\begin{eg}
+    \begin{enumerate}
+        \item[(i)] \( 1,-1,1,-1,1,-1, \dots \) is neither an increasing nor decreasing sequence.
+        \item[(ii)] \( 2,4,6,8,10, \dots \) is strictly increasing.
+        \item[(iii)] \( 6,6,7,7,8,8, \dots \) is an increasing sequence but not strictly increasing.
+        \item[(iv)] \( -2,-4,-6,-8,-10, -12, \dots \) is a strictly decreasing sequence.
+    \end{enumerate}
+\end{eg}
+
+\begin{theorem}[Monotone Convergence Theorem]
+    Consider \( \R  \) with its standard metric. 
+    \begin{enumerate}
+        \item[(i)] If \( ({a}_{n}) \) is increasing and bounded, then \( ({a}_{n}) \) converges to \( \sup \{ {a}_{n} : n \in \N \}  \).
+        \item[(ii)] If \( ({a}_{n}) \) is decreasing and bounded, then \( ({a}_{n}) \) converges to \( \inf \{ {a}_{n} : n \in \N \}  \).
+        \item[(iii)] If \( ({a}_{n}) \) is increasing and unbounded, then \( {a}_{n} \to \infty  \).
+        \item[(iv)] If \( ({a}_{n}) \) is decreasing and unbounded, then \( {a}_{n} \to - \infty  \).
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+Here will prove item (i). The rest of the parts follow analogously.
+
+Suppose that \( ({a}_{n}) \) is increasing (\( \forall n \  {a}_{n} \leq {a}_{n+1} \)) and \( ({a}_{n}) \) is a bounded sequence. Our goal is to show that \( {a}_{n} \to s  \) where
+\[  s = \sup \{ {a}_{n} : n \in \N \}.  \]
+Notice that since \( \{ {a}_{n} : n \in \N \}  \) is a bounded set, we know that \( \{ {a}_{n} : n \in \N \}  \) must exists in \( \R \). Our goal is to show that  
+\[  \forall \epsilon > 0 \ \exists N \in \N \ \text{such that} \ \forall n > N \ | {a}_{n} - s  |  < \epsilon. \tag{*} \]
+Let \( \epsilon > 0  \) be given. To show (*), it suffices to show that 
+\begin{center}
+    if \( n > N  \), then \( s - \epsilon < {a}_{n} < s + \epsilon \).
+\end{center}
+Since \( s = \sup \{ {a}_{n} : n \in \N  \}  \), we see that \( s - \epsilon  \) must NOT be an upper bound of \( \{ {a}_{n} : n \in \N  \}  \). Hence, there exists an element in \( \{ {a}_{n} : n \in \N \}  \) that is larger than \( s - \epsilon  \). That is, there exists \( \hat{N} \in \N \) such that \( {a}_{\hat{N}} > s - \epsilon  \). We claim that this \( \hat{N} \) can be used as the \( N  \) that were looking for. Indeed, if we let \( N = \hat{N} \), then 
+\begin{enumerate}
+    \item[(1)] if \( n > \hat{N} \), then \( {a}_{n} \geq {a}_{\hat{N}} > s - \epsilon \)
+    \item[(2)] if \( n > \hat{N} \), then \( {a}_{n} \leq \sup \{ {a}_{n} : n \in \N  \}  = s < s + \epsilon. \)
+\end{enumerate}
+Thus, (1) and (2) imply that if \( n > \hat{N} \), then \( s - \epsilon < {a}_{n} < s + \epsilon \) as desired.
+\end{proof}
+
+\begin{remark}
+    Consider \( \R  \) with its standard metric.
+    \begin{enumerate}
+        \item[(*)] Boundedness does not generally imply convergence. An example of such a bounded sequence that does not converge is \( {a}_{n} = (-1)^{n} \).
+        \item[(*)] Monotone does not necessarily imply convergence. An example of such a sequence is \( {a}_{n} = n  \).
+        \item[(*)] Convergence does not generally imply being monotone; that is, consider \( {a}_{n} = \frac{ (-1)^{n} }{ n }  \) which converges to \( 0  \) but does not have a monotone behavior.
+    \end{enumerate}
+\end{remark}
+
+\begin{eg}
+   Define the sequence \( ({a}_{n}) \) recursively by \( {a}_{1} = 1  \) and  
+   \[  {a}_{n+1} = \frac{ 1 }{ 2 } {a}_{n} + 1.  \]
+   \begin{enumerate}
+       \item[(i)] Use induction to show that \( {a}_{n} \leq 2  \) for every \( n  \). We claim that \( \forall n \geq 1  \), \( {a}_{n} \leq 2  \). Let our base case be \( n = 1   \). Then \( {a}_{1} =1  \leq 2  \). Suppose for our induction hypothesis that the claim holds for \( n = k (k \geq 1)  \), that is, suppose that \( {a}_{k } \leq 2  \). Our goal is to show that the claim holds for \( n = k + 1  \), that is, prove that \( {a}_{k+1} \leq 2  \). Hence, we have
+           \[  {a}_{k+1} = \frac{ 1 }{ 2 }  {a}_{k } + 1 \underbrace{\leq}_{{a}_{k} \leq 2} \frac{ 1 }{ 2 }(2) + 1  = 1 + 1 = 2.  \]
+       \item[(ii)] Use induction to show that \( ({a}_{n}) \) is an increasing sequence. Our claim that for all \( n  \), \( {a}_{n} \leq {a}_{n+1} \). Let our base case be \( n = 1  \). Then \( {a}_{1} = 1  \) and 
+           \[ {a}_{2} = \frac{ 1 }{ 2 }  {a}_{1} + 1 = \frac{ 1 }{ 2 }(1) + 1 = \frac{ 3 }{ 2 }.    \]
+           Hence, this implies that \( {a}_{1} \leq {a}_{2} \). Suppose that the claim for \( n = k + 1 \), that is, prove that \( {a}_{k+1} \leq {a}_{k+2} \). Now, we have 
+           \begin{align*}
+               {a}_{k } \leq {a}_{k+1} &\implies \frac{ 1 }{ 2 }  {a}_{k } \leq \frac{ 1 }{ 2 }  {a}_{k+1}  \\
+                                       &\implies \frac{ 1 }{ 2 }  {a}_{k } + 1 \leq \frac{ 1 }{ 2 }  {a}_{k+1} + 1 \\
+                                       &\implies {a}_{k+1} \leq {a}_{k+2}.
+       \end{align*}
+    \item[(iii)] We will show that (i) and (ii) will imply that \( ({a}_{n}) \) converges. We have 
+        \begin{enumerate}
+            \item[(1)] \( \forall n  \), \( 1 = {a}_{1} \leq {a}_{n} \leq 2 \implies ({a}_{n})   \) is bounded,
+            \item[(2)] \( ({a}_{n}) \) is increasing.
+        \end{enumerate}
+        By the Monotone Convergence Theorem, we see that \( ({a}_{n}) \) converges.
+    \item[(iv)] Now, we will show that \( \lim_{ n \to \infty  }  {a}_{n} = 2 \). Let \( A = \lim_{ n \to \infty  }  {a}_{n} \). We have
+        \begin{align*}
+            \lim_{ n \to \infty  }  {a}_{n+1} = \lim_{ n \to \infty  }  \Big[ \frac{ 1 }{ 2 }  {a}_{n} + 1\Big] &\implies \lim_{ n \to \infty  }  {a}_{n+1} = \frac{ 1 }{ 2 }  (\lim_{ n \to \infty  }  {a}_{n}) + 1 \\
+                                                                                                                &\implies A = \frac{ 1 }{ 2 } A + 1 \\
+                                                                                                                &\implies \frac{ 1 }{ 2 } A = 1 \\
+                                                                                                                &\implies A = 2.
+        \end{align*}
+   \end{enumerate}
+\end{eg}
+
+\subsection{Extended Real Numbers}
+
+The set of extended real number, denoted by \( \overline{\R} \), consists of all real numbers and two symbols \( +\infty, - \infty  \):
+\[  \overline{\R} = \R \cup \{ - \infty  , + \infty  \}.  \]
+\begin{enumerate}
+    \item[(*)] \( \overline{\R} \) is equipped with an order. We preserve the original order in \( \R  \) and we define
+        \[  \forall x \in \R  \ \ -\infty  < x < \infty. \]
+    \item[(*)] \( \overline{\R} \) is not a field, but it is customary to make the following conventions:
+    \begin{align*}
+        &\forall x \in \overline{\R} \ \text{with} \ x > 0 \ x \cdot (+ \infty ) = + \infty \ \ x \cdot (- \infty ) = - \infty    \\
+        &\forall x \in \overline{\R} \ \text{with} \ x < 0, x \cdot (+ \infty ) = - \infty  \ x \cdot (-\infty ) = +\infty \\ 
+        &\forall x \in \R, \  x + \infty  = + \infty \\
+        &\forall x \in \R,  \ x - \infty  = - \infty.
+    \end{align*}
+    As for the last convention, we define
+    \[ +  \infty  + \infty = + \infty  \ \ - \infty  - \infty  = - \infty.   \]
+    Furthermore, we have 
+    \[  \forall x \in \R \ \ \frac{ x  }{  + \infty  }  = 0 \ \ \frac{ x  }{  - \infty   }  = 0.  \]
+    Please notice that we did \underline{not} define the following
+    \[  - \infty  + \infty, + \infty  - \infty , \frac{ \infty    }{  \infty   } , \dots , 0 \cdot \infty  , \infty  \cdot 0 , 0 \cdot - \infty , - \infty  \cdot 0.  \]
+\item[(*)] \( \sup A = \infty  \iff  \) either \( \infty  \in A  \) or \(  A \subseteq  \R \cup \{ - \infty \}    \) and \( A  \) is not bounded above in \( \R \cup \{ - \infty   \}  \). 
+\item[(*)] \( \inf A = - \infty \iff   \) \( - \infty   \) or \( A \subseteq \R \cup \{  \infty   \}  \) and \( A  \) is not bounded below in \( \R \cup \{ \infty  \}  \). 
+\item[(*)] \( \sup \emptyset = - \infty  \) and \( \inf \emptyset = + \infty  \).
+\end{enumerate}
+\begin{remark}
+    Let \( ({a}_{n}) \) bea  sequence in \( \overline{\R} \). Let \( a \in \R  \).
+    \begin{enumerate}
+        \item[(i)] \( \lim_{ n \to \infty  }  {a}_{n} = a \iff \forall \epsilon > 0 \ \exists N \in \N \ \text{such that} \ \forall n > N \ | {a}_{n}- a   | < \epsilon \) \\
+        \item[(ii)] \( \lim_{ n \to \infty  }  {a}_{n} = \infty \iff \forall M > 0 \ \exists N \in \N \ \text{such that} \ \forall n > N \ {a}_{n} > M  \) 
+        \item[(iii)] \( \lim_{ n \to \infty  }  {a}_{n} = - \infty \iff \forall M > 0 \ \exists N \in \N \ \text{such that} \ \forall n > N \ - {a}_{n} > M  \).
+    \end{enumerate}
+\end{remark}
+
+\begin{theorem}[Algebraic Limit Theorem for \( \overline{\R} \)]
+    Suppose \( {a}_{n} \to a  \) in \( \overline{\R} \) and \( {b}_{n} \to b  \) in \( \overline{\R} \). Then
+    \begin{enumerate}
+        \item[(i)] If \( c \in \R  \), then \( {ca}_{n} \to ca \)
+        \item[(ii)] \( {a}_{n} + {b}_{n} \to a + b \) (provided that \( \infty  - \infty   \) does not appear)
+        \item[(iii)] \( {a}_{n}{b}_{n} \to ab \) (provided that \( (\pm \infty ) \cdot 0  \) or \( 0 \cdot (\pm \infty)  \) do not appear).
+        \item[(iv)] If \( a = \infty   \), then \( \frac{ 1 }{ {a}_{n} }  \to 0  \). If \( a = - \infty  \), then \( \frac{ 1 }{ {a}_{n}  } \to 0  \).
+        \item[(v)] If \( {a}_{n} \to 0  \) and \( {a}_{n} > 0  \), then \( \frac{ 1 }{ {a}_{n} }  \to \infty  \). If \( {a}_{n} \to 0  \) and \( {a}_{n} < 0  \), then \( \frac{ 1 }{ {a}_{n} } \to - \infty  \).
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Order Limit Theorem for \( \overline{\R} \)]
+    Suppose \( {a}_{n} \to a  \) in \( \overline{\R} \) and \( {b}_{n} \to b  \) in \( \overline{\R} \). Then
+    \begin{enumerate}
+        \item[(i)] If \( {a}_{n} \leq {b}_{n}  \), then \( a \leq b\).
+        \item[(ii)] If \( {a}_{n} \leq {e}_{n} \) and \( {a}_{n} \to \infty   \), then \( {e}_{n} \to \infty   \).
+        \item[(iii)] If \( {e}_{n} \leq {a}_{n}  \) and \( {a}_{n} \to - \infty  \), then \( {e}_{n} \to - \infty  \).
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Monotone Convergence Theorem in \( \overline{\R} \)]
+    Let \( ({a}_{n}) \) be a sequence in \( \overline{\R} \).
+    \begin{enumerate}
+        \item[(i)] If \( ({a}_{n}) \) is increasing, then \( {a}_{n} \to \sup \{ {a}_{n} : n \in \N \}  \).
+        \item[(ii)] If \( ({a}_{n})  \) is decreasing, then \( {a}_{n} \to \inf \{  {a}_{n} : n \in \N \}  \).
+    \end{enumerate}
+\end{theorem}
+
+Note that if \( {a}_{n} \to \infty   \), then \( \frac{ 1 }{ {a}_{n}  }  \to 0  \), however, \( \frac{ 1 }{ {a}_{n} }  \to 0  \) does not imply that \( {a}_{n} \to \infty  \). For example, consider \( ({a}_{n}) = (-n) \) or \( ({a}_{n}) = ((-1)^{n} n) \).
+
+\begin{remark}
+    \begin{enumerate}
+        \item[(i)] \( \overline{\R} \) can be equipped with the following metric:
+    \begin{center}
+        Let \( f: \overline{\R} \to [\frac{ -\pi }{ 2 } , \frac{ \pi }{ 2 } ] \) be defined by 
+        \[  f(x) = 
+        \begin{cases}
+            \frac{ -\pi }{ 2 }  &x = \infty  \\
+            \arctan(x) &-\infty < x < \infty  \\ 
+            \frac{ \pi }{ 2 }  &x = \infty 
+        \end{cases}  \]
+    \end{center}
+    Define \( \overline{d}(x,y) = | f(x) - f(y) | \ \forall x,y \in \overline{\R}  \). The closure of \( \R  \) in \( (\overline{\R}, \overline{d}) \) is \( \overline{\R} \).
+        \item[(ii)] One can show that if \( ({a}_{n}) \) is a sequence in \( \R  \), then
+            \[  {a}_{n} \to a \in \overline{\R} \iff \ \text{The sequence \( {a}_{n} \) converges to \( a  \) in the metric space \( (\overline{\R}, \overline{d}) \).} \]
+        \item[(iii)] The closure of \( \R  \) in the metric space \( (\overline{\R}, \overline{d}) \) is \( \overline{\R} \).
+        \item[(iv)] Every set in \( (\overline{\R}, \overline{d}) \) is bounded:
+            \[ \forall x,y \in \overline{\R} \ \ \overline{d}(x,y) \leq \pi. \]
+    \end{enumerate}
+\end{remark}
 \end{document}
+
+
