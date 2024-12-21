@@ -267,5 +267,320 @@ From (2), we shall see (in the next lecture) that
     \item Dirichlet's Test
 \end{itemize}
 
+\begin{theorem}[Cauchy Condensation Test]
+    Assume \( {a}_{n} \geq 0  \) for all \( n  \), and \( ({a}_{n}) \) is a decreasing sequence. Then
+    \[  \sum_{ n=1  }^{ \infty  } {a}_{n} \ \text{converges} \ \iff \ \sum_{ n=0 }^{ \infty  } 2^{n} {a}_{2^{n}} = {a}_{1} + {2a}_{2} + {4a}_{4} + {8a}_{8} + {16a}_{16} + \cdots \ \text{converges}. \]
+\end{theorem} 
+
+\begin{proof}
+Let \( {s}_{m} = {a}_{1} + \cdots + {a}_{m} \) and \( {t}_{m} = {a}_{1} + {2a}_{2} + {4a}_{4} + \cdots + 2^{m-1} {a}_{2^{m-1}} \). Using the fact that \(({a}_{n})\) is a decreasing sequence, we can see that
+\begin{align*}
+    {s}_{2^{k}} &= {a}_{1} = {a}_{2} + ({a}_{3} + {a}_{4}) + ({a}_{5} + {a}_{6} + {a}_{7} + {a}_{8}) + \cdots + ({a}_{2^{k-1} + 1} + \cdots + {a}_{2^{k}}) \\
+                &\geq {a}_{1} + {a}_{2} + ({a}_{4} + {a}_{4}) + ({a}_{8} + {a}_{8} + {a}_{8} + {a}_{8}) + \cdots + ({a}_{2^{k}} + \cdots + {a}_{2^{k}}) \\
+                &= {a}_{1} + {a}_{2} + 2 {a}_{4} + {4a}_{8} + \cdots + 2^{k-1} {a}_{2^{k}} \\
+                &=  {a}_{1} + \frac{ 1 }{ 2 }  \Big[ {t}_{k+1} - {a}_{1} \Big] \\
+                &= {a}_{1} + \frac{ 1 }{ 2 }  {t}_{k+1} - \frac{ 1 }{ 2 }  {a}_{1} \\
+                &= \frac{ 1 }{ 2 }  ({a}_{1} + {t}_{k+1}) \\  
+                &\geq \frac{ 1 }{ 2 }  {t}_{k+1}. 
+\end{align*}
+Thus, we have  
+\[ {s}_{2^{k}} \geq \frac{ 1 }{ 2 }  {t}_{k+1}. \tag{*} \]
+Similarly, we have
+\begin{align*}
+    {s}_{2^{k} - 1} &= {a}_{1} + ({a}_{2} + {a}_{3}) + ({a}_{4} + {a}_{5} + {a}_{6} + {a}_{7}) + \cdots + ({a}_{2^{k-1}} + \cdots + {a}_{2^{k} - 1}) \\
+                    &\leq {a}_{1} + ({a}_{2} + {a}_{2}) + ({a}_{4} + {a}_{4} + {a}_{4} + {a}_{4}) + \cdots + ({a}_{2^{k-1}} + \cdots + {a}_{2^{k-1}}) \\ 
+                    &= {a}_{1} + {2a}_{2} + {4a}_{4} + \cdots + 2^{k-1} {a}_{2^{k-1}}  \\
+                    &= {t}_{k}.
+\end{align*}
+Thus, we have that 
+\[  {s}_{2^{k } - 1} \leq {t}_{k}. \tag{**} \]
+
+\( (\Longleftarrow) \) Assume that \( \sum_{ n=0  }^{ \infty  } 2^{n} {a}_{2^{n}} \) converges (\( ({t}_{m}) \) converges). Our goal is to show that \( \sum_{ n=1  }^{ \infty  } {a}_{n} \) converges; that is, \( ({s}_{m}) \) converges. Note that since \( {a}_{n} \geq 0  \), both \( ({s}_{m}) \) and \( ({t}_{m}) \) are increasing sequences. It follows from the Monotone Convergence Theorem that in order to prove \( ({s}_{n}) \) converges, it suffices to show that \( ({s}_{m}) \) is bounded. 
+
+Since \( ({t}_{m}) \) converges, we have that \( ({t}_{m}) \) is bounded. Hence, there exists \( R > 0  \) such that \( {t}_{m} \leq R  \) for all \( m \in \N \). In what follows, we will show that \( R  \) is an upper bound for \( ({s}_{m}) \) as well. Indeed, let \( m \in \N  \) be given. Choose \( k  \) large enough so that \( m < 2^{k } - 1  \), then 
+\[  {s}_{m} \leq s^{2^{k} - 1} \leq {t}_{k} \leq R.  \]
+Thus, for all \( m \in \N  \), \( 0 \leq {s}_{m} \leq R  \). Hence, \( ({s}_{m}) \) is bounded and so \( ({s}_{m})  \) converges by MCT.
+
+\( (\Longrightarrow) \) Assume that \( \sum_{ n=1  }^{ \infty  } {a}_{n} \) (\( ({s}_{m}) \) converges). Our goal is to show that \( \sum_{ n=0 }^{ \infty   } 2^{n} {a}_{2^{n}} \) converges; that is, \( ({t}_{m}) \) converges.
+
+We will prove the contrapositive: we will show that if \( ({t}_{m}) \) diverges then \( ({s}_{m}) \) diverges. Suppose \( ({t}_{m}) \) is divergent. Let \( R > )  \) be given. We will show that there is a term in the nonnegative sequence \( ({s}_{m}) \) that is larger than \( R  \). Since \( ({t}_{m}) \) diverges and \( ({t}_{m}) \) is an increasing sequence (where \( {t}_{m} \geq 0  \)), we see that \( ({t}_{m}) \) cannot be bounded above by the Monotone Convergence Theorem. Hence, there exists \( k \in \N  \) such that \( {t}_{k+1} > 2R \). Now, we have  
+\[  {s}_{2^{k}} \geq \frac{ 1 }{ 2 }  {t}_{k+1} ? \frac{ 1 }{ 2 }  (2R) = R. \]
+Thus, \( ({s}_{m}) \) is not bounded.
+\end{proof}
+
+\subsection{Applications of the Cauchy-Condensation Test}
+
+\begin{eg}[P-series Test]
+    Let \( p > 0  \). One can show that the sequence \( \Big({a}_{n} = \frac{ 1 }{ n^{p} }  \Big) \) is a decreasing nonnegative sequence. Prove that 
+    \[  \sum_{ n=1  }^{ \infty  } \frac{ 1 }{ n^{p} }  \ \text{converges} \iff \ p >  1. \]
+\end{eg}
+\begin{proof}
+Using the Cauchy Condensation test, we have
+\begin{align*}
+\sum_{ n=1  }^{ \infty  } \frac{ 1 }{ n^{p} }  \ \text{converges} &\iff \sum_{ n=0 }^{ \infty  } 2^{n} \frac{ 1 }{ (2^{n})^{p} } \ \text{converges} \\ 
+                                                                  &\iff \sum_{ n=0  }^{ \infty  } \frac{ 1 }{ 2^{np-n} }  \ \text{converges} \\
+                                                                  &\iff \sum_{ n=0 }^{ \infty  } \Big(  \frac{ 1  }{ 2^{p-1} }  \Big)^{n}  \ \text{converges} \\
+                                                                  &\iff \Big|  \frac{ 1  }{ 2^{p-1} }  \Big| < 1 \\
+                                                                  &\iff 1 < 2^{p-1} \\
+                                                                  &\iff 0 < p - 1 \\
+                                                                  &\iff 1 < p. 
+\end{align*}
+In the fourth equivalence statement, we used the fact \( \sum_{ n=0 }^{ \infty  } \Big(  \frac{ 1 }{ 2^{p-1} }  \Big)^{n} \) is a geometric series with common ratio \( \frac{ 1 }{ 2^{p-1} }  \). 
+\end{proof}
+
+\begin{eg}
+    Let \( p > 0  \). One can show that the sequence \( \Big(  {a}_{n} = \frac{ 1  }{ n (\ln n )^{p} }  \Big)_{n \geq 2} \) is a decreasing nonnegative sequence. Prove that 
+    \[ \sum_{ n=2 }^{ \infty  } \frac{ 1 }{ n (\ln n )^{p} }  \ \text{converges} \iff p > 1.  \]
+\end{eg}
+\begin{proof}
+By the Cauchy Condensation Test, we see that 
+\begin{align*}
+    \sum_{ n=2 }^{ \infty  } \frac{ 1 }{ n (\ln n )^{p} } \ \text{converges} &\iff \sum_{ n=1  }^{ \infty  } 2^{n} \frac{ 1 }{ 2^{n} (\ln (2^{n}))^{p} } \ \text{converges} \\
+                                                                             &\iff \sum_{ n=1 }^{ \infty  } \frac{ 1 }{ (n \ln 2)^{p} }  \ \text{converges} \\
+                                                                             &\iff \frac{ 1 }{ (\ln 2)^{p} } \sum_{ n=1  }^{ \infty  } \frac{ 1 }{ n^{p} }  \ \text{converges} \\
+                                                                             &\iff p > 1. 
+\end{align*}
+\end{proof}
+
+\begin{theorem}[Comparison Test]
+    Assume there exists an integer \( {n}_{0}  \) such that \( 0 \leq {a}_{n} \leq {b}_{n} \) for all \( n \geq {n}_{0} \). 
+    \begin{enumerate}
+        \item[(i)] If \( \sum_{ n=1  }^{ \infty  } {b}_{n} \) converges, then \( \sum_{ n=1  }^{ \infty  } {a}_{n} \) converges.
+        \item[(ii)] If \( \sum_{ n=1  }^{ \infty  } {a}_{n} \) diverges, then \( \sum_{ n=1  }^{ \infty  } {b}_{n} \) diverges.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+Notice that (ii) is just the contrapositive of (i). So, it suffices to show (i).
+
+By the Cauchy Criterion for convergence of series, it is enough to show that 
+\[  \forall \epsilon > 0 \ \exists N \in \N \ \text{such that} \ \forall n > m > N \ \ \Big| \sum_{ k=m+1 }^{ n } {a}_{k} \Big|  < \epsilon. \tag{*} \]
+To this end, let \( \epsilon > 0  \) be given. Our goal is to find an \( N  \) such that (*) holds. Since \( \sum_{ n=1  }^{ \infty  } {b}_{n} \) converges, it follows from the Cauchy Criterion for series that 
+\[  \exists \hat{N} \ \text{such that} \ \forall n > m > \hat{N} \ \ \Big|  \sum_{ k= m +1 }^{  } {b}_{k} \Big|  < \epsilon. \]
+Let \(N = \max \{ {n}_{0}, \hat{N} \}  \). If \( k \geq {n}_{0}  \) where \( {a}_{k }, {b}_{k} \geq 0  \), we see that 
+\[  \Big|  \sum_{ k=m+1 }^{ n } {a}_{k } \Big| = \sum_{ k=m+1  }^{ n } {a}_{k} \ \text{and} \ \Big| \sum_{ k=m+1 }^{ n } {a}_{k} \Big|  = \sum_{ k=m+1 }^{ n } {b}_{k}. \tag{1} \]
+Furthermore, if \( k \geq {n}_{0} \), we have \( {a}_{k } \leq {b}_{k} \), we have
+\[  \sum_{ k=m+1 }^{ n } {a}_{k} \leq \sum_{ k=m+1 }^{ n } {b}_{k}. \tag{2} \]
+If \( n > m > N \), we see that (1) and (2) imply that  
+\[  \Big| \sum_{ k=m+1 }^{ n  } {a}_{k} \Big|  = \sum_{ k= m+1 }^{ n } {a}_{k} \leq \sum_{ k= m +1 }^{ n  } {b}_{k} = \Big|  \sum_{ k=m+1 }^{ n } {b}_{k} \Big|  < \epsilon. \]
+
+
+\end{proof}
+
+\begin{eg}
+    \begin{enumerate}
+        \item[(*)] Does \( \sum_{ n=1  }^{ \infty  } \frac{ 1 }{ n + 5^{n } }  \) converge?
+
+            Indeed, for all \( n \in \N \), we have 
+            \[  0 \leq \frac{ 1 }{ n+5^{n} }  \leq \frac{ 1 }{ 5^{n} }. \]
+            Note that \( \sum_{ n=1  }^{ \infty  } \frac{ 1 }{ 5^{n} }  \) converges (because it is a geometric series). Thus, the comparison test implies that 
+\( \sum_{ n=1  }^{ \infty  } \frac{ 1 }{ n+ 5^{n} }  \) converges.
+
+        \item[(*)] Suppose \( {a}_{n } \geq 0 \) and \( \sum_{ n=1  }^{ \infty  } {a}_{n} \) converges. Prove that \( \sum_{ n=1  }^{ \infty  } {a}_{n}^{2} \) converges. 
+
+            Indeed, we see that 
+            \[  \sum_{ n=1  }^{ \infty  } {a}_{n} \ \text{converges}  \implies \lim {a}_{n} = 0.  \]
+            Hence, there exists \( {n}_{0} \in \N  \) such that for all \( n \geq {n}_{0} \), \( 0 \leq {a}_{n} < 1  \). Thus, 
+            \[  \forall n \geq {n}_{0} \ \ 0 \leq {a}_{n}^{2} \leq {a}_{n}. \]
+            By the comparison test, we can conclude that \( \sum_{ n=1  }^{ \infty  } {a}_{n}^{2}  \) converges.
+    \end{enumerate}
+\end{eg}
+
+\begin{remark}[Some useful properties]
+    Let \( ({a}_{n}) \) be a sequence of real numbers. Suppose \( \lim_{ n \to \infty  }  {a}_{n} = A \in \R  \).
+    \begin{enumerate}
+        \item[(i)] If \( A < \beta \), then there exists \( N \in \N  \) such that for all \( n > N  \), \( {a}_{n} < \beta \).
+        \item[(ii)] If \( \alpha < A  \), then there exists \( N  \) such that for all \( n > N  \), \( \alpha < {a}_{n} \).
+    \end{enumerate}
+\end{remark}
+
+\begin{theorem}[ ]
+    Let \( ({a}_{n}) \) be a sequence of real numbers. 
+    \begin{enumerate}
+        \item[(i)] Suppose \( \beta \in \R  \) is such that \( \lim \sup  {a}_{n} < \beta\). Then
+            \[  \exists N \in \N \ \text{such that} \ \forall n > N \ \ {a}_{n} < \beta. \]
+        \item[(ii)] Suppose \( \alpha \in \R  \) is such that \( \lim \inf {a}_{n} > \alpha \). Then 
+            \[  \exists N \in \N \ \text{such that} \ \forall n > N \ \ {a}_{n} > \alpha. \]
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+Here we will prove (i). Since \( \lim \sup {a}_{n} < \beta \), we have \( \lim \sup {a}_{n} \neq \infty  \). We may consider two cases:
+\begin{enumerate}
+    \item[(1)] Suppose \( \lim \sup {a}_{n} = - \infty  \). Since \( \lim \inf {a}_{n} \leq \lim \sup {a}_{n} \), we can conclude that \( \lim \inf {a}_{n} = - \infty   \). Therefore, \( \lim {a}_{n} = - \infty  \). The claim immediately follows from the definition of \( {a}_{n} \to - \infty  \).
+    \item[(2)] Suppose \( A = \lim \sup {a}_{n} \). Let \( A = \lim \sup {a}_{n} \) and \( r = \frac{ \beta - A  }{  2  }  \). Since \( \lim_{ n \to \infty  }  \sup \{ {a}_{k } : k \geq n  \}  = A  \), there exists \( N  \) such that 
+        \[  \forall n > N \ \ \sup \{ {a}_{k } : k \geq n  \}  < A + r. \]
+        In particular, we have 
+        \[  \forall n > N \ \ \sup \{ {a}_{k } : k \geq n  \}  < \beta. \]
+        Therefore, we have (noticing that \( {a}_{n} \leq \sup \{ {a}_{k }: k \geq n  \}  \)), 
+        \[  \forall n > N \ \ {a}_{n} < \beta. \]
+\end{enumerate}
+Note that the proof of (ii) is completely analogous to the proof of (i).
+\end{proof}
+
+\begin{theorem}[ ]
+    Let \( ({a}_{n}) \) be a sequence of real numbers. 
+    \begin{enumerate}
+        \item[(i)] Suppose \( \lim \sup {a}_{n} > \beta \). Then, for infinitely many \( k  \), we have \( {a}_{k} > \beta \). That is,
+            \[  \forall n \in \N \ \ \exists k \geq n \ \text{such that} \ {a}_{k} > \beta. \]
+        \item[(ii)] Suppose \( \lim \inf {a}_{n} < \alpha \). Then, for infinitely many \( k  \), \( {a}_{k} < \alpha \). That is, 
+            \[  \forall n \in \N \ \ \exists k \geq n \ \text{such that} \ {a}_{k} < \alpha. \]
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Here we will prove (i) (the proof for (ii) is completely analogous). Assume for contradiction that only for finitely many \( k  \), \( {a}_{k } > \beta  \). Then there exists an \( N \in \N  \) such that for all \( k > N  \), we have \( {a}_{k } \leq \beta \). Therefore, 
+\[  \lim \sup {a}_{k } \leq \lim \sup \beta = \lim \beta = \beta \]
+which contradicts the assumption that \( \lim \sup {a}_{k } > \beta \).
+\end{proof}
+
+\begin{theorem}[Root Test (Version 1)]
+    Let \( ({a}_{n}) \) be a sequence of real numbers. Let \( \alpha = \lim \sup \sqrt[n]{ | {a}_{n} |  }  \). 
+    \begin{enumerate}
+        \item[(i)] If \( \alpha < 1  \), then \( \sum_{ n=1  }^{ \infty  } {a}_{n} \) is absolutely convergent.
+        \item[(ii)] If \( \alpha > 1  \), then \( \sum_{ n=1  }^{ \infty  } {a}_{n} \) diverges.
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Root Test (Version 2)]
+    Let \( ({a}_{n}) \) be a sequence of real numbers. Assume that following limit exists:
+    \[  \alpha = \lim_{ n \to \infty  }  \sqrt[n]{ | {a}_{n} |  } \]
+    \begin{enumerate}
+        \item[(i)] If \( \alpha < 1  \), then \( \sum_{ n=1  }^{ \infty  } {a}_{n} \) is absolutely convergent.
+        \item[(ii)] If \( \alpha > 1  \), then \( \sum_{ n=1  }^{ \infty    } {a}_{n} \) diverges.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}[Version 1]
+   \begin{enumerate}
+       \item[(i)] Choose a number \( \beta \) such that \( \alpha < \beta < 1  \). We have \( \lim \sup \sqrt[n]{| {a}_{n} | } < \beta \). Then there exists an \( N \in \N  \) such that for all \( n > N  \), we have \( \sqrt[n]{| {a}_{n} | }  < \beta  \). Hence, we have for all \( n > N  \), \( 0 \leq | {a}_{n} |  < \beta^{n}  \) and \( \sum_{ n=1  }^{ \infty  } \beta^{n}    \) converges (it is a geometric series with common ratio \( 0 < \beta < 1  \)). As a consequence, we see that \( \sum_{ n=1  }^{ \infty  } | {a}_{n} |  \) converges by the Comparison Test.
+       \item[(ii)] Choose a number \( \beta \) such that \( 1 < \beta < \alpha \). We have \( \beta < \lim \sup \sqrt[n]{ | {a}_{n} |  }  \). By Useful Theorem 2, we have for all \( n \in \N  \), we have 
+           \begin{align*}
+               \exists k \geq n \ \text{such that} \ \sqrt[k]{| {a}_{k} | } > \beta &\implies | {a}_{k} |  > \beta^{k} \\
+                                                                                    &\implies \sup \{ | {a}_{m} |  : m \geq n  \}  > \beta^{k}.
+           \end{align*}
+           Since \( k \geq n  \), we have \( \beta^{k} \geq \beta^{n} \), and so
+           \[  \forall n \in \N \sup \{ | {a}_{m} | : m \geq n  \} > \beta^{n}. \]
+           Since \( \lim_{ n \to \infty  }  \beta^{n} = \infty  \ (\beta > 1) \), it follows from the order limit theorem (for \( \overline{\R} \)) that \( \lim_{ n \to \infty  }  \sup \{ | {a}_{m} | : m \geq n  \}  = \infty   \). So, \( \lim \sup  | {a}_{n} |  = \infty \). This tells us that \( \lim {a}_{n} \neq 0 \) ({\hyperref[Explanation of Fact]{Explanation of Fact}}). So, \( \sum_{  }^{  } {a}_{n} \) diverges by the Divergence Test.
+   \end{enumerate} 
+\end{proof}
+
+\begin{remark}\label{Explanation of Fact}
+    This is just the contrapositive of the following fact: 
+    \begin{center}
+        If \( \lim {a}_{n} = 0 \), then \( \lim | {a}_{n} |  = 0  \), so \( \lim \sup  | {a}_{n} |  = 0 \).
+    \end{center}
+\end{remark}
+
+\begin{theorem}[Ratio Test (Version 1)]
+    Let \( ({a}_{n}) \) be a sequence of real numbers.
+    \begin{enumerate}
+        \item[(i)] If \( \lim \sup \Big| \frac{ {a}_{n+1} }{ {a}_{n} }  \Big|  < 1  \), then \( \sum_{ n=1  }^{ \infty  } {a}_{n} \) converges absolutely.
+        \item[(ii)] If \( \Big|  \frac{ {a}_{m+1} }{ {a}_{m} }   \Big| \geq 1  \) for all \( n \geq {n}_{0} \) (some integer \( {n}_{0} \), then \( \sum_{ n=1  }^{ \infty  } {a}_{n}\) diverges).
+        \item[(iii)] If \( \lim \inf \Big|  \frac{ {a}_{n+1} }{ {a}_{n} }  \Big|  \geq  1  \), then \( \sum_{ n=1  }^{ \infty  } {a}_{n} \) diverges.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}[Ratio Test (Version 2)]
+    Let \( ({a}_{n}) \) be a sequence of real numbers. Assume that the following limit exists:
+    \[  \rho = \lim_{ n \to \infty  }  \Big|  \frac{ {a}_{n+1} }{ {a}_{n} }  \Big|. \]
+    \begin{enumerate}
+        \item[(i)] If \( \rho < 1 \), then \( \sum_{ n=1  }^{ \infty  } {a}_{n} \) is absolutely convergent.
+        \item[(ii)] If \( \rho > 1 \), then \( \sum_{ n=1  }^{ \infty  } {a}_{n} \) diverges.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+\begin{enumerate}
+    \item[(i)] Choose a number \( \beta \) such that \( \rho < \beta < 1 \). We have 
+        \[  \lim_{ n \to \infty  }  \Big|  \frac{ {a}_{n+1} }{ {a}_{n} }  = \rho \implies \exists N \in \N \ \text{such that} \ \forall n \geq N \ \ \Big|  \frac{ {a}_{n+1} }{ {a}_{n} }  \Big| < \beta. \]
+        Thus, we have 
+        \begin{align*}
+            | {a}_{N+1} | &< \beta | {a}_{N} |  \\
+            | {a}_{N+2} | &< \beta | {a}_{N+1} | < \beta^{2} | {a}_{N} |  \\
+            | {a}_{N+3} | &< \beta | {a}_{N+2} | < \beta^{3} | {a}_{N} | \\ 
+                          &\vdots 
+        \end{align*}
+        So, for all \( n \in \N \), \( | {a}_{N +n}  |  < \beta^{n} | {a}_{N} |  \). Now, notice that 
+        \[  \sum_{ n=1  }^{ \infty  } \beta^{n} | {a}_{N} | = | {a}_{N} | \sum_{ n=1  }^{ \infty  } \beta^{n} \ \ \text{converges}.  \]
+        Now, notice that \( \sum_{ n=1  }^{ \infty  } \beta^{n} | {a}_{N} |  = | {a}_{N} |  \sum_{ n=1  }^{ \infty  } \beta^{n} \) converges (since it is a geometric series with common ratio \( 0 < \beta < 1  \)). It follows from the Comparison Test that \( \sum_{ n=1  }^{ \infty  } | {a}_{N+n} |  \) converges. Considering that \( \sum_{ n=1  }^{ \infty  } | {a}_{N+n} |  = \sum_{ n = N + 1 }^{ \infty  } | {a}_{n} |  \), we can conclude that \( \sum_{ n= N + 1 }^{ \infty  } | {a}_{n} |  \) converges. This immediately implies that \( \sum_{ n=1  }^{ \infty  } | {a}_{n} |  \) converges. 
+    \item[(ii)] Choose a number \( \beta  \) such that \( 1 < \beta < \rho \). Then we have 
+        \[  \lim_{ n \to \infty  }  \Big|  \frac{ {a}_{n+1} }{ {a}_{n} }  \Big|  = \rho \implies \exists N \in \N \ \text{such that} \ \forall n \geq N \ \ \Big|  \frac{ {a}_{n+1} }{  {a}_{n} }  \Big|  > \beta.   \]
+        So, we have 
+        \begin{align*}
+            | {a}_{N+1} | &> \beta | {a}_{N} |  \\
+            | {a}_{N+2} | &> \beta | {a}_{N+1} | > \beta^{2} | {a}_{N} | \\
+            | {a}_{N+3} | &> \beta | {a}_{N+2} | > \beta^{3} | {a}_{N} |  \\
+                          &\vdots
+        \end{align*}
+        Thus, for each \( n \in \N \), \( | {a}_{N +n} | > \beta^{n} | {a}_{N} |  \). Since \( \beta > 1  \), \( \lim_{ n \to \infty  }  \beta^{n} | {a}_{N} |  = \infty  \). So, \( \lim_{ n \to \infty  }  | {a}_{N+n} |  = \infty  \). Therefore, \( \lim_{ n \to \infty  }  {a}_{N+n} \neq 0 \). Thus, \( \lim_{ n \to \infty  }  {a}_{n} \neq 0  \) (because \( ({a}_{N+n})_{n \geq1} \)) is a subsequence of \( ({a}_{n})_{n \geq 1} \). So, \( \sum_{ n=1  }^{ \infty  } {a}_{n} \) diverges by the Divergence Test.   
+\end{enumerate}
+\end{proof}
+
+\begin{eg}
+    Let \( R \neq 0  \) be a fixed number. Prove that the series \( \sum_{ n=1  }^{ \infty  } \frac{ R^{n} }{  n!  }   \) converges. Indeed, we have
+    \begin{align*}
+    \rho = \lim_{ n \to \infty  }  \Big|  \frac{ {a}_{n+1} }{ {a}_{n} }  \Big|  = \lim_{ n \to \infty  }  \Big|  \frac{ \frac{ R^{n+1} }{ (n+1)! }  }{ \frac{ R^{n} }{ n! }  }  \Big|  &= \lim_{ n \to \infty  }  \Big|  \frac{ R^{n+1} n! }{ R^{n} (n+1)! }  \Big| \\
+                                                                                                                                                                                       &= \lim_{ n \to \infty  }  \Big|  \frac{ R  }{ n+1 }  \Big|  \\
+                                                                                                                                                                                       &=| R | \lim_{ n \to \infty  }  \frac{ 1 }{ n+1 }  \\
+                                                                                                                                                                                       &= 0.
+\end{align*}
+Thus, if \( \rho = 0 < 1  \), then \( \sum_{ n=1  }^{ \infty  } \frac{ R^{n} }{ n! }  \) is absolutely convergent. As a consequence, we have 
+\[  \lim_{ n \to \infty  }  \frac{ R^{n} }{ n! }  = 0. \]
+\end{eg}
+
+\begin{remark}
+    If \( ({a}_{n}) \) is a sequence and \( \lim_{ n \to \infty  }  \Big|  \frac{ {a}_{n+1} }{ {a}_{n} }  \Big|  < 1 \), then \( \lim {a}_{n} = 0 \).
+\end{remark}
+
+\begin{theorem}[Dirichlet's Test]
+    Let \( ({b}_{n}) \) be the sequence of partial sums of \( \sum_{ n=1  }^{ \infty  } {a}_{n} \) be bounded, is a decreasing sequence of nonnegative numbers (\( {b}_{1} \geq {b}_{2} \geq {b}_{3} \geq \cdots \geq 0  \)), and \( \lim_{ n \to \infty  }  {b}_{n} = 0  \). Then we have \( \sum_{ n=1  }^{ \infty  } {a}_{n} {b}_{n} \) converges.
+\end{theorem}
+
+\begin{corollary}[Leibniz Test]
+    Let \( ({b}_{n}) \) be a sequence in \( \R  \). Suppose \( {b}_{1} \geq {b}_{2} \geq {b}_{3} \geq \cdots \geq 0 \) and \( \lim_{ n \to \infty  }  {b}_{n} = 0 \). Then we have \( \sum_{ n=1  }^{ \infty  } (-1)^{n+1} {b}_{n}  \) converges.
+\end{corollary}
+
+Consider the infinite sum
+\[  1 - 1 + \frac{ 1 }{ 2 }  - \frac{ 1 }{ 2 }  + \frac{ 1 }{ 3 }  - \frac{ 1 }{ 3 }  + \frac{ 1 }{ 4 }  - \frac{ 1 }{ 4 }  + \cdots \   \tag{*}\]
+and the following questions:
+\begin{enumerate}
+    \item[(1)] What is \( ({s}_{n}) \)?
+    \item[(2)] What is \( \lim_{ n \to \infty  }  {s}_{n} \)?
+\end{enumerate}
+Define the sequence of partial sums for the series in (*) \( ({s}_{n}) \).
+
+Consider the following partial sums 
+\begin{align*}
+    {s}_{1} &= 1 \\ \\
+    {s}_{2} &= 1 - 1 = 0 \\
+    {s}_{3} &= 1 - 1 + \frac{ 1 }{ 2 }  = \frac{ 1 }{ 2 }  \\
+    {s}_{4} &= 1 - 1 + \frac{ 1 }{ 2 }  - \frac{ 1 }{ 2 } = 0  \\
+    {s}_{5} &= 1 - 1 + \frac{ 1 }{ 2 }  - \frac{ 1 }{ 2 }  + \frac{ 1 }{ 3 }  = \frac{ 1 }{ 3 }  \\
+            &\vdots 
+\end{align*}
+which establishes (1). Looking at the even subsequence of \( ({s}_{n}) \), we can see that for all \( k \in \N  \) \( {s}_{2k} = 0 \) and the odd subsequence \( {s}_{2k-1} = \frac{ 1 }{ k }  \), respectively. Clearly, we can see from these subsequences that  
+\[  {s}_{2k} \to 0 \ \ \text{and} \ \ {s}_{2k-1} \to 0 \]
+as \( k \to \infty  \). Hence, we can see that \( {s}_{n} \to 0  \) which establishes (2). 
+
+\subsection{Rearrangements}
+
+Consider the following rearrangement of (*)
+\[  1 + \frac{ 1 }{ 2 }  - 1 + \frac{ 1 }{ 3 } + \frac{ 1 }{ 4 }  - \frac{ 1 }{ 2 }  + \frac{ 1 }{ 5 }  + \frac{ 1 }{ 6 }  - \frac{ 1 }{ 3 }  + \cdots = \lim_{ n \to \infty   } {s}_{n} = \ln (2).  \]
+
+Consider the sequence of the partial sums of the above: 
+\begin{align*}
+    {s}_{1} &= 1  \\
+    {s}_{2} &= \frac{ 3 }{ 2 }  \\
+    {s}_{3} &= \frac{ 1 }{ 2 }  \\
+            &\vdots \\
+    {s}_{2 \times 10^{2} + 2} &\approx 0.6939 \\
+    {s}_{3 \times 10^{4} + 2} &\approx 0.6932 \\
+    {s}_{3 \times 10^{6} + 2} &\approx 0.6931 \\
+            &\vdots 
+\end{align*} 
+
+\begin{theorem}[ ]
+    If a series converges absolutely, then for any \( L \in \R  \), there exists some rearrangement of \( \sum_{ n=1  }^{ \infty  } {a}_{n} \) converges to \( L  \).
+\end{theorem}
+
+
+
 
 \end{document}
