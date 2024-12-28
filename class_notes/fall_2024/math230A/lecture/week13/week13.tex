@@ -1,0 +1,304 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+
+\begin{document}
+
+\section{Topics}
+
+\begin{enumerate}
+    \item[(1)] Topological Continuity
+    \item[(2)] Continuity and compactness
+    \item[(3)] Continuity and connectedness
+    \item[(4)] Continuity and the inverse
+    \item[(5)] Uniform Continuity
+\end{enumerate}
+
+So far we have learnt two equivalent descriptions of the concept of continuity for functions \( f: (X,d) \to (Y,\tilde{d}) \):
+\begin{enumerate}
+    \item[(1)] \( f \) is continuous if and only if 
+        \[  \text{\( \forall c \in X  \) \( \forall \epsilon > 0  \) \( \exists \delta_{\epsilon,c} > 0 \) such that if \( d(x,c) < \delta_{\epsilon, c} \) then \( \tilde{d}(f(x), f(c)) < \epsilon \)}. \]
+    \item[(2)] \( f  \) is continuous if and only if \( \forall c \in X  \), \( {a}_{n} \to c  \) implies \( f({a}_{n}) \to f(c) \).
+\end{enumerate}
+
+In undergraduate analysis, most of the sequences we study are sequences in \( \R  \). In terms of convergence, we say that 
+\[  {a}_{n} \to c \iff \forall \ \epsilon > 0 \ \exists N \in \N \ \text{such that} \ \forall n > N \ \ | {a}_{n} - c  |  < \epsilon. \]
+
+For graduate analysis, convergence can be viewed more generally; that is, we have
+\[  {a}_{n} \to c \iff \forall {N}_{\epsilon}(c) \ \exists N \in \N \ \text{such that} \forall n > N \ {a}_{n} \in {N}_{\epsilon}(c). \]
+
+\begin{theorem}[Topological Characterization Continuity]
+    Let \( (X,d) \) and \( (Y,\tilde{d}) \) be metric spaces and let \( f: X \to Y \). The following statements are equivalent:  
+    \begin{enumerate}
+        \item[(i)] \( f  \) is continuous
+        \item[(ii)] For every open set \( B \subseteq  Y  \), \( f^{-1}(B) \) is open in \( X  \).
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    (\( (i) \implies (ii) \)) Suppose \( f  \) is continuous. Our goal is to show that for all open sets \( B \subseteq  Y  \), we have \( f^{-1}(B) \) is open in \( X  \). Let \( B  \) be an open set in \( Y  \). Our goal is to show that \( f^{-1}(B) \) is open in \( X  \). That is, we want to show that every point of \( f^{-1}(B) \) is an interior point. Let \( p \in f^{-1}(B) \). We need to find an \( \delta > 0  \) such that \( {N}_{\delta}^{X}(p) \subseteq  f^{-1}(B) \). 
+
+    Since \( f  \) is continuous at \( p  \), there exists \( \hat{\delta} > 0  \) such that 
+    \[  \forall x \in {N}_{\hat{\delta}}^{X}(p) \ \ f(x) \in {N}_{\epsilon}^{Y}(f(p)) \subseteq  B.  \]
+    Clearly, we have \( {N}_{\hat{\delta}}^{X}(p) \subseteq  f^{-1}(B) \), so we can use this \( \hat{\delta} \) as the \( \delta  \) we were looking for.
+
+    (\( (ii) \implies (i) \)) Assume that for all open sets \( B  \subseteq Y \), we have \( f^{-1}(B) \) is open in \( X  \). Our goal is to show that \( f  \) is continuous. We need to show that \( f  \) is continuous at every point of \( X  \). Let \( c \in X  \). We will prove that \( f  \) is continuous at \( c  \). That is, 
+    \[  \forall \epsilon > 0 \ \exists \delta > 0 \ \text{such that} \ \text{if} x \in {N}_{\delta}^{X}(c) \ \text{then} \ f(x) \in {N}_{\epsilon}^{Y}(f(c)). \]
+    Let \( \epsilon > 0  \) be given. We need to show that there exists \( \delta > 0  \) such that  
+    \[  {N}_{\delta}^{X}(c) \subseteq f^{-1}({N}_{\epsilon}^{Y}(f(c))). \tag{*} \]
+    Since \( {N}_{\epsilon}^{Y}(f(c))  \) is open in \( Y \), it follows from the assumption that \( f^{-1}({N}_{\epsilon}^{Y}(f(c))) \) is open in \( X  \). Since \( f^{-1}({N}_{\epsilon}^{Y}(f(c))) \) is open in \( X  \) and \( c \in f^{-1}({N}_{\epsilon}^{Y}(f(c)))  \), we have \( c  \) is an interior point of \( f^{-1}({N}_{\epsilon}^{Y}(fc)) \). Hence, there exists \( \delta > 0  \) such that \( {N}_{\delta}^{X}(c) \subseteq f^{-1}({N}_{\epsilon}^{Y}(f(c))) \) as desired.
+\end{proof} 
+
+Note that continuous functions does NOT necessarily preserve the following properties:
+\begin{itemize}
+    \item open
+    \item closed
+    \item bounded
+\end{itemize}
+
+Some examples of maps that do not preserve the properties above are
+
+\begin{enumerate}
+    \item[(1)] \( f: \R \to \R  \) defined by \( f(x) = x^{2} \). Note that \( E = (-2,2) \) is open but \( f(E) = [0,4) \) is not.
+    \item[(2)] \( f: \R \to \R  \) defined by \( f(x) = \frac{ 1  }{  1 + x^{2} }  \). Note that \( E = [0,\infty)  \) is closed but \( f(E) = (0,1] \) is not.
+    \item[(3)] \( f: (0,\infty ) \to \R  \) defined by \( f(x) = \frac{ 1 }{ x }  \). Note that \( E = (0,1) \) is a bounded set but \( f(E) = (1,\infty  ) \) is not.
+\end{enumerate} 
+
+\begin{theorem}[ ]
+    Let \( (X,d) \) and \( (Y, \tilde{d}) \) are metric spaces and let \( f: X \to Y  \) be continuous and let \( E  \) be a compact set in \( X  \). Then \( f(E) \) is compact in \( Y  \). 
+\end{theorem}
+\begin{proof}
+    Let \( \{ {O}_{\alpha} \}_{\alpha \in I} \) be an open cover of \( F(E) \). Our goal is to show that this open cover has a finite subcover. We have
+    \[  f(E) \subseteq \bigcup_{ \alpha \in I  }^{  }  {O}_{\alpha}. \]
+    So, 
+    \[  E \subseteq f^{-1}(f(E)) \subseteq f^{-1} \Big(  \bigcup_{ \alpha \in I  }^{  } {O}_{\alpha} \Big) = \bigcup_{ \alpha \in E  }^{  }  f^{-1}({O}_{\alpha}). \]
+    Since \( E \subseteq  f^{-1}(f(E)) \) and \( f^{-1} \Big(  \bigcup_{ \alpha \in I  }^{  }  {O}_{\alpha} \Big) = \bigcup_{ \alpha \in I  }^{  }  f^{-1}({O}_{\alpha}) \), we can conclude that 
+    \[  E \subseteq  \bigcup_{ \alpha \in I  }^{  }  f^{-1}({O}_{\alpha}). \]
+    Now, we have \( f: X \to Y  \) is continuous and for each \( \alpha \in I  \), \( {O}_{\alpha} \) is open in \( Y  \) implies that for all \(  \alpha \in I  \), we have \( f^{-1}({O}_{\alpha}) \) is open in \( X  \). Thus, \( \{ f^{-1}({O}_{\alpha}) \}_{\alpha \in I} \) is an open cover for \( E \). Since \( E  \) is compact, we have   
+    \[  \exists {\alpha}_{1}, \dots, {\alpha}_{n} \in I \ \text{such that} \ E \subseteq \bigcup_{ i=1  }^{ n }  f^{-1}({O}_{{\alpha}_{i}}).   \]
+    Consequently, we have 
+    \begin{align*}
+        f(E) &\subseteq  f \Big(  \bigcup_{ i=1  }^{ n }  f^{-1}({O}_{{\alpha}_{i}}) \Big) \\
+            &= \bigcup_{ i=1  }^{ n }  f(f^{-1}({O}_{{\alpha}_{i}})) \\
+            &\subseteq \bigcup_{ i=1  }^{ n }  {O}_{{\alpha}_{i}}.
+\end{align*}
+Thus, we have \( \{ {O}_{{\alpha}_{i}} \}_{1 \leq i \leq n} \) is a finite subcover for \( f(E) \).
+\end{proof}
+
+\begin{theorem}[Extreme Value Theorem]
+    Let \( (X,d) \) be a compact metric space. 
+    \begin{enumerate}
+        \item[(i)] If \( f: (X,d) \to (Y,\tilde{d}) \) is continuous, then \( f(X) \) is a closed and bounded set in \( Y  \). 
+        \item[(ii)] If \( f: (X,d) \to \R   \) is continuous, then \( f  \) attains a maximum values and a minimum value. More precisely, \( M = \sup_{x \in X } f(x)  \)
+    \end{enumerate} and \( m = \inf_{x \in X } f(x) \) exists, and there exists points \( a \in X  \) and \( b \in X  \) such that \( f(a) = M  \) and \( f(b) = m \).
+\end{theorem}
+\begin{proof}
+\begin{enumerate}
+    \item[(i)] By the previous theorem, we can see that \( f(X) \) must be compact in \( Y  \). As we know, every compact set in any metric space is closed and bounded. 
+    \item[(ii)] By part (i), \( f(X)  \) is closed and bounded subset of \( \R  \). Since \( f(X) \) is a bounded set in \( \R  \), \( M = \sup f(X) = {\sup}_{x \in X }f(x) \) and \( m = \inf f(X) = {\inf}_{x \in X} f(x) \) exists. Recall from Theorem 2.28 that \( M \in \overline{F(X)} \) and \( m \in \overline{f(X)} \). Since \( \overline{f(X)} = f(X) \), we can conclude that \( M \in f(X) \) and \( m \in f(X) \). That is, there exists \( a \in X  \) such that \( f(a) = M  \) and there exists \( b \in X  \) such that \( f(b) = m \).
+\end{enumerate}
+\end{proof}
+
+\begin{theorem}[Preservation of Connectedness]
+    Let \( (X,d) \) and \( (Y,\tilde{d}) \) be metric spaces and \( f: X \to Y  \) be a continuous map, and let \( E \subseteq X   \) be a connected set. Then \( f(E) \) is connected in \( Y  \).
+\end{theorem}
+\begin{proof}
+Assume for contradiction that \( f(E) \) is NOT connected. Thus, we can write \( f(E) \) as a union of two (nonempty) separated sets \( A  \) and \( B  \):
+\[  f(E) = A \cup B, \ \overline{A} \cap B = \emptyset, \ A \cap \overline{B} = \emptyset. \]
+Let \( G = E \cap f^{-1}(A) \) and \( H = E \cap f^{-1}(B) \). In what follows, we will show that \( G  \) and \( H  \) form a separation for the set \( E  \), which contradicts the assumption that \( E  \) is connected. We will show that 
+\begin{enumerate}
+    \item[(1)] \( G  \) and \( H \) are both nonempty
+    \item[(2)] \( \overline{G} \cap  H = \emptyset  \) (and similarly, \( G \cap \overline{H} = \emptyset \))
+    \item[(3)] \( E = G \cup H  \)
+\end{enumerate}
+To show (1), we will prove that \( f(G) =A  \) (similarly, show that \( f(H)= B  \)). We have
+\begin{enumerate}
+    \item[(1)] 
+        \begin{align*}
+            f(G) = f(E \cap f^{-1}(A)) &\subseteq  f(E) \cap f(f^{-1}(A)) \\ 
+                                       &\subseteq f(E) \cap A  \tag{\( f(E) = A \cup B \)}  \\
+                                       &= A. 
+    \end{align*}
+    Then we have \( f(G) \subseteq  A  \). Now, we will show that \( A \subseteq f(G) \). Let \( y \in A  \). Then \( y \in f(E) \) and so there exists
+    \[ \text{\( x \in E  \) such that \( f(x) =  y \).} \tag{*} \]
+    Then we have 
+    \[  f(x) = y \in A \implies x \in f^{-1}(A). \tag{**} \]
+    Then (*) and (**) imply that 
+    \begin{align*}
+        x \in E \cap f^{-1}(A) &\implies f(x) \in f(E \cap f^{-1}(A)) = f(G) \\
+                               &\implies y \in f(G). 
+    \end{align*}
+    Thus, \( A \subseteq  f(G) \).
+    \item[(2)] Observe that
+        \begin{align*}
+            G \cup H &= (E \cap f^{-1}(A)) \cup (E \cap f^{-1}(B)) \\
+                     &= E \cap [f^{-1}(A) \cap f^{-1}(B)] \\
+                     &= E \cap [f^{-1}(A \cup B)] \\
+                     &= E \cap [f^{-1}(f(E))] \tag{\( f(E) = A \cup B \)} \\
+                     &= E \tag{\( E \cap f^{-1}(f(E)) \)} 
+        \end{align*}
+    \item[(3)] To this end, it is enough to show that \( f(\overline{G}) \cap f(H) = \emptyset  \). Note that \( f(H) = B \). So, our goal is to show that \( f(\overline{G}) \cap B = \emptyset  \). Since \( \overline{A} \cap  B \) is empty, and so it suffices to show that \( f(\overline{G}) \subseteq \overline{A} \). Notice that 
+        \[  G = E \cap f^{-1}(A) \subseteq f^{-1}(A) \subseteq f^{-1}(\overline{A}).  \]
+        Since \( f  \) is continuous and \( \overline{A}  \) is a closed set in \( Y  \), we can see that \( f^{-1}(\overline{A}) \) is closed in \( X  \). Thus, we can write
+        \[  G \subseteq f^{-1}(\overline{A}) \implies \overline{G} \subseteq \overline{f^{-1}(\overline{A})} = f^{-1}(\overline{A}). \]
+        Therefore, we have 
+        \[  f(\overline{G}) \subseteq f(f^{-1}(\overline{A})) \subseteq \overline{A}. \]
+    A similar argument shows that \( f(\overline{H}) \cap f(G) = \emptyset \).
+\end{enumerate}
+\end{proof}
+
+\begin{theorem}[Intermediate Value Theorem]
+    Let \( f: [a,b] \to \R  \) be a continuous map and let \( f(a) \neq f(b)  \). Let \( L \in \R  \) be such that \( f(a) < L < f(b) \) or \( f(b) < L < f(a) \). Then there exists \( c \in (a,b) \) such that \( f(c) = L  \).
+\end{theorem}
+\begin{proof}
+    Since \( f:[a,b] \to \R  \) is continuous and \( [a,b]  \) is connected. Then, by the preservation of connectedness, we have \( f([a,b]) \) is connected in \( \R   \). This implies that \( f([a,b]) \) is either a singleton or an interval \( I  \) in \( \R  \). Since \( f(a) \neq f(b) \), we know that \( f([a,b]) \) cannot be a singleton. That is, \( f([a,b]) \) is an interval \( I  \) in \( \R  \). Note that \( f(a), f(b) \in I \) and \( L  \) is between \( f(a)  \) and \( f(b) \). So, \( L \in f([a,b]) \). Thus, there exists \( c \in [a,b] \) such that \( f(c) = L  \). But neither \( f(a) \neq L  \) nor \( f(b) \neq L  \), so there exists \( c \in (a,b) \) such that \( f(c) = L  \).
+\end{proof}
+
+Note that if \( f : X \to  Y \) is continuous and bijective =, it is NOT necessarily true that \( f^{-1}: Y \to X  \) is continuous.
+
+\begin{eg}
+    \( f: (-1,0] \cup [1,2] \to [0,4] \) given by \( f(x) = x^{2} \) is continuous and bijective. However, \( f^{-1}: [0,4] \to (-1,0] \cup [1,2] \) is NOT continuous. Indeed, we see that \( [0,4] \) is connected, but \( f^{-1}([0,4]) = (-1,0] \cup [1,2] \) is NOT.  
+\end{eg}  
+
+\begin{theorem}[Continuous and Bijective maps on Compact Sets]
+    Let \( (X,d) \) and \( (Y,\tilde{d}) \) are metric spaces, \( X  \) is compact, and \( f: X \to Y  \) is continuous and bijective. Then \( f^{-1}: Y \to X  \) is continuous.
+\end{theorem}
+\begin{proof}
+    It suffices to show that for every open set \( B \subseteq  X  \) \( B \subseteq  X  \), \( (f^{-1})^{-1}(B) \) is open in \( Y \). That is, we will show that \( f(B) \) is open in \( Y \). Let \( B  \) be an open set in \( X  \). Thus, \( B^{c} \) is closed in \( X  \). Since \( X  \) is a compact set and \( B^{c} \subseteq  X  \), \( B^{c} \) is compact in \( X  \). Since continuity preserves compactness, we have \( f(B^{c}) \) is compact in \( Y \). Since compact sets are closed and bounded, \( f(B^{c}) \) is closed in \( Y \). Now, \( [f(B^{c})]^{c} \) is open in \( Y \). Since \( [f(B^{c})]^{c} \) is open in \( Y \). Since \( f  \) is bijective, we have 
+    \[  f(B^{c}) = [f(B)]^{c}. \] 
+    Thus,
+    \[ f(B) = [(f(B))^{c}]^{c} = [f(B^{c})]^{c} \]
+    is open in \( Y \).
+\end{proof}
+
+\begin{remark}[Invariance of Domain]
+   Let \( U \subseteq \R^{n} \) is open and \(V \subseteq \R  \). Since \( f: U \to V  \) is continuous and bijective, then \( V  \) is open and \( f^{-1}: V \to U \) is continuous. 
+\end{remark}
+
+\section{Uniform Continuity}
+
+Let \( A  \) be a proper subset of \( (X,d) \).
+
+Consider the following three questions:
+
+\begin{enumerate}
+    \item[(1)] Given a continuous function \( f: A \to \R  \), is it possible to extend \( f  \) to a continuous function that is defined on all of \( X  \).
+    \item[(2)] Under what conditions can we be certain that a continuous function \( f: A \to \R  \) has a continuous extension to all of \( X  \).
+\end{enumerate}
+
+\begin{theorem}[A special case of Tietze Extension Theorem]
+    Let \( (X,d) \) be a metric space. Let \( A  \) be a nonempty closed set in \( X  \). If \( f: A \to \R  \) is continuous, then \( f \) has a continuous extension to all of \( X  \).
+\end{theorem}
+
+\begin{theorem}[ ]
+    Let \( (X,d) \) be a metric space. Let \( A  \) be a nonempty set in \( X  \). If \( f: A \to \R  \) is \textbf{uniformly continuous on \( A  \)}, then \( f  \) can be extended to a continuous function \( \overline{f} : \overline{A} \to \R  \).
+\end{theorem}
+
+Recall that we say that \( f: A \subseteq (X,d) \to (Y, \tilde{d}) \) is continuous at \( c \in A  \):
+\[  \forall \epsilon > 0 \ \exists \delta > 0 \ \text{such that} \ (\forall x \in A ) \ \text{if} \ d(x,c) < \delta \ \text{then} \ \tilde{d}(f(x), f(c)) < \epsilon. \]
+
+We say that \( f: A \subseteq  (X,d) \to (Y,\tilde{d}) \) is continuous on \( A  \), we have 
+\[  \forall c \in A \  \forall \epsilon > 0 \ \exists \delta > 0 \ \text{such that} \ (\forall x \in A) \ \text{if} \ d(x,c) < \delta_{\epsilon, c} \ \text{then} \ \tilde{d(f(x), f(c))} < \epsilon.  \]
+
+In general, the \( \delta  \) in the above statement depends on both \( \epsilon  \) and \( c  \). If the function the desirable property that given an arbitrary \( \epsilon > 0  \), one can find a single \( {\delta}_{\epsilon} \) that holds (or stays constant) for all points \( c \in A  \), then we say that \( f  \) is uniformly continuous on \( A  \).
+
+\begin{definition}[Uniform Continuity]
+    Let \( f: A \subseteq (X,d) \to (Y,\tilde{d}) \) be a function. We say that \( f \) is \textbf{uniformly continuous on \( A \)} if 
+    \[  \forall \epsilon > 0 \ \exists {\delta}_{\epsilon} > 0 \ \text{such that} \ \forall x,y \in A \ \text{if} \ d(x,c) < {\delta}_{\epsilon}, \ \text{then} \ \tilde{d}(f(x),f(c)) < \epsilon. \]
+\end{definition}
+
+\begin{remark}
+   We say that \( f \) is NOT uniformly continuous on \( A  \) if 
+   \[ \exists \epsilon > 0 \ \text{such that} \ \forall \delta > 0 \ \exists x,y \in A \ \text{satisfying} \ d(x,y) < \delta \ \text{but} \ \tilde{d}(f(x),f(y)).  \] 
+\end{remark}
+
+Clearly, from the above, we can see that uniform continuity is a stronger property than continuity in the sense that if \( f: A \to Y  \) is uniformly continuous, then \( f: A \to Y \) is continuous. Note that it is not really productive to talk about uniform continuity at a specific point. Uniform continuity is always discussed in the context to a particular domain. For example, we'll see that \( f(x) = x^{2} \) is NOT uniformly continuous on \( \R  \). However, \( f(x) = x^{2} \) is uniformly continuous on \( [0,1] \). This implies determining whether a function is uniform continuous is a matter of analyzing the domain on which the function is defined on.
+
+\begin{eg}
+    Prove that \( f: \R \to \R  \) defined by \( f(x) = 2x + 1 \) is uniformly continuous on \( \R  \). 
+
+    Our goal is to show that 
+    \[  \forall \epsilon > 0  \ \exists \delta > 0 \ \text{such that} \ \forall x,y \in \R \ \text{if} \ | x - y  |  < \delta \ \text{then} \ | f(x) - f(y) | < \epsilon.  \]
+
+    Let \( \epsilon > 0  \) be given. Clearly, we can take \( \delta = \frac{ \epsilon }{ 2 }  \) (or any positive number less than \( \frac{ \epsilon }{ 2 }  \)).
+\end{eg}
+
+The definition of uniform continuity directly implies that if some function \( f : A \to Y  \) is uniformly continuous on \(  A  \), then it is also uniformly continuous on \( B \subseteq  A  \). 
+
+Note that tells us that not all continuous functions are uniformly continuous. The following theorem gives a simple criterion for proving the absence of uniform continuity. 
+
+\begin{theorem}[ ]
+    Let \( f: A \subseteq  (X,d) \to (Y, \tilde{d}) \). If we can find \( {\epsilon}_{0} > 0 \) and two sequences \( ({x}_{n}) \) and \( ({c}_{n}) \) in \( A  \) such that  
+    \[  d({x}_{n}, {c}_{n}) \to 0 \ \text{and} \ \forall n \tilde{d}(f({x}_{n}), f({c}_{n})) \geq {\epsilon}_{0}. \]
+    Then \( f  \) is NOT uniformly continuous on \( A  \).
+\end{theorem}
+
+\begin{proof}
+    Recall that \( f  \) is NOT uniformly continuous if and only if there exists \( \epsilon > 0  \) such that for all \( \delta > 0  \), there exists \( x,c \in A   \) satisfying \( d(x,c) < \delta \) but \( \tilde{d}(f(x), f(c)) \geq \epsilon \). If this holds, then we can set \( \epsilon = {\epsilon}_{0} \) such that for any \( \delta > 0  \), there exists \( N  \) such that \( d({x}_{N}, {c}_{N}) < \delta \), but \( \tilde{d}(f({x}_{n}), f({c}_{n})) \geq \epsilon  \).
+\end{proof}
+
+\begin{eg}
+    Prove that \( f(x) = x^{2} \) is not uniformly continuous on \( \R  \). 
+\end{eg}
+\begin{proof}
+Let \( {x}_{n} = n  \) and \( {c}_{n} = n  + \frac{ 1 }{ n }  \). We have 
+\[  \lim_{ n \to \infty  }  | {x}_{n} - {c}_{n} | = \lim_{ n \to \infty  }  \Big|  \frac{ -1 }{ n }  \Big| = 0. \]
+Also, for all \( n  \), we have 
+\begin{align*}
+    | f({x}_{n}) - f({c}_{n}) | &= \Big| n^{2} - \Big(  n + \frac{ 1 }{ n }  \Big)^{2} \Big|   \\
+                              &= \Big| n^{2} - \Big(n^{2} + 2 + \frac{ 1 }{ n^{2} }   \Big)  \Big| \\
+                              &= \Big| - \Big(  2 + \frac{ 1 }{ n^{2} }  \Big) \Big| \\
+                              &= 2 + \frac{ 1 }{ n^{2} } \\
+                              &\geq 2.
+\end{align*}
+Hence, we conclude that \( f(x) = x^{2} \) is NOT uniformly continuous on \( \R  \).
+\end{proof}
+
+\begin{eg}
+    Prove that \( f(x) = \sin \frac{ 1 }{ x }  \) is not uniformly continuous on \( (0,1) \). 
+\end{eg}
+\begin{solution}
+Use \( x = \frac{ 1 }{ 2n \pi }  \) and \( {c}_{n} = \frac{ 1 }{ 2n \pi + \frac{ \pi }{ 2 }  }  \). Now, observe that \( \lim {x}_{n} = 0 \) and \( \lim {c}_{n} = 0  \) implies \( \lim ({x}_{n} - {c}_{n}) = 0 \). Thus, \( \lim | {x}_{n} - {c}_{n} |  = 0  \). But for all \( n  \), we have 
+\[  | f({x}_{n}) - f({c}_{n}) |  = | \sin (2n \pi) - \sin \Big(2n \pi + \frac{ \pi }{ 2 }  \Big) | = | 0 - 1 | = 1.    \]
+So, \( f \) is NOT uniformly continuous.
+\end{solution}
+
+\begin{theorem}[Continuous Functions on Compact Sets are Uniformly Continuous]
+    Let \( f: A \subseteq  (X,d) \to (Y,\tilde{d}) \) is continuous and let \( A  \) be a compact set. Then \( f  \) is uniformly continuous on \( A  \).
+\end{theorem}
+
+\begin{proof}
+Assume for sake of contradiction that \( f  \) is NOT uniformly continuous; that is, there exists \( \epsilon > 0  \) such that 
+\[  \forall \delta > 0 \ \exists x,c \in A \ \text{satisfying} \ d(x,c) < \delta \ \text{but} \ \tilde{d}(f(x), f(c)) \geq \epsilon. \]
+In particular, 
+\begin{align*}
+    &\text{For} \delta = 1 \exists {x}_{1}, {c}_{1} \in A \ \text{satisfying} \ d({x}_{1}, {c}_{1}) < 1 \ \text{but} \ \tilde{d}(f({x}_{1}), f({c}_{1})) \geq \epsilon \\
+    &\text{For} \exists {x}_{2}, {c}_{2} \in A \ \text{satisfying} \ d({x}_{2}, {c}_{2}) < \frac{ 1 }{ 2 }  \ \text{but} \ \tilde{d}(f({x}_{2}), f({c}_{2})) \geq \epsilon   \\
+    &\text{For} \exists {x}_{3}, {c}_{3} \in A \ \text{satisfying} \ d({x}_{3}, {c}_{3})  < \frac{ 1 }{ 3 } \ \text{but} \ \tilde{d}(f({x}_{3}), f({c}_{3})) \geq \epsilon \\
+               &\vdots \\
+\end{align*}
+In this way, we will obtain two sequences \( ({x}_{n}) \) and \( ({c}_{n}) \) in \( A  \) such that 
+\begin{enumerate}
+    \item[(i)] \( 0 \leq d({x}_{n}, {c}_{n}) < \frac{ 1 }{ n }  \) for all \( n  \). This implies that \( \lim_{ n \to \infty  } d({x}_{n}, {c}_{n}) = 0 \).
+    \item[(ii)] \( \tilde{d}(f({x}_{n}), f({c}_{n})) \geq \epsilon \) for all \( n \).
+\end{enumerate}
+Note that \( A \) is compact, so it is sequentially compact. If \( ({x}_{n}) \) is a sequence in \( A  \), then \( ({x}_{n}) \) contains a subsequence \( ({x}_{{n}_{k }}) \) that converges to a point in \( A  \). Let \( x = \lim_{ k  \to \infty  }  {x}_{{n}_{k}} \). Let \( ({c}_{{n}_{k}}) \) be the corresponding subsequence of \( ({c}_{n}) \). We have 
+\[  0 \leq d({c}_{{n}_{k}}, x) \leq d({c}_{{n}_{k}}, {x}_{{n}_{k}}) + d({x}_{{n}_{k}}, x). \]
+If we let \( k \to \infty   \) on the right-hand side of the above inequality, we have \( d({c}_{{n}_{k}}, {x}_{{n}_{k }}) \to 0  \) and \( d({x}_{{n}_{k}}, x) \to 0  \). Using the Squeeze Theorem, we have \( \lim_{ k  \to \infty  }  {c}_{{n}_{k }} = x  \). Therefore, \( ({x}_{{n}_{k }}) \) and \( ({c}_{{n}_{k}}) \) are two sequences in \( A  \) that converge to \( x \in A  \). Since \( f  \) is continuous and \( {x}_{{n}_{k}} \to x  \), we have 
+\[  f({x}_{{n}_{k}}) \to f(x). \tag{1} \]
+Similarly, if \( {c}_{{n}_{k}} \to x  \), we have 
+\[  f({c}_{{n}_{k}}) \to f(x). \tag{2} \]
+So, there exists \( {N}_{0} \in \N \) such that for all \( k > {N}_{0} \) 
+\[  \forall k > {N}_{0} \ \ \ \tilde{d}(f({x}_{{n}_{k}}), f(x)) < \frac{ \epsilon }{ 4 }  \ \ \text{and} \ \ \tilde{d}(f({c}_{{n}_{k}}) , f(x)) < \frac{ \epsilon }{ 4 }.  \]
+As a consequence, for all \( k > {N}_{0} \), we have
+\begin{align*}
+    \tilde{d}(f({x}_{{n}_{k}}), f({c}_{{n}_{k}})) &\leq \tilde{d}(f({x}_{{n}_{k}}), f(x)) + \tilde{d}(f(x), f({c}_{{n}_{k}})) \\
+                                                  &< \frac{ \epsilon }{ 4 }  + \frac{ \epsilon }{ 4 }  \\
+                                                  &= \frac{ \epsilon }{ 2 } \\
+                                                  &< \epsilon.
+\end{align*}
+But this contradicts (ii).
+\end{proof}
+
+\end{document}
+
+
+

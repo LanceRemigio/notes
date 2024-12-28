@@ -1,0 +1,83 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+
+\begin{document}
+
+\section{Topics}
+
+\begin{enumerate}
+    \item Types of discontinuities (discontinuity of the first kind, discontinuity of the second kind)
+    \item Limits of monotone functions
+    \item Limits involving infinity
+\end{enumerate}
+
+\begin{definition}[Right-hand limit, left-hand limit]
+    Let \( f: (a,b) \to (Y, \tilde{d}) \). 
+    \begin{enumerate}
+        \item[(i)] Let \( a \leq c < b \). We write
+            \[  \lim_{ x \to c^{+} } f(x) = L \]
+            if any of the following equivalent conditions holds:
+            \begin{enumerate}
+                \item[(1)] For all sequences \( ({x}_{n}) \) in \( (c,b) \) satisfying \( {x}_{n} \to c  \), we have \( f({x}_{n}) \to L \).
+                \item[(2)] \( \forall \epsilon > 0  \), \( \exists \delta > 0  \) such that if \( c < x < c + \delta  \) then \( \tilde{d}(f(x), L) < \epsilon \).
+            \end{enumerate}
+        \item[(ii)] Let \( a < c \leq b  \). We write
+            \[  \lim_{ x \to c^{-} }  f(x) = L \]
+            if any of the following equivalent conditions hold.
+            \begin{enumerate}
+                \item[(1)] For all sequences \( ({x}_{n}) \) in \( (a,c) \) such that \( {x}_{n} \to c  \) we have \( f({x}_{n}) \to L  \).
+                \item[(2)] For all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that if \( c - \delta < x < c  \) then \( \tilde{d}(f(x), L) < \epsilon \). 
+            \end{enumerate} 
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Classification of Discontinuities]
+    Let \( f: (a,b) \to (Y, \tilde{d}) \). Let \( c \in (a,b) \). Suppose that \( f  \) is discontinuous at \( c  \).
+    \begin{enumerate}
+        \item[(i)] \( f  \) is said to have a discontinuity of the first kind, or a simple discontinuity, at \( c  \) if \( \lim_{ x \to c^{-} } f(x) \) and \( \lim_{ x \to c^{+} } f(x) \) exist. We outline the two possible scenarios below:
+            \begin{enumerate}
+                \item[(1)] \( \lim_{ x \to c^{-} } f(x) = \lim_{ x \to c^{+} } f(x) \neq f(c) \). This is a removable discontinuity.
+                \item[(2)] \( \lim_{ x \to c^{-} } f(x) \neq \lim_{ x \to c^{+} } f(x)  \). This is a Jump discontinuity.
+            \end{enumerate}
+        \item[(ii)] \( f  \) is said to have a discontinuity of the second kind at \( c  \) if at least one of \( \lim_{ x \to c^{-} } f(x) \) or \( \lim_{ x \to c^{+} } f(x) \) does not exist. 
+    \end{enumerate}
+\end{definition}
+
+A quick example is \( f: (-1,1) \to \R  \) and \( f(x) = \frac{ 1 }{ x }  \) with \( x \neq 0 \) and \( f(0) = 0 \).
+
+Recall that  
+\begin{enumerate}
+    \item[(1)] \( f: (a,b) \to \R  \) is said to be \textbf{increasing} on \( (a,b) \) if 
+        \[  {x}_{1} < {x}_{2} \implies f({x}_{1}) \leq f({x}_{2}). \]
+    \item[(2)] \( f: (a,b) \to \R  \) is said to be \textbf{decreasing} on \( (a,b) \) if  
+        \[  {x}_{1} < {x}_{2} \implies f({x}_{1}) \geq  f({x}_{2}). \]
+    \item[(3)] \( f: (a,b) \to \R  \) is said to be \textbf{monotone} on \( (a,b) \) if it is either increasing or decreasing.
+\end{enumerate}
+
+\begin{theorem}[One-sided Limits of Monotone Functions]
+   Let \( f: (a,b) \to \R  \) be an increasing function. Then at every point \( c \in (a,b) \), the one-sided limits exist, and 
+   \begin{enumerate}
+       \item[(i)] \( \lim_{ x \to c^{-} } f(x) = \sup_{a < x < c} f(x) \leq f(c) \).
+       \item[(ii)] \( \lim_{ x \to c^{+} } f(x) = \inf_{c < x < b} f(x) \geq f(c) \) 
+       \item[(iii)] If \( a <  c < d < b \), then
+           \[  \lim_{ x \to c^{+} }  f(x) \leq \lim_{ x \to c^{-} } f(x). \]
+           (A similar statement holds for decreasing functions)
+   \end{enumerate} 
+\end{theorem}
+
+Let \( f: \R \to \R  \), \( c \in \R  \) and \( L \in \R  \). 
+
+\begin{enumerate}
+    \item[(1)] \( \lim_{ x \to + \infty  } f(x) = L \iff \forall \epsilon > 0 \ \exists M > 0 \ \text{such that} \ \forall x > M \ | f(x) - L | < \epsilon \).
+    \item[(2)] \( \lim_{ x \to - \infty   }  f(x) = L \iff \forall \epsilon > 0 \ \exists M > 0 \ \forall x > M \ | f(x) - L  | < \epsilon   \).
+    \item[(3)] \( \lim_{ x \to \infty  } f(x) = \infty \iff \forall R > 0 \ \exists M > 0 \ \text{such that} \ \forall x > M \ f(x) > R  \).
+    \item[(4)] \( \lim_{ x \to - \infty   }  f(x) = \infty \iff \forall R > 0 \ \exists M > 0 \ \text{such that} \ \forall x < - M  \ f(x) > R  \).
+    \item[(5)] \( \lim_{ x \to + \infty  } f(x) = - \infty \iff \forall R > 0 \ \exists M > 0 \ \text{such that} \ \forall x > M \ f(x) < - R   \) 
+    \item[(6)] \( \lim_{ x \to - \infty  } f(x) = - \infty \iff \forall R > 0 \ \exists M > 0 \ \text{such that} \ \forall x < - M  \ f(x) < - R  \)
+    \item[(7)] \( \lim_{ x \to c }  f(x) = + \infty \iff \forall R > 0 \ \exists \delta > 0 \ \text{such that} \ \text{if} \ 0 < |  x - c  | < \delta \ \text{then} \ f(x) > R  \).
+    \item[(8)] \( \lim_{ x \to c } f(x) = - \infty \iff \forall R > 0 \ \exists \delta  > 0 \ \text{such that if} \ 0 < | x - c  |  < \delta \ \text{then} \ f(x) < - R  \).
+\end{enumerate}
+
+
+\end{document}
+

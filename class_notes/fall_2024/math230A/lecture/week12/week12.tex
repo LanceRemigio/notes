@@ -1,0 +1,394 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+
+\begin{document}
+
+\section{Topics}
+
+\begin{itemize}
+    \item {\hyperref[Limits and Continuity]{Limits and Continuity}} 
+    \item Limits of Functions
+    \item Sequential Criterion for Limits of Functions
+    \item Algebraic Limit Theorem for Functions
+    \item Continuous Functions
+    \item Characterization of Continuity via Sequences
+    \item Algebraic Continuity Theorem
+    \item A composition of Continuous Functions is Continuous
+\end{itemize}
+
+\section{Limits and Continuity}\label{Limits and Continuity}
+
+One of the most important concepts in Calculus is the limit of a function. Our goal is to understand what is meant by:
+\begin{enumerate}
+    \item[(1)] \( \lim_{ x \to c }  f(x) = L \).
+    \item[(2)] "\( f(x) \) is continuous at \( c \)"
+\end{enumerate}
+
+\section{Limits of Functions}
+
+The usual set up for discussing continuity of functions is that we need to have  
+\begin{enumerate}
+    \item[(1)] Two metric spaces, \( (X,d) \) and \( (Y, \tilde{d}) \), for the domain and codomain of the function, respectively.
+    \item[(2)] Let \( E  \) be some nonempty subset of \( X  \).
+    \item[(3)] Let \( c  \) be some limit point of \( E  \); that is, \( c \in E' \).
+    \item[(4)] Let \( f: E \to Y \).
+\end{enumerate}
+
+Recall that \( c \in E' \) means that there exists a sequence in \( E \setminus  \{ c  \}  \) such that \( {x}_{n} \to c  \). In particular, \( c  \) does not necessarily belong to \( E  \). Also, it is not the case that every point in \( E  \) necessarily belongs to \( E' \).
+
+Some common descriptions made about limits of functions can be made using the following statements:
+
+\begin{itemize}
+    \item \( f(x)  \) approaches \( L  \) as \( x  \) approaches \( c  \) (\( x \in E  \) and \( x \neq c  \)).
+    \item For every \( \epsilon > 0  \), no matter how small it is, \( \tilde{d}(f(x), L) < \epsilon  \) provided that \( d(x,c) \) is sufficiently small (i.e \( x \in E  \) and \( x \neq c \)).
+\end{itemize}
+
+\begin{definition}[Limit of a Function]
+    Let \( (X,d) \) and \( (Y,\tilde{d}) \) be metric spaces. Let \( \emptyset \neq E \subseteq X  \). Let \( c \in E' \). Let \( f: E \to Y \). We say that \( \lim_{ x  \to c  }  f(x) = L  \) if 
+    \begin{center}
+        \( \forall \epsilon > 0  \), \( \exists \delta > 0  \) such that if \( 0 < d(x,c) < \delta  \) (with \( x \in E  \)), then \( \tilde{d}(f(x), L) < \epsilon. \)
+    \end{center}
+\end{definition}
+
+\begin{remark}
+    Just like in our definition of sequential limits and how our position \( N \)is dependent upon our choice of \( \epsilon  \), we see a similar notion here when it comes to our \( \delta > 0  \) being dependent upon our choice of \( \epsilon  \).
+\end{remark}
+
+The reason we require \( x \in E  \) is to ensure that \( f(x)  \) makes sense. That is, we may not need to state the condition that \( x \in E  \) provided that there is no confusion about the setup. 
+
+Furthermore, we require the condition that \( {d}_{x}(x,c) > 0  \) because we need only concern ourselves with what happens as the points of our domain approach the limit point \( c  \), not necessarily what happens at the point \( c  \). In this way, we can see that \( f(c) \) could be changed to anything (or could not even exist) and the limit would still be unaffected.
+
+Here are some equivalent statements we can make about limits of functions
+
+\begin{enumerate}
+    \item[(1)] \( \lim_{ x  \to c  } f(x) = L  \)
+    \item[(2)] \( \forall \epsilon > 0  \), \( \exists \delta > 0  \) such that if \( 0 < d(x,c) < \delta \) (with \( c \in E  \)), then \( \tilde{d}(f(x), L) < \epsilon \).
+    \item[(3)] \( \forall \epsilon > 0  \), \( \exists > 0  \) such that \( \forall x \in E \setminus  \{ c  \}  \) satisfying \( d(x,c) < \delta \), we have \( \tilde{d}(f(x), L) < \epsilon \).
+    \item[(4)] \( \forall \epsilon > 0  \), \( \exists \delta > 0  \) such that \( \forall x \in ({N}_{\delta}^{X}(c) \cap (E \setminus  \{ c \} )) \), \( \tilde{d}(f(x), L) < \epsilon \).
+    \item[(5)] \( \forall \epsilon> 0  \), \( \exists \delta > 0  \), \( \forall x \in ({N}_{\delta}^{X}(c) \cap (E \setminus  \{ c \} )) \), \( f(x) \in {N}_{\epsilon}^{Y}(L) \).
+    \item[(6)] Given any \( \epsilon- \)neighborhood \( {N}_{\epsilon}^{Y}(L) \) of \( L \), there exists a \( \delta- \)neighborhood \( {N}_{\delta}^{X}(c) \) of \( c  \) such that the image of the part of \( {N}_{\delta}^{C}(c) \) contained in \( E \setminus  \{ c \}  \) is contained in \( {N}_{\epsilon}^{Y}(L) \).
+\end{enumerate}
+
+Keep in mind that, given \( \epsilon > 0  \), the choice of \( \delta  \) is NOT unique. If \( \delta = r  \) where (\( r  \) is a fixed number) works, then any positive number less than \( r  \) will also work. That is, given any \( \epsilon > 0  \), we can always assume that the \( \delta  \) we are looking for is less than \( 1  \).
+
+\begin{eg}
+    Let \( f: \R \to \R  \) be defined by \( f(x) = 2x + 5  \) for all \( x \in \R  \). Prove that \( \lim_{ x \to 3  } f(x) = 11 \).
+
+    Our goal is to show that for all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that if \( 0 < | x - 3  |  < \delta \), then \( | f(x) - 11  |  < \epsilon  \). Let \( \delta = \frac{ \epsilon  }{  2  }   \). For any \( x  \) with \( 0 < |  x - 3  |  < \delta  \), we have   
+    \[  | f(x) - 11  |  =  |  (2x +5) - 11  |  = 2 | x - 3  | < 2 \delta = 2 \Big(  \frac{ \epsilon }{ 2 }  \Big) = \epsilon \]
+    as desired.
+\end{eg}
+
+\begin{eg}
+    Let \( f: \R \to \R  \) by \( f(x) = x^{2} \) for all \( x \in \R  \). Prove that \( \lim_{ x \to 2 }  f(x) = 4 \). 
+
+    Our goal is to show that for all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that if \( 0 < | x - 2  | < \delta \), then \( | f(x) - 4  |  < \epsilon  \). Let \( \epsilon > 0  \) be given. Recall that, we may assume that the \( \delta  \) we are looking for is not greater than \( 1  \). Let \( \delta = \min \{ 1 , \frac{ 3 }{ 5 }  \}  \). For any \( x  \) with \( 0 < | x - c  | < \delta \), we have 
+    \[  | f(x) - 4  |   = | x^{2} - 4  |  = | x - 2  |  | x + 2  | < 5 | x - 2  |  < 5 \Big( \frac{ \epsilon  }{ 5  } \Big)  = \epsilon  \]
+    as desired.
+\end{eg}
+
+\begin{eg}[Limits with Discrete Metric]
+    Let \( f: \R \to (\R, \tilde{d}) \) defined by \( f(x) = x^{2} \). Prove that \( \lim_{ x \to 2 } f(x)  \) does not exist. 
+\end{eg}
+\begin{proof}
+Assume for sake of contradiction that, \( \lim_{ x \to 2 }  f(x) =  L \). So, 
+\begin{center}
+    \( \forall \epsilon > 0  \), \( \exists \delta > 0  \) such that if \(  0 < |  x - 2  |  < \delta  \), then \( \tilde{d}(f(x), L) < \epsilon \).
+\end{center}
+In particular, for \( \epsilon = \frac{ 1 }{ 2 }  \), there exists \( \delta > 0  \) such that if \( 0 < | x - 2  |  < \delta  \), then \( \tilde{d}(f(x), L) < \frac{ 1 }{ 2 }  \). Note that 
+\[  \tilde{d}(f(x), L) < \frac{ 1 }{ 2 } \implies \tilde{d}(f(x), L) = 0 \implies f(x) = L.  \]
+Hence, there exists \( \delta > 0  \) such that if \( 2 - \delta < x < 2 + \delta  \), then \( x^{2} = L  \). Obviously, it is not the case that for all \( x \in (2-  \delta, 2 + \delta) \) that \( x^{2}  \) is equal to the fixed number \( 1  \). 
+\end{proof}
+
+\begin{theorem}[Sequential Criterion for Limits of Functions]
+    Let \( (X,d)  \) and \( (Y, \tilde{d}) \) be metric spaces, let \( E  \) be a nonempty set in \( X  \), let \( c \in E' \), and \( f: E \to Y \). The following statements are equivalent:
+    \begin{enumerate}
+        \item[(i)] \( \lim_{ x \to c } f(x)= L  \).
+        \item[(ii)] For all sequences \( ({a}_{n}) \) in \( E \setminus  \{ c  \}  \) satisfying \( {a}_{n} \to c  \), we have \( f({a}_{n}) \to L  \).
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    (\( (i) \implies (ii) \)) Let \( ({a}_{n}) \) be a sequence in \( E \setminus  \{ c  \}  \) such that \( {a}_{n} \to c  \). Our goal is to show that \( f({a}_{n}) \to L  \). That is, we want to show that 
+    \[  \forall \epsilon > 0 \ \exists N \in \N \ \text{such that} \ \forall n > N \ \tilde{d}(f({a}_{n}), L) < \epsilon. \tag{*} \]
+    Let \( \epsilon > 0  \) be given. Since \( \lim_{ x \to c }  f(x) = L  \), we see that 
+    \[  \exists \delta > 0 \ \text{such that} \ \forall x \in {N}_{\delta}^{X}(c) \cap (E \setminus  \{ c \} ) \ f(x) \in {N}_{\epsilon}^{Y}(L). \tag{1} \]
+    Since \( \lim {a}_{n} = c \), we also see that
+    \[  \exists \hat{N} \in \N \ \text{such that} \ \forall n > \hat{N} \ {a}_{n} \in {N}_{\delta}^{X}(c). \tag{2} \]
+    Our claim is the \( \hat{N} \) can be used as the same \( N  \) we were looking for. Indeed, if we let \( N = \hat{N} \) such that for any \( n > N  \), we can see that from (2) that \( {a}_{n} \in {N}_{\delta}^{X}(c) \) and \( {a}_{n} \in E \setminus \{ c  \}  \) imply that \( {a}_{n} \in {N}_{\delta}^{X}(c) \cap (E \setminus  \{ c  \} ) \). By part (1), we can see that \( f({a}_{n}) \in {N}_{\epsilon}^{Y}(L) \).
+
+    (\( (ii) \implies (i) \)) Suppose for all sequences \( ({a}_{n}) \) in \( E \setminus  \{ c  \}  \) satisfying \( {a}_{n} \to c  \), we have \(  f({a}_{n}) \to L \). Our goal is to show that \( \lim_{ x \to c } f(x) = L  \). Suppose for sake of contradiction that \( \lim_{ x \to c  } \neq L    \); that is,
+    \[  \exists \epsilon > 0 \ \text{such that} \ \forall \delta > 0 \ \exists x \in {N}_{\delta}^{X}(c) \cap (E \setminus \{  c \} ) \ \text{such that} \ f(x) \notin {N}_{\epsilon}^{Y}(L). \]
+    So,
+    \begin{align*}
+        \delta = 1 \  &\exists {x}_{1} \in E \setminus \{ c \} \ \text{such that} \ d({x}_{1}, c) < 1 \ \text{but} \ \tilde{d}(f({x}_{1}) , L) \geq \epsilon  \\
+        \delta = \frac{ 1 }{ 2 } \  &\exists {x}_{2} \in E \setminus \{ c \} \ \text{such that} \ d({x}_{2}, c) < 1 \ \text{but} \ \tilde{d}(f({x}_{2}) , L) \geq \epsilon  \\
+        \delta = \frac{ 1 }{ 3 } \  &\exists {x}_{3} \in E \setminus \{ c \}  \ \text{satisfying} \ d({x}_{3},c) < \frac{ 1 }{ 3 }  \ \text{but} \ \tilde{d}(f({x}_{3}), L) \geq \epsilon \\
+                                 &\vdots
+    \end{align*}
+    In this way we will obtain a sequence \( ({x}_{n}) \) in \( E \setminus \{ c  \}  \) such that \( {x}_{n} \to c  \) but for which \( \tilde{d}(f({x}_{n}),L) \geq \epsilon  \), and so \( f({x}_{n}) \not\to L \). This contradicts our assumption.
+
+\end{proof}
+
+\begin{remark}
+    The previous theorem gives us a nice way of establishing that certain limits do NOT exist. If you can find two sequences \( ({a}_{n})  \) in \( E \setminus \{ c  \}  \) and \( ({b}_{n}) \) in \( E \setminus \{ c  \}  \) such that \( \lim {a}_{n} = c  \) and \( \lim {b}_{n} = c  \) but \( \lim f({a}_{n}) \neq \lim f({b}_{n}) \), then you can conclude that \( \lim_{ x \to c } f(x) \) does NOT exist.
+\end{remark}
+
+\begin{eg}
+    Let \( f: \R \setminus \{  0 \} \to \R  \) be defined by \( f(x) = \sin \frac{ 1 }{ x }  \). Prove that \( \lim_{ x \to 0 } f(x) \) doe NOT exist.
+\end{eg}
+\begin{proof}
+Let \( {a}_{n} = \frac{ 1 }{ 2n \pi }  \) and \( {b}_{n} = \frac{ 1 }{ 2n \pi + \frac{ \pi }{ 2 }  }  \). Clearly, \( ({a}_{n}) \) and \( ({b}_{n}) \) are sequences in \( \R \setminus \{ 0 \}  \) and \( \lim_{ n \to \infty  }  {a}_{n} = 0  \) and \( \lim_{ n \to \infty  }  {b}_{n} = 0 \). However,
+\[ \lim_{ n \to \infty  }  f({a}_{n}) = \lim_{ n \to \infty  }  \sin \frac{ 1 }{ {a}_{n} }  = \lim_{ n \to \infty  }  \sin (2n \pi) = \lim_{ n \to \infty  } 0 = 0   \]
+and
+\[  \lim_{ n \to \infty  } f({b}_{n}) = \lim_{ n \to \infty  } \sin \frac{ 1 }{ {b}_{n} } = \lim_{ n \to \infty  }  \sin \Big(2n\pi + \frac{ \pi }{ 2 }  \Big) = \lim_{ n \to \infty  }  \sin \frac{ \pi }{ 2 }  = \lim_{ n \to \infty  } 1 = 1. \]
+So, \( \lim f({a}_{n}) \neq \lim f({b}_{n}) \). Therefore, \( \lim_{ x \to 0 }  \sin \frac{ 1 }{ x }  \) does not exist.
+\end{proof}
+
+\begin{theorem}[ ]
+    Let \( (X,d) \) be a metric space. Let \( \emptyset \neq E \subseteq  X \). Let \( c \in E' \). Let \( f,g: E \to \R  \). Assume that 
+    \[  \lim_{ x \to c } f(x) = L \ \text{and} \ \lim_{ x \to c }  g(x) = M. \]
+    Then
+    \begin{enumerate}
+        \item[(i)] \( \forall k \in \R  \) \( \lim_{ x \to c } (kf(x)) =  kL \),
+        \item[(ii)] \( \lim_{ x \to c } (f(x) + g(x))  = L + M\),
+        \item[(iii)] \( \lim_{ x \to c } f(x)g(x) = LM \)
+        \item[(iv)] \( \lim_{ x \to c } \frac{ f(x) }{ g(x) }  = \frac{ L }{ M }  \) provided that \( M \neq 0 \).
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+All these items follow immediately from the Algebraic Limit Theorem for sequences and the sequential criterion for limits of functions.
+\end{proof}
+
+\section{Continuity}
+
+\begin{enumerate}
+    \item[(1)] Let \( E \subseteq X  \). First, we will explain what it means to say that \( f: E \to Y \) is continuous at a point \( c \in E' \cap E  \).
+    \item[(2)] Then we will explain what it means to say that \( f: E \to Y \) is continuous at a point \( c \in E  \). 
+    \item[(3)] Finally, we will explain what it means to say that \( f: E \to Y \) is continuous.
+\end{enumerate}
+
+In what follows, we will present a three definitions of continuity that will best represent the three situations above.
+
+\begin{definition}[Version 1 of Continuity]
+    Let \( (X,d) \) and \( (Y,\tilde{d}) \) be metric spaces. Let \( E \subseteq X  \). Let \( c \in E' \). Let \( f: E \to Y \). We say that \( f  \) is continuous at \( c  \) if all the following three conditions hold:
+    \begin{enumerate}
+        \item[(1)] \( c \in E  \) (\( f \) is defined at \( c \)),
+        \item[(2)] \( \lim_{ x \to c } f(x)  \) exists,
+        \item[(3)] \( \lim_{ x \to c } f(x) = f(c) \).
+    \end{enumerate}
+\end{definition}
+
+The definition above is mostly seen in introductory Calculus books. 
+
+\begin{definition}[Version 2 of Continuity]
+    Let \( (X,d) \) and \( (Y,\tilde{d}) \) be two metric spaces. Let \( E  \) be a nonempty set in \( X  \). Let \( c \in E  \). Let \( f: E \to Y \). We say \( f  \) is continuous at \( c  \) if any of the following equivalent statements holds:
+\begin{enumerate}
+    \item[(1)] \( \lim_{ x \to c } f(x) = f(c) \).
+    \item[(2)] \( \forall \epsilon > 0 \), \( \exists \delta > 0 \) such that if \( d(x,c) < \delta \) (with \( x \in E  \)), then \( \tilde{d}(f(x), f(c)) < \epsilon \).
+    \item[(3)] \( \forall \epsilon > 0 \), \( \exists \delta > 0  \) such that \( \forall x \in {N}_{\delta}^{X}(c) \cap E  \), \( f(x) \in {N}_{\epsilon}^{Y}(f(c)) \).
+    \item[(4)] For every \( \epsilon- \)neighborhood \( {N}_{\epsilon}^{Y}(f(c))  \) of \( f(c) \), there exists a \( \delta- \)neighborhood \( {N}_{\delta}^{X}(c)  \) of \( c  \) such that the image of \( {N}_{\delta}^{X}(c) \cap E  \) is contained in \( {N}_{\epsilon}^{Y}(f(c)) \).
+\end{enumerate}  
+\end{definition}
+ 
+\begin{remark}
+    \begin{enumerate}
+        \item[(i)] It is a direct consequence of definition \( 2  \) that if \( c  \) is an isolated point of \( E  \), then \( f  \) is continuous at \( c  \).
+        \item[(ii)] As we discussed, if \( c \in E \cap E' \), then definition \( 2 \) is equivalent to saying that \( \lim_{ x \to c } f(x) = f(c) \).
+    \end{enumerate}
+\end{remark}
+
+\begin{definition}[Version 3 of Continuity]
+   Let \( (X,d)\) be a metric space and let \( E \subseteq X  \). Suppose \( f: E \to Y \). We say that \( f  \) is \textbf{continuous} if it is continuous at every point of \( E  \).
+\end{definition}
+
+\begin{theorem}[Characterization of Continuity via Sequences]
+    Let \( f: E \subseteq X \to Y \). Let \( c \in E  \). The following two statements are equivalent:
+    \begin{enumerate}
+        \item[(i)] \( f  \) is continuous at \( c  \)
+        \item[(ii)] For all sequences \( ({a}_{n}) \) in \( E  \) satisfying \( {a}_{n} \to c  \), we have \( f({a}_{n}) \to f(c) \).
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    (\( (i) \implies (ii) \)) Let \( ({a}_{n}) \) be a sequence in \( E  \) such that \( {a}_{n} t\to c \). Our goal is to show that \( f({a}_{n}) \to f(c) \), that is, we want to show that 
+    \[  \forall \epsilon > 0 \ \exists N \in \N \ \text{such that} \ \forall n > N \ \tilde{d}(f({a}_{n}), f(c)) < \epsilon. \tag{*} \]
+    Let \( \epsilon > 0  \) be given. Since \( f  \) is continuous at \( c  \),
+    \[  \exists \delta > 0 \ \text{such that} \ \forall x \in {N}_{\delta}^{X}(c) \cap E  \  f(x) \in {N}_{\epsilon}^{Y}(f(c)). \tag{1} \]
+    Furthermore, we have 
+    \[  {a}_{n} \to c \implies \exists \hat{N} \ \text{such that} \ \forall n > \hat{N} \ {a}_{n} \in {N}_{\delta}^{X}(c). \tag{2} \]
+    We claim that we can use \( \hat{N} \) as the same \( N  \) we were looking for. Indeed, if \( n > \hat{N} \), then (2) implies \( {a}_{n} \in {N}_{\delta}^{X}(c) \). Additionally, since \( {a}_{n} \in E  \), we have \( {a}_{n} \in {N}_{\delta}^{X}(c) \cap E  \). With (1), we have \( f({a}_{n}) \in {N}_{\epsilon}^{Y}(f(c)) \).
+
+    (\( (ii) \implies (i) \)) Assume that for all sequences \( ({a}_{n}) \) in \( E  \) such that \( {a}_{n} \to c  \), we have \( f({a}_{n}) \to f(c) \). Our goal is to show that \( f  \) is continuous at \( c  \). We may consider two cases.
+    \begin{enumerate}
+        \item[(1)] Suppose \( c \in E \setminus  E' \); that is, \( c  \) is an isolated point of \( E  \). Indeed, it follows immediately that \( f  \) is continuous at any isolated point of its domain.
+        \item[(2)] Suppose \( c \in E' \). It suffices to show that \( \lim_{ x \to c } f(x) = f(c) \). By the Sequential Criterion for Limits of functions, it suffices to show that 
+            \begin{center}
+                if \( ({a}_{n}) \) is a sequence in \( E \setminus \{ c  \}  \) such that \( {a}_{n} \to c  \), then \( f({a}_{n}) \to f(c) \).
+            \end{center}
+            But this is a direct consequence of the assumption that 
+            \begin{center}
+                if \( ({a}_{n}) \) is a sequence in \( E  \) such that \( {a}_{n} \to c  \), then \( f({a}_{n}) \to f(c) \).
+            \end{center}
+    \end{enumerate}
+\end{proof}
+
+Note that if \( f  \) is continuous at \( c  \) and 
+\[ {a}_{1} \ {a}_{2} \ {a}_{3} \dots \to c, \]
+then
+\[  f({a}_{1}) \ f({a}_{2}) \ f({a}_{3}) \ \dots \to f(c) \]
+that is, if \( f  \) is continuous at \( c  \), then
+\[  \lim_{ n \to \infty  }  f({a}_{n}) = f(\lim_{ n \to \infty  }  {a}_{n}). \]
+The above is saying that we can bring a limit inside a continuous function.
+
+For example, we will see in Homework 10 that if \( f: \R \to \R  \) defined by \( f(x) = \sin x  \) is continuous. So, we have 
+\[  \lim_{ n \to \infty  } \sin \Big(  \frac{ 1 }{ n }  \Big) = \sin \Big(\lim_{ n \to \infty  }  \frac{ 1 }{ n } \Big) = \sin 0 = 0.  \]
+
+Note that if we can even find one sequence \( ({a}_{n}) \) in \( E  \) such that \( {a}_{n} \to c  \) but \( f({a}_{n}) \not\to f(c) \), that shows \( f  \) is NOT continuous at \( c  \).
+
+\begin{eg}[Dirichlet Function]
+   Prove that the Dirichlet Function 
+   \[  f: \R \to \R  \ \ f(x) = 
+   \begin{cases}
+       1 &\text{if} \  x \in \Q \\
+       0 &\text{if} \  x \notin \Q 
+   \end{cases} \]
+   is discontinuous everywhere.
+\end{eg}
+\begin{proof}
+Let \( c \in \R  \). We will show that \( f  \) is discontinuous at \( c  \). We will consider two cases:
+\begin{enumerate}
+    \item[(1)] Suppose \( c \in  \R \setminus \Q  \); that is, \( f(c) = 0  \). Let \( ({q}_{n})  \) be a sequence of rational numbers such that \( {q}_{n} \to c  \). Note that  
+        \[  \forall n \ \  {q}_{n} \in \Q \implies \forall n f({q}_{n}) = 1  \implies \lim_{ n \to \infty  }  f({q}_{n}) = \lim_{ n \to \infty  } 1 = 1. \]
+        Therefore, we have
+        \[  {q}_{n} \to c \wedge  f({q}_{n}) \not\to f(c) = 0 \implies \ \text{\( f \) is NOT continuous at \( c \)}.  \]
+    \item[(2)] Suppose \( c \in \Q  \); that is, \( f(c) = 1  \). Let \( ({r}_{n}) \) be sequence of irrational numbers such that \( {r}_{n} \to c  \). Note that 
+        \begin{align*}
+            \forall n \ {r}_{n} \in \R \setminus \Q  &\implies \forall n \ f({r}_{n}) = 0 \\
+                                                 &\implies \lim_{ n \to \infty  }  f({r}_{n}) = \lim_{ n \to \infty  }  0 = 0.
+        \end{align*}
+        Therefore, we have
+        \[  {r}_{n} \to c \wedge f({r}_{n}) \not\to f(c) \implies \text{\( f  \) is continuous at \( c \)}. \]
+\end{enumerate}
+\end{proof}
+
+\begin{eg}
+    Prove that \( f: (\R,d) \to \R  \) defined by 
+    \[  f(x) = 
+    \begin{cases}
+        1 &\text{if} \ x \in \Q \\
+        0 &\text{if} \ x \notin \Q
+    \end{cases} \]
+    is continuous everywhere.
+\end{eg}
+\begin{proof}
+Let \( c \in \R  \). Our goal is to show that \( f  \) is continuous at \( c  \), that is, we want to show 
+\begin{center}
+    \( \forall \epsilon > 0  \), \( \exists \delta > 0  \) such that if \( d(x,c) < \delta \), then \( | f(x) - f(c) | < \epsilon \). 
+\end{center}
+Let \( \epsilon > 0  \) be given. Regardless of the expression of \( f  \), the above holds with \( \delta = \frac{ 1 }{ 2 }  \). Indeed, if \( d(x,c) < \frac{ 1 }{ 2 }  \), then \( d(x,c) = 0  \), so \( x = c  \), and therefore, \( | f(x) - f(c) |  =  | f(c) - f(c) |  = | 0 | = 0 < \epsilon \) as desired.
+\end{proof}
+
+\begin{eg}
+    Let \( (X, \|\cdot\|) \) be a normed space. Prove that 
+    \[  \|\cdot\| : X \to \R  \]
+    is continuous.
+\end{eg}
+\begin{proof}
+Let \( c \in X  \). We will prove that \( \|\cdot\| \) is continuous at \( c  \), that is, we will show that  
+\begin{align*}
+    \text{\( \forall \epsilon > 0  \), \( \exists \delta > 0  \) such that if \( \|x - c \| < \delta \) then \( | \|x \| - \|c\| |  < \epsilon \)}. \tag{*}
+\end{align*}
+Let \( \epsilon > 0  \) be given. By the reverse triangle inequality, we can see that 
+\[ \Big| \|x\| - \|c\| \Big| \leq \|x - c\|  \]
+implies that (*) holds for example with \( \delta = \epsilon \).
+\end{proof}
+\begin{corollary}
+    If \( {x}_{n} \to x  \) in \( X  \), then \( \|{x}_{n}\| \to \|x\|  \) in \( \R  \).
+\end{corollary}
+
+\begin{eg}
+    Let \( (X,d) \) be a metric space. Let \( p \in X  \). Define \( f: X \to \R  \) by \( f(x) = d(p,x) \). Prove that \( f  \) is continuous. 
+\end{eg}
+\begin{proof}
+Let \( c \in X  \). Our goal is to show that 
+\[ \text{\( \forall \epsilon > 0   \), \( \exists \delta > 0  \) such that if \( d(x,c) < \delta \) then \( | d(p,x) - d(p,c) | < \epsilon \). } \tag{*} \] 
+Let \( \epsilon > 0  \) be given. Note that (*) follows immediately from the inequality 
+\[  | d(p,x) - d(p,c) | \leq d(x,c) \iff -d(x,c) \leq d(p,x) - d(p,c) \leq d(x,c) \]
+that (*) holds with \( \delta = \epsilon \).
+\end{proof}
+\begin{corollary}
+    If \( {x}_{n} \to x  \) in \( (X,d) \), and \( p \in X  \), then \( d(p,{x}_{n}) \to d(p,x) \) (\( \lim_{ n \to \infty  } d(p,{x}_{n}) = d(p,\lim_{ n \to \infty  } {x}_{n}) \)). 
+\end{corollary}
+
+\begin{eg}[Continuity with Linear Operators]
+    Consider \( C[0,1] = \{ f: [0,1] \to \R : \ \text{\( f \) is continuous} \}  \) equipped with the norm 
+    \[  \|f\|_{\infty } = \max_{0 \leq x \leq 1} | f(x) |.  \]
+    Prove that \( T: C[0,1] \to \R  \) defined by \( T(f) = f(1/2) \) is continuous.
+\end{eg}
+\begin{proof}
+    Let \( g \in C[0,1] \). Our goal is to show that \( T  \) is continuous at \( g  \). To this end, it suffices to show that if \( {g}_{n} \to g  \) (in the normed space \( (C[0,1], \|\cdot\|_{\infty})  \)), then \( T({g}_{n}) \to T(g) \) in \( \R  \). Applying the Squeeze Theorem to 
+    \[  0 \leq | {g}_{n}(1/2) - g(1/2) | \leq \max | {g}_{n} - g(x) |,  \]
+    we can see that 
+    \[  | {g}_{n}(1/2) - g(1/2) | \to 0 \]
+    and so, we have
+    \begin{align*}
+        {g}_{n} \to g &\implies \|{g}_{n} - g\|_{\infty} \to 0 \ \text{as \( n \to \infty  \)} \\
+                      &\implies \max_{0 \leq x \leq 1} | {g}_{n}(x) - g(x) | \to \  0 \  \text{as} \ n \to \infty  \\
+                      &\implies | {g}_{n} (1/2) - g(1/2) |  \to 0 \ \text{as} \ n \to \infty  \\
+                      &\implies {g}_{n}(1/2) \to g(1/2) \ \text{in \( \R \)} \\
+                      &\implies T({g}_{n}) \to T(g) \ \text{in \( \R \)}.
+    \end{align*}
+\end{proof}
+
+\begin{theorem}[Algebraic Conitnuity Theorem]
+    Assume \( f: E \subseteq (X,d) \to \R   \) and \( g: E \subseteq (X,d) \to \R   \) are continuous at \( c \in E  \). Then
+    \begin{enumerate}
+        \item[(i)] \( k \cdot f (x) \) is continuous at \( c  \) for all \( k \in  \R  \)
+        \item[(ii)] \( f(x) + g(x)  \) is continuous at \( c  \)
+        \item[(iii)] \( f(x) g(x)  \) is continuous at \( c  \)
+        \item[(iv)] \( \frac{ f(x) }{  g(x) }  \) is continuous at \( c  \) provided that the denominator is not zero.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+These items are direct consequences of the ALT for sequences and the characterization of continuity via sequences. For example, let's prove (iii).
+
+By characterization of continuity via sequences, it suffices to show that if \( ({a}_{n}) \) is a sequence in \( E  \) such that \( {a}_{n} \to c  \), then
+\[  f({a}_{n}) g({a}_{n}) \to f(c) g(c). \]
+Let \( ({a}_{n}) \) be such a sequence. Since \( f \) is continuous at \( c  \) and \( {a}_{n} \to c  \), we have \( f({a}_{n}) \to f(c) \). Similarly, \( g  \) is continuous at \( c  \) and \( {a}_{n} \to c  \) implies that \( g({a}_{n}) \to g(c) \). Using these two facts, we can use ALT for sequences of real numbers to conclude that 
+\[  f({a}_{n}) g({a}_{n}) \to f(c) g(c) \]
+as desired.
+\end{proof}
+
+\begin{theorem}[Composition of Continuous Functions is Continuous]
+    Let \( (X,d), (Y, \tilde{d}), (Z,\overline{d}) \) are metric spaces. Assume that \( A,B \neq \emptyset \) are subsets of \( X  \) and \( Y  \), respectively. Let \( f: A \to Y  \) and \( g: B \to Z  \) and let \( f(A) \) be contained in \( \R  \), \( f  \) is continuous at \( c \in A  \), and \( g \) is continuous at \( f(c) \in B \). Then \( g \circ f : A \to Z  \) is continuous at \( c \in A  \).
+\end{theorem}
+
+\begin{proof}
+It suffices to show that if \( ({a}_{n}) \) is a sequence in \( A  \) such that \( {a}_{n} \to c  \), then \( (g \circ f)({a}_{n}) \to (g \circ f)(c) \). Let \( ({a}_{n}) \) be such a sequence. Since \( f \) is continuous at \( c  \) and \( {a}_{n} \to c  \), we have \( f({a}_{n}) \to f(c) \). Similarly, \( g  \) being continuous at \( f(c)  \) and \( f({a}_{n}) \to f(c) \) implies that \( g(f({a}_{n})) \to g(f(c)) \). So, we have \( (g \circ f)({a}_{n}) \to (g \circ f)(c) \) as desired.
+\end{proof}
+
+\begin{eg}
+    If \( f: X \to \R  \) and \( g: X \to \R \) are continuous, then \( \max \{ f,g \}  \) and \( \min \{ f,g \}  \) are also continuous. The following are explicit formulas of the max and min functions: 
+    \begin{enumerate}
+        \item[(1)] \( \max \{ a,b \}  = \frac{ a+ b }{ 2  }  + \frac{ | a - b |  }{ 2  }  \).
+        \item[(2)] \( \min \{ a,b \}  = \frac{ a + b  }{  2  }  - \frac{ | a- b |  }{ 2 }  \).
+    \end{enumerate}
+\end{eg}
+
+\begin{eg}
+    \begin{enumerate}
+        \item[(1)] If \( E  \) is a metric subspace of \( X  \), then
+            \[  i : E \to X   \ \ , \ \ i(x) = x \]
+            is continuous (think of the sequential criterion for continuity).
+        \item[(2)] If \( f: x \to Y \) is continuous and \( E \subseteq  X  \), then \( f |_{E} : E \to X  \) is continuous.
+        \item[(3)] If \( f: X \to Y \) is continuous and \( Y  \) is a metric subspace of \( Z  \), then \( f: X \to Z \) is continuous.
+    \end{enumerate} 
+\end{eg}
+
+
+
+
+
+
+
+\end{document}
+
