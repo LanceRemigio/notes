@@ -1,0 +1,141 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+
+\begin{document}
+
+\section{Handout-14}
+
+\subsection{Plan}
+
+Discuss vector valued integrals and complex line integrals.
+
+\subsection{Recap}
+
+\begin{itemize}
+    \item Let's recall how we find anti-derivative or primitive of a function in calculus of one-variable.
+
+\textbf{Question:} Let \( f: [a,b] \to \R  \). Is it possible to find \( F : [a,b] \to \R  \) such that \( F'(x) = f(x)  \) for all \( x \in [a,b] \)?
+
+\textbf{Answer:} Yes, it is possible. A sufficient condition is to have \( f  \) be Riemann integrable on \( [a,b] \) such that 
+\[  F(x) = \int_{ a }^{ x }  f(t) \ dt. \]
+
+    \textbf{Question:} If \( f: D \to \C  \) where \( D \subseteq \C  \), can we find \( F: D \to \C  \) such that \( F'(z) = f(z)  \) for all \( z  \)?
+
+    \textbf{Answer:} Not obvious. First note that \( f = u + iv \). Thus, if we want to mimick the real case, then we need to be able to discuss on integral of a "vector" valued function over a line segment. But a careful set up will allows us to use some of the ideas from calculus and real analysis.
+
+\item \textbf{Digression:} Vector valued integrals: 
+    Let \( f: [a,b] \to \R^{2} \), \( f(t) = \begin{pmatrix} x(t) \\ y(t) \end{pmatrix}  \). We say that \( f \) is integrable on \( [a,b] \) if both \( u  \) and \( v  \) are integrable in the sense of real analysis; that is, 
+    \[  \int_{ a }^{ b } | x(t) |  \ dt \ \ \text{and} \ \ \int_{ a }^{ b } | y(t) |  \ dt \ \ \text{exist}. \]
+    We define 
+    \[  \int_{ a }^{ b } f(t) \ dt = \begin{pmatrix} \int_{ a }^{ b }  x(t)  \ dt \\ \int_{ a }^{ b }  y(t)  \ dt  \end{pmatrix}. \]
+    We can show 
+    \begin{enumerate}
+        \item[(i)] Linearity of the integral.
+        \item[(ii)] Let \( F:[a,b] \to \R^{2} \) such that \( F'(t) = f(t) \) for all \( t \in [a,b] \). Then 
+            \[  \int_{ a }^{ b } f(t) \ dt = F(b) - F(a) \in \R^{2} \]
+            assuming all quantities exist.
+    \end{enumerate}
+\item Integration of functions of the form \( f: [a,b] \to \C  \) with \( f(t) = x(t) + i y(t) \) are integrable and define
+    \[  \int_{ a }^{ b }  f(t) \ dt = \int_{ a }^{ b } x(t) \ dt + i \int_{ a }^{ b }  y(t) \ dt. \]
+\end{itemize}
+
+\begin{eg}
+    Let \( f: [0,1] \to \C  \) be defined by \( f(t) = 3 t^{2} + 2i t \). Then one can easily check that  
+    \[  \int_{ 0 }^{ 1 }  f(t) \ dt = 1 + i. \]
+\end{eg}
+
+Let \( \mathcal{F} = \{ f: [a,b] \to \C \ \text{such that \( f  \) is integrable} \}  \).
+\begin{enumerate}
+    \item[(i)] Then the map \( I: \mathcal{F} \to \C  \) defined by
+        \[  I(f) = \int_{ a }^{ b } f(t) \ dt \ \text{is \( \C-\)linear}. \]
+        Indeed, it follows immediately that for any \( {f}_{1}, {f}_{2} \in \mathcal{F} \), we have 
+        \[  I({f}_{1} + {f}_{2}) = I({f}_{1}) + I({f}_{2}). \]
+        For any \( \alpha \in \R  \) and \( f \in \mathcal{F} \), we have 
+        \begin{align*}
+            I(\alpha f ) &= \int_{ a }^{ b }  [\Re(\alpha) x(t) - \Im(\alpha) y(t) + i (\Re(\alpha) y(t) + \Im(\alpha) x(t))]  \ dt \\
+                         &= \Re(\alpha) \int_{ a }^{ b }  x(t) \ dt - \Im(\alpha) \int_{ a }^{ b } y(t) \ dt \\
+                         &+ i [ \Re(\alpha) \int_{ a }^{ b } y(t) \ dt + \Im(\alpha) \int_{ a }^{ b }  x(t) \ dt] \\
+                         &= \alpha \int_{ a }^{ b } f(t) \ dt.
+        \end{align*}
+    \item[(ii)] Let \( F: [a,b] \to \C  \) such that \( F'(t = f(t)) \) for all \( t \in [a,b] \). Then \( \int_{ a }^{ b } f(t) \ dt = F(b) - F(a) \).
+    \item[(iii)] Let \( {I}_{1}, {I}_{2} \) be two intervals in \( \R  \), \( \varphi : {I}_{1} \to {I}_{2} \) continuous differentiable, \( f: {I}_{2} \to \C  \) integrable. Let \( a,b \in {I}_{1} \), \( a < b \). Then
+        \[  \int_{ \varphi(a) }^{ \varphi(b) }  f(s)  \ ds  = \int_{ a }^{ b }  f(\varphi(t)) \varphi'(t) \ dt. \]
+    \item[(iv)] Let \( f,g : [a,b] \to \C  \), \( f \) and \( g  \) are continuously differentiable (i.e \( \Re(f), \Im(f), \Re(g), \Im(g) \) are continuously differentiable). Then
+        \[  \int_{ a }^{ b } f(t) g'(t) \ dt = f(b)g(b) - f(a)g(a) - \int_{ a }^{ b } f'(t) g(t) \ dt. \]
+\end{enumerate}
+
+The key point here is that if we have a complex valued function defined on \( I \subseteq \R \), then the integral enjoys properties similar to that of a real valued function defined on \( I  \).
+
+\subsection{Complex Line Integrals}
+
+We would like to define the integral of a complex-valuedf function along a curve in \( \C  \) in the same way we defined a line integral of a function in multivariable calculus.
+
+We will start by introducing some basic terminologies.
+
+\begin{definition}[Curve]
+    A curve in \( \C  \) is a continuous map \( \alpha : [a,b] \to \C  \), where \( [a,b] \) is an interval in \( \R  \). We call \( \alpha(a) \) the starting point and \( \alpha(b) \) the end point of \( \alpha \).
+\end{definition}
+
+\begin{definition}[Trace of a Curve]
+    The  set 
+    \[  \text{tr}(\alpha) = \{ \alpha(t) : t \in [a,b] \} \subseteq  \C  \]
+    is called the trace or the image of \( \alpha \).
+\end{definition}
+
+\begin{eg}
+    \begin{enumerate}
+        \item[(i)] Let \( z,w \in \C  \) and define \( \alpha: [0,1] \to \C  \) by 
+            \[  \alpha(t) = (1-t)z + tw , \ \ \alpha(0) = z , \ \alpha(1) = w. \]
+        \item[(ii)] Let \( \alpha: [0,1] \to \C \) be defined by \( \alpha(t) = e^{2\pi i t} \) with \( \alpha(0) = 1  \) and \( \alpha(1) = 1 \).
+    \end{enumerate}
+\end{eg}
+
+\begin{definition}[Smooth Curve]
+    A curve \( \alpha \) is smooth if it is continuously differentiable.
+\end{definition}
+
+\begin{definition}[Piecewise Smooth Curve]
+    A curve \( \alpha : [a,b] \to \C  \) is \textbf{piecewise smooth} if there is a partition \( a = {a}_{0} < {a}_{1} < \cdots < {a}_{n} = b \) such that \( \alpha |_{[{a}_{i-1}, {a}_{i}]} \) is smooth for \( i = 1 ,2, \dots , n \).
+\end{definition}
+
+\begin{definition}[Integral of Curve in terms of its Parametrization]
+    Let \( \alpha: [a,b] \to \C  \) be a smooth curve, \( f: D \to \C  \) continuous, \( \alpha([a,b]) \subseteq  D \). Then, we define 
+    \[  \int_{ \alpha }^{  } f = \int_{ \alpha }^{  } f(z) \ dz = \int_{ a }^{ b } f(\alpha(t)) \alpha'(t) \ dt\tag{*} \]
+    where the integrand of the above equation is a complex valued function defined on \( [a,b] \). We call (*) the \textbf{line integral of \( f  \) along \( \alpha \).}
+\end{definition}
+
+\begin{definition}[Integral of a Piecewise Smooth Curve]
+    Assume \( \alpha: [a,b] \to \C  \) is a piecewise smooth curve with partition
+    \[  a = {a}_{0} < {a}_{1} < \cdots < {a}_{n} = b \]
+    such that \( \alpha |_{[{a}_{i-1}, {a}_{i}]} \) smooth for \( i = 1,2,\dots, n \). Let \( f: D \to \C  \) be a continuous function and \( \alpha([a,b]) \subseteq D \). Then we define 
+    \[  \int_{ \alpha }^{  } f(z) \ dz = \sum_{ i=1  }^{ n } \int_{ \alpha |_{[{a}_{i-1}, {a}_{i}]} }^{  }  f(z) \ dz. \tag{**} \]
+    We call (**) the integral along the piecewise curve \( \alpha \).
+\end{definition}
+
+\begin{lemma}
+    Let \( \alpha: [a,b] \to \C  \) be a piecewise smooth curve. Let \( a = {a}_{0} < \cdots < {a}_{n} = b \) be a partition of \( [a,b] \) such that \( \alpha |_{[{a}_{i-1}, {a}_{i}]} \) is smooth for \( i = 1,2,\dots, n \). Let \( a = {a}_{0}' < {a}_{1}' < \dots < {a}_{m}' = b \) be another partition of \( [a,b] \) such that \( \alpha  |_{[{a}_{j-1}, {a}_{j}]} \) is smooth. Assume that \( f: D \to \C  \) continuous and \( \alpha([a,b]) \subseteq  \C  \). Then
+    \[  \sum_{ j=1  }^{ m } \int_{ \alpha |_{[{a}_{j-1}', {a}_{j}']} }^{  } f(z) \ dz = \sum_{ i=1  }^{ n } \int_{ \alpha |_{[{a}_{i-1}, {a}_{i}]} }^{  } f(z) \ dz.  \]
+\end{lemma}
+
+\begin{proof}
+    Our goal is to show that for any smooth curve \( \gamma: [c,d] \to \C  \) and \( c < f < d  \), we have 
+    \[  \int_{ \gamma }^{  } f(z)  \ dz = \int_{ \gamma |_{[c,f]} }^{  } f(z)  \ dz + \int_{ \gamma |_{[f,d]} }^{  } f(z) \ dz. \tag{\( \dagger \)} \]
+    Note that (*) follows immediately from the properties of integrals of complex valued functions defined on an interval. Indeed, without loss of generality, assume that \( m = n + 1 \) and \[ {a}_{0} = {a}_{0}' < {a}_{1}' < {a}_{1} = {a}_{2}' < {a}_{2} = {a}_{3}' < \cdots < {a}_{n-1} = {a}_{n}' < {a}_{n} = {a}_{n+1}'.  \]
+    By (*), we have 
+    \[  \int_{ \alpha|_{[{a}_{0}, {a}_{1}]} }^{  }  f  = \int_{ \alpha |_{[{a}_{0}, {a}_{1}']} }^{  } f + \int_{ \alpha |_{[{a}_{1}', {a}_{2}']} }^{  } f. \]
+    Thus, 
+    \[  \sum_{ i=1  }^{ n } \int_{ \alpha |_{[{a}_{i-1}, {a}_{i}]} }^{  }  f  = \sum_{ j=1  }^{ n } \int_{ \alpha |_{[{a}_{j-1}', {a}_{j}']} }^{  }  f. \]
+\end{proof}
+
+The lemma above shows us that (*) is well-defined.
+
+\begin{definition}[Arc Length]
+    Let \( \alpha: [a,b] \to \C  \) be a smooth curve. Then we define 
+    \[  \ell(\alpha) = \int_{ a }^{ b } | \alpha'(t) |  \ dt.  \]
+    If \( \alpha \) is piecewise smooth then we define \[ \ell(\alpha) = \text{sum of arc lengths of smooth arcs of \( \alpha \)}.   \]
+\end{definition}
+
+
+
+\end{document}
+

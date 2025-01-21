@@ -43,8 +43,74 @@ In this handout, we will relate complex differentiability with differentiability
             &\implies e^{\Log z} \cdot (\Log z)' = 1 \\
             &\implies (\Log z )' = \frac{ 1 }{ e^{\Log z}  }  = \frac{ 1 }{ z }. 
         \end{align*}
-
+    \item[(vi)] Show that \( f: \C \to \C  \), \( f(z) = | z |^{2}  = z \overline{z} \) not complex differentiable except for \( z = 0 \). Also, show that \( f'(0) = 0  \).
  \end{eg}
+
+\begin{remark} 
+    When \( D \subseteq \C   \) is open, the notion of complex differentiability becomes interesting and has very different behavior from that of \( f: U \to \R  \), \( U \subseteq \R   \) open, \( f  \) differentiable. We will expand on this later. 
+\end{remark}
+
+Let us start with recalling some multivariable calculus concepts. Let \( D \subseteq \R^{p} \) be open and \( f: D \to \R^{q} \) be a function. We say that \( f  \) is differentiable at \( \vec{ a }  \in D  \) if we can find a linear function \( A: \R^{p} \to \R^{q} \) such that
+\begin{enumerate}
+    \item[(i)] \( f(\vec{ x }) = f(\vec{ a } ) + A (\vec{ x }  - \vec{ a } ) + \gamma(\vec{ x } )  \)
+    \item[(ii)] \( \lim_{ \vec{ x }  \to \vec{ a }  } \frac{ \gamma(\overline{x}) }{ \|\vec{ x } - \vec{ a } \| = 0 }. \)
+\end{enumerate}
+The linear map is called the Jacobian of \( f  \) at \( a  \) and it is written as \( J(f;a) \). The following proposition gives us a connection between complex differentiability and differentiability in the multivariable sense when \( D \subseteq \C   \) is open.
+
+\begin{prop}[ ]
+   Let \( D \subseteq \C   \) be an open set and \( f: D \to \C  \). Let \( a \in D  \) and \( \ell \in \C  \). Then the following statements are equivalent.
+   \begin{enumerate}
+       \item[(i)] \( f  \) is complex differentiable at \( a  \) and \( f'(a) = \ell \).
+        \item[(ii)] \( f  \) is differentiable at \( a \in D   \) in the sense of multivariable calculus (here we think of \( D \subseteq  \R^{2} \) open and \( \C  \) is identified with \( \R^{2} \)) and   
+            \[  J(f,a) = \begin{pmatrix} \Re(\ell) & - \Im(\ell) \\ \Im(\ell) & \Re(\ell) \end{pmatrix}.  \]
+   \end{enumerate} 
+\end{prop}
+
+In fact, if we indetify \( \begin{pmatrix} x \\ y \end{pmatrix}  \) with \( x + i y   \), then \( J(f,a) \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} \Re(\ell) x - \Im(\ell) y \\ \Re(\ell)y + \Im(\ell) x \end{pmatrix}  \); that is, \( J(f,a) z = \ell \cdot z \).
+
+\section{Handout-12}
+
+\subsection{Plan}
+
+Learn the necessary and sufficient condition for complex differentiability of a function \( f: D \to \C  \) when \( D  \) is open in \( \C  \).
+
+\subsection{Recap}
+
+Let \( f: D \to \C  \), \( D \subseteq \C   \) open, \( a \in D  \) and \( \ell \in \C  \). We saw that \( f \) is differentiability at \( a \in D  \) and \( f'(a) = \ell \) is equivalent to \( f  \) is differentiable at \( a  \) in the sense of multivariate calculus and   
+\[  J(f,a) = \begin{pmatrix} \Re(\ell) & - \Im(\ell) \\ \Im(\ell) & \Re(\ell) \end{pmatrix}
+\]
+when \( f  \) is regarded as a function from a subset of \( \R^{2} \) to \( \R^{2} \).
+
+This suggests the following question: Consider the setting as above. Assume that \( f  \) is differentiable in the sense of multivariate calculus at \( a \in D  \). Is is necessarily true that \( f  \) is complex differentiable at \( a  \)? \textbf{Ans. NO}
+
+\begin{eg}
+    Define \( f: \C \to \C  \) by \( f(z) = \overline{z} \); that is, \( f(x,y) = (x,-y) \) when regarded as a map from \( \R^{2} \to \R^{2} \). Let \( a = (0,0) \). Recall that \( f  \) is not complex differentiable at \( 0  \).
+\end{eg}
+
+Since both components of \( f  \) have continuous partial derivatives, \( f  \) is differentiable in the sense of multivariate calculus. Our next question then becomes:
+\begin{center}
+    \textit{What other conditions do we need in addition to our differentiability in the sense of multivariate calculus in order to guarantee complex differentiability?}
+\end{center}
+
+This is the content of the Cauchy-Riemann Equations. Before we discuss this we make a digression to linear algebra. 
+
+\begin{problem}
+    Let \( \ell \in \C  \) and define a map \( L: \C \to \C  \) by \( L(z) = \ell z  \).
+    \begin{enumerate}
+        \item[(i)] Show that \( L  \) is \( \R- \)linear and \( \C- \)linear.
+        \item[(ii)] Think of \( L  \) as a map from \( \R^{2} \to \R^{2} \) and find a matrix representation of \( L  \) with respect to the standard bases \( \Big\{ \begin{pmatrix} 1 \\ 0  \end{pmatrix} , \begin{pmatrix} 0 \\ 1  \end{pmatrix} \Big\}  \) on both domain and co-domain. Indeed, we have
+            \[  L = \begin{pmatrix} \Re(\ell) & - \Im(\ell) \\ \Im(\ell) & \Re(\ell)  \end{pmatrix}. \]
+        \item[(iii)] Let \( L = \begin{pmatrix} a & b \\ c & d  \end{pmatrix}  \) with \( a,b,c,d \in \R  \). Define \( L: \R^{2} \to \R^{2} \) by \( \begin{pmatrix} x \\ y  \end{pmatrix}  \mapsto \begin{pmatrix} ax + by \\ cx + dy \end{pmatrix}  \); that is, 
+            \[  L(x+iy) = (ax+by) + i (cx+dy). \]
+            Then, we know that \( L  \) is \( \R- \)linear. Find out a necessary and sufficient condition that \( L  \) is also \( \C  \)-linear.
+    \end{enumerate}
+\end{problem}
+
+\begin{lemma}[Warm-up to Cauchy-Riemann]
+   Let \( D \subseteq \R^{2} \) open, \( a \in D  \), \( f: D \to \R^{2} \) be differentiable at \( a \in D  \) in the sense of multivariable calculus. Let \( f \Big(  \begin{pmatrix} x \\ y  \end{pmatrix}  \Big) = \begin{pmatrix} u(x,y) \\ v(x,y) \end{pmatrix}  \). Then, we know \( J(f,a) : \R^{2} \to \R^{2} \) is \( \R- \)linear. Now, suppose that \( \C \to \C  \) is complex linear. Then 
+   \[  \frac{\partial u }{\partial x } (a) = \frac{\partial v }{\partial y } \ \ \text{and} \ \ \frac{\partial u }{\partial y } (a) = - \frac{\partial v }{\partial x }  (a).  \]
+\end{lemma}
+
 
 
 

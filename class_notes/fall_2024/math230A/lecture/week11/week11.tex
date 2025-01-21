@@ -7,13 +7,15 @@
 \subsection{Topics}
 
 \begin{itemize}
-    \item Infinite series (Basic definitions)
-    \item Telescoping Series, Geometric Series
-    \item Algebraic Limit Theorem for Series
-    \item Divergence Test
-    \item Cauchy Criterion for Series
-    \item Absolute Convergence Test
+    \item {\hyperref[Infinite Series]{Infinite Series}}
+    \item {\hyperref[Telescoping Series, Geometric Series]{Telescoping Series, Geometric Series}}
+    \item {\hyperref[Algebraic Limit Theorem for Series]{Algebraic Limit Theorem for Series}}
+    \item {\hyperref[Divergence Test]{Divergence Test}}
+    \item {\hyperref[Cauchy Criterion for Series]{Cauchy Criterion for Series}}
+    \item {\hyperref[Absolute Convergence Test]{Absolute Convergence Test}}
 \end{itemize}
+
+\subsection{Infinite Series}\label{Infinite Series}
 
 Consider the following expression:
 \[  \frac{ 1  }{  2  }  + \frac{ 1  }{  4  }  + \frac{ 1  }{  8  }  + \frac{ 1 }{ 16  }  + \cdots \ . \]
@@ -64,8 +66,7 @@ In most cases it is difficult (or even impossible)  to find a simple formula for
     \item[(2)] Geometric Series
 \end{enumerate}
 
-
-\subsection{Telescoping Series}
+\subsection{Telescoping Series, Geometric Series}\label{Telescoping Series, Geometric Series}
 
 \begin{eg}
    Consider the following series 
@@ -149,6 +150,8 @@ Thus,
     \end{itemize}
 \end{eg}
 
+\subsection{Algebraic Limit Theorem for Series}\label{Algebraic Limit Theorem for Series}
+
 \begin{theorem}[ ]
     Let \( (X , \|\cdot\|) \) be a normed space. Let \( ({a}_{n}) \) and \( ({b}_{n}) \) be two sequence in \( X  \). Suppose that 
     \[  \sum_{ n=1  }^{ \infty  } {a}_{n} = A \ \ (A \in X) , \ \ \sum_{ n=1  }^{ \infty  } {b}_{n} = B \ \ (B \in X). \]
@@ -161,6 +164,8 @@ Thus,
 \begin{proof}
 Can easily be proven via the Algebraic Limit Theorem for Sequences.
 \end{proof}
+
+\subsection{Divergence Test}\label{Divergence Test}
 
 \begin{theorem}[Divergence Test]
    Let \( (X,\|\cdot\|) \) be a normed space. Let \( ({x}_{n}) \) be a sequence in \( X  \). If \( \sum_{ n=1  }^{ \infty  } {x}_{n}  \) converges, then \( \lim_{ n \to \infty  }  {x}_{n} = 0  \). 
@@ -194,6 +199,9 @@ From the above statements, we can now see make two key observations:
 
 As for the first observation above, we see that \( \sum_{  }^{  } \frac{ 1 }{ n }  \) diverges, but \( \sum_{   }^{  } \frac{ 1 }{ n^{2} }   \) converges.
 
+\subsection{Cauchy Criterion for Series}\label{Cauchy Criterion for Series}
+
+
 \begin{theorem}[Cauchy Criterion]
     Let \( (X,\|\cdot\|) \) be a complete normed space. Let \( ({x}_{n}) \) be a sequence in \( X  \). Then
     \[  \sum_{ k=1  }^{ \infty  } {x}_{k } \ \text{converges} \ \iff \forall \epsilon > 0 \ \exists N \in \N \ \text{such that} \ \forall n > m > N \ \ \|\sum_{ k=1  }^{ n } {x}_{k } \| < \epsilon. \]
@@ -217,6 +225,8 @@ as desired.
 \end{proof}
 
 From here, we will refer to complete normed spaces as Banach spaces.
+
+\subsection{Absolute Convergence Test}\label{Absolute Convergence Test}
 
 \begin{theorem}[Absolute Convergence Test]
     Let \( (X,\|\cdot\|) \) be a Banach Space. Let \( ({x}_{n}) \) be a sequence in \( X  \). If \( \underbrace{\sum_{ n=1  }^{ \infty  } \|{x}_{n}\| }_{\text{a sum in \( \R  \)}} \) converges, then \( \sum_{ n=1  }^{ \infty  } {x}_{n} \) converges.

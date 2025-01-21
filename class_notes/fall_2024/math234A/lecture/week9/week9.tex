@@ -1,0 +1,109 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+
+\begin{document}
+
+\section{Handout-13}
+
+\subsection{Topics}
+
+\begin{itemize}
+    \item Discuss more consequences of Cauchy-Riemann equations.
+    \item Introduce holomorphic functions
+\end{itemize}
+
+\subsection{Recap}
+
+Let \( D \subseteq  \C  \), let \( f: D \to \C  \) defined by \( f(z) = u(z) + i v(z) \). Assume that the partial derivatives of \( u  \) and \( v  \) are continuous. Then the following statements are equivalent.
+\begin{enumerate}
+    \item[(i)] \( f  \) is complex differentiable on \( D  \).
+    \item[(ii)] The Cauchy-Riemann equations hold:
+        \[  \frac{\partial u }{\partial x } = \frac{\partial v }{\partial y }  \ \ , \ \ \frac{\partial u }{\partial y }= - \frac{\partial v }{\partial x } \ \ \text{on \( D  \)}. \]
+\end{enumerate}
+
+\subsection{Laplace's Equation and Harmonic Functions}
+
+\begin{definition}[ ]
+    Let \( D \subseteq  \C   \) be open and let \( f: D \to \C  \). If \( f  \) is complex differentiable on \( D  \), then we say \( f  \) is holomorphic on \( D  \). Let \( a \in D  \). We say \( f  \) is holomorphic at \( a  \) if we can find an open set \( D' \subseteq D  \) such that \( a \in D' \) and \( f  \) is holomorphic on \( D' \).
+\end{definition}
+
+\begin{lemma}
+    Let \( D \subseteq \C   \) be open, let \( f: D \to \C  \). Then the following statements are equivalent 
+    \begin{enumerate}
+        \item[(i)] \( f  \) is holomorphic on \( D  \)
+        \item[(ii)] \( f  \) is holomorphic at \( a \in D  \) for all \( a \in D  \).
+    \end{enumerate}
+\end{lemma}
+
+Let \( D \subseteq  \C  \), let \( D  \) be an open set, and let \( f: D \to \C  \) be holomorphic. Let \( f = u + iv \). In addition, assume that \( u \) and \( v  \) have second order continuous partial derivatives. By Cauchy-Riemann equation, we have
+\[  \frac{\partial u }{\partial x }  = \frac{\partial v }{\partial y } , \ \ \frac{\partial u }{\partial y }  = - \frac{\partial v }{\partial x }  \ \ \text{on \( D  \)}. \]
+Therefore, we have 
+\[  \frac{\partial ^{2} u  }{\partial x^{2} }  = \frac{\partial ^{2} v  }{\partial x \partial y }  \ \ \text{and} \ \ \frac{\partial ^{2} u  }{\partial  y^{2} }  = - \frac{\partial ^{2}v  }{\partial y \partial x }. \]
+
+Since we assumed, the second partial derivatives are continuous, we have 
+\[  \frac{\partial ^{2} u  }{\partial x^{2} }  = - \frac{\partial ^{2} u  }{\partial  y^{2} }  \implies \frac{\partial ^{2} u  }{\partial  x^{2} }  + \frac{\partial ^{2} u  }{\partial  y^{2} }  = 0.  \]
+
+Thus, we have proved the following proposition.
+
+\begin{prop}[Laplace's Equation]
+    Let \( D \subseteq  \C  \) be an open set, let \( f: D \to \C  \) be a holomorphic function and let \( f = u + i v \). In addition, assume that \( u  \) and \( v  \) have second order continuous partial derivatives. Then
+    \begin{align*}
+        \frac{\partial ^{2} u   }{\partial x^{2}  }  + \frac{\partial ^{2} u  }{\partial  y^{2} }  = 0, \\
+        \frac{\partial ^{2} v  }{\partial x^{2}  }  + \frac{\partial ^{2} v  }{\partial  y^{2} }  = 0. 
+    \end{align*}
+\end{prop}
+
+\begin{definition}[Harmonic Function]
+    Let \( D \subseteq  \R^{2} \) be open. A function \( u: D \to \R  \) is called \textbf{harmonic} if \[ \frac{\partial ^{2} u  }{\partial x^{2} }  + \frac{\partial ^{2} u  }{\partial y^{2} }   = 0  \] on \( D  \).
+\end{definition}
+
+Thus, we learned that if \( f: D \to \C  \) with \( D  \) being an open set, \( f  \) being holomorphic, \( \Re(f) \) and \( \Im(f) \) have continuous partial order partial derivatives, then \( \Re(f) \) and \( \Im(f) \) are harmonic functions on \( D  \). From the Cauchy-Riemann equations, we see that \( u  \) and \( v  \) are heavily dependent on each other. This begs the following two questions:
+\begin{enumerate}
+    \item[(1)] Can we determine \( v  \) from \( u \)?
+    \item[(2)] Suppose that \( u : D \to \R  \) that is harmonic. Is it possible to find a holomorphic \( f  \) such that \( u = \Re(f) \)?
+\end{enumerate}
+
+It turns out that the answers to these questions depends on the topology of \( D  \). But first we recall some basic topological facts in order to answer these questions.
+
+\subsection{Basic Topological Facts}
+
+\begin{definition}[ ]
+    Let \( D \subseteq  \C   \) be an open set. Let \( z ,w \in D  \). A path in \( D  \) joining \( z  \) to \( w  \) is a continuous map \(  \gamma : [a,b] \to D  \) such that \( \gamma(a) = z  \) and \( \gamma(b) = w  \), where \( [a,b] \) is a closed interval in \( \R  \).
+\end{definition}
+
+\begin{itemize}
+    \item Let \( D \subseteq  \C   \) be an open set. Let \( z,w \in D  \). Then \( z  \) and \( w  \) can be joined by a line segment if \( \gamma:[0,1] \to D  \) is given by \( \gamma(t) = (1-t)z + tw \).
+    \item An \textbf{open set} \( D \subseteq  \C   \) is connected if any two points \( z,w \in D  \) can be joined by a sequence of line segments; that is, we can find points \( {z}_{1}, \dots, {z}_{k} \) such that \( z  \) and \( {z}_{1} \) can be joined by a line segment, \( {z}_{i} \) and \( {z}_{i+1} \) can be joined by a line segment for \( i = 1,2, \dots , k - 1  \) and \( {z}_{k} \) and \( w  \) can be joined by a line segment.
+\end{itemize}
+
+\begin{eg}
+    \begin{itemize}
+        \item \(  B (a,R) \) is connected.
+        \item The annulus \( \{ z \in \C : {r}_{1} < | z | < {r}_{2} \}  \) where \( {r}_{1}, {r}_{2} > 0  \) such that \( {r}_{1} < {r}_{2} \) is connected. 
+        \item \( D = B(0,1) \cup B(5,2) \) is not connected as they are disjoint.
+    \end{itemize}
+\end{eg}
+
+\begin{remark}
+    In topology, one uses a more general version of connectedness. Our definition of connectedness is specific to open subsets of \( \C  \) (or for any set in \( \R^{2}  \) rather).
+\end{remark}
+
+One consequence of connectedness is outlined in the proposition below:
+
+\begin{prop}
+   Let \( D \subseteq \C   \) be an open set and let \( f: D \to \C  \) be a holomorphic function. Suppose that \( f  \) is locally constant on \( D  \). If \( D  \) is connected, then \( f  \) is constant.
+\end{prop}
+
+\begin{theorem}[ ]
+    Let \( D \subseteq  \C  \) be an open rectangle, whose sides parallel to the real and imaginary axes. Let \( u : D \to \R \) be a harmonic function. Then, we can find \( v: D \to \R  \) such that \( f: u + iv \) is holomorphic on \( D  \).
+\end{theorem}
+
+
+
+
+
+
+
+
+\end{document}
+

@@ -7,13 +7,13 @@
 
 \begin{itemize}
     \item {\hyperref[Limits and Continuity]{Limits and Continuity}} 
-    \item Limits of Functions
-    \item Sequential Criterion for Limits of Functions
-    \item Algebraic Limit Theorem for Functions
-    \item Continuous Functions
-    \item Characterization of Continuity via Sequences
-    \item Algebraic Continuity Theorem
-    \item A composition of Continuous Functions is Continuous
+    \item {\hyperref[Limits of Functions]{Limits of Functions}}
+    \item {\hyperref[Sequential Criterion for Limits of Functions]{Sequential Criterion for Limits of Functions}}
+    \item {\hyperref[Algebraic Limit Theorem]{Algebraic Limit Theorem}}
+    \item {\hyperref[Continuous Functions]{Continuous Functions}}
+    \item {\hyperref[Characterization of Continuity via Sequences]{Characterization of Continuity via Sequences}}
+    \item {\hyperref[Algebraic Continuity Theorem]{Algebraic Continuity Theorem}}
+    \item {\hyperref[A Composition of Continuous Functions is Continuous]{A Composition of Continuous is Continuous}}
 \end{itemize}
 
 \section{Limits and Continuity}\label{Limits and Continuity}
@@ -24,7 +24,7 @@ One of the most important concepts in Calculus is the limit of a function. Our g
     \item[(2)] "\( f(x) \) is continuous at \( c \)"
 \end{enumerate}
 
-\section{Limits of Functions}
+\section{Limits of Functions}\label{Limits of Functions}
 
 The usual set up for discussing continuity of functions is that we need to have  
 \begin{enumerate}
@@ -100,6 +100,8 @@ In particular, for \( \epsilon = \frac{ 1 }{ 2 }  \), there exists \( \delta > 0
 Hence, there exists \( \delta > 0  \) such that if \( 2 - \delta < x < 2 + \delta  \), then \( x^{2} = L  \). Obviously, it is not the case that for all \( x \in (2-  \delta, 2 + \delta) \) that \( x^{2}  \) is equal to the fixed number \( 1  \). 
 \end{proof}
 
+\section{Sequential Criterion for Limits of Functions}\label{Sequential Criterion for Limits of Functions}
+
 \begin{theorem}[Sequential Criterion for Limits of Functions]
     Let \( (X,d)  \) and \( (Y, \tilde{d}) \) be metric spaces, let \( E  \) be a nonempty set in \( X  \), let \( c \in E' \), and \( f: E \to Y \). The following statements are equivalent:
     \begin{enumerate}
@@ -144,7 +146,9 @@ and
 So, \( \lim f({a}_{n}) \neq \lim f({b}_{n}) \). Therefore, \( \lim_{ x \to 0 }  \sin \frac{ 1 }{ x }  \) does not exist.
 \end{proof}
 
-\begin{theorem}[ ]
+\section{Algebraic Limit Theorem}\label{Algebraic Limit Theorem}
+
+\begin{theorem}[Algebraic Limit Theorem]
     Let \( (X,d) \) be a metric space. Let \( \emptyset \neq E \subseteq  X \). Let \( c \in E' \). Let \( f,g: E \to \R  \). Assume that 
     \[  \lim_{ x \to c } f(x) = L \ \text{and} \ \lim_{ x \to c }  g(x) = M. \]
     Then
@@ -159,7 +163,7 @@ So, \( \lim f({a}_{n}) \neq \lim f({b}_{n}) \). Therefore, \( \lim_{ x \to 0 }  
 All these items follow immediately from the Algebraic Limit Theorem for sequences and the sequential criterion for limits of functions.
 \end{proof}
 
-\section{Continuity}
+\section{Continuous Functions}\label{Continuous Functions}
 
 \begin{enumerate}
     \item[(1)] Let \( E \subseteq X  \). First, we will explain what it means to say that \( f: E \to Y \) is continuous at a point \( c \in E' \cap E  \).
@@ -200,6 +204,8 @@ The definition above is mostly seen in introductory Calculus books.
 \begin{definition}[Version 3 of Continuity]
    Let \( (X,d)\) be a metric space and let \( E \subseteq X  \). Suppose \( f: E \to Y \). We say that \( f  \) is \textbf{continuous} if it is continuous at every point of \( E  \).
 \end{definition}
+
+\section{Characterization of Continuity via Sequences}\label{Characterization of Continuity via Sequences}
 
 \begin{theorem}[Characterization of Continuity via Sequences]
     Let \( f: E \subseteq X \to Y \). Let \( c \in E  \). The following two statements are equivalent:
@@ -339,7 +345,9 @@ that (*) holds with \( \delta = \epsilon \).
     \end{align*}
 \end{proof}
 
-\begin{theorem}[Algebraic Conitnuity Theorem]
+\section{Algebraic Continuity Theorem}\label{Algebraic Continuity Theorem}
+
+\begin{theorem}[Algebraic Continuity Theorem]
     Assume \( f: E \subseteq (X,d) \to \R   \) and \( g: E \subseteq (X,d) \to \R   \) are continuous at \( c \in E  \). Then
     \begin{enumerate}
         \item[(i)] \( k \cdot f (x) \) is continuous at \( c  \) for all \( k \in  \R  \)
@@ -357,6 +365,8 @@ Let \( ({a}_{n}) \) be such a sequence. Since \( f \) is continuous at \( c  \) 
 \[  f({a}_{n}) g({a}_{n}) \to f(c) g(c) \]
 as desired.
 \end{proof}
+
+\section{A Composition of Continuous Functions is Continuous}\label{A Composition of Continuous Functions is Continuous}
 
 \begin{theorem}[Composition of Continuous Functions is Continuous]
     Let \( (X,d), (Y, \tilde{d}), (Z,\overline{d}) \) are metric spaces. Assume that \( A,B \neq \emptyset \) are subsets of \( X  \) and \( Y  \), respectively. Let \( f: A \to Y  \) and \( g: B \to Z  \) and let \( f(A) \) be contained in \( \R  \), \( f  \) is continuous at \( c \in A  \), and \( g \) is continuous at \( f(c) \in B \). Then \( g \circ f : A \to Z  \) is continuous at \( c \in A  \).

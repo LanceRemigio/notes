@@ -5,13 +5,13 @@
 
 \section{Topics}
 
-\begin{enumerate}
-    \item[(1)] Topological Continuity
-    \item[(2)] Continuity and compactness
-    \item[(3)] Continuity and connectedness
-    \item[(4)] Continuity and the inverse
-    \item[(5)] Uniform Continuity
-\end{enumerate}
+\begin{itemize}
+    \item {\hyperref[Topological Continuity]{Topological Continuity}}
+    \item {\hyperref[Continuity and Compactness]{Continuity and Compactness}}
+    \item {\hyperref[Continuity and Connectedness]{Continuity and Connectedness}} 
+    \item {\hyperref[Continuity and Inverse Maps]{Continuity and Inverse Maps}}
+    \item {\hyperref[Uniform Continuity]{Uniform Continuity}}
+\end{itemize}
 
 So far we have learnt two equivalent descriptions of the concept of continuity for functions \( f: (X,d) \to (Y,\tilde{d}) \):
 \begin{enumerate}
@@ -25,6 +25,8 @@ In undergraduate analysis, most of the sequences we study are sequences in \( \R
 
 For graduate analysis, convergence can be viewed more generally; that is, we have
 \[  {a}_{n} \to c \iff \forall {N}_{\epsilon}(c) \ \exists N \in \N \ \text{such that} \forall n > N \ {a}_{n} \in {N}_{\epsilon}(c). \]
+
+\section{Topological Continuity}\label{Topological Continuity}
 
 \begin{theorem}[Topological Characterization Continuity]
     Let \( (X,d) \) and \( (Y,\tilde{d}) \) be metric spaces and let \( f: X \to Y \). The following statements are equivalent:  
@@ -62,7 +64,10 @@ Some examples of maps that do not preserve the properties above are
     \item[(3)] \( f: (0,\infty ) \to \R  \) defined by \( f(x) = \frac{ 1 }{ x }  \). Note that \( E = (0,1) \) is a bounded set but \( f(E) = (1,\infty  ) \) is not.
 \end{enumerate} 
 
-\begin{theorem}[ ]
+
+\section{Continuity and Compactness}\label{Continuity and Compactness}
+
+\begin{theorem}[Continuous Maps Over Compact Sets]
     Let \( (X,d) \) and \( (Y, \tilde{d}) \) are metric spaces and let \( f: X \to Y  \) be continuous and let \( E  \) be a compact set in \( X  \). Then \( f(E) \) is compact in \( Y  \). 
 \end{theorem}
 \begin{proof}
@@ -96,6 +101,8 @@ Thus, we have \( \{ {O}_{{\alpha}_{i}} \}_{1 \leq i \leq n} \) is a finite subco
     \item[(ii)] By part (i), \( f(X)  \) is closed and bounded subset of \( \R  \). Since \( f(X) \) is a bounded set in \( \R  \), \( M = \sup f(X) = {\sup}_{x \in X }f(x) \) and \( m = \inf f(X) = {\inf}_{x \in X} f(x) \) exists. Recall from Theorem 2.28 that \( M \in \overline{F(X)} \) and \( m \in \overline{f(X)} \). Since \( \overline{f(X)} = f(X) \), we can conclude that \( M \in f(X) \) and \( m \in f(X) \). That is, there exists \( a \in X  \) such that \( f(a) = M  \) and there exists \( b \in X  \) such that \( f(b) = m \).
 \end{enumerate}
 \end{proof}
+
+\section{Continuity and Connectedness}\label{Continuity and Connectedness}
 
 \begin{theorem}[Preservation of Connectedness]
     Let \( (X,d) \) and \( (Y,\tilde{d}) \) be metric spaces and \( f: X \to Y  \) be a continuous map, and let \( E \subseteq X   \) be a connected set. Then \( f(E) \) is connected in \( Y  \).
@@ -158,6 +165,9 @@ Note that if \( f : X \to  Y \) is continuous and bijective =, it is NOT necessa
     \( f: (-1,0] \cup [1,2] \to [0,4] \) given by \( f(x) = x^{2} \) is continuous and bijective. However, \( f^{-1}: [0,4] \to (-1,0] \cup [1,2] \) is NOT continuous. Indeed, we see that \( [0,4] \) is connected, but \( f^{-1}([0,4]) = (-1,0] \cup [1,2] \) is NOT.  
 \end{eg}  
 
+
+\section{Continuity and Inverse Maps}\label{Continuity and Inverse Maps}
+
 \begin{theorem}[Continuous and Bijective maps on Compact Sets]
     Let \( (X,d) \) and \( (Y,\tilde{d}) \) are metric spaces, \( X  \) is compact, and \( f: X \to Y  \) is continuous and bijective. Then \( f^{-1}: Y \to X  \) is continuous.
 \end{theorem}
@@ -173,7 +183,7 @@ Note that if \( f : X \to  Y \) is continuous and bijective =, it is NOT necessa
    Let \( U \subseteq \R^{n} \) is open and \(V \subseteq \R  \). Since \( f: U \to V  \) is continuous and bijective, then \( V  \) is open and \( f^{-1}: V \to U \) is continuous. 
 \end{remark}
 
-\section{Uniform Continuity}
+\section{Uniform Continuity}\label{Uniform Continuity}
 
 Let \( A  \) be a proper subset of \( (X,d) \).
 

@@ -1,0 +1,65 @@
+\documentclass[a4paper]{article}
+\input{../../../../newpreamble.tex}
+
+\begin{document}
+
+\section{Outer Measure}
+
+\begin{definition}[Length of Open Interval]
+   The \textbf{length \( \ell(I) \)} of an open interval \( I  \) is defined by 
+   \[  \ell(I) = 
+   \begin{cases}
+       b - a &\text{if} \ I = (a,b) \ \text{for some} \ a,b \in \R \ \text{with} \ a < b \\
+       0 &\text{if} \ I = \emptyset \\
+       \infty &\text{if} I = (-\infty,a) \ \text{or} \ I = (a,\infty) \ \text{for some} \  a \in \R \\
+       \infty  &\text{if} \ I = (-\infty , \infty )
+   \end{cases}. 
+\]
+\end{definition}
+
+
+\begin{definition}[Outer Measure \( | A |  \)]
+    The \textbf{outer measure} \( | A  |  \) of a set \( A \subseteq \R  \) is defined by
+    \[  | A  |  = \inf \Big\{ \sum_{ k=1  }^{ \infty  } \ell({I}_{k}): {I}_{1}, {I}_{2}, \dots  \ \text{are open intervals such that} \ A \subseteq \bigcup_{ k=1  }^{ \infty  }  {I}_{k}  \Big\}.  \]
+\end{definition}
+
+\begin{prop}[Countable sets have outer measure \( 0 \)]
+   Every countable subset of \( \R  \) has outer measure \( 0  \). 
+\end{prop}
+
+\begin{prop}[Outer Measure Preserves Order]
+   Suppose \( A  \) and \( B  \) are subsets of \( \R  \) with \( A \subseteq  B  \). Then \( | A  | \leq | B |  \). 
+\end{prop}
+
+\begin{definition}[Translation; \( t + A  \)]
+   If \( t \in \R  \) and \( A \subseteq  \R  \), then the \textbf{translation \( t + A \)} is defined by 
+   \[ t + A = \{ t + a : a \in  A  \}.  \]
+\end{definition}
+
+\begin{prop}[Outer Measure is Translation Invariant]
+   Suppose \( t \in \R  \) and \( A \subseteq  \R  \). Then \( | t + A  |  = | A  |  \).  
+\end{prop}
+
+\begin{prop}[Countable Subadditivity of Outer Measure]
+   Suppose \( {A}_{1}, {A}_{2}, \dots \) is a sequence of subsets of \( \R  \). Then 
+   \[  \Big| \bigcup_{ k=1  }^{ \infty  }  {A}_{k} \Big|  \leq \sum_{ k=1  }^{ \infty   } | {A}_{k} |. \]
+\end{prop}
+
+\begin{definition}[Open Cover]
+    Suppose \( A \subseteq  \R  \).
+    \begin{itemize}
+        \item A collection \( \mathcal{C} \) of open subsets of \( \R  \) is called an \textbf{open cover} of \( A  \) if \( A  \) is contained in the union of all the sets in \( \mathcal{C} \).
+        \item An open cover \( \mathcal{C} \) of \( A  \) is said to have a \textbf{finite subcover} if \( A  \) is contained in the union of some finite list of sets in \( \mathcal{C} \).
+    \end{itemize}
+\end{definition}
+
+\begin{prop}[Outer Measure of a Closed Interval]
+    Suppose \( a,b \in \R  \), with \( a < b  \). Then \( | [a,b] |  = b - a  \). 
+\end{prop}
+
+
+
+
+
+\end{document}
+
