@@ -1,0 +1,102 @@
+\documentclass[a4paper]{article}
+\input{../../../../../../newpreamble.tex}
+\begin{document}
+
+\section{Lecture 1}
+
+\subsection{Topics}
+
+\begin{itemize}
+    \item The derivative
+    \item Continuity and Differentiability
+    \item Differentiability Rules
+\end{itemize}
+
+\begin{definition}[Differentiability]
+    \begin{enumerate}
+        \item[(*)] Let \( I \subseteq  \R  \) be an interval, \( f: I \to \R  \), \( c \in I  \). We say \( f  \) is \textbf{differentiable} at \( c  \) if 
+    \[  \lim_{ x \to c }  \frac{ f(x) -f(c) }{ x - c  } \]
+    exists (that is, it equals a real number).
+    \item[(*)] In this case, the quantity \( \lim_{ x \to c }  \frac{ f(x) - f(c) }{ x - c  }  \) is called the derivative of \( f  \) at \( c  \) and is denoted by
+        \[  f'(c), \frac{ df }{ dx }(c), \frac{ df }{ dx } \Bigg|_{x = c} \]
+    \item[(*)] If \( f: I \to \R  \) is differentiable at every point \( c \in I  \), we say \( f \) is differentiable (on \( I  \)).
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    The following are equivalent characterizations of the differentiability:
+    \begin{align*}
+        f'(c) = L &\iff \lim_{ x \to c }  \frac{ f(x) - f(c) }{ x - c  }  = L  \\
+                  &\iff \forall \epsilon > 0 \ \exists \delta > 0 \ \text{such that} \ \text{if} \ 0 < | x - c  | < \delta \ \text{then} \ \Big| \frac{ f(x) - f(c) }{ x - c  }  - L  \Big|  < \epsilon \\
+                  &\iff \forall \epsilon > 0 \ \exists \delta > 0 \ \text{such that if} \ 0 < | h  |  < \delta \ \text{then} \ \Big| \frac{ f(c+h) - f(c) }{  h  }  - L  \Big|  < \epsilon \\
+                  &\iff \lim_{ h \to 0 }  \frac{ f(c+h) - f(c) }{  h  }  = L 
+    \end{align*}
+\end{remark}
+
+\begin{theorem}[Differentiability Implies Continuous]
+    Let \( I \subseteq  \R  \), \( c \in I  \), and \( f: I \to \R  \) is differentiable at \( c  \). Then \( f \) is continuous at \( c  \).
+\end{theorem}
+
+\begin{proof}
+It suffices to show that \( \lim_{ x \to c } f(x) = f(c) \). Note that 
+\begin{align*}
+    \lim_{ x \to c } (f(x) - f(c)) &= \lim_{ x \to c }  \Big[ \frac{ f(x) - f(c) }{  x - c  }  \Big] (x - c) \\
+                                   &= \Big[ \lim_{ x \to c }  \frac{ f(x) - f(c) }{  x - c  }  \Big] \Big[ \lim_{ x \to c }  (x - c) \Big] \\
+                                   &= (f'(c)) (0) \\
+                                   &= 0.
+\end{align*}
+So, we have 
+\begin{align*}
+    \lim_{ x \to c } f(x) &= \lim_{ x \to c }  [f(x)  - f(c) + f(c)] \\ 
+                          &= \lim_{ x \to c } (f(x) - f(c)) + \lim_{ x \to c } f(c) \\   
+                          &= 0 + \lim_{ x \to c } f(c) \\
+                          &= 0 + f(c) \\
+                          &= f(c).
+\end{align*}
+\end{proof}
+
+\begin{corollary}
+    If \( f: I \to \R  \) is NOT continuous at \( c \in I  \), then \( f \) is NOT differentiable at \( c  \).
+\end{corollary}
+
+\begin{eg}
+    Let \( f: \R \to \R  \) be defined by 
+    \[  f(x) = 
+    \begin{cases}
+        x^{2} &\text{if} \  x \in \Q \\
+        0 &\text{if} \ x \notin \Q 
+    \end{cases}. \]
+\end{eg}
+
+\begin{enumerate}
+    \item[(i)] Prove that \( f  \) is continuous at \( 0  \).
+        \begin{proof}
+        Our goal is to show that 
+        \[  \forall \epsilon > 0 \ \exists \delta > 0 \ \text{such that if} \ | x |  < \delta \ \text{then} \ | f(x) - f(c) | < \epsilon.  \]
+        Let \( \epsilon > 0  \) be given. Note that if \( x \notin \Q  \),   
+       \[  | f(x) |  = | 0  |  < \epsilon. \] 
+       Otherwise, we have \( | f(x)  |  = | x^{2} |  = | x |^{2} \). IN this case, we claim that \( \delta = \sqrt{ \epsilon }  \) will work. Indeed, if \( | x  |  < \delta \), then we have 
+       \[  | f(x) |  = | x |^{2} < (\sqrt{ \epsilon } )^{2} = \epsilon. \]
+        \end{proof}
+    \item[(ii)] Prove \( f \) is discontinuous at all \( x \neq 0  \).
+        \begin{proof}
+        Let \( c \neq 0  \). Our goal is to show that \( f  \) is discontinuous at \( c  \). By the sequential criterion for continuity, it suffices to find a sequence \( ({a}_{n}) \) such that \( {a}_{n} \to c  \) but \( f({a}_{n}) \not\to f(c) \). We will consider two cases; that is, we could either have \( c \notin \Q  \) or \( c \in \Q  \). 
+
+        Suppose \( c \notin \Q  \). Since \( \Q  \) is dense in \( \R  \), there exists a sequence of rational numbers \( ({r}_{n}) \) such that \( {r}_{n} \to c  \). Note that \( f({r}_{n}) = {r}_{n}^{2} \to c^{2} \neq 0   \), but \( f(c) = 0  \). Clearly, \( f({r}_{n}) \not\to f(c) \) and so \( f  \) must be discontinuous at \( c  \).
+
+        Suppose \( c \in \Q  \). Since the set of irrational numbers is also dense in \( \R  \), we can find a sequence \( ({s}_{n}) \) such that \( {s}_{n} \to c  \). Note that \( f({s}_{n})  =  0  \), but \( f(c) = c^{2} \neq 0  \). Thus, \( f({s}_{n}) \not\to f(c) \). Therefore, \( f  \) must be discontinuous at \( c  \). 
+        \end{proof}
+    \item[(iii)] Prove that \( f  \) is nondifferentiable at all \( x \neq 0  \).
+        \begin{proof}
+        Let \( c \neq 0  \). Since \( f  \) is discontinuous at \( c  \), we can conclude that \( f  \) is not differentiable at \( c  \).
+        \end{proof}
+    \item[(iv)] Prove that \( f'(0) = 0   \).
+        \begin{proof}
+        We need to show 
+        \[  \lim_{ x \to c } \frac{ f(x) - f(0) }{ x - 0  }  = \frac{ f(x) }{ x  } = 0. \]
+        \end{proof}
+\end{enumerate}
+
+
+\end{document}
+
