@@ -27,21 +27,17 @@
             Hence, we see that \( f(t) = \frac{ t }{ 1+ t }  \) must be an increasing function.
         \item[(b)] 
             \begin{enumerate}
-        \item[(i)] Let \( x,y \in X  \). Since \( (X,d) \) is a metric space, we know that          \( d(x,y) \geq 0  \) for every \( x,y \in X  \) by property (i) of metric spaces. Thus, we see that
-            \[  \tilde{d}(x,y) = \frac{ d(x,y)  }{ 1 + d(x,y) } \geq 0 \ \forall x,y \in X. \]
-            Hence, property (i) is satisfied.
-        \item[(ii)] Let \( x,y \in X  \). Since \( (X,d) \) is a metric space, we know that \( d(x,y) = 0  \) if and only if \( x = y  \). Thus, we see that  
+        \item[(i)] Let \( x,y \in X  \). Since \( (X,d) \) is a metric space, we know that \( d(x,y) = 0  \) if and only if \( x = y  \). Thus, we see that  
             \begin{align*}
                 \tilde{d}(x,y) = 0 &\Longleftrightarrow \frac{ d(x,y) }{ 1 + d(x,y)  } = 0 \\
                            &\Longleftrightarrow d(x,y) = 0 \\
                            &\Longleftrightarrow x = y.
             \end{align*}
             Hence, property (ii) is satisfied.
-        \item[(iii)] Let \( x,y \in X  \). Since \( d(x,y) = d(y,x) \) for all \( x,y \in X  \) (because \( (X,d) \) is a metric space), we see that  
+        \item[(ii)] Let \( x,y \in X  \). Since \( d(x,y) = d(y,x) \) for all \( x,y \in X  \) (because \( (X,d) \) is a metric space), we see that  
             \[ \tilde{d}(x,y) = \frac{ d(x,y) }{ 1 + d(x,y) } = \frac{ d(y,x) }{ 1 + d(y,x) }  = \tilde{d}(y,x).  \]
             Thus, property (iii) is satisfied.
-            \end{enumerate}
-        \item[(iv)] Now, we will show that \( \tilde{d} \) satisfies the triangle inequality. Let \( x,y,z \in X  \).
+        \item[(iii)] Now, we will show that \( \tilde{d} \) satisfies the triangle inequality. Let \( x,y,z \in X  \).
 We need to consider a few cases when proving the triangle inequality:
             \begin{enumerate}
                 \item[(I)] \( d(x,y) \leq d(x,z) \).
@@ -49,11 +45,12 @@ We need to consider a few cases when proving the triangle inequality:
                 \item[(III)] \( d(x,y) > d(x,z) \) and \( d(x,z) > d(z,y) \).
             \end{enumerate}
             We proceed with each case as follows:
+            \end{enumerate}
             \begin{enumerate}
                 \item[(I)] If \( d(x,y) \leq d(x,z) \), then by using the monotonicity of \( \tilde{d}(x,y) \), we can see that 
                     \[  \tilde{d}(x,y) = \frac{ d(x,y) }{ 1 + d(x,y) } \leq \frac{ d(x,z) }{ 1 + d(x,z) } = \tilde{d}(x,z) \leq \tilde{d}(x,z) + \tilde{d}(z,y). \]
-                \item[(II)] Similarly, if \( d(x,y) \leq d(z,y) \), we have by using the monotonicity of \( D(x,y) \) that
-                    \[  \tilde{d}(x,y) = \frac{ d(x,y) }{  1 + d(x,y) } \leq \frac{ d(z,y) }{ 1 + d(z,y) } = \tilde{d}(z,y) \leq \tilde{D}(x,z) + \tilde{d}(z,y). \]
+                \item[(II)] Similarly, if \( d(x,y) \leq d(z,y) \), we have by using the monotonicity of \( \tilde{d}(x,y) \) that
+                    \[  \tilde{d}(x,y) = \frac{ d(x,y) }{  1 + d(x,y) } \leq \frac{ d(z,y) }{ 1 + d(z,y) } = \tilde{d}(z,y) \leq \tilde{d}(x,z) + \tilde{d}(z,y). \]
                 \item[(III)] If both \( d(x,y) > d(x,z) \) and \( d(x,z) > d(z,y) \), then by the triangle inequality property of \( (X,d) \), we see that                   
                     \begin{align*}
                         \tilde{d}(x,y) &= \frac{ d(x,y) }{ 1 + d(x,y) }  \\

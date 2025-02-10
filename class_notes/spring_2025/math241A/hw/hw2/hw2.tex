@@ -1,0 +1,73 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{Math 241 Homework 2}
+\author{Lance Remigio}
+\begin{document}
+
+\begin{problem}
+    Prove that \( (\R^{n}, {d}_{\infty }) \) is complete.
+\end{problem}
+\begin{proof}
+Let \( (\vec{ {x}_{k} } ) \) be a Cauchy sequence in \( \R^{n} \). By a result found in quiz 1, it follows that \( ({x}_{ik}) \) for \( 1 \leq i \leq n  \) is also Cauchy. Since \( \R  \) is a complete metric space with respect to the standard metric on \( \R  \), we find that each \( {x}_{ik } \) is also a convergent sequence. By another result in quiz 1, it follows that \( (\vec{ {x}_{k} } ) \) is a convergent sequence. Hence, \( \R^{n} \) with respect to the \( {d}_{\infty } \) metric is complete.
+\end{proof}
+
+\begin{problem}
+    \begin{enumerate}
+        \item[(i)] Let \( \vec{x} = \displaystyle \begin{pmatrix} {x}_{1} \\ \vdots \\ {x}_{n}  \end{pmatrix}  \). Prove that \( {\pi}_{i}: \R^{n} \to \R  \) defined by
+            \(  {\pi}_{i}(\vec{ x } ) = {x}_{i} \)
+            are continuous maps with respect to \( {d}_{\infty }  \) on \( \R^{n}  \) and the standard metric on \( \R  \).
+        \item[(ii)] Prove that \( {\pi}_{i} \) in (i) are continuous maps with respect to \( {d}_{\text{euclid}} \) on \( \R^{n} \) and the standard metric on \( \R  \).
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\begin{enumerate}
+    \item[(i)] Our goal is to show that \( {\pi}_{i} \) is a continuous map with respect to \( {d}_{\infty } \) on \( \R^{n} \); we will do this via the sequential criterion of continuity. Suppose \( \vec{ {x}_{k} }  \to \vec{ x }  \) for some \( \vec{ x }  \) in \( \R^{n} \). By a result found in quiz 1, we can see that \( {x}_{ik} \to {x}_{i} \) for \( 1 \leq i \leq n  \). By definition of \( {\pi}_{i} \), we find that as \( n \to \infty  \), we get
+        \[ {\pi}_{i}(\vec{ x_{k} } ) = {x}_{ik} \to {x}_{i} = {\pi}_{i}(\vec{ x } ).  \]
+        Hence, we have that \( {\pi}_{i} \) is a continuous map with respect to \( {d}_{\infty } \) and the standard metric on \( \R  \).
+    \item[(ii)] Our goal is to show that \( {\pi}_{i}: \R^{n} \to \R  \) is continuous with respect to \( {d}_{\text{euclid}}  \). Let \( (\vec{ {x}_{k} } )\) be a sequence in \( \R^{n} \) such that \( \vec{ {x}_{k} } \to \vec{ x }    \). Since \( {\pi}_{i} \) is continuous on \( \R^{n} \) with respect to the \( {d}_{\infty }  \) metric, we have \( {d}_{\infty }(\vec{ {x}_{k} }, \vec{ x } ) \to 0 \). Notice that 
+        \[  0 \leq {d}_{\text{euclid}}(\vec{ {x}_{k} } , \vec{ x } ) \leq (n)^{1/2} {d}_{\infty }(\vec{ {x}_{k} } , \vec{ x } ). \tag{1} \]
+        Now, \( {d}_{\infty }(\vec{ {x}_{k}}, \vec{ x }  ) \to 0  \) implies that \( {d}_{\text{euclid}}(\vec{ {x}_{k} } , \vec{ x } ) \to 0  \) by applying the squeeze theorem to (1). Thus, we can see that  
+        \begin{align*}
+            | {\pi}_{i}(\vec{ {x}_{k} } ) - {\pi }_{i}(\vec{ x } )  | &= \Big( | {\pi}_{i}(\vec{ {x}_{k} } ) - {\pi}_{i}( \vec{ x }  ) |^{2} \Big)^{1/2}  \\
+                                                                      &= \Big( | {x}_{ik} - {x}_{i} |^{2}  \Big)^{1/2} \\
+                                                                      &\leq \Big( \sum_{ i=1 }^{ n} | {x}_{ik } - {x}_{i} |^{2} \Big)^{1/2} \\
+                                                                      &= {d}_{\infty }(\vec{ {x}_{k} } , \vec{ x } ) \to 0. 
+        \end{align*}
+        Hence, we conclude that 
+        \[   | {\pi}_{i}(\vec{ {x}_{k} } ) - {\pi }_{i}(\vec{ x } )  | \to 0 \]
+        and so \( {\pi}_{i} \) is continuous map with respect to \( {d}_{\infty } \) and the standard metric on \( \R  \).
+\end{enumerate}
+\end{proof}
+
+\begin{problem}
+    \begin{enumerate}
+        \item[(i)] Define \( d: \R \times \R \to \R  \) by \( d(x,y) = | e^{x} - e^{y} |  \). Prove that \( d \) is a metric on \( \R  \).
+        \item[(ii)] Prove or disprove: \( (\R , d) \) is complete.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\begin{enumerate}
+    \item[(i)]
+\end{enumerate}
+\end{proof}
+
+\begin{problem}
+    Let \( X = \N \) be the set of positive integers.
+\begin{enumerate}
+    \item[(i)] Let \( d(m,n) = | m - n |  \). Prove that \( (X,d) \) is complete.
+    \item[(ii)] Let \( d(m,n) = \Big| \frac{ 1 }{ m }  - \frac{ 1 }{ n }  \Big|  \). Prove that \( (X,d) \) is not complete.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+    Let \( X = \{ f: [0,1] \to \R : f \ \text{is continuous} \}  \).
+       \begin{enumerate}
+           \item[(i)] Define \( d(f,g) = \displaystyle \int_{ 0 }^{ 1 }  | f(t) - g(t) |  \ dt \). Prove that \( d \) is  a metric on \( X  \). Prove that \( d \) is a metric on \( X  \).
+            \item[(ii)] Prove that \( (X,d) \) is not complete.
+       \end{enumerate} 
+\end{problem}
+
+
+
+\end{document}
+

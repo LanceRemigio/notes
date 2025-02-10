@@ -1,0 +1,274 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{Math 230B: Homework 1}
+\author{Lance Remigio}
+
+\begin{document}
+\maketitle
+
+\begin{problem}
+   Let \( f: I \to \R  \) where \( I \subseteq  \R   \) is an interval. Let \( c \in I  \). Recall that in class we proved that \( f  \) is differentiable at \( c  \) if and only if \( \displaystyle \lim_{ h \to 0 } \frac{ f(c+h)  - f(c) }{ h }  \) exists. Use this result to prove that \( f  \) is differentiable at \( c  \) if and only if  
+   \[  \exists L \in \R \ \text{such that} \ \lim_{ h \to 0 } \frac{ f(c+h) - f(c) - Lh }{ h } = 0. \]
+\end{problem}
+\begin{proof}
+Suppose that \( f  \) is differentiable at \( c  \). Then
+\[  \lim_{ h \to 0 }  \frac{ f(c+h) - f(c) }{ h  } \ \text{exists}    \]
+and so 
+\[  \lim_{ h \to 0 }  \frac{ f(c+h) - f(c) }{ h  } = L  \]
+for some \( L \in \R  \). Now, the right-hand side can be written in the following way:
+\[  L = \lim_{ h \to 0 }  L = \lim_{ h \to 0 }   \frac{ L h }{ h }.  \]
+Note that the quantity \( \frac{ h }{ h }  \) holds because of the \( \epsilon-\delta \) definition of the derivative. Now, we have 
+\begin{align*}
+    \lim_{ h \to 0 }  \frac{ f(c+h) - f(c) }{ h   } = L  &\iff \lim_{ h \to 0 }  \frac{ f(c+h) - f(c) }{ h  } = \lim_{ h \to 0 } \frac{L h }{ h }  \\
+                                                         &\iff \lim_{ h \to 0 }  \frac{ f(c+h) - f(c) }{ h }  - \lim_{ h \to 0 } \frac{ Lh  }{ h } = 0.
+\end{align*}
+By the Algebraic Limit Theorem for functions, we conclude that 
+\[  \lim_{ h \to 0 } \frac{ f(c+h) - f(c) - Lh }{ h } = 0. \]
+We can reverse this argument to get the prove the reverse direction.
+\end{proof}
+
+\begin{problem}
+    Let \( g: A \to \R  \) where \( A  \) is a nonempty subset of \( \R  \). Suppose \( 0  \) is an interior point of \( A  \). Use the \( \epsilon-\delta \) definition of limit to prove that \( \lim_{ h \to 0 }  g(h) = L  \), then \( \lim_{ h \to 0 }  g(-h) = L  \). 
+\end{problem}
+\begin{proof}
+Our goal is to show that \( \lim_{ h \to 0 }  g(-h) = L \); that is, for all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that whenever \( 0 < | h  |  < \delta \), we have 
+\[  | g(-h) - L  |  < \epsilon. \]
+Let \( \epsilon > 0  \) be given. Since \( \lim_{ h \to 0 } g(h) = L  \), we can find a \( \hat{\delta} > 0  \) such that whenever \( 0 < | h  |  < \hat{\delta} \) (note that here \( 0  \) is an interior point of \( A  \)), 
+\[  | g(h) - L  | < \epsilon. \tag{*}  \]
+We claim that \( \hat{\delta} \) is the same \( \delta  \) we were looking for. But observe that \( | h  |  = | -(-h) | = | -h  |  \) and so, if \( 0 < | -h  |  < \delta \) and using our assumption in (*), we can write
+\[  | g(-h) - L  | < \epsilon \]
+which is our desired result.
+\end{proof}
+
+\begin{problem}
+    Let \( f: I \to \R  \) where \( I \subseteq \R   \) is an interval. Let \( c  \) be an interior point of \( I  \). Assume \( f  \) is differentiable at \( c  \). 
+    \begin{enumerate}
+        \item[(a)] Recall that \( f'(c) = \displaystyle \lim_{ h \to 0 }  \frac{ f(c+h) - f(c) }{ h }   \). Use this and the result of Exercise 4 to show that
+            \[  f'(c) = \lim_{ h \to 0 }  \frac{ f(c) - f(c-h) }{ h }. \]
+        \item[(b)] Use the result of (a) to prove that 
+            \[  f'(c) = \lim_{ h \to 0 }  \frac{ f(c+h) - f(c-h) }{ 2h }. \]
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Define \( g: I \to \R  \) by
+        \[  g(h)  = \frac{ f(c+h) - f(c) }{ h }.  \]
+        Notice that 
+        \[  g(-h) = \frac{ f(c -h) - f(c) }{ -h } = \frac{ f(c) - f(c-h) }{ h }. \]
+        By exercise 4, we can see that  
+        \[  f'(c) = \lim_{ h \to 0 }  g(h) = \lim_{ h \to 0 } g(-h)  \]
+        Hence, we have 
+        \[  f'(c) = \lim_{ h \to 0 }  \frac{ f(c) - f(c-h) }{ h }. \]
+    \item[(b)] For \( h  \) sufficiently small, we have  
+        \begin{align*}
+            \frac{ f(c+h) - f(c-h)  }{ 2h } &= \frac{ f(c+h) - f(c) }{ 2h }  + \frac{ f(c) - f(c-h) }{ 2h }  \\
+                                            &= \frac{ 1 }{ 2 }  \cdot \frac{ f(c+h) - f(c) }{ h }  + \frac{ 1 }{ 2 } \cdot \frac{ f(c) - f(c-h) }{ h }  \\ 
+        \end{align*}
+        Now, taking the limit as \( h \to 0  \), we have by part (a) (and using the Algebraic Limit Theorem for functions) that
+        \[ \lim_{ h \to 0 }  \frac{ f(c+h) - f(c-h) }{  2h } = \frac{ 1 }{ 2 } f'(c) + \frac{ 1 }{ 2 }  f'(c) = f'(c).  \]
+\end{enumerate}
+\end{proof}
+
+\begin{problem}
+    Recall that in one of the homework assignments of Math 230A we proved that \( \sin x  \) and \( \cos x  \) are continuous functions on \( \R  \). We also proved that \( \displaystyle \lim_{ x \to 0 }  \frac{ \sin x  }{  x  }  = 1  \)
+   \begin{enumerate}
+       \item[(i)] Use this result to show that 
+           \[  \lim_{ h \to 0 }  \frac{ \cos h - 1  }{ h  }  = 0.  \]
+        \item[(ii)] Use (i) to show that \( f: \R \to \R  \) defined by \( f(x) = \sin x  \) is differentiable at all points \( c \in \R  \) and \( f'(c) = \cos c  \) for all \( c \in \R  \).
+   \end{enumerate} 
+\end{problem}
+\begin{proof}
+\begin{enumerate}
+    \item[(i)] Suppose \( \lim_{ x \to 0 }  \displaystyle \frac{ \sin x  }{  x  }  = 1  \). Then for for a sufficiently small neighborhood of zero, we may write
+        \begin{align*}
+            \frac{ \cos h - 1  }{  h  }  &= \Big(  \frac{ \cos h - 1  }{ h  }  \Big) \Big( \frac{ \cos h + 1  }{  \cos + 1  }  \Big) \\
+                                         &= \frac{ \cos^{2} h - 1  }{  h (\cos h +  1 ) } \\
+                                         &= \frac{ - \sin^{2} h  }{  h (\cos h + 1 ) } \\ 
+                                         &= \frac{ \sin h  }{  h  }  \cdot \frac{ - \sin h  }{  \cos h + 1  }.
+        \end{align*}
+        Note that the first term of the product in the last equality above exists by assumption and the second term exists because 
+        \[  \lim_{ h \to 0 }  \frac{ - \sin h  }{  \cos h + 1  } = 0.  \]
+        Indeed, \( \sin h  \) and \( \cos h  \) are both continuous functions, and so \( \lim_{ h \to 0 } (-\sin h) =  - \sin 0 = 0   \) and \( \lim_{ h \to 0 } (  \cos h + 1 ) = 2 \) along with the Algebraic Continuity Theorem implies that the above limit holds. 
+        Now, using the Algebraic Limit Theorem for functions, we can write that 
+        \begin{align*}
+            \lim_{ h \to 0 }  \frac{ \cos h - 1  }{  h  } &= \lim_{ h \to 0 } \Big(  \frac{ \sin h  }{  h  }  \cdot \frac{ - \sin h  }{ \cos h + 1  } \Big)  \\
+                                                          &= \lim_{ h \to 0 }  \frac{ \sin h  }{ h  }  \cdot \lim_{ h \to 0 } \frac{ - \sin h  }{  \cos h + 1  } \\
+                                                          &= 1 \cdot 0 \\ 
+                                                          &= 0
+        \end{align*}
+        which is our desired result.
+        \item[(ii)] By the summation trigonometric identity  
+            \begin{align*}
+                \frac{ \sin (c + h) - \sin h  }{  h } &=  \frac{ [\sin c \cos h + \cos c \sin h ] - \sin c  }{ h }   \\
+                                                      &= \frac{ \sin c (1 - \cos h) + \cos c \sin h }{ h } \\
+                                                      &=  \sin c \cdot \frac{ 1 - \cos h  }{  h  }  + \cos c \cdot \frac{ \sin h  }{ h }. 
+            \end{align*}
+            Using part (i) along with the fact that \( \lim_{ x \to 0 } \displaystyle  \frac{ \sin x  }{  x  }  = 1  \), we have 
+            \begin{align*}
+                \lim_{ h \to 0 }  \frac{ \sin (c+h) - \sin h  }{ h  } &= \lim_{ h \to 0 }  \Big(  \sin c \cdot \frac{ 1 - \cos h  }{  h  }   \Big) + \lim_{ h \to 0 }  \Big(  \cos c \cdot \frac{ \sin h  }{ h }  \Big) \\
+                                                                      &= \sin c \cdot \lim_{ h \to 0 }  \frac{ 1 - \cos h  }{ h  }  + \cos c \cdot \lim_{ h \to 0 }  \frac{ \sin h  }{ h } \\ 
+                                                                      &= \sin c \cdot 0 + \cos c \cdot 1 \\
+                                                                      &= \cos c.
+            \end{align*}
+            Clearly, we can see that the limit above does exist. Now, we can conclude that 
+            \[  f'(c) = \cos c. \]
+    \end{enumerate}
+\end{proof}
+
+\begin{problem}
+    Prove the following theorem.
+\end{problem}
+\begin{theorem}[Generalized Mean Value Theorem]
+    If \( f \) and \( g  \) are continuous on the closed interval \( [a,b] \) and differentiable on the open interval \( (a,b) \), then there exists a point \( c \in (a,b) \) where 
+    \[ [f(b) - f(a)]g'(c) = [g(b)- g(a)]f'(c). \]
+\end{theorem}
+\begin{proof}
+    Suppose that \( f: [a,b] \to \R   \) and \( g: [a,b] \to \R   \) are continuous on the closed interval \( [a,b] \) and differentiable on the open interval \( (a,b) \). Our goal is to show that there exists a point \( c \in (a,b) \) where 
+    \[  [f(b) - f(a)]g'(c) = [g(b) - g(a) f'(c).] \]
+    To this end, define the function \( h : [a,b] \to \R  \) by \[ h(x) = [f(b)-f(a)]g(x) - [g(b)-g(a)]f(x) .\] Our goal is to show that \( h  \) is continuous on \( [a,b] \) and differentiable on the open interval \( (a,b) \). Indeed, knowing that \( f  \) and \( g  \) are continuous on \( [a,b] \) implies, by the Algebraic Continuity Theorem, that \( h(x) \) is continuous. Furthermore, \( f  \) and \( g  \) are differentiable on \( (a,b) \), and so \( h(x) \) must also be differentiable by the Algebraic differentiability Theorem. Hence, the Mean Value Theorem implies that there exists a \( c \in (a,b)  \) such that \( h'(c) =  0 \). Hence, we have 
+    \[ h'(c) = [f(b) - f(a)]g'(c) - [g(b) - g(a)]f'(c) = 0   \]
+    and so 
+    \[  [f(b) - f(a)]g'(c) = [g(b) - g(a)]f'(c) \]
+    which is our desired result.
+\end{proof}
+
+\begin{problem}
+    Prove the following theorem.
+\end{problem}
+\begin{theorem}[ ]
+   Let \( I \subseteq  \R   \) be an interval and \( f: I \to \R  \) be a differentiable function. Prove that 
+   \[  \forall x \in I, f'(x) > 0 \implies f \ \text{is strictly increasing on} \ I.  \]
+\end{theorem}
+\begin{proof}
+    Suppose that for all \( x \in I  \), we have \( f'(x) > 0  \). Our goal is to show that \( f  \) is strictly increasing on \( I  \); that is, for all \( {x}_{1}, {x}_{2} \in I \) with \( {x}_{1} < {x}_{2} \), we have that \( f({x}_{1}) < f({x}_{2}) \). Let \( {x}_{1}, {x}_{2} \in I  \) with \( {x}_{1} < {x}_{2} \). Since \( f  \) is differentiable on \( I  \), we must also have that \( f  \) is continuous on \( I  \). Consider the open interval \( ({x}_{1}, {x}_{2}) \) in \( I  \). Then \( f  \) must be differentiable on \( ({x}_{1}, {x}_{2}) \) and continuous on \( [{x}_{1}, {x}_{2}] \). By the Mean Value Theorem, there exists a \( c \in ({x}_{1}, {x}_{2}) \) such that 
+    \[  f'(c) = \frac{ f({x}_{2}) - f({x}_{1}) }{ {x}_{2} - {x}_{1} }. \]
+    By assumption, we can see that \( f'(c) > 0  \). Since \( {x}_{2} - {x}_{1} > 0  \), we can see that
+    \[  f({x}_{2}) - f({x}_{1}) > 0 \iff f({x}_{2}) > f({x}_{1}) \ \forall {x}_{1}, {x}_{2} \in I.  \]
+    
+\end{proof}
+
+\begin{problem}
+    Let \( f: \R \to \R  \) be a differentiable function and \( C > 0  \).
+    \begin{enumerate} 
+        \item[(i)] Suppose \( | f(u) - f(v) | \leq C | u - v  |  \) for all \( u,v \in \R  \). Prove that \( | f'(x) | \leq C  \) for all \( x \in \R  \).
+        \item[(ii)] Suppose \( | f'(x) | \leq C  \) for all \( x \in \R  \). Prove that \( | f(u) - f(v) |  \leq C | u -v  |  \) for all \( u,v \in \R  \).
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+    Let \( f: \R \to \R  \) be a differentiable function and \( C > 0 \).
+    \begin{enumerate}
+        \item[(i)] Our goal is to show that \( | f'(x) | \leq C  \) for all \( x \in \R  \). To this end, let \( x \in \R  \). To show the result, we must show that  
+            \[  -C \leq \lim_{ \hat{y} \to x  }  \frac{ f(\hat{y}) - f(x) }{  \hat{y} - x } \leq C. \tag{*}    \]
+            By assumption, we can see that 
+            \begin{align*}
+            | f(\hat{y}) - f(x) | \leq C | \hat{y} - x  |  &\iff \Big| \frac{ f(\hat{y}) - f(x) }{  \hat{y} - x  }  \Big|  \leq C \\  
+                                                           &\iff - C \leq \frac{ f(\hat{y}) - f(x) }{  \hat{y} - x  }  \leq C.
+        \end{align*}
+        Since \( f  \) is differentiable on \( \R  \), we can see that 
+        \[  \lim_{ \hat{y} \to x  }  \frac{ f(\hat{y}) - f(x) }{ \hat{y} - x  } \ \text{exists}.  \]
+        Applying the Order Limit Theorem for functions on the above inequality implies that 
+        \[ - C \leq \lim_{ \hat{y} \to x  }  \frac{ f(\hat{y}) - f(x) }{ \hat{y} - x   } \leq C    \]
+        which tells us further that
+        \[  | f'(x)  |  \leq C.  \]
+        \item[(ii)] Suppose \( | f'(x) | \leq C  \) for all \( x \in \R  \). Our goal is to show that          
+            \[  | f(u) - f(v) |  \leq C | u - v  | \ \forall u,v \in \R.   \] 
+            Let \( u,v \in \R  \). Consider the closed interval \( [u,v] \subseteq \R  \). Since \( f  \) is continuous on \( \R  \), it follows immediately that \( f  \) must also be continuous on \( [u,v] \) (since \( f  \) is differentiable on \( \R  \)). Furthermore, \( f  \) is differentiable on the open interval \( (u,v) \) since \( f  \) is differentiable on \( \R  \). By the Mean Value Theorem, there exists a \( \xi \in (a,b) \) such that 
+            \[  f'(\xi) = \frac{ f(u) - f(v) }{ u - v  }. \]
+            By assumption, we can see that \( | f'(\xi) | \leq C   \) and so 
+            \[   \Big| \frac{ f(u) - f(v) }{ u - v  }    \Big| = | f'(\xi) | \leq C.  \]
+            Thus, we have 
+            \[  | f(u) - f(v) | \leq C | u - v |  \]
+            which is our desired result.
+    \end{enumerate}
+\end{proof}
+
+\begin{problem}
+    In class,we gave a proof of L'Hopital's Rule. If we add the following three assumptions to the hypotheses of the corresponding theorem, then we can give a shorter proof of H'Hopital's Rule:
+    \begin{enumerate}
+        \item[(i)] \( f'(a) \) and \( g'(a) \) exist. 
+        \item[(ii)] \( g'(a) \neq 0 \).
+        \item[(iii)] \( f' \) and \( g' \) are continuous at \( a  \).
+    \end{enumerate}
+    Here is the shorter proof:
+    \[  L = \lim_{ x \to a }  \frac{ f'(x) }{ g'(x) }  = \frac{ f'(a) }{ g'(a) } = \lim_{ x \to a }  \frac{ \frac{ f(x) - f(a) }{ x - a  }  }{  \frac{ g(x) - g(a) }{ x - a  }  } = \lim_{ x \to a }  \frac{ f(x) - f(a) }{  g(x) - g(a) }  = \lim_{ x \to a }  \frac{ f(x)  }{  g(x) }.  \]
+\end{problem}
+\begin{solution}
+    The first equality
+    \[  \lim_{ x \to a }  \frac{ f'(x) }{ g'(x) }  = \frac{ f'(a) }{  g'(a) } \]
+    holds because of (iii) and (ii). The third equality holds because of (i) and by definition of the derivative. Since are the referring to limits of functions, we can justify multiplying and dividing by \( x - a  \). The last equality holds because \( f(a) = 0  \) and \( g(a) = 0  \) from our original set of assumptions.
+\end{solution}
+
+
+\begin{problem}
+    Let \( I \subseteq  \R   \) be an interval. Let \( f: I \to \R  \) be a differentiable function. 
+    \begin{enumerate}
+        \item[(a)] Show that if there exists some \( L \geq 0  \) such that \( | f'(x) | \leq L  \) for all \( x \in I  \), then \( f  \) is uniformly continuous.
+        \item[(b)] Is the converse true? Prove it or give a counterexample. 
+    \end{enumerate}
+\end{problem}
+
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Suppose that there exists some \( L \geq 0  \) such that \( | f'(x) |  \leq L  \). Our goal is to show that \( f  \) is uniformly continuous; that is, we need to show that for any \( \epsilon > 0  \), there exists \( \delta > 0  \) such that whenever \( | x - y  |  < \delta  \), we have
+        \[  | f(x) - f(y) |  < \epsilon. \]
+\end{enumerate}
+Let \( x,y \in \R  \) and let \( \epsilon > 0  \). Suppose, without loss of generality, that \( x < y  \). Since \( f \) is differentiable on \( I  \) and \( (x,y) \subseteq  I  \), we can see that \( f  \) is also differentiable on \( (x,y) \). Furthermore, \( f  \) being differentiable on \( I \) implies that \( f  \) is continuous on \( I  \) and so \( f  \) is continuous on \( [x,y] \). By the Mean Value Theorem, we can find an \( \ell \in (x,y) \) such that   
+\[  f'(\ell) = \frac{ f(x) - f(y) }{ x - y  }. \]
+By assumption, we can see that for \( L > 0 \) we have 
+\begin{align*}
+| f'(\ell) | \leq L &\implies \Big|  \frac{ f(x) - f(y) }{ x - y  }  \Big| \leq L \\   
+                    &\implies | f(x) - f(y) | \leq L | x - y |.
+\end{align*} 
+Now, choose \( \delta = \frac{ \epsilon  }{  L  }  \). Then whenever \( | x - y  |  < \delta \), we can see that 
+\[  | f(x) - f(y)  |  \leq L | x - y  |  < L \cdot \frac{ \epsilon  }{  L  }   =  \epsilon. \]
+Hence, we conclude that \( f  \) must be uniformly continuous on \( \R  \).
+    \item[(b)] Consider the function \( f: (0,\infty ) \to \R  \) defined by \( f(x) = \sqrt{ x }  \). We claim that this function is uniformly continuous on \( \R  \) but its derivative \( f'(x) = \frac{ 1 }{ 2 }  x^{-1/2} \) is not bounded above for some \( L \geq 0  \). 
+
+        To show that \( f  \) is uniformly continuous, let \( x,y \in (0,\infty )  \) and let \( \epsilon > 0  \). Choose \( \delta = \sqrt{  x  } \cdot  \epsilon \). Then whenever \( | x-  y  |  < \delta \), we have   
+        \begin{align*}
+            | \sqrt{ x }  - \sqrt{ y }  | &= \frac{ | x -y  |  }{  \sqrt{  x  }  + \sqrt{ y }  }  \\
+                                          &\leq \frac{ | x- y  |   }{  \sqrt{ x  }  } \\ 
+                                          &< \frac{ \epsilon \cdot \sqrt{ x }   }{ \sqrt{ x }  }  \\
+                                          &= \epsilon.
+        \end{align*}
+        Thus, \( f(x) = \sqrt{ x }   \) is uniformly continuous on \( (0,\infty)  \).
+
+        Now, we want to show that the derivative of \( f  \) is NOT bounded above. Note that 
+        \[  f'(x) = \frac{ 1 }{ 2 }  x^{-1/2}. \]
+        
+        We need to show that for all \( M > 0  \) such that there exists \( \hat{x} \in (0,\infty ) \) such that \( | f'(x) |  > M  \). Choose \( \hat{x} = \frac{ 1 }{ 4 M^{2} }  \). Then we have  \textbf{(Justify why this later)} 
+        \begin{align*}
+            | f'(\hat{x}) | = \frac{ 1 }{ 2 \sqrt{ \hat{x} }  } &> \frac{ 1 }{ 2 }  \cdot \frac{ 1  }{  \sqrt{  1/4 M^{2} }  }  \\
+                                                                &= \frac{ 1 }{ 2 } \cdot \frac{ 1 }{ 1/2M } \\ 
+                                                                &= M.
+        \end{align*}
+        Hence, \( f  \) is not bounded above.
+\end{proof}
+
+\begin{problem}
+    Let \( f: [0,\infty ] \to \R \) be a differentiable function. Prove that, if \( \lim_{ x \to  + \infty   }  f(x) = M  \in \R  \), then there exists a sequence \( ({x}_{n}) \) such that \( | f'({x}_{n}) | \to 0 \).
+\end{problem}
+\begin{proof}
+Suppose that \( \lim_{ x \to + \infty   }  f(x) = M  \in \R  \). Our goal is to construct a sequence \( ({x}_{n}) \) such that 
+\[  | f'({x}_{n}) | \to 0. \]
+Since \( \lim_{ x \to + \infty   }  f(x) = M   \), we have for every \( \epsilon > 0  \), there exists an \( \hat{M} > 0   \) such that for any \( x > \hat{M}  \), we have
+\[  | f(x) - M  | < \epsilon.  \]
+In particular, if we let \( \epsilon = 1  \). Then we can find an \( \hat{{x}_{1}} > 0  \) such that for any \( x > \hat{{x}_{1}} \)
+\[  | f(x) - M  | < 1. \] 
+Furthermore, if we let \( \epsilon = \frac{ 1 }{ 2 }  \), then we can find an \( \hat{{x}_{2}} > 0  \) such that for any \( x > \hat{{x}_{2}} \), we have 
+\[  | f(x) - M  | < \frac{ 1 }{ 2 }. \]
+In general, if \( \epsilon = \frac{ 1 }{ n }  \), then we can find an \( \hat{{x}_{n}} > 0  \) such that for any \( x > \hat{{x}_{n}} \)
+\[ | f(x) - M  | < \frac{ 1 }{ n }.   \] 
+Since \( f  \) is differentiable on \( (0,\infty ) \), \( f  \) is continuous on \( [ 0,\infty ] \). Using the Mean Value Theorem, we can find an \( {x}_{n} \in (\hat{{x}_{n}}, x) \) such that  
+\[  f'({x}_{n}) = \frac{ f(\hat{{x}_{n}}) - f(x) }{ \hat{{x}_{n}} - x   }.  \]
+Note by the triangle inequality, we have that 
+\begin{align*}
+    | f'({x}_{n}) | = \Big| \frac{ f(\hat{{x}_{n}}) - f(x) }{ \hat{{x}_{n}} - x  }  \Big|  
+                    &\leq \Big| \frac{ f(\hat{{x}_{n}}) - M  }{ \hat{{x}_{n}} - x   }  \Big| + \Big|  \frac{M - f(x)}{ \hat{{x}_{n}} - x  }  \Big| \\
+                    &< \frac{ 1 }{ | \hat{{x}_{n}} - x  |  } \Big[ | f(\hat{{x}_{n}}) - M  | + | M - f(x) |  \Big] \\
+\end{align*}
+\end{proof}
+
+
+\end{document}
+
