@@ -3,12 +3,18 @@
 \title{Math 241 Homework 2}
 \author{Lance Remigio}
 \begin{document}
+\maketitle
 
+\begin{remark}
+    In the first two problems of this homework, whenever I state \( {x}_{i}^{(k)} \to {x}_{i} \), I mean whenever we let \( k \to \infty  \).
+\end{remark}
 \begin{problem}
     Prove that \( (\R^{n}, {d}_{\infty }) \) is complete.
 \end{problem}
 \begin{proof}
-Let \( (\vec{ {x}_{k} } ) \) be a Cauchy sequence in \( \R^{n} \). By a result found in quiz 1, it follows that \( ({x}_{ik}) \) for \( 1 \leq i \leq n  \) is also Cauchy. Since \( \R  \) is a complete metric space with respect to the standard metric on \( \R  \), we find that each \( {x}_{ik } \) is also a convergent sequence. By another result in quiz 1, it follows that \( (\vec{ {x}_{k} } ) \) is a convergent sequence. Hence, \( \R^{n} \) with respect to the \( {d}_{\infty } \) metric is complete.
+    Let \( (\vec{ {x}_{k} } ) \) be a Cauchy sequence in \( \R^{n} \). Note that \( 1 \leq i \leq n  \) denotes the \( i \)th component of elements in \( \R^{n} \) and \( k \in \N \) is the index for each sequence in \( \R^{n} \). By a result found in quiz 1, it follows that \( ({x}_{i}^{(k)}) \) for \( 1 \leq i \leq n  \) is also Cauchy. Since \( \R  \) is a complete metric space with respect to the standard metric on \( \R  \), we find that each \( {x}_{i}^{(k)} \) is also a convergent sequence. By another result in quiz 1, it follows that \( (\vec{ {x}_{k} } ) \) is a convergent sequence; that is, for each \( 1 \leq i \leq n  \), \( {x}_{i}^{(k)} \to {x}_{i} \) where \( {x}_{i} \in \R  \). Clearly, we have 
+    \[  \vec{ x } =  ({x}_{1}, {x}_{2}, \dots, {x}_{n} ) \in \R^{n}. \]
+    Hence, \( \R^{n} \) with respect to the \( {d}_{\infty } \) metric is complete.
 \end{proof}
 
 \begin{problem}
@@ -21,16 +27,16 @@ Let \( (\vec{ {x}_{k} } ) \) be a Cauchy sequence in \( \R^{n} \). By a result f
 \end{problem}
 \begin{proof}
 \begin{enumerate}
-    \item[(i)] Our goal is to show that \( {\pi}_{i} \) is a continuous map with respect to \( {d}_{\infty } \) on \( \R^{n} \); we will do this via the sequential criterion of continuity. Suppose \( \vec{ {x}_{k} }  \to \vec{ x }  \) for some \( \vec{ x }  \) in \( \R^{n} \). By a result found in quiz 1, we can see that \( {x}_{ik} \to {x}_{i} \) for \( 1 \leq i \leq n  \). By definition of \( {\pi}_{i} \), we find that as \( n \to \infty  \), we get
-        \[ {\pi}_{i}(\vec{ x_{k} } ) = {x}_{ik} \to {x}_{i} = {\pi}_{i}(\vec{ x } ).  \]
+    \item[(i)] Our goal is to show that \( {\pi}_{i} \) is a continuous map with respect to \( {d}_{\infty } \) on \( \R^{n} \); we will do this via the sequential criterion of continuity. Suppose \( \vec{ {x}_{k} }  \to \vec{ x }  \) for some \( \vec{ x }  \) in \( \R^{n} \). By a result found in quiz 1, we can see that \( {x}_{i}^{(k)} \to {x}_{i} \) for \( 1 \leq i \leq n  \). By definition of \( {\pi}_{i} \), we find that as \( k \to \infty  \), we get
+        \[ {\pi}_{i}(\vec{ x_{k} } ) = {x}_{i}^{(k)} \to {x}_{i} = {\pi}_{i}(\vec{ x } ).  \]
         Hence, we have that \( {\pi}_{i} \) is a continuous map with respect to \( {d}_{\infty } \) and the standard metric on \( \R  \).
     \item[(ii)] Our goal is to show that \( {\pi}_{i}: \R^{n} \to \R  \) is continuous with respect to \( {d}_{\text{euclid}}  \). Let \( (\vec{ {x}_{k} } )\) be a sequence in \( \R^{n} \) such that \( \vec{ {x}_{k} } \to \vec{ x }    \). Since \( {\pi}_{i} \) is continuous on \( \R^{n} \) with respect to the \( {d}_{\infty }  \) metric, we have \( {d}_{\infty }(\vec{ {x}_{k} }, \vec{ x } ) \to 0 \). Notice that 
         \[  0 \leq {d}_{\text{euclid}}(\vec{ {x}_{k} } , \vec{ x } ) \leq (n)^{1/2} {d}_{\infty }(\vec{ {x}_{k} } , \vec{ x } ). \tag{1} \]
-        Now, \( {d}_{\infty }(\vec{ {x}_{k}}, \vec{ x }  ) \to 0  \) implies that \( {d}_{\text{euclid}}(\vec{ {x}_{k} } , \vec{ x } ) \to 0  \) by applying the squeeze theorem to (1). Thus, we can see that  
+        Now, \( {d}_{\infty }(\vec{ {x}_{k}}, \vec{ x }  ) \to 0  \) implies that \( {d}_{\text{euclid}}(\vec{ {x}_{k} } , \vec{ x } ) \to 0  \) as \( k \to \infty  \) by applying the squeeze theorem to (1). Thus, we can see that  
         \begin{align*}
             | {\pi}_{i}(\vec{ {x}_{k} } ) - {\pi }_{i}(\vec{ x } )  | &= \Big( | {\pi}_{i}(\vec{ {x}_{k} } ) - {\pi}_{i}( \vec{ x }  ) |^{2} \Big)^{1/2}  \\
-                                                                      &= \Big( | {x}_{ik} - {x}_{i} |^{2}  \Big)^{1/2} \\
-                                                                      &\leq \Big( \sum_{ i=1 }^{ n} | {x}_{ik } - {x}_{i} |^{2} \Big)^{1/2} \\
+                                                                      &= \Big( | {x}_{i}^{(k)} - {x}_{i} |^{2}  \Big)^{1/2} \\
+                                                                      &\leq \Big( \sum_{ i=1 }^{ n} | {x}_{i}^{(k)} - {x}_{i} |^{2} \Big)^{1/2} \\
                                                                       &= {d}_{\infty }(\vec{ {x}_{k} } , \vec{ x } ) \to 0. 
         \end{align*}
         Hence, we conclude that 
@@ -46,9 +52,33 @@ Let \( (\vec{ {x}_{k} } ) \) be a Cauchy sequence in \( \R^{n} \). By a result f
     \end{enumerate}
 \end{problem}
 \begin{proof}
-\begin{enumerate}
-    \item[(i)]
+    \begin{enumerate}
+        \item[(i)]  \begin{enumerate}
+                
+    \item[(I)] It follows immediately that \( d(x,y) > 0  \) by the way \( d  \) is defined. Let \( x,y \in \R  \). Then
+        \begin{align*}
+            d(x,y) = 0 &\iff | e^{x} - e^{y} | = 0  \\
+                       &\iff e^{x}= e^{y} \tag{standard metric on \( \R  \)} \\
+                       &\iff \ln(e^{x}) = \ln(e^{y}) \\
+                       &\iff x = y.
+        \end{align*}
+        Hence, property (i) is satisfied.
+    \item[(II)] We have 
+        \[  d(x,y) = | e^{x} - e^{y} |  = | e^{y} - e^{x} |  = d(y,x). \]
+        Hence, property (ii) is satisfied.
+    \item[(III)] Let \( x,y,z \in \R  \). Then we have
+        \begin{align*}
+            | e^{x} - e^{y} | &= | e^{x} - e^{z} + e^{z} - e^{y} |  \\
+                              &\leq | e^{x} - e^{z} |  + | e^{z} - e^{y} |  \\
+                              &= d(x,z) + d(z,y).
+        \end{align*}
+        Hence, we have \( d(x,y) \leq d(x,z) + d(z,y) \).
 \end{enumerate}
+From the properties above, we conclude that \( d(x,y) = | e^{x} - e^{y} |  \) does indeed define a metric on \( \R \).
+        \item[(ii)] We claim that the metric defined above does NOT make \( \R \) complete. Define the sequence \( {x}_{n} = \ln \Big(  \frac{ 1 }{ n }  \Big) \). It follows immediately with respect to \( d  \) that \( ({x}_{n}) \) is a Cauchy sequence in \( \R  \). Indeed, let \( \epsilon > 0  \). Since \( 1/n \) is a Cauchy sequence in \( \R  \) with respect to the standard metric, there exists an \( N \in \N \) such that for any \( n,m \geq N  \), we have 
+            \[  d({x}_{n}, {x}_{m}) = | e^{\ln(1/n)} - e^{\ln(1/m)}  | = \Big| \frac{ 1 }{ n }  - \frac{ 1 }{ m }  \Big| < \epsilon.   \]
+            Since \( \R  \) is complete with respect to the standard metric, we can see that \( \frac{ 1 }{ n } \to 0  \), but there does not exists an \( x \in \R  \) such that \( x = \ln(0) \). Hence, \( \R  \) cannot be complete with the metric defined above.
+    \end{enumerate}
 \end{proof}
 
 \begin{problem}
@@ -58,6 +88,30 @@ Let \( (\vec{ {x}_{k} } ) \) be a Cauchy sequence in \( \R^{n} \). By a result f
     \item[(ii)] Let \( d(m,n) = \Big| \frac{ 1 }{ m }  - \frac{ 1 }{ n }  \Big|  \). Prove that \( (X,d) \) is not complete.
 \end{enumerate}
 \end{problem}
+\begin{proof}
+\begin{enumerate}
+    \item[(i)] Let \( ({x}_{n}) \) be a Cauchy sequence in \( \N \). Let \( \epsilon > 0  \). Our goal is to find an \( N \in \N  \) such that for any \( n \geq N  \), we have  
+        \[  | {x}_{n} - x | < \epsilon \]
+        where \( x \in \N \). Let \( \epsilon > 0 \). Since \( ({x}_{n}) \) is a Cauchy sequence in \( \N \), there exists an \( \hat{N} \in \N \) such that for any \( n,m \geq \hat{N} \)
+        \[  | {x}_{n} - {x}_{m} | < \epsilon. \]
+        Note that since \( {x}_{n}, {x}_{m} \in \N \), we can use \( \hat{N}  \) as the same \( N  \) we were looking for. Indeed, if we fix \( m > \hat{N} \) and suppose that for any \( n \geq \hat{N}  \), we have 
+        \[  | {x}_{n} - {x}_{m} | <  \epsilon. \]
+        Then clearly, \( {x}_{n} \to x  \) (where \( x = {x}_{m} \in \N \), in this case). Hence, we conclude that \( ({x}_{n}) \to x  \).
+\end{enumerate}
+\item[(ii)] We claim that \( (X,d) \) is not complete with respect to \( d(m,n) = | \frac{ 1 }{ m }  - \frac{ 1 }{ n }  |  \). Consider the sequence \( {x}_{n} = n \). With respect to the metric above, we can see that \( ({x}_{n}) \) is a Cauchy sequence in \( \N \). Indeed, let \( \epsilon > 0  \). Using the Archimedean Property, we can find an \( \hat{N} \) such that  
+    \[  \frac{ 1 }{ \hat{N} } < \frac{ \epsilon }{ 2 }. \]
+    If we let \( n,m \geq \hat{N} \), we have 
+    \begin{align*}
+        \frac{ 1 }{ n } &\leq \frac{ 1 }{ \hat{N} } < \frac{ \epsilon }{ 2 } \tag{1}  \\
+        \frac{ 1 }{ m }  &\leq \frac{ 1 }{ \hat{N} }  < \frac{ \epsilon }{ 2 }. \tag{2}
+    \end{align*}
+    Using (1) and (2) along with the triangle inequality, we can see that 
+    \begin{align*}
+        \Big| \frac{ 1 }{ n }  - \frac{ 1 }{ m }  \Big|  &\leq \Big| \frac{ 1 }{ n }  \Big| + \Big| \frac{ 1 }{ m }  \Big|   
+        < \frac{ 2 }{ \hat{N} } < \epsilon.
+    \end{align*}
+    Hence, \( ({x}_{n}) \) is a Cauchy sequence, but \( {x}_{n} \to 0  \) (with respect to the metric above) where \( 0  \) is clearly not in \( \N \). Hence, \( \N \) cannot be complete with the above metric.
+\end{proof}
 
 \begin{problem}
     Let \( X = \{ f: [0,1] \to \R : f \ \text{is continuous} \}  \).
@@ -66,6 +120,53 @@ Let \( (\vec{ {x}_{k} } ) \) be a Cauchy sequence in \( \R^{n} \). By a result f
             \item[(ii)] Prove that \( (X,d) \) is not complete.
        \end{enumerate} 
 \end{problem}
+\begin{proof}
+\begin{enumerate}
+    \item[(i)] Our goal is to show that \( d  \) is a metric on \( X  \). 
+        \begin{enumerate}
+            \item[(I)] Let \( f,g \in X  \). Using the fact that the standard metric \( | \cdot |   \) is a nonnegative continuous function on \( [0,1] \) along with the fact given to us, it follows that
+                \[  \int_{ 0 }^{ 1 } | f(t) - g(t) |  \ dt = 0 \iff | f(t) - g(t) |  = 0.  \]
+                Thus, we have that
+                \begin{align*}
+                    d(f,g) = 0 &\iff \int_{ 0 }^{ 1 }  | f(t) - g(t) |  \ dt \\
+                               &\iff | f(t) - g(t) | = 0 \\
+                               &\iff f(t)  = g(t) \tag{\( | \cdot |  \) is a metric on \( \R  \)} \\ 
+                \end{align*}
+            \item[(II)] Observe that for any \( f,g \in X  \), we see that
+                \[  d(f,g) = \int_{ 0 }^{ 1 }  | f(t) - g(t) |  \ dt  = \int_{ 0 }^{ 1 }  | g(t) - f(t) |  \ dt = d(g,f). \]
+            \item[(III)] Let \( f,g,h \in X  \). Then by the triangle inequality of the standard metric of \( \R  \) and the linearity of integral, we have
+                \begin{align*}
+                    d(f,g) &= \int_{ 0 }^{ 1 } | f(t) - g(t) |  \ dt  \\
+                           &\leq \int_{ 0 }^{ 1 }  \Big( | f(t) - h(t) |  + | h(t) - g(t) | \Big)  \ dt \\
+                           &= \int_{ 0 }^{ 1 }  | f(t) - h(t) |  \ dt + \int_{ 0 }^{ 1 }  | h(t) - g(t) |  \ dt \\
+                           &= d(f,h) + d(h,g).
+                \end{align*}
+                Hence, property (III) is satisfied.
+        \end{enumerate}
+        Thus, we conclude that \( d  \) does indeed define a metric on \( X  \).
+    \item[(ii)] Our goal is to construct a sequence \( ({x}_{n}) \) that is Cauchy in \( X  \), but it does not converge in \( X  \). Based on the area of the triangle, which is represented by \( d({x}_{m}, {x}_{n}) \), found in figure 10 of the book, we can define \( N = \frac{ 1 }{ \epsilon }  \) such that for any \( m,n \geq N \), we have   
+        \[  d({x}_{n}, {x}_{m}) < \epsilon. \]
+        As a consequence, we can see that \( ({x}_{n}) \) is a Cauchy sequence.
+        Now, we want to show that \( ({x}_{n}) \) does not converge in \( X  \). Suppose for sake of contradiction that \( ({x}_{n}) \) does converge in \( X  \). Suppose \( x \in X  \). Indeed, if we define 
+        \[  {x}_{m}(t) = 0 \ \text{if} \ t \in [0,1/2] \]
+        and 
+        \[  {x}_{m}(t) = 1  \ \text{if} \ t \in [{a}_{m},1] \]
+        where \( {a}_{m} =\frac{ 1 }{ 2 }  + \frac{ 1 }{ m }  \), we see that  
+        \begin{align*}
+            d({x}_{m},x) &= \int_{ 0 }^{ 1 }  | {x}_{m}(t) - x(t) |  \ dt \\
+                         &= \int_{ 0 }^{ 1/2 }  | x(t) |  \ dt + \int_{ 1/2 }^{ {a}_{m} } | {x}_{m}(t) - x(t) |  \ dt + \int_{ {a}_{m} }^{ 1 }  | 1 - x(t) |  \ dt.
+        \end{align*}
+        By our integration properties, we can see that  
+        \[  d({x}_{m},x) = \int_{ 0 }^{ 1/2 }  | x(t) |  \ dt + \int_{ 1/2 }^{ {a}_{m} } | {x}_{m}(t) - x(t) |  \ dt + \int_{ {a}_{m} }^{ 1 } | 1 - x(t) |  \ dt. \]
+        Since each corresponding integrand above is nonnegative, we can see that each integral on the right-hand side is nonnegative. Since \( d({x}_{m},x) \to 0  \) (by assumption), we can see that each integral on the right-hand side above approaches zero. Since \( x(t) \) is a continuous function for all \( t \in [0,1] \), we have that 
+        \[ x(t) = 
+        \begin{cases}
+            0 &\text{if} \ t \in [0,1/2) \\ 
+            1 &\text{if} \ t  \in (1/2,1].
+        \end{cases} \]
+        But note that \( x(t) \) cannot be continuous; that is, \( x \notin X  \). The reason is as follows: if we take a sequence \( ({t}_{n}) \) in the interval \( [0,1/2) \) (that is, take a sequence from the left side), then we see that \( x({t}_{n}) \to 0   \). However, if we take a sequence \( ({r}_{n})  \) in the interval \( (1/2,1] \) (that is, take the right-handed limit), then \( x({r}_{n}) \to 1 \). By the sequential criterion of continuity, we see immediately that \( x(t)  \) cannot be continuous. Hence, we have \( {x}_{m}(t)  \) converges to a limit that does not belong to \( X \). Hence, we conclude that \( X  \) cannot be a complete metric space with the metric \( d  \) defined above.
+\end{enumerate}
+\end{proof}
 
 
 
