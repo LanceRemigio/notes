@@ -27,9 +27,10 @@
     \item[(i)] Suppose \( x \neq 0  \). Notice that
         \begin{enumerate}
             \item[(1)] \( x^{m} \) is a polynomial that is differentiable for any \( x \neq 0  \).
-            \item[(2)] \( \frac{ 1 }{ x^{n} }   \) is differentiable for any \( x \neq 0  \).
-            \item[(3)] \( \sin x  \) is differentiable for any \( x \neq 0  \).
+            \item[(2)] \( \frac{ 1 }{ x^{n} }   \) is a rational function which is differentiable for any \( x \neq 0  \).
+            \item[(3)] \( \sin x  \) is a trigonometric function which is differentiable for any \( x \neq 0  \).
         \end{enumerate}
+        By (1), (2), and (3), we conclude via a combination of the Chain Rule and Algebraic Differentiability Theorem that \( f  \) is differentiable for all \( x \neq 0  \).
     \item[(ii)] Suppose \( m > 1  \). Our goal is to show that \( f  \) is differentiable at \( 0  \); that is, we will show that 
         \[  \lim_{ x \to 0 }  \frac{ f(x) - f(0) }{ x - 0 }  = \lim_{ x \to 0 }  \frac{ x^{m} \sin \frac{ 1 }{ x^{n} }   }{ x  } = \lim_{ x \to 0 }  x^{m-1} \sin \frac{ 1 }{ x^{n} }. \tag{*}  \]
         Since \( | \sin \frac{ 1 }{ x^{n} }  | \leq 1  \), we can see that 
@@ -87,11 +88,35 @@
         \begin{enumerate}
             \item[(1)] \( x^{m-1} \) and \( x^{m-n-1} \) are polynomials which are differentiable everywhere on \( \R  \).
             \item[(2)] \( \sin x  \) and \( \cos x  \) are trigonometric functions which are differentiable everywhere on \( \R  \).
-            \item[(3)] \( \frac{ 1 }{ x^{n} }  \) is a rational function are differentiable for every \( x \neq 0  \) in \( \R  \).
+            \item[(3)] \( \frac{ 1 }{ x^{n} }  \) is a rational function that is differentiable for every \( x \neq 0  \) in \( \R  \).
             \item[(4)] \( \sin (\frac{ 1 }{ x^{n} } ) \) is differentiable for every \( x \neq 0  \) in \( \R  \) by the chain rule.
         \end{enumerate}
         From (1), (2), (3), and (4) we can use the Algebraic differentiability theorem to conclude that \( f'(x) \) is indeed differentiable.
-    \item[(v)] We can use the same argument as the above to prove that \( f''(x) \) is continuous at \( 0  \). By the Algebraic Continuity Theorem, we conclude that \( f''(x) \) is continuous at \( 0  \).  
+    \item[(v)] Using a combination of the product rule and chain rule, we have    
+        \[  f''(x) = 
+        \begin{cases}
+            [m(m-1)x^{m-2} - n x^{m-2n-2}] \sin \frac{ 1 }{ x^{n} } \\
+            -[mn x^{m-n-2} + n (m - n -1) x^{m-n-2} \cos \frac{ 1 }{ x^{n} } &\text{if} \ x \neq 0 ] \\
+            0 &\text{if} \ x = 0 
+        \end{cases} \]
+        By assumption, we have that 
+        \[  m > 2 + 2n \implies m - 2n - 2 > 0 \]
+        and similarly
+        \[  m - n - 2 > n > 0 \ \text{and} \ m - 2 > 0.  \]
+        Hence, we can see that \( x^{m-2} \) and \( x^{m-2n-2}  \) are polynomials which are continuous everywhere on \( \R  \). In particular, these two polynomials are continuous at \( 0  \). Since \( | \sin x  | \leq 1  \) for all \( x \in \R  \), we have
+        \[  0 \leq \Big| [m(m-1) x^{m-2} - n x^{m-2n-2}] \sin \frac{ 1 }{ x^{n} }  \Big| \leq | m(m-1) x^{m-2} - n x^{m-2n-2} |. \tag{*}    \]
+        Since \( x^{m-2} \) and \( x^{m-2n-2}  \) are both continuous at \( 0  \), the Algebraic Continuity Theorem implies that 
+        \[  \lim_{ x \to 0 }  m(m-1) x^{m-2} - n x^{m-2n-2} = 0  \]
+        which holds if and only if 
+        \[ \lim_{ x \to 0 } | m(m-1) x^{m-2} - n x^{m-2n-2} | = 0.    \]
+        Then using the Squeeze Theorem on (*), we can conclude that 
+        \[  \lim_{ x \to 0 } \Big| [m(m-1)x^{m-2} - n x^{m-2n-2}] \sin \frac{ 1 }{ x^{n} }  \Big| = 0   \]
+        which holds if and only if
+        \[ \lim_{ x \to 0 } [m(m-1) x^{m-2} - n x^{m-2n-2}] \sin \frac{ 1 }{ x^{n} } = 0. \tag{1}  \]
+        Analogously, we can prove that  
+        \[  \lim_{ x \to 0 }  [mn x^{m-n-2} + n (m-n-1) x^{m-n-2}] \cos \frac{ 1 }{ x^{n} }  = 0. \tag{2}  \]
+        Using the Algebraic Limit Theorem for functions, we can conclude that 
+        \[  \lim_{ x \to 0 }  f''(x) =  f''(0).  \] 
     \item[(vi)] Computing \( f'' \), we have 
         \[  f''(x) = 
         \begin{cases}
@@ -122,7 +147,7 @@
     Prove that \( f  \) is infinitely differentiable at \( 0  \) with \( f^{(n)}(0) = 0  \) for all \( n \in \N \).
 \end{problem}
 \begin{proof}
-Our goal is to show that \( f  \) is infinitely differentiable at \( 0  \). Note that for \( t \leq 0  \), one can immediately see that via induction that \( f^{(n)}(0) = 0  \) for all \( n \in \N \). In what follows, we will show that \( f^{(n)}(0) = 0  \) for all \( t > 0  \) and for all \( n \in \N \). First, we will show that for all \( n \in \N \)
+Our goal is to show that \( f  \) is infinitely differentiable at \( 0  \). We will consider two cases for this. Note that for \( t \leq 0  \), one can immediately see that via induction that \( f^{(n)}(0) = 0  \) for all \( n \in \N \). Thus, it remains to be shown that if \( t > 0  \), then \( f^{(n)}(0) = 0  \) for all \( n \in \N \). First, we will show that for all \( n \in \N \)
 \[  f^{(n)}(t) = e^{-1/t} \frac{ {P}_{n}(t) }{ t^{2n} }.   \]
 Using a combination of the chain rule and product rule, we have that 
 \[ f'(t) = \frac{ e^{-1/t} }{ t^{2} }. \]
@@ -151,9 +176,14 @@ Since \( f^{(k+1)}(t) \) exists, we have
             &= \lim_{ t \to 0  } \Big[ {P}_{k}(t) \cdot \frac{ e^{-1/t} }{ t^{2k+1} } \Big] \\
             &= \lim_{ t \to 0  }  {P}_{k}(t) \cdot \lim_{ t \to 0 }  \frac{ e^{-1/t} }{ t^{2k+1} }  \\
 \end{align*}
-Note that \( \lim_{ t \to 0  }  \frac{ e^{-1/t} }{ t^{2k+1} }  = 0  \) by L'Hopital's rule. Hence, we conclude that 
+Note that \( \lim_{ t \to 0  }  \frac{ e^{-1/t} }{ t^{2k+1} }  = 0  \) by L'Hopital's rule. Indeed, let's induct on \( n \in \N  \) to show that this is true. Let our base case be \( n = 1  \).
+\[  \lim_{ t \to 0^{+} } \frac{ t^{-1} }{ e^{1/t} } \underbrace{=}_{\frac{ \infty  }{ \infty  }} \lim_{ t \to 0^{+} } \frac{ - t^{-2} }{ - t^{-2} e^{1/t} }  = \lim_{ t \to 0^{+} } \frac{ 1 }{ e^{1/t} }  = 0.    \]
+Suppose the result holds for \( n = k   \); that is,  
+\[  \lim_{ t \to 0^{+} }  \frac{ t^{-k} }{ e^{1/t} }  = 0.  \]
+Our goal is to show that the result holds \( n = k + 1  \) (where \( k \geq 1  \)). Indeed, 
+using L'Hopital's Rule, we have
+\[  \lim_{ t \to 0^{+} } \frac{ t^{-(k+1)} }{ e^{1/t} } \underbrace{=}_{ \frac{ \infty  }{ \infty  }    } -(k+1)  \lim_{ t \to 0^{+} }  \frac{  t^{-k} }{ -e^{1/t}  } = 0. \] Hence, we conclude that 
 \[  f^{(k+1)}(0) = 0. \]
-
 \end{proof}
 
 \begin{problem}
@@ -169,12 +199,27 @@ for some \( L \in \R  \). Now, the right-hand side can be written in the followi
 \[  L = \lim_{ h \to 0 }  L = \lim_{ h \to 0 }   \frac{ L h }{ h }.  \]
 Note that the quantity \( \frac{ h }{ h }  \) holds because of the \( \epsilon-\delta \) definition of the derivative. Now, we have 
 \begin{align*}
-    \lim_{ h \to 0 }  \frac{ f(c+h) - f(c) }{ h   } = L  &\iff \lim_{ h \to 0 }  \frac{ f(c+h) - f(c) }{ h  } = \lim_{ h \to 0 } \frac{L h }{ h }  \\
-                                                         &\iff \lim_{ h \to 0 }  \frac{ f(c+h) - f(c) }{ h }  - \lim_{ h \to 0 } \frac{ Lh  }{ h } = 0.
+    \lim_{ h \to 0 }  \frac{ f(c+h) - f(c) }{ h   } = L  &\implies \lim_{ h \to 0 }  \frac{ f(c+h) - f(c) }{ h  } = \lim_{ h \to 0 } \frac{L h }{ h }  \\
+                                                         &\implies \lim_{ h \to 0 }  \frac{ f(c+h) - f(c) }{ h }  - \lim_{ h \to 0 } \frac{ Lh  }{ h } = 0.
 \end{align*}
 By the Algebraic Limit Theorem for functions, we conclude that 
 \[  \lim_{ h \to 0 } \frac{ f(c+h) - f(c) - Lh }{ h } = 0. \]
-We can reverse this argument to get the prove the reverse direction.
+
+(\( \Longrightarrow \)) Suppose that there exists an \( L \in \R  \) such that 
+\[  \lim_{ h \to 0 } \frac{ f(c+h) - f(c) - Lh }{ h  } = 0.  \]
+Our goal is to show that \( f  \) is differentiable at \( c  \); that is,  
+\[  \lim_{ h \to 0 } \frac{ f(c+h) - f(c) }{ h }  \ \text{exists}.  \]
+Then we have 
+\begin{align*}
+    \lim_{ h \to 0 }  \frac{ f(c+h) - f(c) }{ h } &= \lim_{ h \to 0} \Big[  \frac{ f(c+h) - f(c)  }{ h  }  - L + L \Big] \\
+                                                &= \lim_{ h \to 0 } \Big[ \frac{ f(c+h) - f(c) - Lh }{ h }  +  L \Big] \\
+                                                &= \lim_{ h \to 0 }  \frac{ f(c+h) - f(c) - Lh }{ h }  + \lim_{ h \to 0 }  L \tag{ALT for Functions} \\
+                                                &= 0 + L \\
+                                                &= L. 
+\end{align*}
+Hence, we can see that 
+\[  \lim_{ h \to 0 }  \frac{ f(c+h)-  f(c) }{ h  } \ \text{exists} \]
+and so we conclude that \( f  \) is differentiable at \( c  \).
 \end{proof}
 
 \begin{problem}
@@ -183,9 +228,11 @@ We can reverse this argument to get the prove the reverse direction.
 \begin{proof}
 Our goal is to show that \( \lim_{ h \to 0 }  g(-h) = L \); that is, for all \( \epsilon > 0  \), there exists \( \delta > 0  \) such that whenever \( 0 < | h  |  < \delta \), we have 
 \[  | g(-h) - L  |  < \epsilon. \]
-Let \( \epsilon > 0  \) be given. Since \( \lim_{ h \to 0 } g(h) = L  \), we can find a \( \hat{\delta} > 0  \) such that whenever \( 0 < | h  |  < \hat{\delta} \) (note that here \( 0  \) is an interior point of \( A  \)), 
-\[  | g(h) - L  | < \epsilon. \tag{*}  \]
-We claim that \( \hat{\delta} \) is the same \( \delta  \) we were looking for. But observe that \( | h  |  = | -(-h) | = | -h  |  \) and so, if \( 0 < | -h  |  < \delta \) and using our assumption in (*), we can write
+Let \( \epsilon > 0  \) be given. Since \( \lim_{ h \to 0 } g(h) = L  \), we can find a \( \hat{\delta} > 0  \) such that whenever \( 0 < | y  |  < \hat{\delta} \), 
+\[  | g(y) - L  | < \epsilon.   \]
+Since \( 0  \) is an interior point of \( A  \), there exists an \( \tilde{\delta} > 0  \) such that \( {N}_{\tilde{\delta}}(0) \subseteq  A  \); that is, we have
+\[  (-\tilde{\delta}, \tilde{\delta}) \subseteq A. \]
+Set \( \delta = \min \{ \hat{\delta}, \tilde{\delta} \} > 0   \). We claim that this \( \delta  \) is the same \( \delta \) we were looking for. Observe that \( | h  |  = | -(-h) | = | -h  |  \). Thus, if \( h \in A  \), then \( 0 < |  h  |  < \delta \) implies that  \( 0 < | -h  |  < \delta \). By setting \( y = -h  \), we can write
 \[  | g(-h) - L  | < \epsilon \]
 which is our desired result.
 \end{proof}
@@ -468,7 +515,13 @@ By assumption, we can see that for \( L > 0 \) we have
 Now, choose \( \delta = \frac{ \epsilon  }{  L  }  \). Then whenever \( | x - y  |  < \delta \), we can see that 
 \[  | f(x) - f(y)  |  \leq L | x - y  |  < L \cdot \frac{ \epsilon  }{  L  }   =  \epsilon. \]
 Hence, we conclude that \( f  \) must be uniformly continuous on \( \R  \).
-    \item[(b)] Consider the function \( f: (0,\infty ) \to \R  \) defined by \( f(x) = \sqrt{ x }  \). We claim that this function is uniformly continuous on \( \R  \) but its derivative \( f'(x) = \frac{ 1 }{ 2 }  x^{-1/2} \) is not bounded above for some \( L \geq 0  \). 
+    \item[(b)] Consider the function \( f: (0,\infty ) \to \R  \) defined by \( f(x) = \sqrt{ x }  \). We claim that this function is uniformly continuous on \( \R  \) but its derivative \( f'(x) = \frac{ 1 }{ 2 }  x^{-1/2} \) is not bounded above for some \( L \geq 0  \). Indeed, \( f  \) is differentiable on \( (0,\infty ) \) since the following limit  
+        \begin{align*}
+            \lim_{ x \to c } \frac{ f(x) - f(c) }{ x - c  } &= \lim_{ x \to c  }  \frac{ \sqrt{ x  }  - \sqrt{ c  }   }{  x - c  }  \\
+                                                            &= \lim_{ x \to c }  \frac{ 1  }{  \sqrt{ x  }  + \sqrt{ c  }  }  \\
+                                                            &= \frac{ 1 }{ 2 \sqrt{  c  }  }
+        \end{align*}
+        exists.
 
         To show that \( f  \) is uniformly continuous, let \( x,y \in (0,\infty )  \) and let \( \epsilon > 0  \). Choose \( \delta = \sqrt{ \epsilon }  \). Since \( x,y \in (0,\infty ) \), we have 
         \[  | \sqrt{ x }  - \sqrt{ y }  | \leq | \sqrt{ x }  + \sqrt{ y }  |.  \]
@@ -494,6 +547,7 @@ Hence, we conclude that \( f  \) must be uniformly continuous on \( \R  \).
         \end{align*}
         Hence, \( f  \) is not bounded above.
 \end{proof}
+
 
 
 \begin{problem}
@@ -581,54 +635,27 @@ Hence, we can conclude that \( g  \) is increasing.
     \end{enumerate}
 \end{problem}
 \begin{proof}
-    \begin{enumerate}        
-        \item[(a)] Suppose \( \lim_{ x \to + \infty  } f'(x) = 0  \). Our goal is to show that \( f  \) is uniformly continuous on \( [0,\infty) \); that is, we want to show that for any \( \epsilon > 0  \), there exists \( \delta > 0  \) such that whenever \( | x - y  |  < \delta \), we have     
-            \[  | f(x) - f(y) |  < \epsilon. \]
-    \end{enumerate}
-    Let \( x,y \in [0,\infty) \) and \( \epsilon > 0  \) be given. Since \( \lim_{ x \to \infty  }  f'(x) = 0  \), there exists an \( M > 0  \) such that whenever \( x > M  \), we have 
-    \[  | f'(x) | < \frac{ \epsilon }{ 4 }. \]
-    In particular, we can see that \( M + 2 > M  + 1 > M  \). If we consider \( f \) on the interval \( (M+1, M+2)  \), we can use the Mean Value Theorem to write
-    \[  \exists \tilde{x} \in (M+1, M+2) \ \text{such that} \ f'(\tilde{x}) = f(M+2) - f(M+1). \]
-    One can immediately see that \( \tilde{x} > M  \) and so we have 
-    \[  | f'(\tilde{x}) | < \frac{ \epsilon }{ 4 }. \tag{1} \]
-    Using the differentiability of \( f  \) at \( \tilde{x} \in [0,+\infty) \), we can set \( {\delta}_{1} = 1  \) so that whenever \(  0 < | x - \tilde{x} | < 1  \), we have 
-    \[  | f(x) - f(\tilde{x}) | < \Big(| f'(\tilde{x}) | + \frac{ \epsilon }{ 4 }  \Big) | x - \tilde{x}  |  < | f'(\tilde{x}) |+ \frac{ \epsilon }{ 4 }. \tag{2} \]
-    Likewise, whenever \( 0 < | y - \tilde{x} | < 1  \), we have 
-    \[  | f(y) - f(\tilde{x}) | < \Big(  | f'(\tilde{x}) | + \frac{ \epsilon }{ 4 }  \Big) | y - \tilde{x} | < | f'(\tilde{x}) |  + \frac{ \epsilon }{ 4 }. \tag{3} \]
-    Now, choose \( \delta = \frac{ 1 }{ 2 } \min \{ M , 1  \}  \). Then whenever \( | x -  y |  < \delta \) and using (1), (2), and (3), we have 
-    \begin{align*}
-        | f(x) - f(y) | &\leq | f(x) - f(\tilde{x}) | + | f(\tilde{x} - f(y)) |  \\
-                        &< \Big(  | f'(\tilde{x}) | + \frac{ \epsilon }{ 4 }  \Big) + \Big(  | f'(\tilde{x}) | + \frac{ \epsilon }{ 4 }  \Big) \\
-                        &= 2 | f'(\tilde{x}) |  + \frac{ \epsilon }{ 2 } \\ 
-                        &< \frac{ \epsilon }{ 2 }  + \frac{ \epsilon }{ 2 }  \\
-                        &= \epsilon.
-    \end{align*}
-    Hence, we conclude that \( f  \) must be continuous on the interval \( [0,\infty ) \).
-\item[(b)] Consider the function 
-    \[  f(x) = \sqrt{ x } \sin \frac{ 1 }{ x }. \]
-    We will show that \( f  \) indeed satisfies the following properties:
-    \begin{enumerate}
-        \item[(1)] \( f  \) is continuous on \( [0,\infty ) \)
-        \item[(2)] \( f  \) is differentiable on \( (0,\infty ) \)
-        \item[(3)] \( f'  \) is unbounded.
-    \end{enumerate}
-    Starting with (1), we will consider two cases; that is, either \( c = 0  \) or \( c \neq 0  \). If \( c = 0  \), then observe that 
-    \[  0 \leq | \sqrt{ x } \sin \frac{ 1 }{ x }  |  \leq | \sqrt{ x }  | = \sqrt{ x }  \]
-    where \( |  \sin x  |  \leq 1  \) for all \( x \in \R  \). Using the squeeze theorem, we write
-    \[  \lim_{ x \to 0 }  | \sqrt{ x  }  \sin \frac{ 1 }{ x }  | = 0  \]
-    which holds if and only if 
-    \[  \lim_{ x \to 0 } \sqrt{ x }  \sin \frac{ 1 }{ x }  = 0.  \]
-    Hence, \( f  \) is continuous at \( c = 0  \). Suppose \( c \neq 0  \). Since \( \sin x  \) and \( \frac{ 1 }{ x }  \) are continuous functions at \( c \neq 0  \), their composition \( \sin \frac{ 1 }{ x }  \) is also continuous at \( c \neq 0  \). Furthermore, \( \sqrt{ x  }   \) is clearly continuous for \( c \neq 0  \). Thus, the Algebraic Continuity Theorem implies that 
-    \[  f(x) = \sqrt{  x  }  \sin \frac{ 1 }{ x }  \]
-    is continuous at \( c \neq 0  \).
-
-    Next, we show (2). Suppose \( c \neq 0  \). Since \( \frac{ 1 }{ x }, \sin x,   \) are differentiable for every \( x \neq 0  \), we see that the chain rule implies that their composition is also differentiable. Since \( \sqrt{ x  }   \) is also differentiable for every \( x \neq 0  \), we can conclude via the Algebraic differentiability Theorem that \( f \) is indeed differentiable.
-
-    Finally we show that \( f' \) is unbounded as \( x \to 0^{+} \). Computing \( f'  \) using a combination of the chain rule and product rule, we have  
-    \[  f'(x) = \frac{ 1 }{ 2 x^{1/2} } \sin \frac{ 1 }{ x }  - \frac{ 1 }{ x^{3/2} } \cos \frac{ 1 }{ x }. \]
-    Since \( | \cos \frac{ 1 }{ x }  | \leq 1  \) for all \( x \in \R  \), we have that 
-    \[  f'(x) \geq \frac{ 1 }{ x^{1/2} }  \Big(  \frac{ 1 }{ 2 }  \sin \frac{ 1 }{ x }  - \frac{ 1 }{ x }  \Big). \]
-    Since \( \frac{ 1 }{ x^{1/2} }  \) approaches \( \infty   \) as \( x \to 0^{+} \), we can see that \( | f'(x) | \to \infty   \) as \( x \to 0^{+} \). Thus, \( f'(x)   \) is unbounded, thereby satisfying (3).
+\begin{enumerate}
+    \item[(a)] Suppose \( \lim_{ x \to + \infty  }  f'(x) = 0  \). Our goal is to show that \( f  \) is uniformly continuous on \( [0,+\infty) \). Let \( x,y \in [0,+\infty) \). Since \( \lim_{ x \to \infty  } f'(x) = 0   \), we know that for any \( \epsilon > 0  \), there exists \( R > 0  \) such that for any \( x \geq R  \), we have  
+        \[  | f'(x) | < 1. \]
+        Now, for any \( x \in [R, +\infty) \), we have \( | f'(x) | < 1  \). By exercise 14, \( f  \) is uniformly continuous on \( [R,\infty) \). Next, consider the closed and bounded interval \( [0,R] \subseteq \R  \). By Heine-Borel, \( [0,R] \) is a compact set. Since \( f  \) is continuous on \( [0,+\infty) \), \( f  \) is also continuous \( [0,R] \); that is, \( f  \) is uniformly continuous on \( [0,R] \). Our goal is to, for any given \( x,y [0,+\infty) \), find a \( \delta > 0  \) such that whenever \( | x - y | < \delta \), we have
+        \[  | f(x) - f(y) | < \epsilon. \]
+        Since \( f  \) is uniformly continuous on \( [0,R] \), we can find a \( {\delta}_{1} > 0 \) such that whenever \( | x - y  | < {\delta}_{1} \), we have
+        \[  | f(x) - f(y) | < \epsilon. \tag{1} \]
+        Similarly, since \( f  \) is uniformly continuous on \( [R,+\infty) \), we can find a \( {\delta}_{2} > 0   \) such that whenever \( |  x - y  |  < {\delta}_{2} \), we have
+        \[  | f(x) - f(y) | < \epsilon. \tag{2} \]
+        Lastly, \( f  \) being uniformly continuous on \( [R-1,R+1] \) implies that there exists \( {\delta}_{3} > 0  \) such that whenever \( | x - y  |  < {\delta}_{3} \), we have 
+        \[  | f(x) - f(y) | < \epsilon. \tag{3} \]
+        Now, choose \( \delta = \min \{ {\delta}_{1} , {\delta}_{2}, {\delta}_{3}, 1  \}  \) and suppose \( x,y \in [0,\infty) \). We will consider three cases. 
+        \begin{enumerate}
+            \item[(I)] Let \( x,y \in [0,R] \). Then suppose \( |  x- y  |  < \delta < {\delta}_{1} \). From (1), we can conclude that \( f \) is uniformly continuous.
+            \item[(II)] Let \( x,y \in [R,+\infty) \). Then suppose \( | x- y  |  < \delta < {\delta}_{2} \). From (3), we can conclude that \( f  \) is uniformly continuous.
+            \item[(III)] Let \( x \in [0,R] \) and \( y \in [R,+\infty) \). Then whenever \( |  x - y  | < \delta < 1  \), we can conclude that \( x,y \in [R-1, R+1] \). Then \( |  x- y  |  < \delta < {\delta}_{3} \) implies that 
+                \[  | f(x) - f(y) |  < \epsilon. \]
+                Hence, \( f  \) is uniformly continuous.
+        \end{enumerate}
+    \item[(b)] Refer to the example in exercise 14 (\( f(x) = \sqrt{ x }  \)). We see that \( \lim_{ x \to +\infty  } f'(x) = 0  \) and \( f  \) is uniformly continuous on \( [0,\infty) \), but \( f  \) is unbounded near zero. 
+\end{enumerate}
 \end{proof}
 
 \begin{problem}
