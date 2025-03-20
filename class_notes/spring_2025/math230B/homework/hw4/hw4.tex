@@ -1,0 +1,543 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{Homework 4}
+\author{Lance Remigio}
+\begin{document}
+\maketitle
+
+
+\begin{problem}
+   Prove the following theorem. 
+\end{problem}
+\begin{theorem}[Generalize Mean Value Theorem]
+    Let \( f: [a,b] \to \R  \) be a continuous function and \( g:[a,b] \to \R  \) is integrable and either \( g \geq 0  \) on \( [a,b] \) or \( g \leq 0  \) on \( [a,b] \). Then there exists a \( c \in [a,b] \) such that 
+    \[  \int_{ a }^{ b } fg = f(c) \int_{ a }^{ b } g.  \]
+\end{theorem}
+\begin{proof}
+    Our goal is to find a \( c \in [a,b] \) such that 
+    \[  \int_{ a }^{ b } fg = f(c) \int_{ a }^{ b } g. \]
+    Since \( f:[a,b] \to \R  \) is a continuous function and \( [a,b]  \) is a compact set, \( f  \) attains its maximum and minimum on \( [a,b] \). Then 
+    \[  m = \sup_{x \in [a,b]} f(x) \ \text{and} \ m = \inf_{x\in[a,b]} f(x) \]
+    and hence, 
+    \[  m \leq f(x) \leq M  \implies m g(x) \leq f(x) g(x) \leq M g(x) \ \forall x \in [a,b]. \tag{\( \dagger \)} \]
+    Now, note that the result follows immediately if \( g(x) = 0  \) for all \( x \in [a,b] \). Hence, suppose that \( g(x) \neq 0  \) on \( [a,b] \); that is, we either have \( g(x) > 0  \) or \( g(x) < 0  \). Suppose \( g(x) > 0  \) on \( [a,b] \) (The proof to the other case is completely analogous). 
+    By the Order Theorem for Integrals, \( (\dagger )\) implies
+    \[  m \int_{ a }^{ b } g  \leq \int_{ a }^{ b } fg  \leq M \int_{ a }^{ b } g. \tag{1} \]
+    Furthermore, \( g(x) > 0  \) on \( [a,b] \) implies that 
+    \[  \int_{ a }^{ b } g > 0.  \]
+    Hence, we can divide by \( \int_{ a }^{ b } g  \) on (1). So, we have 
+    \[  m \leq \frac{ \int_{ a }^{ b } fg  }{ \int_{ a }^{ b } g   } \leq M.  \]
+    But note that \( f  \) is continuous on \( [a,b] \) and so, by the Intermediate Value Theorem, there exists a \( c \in [a,b] \) such that 
+    \[  f(c) = \frac{ \int_{ a }^{ b } fg   }{ \int_{ a }^{ b } g  } \implies \int_{ a }^{ b } fg = f(c) \int_{ a }^{ b } g \]
+    which is our desired result.
+    \end{proof}
+
+\begin{problem}
+    Prove the following theorem.
+\end{problem}
+
+\begin{theorem}[Rudin, Theorem 6.15]
+    If \( a < s < b  \), \( f   \) is bounded on \( [a,b] \), \( f  \) is continuous at \( s  \), and \( \alpha(x) = I (x-s) \), then
+    \[  \int_{ a }^{ b } f \ d \alpha = f(s). \]
+\end{theorem}
+\begin{proof}
+    Our goal is to show that \( \int_{ a }^{ b } f  \ d \alpha = f(s) \).     Define the partition
+\[  {P}_{n} = \Big\{ a , s - \frac{ 1 }{ n } , s + \frac{ 1 }{ n } , b \Big\}.  \]
+Since \( f \in R_{\alpha}[a,b] \), we have 
+\[  \int_{ a }^{ b } f \ d \alpha = \lim_{ n \to \infty  } U(f, \alpha, {P}_{n}) = \lim_{ n \to \infty  }  L(f, \alpha, {P}_{n}). \tag{*} \]
+    So, it suffices to show that 
+    \[  \lim_{ n \to \infty  }  U(f, \alpha, {P}_{n}) = \lim_{ n \to \infty  }  L(f, \alpha, {P}_{n}) =  f(s). \]
+Note that 
+\[  \alpha(x) = I(x-s) = 
+\begin{cases}
+    1 &\text{if} \ x > s \\
+    0 &\text{if} \ x \leq s 
+\end{cases}  \]
+By definition of \( \alpha \), we have 
+\begin{align*}
+    k = 1 &; \Delta {\alpha}_{1} = \alpha(s- \delta) - \alpha(a) = 0 - 0 = 0  \\
+    k = 2 &; \Delta \alpha_2 = \alpha(s + \delta) - \alpha(s - \delta) = 1 - 0 =  1 \\
+    k = 3 &; \Delta {\alpha}_{3} =  \alpha(b) - \alpha(s+\delta) = 1- 1 = 0. 
+\end{align*}
+Hence, we have 
+\begin{align*} U(f, \alpha, {P}_{n}) = \sum_{ k=1  }^{ 3  } {M}_{k} \Delta {\alpha}_{k} 
+                          = {M}_{2}
+                          = \sup_{x \in [s - \frac{ 1 }{ n } , s + \frac{ 1 }{ n } ]} f(x)
+\end{align*} 
+and similarly, 
+\[  L(f, \alpha, {P}_{n})  = \sum_{ k=1  }^{ 3  } {m}_{k} \Delta {\alpha}_{k} = {m}_{2} = \inf_{x \in [s - \frac{ 1 }{ n } , s + \frac{ 1 }{ n } ]} f(x). \]
+Because \( f  \) is continuous at \( s  \), we know by exercise 4 of homework 3 that
+\[  \lim_{ n \to \infty  }  U(f, \alpha, {P}_{n}) = \lim_{ n \to \infty  }  \sup_{x \in [s - \frac{ 1 }{ n }  , s  + \frac{ 1 }{ n } ]} f(x) = f(s) \]
+and 
+\[  \lim_{ n \to \infty  } L(f,\alpha, {P}_{n}) = \lim_{ n \to \infty  } \inf_{x \in [s - \frac{ 1 }{ n } , s+ \frac{ 1 }{ n } ]} f(x) = f(s) \]
+which is our desired result.
+\end{proof} 
+
+
+
+\begin{problem}
+    Prove the following theorem.
+\end{problem}
+\begin{theorem}[Rudin, Theorem 6.16]
+    \begin{enumerate}
+        \item[(a)] Let \( N \in \N \). Let \( {c}_{1}, \dots, {c}_{N} \) be nonnegative numbers. Suppose \( {s}_{1}, \dots, {s}_{N} \) are distinct points in \( (a,b) \), and let \( \alpha(x) = \sum_{ n=1  }^{ N } {c}_{n} I(x - {s}_{n}) \). Let \( f  \) be continuous at \( s  \). Then
+            \[  \int_{ a }^{ b } f \ d \alpha = \sum_{ n=1  }^{ N  } {c}_{n} f({s}_{n}).  \] \item[(b)] Suppose \( {c}_{n} \geq 0  \) for \( n \in \N \), \( \sum_{ n=1  }^{ \infty  } {c}_{n} \) converges, \( ({s}_{n}) \) is a sequence of distinct points in \( (a,b) \), and \( \alpha(x) = \sum_{ n=1  }^{ \infty  } {c}_{n} I (x - {s}_{n}) \). Let \( f \) be continuous at \( s  \). Then
+            \[  \int_{ a }^{ b } f  \ d \alpha = \sum_{ n=1  }^{ \infty  } {c}_{n} f({s}_{n}). \]
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \begin{enumerate}
+        \item[(i)] Denote \( {\alpha}_{n} = I(x - {s}_{n}) \) for \( 1 \leq n \leq N  \). Applying the previous problem \( N \) number f times, we can see that 
+\[  \int_{ a }^{ b } f  \ d \alpha_n = f({s}_{n}).   \]
+    Then using problem 5 from homework 3, we have
+    \begin{align*}
+        \int_{ a }^{ b } f \ d \alpha &= \int_{ a }^{ b }  \ d \Big(  \sum_{ n=1  }^{ N } {c}_{n} {\alpha}_{n} \Big) \\
+                                      &= \sum_{ n=1  }^{ N } \int_{ a }^{ b } f  \ d ({c}_{n} {\alpha}_{n}) \\
+                                      &= \sum_{ n=1 }^{ N } {c}_{n} \int_{ a }^{ b } f   \ d {\alpha}_{n} \\
+                                      &= \sum_{ n=1  }^{ N  } {c}_{n} f({s}_{n}).
+    \end{align*}
+\item[(ii)] Note that \( \sum_{ n=1  }^{ \infty  } {c}_{n} f({s}_{n}) = \lim_{ N \to \infty  }  \sum_{ n=1  }^{ N  } {c}_{n} f({s}_{n}) \). Using part (ii) and applying the limit as \( N \to \infty  \), we have 
+    \begin{align*}
+    &\lim_{ N \to \infty  }  \int_{ a }^{ b } f  \ d \alpha = \lim_{ N \to \infty  } \sum_{ n=1 }^{  N  } {c}_{n} f({s}_{n}) \\
+    &\implies \int_{ a }^{ b } f  \ d \alpha = \sum_{ n=1  }^{ \infty  }{c}_{n} f({s}_{n}).
+    \end{align*}
+    Note that we can apply the limit above because \( \int_{ a }^{ b } f  \ d \alpha \) is just a real number and applying the limit to it will keep it the same.
+    \end{enumerate}
+    
+\end{proof}
+
+\begin{problem}
+    Let \( p,q > 0  \) be such that \( \frac{ 1 }{ p }  + \frac{ 1 }{ q }  = 1  \).
+    \begin{enumerate}
+        \item[4-1)] Prove that if \( f \in {R}_{\alpha}[a,b] \) and \( g \in {R}_{\alpha}[a,b]  \), \( f \geq 0  \), \( g \geq 0  \), and 
+            \[  \int_{ a }^{ b } f^{p} \ d \alpha = 1 = \int_{ a }^{ b } g^{q} \ d \alpha, \]
+            then \( \displaystyle \int_{ a }^{ b }  fg  \ d \alpha \leq 1.   \)
+        \item[4-2)] Prove that if \( f \in {R}_{\alpha}[a,b] \) and \( g \in {R}_{\alpha}[a,b] \), then 
+            \[  \int_{ a }^{ b } | fg |  \ d \alpha \leq \Big[ \int_{ a }^{ b } | f |^{p}    \ d \alpha \Big]^{\frac{ 1 }{ p } } \Big[ \int_{ a }^{ b }  | g |^{q}  \ d \alpha \Big]^{\frac{ 1 }{ q } }. \]
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\begin{enumerate}
+    \item[4-1)] Since \( f \geq  \), \( g \geq 0  \), and \( p,q > 0  \) such that 
+        \[  \frac{ 1 }{ p }  + \frac{ 1 }{ q }  = 1,  \]
+        we have 
+        \[  fg \leq \frac{ f^{p} }{ p  }  + \frac{ g^{q} }{ q }. \]
+        Note that if \( f, g = 0  \) on \( [a,b] \), then the result immediately holds. So, suppose \( f,g > 0  \) on \( [a,b] \).
+        Since \( f \in {R}_{\alpha}[a,b] \) and \( g \in {R}_{\alpha}[a,b] \), we can use the Order Theorem for Integrals and the Algebraic Theorem for integrals to write
+        \begin{align*}
+            \int_{ a }^{ b }  | fg |    \ d \alpha &= \int_{ a }^{ b } fg  \ d \alpha \tag{\( fg > 0  \)} \\
+            &\leq \int_{ a }^{ b } \Big[ \frac{ f^{p} }{ p }  + \frac{ g^{q} }{ q  } \Big] \ d \alpha \\
+                                          &= \int_{ a }^{ b }  \frac{ f^{p} }{ p }  \ d \alpha + \int_{ a }^{ b }  \frac{ g^{q} }{ q }  \ d \alpha  \\
+                                          &= \frac{ 1 }{ p }  \int_{ a }^{ b } f^{p}   \ d \alpha + \frac{ 1 }{ q }  \int_{ a }^{ b } g^{q} \ d \alpha \\
+                                        &= \frac{ 1 }{ p } + \frac{ 1 }{ q } \\ 
+                                        &= 1.
+        \end{align*}
+        Hence, we have 
+        \[  \int_{ a }^{ b } | fg |    \ d \alpha \leq 1.  \]
+    \item[4-2)] Using the fact in 4-1), we have that 
+        \begin{align*}
+            \int_{ a }^{ b } | fg |  \ d \alpha &= \int_{ a }^{ b } fg  \ d \alpha  \\
+                                                &\leq 1 \\
+                                                &= 1 \cdot 1 \\
+                                                &= 1^{1/p} \cdot 1^{1/q} \\
+                                                &= \Big(  \int_{ a }^{ b } f^{p} d \alpha \Big)^{1/p} \cdot \Big(  \int_{ a }^{ b } g^{q} \ d \alpha \Big)^{1/q}
+        \end{align*}
+        which is our desired result.
+\end{enumerate}
+\end{proof}
+
+\begin{problem}
+   \begin{enumerate}
+       \item[(a)] Let \( f  \) be continuous on \( [a,b] \) such that for any subinterval \( [c,d] \subseteq  [a,b] \)
+           \[  \int_{ c }^{ d } f(t) \ dt = 0.  \]
+           Prove that \( f(x) = 0  \) on \( [a,b] \).
+       \item[(b)] Let \( f  \) be continuous on \( [a,b] \) such that 
+           \[  \int_{ a }^{ x  } f(t) \ dt = \int_{ x }^{ b }  f(t) \ dt, \ \forall x \in [a,b]. \]
+   \end{enumerate} 
+\end{problem}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Let \( f  \) be continuous on \( [a,b] \) such that for any subinterval \( [c,d] \leq [a,b] \) 
+        \[  \int_{ c }^{ d } f(t) \ dt = 0.  \]
+        Suppose for sake of contradiction that \( f(c) \neq 0   \) for some \( c \in [a,b] \). Since \( f  \) is continuous on \( [a,b] \), it follows that \( f  \) is continuous at \( c  \). We have two cases to consider; that is, either 
+        \begin{enumerate}
+            \item[(1)] \( f(c) > 0  \) 
+            \item[(2)] \( f(c) < 0  \)
+        \end{enumerate}
+        We will prove the case where \( f(c) > 0 \). The other case will follow analogously. Indeed, since \( f  \) is continuous at \( c  \), we have 
+        \[  f(c) > 0 \implies \exists \delta > 0 \ \text{such that} \ \forall x \in (c - \delta, c + \delta) \ f(x) > 0.  \]
+        By the Order Theorem for Integrals, we have 
+        \[  f(x) > 0 \implies \int_{ c - \delta }^{  c + \delta } f(x) \ dx > 0.  \]
+        But this contradicts our assumption. Hence, it must follow that \( f(x) = 0 \) for all \( x \in [a,b] \).
+    \item[(b)] Let \( f  \) be continuous on \( [a,b] \) such that 
+        \[  \int_{ a }^{ x } f(t) \ dt = \int_{ x }^{ b } f(t) \ dt \ \forall x \in [a,b]. \]
+        Denote \( F(x) = \int_{ a }^{ x  }  f(t) \ dt  \) and \( G(t) = \int_{ x }^{ b } f(t) \ dt = -  \int_{ b }^{ x }  f(t) \ dt \). Suppose for sake of contradiction that there exists a \( c \in [a,b] \) such that \( f(c) \neq 0  \). Then by FTC II, we have \( F'(c) = f(c) \) and \( G'(c) = - f'(c) \). But by assumption, \( f(c) = - f(c) \) which is absurd. Hence, it must be the case that \( f(x) = 0  \) for all \( x \in [a,b] \).
+
+\end{enumerate}
+\end{proof}
+
+\begin{problem}
+    Suppose \( f \in C^{1}[a,b] \), \( f(a) = f(b) = 0  \), and \( \int_{ a }^{ b } f^{2}(x) \ dx  = 1  \). Prove that  
+    \[  \int_{ a }^{ b } x f(x) f'(x) \ dx = \frac{ -1 }{ 2 }  \]
+    and
+    \[  \int_{ a }^{ b } [f'(x)]^{2} \ dx \cdot \int_{ a }^{ b }  x^{2} f^{2}(x)  \ dx \geq \frac{ 1 }{ 4 }. \]
+\end{problem}
+\begin{proof}
+Using Integration by Parts, we have 
+\begin{align*}
+\int_{ a }^{ b } x f(x) f'(x) \ dx &= x f^{2}(x) \Big]_{a}^{b} - \int_{ a }^{ b }  f(x) [f(x)  + x f'(x)] \ dx  \\
+                                   &= x f^{2}(x) \Big]_{a}^{b} - \int_{ a }^{ b } f^{2}(x) \ dx - \int_{ a }^{ b }  x f(x) f'(x) \ dx \\
+                                   &= [ b f^{2}(b) - a f^{2}(a)] - 1 - \int_{ a }^{ b }  x f(x) f'(x)  \ dx  \\ 
+                                   &= -1 - \int_{ a }^{ b }  x f(x) f'(x) \ dx.
+\end{align*}
+Hence, we have 
+\[  2 \int_{ a }^{ b }  x f(x) f'(x) \ dx = -1 \implies \int_{ a }^{ b }  x f(x) f'(x) \ dx = \frac{ -1 }{ 2 }. \]
+
+From our result, we can see that 
+\[  \int_{ a }^{ b }  - (x f(x) f'(x))  \ dx  = \frac{ 1 }{ 2 }.  \]
+By Holder's Inequality for Integrals, we have 
+\begin{align*}
+    &\int_{ a }^{ b }   | x f(x) f'(x) |  \ dx  \leq \Big(  \int_{ a }^{ b } [f'(x)]^{2} \ dx  \Big)^{1/2} \Big(  \int_{ a }^{ b }  (xf(x))^{2} \ dx  \Big)^{1/2}  \\
+        &\implies \int_{ a }^{ b } - x f(x) f'(x) \ dx \leq \Big(  \int_{ a }^{ b }  [f'(x)]^{2}  \ dx  \Big)^{1/2} \Big(  \int_{ a }^{ b }  (xf(x))^{2} \ dx  \Big)^{1/2}  \\
+        &\implies \frac{ 1 }{ 4 }  \leq \int_{ a }^{ b }  [f'(x)]^{2}  \ dx \cdot \int_{ a }^{ b }  (xf(x))^{2} \ dx.  
+\end{align*}
+\end{proof}
+
+
+\begin{problem}[A Substitution Formula For Ordinary Riemann Integrals]
+   Suppose that  
+   \begin{itemize}
+       \item \( g \in C^{1}[a,b] \) and \( f \in C^{0}[c,d] \).
+       \item The range of \( g , g([a,b]) = \{ g(x) : x \in [a,b] \}  \), is contained in \( [c,d] \) (so that the composition \( f \circ g  \) is defined).
+   \end{itemize}
+   \begin{enumerate}
+       \item[7-1)] Explain why \( f  \) is the derivative of some function.
+        \item[7-2)] Explain why \( (f \circ g ) g' \) is a derivative of some function.
+        \item[7-3)] Prove the substitution formula:
+            \[  \int_{ a }^{ b } f(g(x)) g'(x) \ dx = \int_{ g(a) }^{ g(b) }  f(u) \ du.  \]
+   \end{enumerate}
+\end{problem}
+\begin{proof}
+\begin{enumerate}
+    \item[7-1)] Define the function \( F:[g(a),g(b)] \to \R  \) by
+        \[  F(x) = \int_{ g(a) }^{ x }  f(t) \ dt. \]
+        The above integral holds because \( f \in R[c,d] \) by assumption.
+        Since \( f  \) is continuous for any \( x \in [c,d] \) it follows that \( F'(x) = f(x) \) for any \( x \in [g(a),g(b)] \) by the Second Fundamental Theorem of Calculus.
+    \item[7-2)] Since \( g \in C^{1}[a,b] \), we have \( g  \) is continuous on \( [a,b] \) and that \( g' \) exists and is continuous on \( [a,b] \). Since \( f \in C[a,b] \), it follows that \( f \circ g \in C[a,b]  \). Hence, by a Theorem proved in class, we have \( f \circ g \in R[a,b] \). Furthermore, since \( g' \in C[a,b] \), we have that \( g' \in R[a,b] \). So, the product \( (f \circ g) g' \in R[a,b] \). Define the function \( H: [a,b] \to \R  \) by
+        \[  H(x) = \int_{ a }^{ x }  (f \circ g)(x) g'(x) \ dx. \]
+        Clearly, we also have that \( (f \circ g) g' \in C[a,b] \). The Fundamental Theorem of Calculus implies that for any \( x \in [a,b] \), \( H'(x) = (f \circ g)g'(x) \).
+    \item[7-3)] Our goal is to show that 
+        \[  \int_{ a }^{ b } f(g(x)) g'(x) \ dx = \int_{ g(a) }^{ g(b) } f(u) \ du.\]
+        It suffices to show that \( H(b) - H(a) = F(g(b)) - F(g(a)) \).
+        Since \( [g(a), g(b)] \subseteq  [c,d] \), we can use (1) to write \( (F(g(x))' = f(g(x)) g'(x)  \) for all \( x \in [g(a), g(b)] \). Using the First Fundamental Theorem of Calculus, we have
+        \[  H(b) - h(a) = \int_{ a }^{ b } f(g(x)) g'(x) \ dx = \int_{ a }^{ b } (F(g(x)))' \ dx = F(g(b)) - F(g(a)).   \]
+        Likewise, we have 
+        \[  \int_{ g(a) }^{ g(b) } f(u) \ du = \int_{ g(a) }^{ g(b) } F'(u) \ du = F(g(b))  - F(g(a)) \]
+        which is our desired result.
+\end{enumerate}
+\end{proof}
+
+\begin{problem}
+    Prove the following integration by parts for "improper" Riemann Integrals:
+\end{problem}
+\begin{theorem}[Integration by Parts of Improper Riemann Integrals]
+    Let \( a \in \R  \), \( u : [a,\infty) \to \R  \) and \( v : [a,\infty) \to \R  \) are differentiable, \( \forall b > a  \) \( u' , v' \in R[a,b] \). Additionally, assume that \( \int_{ a }^{ \infty  } v u' \ dx  \) exists in \( \R  \) and 
+    \[  \lim_{ b \to \infty  } [u(b)v(b) - u(a) v(a)] \ \text{exists} \ (\text{in} \ \R). \]
+    Then \( \int_{ a }^{ \infty  } u v' \ dx  \) exists in \( \R  \) and 
+    \[  \int_{ a }^{ \infty  } u v' \ dx = \lim_{ b \to \infty }  [u(b)v(b) - u(a)v(a)] - \int_{ a }^{ \infty  }  v u' \ dx. \]
+\end{theorem}
+
+\begin{proof}
+    By assumption \( u'  \) exists and so \( u \in C[a,b] \). Hence, \( u \in R[a,b] \) as an immediate consequence. Since \( v' \in R[a,b] \), we can conclude that the product \( v' u \in R[a,b] \). By the Ordinary Riemann Integration by Parts, we have that
+    \[  \int_{ a }^{ b } u(x) v'(x) \ dx = [u(b)v(b) - u(a)v(b)] - \int_{ a }^{ b } u'(x) v(x) \ dx. \]
+    By assumption, the limit as \( b \to \infty   \) of each term on the right-hand side of the above equation holds. Thus, we have that  
+    \[  \lim_{ b \to \infty  }  \int_{ a }^{ b } uv' \ dx \ \text{exists}. \]
+    Hence, we have that  
+    \begin{align*}
+       \lim_{ b \to \infty  } \int_{ a }^{ b } u(x) v'(x) \ dx  &= \lim_{ b \to \infty  } \Big[ (u(b)v(b) - u(a)v(a)) - \int_{ a }^{ b } u'(x) v(x) \ dx \Big]  \\
+                                                                &= \lim_{ b \to \infty  } [u(b)v(b) - u(a)v(a)] - \lim_{ b \to \infty  }  \int_{ a }^{ b } u'(x) v(x) \ dx \tag{ALT for Functions} 
+    \end{align*}
+    which can be re-written into
+    \[  \int_{ a }^{ \infty  } u' v \ dx = \lim_{ b \to \infty  } [u(b)v(b) - u(a)v(a)] - \int_{ a }^{ \infty  } u v' \ dx  \]
+    as our desired result.
+\end{proof}
+
+\begin{problem}
+    Let \( a \in \R  \) be a fixed number. Suppose \( f \in R[a,b] \) for every \( b > a  \). Let \( c > a  \). Prove that the improper integral \( \int_{ a }^{ \infty  } f(x) \ dx  \) converges if and only if the improper integral \( \int_{ c }^{ \infty  } f(x) \ dx   \) converges.
+\end{problem}
+\begin{proof}
+\( (\Longrightarrow) \) Suppose that \( \int_{ a }^{ \infty  } f(x) \ dx   \) converges. Our goal is to show that 
+\[  \int_{ c }^{ \infty  } f(x)  \ dx \ \text{exists} \]
+We will consider two cases; that is, either \( b < c  \) or \( c < b   \).
+Suppose \( b < c  \). Then by the segment addition property of the Riemann Integral, we have that 
+\[  \int_{ a }^{ c } f  = \int_{ a }^{ b } f  + \int_{ b }^{ c }  f = \int_{ a }^{ b } f   - \int_{ c }^{ b } f. \]
+Hence, we have 
+\[  \int_{ c }^{ b } f = \int_{ a }^{ b } f - \int_{ a }^{ c } f. \]
+By the Algebraic Limit Theorem for Functions, we have that 
+\begin{align*}
+\int_{ c  }^{ \infty  }  f   = \lim_{ b \to \infty  } \int_{ c }^{ b } f  &= \lim_{ b \to \infty  }  \Big[ \int_{ a }^{ b }  f   - \int_{ a }^{ c }  f  \Big] \\ 
+                                                                          &= \lim_{ b \to \infty  }  \int_{ a }^{ b } f  - \lim_{ b \to \infty  } \int_{ a }^{ c } f \tag{ALT for Functions}  \\
+                                           &= \int_{ a }^{ \infty  } f   - \int_{ a }^{ c } f.
+\end{align*}
+Hence, we see that \( \int_{ c }^{ \infty  } f     \) exists. Now, suppose that \( c < b  \). Then by the segment addition property of integration, we have 
+   \begin{align*}
+      \int_{ a }^{ b } f  &= \int_{ a }^{ c } f + \int_{ c }^{ b } f.
+   \end{align*} 
+   Hence, we have 
+   \[  \int_{ c }^{ b } f  = \int_{ a }^{ b } f  - \int_{ a }^{ c } f \]
+   and so applying the limit as \( b \to \infty  \), we get 
+   \begin{align*}
+       \int_{ c  }^{ \infty  } f  = \lim_{ b \to \infty  }  \int_{ c }^{ b }  f   &= \lim_{ b \to \infty  } \Big[  \int_{ a }^{ b } f  - \int_{ a }^{ c  }  f  \ d \Big]  \\
+                                                                                  &= \lim_{ b \to \infty  } \int_{ a }^{ b } f  - \lim_{ b \to \infty  }  \int_{ a }^{ c } \tag{ALT for Functions}  \\
+                                                     &= \int_{ a }^{ \infty  } f  - \int_{ a }^{ c  } f.
+   \end{align*}
+   Hence, we have that \( \int_{ c }^{ \infty  } f \) exists.
+    
+    \( \Longleftarrow \) Suppose \( \int_{ c }^{ \infty  } f(x) \ dx   \) converges. Then by the segment addition property of integration, we have that 
+    \[  \int_{ a }^{ x }  f(t) \ dt = \int_{ a }^{ c  }  f(t) \ dt + \int_{ c  }^{ x  }  f(t) \ dt.  \]
+    Then applying the limit as \( x \to \infty    \) on both sides, we have 
+    \begin{align*}
+        \lim_{ x \to \infty  }  \int_{ a }^{ x } f(t)   \ dt &= \lim_{ x \to \infty  }  \Big[ \int_{ a }^{ c  }  f(t) \ dt + \int_{ c }^{ x  }  f(t) \ dt \Big] \\
+                                                             &= \lim_{ x \to \infty  }  \int_{ a }^{ c  }  f(t) \ dt + \lim_{ x \to \infty  }  \int_{ c }^{ x }  f(t) \ dt \\
+                                                             &= \int_{ a }^{ c } f(t) \ dt + \int_{ c }^{ \infty  } f(t) \ dt
+    \end{align*}
+    Note that the first term is just a constant so the limit always exists and the second exists by assumption. Hence, we can conclude that 
+    \[  \int_{ a }^{ \infty  } f(t) \ dt \ \text{converges}. \]
+\end{proof}
+
+\begin{problem}
+    Let \( a > 0  \). Prove that \( \displaystyle \int_{ a }^{ \infty  }  \frac{ 1 }{ x^{p} }   \ dx \begin{cases} \text{converges} \ &\text{if}  \ p > 1   \\ \text{diverges} &\text{if} p \leq 1   \end{cases} \). 
+\end{problem}
+\begin{proof}
+    Observe by the chain rule that 
+    \[  \frac{ d }{ dx  } \ln (x^{p}) = \frac{ 1 }{ x^{p} }  p x^{p-1} \implies \frac{ 1 }{ x^{p}  } = \frac{ 1 }{ p x^{p-1}  }  \frac{ d }{ dx }  \ln(x^{p}). \]
+    So, we have 
+    \[  \int_{ a }^{ t } \frac{ 1 }{ x^{p} }   \ dx = \int_{ a }^{ t }  \frac{ 1 }{ p x^{p-1} }  \frac{ d }{ dx }  \ln(x^{p}) \ dx. \]
+    Applying Integration by Parts to the right-hand side of the above equation, we have
+    \begin{align*}
+    \int_{ a }^{ t }  \frac{ 1 }{ x^{p} }  \ dx &= \frac{ \ln (x^{p}) }{ p x^{p-1} } \Big]_{a}^{t} - \int_{ a }^{ t }  \frac{ 1 - p  }{  p  } x^{-p} \ln (x^{p}) \ dx 
+    \end{align*}
+    Applying Integration by Parts again on the second term of the above equation, we have 
+    \begin{align*}
+    \int_{ a }^{ t }  x^{-p} \ln (x^{p}) \ dx &= \frac{ 1 }{ 1 - p  }  x^{1-p} \ln (x^{p}) \Big]_{a}^{t} -  \int_{ a }^{ t }  \frac{ 1 }{ 1 - p  } x^{1-2p} \ dx.
+    \end{align*}
+    Now, rearranging terms we can see that
+\begin{align*}  \int_{ a }^{ t } \frac{ 1 }{ x^{p} }    \ dx &= \frac{ \ln (x^{p}) }{ p x^{p-1} }  \Big]_{a}^{t} - \frac{ 1 }{ p }  x^{1-p} \ln(x^{p}) \Big]_{a}^{t} + \frac{ 1 }{ p }  \int_{ a }^{ t }  x^{1-2p} \ dx \\
+    &= \frac{ \ln (x^{p}) }{ p x^{p-1} }  \Big]_{a}^{t} - \frac{ 1 }{ p }  x^{1-p} \ln(x^{p}) \Big]_{a}^{t} + \frac{ 1 }{ p } \cdot \frac{ 1  }{ 2 - 2p }  x^{2 - 2p} \Big]_{a}^{t}.
+\end{align*}
+In what follows, we will show that each term with limit as \( t \to \infty   \) in the sum above converges.
+Starting with the first term, we have 
+\begin{align*}
+    \lim_{ t \to \infty  }  \frac{ \ln(t^{p}) }{ p t^{p-1} } &=_{\frac{ \infty  }{ \infty  } } \lim_{ t \to \infty  }  \frac{ \frac{ 1 }{ t^{p} }  p t^{p-1} }{ p (p-1) t^{p-2} }  \\
+                                                             &= \frac{ p }{ p - 1  }  \lim_{ t \to \infty  }  \frac{ 1 }{ t^{p-1} } \\
+                                                             &=  0. 
+\end{align*}
+With the second term, we have
+\begin{align*}
+    \lim_{ t \to \infty  }  \frac{ 1 }{ p }  t^{1-p} \ln(t^{p}) &= \lim_{ t \to \infty  }  \frac{ \ln(t^{p}) }{ p t^{p-1} }    \\
+                                                                &=_{\frac{ \infty  }{ \infty  } } \lim_{ t \to \infty  }  \frac{ \frac{ 1 }{ t^{p} }  p t^{p-1}    }{ p t^{p-1} }  \\
+                                                                &= \lim_{ t \to \infty  }  \frac{ 1 }{ t^{p} }  \\
+                                                                &= 0.
+\end{align*}
+
+Lastly, the third term we have 
+\begin{align*}
+    \lim_{ t \to \infty  }  \frac{ 1 }{ 2 p (1-p) } t^{2-2p} &= \lim_{ t \to \infty  }  \frac{ 1 }{ 2p (1-p) t^{2(p-1)} }  = 0. 
+\end{align*}
+So, we have 
+\[  \int_{ a }^{ t }  \frac{ 1 }{ x^{p} }  \ dx = \frac{ \ln (a^{p}) }{ p a^{p-1} }  + \frac{ 1 }{ p } a^{1-p} \ln (a^{p}) + \frac{ 1 }{ p } \cdot \frac{ 1 }{ 2 - 2 p }  a^{2-2p}. \]
+\end{proof}
+
+\begin{problem}[Cauchy Criterion For Improper Integrals]
+    Let \( a \in \R  \) be a fixed number. Suppose \( f \in R[a,b] \) for every \( b > a  \). Prove that the improper integral \( \displaystyle \int_{ a }^{ \infty  }  f(x) \ dx  \) converges if and only if  
+    \[  \forall \epsilon > 0 \ \exists M > a \ \text{such that} \ \forall A,B > M \ \ \Big|  \int_{ A }^{ B }  f(x) \ dx  \Big| < \epsilon.  \]
+\end{problem}
+\begin{proof}
+\( (\Longrightarrow) \) Suppose \( \int_{ a }^{ \infty  } f(x) \ dx   \) converges. Our goal is to show that for all \( \epsilon > 0  \), there exists \( M > a  \) such that for all \( A,B > M  \)
+\[  \Big|  \int_{ A }^{B }  f(x) \ dx  \Big|  < \epsilon. \]
+Let \( \epsilon > 0  \) be given. Define 
+\[  F(x) = \int_{ a }^{ x }  f(t) \ dt.  \]
+Since \( \int_{ a }^{ \infty  }  f(x) \ dx  \), there exists an \( \hat{M} > a  \) such that for all \( t > \hat{M} \) we have   
+\[  | F(t) - L  | < \frac{ \epsilon }{ 2 }  \]
+for some \( L \in \R    \). Note that for any \( B > \hat{M} \), we have
+\[  \Big|  \int_{ B }^{ t }  f(x) \ dx - L  \Big| < \frac{ \epsilon }{ 2 } \]
+and for any \( A > \hat{M} \), we have 
+\[  \Big| \int_{  A  }^{ t } f(x) \ dx - L  \Big| < \frac{ \epsilon }{ 2 }. \]
+Using the segment addition property of integration, we have 
+\begin{align*}
+    \int_{ A }^{ B }  f(x)  \ dx &= \int_{ A  }^{ t  }  f(x) \ dx + \int_{ t  }^{ B  }  f(x) \ dx  \\
+                                 &= \int_{ A }^{ t }  f(x) \ dx - \int_{ B }^{ t } f(x) \ dx.
+\end{align*}
+We claim that \( \hat{M} \) is the same \( M  \) we were looking for. Then we have for any \( A, B > \hat{M} \)
+\begin{align*}
+    \Big| \int_{ A }^{ B } f(x) \ dx   \Big| &= \Big| \int_{ A  }^{ t  }  f(x) \ dx - \int_{ B }^{ t  }  f(x) \ dx  \Big|  \\
+                                             &\leq \Big| \int_{ A }^{ t }  f(x) \ dx - L  \Big|  + \Big| L - \int_{ B }^{ t } f(x) \ dx \Big|  \\
+                                             &< \frac{ \epsilon }{ 2 }  + \frac{ \epsilon }{ 2 } \\
+                                             &= \epsilon
+\end{align*}
+which is our desired result.
+
+\( (\Longleftarrow) \)
+Suppose the converse. Our goal is to show that \( \int_{ a }^{ \infty  } f(x) \ dx  \) converges; that is, for all \( \epsilon > 0  \), there exists \( M > a  \) such that for all \( t > M  \), 
+\[  \Big| \int_{ a }^{ t } f(x) \ dx - L  \Big|  < \epsilon \]
+for some \( L \in \R  \). Let \( \epsilon > 0  \) be given. By assumption, (with our given \( \epsilon  \)) there exists an \( \hat{M} > a  \) such that for any \( A,B > M  \), we have
+\[  \Big| \int_{ A }^{ B }  f(x) \ dx   \Big| < \frac{ \epsilon }{ 2 }. \tag{1} \]
+We claim that \( \hat{M} \) is the same \(  M \) we were looking for. Then for any \( t > B >  \hat{M} \)
+\[  \Big| \int_{ t }^{ B  }  f(x) \ dx   \Big|  < \frac{ \epsilon }{ 2 }. \tag{2} \]
+Suppose \( t > B > A > \hat{M} \). By the segment addition property of integration, we have 
+\[  \int_{ a }^{ t }  f(x) \ dx = \int_{ a  }^{  A  }  f(x)  \ dx + \int_{ A }^{ B }  f(x) \ dx + \int_{ B }^{ t  }  f(x) \ dx.  \]
+Define \( L = \int_{ a }^{  A  }  f(x) \ dx   \) to be a candidate for our limit. Then for any \( t > B > A > \hat{M} \), we have 
+\begin{align*}
+    \Big| \int_{ a }^{ t }  f(x) \ dx - \int_{ a }^{ A  }  f(x) \ dx  \Big| &= \Big| \int_{ A }^{ B }  f(x) \ dx + \int_{ B }^{ t  } f(x) \ dx \Big|  \\
+                                                                            &\leq \Big| \int_{ A }^{ B }  f(x) \ dx  \Big|  + \Big| \int_{ B }^{ t } f(x) \ dx  \Big| \\
+                                                                            &< \frac{ \epsilon }{ 2 }  + \frac{ \epsilon }{ 2 } \\
+                                                                            &=  \epsilon.
+\end{align*}
+\end{proof}
+
+\begin{problem}[Absolute Convergence Implies Convergence]
+    Let \( a \in \R  \) be a fixed number. Suppose \( f \in R[a,b] \) for every \(  b > a  \). Prove that the improper integral \( \int_{ a }^{ \infty  }  | f(x) |  \ dx   \) converges, then the improper integral \( \int_{ a }^{ \infty  }  f(x) \ dx   \) also converges. 
+\end{problem}
+\begin{proof}
+    Suppose \( f \in R[a,b] \) for every \( b > a   \). Our goal is to show that for all \( \epsilon > 0  \) such that there exists \(  M > a  \) such that for any \( A,B > M  \), we have 
+    \[  \Big| \int_{ A }^{ B } f(x) \ dx  \Big|  < \epsilon. \]
+    Let \( \epsilon > 0  \) be given. Since \( \int_{ a }^{ \infty  } | f(x) |  \ dx   \) converges, there exists an \( \hat{M} > a  \)  such that for all \( A , B > \hat{M} \) 
+    \[  \Big| \int_{ A }^{ B } | f(x) |  \ dx  \Big|  < \epsilon.  \]
+    We claim that \( \hat{M} \) can be used as the same \( M  \) we were looking for. Indeed, we have for any \( A,B > M  \), we have  
+    \[  \Big| \int_{ A }^{ B } f(x) \ dx  \Big| \leq \int_{ A }^{ B } | f(x) |  \ dx = \Big| \int_{ A }^{ B } | f(x) |  \ dx   \Big|  < \epsilon. \tag{*} \]
+    Note that the first inequality holds by a theorem proven in class. Also, the second equality holds because \( | f(x) |  \geq 0  \) (note that \( | f | \in R[A,B] \)) and that 
+    \[  \int_{ A }^{ B } f(x) \ dx \geq 0  \]
+    by another theorem proven in class. Hence, we see that (*) is our desired result.
+\end{proof}
+
+\begin{problem}[Comparison Test For Improper Integrals]
+    Let \( a \in \R  \) be a fixed number. Suppose \( f,g \in R[a,b] \) for every \(  b > a  \) and that there exists \( K \in \R  \) such that \( 0 \leq f(x) \leq g(x) \) for all \( x > K  \). Prove that the improper integral \( \int_{ a }^{ \infty  } g(x) \ dx   \) converges, so does \( \int_{ a }^{ \infty  } f(x) \ dx  \). 
+\end{problem}
+\begin{proof}
+    Our goal is to show that \( \int_{ a }^{ \infty  } f(x) \ dx \) converges given that \( \int_{ a }^{ \infty  } g(x) \ dx   \) converges; that is, we want to show that for all \( \epsilon > 0  \), there exists an \( M > a  \) such that for all \( A,B > M  \), we have \[  \Big| \int_{ A }^{ B } f(x) \ dx  \Big| < \epsilon. \]
+    Let \( \epsilon > 0  \) be given. Then \( \int_{ a }^{ \infty  } g(x) \ dx   \) converges implies that there exists an \( \hat{M} > a  \) such that for any \( A,B  > \hat{M} \), we have 
+    \[  \Big| \int_{ A }^{ B } g(x) \ dx   \Big|  < \epsilon. \]
+    Also, there exists a \( K \in \R  \) such that \( 0 \leq f(x) \leq g(x) \) for all \( x > K  \). Let \( M = \max \{ k , \hat{M} \}  + 1  \). Note that with this constructed \( M  \), we have, by the order property of the integral that
+    \[  0 \leq \int_{ A }^{ B } f(x) \ dx \leq \int_{ A }^{ B } g(x) \ dx. \]
+
+    Then for any \( A,B > M  \) (and using the fact that \( | \cdot |  \) is a continuous function), we have that 
+    \[  \Big| \int_{ A }^{ B } f(x) \ dx   \Big|  \leq \Big| \int_{ A }^{ B } g(x) \ dx \Big|  < \epsilon \]
+    which is our desired result.
+\end{proof}
+
+\begin{problem}[Limit Comparison Test for Improper Integrals]
+    Let \( a \in \R  \) be a fixed number. Suppose \( f,g \in R [a,b] \) for every \( b > a  \) and that there exists \( K \in \R  \) such that \( 0 \leq f(x) \leq g(x) \) for all \( x > K  \). Let \( L = \lim_{ x \to \infty  } \frac{ f(x) }{ g(x) }  \). Prove that  
+    \begin{enumerate}
+        \item[(i)] If \( 0 < L < \infty  \), then \( \int_{ a }^{ \infty  } f(x) \ dx   \) converges if and only if \( \int_{ a }^{ b } g(x) \ dx  \) converges.
+        \item[(ii)] If \( L = \infty   \) and \( \int_{ a }^{ \infty  }  f(x)  \ dx  \) converges, then \( \int_{ a }^{ \infty  } g(x) \ dx   \) converges.
+        \item[(iii)] If \( L = 0  \) and \( \int_{ a }^{ \infty  }  g(x) \ dx  \) converges, then \( \int_{ a }^{ \infty  } f(x) \ dx   \) converges.
+    \end{enumerate}
+\end{problem}
+
+\begin{proof}
+    Since \( \lim_{ x \to \infty  } \frac{ f(x) }{ g(x) } = L  \), we know that for all \( \epsilon > 0  \), there exists \( \hat{M} > 0  \) such that for any \( x \geq  M  \), we have
+    \[  \Big| \frac{ f(x) }{ g(x) }  - L  \Big|  < \epsilon \]
+    which can be further written as 
+    \[  - \epsilon < \frac{ f(x) }{ g(x) }  - L < \epsilon \]
+    and so 
+    \[  L - \epsilon  < \frac{ f(x) }{ g(x) }  < L + \epsilon. \tag{*} \]
+    If \( L  = 0  \), then the above inequality can be re-written as 
+    \[  - \epsilon < \frac{ f(x) }{  g(x) } < \epsilon. \tag{**} \]
+    If \( L = \infty   \), then for all \( C > 0  \), there exists \( \kappa > 0  \) such that for all \( x > \kappa  \), we have 
+    \[  \frac{ f(x) }{ g(x) }  > C. \tag{***}  \]
+    \begin{enumerate}
+        \item[(i)] Suppose \(  0  < L < \infty  \). \( (\Longrightarrow) \) Our goal is to show that \( \int_{ a }^{ \infty  } g(x) \ dx   \) converges given that \( \int_{ a }^{ \infty  } f(x) \ dx  \) converges. From the left-hand side of (*), we can see that for all \( x > \hat{M} \), we have 
+           \[  g(x) < \frac{ 1  }{ L - \epsilon } f(x). \] 
+           Since there exists a \(  K \in \R  \) such that for all \( x \geq K  \), \( f(x) \geq 0  \) and \( g(x) \geq 0  \). So, if we take \( M  = \max \{ \hat{M}, k  \}  \), then for any \( x > M > a   \), we have 
+           \[  0 < g(x) < \frac{ 1 }{ L  - \epsilon  } f(x). \]
+           Since \( \int_{ a }^{ \infty  } f(x) \ dx  \) converges, we can see that \( \int_{ a }^{ \infty  } \frac{ 1 }{ L - \epsilon  }  f(x) \ dx  \) converges. By the Comparison Test for Integrals, we have \( \int_{ a }^{ \infty  } g(x) \ dx  \) converges.
+
+           \( (\Longleftarrow) \) Suppose \( \int_{ a }^{ \infty  } g(x) \ dx  \) converges. Our goal is to show that \( \int_{ a }^{ \infty  } f(x) \ dx  \) converges. From the right-hand side of (*), we can see that for any \( x \geq \hat{M} \), we have 
+           \[  f(x) < (L+\epsilon) g(x). \]
+           Since there exists \( K \in \R  \) such that \( f(x) \geq 0  \) and \( g(x) \geq 0 \), define \( M = \max \{ K, \hat{M} \}  \). Then for any \( x \geq M > a   \), we have  
+    \[  0 < f(x) < (L+ \epsilon) g(x). \]
+    Now, since \( \int_{ a }^{ \infty  } g(x) \ dx  \) converges, it follows that \( \int_{ a }^{ \infty  } (L+\epsilon) g(x) \ dx  \) converges. Hence, the Comparison Test implies that \( \int_{ a }^{ \infty  } f(x) \ dx  \) converges.
+    \item[(ii)] Our goal is to show that if \( \int_{ a }^{ \infty  }  f(x) \ dx  \) converges, then \( \int_{ a }^{ \infty  } g(x) \ dx  \) converges. From (**), we can see that     
+        \[  g(x) < \frac{ 1 }{ C }  f(x).  \]
+        Define \( \tilde{M} = \max \{ \kappa, \hat{M} \}  \). Then we have for any \( x > \tilde{M} \)
+        \[  0 < g(x) < \frac{ 1 }{ C  }  f(x). \]
+    Since \( \int_{ a }^{ \infty  } f(x) \ dx  \) converges, also have that \( \int_{ a }^{ \infty  } \frac{ 1 }{ C } f(x) \ dx  \) converge. By the Comparison Test, we can see that \( \int_{ a }^{ \infty  } g(x) \ dx  \) converges.
+\item[(iii)] Suppose \( L = 0   \). Then by (**), we can see that for any \( x > \hat{M} \) that 
+    \[  f(x) < \epsilon g(x). \]
+    In this case, if we let \( \epsilon = 1  \), we have that 
+    \[  f(x) < g(x) \] for all \( x > \hat{M} \). Since there exists \( K \in \R   \) such that for any \( x \geq K  \), we have \( f(x) \geq 0  \) and \( g(x) \geq 0 \). Note that in this case, we require that \( g(x) > 0  \). Otherwise, the ratio above will not be defined. So, using the same \(  M   \) from part (i), we have that for any \(x > M  \),  
+    \[  0 < f(x) < g(x).  \]
+    Since \( \int_{ a }^{ \infty  } g(x) \ dx  \) converges, it follows from the Comparison Test that \( \int_{ a }^{ \infty  } f(x) \ dx  \) also converges.
+    \end{enumerate}
+\end{proof}
+
+\begin{problem}
+    Determine all values \( \alpha  \) and \( \beta  \) for which \( \int_{ 2 }^{ \infty  }  \frac{ 1 }{ x^{\alpha} (\ln x)^{\beta} }  \ dx \) is convergent.
+\end{problem}
+\begin{proof}
+    Using integration by parts, we have
+    \begin{align*}
+    \int_{ 2 }^{ t }  \frac{ 1 }{ x^{\alpha} (\ln x )^{\beta} }  \ dx &= \frac{ 1 }{ \alpha + 1  }  \cdot \frac{ x^{\alpha + 1 } }{  (\ln x )^{\beta} } \Big]_{2}^{t} + \frac{ \beta  }{ \alpha + 1  } \int_{ 2  }^{  t  }  \frac{ x^{\alpha} }{ (\ln x)^{\beta + 1} }  \ dx  \\    
+                                                                      &= \frac{ 1 }{ \alpha + 1  }  \cdot \frac{ x^{\alpha + 1 } }{  (\ln x )^{\beta} } \Big]_{2}^{t} + \frac{ \beta  }{ \alpha + 1  } \int_{ 2  }^{  t  }  \frac{ x^{\alpha} }{ (\ln x)^{\beta + 1} }  \ dx  \\
+                                                                      &= \frac{ 1 }{ \alpha + 1  }  \cdot \frac{ t^{\alpha + 1} }{ (\ln t)^{\beta} }  - \frac{ 1 }{ \alpha + 1  }  \cdot \frac{ 2^{\alpha + 1} }{ (\ln 2)^{\beta} }  + \frac{ \beta  }{ \alpha + 1 } \int_{ 2 }^{ t }  \frac{ x^{\alpha} }{ (\ln x)^{\beta + 1} }  \ dx. 
+    \end{align*}
+    In what follows, we will show that each term as \( t \to \infty   \) in the integral above converges based on the value of \( \alpha \). Indeed, the fact that was given to us implies that for \( \alpha < 0  \), we have
+    \[  \lim_{ t \to \infty  }  \frac{ t^{1 + \alpha} }{ (\ln t)^{\beta} } = 0.  \]
+    Otherwise, the limit above diverges. Clearly, the second term converges because it is just a fixed number. For the last term, note that 
+    \[  0 < \frac{ x^{\alpha } }{ (\ln x )^{\beta + 1} } \leq x^{\alpha} \]
+    for all \( x \geq 2  \).
+    By the fact found in Exercise 10, we can see that  
+    \[ \int_{ 2 }^{ \infty  }  x^{\alpha} \ dx \begin{cases}
+        \text{converges} &\text{if} \ \alpha < 1  \\
+        \text{diverges} &\text{if} \  \alpha \geq 1 
+    \end{cases}  \]
+    So, it follows that
+    \[  \int_{ 2 }^{ \infty  } \frac{ x^{\alpha} }{ (\ln x)^{\beta + 1} }    \ dx \]
+    converges. Hence, for any \( \alpha < 0  \), 
+    \[  \int_{ 2 }^{ \infty  }  \frac{ 1 }{ x^{\alpha} (\ln x)^{\beta} }  \ dx \ \text{converges}. \]
+
+\end{proof}
+
+\begin{problem}
+   \begin{enumerate}
+       \item[(a)] Prove that \( \int_{ 0 }^{ \infty  }  \frac{ \sin x  }{ (1+x)^{2} }  \ dx  \) is absolutely convergent.
+        \item[(b)] Use the result of Exercise 8 to prove that 
+            \[  \int_{ 0 }^{ \infty  } \frac{ \cos x  }{  1 + x  }   \ dx = \int_{ 0 }^{ \infty  }  \frac{ \sin x  }{ (1+x)^{2} }  \ dx. \]
+   \end{enumerate} 
+\end{problem}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Our goal is to show that \( \int_{ 0 }^{ \infty  }  \frac{ \sin x  }{ (1+x)^{2} }  \ dx   \) is absolutely convergent; that is, we need to show that \( \int_{ a }^{ \infty  }  | \frac{ \sin x  }{  (1+x)^{2} }  |   \ dx  \) converges. Since \( | \sin x  | \leq 1  \) for all \( x \in \R  \), we have that 
+        \[  0 \leq \Big| \frac{ \sin x  }{  (1 + x)^{2} }  \Big| \leq \frac{ 1  }{ (1 + x)^{2} } \tag{*}  \]
+        for all \( x \in \R  \).
+        If we consider the right-hand side of the inequality above, then by using a change of variables, we have the following integral
+        \[  \int_{ 0  }^{ t  } \frac{ 1 }{ (1 + x)^{2} }  \ dx = \int_{ 1  }^{ u  } \frac{ 1 }{ u^{2} }  \ du. \]
+        Since \( p = 2  \), we have that \( \int_{ 1 }^{ u } \frac{ 1 }{ u^{2} }  \ du  \) converges as \( u \to \infty   \) by Exercise 10. Hence, \( \int_{ 0 }^{ t } \frac{ 1 }{ (1+x)^{2} }  \ dx  \) converges. Applying the Comparison Test to the inequality in (*), we can see that \( \int_{ 0 }^{ \infty  } | \frac{ \sin x  }{  (1+x)^{2} }  |   \ dx  \) converges which is our desired result. 
+    \item[(b)] Consider the integral on the right-hand side of our result
+        \[  \int_{ 0 }^{ t } \frac{ \cos x  }{  1 + x  }  \ dx. \]
+        Applying integration by parts, we have
+    \begin{align*}
+\int_{ 0 }^{ t }  \frac{ \cos  }{ 1 + x  }  \ dx &= \frac{ \sin x  }{ 1 + x  }  \Big]_{0}^{t} + \int_{ 0 }^{ t } \frac{ \sin x  }{  (1+x)^{2} }  \ dx \\
+                                                 &= \Big[ \frac{ \sin t  }{  1 + t  }  - 0 \Big] + \int_{ 0 }^{ t }  \frac{ \sin x  }{  1 + x  }  \ dx \\
+                                                 &= \frac{ \sin t  }{  1 + t  }  + \int_{ 0 }^{ t }  \frac{ \sin x  }{  (1+x)^{2} }  \ dx.
+\end{align*}
+Note that the limit as \( t \to \infty   \) on second term on the right-hand side of the equation above holds by part (a). We also have that the first term on the right-hand side also converges. Indeed, using the fact that \( | \sin t  |  \leq 1  \) for all \( t \in \R  \), we have that 
+\[ 0 \leq \Big| \frac{ \sin t  }{  1 + t  }  \Big| \leq \frac{ 1  }{ | 1 + t |  }. \]
+Note that as \( t \to \infty    \) on the right-hand side of the inequality above, we have 
+\[  \frac{ 1 }{ | 1+ t |   } \to 0.  \]
+By squeeze theorem, we can see that 
+\[  \lim_{ t \to \infty  } \Big| \frac{ \sin t  }{ 1 + t }  \Big|   = 0    \]
+and so 
+\[  \lim_{ t \to \infty  } \frac{ \sin t  }{  1 + t  }  = 0.  \]
+By the Algebraic Limit Theorem for Functions, we have that 
+\begin{align*}
+    \int_{ 0 }^{ \infty  } \frac{ \cos x  }{  1 + x  }  \ dx &= \lim_{ t \to \infty  }  \int_{ 0 }^{ t }  \frac{ \cos x  }{ 1 + x  }  \ dx \\
+                                                             &= \lim_{ t \to \infty  }  \frac{ \sin t  }{  1 + t  } + \int_{ 0 }^{ \infty  } \frac{ \sin x  }{  (1+x)^{2} }  \ dx  \\
+                                                             &= \int_{ 0 }^{ \infty  } \frac{ \sin x  }{  (1+x)^{2} }  \ dx
+\end{align*}
+which is our desired result.
+\end{enumerate}
+\end{proof}
+
+\end{document}
+
