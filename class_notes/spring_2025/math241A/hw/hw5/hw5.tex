@@ -1,0 +1,72 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{Homework 5}
+\author{Lance Remigio}
+\begin{document}
+\maketitle
+
+\begin{problem}
+    Let \( (V, \|\cdot\|) \) be a normed space and \( Y  \) be a vector subspace of \( V  \). Last time, we saw that \( V / Y  = \{ v + Y  : v \in V  \}  \) is also a vector space. Now, assume that \( Y  \) is closed in \( (V, \|\cdot\| ) \).
+\end{problem}
+
+\begin{enumerate}
+    \item[(i)] Let \( v  \) and \( v' \) such that \( v - v' \in Y  \). Show that \( \inf_{y \in Y} \|v + Y\| = \inf_{y \in Y} \|v' + y\|  \).
+        \begin{proof}
+        From problem 2(i) of Homework 4, \( v - v' \in Y \) implies that \( v + Y = v' + Y  \). Hence, we have 
+        \begin{align*}
+            v + Y = v' + Y  &\implies  \|v + y \| = \|v' + y\| \ \forall y \in Y  \\
+                            &\implies \inf_{y \in Y} \|v + y\| = \inf_{y \in Y} \|v' + y\|.
+    \end{align*}
+        \end{proof}
+    \item[(ii)] For \( [v] = v + Y  \in V/ Y \), define 
+        \[  \|[v]\|_0 = \inf_{y \in Y } \|v + y\|. \]
+        Show that \( \|\cdot\|_{0} \) defines a norm on \( V / W  \).
+        \begin{proof}
+            Clearly, we have \( \|[v]\|_{0} \geq 0  \) since \( \| \cdot \|  \) satisfies property (I).
+        \begin{enumerate}
+            \item[(I)] Suppose \( v + Y = {0}_{V/W}  \) where \( [0] =  {0}_{V/W} = {0}_{V} + Y  \). Then by definition of \( \|\cdot\|_{0} \), we have \( \|[0]\|_{0} = 0  \). From part (a), we have
+                \begin{align*}
+                    \|[v]\|_{0} = \|[0]\|_{0}  &\iff \inf_{y \in Y} \|  v + y \| = 0   \\
+                                               &\iff \|[v]\|_{0} = 0. 
+                \end{align*}
+                Hence, the property (I) is satisfied.
+            \item[(II)] Let \( \alpha \in F \) where \( F  \) is a field. Then we have 
+                \begin{align*}
+                    \|[\alpha v] \|_{0} &= \|\alpha v + Y\|_{0} \\
+                                        &= \inf_{y \in Y} \|\alpha v + Y \| \\
+                                        &= \inf_{y \in Y} \| \alpha (v + Y )\| \\
+                                        &= \inf_{y \in Y} | \alpha | \| v + Y \| \\
+                                        &= | \alpha |  \inf_{y \in Y} \|v + Y\| \tag{\( \|\cdot\| \) is a norm} \\
+                                        &=  | \alpha |  \|[v]\|_{0}.
+                \end{align*}
+            \item[(III)] Let \( {v}_{1}, {v}_{2} \in V / W  \). Then since \( \|\cdot\| \) is a norm, we have that  
+                \begin{align*}
+                    \|[{v}_{1} + {v}_{2}]\|_{0} &= \|({v}_{1} + {v}_{2}) + Y \|_{0} \\
+                                                &=  \| ({v}_{1} + Y) + ({v}_{2} + Y) \|_0 \\
+                                                &= \inf_{y \in Y} \| ({v}_{1} + {y}_{1})  + ({v}_{2} + {y}_{2}) \| \\
+                                                &\leq \inf_{y \in Y} \Big[ \| {v}_{1} + {y}_{1} \| + \| {v}_{2} + {y}_{2} \| \Big] \\
+                                                &= \inf_{y \in Y} \|{v}_{1} + {y}_{1}\| + \inf_{y \in Y} \|{v}_{2} + {y}_{2}\| \\
+                                                &= \|[{v}_{1}]\|_{0} + \|[{v}_{2}]\|_{0}.
+                \end{align*}
+        \end{enumerate}
+        \end{proof}
+    \item[(iii)] For any \( v \in V  \), show that \( \|[v]\|_{0} \leq \|u\| \).
+        \begin{proof}
+            By the triangle inequality, we have 
+            \[ \|v\| =   \|v \| + \|{0}_{Y}\| \geq \| v + {0}_{Y} \| \geq \inf_{y \in Y} \|v + Y \| = \|[v]\|_{0}.  \]
+        \end{proof}
+    \item[(iv)] We have a Canonical map \( \pi : V \to V \setminus  Y  \), \( \pi(u) = [u] \). Show that \( \pi  \) is linear and continuous. Here continuity means that if \( \|v_n - v \| \to 0  \) in \( V  \), then \( \|[{v}_{n}] - [v]\|_{0} \to 0  \) in \( V  / W  \).
+        \begin{proof}
+        First, we show that \( \pi  \) is linear. For any \( {u}_{1}, {u}_{2} \in V  \), we have 
+        \begin{align*}
+            \pi({u}_{1} + {u}_{1}) &= [{u}_{1} + {u}_{2}] \\
+                                   &= ({u}_{1} + {u}_{2}) + Y  \\
+                                   &= ({u}_{1} + Y) + ({u}_{2} + Y) \\
+                                   &= [{u}_{1}] + [{u}_{2}] \\
+                                   &= \pi({u}_{1}) + \pi({u}_{2}).
+        \end{align*} 
+        \end{proof}
+\end{enumerate}
+
+\end{document}
+
