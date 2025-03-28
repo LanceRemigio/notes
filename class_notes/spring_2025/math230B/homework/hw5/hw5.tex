@@ -1,0 +1,313 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{Homework 5}
+\author{Lance Remigio}
+\begin{document}
+\maketitle
+
+\begin{problem}
+    Let \( A  \) be a nonempty set of \( \R  \). Suppose that for each \( n \in \N \), \( {f}_{n} : A \to \R  \) is a \textit{uniformly continuous} function on \( A  \). Prove that if \( ({f}_{n})  \) converges uniformly to \( f: A \to \R  \), then \( f  \) is \textit{uniformly continuous} on \( A  \).
+\end{problem}
+\begin{proof}
+Suppose that \( {f}_{n} \to f: A \to \R   \) uniformly. Our goal is to show that \( f  \) is uniformly continuous; that is, we want to show that for any \( \epsilon > 0  \), there exists \( \delta > 0  \) such that for all \( x,y \in A  \), whenever \( | x - y  | < \delta \), we have 
+\[  | f(x) - f(y) | < \epsilon. \]
+Let \( \epsilon > 0  \) be given and let \( x,y \in A  \). Since \( {f}_{n} \to f  \) uniformly, there exists an \( N \in \N  \) such that for any \( x  \in A \) and for any \( n > N  \), we have 
+\[  | {f}_{n}(x) - f(x) |  < \frac{ \epsilon }{ 3 }. \tag{1} \]
+Since \( {f}_{n} \) is uniformly continuous on \( A  \) for all \( n \in \N \). In particular, \( {f}_{n} \) is uniformly if \( n = N + 1 \); that is, there exists a\( \hat{\delta} > 0 \) such that for any \( | x - y  |  < \hat{\delta}  \), we have
+\[  | {f}_{n}(x) - {f}_{n}(y) |  < \frac{ \epsilon }{ 3 }. \tag{2}  \]
+We claim that \( \hat{\delta} \) can be used as the same \( \delta  \) we were looking for. Indeed, whenever \( | x -y  |  < \hat{\delta} \), (1) and (2) imply that
+\begin{align*}
+    | f(x) - f(y)  | &\leq | f(x) - {f}_{n}(x) | + | {f}_{n}(x) - {f}_{n}(y) |  + | {f}_{n}(y) - f(y) |  \\
+                     &< \frac{ \epsilon }{ 3 }  + \frac{ \epsilon }{ 3 }  + \frac{ \epsilon }{ 3 }  \\
+                     &= \epsilon
+\end{align*}
+as our desired result.
+\end{proof}
+
+\begin{problem}
+    Let \( A  \) be a nonempty set and suppose \( ({f}_{n}: A \to \R)_{n \geq 1} \) is a sequence of functions. Suppose \( f: A \to \R  \) is a function. Prove that the following statement are equivalent:
+    \begin{enumerate}
+        \item[(i)] \( ({f}_{n})  \) converges uniformly to \( f: A \to \R  \).
+        \item[(ii)] \( \forall \epsilon > 0  \), \( \exists N  \) such that \( \forall n > N  \) \( \sup_{x \in A} | {f}_{n}(x) - f(x) | < \epsilon \).
+        \item[(iii)] \( \lim_{ n \to \infty  } (\sup_{x \in A} | {f}_{n}(x) - f(x) | ) = 0  \).
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+    \( ( (i) \implies (ii) ) \) Suppose that \( {f}_{n} \to f \) uniformly. Our goal is to show that for all \( \epsilon> 0  \), there exists an \( N \in \N \) such that for any \( n > N  \) 
+    \[  \sup_{x \in A} | {f}_{n}(x) - f(x) | < \epsilon. \]
+    Let \( \epsilon > 0  \) be given. Since \( {f}_{n} \to f  \) uniformly, there exists an \( \tilde{N} \in \N \) such that for all \( x \in A  \), for all \( n > \tilde{N} \), we have 
+    \[  | {f}_{n}(x) - f(x) | < \frac{ \epsilon }{ 2 }.   \]
+    Note that \( \epsilon /2   \) is an upper bound for the set 
+    \[  \{ | {f}_{n}(x) - f(x)  |  : \forall x \in A \ \ \forall n > \tilde{N} \}. \]
+    We claim that \( \tilde{N} \) is the same \( N  \) we were looking for. Taking the supremum of the inequality above, we have 
+    \[  \sup_{x \in A} | {f}_{n}(x) - f(x) | \leq \frac{ \epsilon }{ 2 }  < \epsilon \]
+    for any \( n > \tilde{N} \) which is our desired result.
+
+    \( ((ii) \implies (iii)) \) Suppose that for all \( \epsilon > 0  \), there exists an \( N \in \N  \) such that for all \( n > N  \), we have 
+    \[  \sup_{x \in A} | {f}_{n}(x) - f(x)  | < \epsilon. \]
+    Our goal is to show that \( \lim_{ n \to \infty  }  \Big(  \sup_{x \in A} | {f}_{n}(x) - f(x) |  \Big) = 0  \). By assumption, we can let \( \epsilon = \frac{ 1 }{ n }   \) for all \( n \in \N \) such that there exists an \( \kappa_{n} \in \N \) such that for any \( n > {\kappa}_{n} \), we have k
+    \[  0 \leq \sup_{x \in A} | {f}_{n}(x) - f(x) |  < \frac{ 1 }{ n }. \]
+    Clearly, we see that \( \frac{ 1 }{ n }  \to 0  \) as \( n \to \infty  \). Applying the squeeze theorem to the inequality above as \( n \to \infty  \), we have that 
+    \[  \lim_{ n \to \infty  }  \sup_{x \in A} | {f}_{n}(x) - f(x)|  = 0.  \]
+    \( ((iii) \implies (i)) \) Suppose that \( \lim_{ n \to \infty  }  \Big(  \sup_{x \in A } | {f}_{n}(x) - f(x) |  \Big) = 0  \). Our goal is to show that \( {f}_{n} \to f : A \to \R   \) uniformly; that is, for all \( \epsilon > 0  \), there exists an \( N \in \N \) such that for any \( x \in A  \), for any \( n > N  \), we have 
+    \[ | {f}_{n}(x) - f(x) |  < \epsilon.  \]
+    Let \( \epsilon > 0  \) be given. Since \( \lim_{ n \to \infty  }  \Big(  \sup_{x \in A } | {f}_{n}(x) - f(x)  |   \Big) = 0  \), (with our given \( \epsilon  \)) there exists an \( \tilde{N} \in \N \) such that for any \( n > \hat{N} \)
+    \[  | \sup_{x \in A } | {f}_{n} - f(x) |  | < \epsilon; \]
+    that is, for any \( n > \hat{N} \)
+    \[  \sup_{x \in A} | {f}_{n}(x) - f(x) | < \epsilon. \]
+    Note that \( | {f}_{n}(x) - f(x) |  \leq \sup_{x \in A } | {f}_{n}(x) - f(x) |  \) for all \( x \in A  \). We claim that \( \hat{N} \) is the same \( N \) we were looking for. Hence, for any \( n > \hat{N}  \), we have
+    \[  | {f}_{n}(x) - f(x) |  <\epsilon \]
+    Hence, \( {f}_{n} \to f  \) uniformly.
+\end{proof} 
+
+\begin{problem}
+   Suppose \( ({a}_{n})  \) and \( ({b}_{n})  \) are two sequences of real numbers and \( {a}_{n} \geq {b}_{n}  \) for all \( n \in \N \). Suppose \( \lim_{ n \to \infty  }  {b}_{n} > 0  \). Explain in one line why it follows from the order limit theorem that \( \lim_{ n \to \infty  }  {a}_{n} \) cannot be zero.
+\end{problem}
+\begin{proof}
+There exists \( {n}_{o} \in \N \) such that \( {a}_{n} \geq {b}_{n} \) for all \( n \geq {n}_{0} \), \( \lim_{ n \to \infty  }  {a}_{n} \geq \lim_{ n \to \infty  }  {b}_{n} > 0 \).
+\end{proof}
+
+\begin{problem}[4-1]
+    For each \( n \in \N \), let \( {f}_{n}: \R \to \R  \) be defined by \( {f}_{n}(x) = \frac{ x^{2} }{  n^{4} + x^{2} }  \).
+\end{problem}
+\begin{proof}
+Clearly, \( {f}_{n}  \) converges to \( f  \) pointwise. Indeed, for all \( n \in \N \), we have 
+\[  0 \leq \frac{ x^{2} }{  n^{4} + x^{2} }  \leq \frac{ x^{2} }{  n^{4} }. \]
+Consider the right-hand side of the above inequality, we have 
+    \( \lim_{ n \to \infty  }  \frac{ x^{2} }{ n^{4} }  = x^{2} \lim_{ n \to \infty  }  \frac{ 1 }{ n^{4} }  = x^{2} \cdot 0 = 0.  \)
+    By applying the Squeeze theorem as \( n \to \infty  \) to the inequality above, we have 
+    \[ \lim_{ n \to \infty  } {f}_{n}(x)  = \lim_{ n \to \infty  }  \frac{ x^{2} }{ n^{4} + x^{2} }  = 0    \]
+    pointwise. 
+
+    Now, we want to show that \( {f}_{n} \to 0  \) is NOT uniform. Immediately, we see that
+    \[  \sup_{x \in \R} \Big| \frac{ x^{2} }{  n^{4} + x^{2} }  \Big| \geq | {f}_{n}(x) |  \] for all \( x \in \R  \).
+    In particular, if we let \( x = n^{2} \), then we have
+    \[  \sup_{x \in \R } \Big|  \frac{ x^{2}  }{  n^{4} + x^{2} }   \Big|  \geq | {f}_{n}(n^{2}) |  = \frac{ 1 }{ 2 }. \]
+    Clearly, if we define \( {b}_{n} = f(n^{2}) \), we have 
+    \[  \lim_{ n \to \infty  }  f(n^{2}) = \lim_{ n \to \infty  }  \frac{ 1 }{ 2 }  = \frac{ 1 }{ 2 }  > 0. \]
+\end{proof}
+
+\begin{problem}[4-2]
+    For each \( n \in \N \), let \(  {f}_{n}: [0,1) \to \R  \) be defined by \( {f}_{n}(x) = x^{n} \). It is easy to show that \( {f}_{n} \to 0  \) pointwise. Prove that the convergence is NOT uniform.  
+\end{problem}
+\begin{proof}
+We can easily show that \( {f}_{n} \to 0  \) pointwise. We will show that the convergence is NOT uniform. Define \( {b}_{n} = \Big(  1 - \frac{ 1 }{ n }  \Big)^{n} \) for all \( n \in \N \). Indeed, we see that 
+\[  \sup_{x \in [0,1)} | {f}_{n}(x) |  = \sup_{x \in [0,1)} | x^{n} | = \sup_{x \in [0,1)} \geq \Big(  1 - \frac{ 1 }{ n }  \Big)^{n} \tag{1} \]
+and
+\[  \lim_{ n \to \infty  }  \Big(  1 - \frac{ 1 }{ kn }  \Big)^{n} = \frac{ 1 }{ \epsilon  }  > 0. \tag{2}  \]
+Thus, (1) and (2) imply that \( {f}_{n} \to 0  \) does NOT converge uniformly.
+\end{proof}
+
+\begin{problem}
+   Suppose that \( A  = G \cup H  \) where \( G  \) and \( H  \) are nonempty sets. Prove that if \( ({f}_{n}) \) converges uniformly to \( f  \) on both \( G  \) and \( H  \), then \( ({f}_{n})  \) converges uniformly to \( f  \) on \( A  \).
+\end{problem}
+\begin{proof}
+Our goal is to show that for any \( \epsilon > 0  \) be given and for any \( x \in A  \), for any \(  n > N  \), we have  
+\[  | {f}_{n}(x) - f(x) |  < \epsilon. \]
+Let \( \epsilon > 0  \) be given and let \( x \in A  \). Since \( A = G \cup H   \), we either have \( x \in G  \) or \( x \in H  \). If \( x \in G  \), then we can use the fact that \( {f}_{n} \to f  \) uniformly on \( G  \), there exists an \( {N}_{1} \in \N \) such that for any \( n > {N}_{1} \), we have 
+\[  | {f}_{n}(x) - f(x) |  < \epsilon. \]
+On the other hand, if \( x \in H  \), then using the fact that \( {f}_{n} \to f  \) uniformly on \( H  \), there exists an \( {N}_{2} \in \N \), with our given \( \epsilon  \), such that for any \( n > {N}_{2} \), we have 
+\[  | {f}_{n}(x) - f(x) | < \epsilon. \]
+Hence, in both cases \( {f}_{n} \to f  \) on \( A  \) uniformly.
+\end{proof}
+
+\begin{problem}
+    Let \( ({a}_{n})_{n \geq 1} \) be a sequence of real numbers and suppose that \( {a}_{n} \to a  \) in \( \R  \). Let \( f: A \to \R  \) be a function. For each \( n \in \N \) ,define \( {f}_{n}: A \to \R  \) by \( {f}_{n}(x) = f(x)  + {a}_{n} \). Prove that \( ({f}_{n})  \) converges uniformly to the function \( f  + a  \) on the set \( A  \).
+\end{problem}
+\begin{proof}
+Our goal is to show that for any \( \epsilon > 0  \), there exists an \( N \in \N \) such that for all \( x \in A  \) and for all \(  n > N  \), we have 
+\[  | {f}_{n}(x) - (f(x) + a) |  < \epsilon. \]
+Let \( \epsilon > 0  \) be given and let \( x \in A  \). Since \( {a}_{n} \to a  \), there exists \( \tilde{N} \in \N \) such that for any \( n > \tilde{N} \), we have 
+\[  | {a}_{n} - a  |  < \epsilon. \]
+We claim that \( \tilde{N} \) is the same \( N  \) we were looking for. Hence, for any \( n > \tilde{N} \), we have 
+\begin{align*}
+    | {f}_{n} - (f(x) + a) |  &= | (f(x) + {a}_{n}) - ( f(x) + a ) |  \\
+                              &= | {a}_{n} - a  |  \\
+                              &< \epsilon.
+\end{align*}
+Hence, \( {f}_{n} \to f + a  \) uniformly.
+\end{proof} 
+
+\begin{problem}
+    Suppose that \( ({g}_{k}) \) converges uniformly to \( g  \) on the nonempty st \( A  \). Use the Cauchy Criterion for uniform convergence of sequences to prove that the sequence \( ({h}_{k}) \) where \( {h}_{k} = {g}_{k+1} - {g}_{k} \) converges uniformly to zero on \( A  \). 
+\end{problem}
+\begin{proof}
+Our goal is to show that \( {h}_{k} \to 0  \) uniformly on \( A  \); that is, we want to show that for any \( \epsilon > 0  \), there exists an \( N \in \N \) such that for any \( k > N  \), we have 
+\[  | {h}_{k} |  < \epsilon. \]
+Let \( \epsilon > 0  \) be given and let \( x \in A  \). Since \( {g}_{n} \to g  \) converges uniformly on \( A  \), the Cauchy Criterion implies that there exists an \( \tilde{N} \in \N \) such that for any \( m > n > \tilde{N} \), we have 
+\[  | {g}_{n}(x) - {g}_{m}(x)  | < \epsilon. \tag{*} \]
+We claim that \( \tilde{N} \) can be used as the same \( N  \) we were looking for. Indeed, for any \( k + 1 > k > \tilde{N} \), (*) implies that 
+\[  | {g}_{k+1}(x) - {g}_{k}(x) |  < \epsilon. \]
+But we have \( {h}_{k} = {g}_{k+1} - {g}_{k} \) for all \( k \in \N \), we have 
+\[  | {h}_{k} |  = | {g}_{k+1} - {g}_{k}   | < \epsilon  \]
+as desired.
+\end{proof}
+
+\begin{problem}
+    Complete the following the proof presented.
+\end{problem}
+
+\begin{proof}
+    Because \( | \sin({n}_{\hat{i}} {x}_{0}) - \sin({n}_{N+1} {x}_{0})  | \geq 1  \) and \( {b}_{n} = \sin({n}_{\hat{i}} {x}_{0}) > 0  \) for all \( n \in \N \), we have found a subsequence of \( (\sin(nx))_{n \geq 1} \) that does not converge uniformly on the interval \( [0,2 \pi] \) which is a contradiction.
+\end{proof}
+
+\begin{problem}
+    For all \( n \geq 1  \) define \( {f}_{n} : [0,1] \to \R  \) as follows:
+    \[  {f}_{n}(x) = 
+    \begin{cases}
+        1 &\text{if} \ n!x \in \Z \\
+        0 &\text{otherwise}. 
+    \end{cases} \]
+    Prove that \( {f}_{n} \to f  \) pointwise where \( f: [0,1] \to \R    \) is defined by 
+    \[  f(x) = 
+    \begin{cases}
+        0 &\text{if} \ x \in \mathbb{I} \\
+        1 &\text{if} x \in \Q.
+    \end{cases} \]
+\end{problem}
+\begin{proof}
+\begin{enumerate}
+    \item[(1)] If \( x \in [0,1] \) is irrational, then \( {f}_{n}(x) = 0  \). Clearly, we see that \( {f}_{n} \to f  \).
+        \item[(2)] If \( x \in [0,1] \) is a rational number, then \( c = \frac{ p }{ q }  \) for some nonnegative \( p,q \in \Z  \). Then for all \( n > q  \), \( n! x \in \Z  \).
+            Hence, for all \( n > q  \) \( {f}_{n}(c) = 1  \). From here, it immediately follows that \( {f}_{n} \to f  \).
+\end{enumerate}
+Hence, (1) and (2) imply that \( {f}_{n} \to f  \) pointwise.
+\end{proof}
+
+\begin{problem}[i]
+    For all \( n \geq 1  \) define \( {f}_{n} : [0,\infty) \to \R  \) as follows:
+    \[  {f}_{n}(x) = 
+    \begin{cases}
+        \frac{ 1 }{ n }  &\text{if} \ 0 \leq x \leq n  \\
+        0 &\text{if} x > n
+    \end{cases} \]
+    Prove that \( {f}_{n} \to f  \) uniformly where \( f:[0,\infty) \to  \R  \) is defined by \( f \equiv 0  \).
+\end{problem}
+\begin{proof}
+If \( x > n  \), \( f(x) = 0  \). Clearly, \( {f}_{n} \to 0  \) uniformly. Otherwise, assume that \( 0 \leq x \leq n  \). Then \( {f}_{n}(x) = \frac{ 1 }{ n }  \) for all \( n \in \N \). By the Archimedean Property, there exists an \( N \in \N \) such that \( \frac{ 1 }{ N }  < \epsilon \). Hence, for any \( n >  N  \), we have 
+\[  | {f}_{n}(x) - 0 |  = | {f}_{n}(x) |  = \frac{ 1 }{ n }  < \frac{ 1 }{ N }  < \epsilon. \]
+Hence, \( {f}_{n} \to 0  \) uniformly.
+\end{proof}
+
+\begin{problem}[ii]
+   Show that \( \lim_{ n \to \infty  }  \int_{ 0 }^{ \infty  }  {f}_{n} \ dx \neq \int_{ 0 }^{ \infty   } f  \ dx  \). 
+\end{problem}
+
+\begin{proof}
+Note that 
+\begin{align*}
+    \lim_{ n \to \infty  }  \int_{ 0 }^{ \infty  }  {f}_{n}(x) \ dx &= \lim_{ n \to \infty  }  \int_{ 0 }^{ \infty  }  \frac{ 1 }{ n }  \ dx  \\
+                                                                    &= \lim_{ n \to \infty  }  \Big[ \lim_{ R \to \infty  }  \int_{ 0 }^{ R }  \frac{ 1 }{ n }  \ dx  \Big] \\
+                                                                    &= \lim_{ n \to \infty  }  \Big[ \lim_{ R \to \infty  }  \frac{ R }{ n } \Big] = \infty.
+\end{align*}
+On the other hand, we have 
+\[ \int_{ 0 }^{ \infty  }  f  \ dx = \lim_{ R \to \infty  }  \Big[ \int_{ 0 }^{ R  }  (0) \ dx \Big] = \lim_{ R \to \infty  } (0) = 0.  \]
+Clearly, we have that 
+\[  \lim_{ n \to \infty  }  \int_{ 0 }^{ \infty  }  {f}_{n} \ dx \neq \int_{ 0  }^{ \infty  }  f  \ dx. \]
+\end{proof}
+
+\begin{problem}[(i)]
+    For all \( n \geq 1  \) define \( {f}_{n}: [-1,1] \to \R  \) by \( {f}_{n}(x) = \frac{ x  }{  1 + n^{2} x^{2} }  \). Prove that \( {f}_{n}  \) converges uniformly to \( f: [-1,1] \to \R  \) defined by \( f \equiv 0  \). 
+\end{problem}
+\begin{proof}
+    Our goal is to show that for all \( \epsilon > 0  \), there exists an \( N \in \N \) such that for all \( x \in [-1,1]  \) and for all \(  n > N  \), we have 
+    \[  | {f}_{n}(x) - 0  | < \epsilon. \]
+    Let \( \epsilon > 0 \) be given. By the Archimedean Property, there exists an \( N \in \N  \) such that  
+    \[  \frac{ 1 }{ 2N } < \frac{ 1 }{ N  } < \epsilon. \]
+    Then from our hint, we can see that for any \( n > N  \), we have
+    \begin{align*}
+        | {f}_{n}(x) - 0 | &= \Big| \frac{ x  }{ 1 + n^{2} x^{2} }  \Big|  \\
+                           &= \frac{ | x  |   }{  1 + n^{2} x^{2} } \\
+                           &\leq \frac{  | x  |  }{ 2n | x  |   }  \\
+                           &= \frac{ 1 }{ 2n }  \\
+                           &< \frac{ 1  }{ 2N  }  \\
+                           &< \epsilon.
+    \end{align*}
+    hence, we can see that \( {f}_{n} \to f   \) uniformly on \( [-1,1] \).
+\end{proof}
+
+\begin{problem}
+    Prove that \( {f}_{n}' \) converges pointwise to \( g: [-1,1] \to \R  \) defined by  
+    \[  g(x) = 
+    \begin{cases}
+        1 &\text{if} \ x = 0 \\
+        0 &\text{if} \ 0 < | x  |  \leq 1 
+    \end{cases}. \]
+\end{problem}
+\begin{proof}
+Since each \( {f}_{n} \) is differentiable, we have that 
+\begin{align*}
+    {f}_{n}'(x) &= \frac{ 1  }{  1 + n^{2} x^{2} }  - \frac{ x  }{  (1 + n^{2} x^{2})^{2} } \cdot 2 n^{2} x   \\
+                &= \frac{ (1 + n^{2} x^{2}) - 2 n^{2} x^{2} }{ (1 + n^{2} x^{2})^{2} }.
+\end{align*}
+Hence, we have 
+\[  {f}_{n}'(x) = \frac{ 1 - n^{2} x^{2} }{  (1 + n^{2} x^{2})^{2} } \]
+and note that 
+\[  {f}_{n}'(0) = \frac{ 1  }{  1  }  = 1. \]
+Clearly, if \( x = 0  \), then \( {f}_{n}'(0) \to g(0) \). Otherwise, suppose \( 0 < | x  |  \leq 1  \). Then we have
+\begin{align*}
+    | {f}_{n}'(x) - 0  | &= | {f}_{n}'(x) |   \\
+                         &= \Big| \frac{ 1 - n^{2} x^{2} }{ (1 + n^{2} x^{2})^{2} }  \Big| \\
+                         &= \frac{ | 1 - n^{2} x^{2} |   }{  (1 + n^{2} x^{2})^{2} }  \\
+                         &\leq \frac{ 2 ( 1 -  n | x  | ) }{4 n^{2} | x  |^{2} }  \\
+                         &= \frac{ 1  }{ n^{2} | x  |^{2}  }  - \frac{ 1  }{ 2n | x  |   }  \\
+                         \underbrace{\to}_{\text{ALT}} 0 + 0 = 0. 
+\end{align*}
+Using the Squeeze Theorem, we have that as \( n \to \infty   \), we have 
+\[  | {f}_{n}'(x) |  \to 0.  \]
+Clearly, the convergence above depends on \( x  \). Thus, the \( {f}_{n}' \to  0  \) pointwise.
+\end{proof}
+
+\begin{problem}[iii]
+   Does \( {f}_{n}'  \) converge uniformly to \(g  \). 
+\end{problem}
+\begin{solution}
+No, because the pointwise limit of \( {f}_{n}'  \) in part (ii) is NOT a continuous function.
+\end{solution}
+
+\begin{problem}
+    Prove the following theorem.
+\end{problem}
+\begin{theorem}[ ]
+    Assume that for each \( n \in \N \), \( {f}_{n} : [a,b] \to \R  \) is differentiable, there exists \( {x}_{0} \in [a,b] \) such that \( ({f}_{n}({x}_{0}))_{n \geq 1} \) converges, and \( ({f}_{n}')  \) converges uniformly on \( [a,b] \). Then \( ({f}_{n}) \) converges uniformly on \( [a,b] \).
+\end{theorem}
+\begin{proof}
+    Our goal is to show that for all \( \epsilon > 0  \), there exists an \( N \in \N  \) such that for any \( n > m > N  \) and \( \forall x \in [a,b] \),
+    \[  | {f}_{n}(x) - {f}_{m}(x) | < \epsilon. \]
+    Let \( \epsilon > 0  \) be given.  Without loss of generality \( {x}_{0} < x  \). By the Mean Value Theorem, there exists an \( \hat{x} \in ({x}_{0}, x) \) such that 
+    \[  {f}_{n}'(\hat{x}) = \frac{ {f}_{n}(x) - {f}_{n}({x}_{0})  }{  x - {x}_{0} }  \implies {f}_{n}(x) - {f}_{n}({x}_{0}) = {f}_{n}'(\hat{x}) (x - {x}_{0}) \]
+    and similarly, we have 
+    \[  {f}_{m}'(\hat{x}) = \frac{ {f}_{m}(x) - {f}_{m}({x}_{0})  }{  x - {x}_{0}  }  \implies {f}_{m}(x) - {f}_{m}({x}_{0}) = {f}_{m}'(\hat{x}) (x - {x}_{0}). \]
+    Subtracting these two quantities gives us
+    \begin{align*}
+        &{f}_{n}(x) - {f}_{n}({x}_{0})  - ({f}_{m}(x) - {f}_{m}({x}_{0}))   = ({f}_{n}'(\hat{x}) - {f}_{m}'(\hat{x}))(x - {x}_{0}) \\
+        &\implies {f}_{n}(x) - {f}_{m}(x)q - ({f}_{n}({x}_{0}) - {f}_{m}({x}_{0})) = ({f}_{n}'(\hat{x}) - {f}_{m}'(\hat{x}))(x - {x}_{0}) \\
+        &\implies {f}_{n}(x) - {f}_{m}(x) = ({f}_{n}'(\hat{x}) - {f}_{m}'(\hat{x}))(x - {x}_{0}) + {f}_{n}({x}_{0}) - {f}_{m}({x}_{0}).
+    \end{align*}
+    Hence, we have 
+    \begin{align*}
+        | {f}_{n}(x) - {f}_{m}(x)  | &= | ({f}_{n}'(\hat{x})) - {f}_{m}'(\hat{x}) (x - {x}_{0}) + {f}_{n}({x}_{0}) - {f}_{m}({x}_{0})|  \\ 
+                                     &\leq | {f}_{n}'(\hat{x}) - {f}_{m}'(\hat{x}) | | x - {x}_{0} |  + | {f}_{n}({x}_{0}) - {f}_{m}({x}_{0}) |.
+    \end{align*}
+    Since each \( {f}_{n} \) is differentiable on \( [a,b] \), we know that each \( {f}_{n} \) is continuous on \( [a,b] \). Therefore, \( {f}_{n} \) is continuous at \( {x}_{0} \in [a,b] \). That is, there exists a \( \delta > 0  \) such that whenever \( |  x - {x}_{0} |  < \delta \), we have 
+    \[  | {f}_{n}(x) - {f}_{n}({x}_{0}) |  < \epsilon. \]
+    Furthermore, we can see by our assumption that if \( ({f}_{n}({x}_{0}))_{n \geq 1 } \) converges, we have that \( ({f}_{n}({x}_{0}))_{n \geq 1 } \) is a Cauchy sequence. That is, there exists an \( {N}_{1} \in \N \) such that for any \(  n > m > {N}_{2} \), we have 
+    \[  | {f}_{n}({x}_{0}) - {f}_{m}({x}_{0}) |  < \frac{ \epsilon }{ 2 }. \]
+    Since \( ({f}_{n}') \) converges uniformly, there exists an \( {N}_{2} \in \N \) such that for any \( n > m > {N}_{1} \) (given \( \hat{x} \in [a,b] \)) 
+    \[  | {f}_{n}'(\hat{x}) - {f}_{m}'(\hat{x})  |  < \frac{ \epsilon }{ 2 \delta }.  \]
+    Let \( N = \max \{ {N}_{1}, {N}_{2} \}  \). Then for any \( n > m > N \), we have 
+    \begin{align*}
+        | {f}_{n}(x) - {f}_{m}(x) | &\leq | {f}_{n}'(\hat{x}) - {f}_{m}'(\hat{x})  | | x - {x}_{0} |  + | {f}_{n}({x}_{0}) - {f}_{m}({x}_{0}) |  \\
+                                    &< \frac{ \epsilon }{ 2 \cdot \delta }  \cdot \delta + \frac{ \epsilon  }{  2  }  \\
+                                    &= \frac{ \epsilon }{ 2 }  + \frac{ \epsilon }{ 2 }  \\
+                                    &= \epsilon.
+    \end{align*}
+    Hence, \( {f}_{n}  \) converges uniformly on \( [a,b] \) by the Cauchy Criterion.
+\end{proof}
+
+\( \int_{ a }^{ b } f(x) \ dx  \)
+
+
+
+\end{document}
+

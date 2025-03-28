@@ -65,8 +65,163 @@
                                    &= [{u}_{1}] + [{u}_{2}] \\
                                    &= \pi({u}_{1}) + \pi({u}_{2}).
         \end{align*} 
+        
+        Let \( \alpha \in F  \) where \( F  \) is a field and let \( u \in V  \). Then we have
+        \[  \pi( \alpha u ) = [\alpha u] = (\alpha u) + Y = \alpha (u + Y ) = \alpha [u] = \alpha \pi(u). \]
+        Hence, we conclude that \( \pi  \) is a linear map from \( V \to V / Y \).
+        Now, we want to show that \( \pi  \) is, indeed, continuous for any \( v \in V  \). Let \( {v}_{n}  \) be a sequence in \(  V   \) such that \( {v}_{n} \to v  \); that is, \( \| {v}_{n} - v  \| \to 0  \). Our goal is to show that \( \|[{v}_{n}] - [v] \| \to 0 \). By part (b), we can see that 
+        \[  0 \leq \|[{v}_{n}] - [v] \|_{0} \leq \|{v}_{n} - v \| \to 0.  \]
+        Hence, we have \( \|[{v}_{n}] \to [v]\|_{0} \to 0  \) by Squeeze Theorem and so we conclude that \( \pi: V \to V / Y  \) is a continuous function on \( V  \).
         \end{proof}
 \end{enumerate}
+
+\begin{problem}
+    Consider the normed space \( (\ell^{\infty }, \|\cdot\|_{\infty }) \). Define a sequence \( e^{(n)} \) in \( \ell^{\infty } \) by  
+    \[  x^{(n)} = ({\delta}_{j}^{(n)}), \ \ {\delta}_{j}^{(n)} = 
+    \begin{cases}
+        1 &\text{if} \ j = n \\
+        0 &\text{otherwise}. 
+    \end{cases} \]
+\end{problem}
+
+\begin{enumerate}
+    \item[(i)] Compute \( \|x^{(n)} - x^{(n')}\|_{\infty} \) for \( n \neq n' \).
+        \begin{solution}
+        Let \( n > m  \). Then we see that 
+        \[  {\delta}_{j}^{(m)} = (0,0, \dots, \underbrace{1}_{j=m}, 0, \dots) \]
+        and 
+        \[  {\delta}_{j}^{(n)} =  (0,0, \dots, \underbrace{1}_{j=n}, 0, \dots)\]
+        Then we have 
+        \[ {\delta}_{j}^{(n)} - {\delta}_{j}^{(m)} = 
+        \begin{cases}
+            1 &\text{if} \ j = n \\
+            -1 &\text{if} \ j = m \\
+            0 &\text{if} \ j \neq n,m
+        \end{cases}  \]
+        Clearly, we can see that \( \|x^{(n)} - x^{(m)} \|_{\infty} = 1  \).
+        \end{solution}
+    \item[(ii)] Does \( (x^{(n)}) \) have a convergent subsequence?
+        \begin{proof}
+        We claim that \( x^{(n)} \) does not have a convergent subsequence. Indeed, from part (i), we can see that 
+        \[  \|x^{(n)} - x^{(m)}\|_{\infty } \geq \frac{ 1 }{ 2 } \ \forall n \neq m  \]
+        and 
+        \[  \|x^{(n)}\|_{\infty } = 1 \] 
+        for all \( n \in \N \). By a theorem proven in class, we can see that \( x^{(n)} \) does not have a convergent subsequence.
+        \end{proof}
+    \item[(iii)] Prove that \( \mathcal{S}(\ell^{\infty }) = \{ x = ({x}_{j}) \in \ell^{\infty } : \|x\|_{\infty } = 1  \}  \) is closed and bounded but not compact.
+        \begin{proof}
+            It follows immediately that \( S(\ell^{\infty }) \) is bounded by construction. We will show that \( S(\ell^{\infty }) \) is closed. Let \( x \in \overline{S(\ell^{\infty })} \). Then there exists a sequence \( x^{(n)} \) in \( S(\ell^{\infty }) \) such that \( x^{(n)} \to x  \) for some \( x \). This implies that \( x^{(n)} \) is a Cauchy sequence in \( \ell^{\infty } \). Since \( \ell^{\infty } \) is a Banach space, it follows that \( x^{(n)} \to y  \) for some \( y \in \ell^{\infty } \). Our goal is to show that \( y \in s(\ell^{\infty }) \); that is, we want to show that \( \|y\|_{\infty } = 1 \). Using the triangle inequality , we can see that 
+            \begin{align*}
+                \|y\|_{\infty } &\leq \|y - x^{(n)}\|_{\infty} + \|x^{(n)}\|_{\infty }  \\
+                                &= \|y - x^{(n)}\|_{\infty } + 1.
+        \end{align*} 
+        Hence, we have 
+        \[  \|y\|_{\infty } - 1 \leq \|y - x^{(n)}\|_{\infty }. \tag{1}\]
+        Similarly, we have 
+        \begin{align*}
+            \|x^{(n)}\|_{\infty } &\leq \| x^{(n)} - y \|_{\infty } + \|y\|_{\infty }
+        \end{align*}
+        and so, 
+        \[  1 - \|y\|_{\infty } \leq \|x^{(n)} - y \|_{\infty }. \tag{2} \]
+        Now, (1) and (2) imply that 
+        \[  0 \leq | \|y\|_{\infty } - 1 | \leq \|x^{(n)} - y\|_{\infty } \to 0.  \]
+        Since \( | \cdot |  \) and \( \|\cdot\|_{\infty } \) are continuous functions, we have 
+        \[  \lim_{ n \to \infty  }  | \|y\|_{\infty } - 1 | = \Big| \lim_{ n \to \infty  } (\|y\|_{\infty } - 1)   \Big| =   0   \]
+        and so we conclude that \( \|y\|_{\infty} = 1 \) which proves that \( S(\ell^{\infty }) \) closed. But note that by part (ii), \( x^{(n)} \) does not have convergent subsequence. By Sequential Compactness, it follows that \( S(\ell^{\infty}) \) is not a compact set.  
+        \end{proof}
+\end{enumerate}
+
+\begin{problem}
+    Let \( (V,\|\cdot\|)  \) be a normed space and \( Y  \) be a subspace of \( V  \) such that \( Y \neq V  \). Let \( v \in V \setminus  Y  \). Define \( d(v,Y) = \inf_{y \in Y } \|v-y\| \).
+\end{problem}
+
+\begin{enumerate}
+    \item[(i)] Show that if \( d(v,Y) = 0  \), then \( v \in \overline{Y} \).
+        \begin{proof}
+            Suppose that \( d(v,Y) = 0  \). Our goal is to show that \( v \in \overline{Y} \); that is, we want to show that for any \( \epsilon > 0  \), \( B(y,\epsilon) \cap Y  \neq \emptyset \). Let \( \epsilon > 0  \) be given. By a characterization of the infimum, we know there exists \( \hat{y} \in Y  \) such that  
+            \[  \|v - \hat{y} \| < \inf_{y \in Y} \|v - y\| + \epsilon. \]
+            By assumption, \( d(v,Y) = \inf_{y \in Y} \|v - Y\| = 0  \) and so we have, from the above inequality that
+            \[  \|v - \hat{y} \| < \epsilon. \]
+            Hence, \( \hat{y} \in B(v,\epsilon)  \). Since \( \hat{y} \in Y  \), we can conclude that 
+            \[  B(v,\epsilon) \cap Y \neq \emptyset  \]
+            and so \( \hat{y} \in \overline{Y} \).
+        \end{proof}
+    \item[(ii)] Assume that \( Y  \) is closed. Prove that \( d > 0  \). 
+        \begin{proof}
+            Suppose that \( Y  \) is closed. Our goal is to show that \( d(v,Y) > 0  \) for all \( v \in V \setminus  Y  \). To this end, let \( v \in V \setminus  Y  \). Suppose for sake of contradiction that \( d(v,Y) \leq 0  \). If \( d(v,Y) < 0  \), then we have \( \|v - y \| < 0  \) which is absurd. If \( f(v,Y) = 0  \), then from part (a) we have that \( v \in \overline{Y} \). But \( Y  \) is closed and so \( Y = \overline{Y} \). This tell us that \( v \in  Y  \) which contradicts our assumption that \( v \in V \setminus  Y  \).
+        \end{proof}
+\end{enumerate}
+
+\begin{problem}
+    Read section 2.6 of Kryszig and write down statements of key theorems, lemmas, and propositions.
+\end{problem}
+
+\begin{theorem}[Range and Null Space]
+    Let \( T  \) be a linear operator. Then:
+    \begin{enumerate}
+        \item[(a)] The range \( R(T) \) is a vector space.
+        \item[(b)] If \( \text{dim}(T) = n < \infty  \), then \( \text{dim}(R(T)) \leq n  \).
+        \item[(c)] The null space \( N(T) \) is a vector space.
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Inverse Operator]
+    Let \( X , Y  \) be vector spaces, both real or both complex. Let \( T : D(T) \to Y  \) be  a linear operator with domain \( D(T) \subseteq  X  \) and range \( R(T) \subseteq  Y  \). Then: 
+    \begin{enumerate}
+        \item[(a)] The inverse \( T^{-1}: R(T) \to D(T) \) exists if and only if
+            \[  T(x) = 0 \implies x = 0.  \]
+        \item[(b)] If \( T^{-1} \) exists, it is a linear operator.
+        \item[(c)] If \( \text{dim}(D(T)) = n < \infty  \) and \( T^{-1} \) exists, then \( R(T) = \text{dim}(D(T)) \).
+    \end{enumerate}
+\end{theorem}
+
+\begin{lemma}[Inverse of Product]
+   Let \( T: X \to Y  \) and \( S: Y \to Z  \) be bijective linear operators, where \( X,Y,Z \) are vector spaces. Then the inverse \( (ST)^{-1} : Z \to X  \) of the product (the comoposite) \( ST \) exists, and  
+   \[  (ST)^{-1} = T^{-1} S^{-1}. \]
+\end{lemma}
+
+
+\begin{problem}[i]
+         Let \( T : D(T) \to W  \) be a linear operator. Assume that \( T^{-1} : R(T) \to D(T) \) exists. Show that if \( \{ {v}_{1}, \dots, {v}_{n} \}  \) is linearly dependent on \( D(T) \), then \( \{ T ({v}_{1}), \dots, T ({v}_{n}) \}  \) is linearly dependent on \( W  \).
+\end{problem}
+\begin{proof}
+We will show the claim through contrapositive. Suppose \( \{ T({v}_{1}), T({v}_{2}), \dots, T({v}_{n}) \}  \) is linearly independent; that is, the equation
+\[  \sum_{ i=1  }^{ n } {c}_{i} T({v}_{i}) = 0  \tag{*} \]
+has the trivial solution \( {c}_{i} = 0   \) for all \( 1 \leq i \leq n  \). Since \( T  \) is linear, (*) implies that  
+\[  T \Big(  \sum_{ i=1  }^{ n } {c}_{i} {v}_{i} \Big) = 0.  \]
+Note that \( T^{-1} \) exists and so \( T  \) must be injective (and surjective). Hence, we have \( N(T) = \{ 0  \}  \). Thus, we have 
+\[  \sum_{ i=1  }^{ n } {c}_{i} {v}_{i} \in N(T) \implies \sum_{ i=1  }^{ n } {c}_{i} {v}_{i} = 0.   \]
+But then \( {c}_{i} = 0  \) for all \( 1 \leq i \leq n  \). Hence, we see that \( \{ {v}_{1} , \dots, {v}_{n} \}  \) is a linearly independent set on \( V  \).
+\end{proof}
+
+\begin{problem}[ii]
+        Let \( V  \) and \( W  \) be two vector spaces and \( T : V \to W  \) be a linear operator. Assume that \( T: V \to W  \) be a linear operator. Assume that \( V  \) and \( W  \) are finite dimensional and \( \text{dim}(V) = \text{dim}(W) \). Prove that \( R(T) = W  \) if and only if \( T^{-1} \) exists.
+
+\end{problem}
+\begin{proof}
+    Assume that \( V  \) and \( W  \) are finite dimensional and \( \text{dim}(V) \) and \( \text{dim}(W) \).
+
+\( (\Longrightarrow) \) Suppose \( R(T) = W  \). Let \( \text{dim}(V) = \text{dim}(W) = n \). Our goal is to show that \( T^{-1} \) exists. It suffices to show that \( T  \) is both surjective and injective. Note that, by assumption, \( T  \) is immediately surjective. So, it suffices to show that \( T  \) is injective. Let \( \beta = \{ {v}_{1}, {v}_{2}, \dots, {v}_{n} \}  \) and \( \omega = \{ {w}_{1}, {w}_{2}, \dots, {w}_{n} \} \). Since \( T  \) is surjective, we get \( T({v}_{i}) = {w}_{i} \) for \( 1 \leq i \leq n  \). Let \( x,y \in V \). Then since \( \beta \) is a basis, we have   
+\begin{align*}
+    x &= \sum_{ i=1  }^{ n } {c}_{i} {v}_{i}, \\
+    y &= \sum_{ i=1  }^{ n } {b}_{i} {v}_{i}
+\end{align*}
+Suppose \( T(x) = T(y) \). Then by the linearity and surjective of \( T  \), we see that
+\begin{align*}
+    T(x) = T(y) &\implies T \Big(  \sum_{ i=1  }^{ n } {c}_{i} {v}_{i}  \Big) = T \Big(  \sum_{ i=1  }^{ n } {b}_{i} {v}_{i} \Big) \\
+                &\implies \sum_{ i=1  }^{ n } {c}_{i} T({v}_{i}) = \sum_{ i=1  }^{ n } {b}_{i} T({v}_{i}) \\
+                &\implies \sum_{ i=1  }^{ n } ({c}_{i} - {b}_{i}) T({v}_{i}) = 0  \\
+                &\implies \sum_{ i=1  }^{ n } ({c}_{i} - {b}_{i}) {w}_{i} = 0.
+\end{align*}
+Since \( \omega \) is basis for \( W  \), \( {w}_{i}  \) for all \( 1 \leq i \leq n  \) are linearly independent. Hence, \( {c}_{i}  - {b}_{i} = 0  \) for all \( 1 \leq i \leq n  \). Hence, \( {c}_{i} = {b}_{i} \) for all \( 1 \leq i \leq n  \). This tells us that \( x = y \). Thus, \( T  \) must be injective. Thus, \( T^{-1}  \) must exists.
+
+\( (\Longleftarrow) \) If \( T^{-1} \) exists, then \( T  \) must be a bijective map between \( V  \) and \( W  \). Hence, we immediately have that \( R(T) = W  \). 
+
+
+\end{proof}
+
+
+
 
 \end{document}
 
