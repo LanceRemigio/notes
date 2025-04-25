@@ -1,0 +1,44 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{Regular Surface Exercises}
+\author{Lance Remigio}
+\begin{document}
+\maketitle
+
+\begin{definition}[Regular Surfaces]
+    A subset \( S \subseteq \R^{3} \) is a regular surface if, for each \( p \in S  \), there exists a neighborhood \( V  \) in \( \R^{3} \) and a map \( x: U \to V \cap S  \) of an open set \( U \subseteq  \R^{2} \) onto \( V \cap S \subseteq \R^{3}  \) such that 
+    \begin{enumerate}
+        \item[(1)] \( \textbf{x}   \) is differentiable; that is, the functions \( x(u,v)  \), \( y(u,v) \), and \( z(u,v) \) have continuous partial derivatives of all orders in \( U  \).
+        \item[(2)] \( \textbf{x} \) is a homeomorphism; that is, \( \textbf{x} \) contains an inverse \( \textbf{x}^{-1}: V \cap S \to U  \) which is continuous.
+        \item[(3)] For each \( q \in U  \), the differential \( d \textbf{x}_q : \R^{2} \to \R^{3} \) is injective.
+    \end{enumerate}
+\end{definition}
+
+
+\begin{problem}
+    Show that the cylinder \( C = \{ (x,y,z) : x^{2} + y^{2} = 1  \}  \) is a regular surface.
+\end{problem}
+\begin{proof}
+Define the following parametrization for \( C  \) by \( x = \cos (u) \), \( y = \sin (u) \), and \( z = v  \) for every \( (u,v) \in U  \) where \( U = (a,b) \times (c,d) \subseteq \R^{2} \) is an open set.
+We will show that this parametrization of \( C  \) satisfies properties (1) through (3) of the definition above. 
+Indeed, we have 
+\begin{enumerate}
+    \item[(1)] Clearly, we see that \( \cos(u) \), \( \sin(u) \), and \( v  \) are functions that have derivatives of all order. Hence, \( \textbf{x}(u,v) = (\cos(u), \sin(u), v)  \) contains derivatives of all order on \( C \cap U  \). 
+    \item[(2)] We can see that the component functions contain their respective inverses on \( C \cap U  \); that is, \( \cos^{-1}(x) = u  \), \( \sin^{-1}(y) = v   \), and \( z = v  \). Thus, \(  \textbf{x}^{-1} \) exists and is continuous (since their respective components are also continuous).
+    \item[(3)] Note that  
+        \[  \frac{ \partial \textbf{x} }{ \partial u  }  = (\cos(u), \sin(u), v) \]
+        and
+            \[  \frac{ \partial \textbf{x} }{ \partial v  }  = (0,0,1). \]
+            Hence, we have 
+            \[  \text{d} \textbf{X}_{(u,v)} = \begin{pmatrix} - \sin u & 0 \\ \cos u & 0 \\ 0 & 1  \end{pmatrix}. \]
+            Notice that the matrix above has rank \( 2  \) and thus \( \text{d} \textbf{x}_{(u,v)} \) must be an injective linear map.
+\end{enumerate}
+Since properties (1)-(3) are satisfied, it follows that \( C  \) is a regular surface.
+\end{proof}
+
+
+
+
+
+\end{document}
+

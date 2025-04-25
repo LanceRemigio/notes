@@ -1,0 +1,24 @@
+\documentclass[a4paper]{article}
+\usepackage{standalone}
+\input{../../../../../../newpreamble.tex}
+\begin{document}
+
+\section{Regular Surfaces; Inverse Images of Regular Values}
+
+\begin{definition}[Regular Surface]
+    A subset \( S \subseteq \R^{3} \) is a \textbf{regular surface} if, for each \( p \in S  \), there exists a neighborhood \( V  \) in \( \R^{3} \) and a map \( \mathbf{x}: U \to V \cap S \) of an open set \( U \subseteq \R^{3} \) onto \( V \cap S \subseteq  \R^{3} \) such that 
+    \begin{enumerate}
+        \item[(1)] \( \mathbf{x} \) is differentiable. This means that if we write
+            \[  \mathbf{x}(u,v) = (x(u,v), y(u,v), z(u,v)), \ \ (u,v) \in U, \]
+            the functions \( x(u,v), y(u,v),  \) and \( z(u,v) \) have continuous partial derivatives of all orders in \( U  \).
+        \item[(2)] \( \mathbf{x} \) is a homeomorphism. Since \( \mathbf{x} \) is continuous by condition (1), it follows that \( \mathbf{x} \) has an inverse \( \mathbf{x}^{-1} : V \cap S \to U  \) which is continuous.
+        \item[(3)] (Regularity Condition) For each \( q \in U  \), the differential \( d {\mathbf{x}}_{q}: \R^{2} \to \R^{3}  \) is injective.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Parametrization]
+    The mapping \( \mathbf{x}    \) is called a \textbf{Parametrization} or \textbf{a system of (local) coordinates} in (a neighborhood of) \( p \). The neighborhood \( V \cap S  \) of \( p  \) is \( S  \) is called a \textbf{coordinate neighborhood}.
+\end{definition}
+
+\end{document}
+

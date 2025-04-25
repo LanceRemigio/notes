@@ -1,0 +1,54 @@
+\section{Positive Operators}
+
+In this section, we develop the framework that enables us to do more analysis on our self-adjoint linear operators. To do this, we will create a partial order on our operators which will be an extension of the ordering defined on the set of real numbers in real analysis.
+
+\begin{definition}[Partial Order]
+    We define a \textbf{partial order} on the set of bounded self-adjoint linear operators defined over the complex Hilbert Space \( H  \) by \( {T}_{1} \leq {T}_{2}  \) if and only if \( \langle {T}_{1}x  , x   \rangle \leq \langle {T}_{2} x  ,  x  \rangle  \).
+\end{definition}
+
+\begin{definition}[Positive Operators]
+    Let \( H  \) be a complex Hilbert Space. We say that \( T: H \to  H \) is \textbf{positive}; that is, \( T \geq  0  \) if \( \langle Tx  ,  x  \rangle \geq 0  \).
+\end{definition}
+
+In what follows, we will mention two facts that follow immediately from the definitions above. 
+
+\begin{lemma}
+    Let \( H  \) be a Complex Hilbert Space and let \( {T}_{1}, {T}_{2} : H \to H  \) be two linear operators such that \( {T}_{1} \leq {T}_{1} \). We say that \( {T}_{2} - {T}_{1}  \) is positive if \( {T}_{2} - {T}_{1} \geq 0  \). 
+\end{lemma}
+
+\begin{lemma}
+    The sum of two positive operators is positive.
+\end{lemma}
+
+\begin{theorem}[Product Of Positive Operators]
+    If two bounded self-adjoint linear operators \( S  \) and \( T  \) on a Hilbert space \( H  \) are positive and commute (\( ST  = TS \)), then their product \( S T  \) is positive.
+\end{theorem}
+\begin{proof}
+Our goal is to show that \( \langle ST x  , x  \rangle \geq 0  \) for all \( x \in H \). Clearly, if \( S = 0  \), then the result holds. Suppose \( S \neq 0  \). We will show the following:
+\begin{enumerate}
+    \item[(a)] If we consider \( {S}_{1} = \frac{ 1 }{ \|S\| }  S  \), \( {S}_{n+1} = {S}_{n} - {S}_{n}^{2} \) for all \( n \in \N \), then we will show via induction that 
+        \[  0 \leq {S}_{n} \leq  I. \tag{*} \]
+    \item[(b)] Then we conclude that \( \langle ST x  ,  x  \rangle \geq 0  \) for all \( x \in H  \). 
+\end{enumerate}
+
+(a) For \( n = 1  \), then the inequality in (*) holds. Indeed, using the Cauchy-Schwarz inequality, we have 
+\[  \langle {S}_{1} x  ,  x  \rangle = \frac{ 1  }{  \|S \| }  \langle Sx  ,  x  \rangle \leq \frac{ 1  }{ \|S\| } \|Sx \| \|x \| \leq \|x\|^{2} = \langle Ix  ,  x  \rangle \implies {S}_{1} \leq I. \]
+Suppose (*) holds for all \( n = k  \); that is, 
+\[  0 \leq {S}_{k} \leq I \implies 0 \leq I - {S}_{k} \leq I. \]
+Since each \( {S}_{k} \) is self-adjoint for every \( x \in H  \) and \( y = {S}_{k}x  \), we obtain
+\begin{align*}
+    \langle {S}_{k}^{2}(I - {S}_{k})x  ,  x  \rangle &= \langle (I - {S}_{k}){S}_{k}x  ,  {S}_{k } x  \rangle \\
+                                                     &= \langle (I - {S}_{k}) y  , y \rangle \geq 0.
+\end{align*}
+By definition, we see that 
+\[  {S}_{k}^{2} (I - {S}_{k}) \geq 0 \tag{1}  \]
+and similarly, we have 
+\[  {S}_{k}(I - {S}_{k})^{2} \geq 0.  \tag{2} \]
+Adding (1) and (2) together, we have 
+\[  0 \leq {S}_{k}^{2} (I - {S}_{k}) + {S}_{k}(I - {S}_{k})^{2} = {S}_{k} - {S}_{k}^{2} = {S}_{k+1}. \]
+Hence, we see that \(  0 \leq {S}_{k+1}  \). And \( {S}_{k+1} \leq I  \) follows from \( {S}_{k}^{2} \geq 0  \) and \( I - {S}_{k} \geq 0  \) by addition. Indeed, we see that 
+\[  0 \leq I - {S}_{k} + {S}_{k}^{2} = I - {S}_{k+1} \]
+which completes the induction proof of (a).
+
+
+\end{proof}

@@ -1,0 +1,81 @@
+\section{Projection Operators}
+
+\begin{definition}[Projections]
+    The map \( P : H \to Y  \) defined by \( x \mapsto y  = Px  \) is called the projection of \( H  \) onto \(  Y \).
+\end{definition}
+
+\begin{prop}
+    A linear operator \( P : H \to H  \) is a projection on \( H  \) is there is a closed subspace \( Y  \) of \( H  \) such that \( Y  \) is the range of \( P  \) and \( Y^{\perp} \) is the null space of \( P \) and \( P |_{Y} \) is the identity operator on \( Y  \).
+\end{prop}
+The above implies that we can write any \( x \in H  \) in the following way
+\[  x = y + z  \tag{1} \]
+where \( y \in Y  \) and \( z \in Y^{\perp} \). Furthermore, we can write \( H  \) in terms of \( Y  \) and \( Y^{\perp} \) as a direct sum; that is,
+\[  H = Y \oplus Y^{\perp}. \]
+We can also rewrite (1) in the following way
+\[  x = y + z = Px + (I-P)x. \]
+Another way to characterize the projection on \( H  \) is the presented in the following theorem below:
+
+\begin{theorem}[Projection]
+    A bounded linear operator \( P: H \to H  \) on a Hilbert Space \( H  \) is a projection if and only if \( P  \) is self-adjoint and idempotent (That is, \( P^{2} = P  \)).
+\end{theorem}
+
+\begin{proof}
+    (\( \Longrightarrow \)) Suppose that \( {P}_{1} {P}_{2} = {P}_{2} {P}_{1} \). Then by Theorem {\hyperref[3.10-4]{3.10-4}}, \( P \) is self-adjoint. Also, we see that \( P \) is idempotent because
+    \[  P^{2} = ({P}_{1} {P}_{2})({P}_{1} {P}_{2}) = {P}_{1}^{2} {P}_{2}^{2} = {P}_{1} {P}_{2} = P ] \]
+    where \( {P}_{1}  \) and \( {P}_{2}  \) are projections on \( H  \).
+    By {\hyperref[9.5-1]{9.5-1}} , \( P  \) is a projection, and for every \( x \in H  \), we have 
+    \[  Px = {P}_{1}({P}_{2}x) = {P}_{2}({P}_{1}x). \]
+    Since \( {P}_{1}  \) is a projects \( H  \) onto \( {Y}_{1} \), we must have \( {P}_{1}({P}_{2}x) \in {Y}_{1} \). Similarly, we see that \( {P}_{2}({P}_{1}x \in {Y}_{2}) \). Hence, we see that \( Px \in {Y}_{1} \cap {Y}_{2} \). Note that this projection is onto since   
+    \[  Py = {P}_{1} {P}_{2} y = {P}_{1} y = y.  \]
+
+    (\( \Longleftarrow \)) If \( P = {P}_{1} {P}_{2}  \) is a projection defined on \( H  \), then \( P \) is self-adjoint by {\hyperref[9.5-1]{9.5-1}}. Also, we see that \( {P}_{1} \) and \( {P}_{2} \) commute by Theorem {\hyperref[3.10-4]{3.10-4}}.
+\end{proof}
+
+\begin{theorem}[Sum of Projections]
+    Let \( {P}_{1} \) and \( {P}_{2} \) be projections on a Hilbert space \( H  \). Then:
+    \begin{enumerate}
+    \item[(a)] The sum \( P = {P}_{1} + {P}_{2} \) is a projection on \( H  \) if and only if \( {Y}_{1} = {P}_{1}(H) \) and \( {Y}_{2} = {P}_{2}(H) \) are orthogonal.
+    \item[(b)] If \( P = {P}_{1} + {P}_{2}  \) is a projection, \( P  \) projects \( H \) onto \( Y = {Y}_{1} \oplus {Y}_{2} \). 
+    \end{enumerate}
+\end{theorem}
+\begin{enumerate}
+    \item[(a)] \( (\Longrightarrow) \) Suppose that \( P =  {P}_{1} + {P}_{2}  \) is a projection on \( H  \). Our goal is to show that \( {Y}_{1} \) and \( {Y}_{2}  \) are orthogonal; that is, it suffices to show that \( {P}_{1} {P}_{2} = 0  \) by Theorem {\hyperref[9.5-3]{9.5-3}}(b). Observe that \( P  \) is idempotent. Hence, we have  
+        \begin{align*}
+            {P}_{1} + {P}_{2} &= ({P}_{1} + {P}_{2})^{2} \\
+                              &= {P}_{1}^{2} + {P}_{1} {P}_{2} + {P}_{2} {P}_{1} + {P}_{2}^{2} \\
+                              &= {P}_{1} + {P}_{1} {P}_{2} + {P}_{2} {P}_{1}  +{P}_{2}.
+        \end{align*}
+        Hence, we are left with 
+        \[  {P}_{1}{P}_{2} + {P}_{2} {P}_{1} = 0.  \]
+        Multiplying the quantity above by \( {P}_{2}  \) on the left, we get 
+        \[  {P}_{2} {P}_{1} {P}_{2} + {P}_{2}^{2} {P}_{1} = 0 \iff {P}_{2} {P}_{1} {P}_{2} + {P}_{2} {P}_{1} = 0. \]
+        Multiplying the quantity above by \( {P}_{2} \) on the right side, we obtain
+        \[  {P}_{2} {P}_{1} {P}_{2}^{2} + {P}_{2} {P}_{1} {P}_{2} = 0 \implies 2{P}_{2} {P}_{1} {P}_{2} = 0.    \]
+        Hence, it follows that 
+        \[  {P}_{1}{P}_{2} = 0  \]
+        which is our desired result.
+        (\( \Longleftarrow \)) Suppose \( {Y}_{1} \perp {Y}_{2} \). To show that \( P = {P}_{1} + {P}_{2} \) is a projection on \( H  \), it suffices to show that \( P^{2} = P  \) and \( P  \) is self-adjoint. Starting with the first result, since \( {P}_{1} \) and \( {P}_{2} \) are both idempotent, we have that 
+        \begin{align*}
+            P^{2} &= ({P}_{1} + {P}_{2})^{2} \\
+                  &= {P}_{1}^{2} + {P}_{1} {P}_{2}  +{P}_{2} {P}_{1} + {P}_{2}^{2} \\
+                  &= {P}_{1}^{2} + {P}_{2}^{2} \\
+                  &= {P}_{1} + {P}_{2} \\
+                  &= P.
+        \end{align*}
+        Hence, we see that \( P^{2} = P  \) and so \( P  \) is idempotent. Also, since \( {P}_{1} \) and \( {P}_{2}  \) are also self-adjoint, we can see immediately that \( P  = {P}_{1} + {P}_{2} \) is also idempotent. Thus, we can conclude based on Theorem {\hyperref[9.5-3]{9.5-3}} that \( P  \) is indeed a projection on \( H  \).
+    \item[(b)] Suppose \( P = {P}_{1} + {P}_{2} \) is a projection. Note that \( Y  \) is the closed subspace onto which \( P  \) projects to. By definition of \( P  \), it follows that for all \( x \in  H \), we have 
+        \begin{align*}
+            Px &= ({P}_{1} + {P}_{2})x  \\
+               &= {P}_{1}x + {P}_{2}x.
+        \end{align*}
+        Since \( P  \) is an onto projection, we have 
+        \[  y = Px = {P}_{1}x + {P}_{2}x \tag{*} \]
+        where \( {P}_{1}x \in {Y}_{1}  \) and \( {P}_{2}x \in {Y}_{2} \). We will show now that \( Y = {Y}_{1} \oplus {Y}_{2} \). Let \( y \in Y  \). From (*), it follows that \( y \in {Y}_{1} \oplus {Y}_{2} \) (clearly, \( P \) being a projection on \( Y  \) means that \( {Y}_{1} \perp {Y}_{2}  \) and so \( {Y}_{1} \cap {Y}_{2} = \{ 0  \}  \)). Now, let \( v \in {Y}_{1} \oplus {Y}_{2} \). Then it follows that 
+        \begin{align*}
+            P(v) &= {P}_{1}v + {P}_{2}v  \\
+                 &= {P}_{1}({y}_{1}) + {P}_{2}({y}_{2}) \\
+                 &= {Y}_{1} + {Y}_{2} \\
+                 &= v.
+        \end{align*}
+        Hence, \( v \in Y  \) and so we have \( {Y}_{1} \oplus {Y}_{2} \subseteq  Y  \). Thus, we conclude that \(  Y = {Y}_{1} \oplus {Y}_{2} \).
+\end{enumerate}

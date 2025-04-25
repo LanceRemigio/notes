@@ -1,0 +1,109 @@
+\section{Further Spectral Properties}
+
+In the previous section, we saw that the spectrum \( \sigma(T) \) of a bounded self-adjoint linear operator \( T  \) is real and that it is a compact set by chapter 4.
+
+
+
+
+\begin{theorem}[Spectrum]
+    The spectrum \( \sigma(T) \) of a bounded self-adjoint linear operator \( T: H \to H  \) on a complex Hilbert space \( H  \) lies in the closed interval \( [m,M] \) on the real axis, where 
+    \[  m = \inf_{\|x\|=1} \langle T(x) , x \rangle \ \ \text{and} \ \ M = \sup_{\|x\|=1} \langle T(x) , x \rangle.  \tag{1}\]
+\end{theorem}
+
+\begin{proof}
+    By {\hyperref[(9.1-3)]{(9.1-3)}}, we see that \( \sigma(T) \) lies on the real axis. We will show that for any real \( \lambda = M + c  \) where \( M  \) is defined above lies in the resolvent set \( \rho(T) \). For every \( x \neq 0  \), define \( v = \|x\|^{-1} x  \) and so \( x = \|x \| v   \). As a consequence, we have 
+    \begin{align*}
+        \langle Tx ,x  \rangle = \|x\|^{2} \langle Tv  , v  \rangle \leq \|x\|^{2} \sup_{\|\tilde{v}\| = 1} \langle T \tilde{v} , \tilde{v} \rangle = \langle x , x \rangle M.  
+    \end{align*}
+    Hence, we see that 
+    \[  - \langle Tx , x  \rangle \geq - \langle x , x \rangle M  \]
+    and so by the Schwarz Inequality we obtain
+    \begin{align*}
+        \|{T}_{\lambda}x \| \|x\| \geq - \langle {T}_{\lambda}x , x \rangle &= - \langle Tx , x \rangle + \lambda \langle x , x \rangle \\
+                                                                            &\geq (-M + \lambda) \langle x , x \rangle \\ 
+                                                                            &= c \|x\|^{2}
+    \end{align*}
+    where \( c = \lambda - M  > 0  \) by assumption. Since \( x \neq 0  \), it follows by division of \( \|x\| \) on both sides of the above inequality yields
+    \[  \|{T}_{\lambda}x \| \geq c \|x\|. \]
+    By {\hyperref[(9.1-2)]{(9.1-2)}}, \( \lambda \in \rho(T) \). If we assume \( \lambda < m  \), then a similar argument will lead to the same result.
+\end{proof}
+
+\begin{theorem}[Norm]
+    For any bounded self-adjoint linear operator \( T \) on a complex Hilbert space \( H  \) we have 
+    \[  \|T\| = \max(| m | , | M | ) = \sup_{\|x\|=1} | \langle T(x) , x \rangle |.  \]
+\end{theorem}
+
+\begin{proof}
+Our goal is to show that for any bounded self-adjoint linear operator \( T  \), we have 
+\[  \|T\| = \max (| m | , | M | ) = \sup_{\|x\| = 1} | \langle Tx , x \rangle |. \]
+Denote \( K = \sup_{\|x\| = 1} | \langle Tx , x \rangle |  \). It suffices to show that \( \|T\| \leq K  \) and \( K \leq \|T\| \). Using the Schwarz Inequality, it follows that
+\[  K \leq \sup_{\|x\| =1} \|Tx\| \|x\| = \|T\|. \]
+Hence, the second inequality is satisfied. Now, we show \( \|T\| \leq K  \). Observe that if \( Tz = 0  \) for all \( z  \) such that \( \|z\| = 1  \), then \( T  = 0  \) and we are done. Suppose, otherwise that for any \( z  \) such that \( \|z\| = 1  \), we have \( Tz \neq 0  \). Set \( v = \|Tz\|^{1/2} z  \) and \( w = \|Tz\|^{-1/2} Tz  \). Then we have
+\[  \|v\|^{2} = \|w\|^{2} = \|Tz\|. \]
+Furthermore, set 
+\[  {y}_{1} = v + w  \ \ \text{and} \ \ {y}_{2} = v - w. \]
+By a straight-forward calculation and the fact that \( T  \) is self-adjoint, we obtain the following 
+\begin{align*}
+    \langle T {y}_{1} ,  {y}_{1} \rangle - \langle T {y}_{2} ,  {y}_{2} \rangle &= 2 (\langle Tv  , w  \rangle + \langle Tw , v  \rangle) \\
+                                                                                &= 2 (\langle Tz  , Tz   \rangle + \langle T^{2} z  ,  z  \rangle) \\ 
+                                                                                &= 4 \|Tz\|^{2}.
+\end{align*}
+Now, for every \( y \neq 0  \) and \( x =  \|y\|^{-1} y  \), we have \( y = \|y\| x  \) and so 
+\[  | \langle Ty , y \rangle | = \|y\|^{2} | \langle Tx , x \rangle |  \leq \|y\|^{2} \sup_{\|\tilde{x}\|   = 1} | \langle T \tilde{x} , \tilde{x} \rangle | = K \|y\|^{2}. \]
+Using the triangle inequality, it follows that 
+\begin{align*}
+    | \langle T {y}_{1} , {y}_{1} \rangle - \langle T {y}_{2} , {y}_{2} \rangle | &\leq | \langle T {y}_{1}  ,  {y}_{1} \rangle  |  + | \langle T {y}_{2} ,  {y}_{2} \rangle |  \\
+                                                                                  &\leq K (\|{y}_{1}\|^{2} + \|{y}_{2}\|^{2}) \\
+                                                                                  &= 2K (\|v\|^{2} + \|w\|^{2}) \\
+                                                                                  &= 4K \|Tz\|.
+\end{align*}
+Note that the left-hand side of the above inequality is equal to \( 4 \|Tz\|^{2} \). As a consequence with \( \|Tz \| \neq 0  \), we have 
+\begin{align*}  4 \|Tz\|^{2} \leq 4K \|Tz\| \implies \|Tz\| \leq K.
+\end{align*}
+Taking the supremum over all \( z  \) of norm \( 1  \), it follows that \( \|T\| \leq K   \).
+\end{proof}
+
+This theorem is important in the following ways: 
+\begin{itemize}
+    \item It tells us how the operator norm is governed by the spectrum of \( T  \).
+    \item Even in cases where the eigenvalues of \( T  \) do not exist, we have a direct way to estimate the spectrum and understand the behavior of \( T  \).
+    \item It gives us a way to approximate infinite-dimensional operators.
+\end{itemize}
+
+\begin{theorem}[\( m \) and \( M \) are spectral values]
+    Let \( H  \) and \( T  \) be as in Theorem 9.2-1 and \( H \neq \{ 0  \}  \). Then \( m  \) and \( M  \) are defined in (1) are spectral values of \( T  \).
+\end{theorem}
+
+\begin{proof}
+Our goal is to show that \( m,M  \) are contained in \( \sigma(T) \). The proof to show that \( m \in \sigma(T) \) is directly analogous. By the {\hyperref[Spectral Mapping Theorem]{Spectral Mapping Theorem}}, the spectrum of \( T + kI \), where \( K \in \R  \) is a constant, can be obtained from that of \( T  \) via a translation, and so we have 
+\[  M \in \sigma(T) \iff M + k \in \sigma(T).  \]
+We will show that \( \lambda = M  \) cannot belong to the resolvent set of \( T  \) by {\hyperref[9.1-2]{9.1-2}}. Indeed, without loss of generality assume \( 0 \leq m \leq M  \). Using the previous theorem, we see that 
+\[  M = \sup_{\|x\| = 1} \langle Tx , x \rangle = \|T\|. \]
+Using the definition of a supremum, we can find a sequence \( ({x}_{n})  \) such that \( \|{x}_{n}\| = 1  \) and 
+\[  \langle T {x}_{n} ,  {x}_{n} \rangle = M - \delta_n \]
+where \( \delta_n \geq 0  \) and that \( \delta_n \to 0  \). Then we have 
+\[  \|T {x}_{n}\| \leq \|T\| \|{x}_{n}\| = \|T\| = M.   \]
+Since \( T  \) is self-adjoint, we have
+\begin{align*}
+    \|T {x}_{n} -  M {x}_{n} \| &= \langle T {x}_{n} - M {x}_{n} ,  T{x}_{n} - M {x}_{n} \rangle \\
+                                &= \|T {x}_{n}\|^{2} - 2M \langle T {x}_{n} ,  {x}_{n} \rangle + M^{2} \|{x}_{n}\|^{2} \\
+                                &\leq M^{2} - 2M (M - {\delta}_{n}) + M^{2} \\
+                                &= 2M {\delta}_{n}.
+\end{align*}
+Since \( {\delta}_{n} \to 0  \), it follows from the Squeeze Theorem that 
+\[  \|T {x}_{n} - M {x}_{n} \| \to 0.  \]
+Hence, there is no positive \( c  \) such that 
+\[  \|{T}_{M} {x}_{n} \| = \|T {x}_{n} - {Mx}_{n} \| \geq c = c \|{x}_{n}\|. \] 
+Using {\hyperref[9.1-2]{9.1-2}} , we now have that \( M \notin \rho(T)  \) and so we must have \( M \in \sigma(T) \) which is our desired result.
+\end{proof}
+
+\begin{theorem}[Residual Spectrum]
+    The residual spectrum \( \sigma_r(T) \) of a bounded self-adjoint linear operator \( T: H \to H  \) on a complex Hilbert Space \( H  \) is empty. 
+\end{theorem}
+\begin{proof}
+    Suppose for sake of contradiction that \( \sigma_r(T) \neq \emptyset \) leads to a contradiction. Let \( \lambda \in \sigma_r(T) \). By definition, the inverse of \( {T}_{\lambda} \) exists, but its domain \( D(T^{-1}_{\lambda}) \) is not dense in \( H  \). By the {\hyperref[Projection Theorem]{Projection Theorem}} there exist a \( y \neq 0  \) in \( H  \) such that \( y  \) is orthogonal to \( D({T}_{\lambda}^{-1}) \). However, \( D(T^{-1}_{\lambda}) \) is the range of \( {T}_{\lambda} \). Thus,  
+    \[  \langle {T}_{\lambda} x  ,  y  \rangle = 0  \] 
+    for all \( x \in H \). Since \( \lambda  \) is real by {\hyperref[9.1-3]{9.1-3}} and \( T  \) is self-adjoint, we obtain  
+    \[  \langle x  ,  {T}_{\lambda}y  \rangle = 0  \]
+    for all \( x  \). Since \( y \neq 0  \), we see that \( \lambda  \) is an eigenvalue of \( T  \). But this contradicts the assumption that \( \lambda \in {\sigma}_{r}(T) \), making \( \sigma_r(T) \neq \emptyset \) absurd. Hence, it must follow that \( \sigma_r(T) = \emptyset \).
+\end{proof}

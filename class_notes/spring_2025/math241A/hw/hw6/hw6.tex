@@ -1,0 +1,273 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{Homework 6: 241A}
+\author{Lance Remigio}
+
+\begin{document}
+\maketitle
+\begin{problem}
+    \begin{enumerate}
+        \item[(a)] Let \( V = \{ f: \R \to \R : \text{\( f  \) has derivates of all order} \}  \). Then \( V  \) is a vector space over \( \R  \). Define a linear operator \( (D(T), T, R(T) \subseteq V) \) by setting \( T(f) = f' \).
+        \item[(b)] Let \( V = \ell^{\infty } \). Define a linear operator \( (D(T), T, R(T) \subseteq V) \) by
+            \[  T(({x}_{n})) = ({y}_{n}) \]
+            where \( {y}_{n} = {x}_{n+1}  \) for all \( n \in \N \).
+    \end{enumerate}
+\end{problem}
+\begin{enumerate}
+    \item[(a)] 
+        \begin{enumerate}
+            \item[(i)] Show that \( V  \) is infinite dimensional.
+                \begin{proof}
+                    To show that \( V  \) is infinite dimensional, it suffices to show that \( T  \) is an unbounded linear operator. Let \( {f}_{n}(x) = \sin(nx) \). Then \( {f}_{n}'(x) = n \cos (nx) \). Clearly, we see that \( \|{f}_{n}(x)\|_{\infty } = 1 \), but
+                    \[ \|{f}_{n}'\|_{\infty } = n \to \infty   \]
+                  Hence, \( V  \) is infinite dimensional.
+                \end{proof}
+            \item[(ii)] Show that \( R(T) = V  \).
+                \begin{proof}
+                    It suffices to show that \( V \subseteq  R(T) \). Let \( f \in V  \). Our goal is to show that there exists some \( g \in V  \) such that  \( T(g) = f \). Since \( f \in V  \), \( f  \) is differentiable of all order. In particular, \( f  \) is clearly differentiable once. Hence, \( f  \) must be continuous on any \( [a,b] \subseteq \R \). Define 
+                \[  F(x) = \int_{ a }^{ x } f \ dt. \]
+                By the Second Fundamental Theorem of Calculus, it follows that \( T(F) = F' = f  \) for any \( [a,b] \subseteq \R  \). Hence, \( f \in R(T) \) and we conclude that \( V \subseteq R(T) \).
+                \end{proof}
+            \item[(iii)] Show that \( T^{-1} \) does not exist.
+                \begin{proof}
+                Since \( \text{dim}(V) = \text{dim}(R(T)) \) and \( \text{dim}(V) = \infty  \), it follows from a theorem proven in class that \( T^{-1} \) does not exists.
+                \end{proof}
+            \item[(iv)] Compare this with Homework-5 problem 5(b) and comment on it.
+                \begin{solution}
+                    Because \( V \) is infinite dimensional, regardless of the fact that \( R(T) = V  \), \( T^{-1} \) does not guarantee that it exists.
+                \end{solution}
+        \end{enumerate}
+    \item[(b)] 
+        \begin{enumerate}
+            \item[(i)] Show that \( R(T) = V  \).
+                \begin{proof}
+                It suffices to show that \( V \subseteq R(T) \). Let \( y \in V = \ell^{\infty } \). Define \( {x}_{n} = {y}_{n-1} \) for all \( n \in \N \). Then apply \( T  \) we obtain
+                \[  T(({x}_{n}) = ({x}_{n+1}) =  ({y}_{n}). \]
+                Hence, \( y \in R(T) \) and we conclude that \( V = R(T) \).
+                \end{proof}
+            \item[(ii)] Show that \( T^{-1}  \) does not exist.
+                \begin{proof}
+                Since \( \dim(V) = \infty  \) and \( \text{dim}(R(T)) = \text{dim}(V) \) from the previous part, it follows from a theorem proven in class that \( T^{-1} \) does not exist.
+                \end{proof}
+            \item[(iii)] Compare this with Homework-5 problem 5(b) and comment on it.
+                \begin{proof}
+                Since \( V  \) is infinite dimensional, we see that regardless of the fact that \( \text{dim}(V) = \text{dim}(R(T)) \), \( T^{-1} \) still cannot exist.
+                \end{proof}
+        \end{enumerate}
+\end{enumerate}
+
+\begin{problem}
+    Consider the linear operator \( T: \ell^{\infty } \to \ell^{\infty } \) defined by \( T(x) = y  \), where \( x = ({x}_{j}) \) and \( y = ({y}_{j}) \) and \( {y}_{j} = \frac{ {x}_{j} }{ j }  \).
+\end{problem}
+\begin{enumerate}
+    \item[(i)] Show that \( T \) is a bounded linear operator.
+        \begin{proof}
+            Our goal is to show that there exists a \( C > 0  \) such that \( \|T(x)\|_{\infty } \leq C \|x\|_{\infty } \) for all \( x \in \ell^{\infty } \).
+            \begin{align*}
+                \|T(x)\|_{\infty } &= \|y\|_{\infty } = \sup_{j \in \N} \frac{ | {x}_{j} | }{ j }.
+            \end{align*}
+           Note that as \( j \to \infty   \), we see that \( \frac{ 1 }{ j }  \to  0  \). Hence, for all \( j \in \N \), 
+           \(  \frac{ 1 }{ j } \leq R  \)
+           for some \( R > 0 \). Now, observe that 
+           \[  | {y}_{j} | = \Big| \frac{ {x}_{j} }{ j }  \Big|  = \frac{ | {x}_{j} |  }{ j }  \leq R | {x}_{j} | \leq R \|({x}_{j})\|_{\infty } \ \ \forall j \in \N. \]
+           Taking the supremum of the left-hand side, we see that 
+           \[  \|T(({x}_{j}))\|_{\infty } \leq R \|({x}_{j})\|_{\infty} \ \ \text{for some} R > 0.\]
+           Thus, we conclude that \( T  \) is a bounded linear operator.
+        \end{proof}
+    \item[(ii)] Show that \( T  \) is injective.
+        \begin{proof}
+        Let \( x^{(1)}, x^{(2)} \in \ell^{\infty } \). Suppose \( T(x^{(1)}) = T(x^{(2)}) \). Then by definition, we see that        
+        \begin{align*}
+            {y}_{j}^{(1)} = {y}_{j}^{(2)} &\iff \frac{ {x}_{j}^{(1)} }{ j }  = \frac{ {x}_{j}^{(2)} }{ j }  \\
+                                          &\iff {x}_{j}^{(1)} = {x}_{j}^{(2)} \ \ \forall j \in \N.
+        \end{align*}
+        Hence, \( T  \) is injective.
+        \end{proof}
+    \item[(ii)] Let \( W = R(T) \). Then \( T: \ell^{\infty } \to R(T) \) is injective and onto and hence \( T^{-1} \) exists and \( (R(T), T^{-1}, \ell^{\infty }) \) is a linear operator. Compute \( T^{-1} \) explicitly and prove that \( T^{-1} \) is not bounded.
+        \begin{proof}
+        Since \( {y}_{j} = \frac{ {x}_{j} }{ j }  \) for all \( j \in \N \), it follows that \( {x}_{j} = j {y}_{j} \) for all \( j \in \N \). So, we have \( T^{-1}({y}_{j}) = j {x}_{j}. \). To prove that \( T^{-1} \) is unbounded, let \( {y}_{j}^{(n)} = (1)  \) for all \( j \in \N \). Using \( T^{-1} \), we obtain \( T^{-1}({y}_{j}^{(n)}) = j \cdot 1  \). Immediately, we see that 
+        \[  \|T^{-1}({y}_{j}^{(n)})\|_{\infty } = \|j\|_{\infty } \to \infty  \]
+        as \( j \to \infty  \). Thus, \( T^{-1} \) is unbounded.
+        \end{proof}
+\end{enumerate}
+
+\begin{problem}
+    Let \( (V,\|\cdot\|_{V}) \) and \( (W, \|\cdot\|_{W}) \) be two normed spaces and \( T: V \to W  \) be a bounded linear operator that is onto. Assume that there is \( B > 0  \) such that \( B \|v\|_{V} \leq \|T(v)\|_{W} \).
+\end{problem}
+\begin{enumerate}
+    \item[(i)] Show that \( T  \) is injective.
+        \begin{proof}
+        Our goal is to show that \( N(T) = \{ 0  \}  \). Suppose \( T(x) = 0  \) for all \( x \in V  \). We will show that \( x = 0  \). By assumption, there exists a \( B > 0  \) such that 
+        \begin{align*}
+            &\|T(x)\|_{W} \geq B \| x \|_{V} \geq 0  \\
+            &\implies {\|0\|}_{W} \geq B \|x\|_{V} \geq 0   \\
+            &\implies 0 \geq B \|x\|_{V} \geq 0. 
+        \end{align*}
+        Hence, we have \( {\|x\|}_{V} = 0  \) which implies that \( x = 0  \). Hence, we see that \( N(T) =  \{ 0  \}  \) and so \( T  \) is injective.
+        \end{proof}
+    \item[(ii)] Show that \( T^{-1} \) exists and is also bounded linear operator.
+        \begin{proof}
+        Since \( T  \) is onto (by assumption) and injective (by part (a)), we see that \( T  \) must be bijective. Hence, \( T^{-1} \) must exist. Since \( T  \) is a linear operator, it immediately follows that \( T^{-1} \) is also linear. By assumption, we know there exists a \( B > 0  \) such that 
+        \[  B\|v\|_{V} \leq  \|T(v)\|_{W} \ \  \forall v \in V.  \tag{*}\]
+        Since \( T  \) is a bijective map, we have \( T^{-1}T = {I}_{V} \) and \( TT^{-1} = {I}_{W} \). Our goal is to show that \( T^{-1} \) is bounded; that is,
+        for any \( y \in W  \), there exists a \( C > 0  \) such that 
+        \[  \|T^{-1}(y)\|_{V} \leq C \|y\|_{W}.  \]
+        Since \( T  \) is also onto, we have that for any \( y \in Y \), \( T(x) = y  \) for some \( x \in V  \). Thus, (*) implies that 
+        \[  \|T^{-1}(T(x)) \|_{V} \leq \frac{ 1 }{ B } \|T(x)\|_{W}. \]
+        Hence, we have 
+        \[  \|T^{-1}(y)\|_{V} \leq \frac{ 1 }{ B }  \|T(x)\|_{W} \]
+        where \( C = \frac{ 1 }{ B }  \). Thus, \( T^{-1} \) is a bounded linear operator.
+        \end{proof}
+    \item[(iii)] Compare this problem with 2-(iii).
+       \begin{solution}
+       
+       \end{solution} 
+\end{enumerate}
+
+\begin{problem}
+    Let \( (V, \|\cdot\|_V) \) and \( (W, \|\cdot\|_W) \) be two normed spaces and \( T: V \to W  \) be a bounded linear operator. Show that 
+    \[  \|T\| = \inf \{ C : \|T(v)\|_W \leq C \|v\|_V \ \ \forall v \in V \}.  \]
+\end{problem}
+\begin{proof}
+    It suffices to show the following inequalities
+\[ \|T\| \leq \inf \{ C : \|T(v)\|_{W} \leq C \|v\|_{V} \} \tag{1} \]
+and 
+\[  \|T\| \geq \inf \{ C: \|T(v)\|_{W} \leq C \|v\|_{V} \}. \tag{2} \]
+By definition, we have 
+\[  \|T\| = \sup_{v \in V \setminus  \{ 0 \} } \frac{ \|T(v)\|_{W} }{ \|v\|_{V} }. \]
+Since \( T  \) is a bounded linear operator, we have that
+\[  \exists C > 0 \ \text{such that} \ \forall v \in V \setminus  \{ 0  \}  \ \|T(v)\|_{W} \leq C \|v\|_{V}  \]
+and so we have
+\[  \frac{ \|T(v)\|_{W} }{ \|v\|_{V} }  \leq C. \]
+Since the left-hand side of the above inequality is a lower-bound of the set 
+\[  \{ C: \|T(v)\|_{W} \leq C \|v\|_{V} \},  \]
+it follows that 
+\[  \frac{ \|T(v)\|_{W} }{ \|v\|_{V} }  \leq \inf \{ C: \|T(v)\|_{W} \leq C \|v\|_{V} \}. \]
+Since the right-hand side of the above is an upper-bound, we can take the supremum to obtain
+\[  \sup_{v \in V \setminus  \{ 0 \} } \frac{ \|T(v)\|_{W} }{ \|v\|_{V} } \leq \inf \{ C : \|T(v)\|_{W} \leq C \|v\|_{V} \}.  \]
+Thus, 
+\[  \|T\| \leq \inf \{ C : \|T(v)\|_{W} \leq C \|v\|_V \} \]
+which establishes (1).
+
+Now, suppose for sake of contradiction that 
+\[  \|T\| < \inf \{ C : \|T(v)\|_{W} \leq C \|v\|_{V} \}. \tag{*}  \]
+In what follows, we will show that 
+\[  \|T\| \geq \inf \{ C : \|T(v)\|_{W} \leq C \|v\|_V \} - \epsilon \]
+for any \( \epsilon > 0  \), contradicting the above statement.
+Let \( \epsilon > 0  \). Using the definition of the supremum, it follows from our given \( \epsilon  \) that there exists a \( \hat{V} \in V \setminus  \{ 0  \}   \) such that 
+\[  \frac{ \|T(\hat{v})\|_W }{  \|v \|_W } > \|T\| - \epsilon.  \]
+By (*) and the fact that \( \|T\| \geq \frac{ \|T(v)\|_W }{ \|v\|_V }  \) for all \( v \in V \setminus  \{ 0 \}  \), it follows that 
+    \[  \|T\| \geq \inf \{ C : \|T(v)\|_W \leq C \|v\|_V \} - \epsilon. \]
+    Hence, we have
+    \[  \|T\| \geq \inf  \{ C : \|T(v)\|_W \leq C \|v\|_V \}   \]
+    which contradicts (*). Thus, (2) is established.
+\end{proof}
+
+
+\begin{problem}
+    Let \( A = ({a}_{ij}) \). Define \( T: \R^{n} \to \R^{m} \) by \( T(\vec{x}) = A \vec{x} \).
+\end{problem}
+
+\begin{enumerate}
+    \item[(i)] Show that \( T  \) is a bounded linear operator. 
+        \begin{proof}
+        Observe that since addition and matrix multiplication are linear operations, it follows from our definition of \( T  \) that \( T  \) is a linear operator. Denote \( x = ({x}_{j}) \) and \( y = ({y}_{j}) \) as the column vectors with \( n  \) and \( m  \) components, respectively. By matrix multiplication, it follows that
+        \[  {y}_{j} =  \sum_{ k=1  }^{ n } {a}_{jk} {x}_{k} \tag{*}  \]
+        Note that the norm for \( \R^{n} \) is given by
+        \[  \|x\| = \Big(  \sum_{ i=1  }^{ n } {x}_{i}^{2} \Big)^{\frac{ 1 }{ 2 } } \]
+        and
+        \[  \|y\| = \Big(  \sum_{ k=1  }^{ n } {y}_{k}^{2} \Big)^{\frac{ 1 }{ 2 } }. \]
+        Using (*), it follows from the Cauchy-Schwarz inequality that 
+        \begin{align*}
+            \|T(x)\|^{2} = \sum_{ j=1  }^{ m } {y}_{j}^{2} &= \sum_{ j=1  }^{ m } \Big[ \sum_{ k=1  }^{ n } {a}_{jk} {x}_{k } \Big]^{2}  \\
+                                                           &\leq \sum_{ j=1  }^{ m } \Big[ \Big(  \sum_{ k=1  }^{ n } {a}_{jk}^{2} \Big)^{1/2} \Big(  \sum_{ \ell=1  }^{ n } {x}_{\ell}^{2} \Big)^{1/2} \Big]^{2} \\
+                                                           &= \|x\|^{2} \sum_{ j=1  }^{ m } \sum_{ k=1  }^{ n  }{a}_{jk}^{2}.
+        \end{align*}
+        Denote 
+        \[  c^{2} =  \sum_{ j=1  }^{ m } \sum_{ k=1  }^{ n } {a}_{jk}^{2}  \]
+        which is just a constant since it does not depend on \( x  \). Hence, it follows that 
+        \[  \|T(x)\|^{2} \leq c^{2} \|x\|^{2} \implies \|T(x)\| \leq c \|x\|. \]
+        Hence, we conclude that \( T \) is a bounded linear operator on 
+        \end{proof}
+    \item[(ii)] Show that \( \|T\| = \sqrt{ \text{largest eigenvalue of} \ A^{T} A   }  \).
+        \begin{enumerate}
+            \item[(a)] Consider an eigenbasis \( \{{v}_{1}, {v}_{2}, \dots, {v}_{n}\}   \) of \( A^{T} A  \) such that \( \langle {v}_{i}, {v}_{j} \rangle  = 0 \) if \( i \neq j  \) and \( \|\vec{ v } i\|^{2} = 1  \) for all \( 1 \leq i \leq n  \). Let 
+                \[  v = \sum_{ j=1  }^{ n } {a}_{j} {v}_{j} \in \R^{n}. \tag{1} \]
+                Show that \[ \|T(v)\|^{2} = \sum_{ j=1  }^{ n } {\lambda}_{j}^{2} {a}_{j}^{2}. \tag{*} \]
+                \begin{proof}
+                    Observe that 
+                    \begin{align*}
+                        \|T(v)\|^{2} &= \Big\|T \Big(  \sum_{ i=1  }^{ n } {a}_{i} {v}_{i} \Big)\Big\|^{2} \\
+                                     &= \Big\|\sum_{ i=1  }^{ n } {a}_{i} T({v}_{i})\Big\|^{2} \tag{Linearity of \( T \)} \\ 
+                                     &= \Big\langle \sum_{ i=1  }^{ n } {a}_{i} T({v}_{i}) ,  \sum_{ j=1  }^{ n } {a}_{j} T({v}_{j}) \Big\rangle \\
+                                     &=\sum_{ i=1  }^{ n } {a}_{i} \Big\langle T({v}_{i}) , \sum_{ j=1  }^{ n } {a}_{j} T({v}_{j}) \Big\rangle \tag{Linearity of Inner Product}  \\
+                                     &= \sum_{ i=1  }^{ n } {a}_{i} \Big(  \sum_{ j=1  }^{ n } \overline{{a}_{j}} \langle T({v}_{i}) , T({v}_{j}) \rangle \Big) \tag{Conjugate Linearity of Inner Product}\\
+                                     &= \sum_{ i=1  }^{ n } {a}_{i} \Big(  \sum_{ j=1  }^{ n } \overline{{a}_{j}} \langle A {v}_{i} , A {v}_{j} \rangle \Big) \\
+                                     &= \sum_{ i=1  }^{ n } \Big( \sum_{ j=1  }^{ n } {a}_{j} \langle A^{T} A {v}_{i} ,  {v}_{j} \rangle \Big) \tag{\( {a}_{i} \in \R \)} \\ 
+                                     &= \sum_{ i=1  }^{ n } {a}_{i} \Big(  \sum_{ j=1  }^{ n } {a}_{j} \langle {\lambda}_{i} {v}_{i}  , {v}_{j}  \rangle \Big) \tag{\( A^{T}A {v}_{i} = {\lambda}_{i} {v}_{i} \)} \\
+                                     &= \sum_{ i=1  }^{ n } {\lambda}_{i} {a}_{i} \Big(  \sum_{ j=1  }^{ n } {a}_{j} \langle {v}_{i}  , {v}_{j} \rangle \Big) \\
+                                     &=\sum_{ j=1  }^{ n } {\lambda}_{j} {a}_{j}^{2} \langle {v}_{j} , {v}_{j} \rangle \tag{\( \langle {v}_{i}  , {v}_{j} \rangle = 0  \) if \( i \neq j  \)} \\
+                                     &= \sum_{ j=1  }^{ n } {\lambda}_{j} {a}_{j}^{2} \|{v}_{j}\|^{2} \\ 
+                                  &= \sum_{ j=1  }^{ n } {\lambda}_{j} {a}_{j}^{2} \tag{\( \|{v}_{j}\|^{2} = 1 \)}.
+                    \end{align*}
+                    Hence, we conclude that 
+                    \[  \|T(v)\|^{2} = \sum_{ j=1  }^{ n } {\lambda}_{j} {a}_{j}^{2}. \]
+                \end{proof}
+        \item[(b)] Let \( \lambda = \max \{  {\lambda}_{1}, \dots, {\lambda}_{n} \}  \). Show that \( \|T(v)\|^{2} \leq \lambda \|v\|^{2}.  \)
+        \begin{proof}
+        Using our result from (a), we can see that 
+        \[  \|T(v)\|^{2} = \sum_{ j=1  }^{ n } {\lambda}_{j} {a}_{j}^{2} \leq \lambda \sum_{ j=1  }^{ n } {a}_{j}^{2} \|{v}_{j}\|^{2} = \Big\|\sum_{ j=1  }^{ n } {a}_{j} {v}_{j} \Big\|^{2} =  \|v\|^{2}.  \]
+        Hence, we have 
+        \[  \|T(v)\|^{2} \leq \lambda \|v\|^{2}. \]
+        \end{proof}
+        \item[(c)] Show that \( \|T\|^{2} = \lambda \).
+            \begin{proof}
+            It suffices to show the following inequalities:
+            \[  \|T\|^{2} \leq \lambda \tag{1} \]
+            and 
+            \[  \|T\|^{2} \geq \lambda \tag{2}.  \]
+            To show (1), note that from (b) we have 
+            \[  \|T(v)\|^{2} \leq \lambda \|v\|^{2} \implies \frac{ \|T(v)\|^{2} }{  \|v\|^{2} } \leq \lambda \implies \frac{ \|T(v)\| }{ \|v\| } \leq \sqrt{ \lambda } \]
+            where \( \|v\| \neq 0  \).
+            Taking the supremum of the left-hand side, it follows that 
+            \[  \|T\| =  \sup_{v \in V \setminus  \{ 0 \}  } \frac{ \|T(v)\| }{ \|v\| } \leq \sqrt{ \lambda }.   \]
+            Hence, \( \|T\|^{2} \leq \lambda  \) which establishes (1).
+
+            To prove (2), we notice that by definition of \( \lambda  \), there exists a \( 1 \leq k \leq n  \) such that             \( {\lambda}_{k} = \max_{1 \leq i \leq n } {\lambda}_{i} = \lambda \). Now, note that 
+            \begin{align*}
+                \|T({v}_{k})\|^{2} &= \langle T({v}_{k}) , T({v}_{k})  \rangle  \\
+                                   &= \langle A {v}_{k} , A {v}_{k} \rangle \\
+                                   &= \langle A^{T} A {v}_{k} ,  {v}_{k} \rangle \\
+                                   &= \langle \lambda {v}_{k} , {v}_{k} \rangle \\
+                                   &= \lambda \langle {v}_{k} , {v}_{k} \rangle \\
+                                   &= \lambda.
+            \end{align*}
+            Now, we can see from the fact that
+            \[  \|T({v}_{k})\|^{2} \leq \|T\|^{2} \]
+            it follows that \( \lambda \leq \|T\|^{2} \) which establishes (2). Hence, (1) and (2) imply that 
+            \[  \|T\|^{2} = \lambda. \]
+
+            \end{proof}
+        \end{enumerate}
+    \item[(iii)] Let 
+        \[  A = \begin{pmatrix} 1 & 2 \\ 0 & 1  \end{pmatrix}.  \]
+        Define \( T: \R^{2} \to \R^{2} \) by \( T(x) = Ax  \). Compute \( \|A\| \).
+        \begin{solution}
+            Computing \( A^{T} \), we obtain
+            \[  A^{T} = \begin{pmatrix} 1 & 0 \\ 2 & 1  \end{pmatrix}.  \]
+            Then 
+            \[ C =  A^{T}A = \begin{pmatrix} 1 & 0  \\ 2 & 1  \end{pmatrix} \begin{pmatrix} 1 & 0 \\ 2 & 1  \end{pmatrix} = \begin{pmatrix} 1 & 2 \\ 2 & 5  \end{pmatrix}. \]
+            Computing the eigenvalues of this matrix, we get 
+            \begin{align*}
+                \det(C - I \lambda) &= (1-\lambda)(5-\lambda) - 4   \\
+                                    &= 5- 6 \lambda + \lambda^{2} - 4 \\
+                                    &= \lambda^{2} - 6 \lambda +1.
+        \end{align*}
+        Computing the roots of the above polynomial, we get \( \lambda_{1,2} = 3 \pm 2 \sqrt{ 2 }  \). Hence, \( \|A\| = 3 \pm 2 \sqrt{ 2 }  \).
+        \end{solution}
+\end{enumerate}
+
+
+
+\end{document}
+

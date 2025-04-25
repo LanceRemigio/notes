@@ -1,0 +1,351 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{Math 230B: Homework 6}
+\author{Lance Remigio}
+\begin{document}
+\maketitle
+\begin{problem}
+    Prove that every uniformly convergent sequence of bounded functions is uniformly bounded. 
+\end{problem}
+\begin{proof}
+Our goal is to show that there exists an \( M  \) such that for all \( n \geq 1  \) and for all \( x \in A  \), we have 
+\[  | {f}_{n}(x) | \leq M.  \]
+Since \( {f}_{n} \to f  \) uniformly, we know that for all \( \epsilon > 0  \), there exists an \( N \in \N \) such that for any \( m,n > N  \) and for all \( x \in A  \), we have 
+\[  |{f}_{n}(x) - {f}_{m}(x)|< \epsilon. \]
+In particular, if \( \epsilon = 1  \), then 
+\[  | {f}_{n}(x) - {f}_{m}(x) | < 1 \iff | {f}_{n}(x) | < | {f}_{m}(x) | + 1  \ \ \ \forall n,m > N. \tag{*}  \]
+Since each \( {f}_{n}  \) is bounded, it follows that there exists an \( {R}_{n} \) such that 
+\[  | {f}_{n}(x) |  \leq {R}_{n} \]
+for all \( n \in \N \) and for all \( x \in A  \). Let \( R = \max \{ {R}_{1}, {R}_{2}, \dots, {R}_{m} \}  \). Then from (*), we can see that 
+\[  | {f}_{n}(x) | < | {f}_{m}(x) | + 1 \leq {R}_{m} + 1 \leq R + 1   \]
+for any \( x \in A  \) and for any \( n \in \N \) where \( M = R + 1  \) is the desired \( M  \) we were looking for. Hence, \( ({f}_{n}) \) is a uniformly bounded sequence of functions.
+\end{proof}
+
+\begin{problem}
+   If \( ({f}_{n}) \) and \( ({g}_{n}) \) converge uniformly on a set \( A  \), prove that \( ({f}_{n} + {g}_{n})  \) converges uniformly on \( A  \). Also,
+\end{problem}
+\begin{proof}
+Our goal is to show that for any \( \epsilon > 0  \), there exists an \( N \in \N \) such that for any \( n,m > N  \) and for any \( x \in A  \), we have 
+\[  | ({f}_{n} + {g}_{n})(x) - ({f}_{m} + {g}_{m})(x) | < \epsilon. \]
+Let \( \epsilon > 0  \) be given. Since \( ({f}_{n}) \) converges uniformly on \( A  \), it follows from the Cauchy Criterion for uniform convergence that, with our given \( \epsilon  \), there exists an \( {N}_{1} \in \N \) such that for any \( n,m > {N}_{1} \) and for any \( x \in A  \), we have 
+\[ | {f}_{n}(x) - {f}_{m}(x) | < \frac{ \epsilon }{ 2 }. \tag{1}  \]
+Similarly, the uniform convergence of \( ({g}_{n}) \) on \( A  \) implies that there exists an \( {N}_{2} \in \N \) such that for any \( n,m > {N}_{2} \) and for any \( x \in A  \) that 
+\[  | {g}_{n}(x) - {g}_{m}(x) | < \frac{ \epsilon }{ 2 }. \tag{2} \]
+Then for any \( n,m > \max \{ {N}_{1}, {N}_{2} \}  + 1  \) and for any \( x \in A \), we have
+\begin{align*}
+    | ({f}_{n} + {g}_{n})(x) - ({f}_{m} + {g}_{m})(x) | &\leq | {f}_{n}(x) - {f}_{m}(x)  | + | {g}_{n}(x) - {g}_{m}(x) |   \\
+                                                        &< \frac{ \epsilon }{ 2 }  + \frac{ \epsilon }{ 2 }  \\
+                                                        &= \epsilon
+\end{align*}
+which is our desired result.
+\end{proof}
+
+\begin{problem}
+     If \( ({f}_{n}) \) and \( ({g}_{n})  \) are two sequences of bounded functions that converge uniformly on a set \( A  \), prove that \( ({f}_{n}{g}_{n})  \) converges uniformly on \( A  \).
+\end{problem}
+\begin{proof}
+Our goal is to show that for all \( \epsilon > 0  \), there exists an \( N \in \N \) such that for any \( n,m > N  \) and for any \( x \in A  \), we have  
+\[  | ({f}_{n}{g}_{n})(x) - ({f}_{m}{g}_{m})(x) | < \epsilon. \]
+Let \( \epsilon > 0  \) be given. By problem 1, it follows from the uniform convergence of both bounded sequences \( ({f}_{n}) \) and \( ({g}_{n}) \) that there exists an \( {M}_{1}, {M}_{2} > 0  \) such that for any \( x \in A  \) and for any \( n \in \N \) that 
+\[  | {f}_{n}(x) | \leq {M}_{1} \ \ 
+    \text{and} \ \ 
+  | {g}_{n}(x) | \leq {M}_{2},  \]
+respectively. Since \( ({f}_{n}) \) converges uniformly on \( A  \), it follows that there exists an \( {N}_{1} \in \N \) such that for any \( x \in A  \) and for any \( n,m > {N}_{1} \) that 
+\[ | {f}_{n}(x) - {f}_{m}(x) | < \frac{ \epsilon }{ 2 {M}_{2} }. \tag{1} \]
+Similarly, the uniform convergence of \( ({g}_{n}) \) implies that there exists an \( {N}_{2} \in \N \) such that for any \( x \in A   \) and for any \( n,m > {N}_{2} \), we have 
+\[  | {g}_{n}(x) - {g}_{m}(x) | < \frac{ \epsilon }{ 2 {M}_{1} }. \tag{2} \]
+Now, for any \( x \in A  \) and for any \( n,m > \max \{  {N}_{1}, {N}_{2} \} + 1  \), we have 
+\begin{align*}
+    | ({f}_{n}{g}_{n})(x) - ({f}_{m}{g}_{m})(x) | &\leq | {f}_{n}{g}_{n}(x) -{f}_{m}{g}_{n}(x) + {f}_{m}{g}_{n}(x) - {f}_{m}{g}_{m}(x) |   \\
+                                                  &\leq | {f}_{n}{g}_{n}(x) - {f}_{m}(x){g}_{n}(x) |  + | {f}_{m}(x) {g}_{n}(x) - {f}_{m}(x) {g}_{m}(x) |  \\
+                                                  &= | {g}_{n}(x) | | {f}_{n}(x) - {f}_{m}(x) |  + | {f}_{m}(x) | | {g}_{n}(x) - {g}_{m}(x) |  \\
+                                                  &\leq {M}_{2} | {f}_{n}(x) - {f}_{m}9x |  + {M}_{1} | {g}_{n}(x) - {g}_{m}(x) |  \\
+                                                  &< {M}_{2} \cdot \frac{ \epsilon  }{ 2 {M}_{2} }  + {M}_{1} \cdot \frac{ \epsilon  }{  2 {M}_{1} }  \\
+                                                  &= \frac{ \epsilon }{ 2 }  + \frac{ \epsilon }{ 2 }  \\
+                                                  &= \epsilon.
+\end{align*}
+
+\end{proof}
+\begin{problem}
+    Consider the sequences \( ({f}_{n} : \R \to \R ) \) and \( ({g}_{n} : \R \to \R ) \) defined as follows:
+    \[  {f}_{n}(x) = 2 + \frac{ 5 }{ n }  \ \ \ {g}_{n}(x) = x + \frac{ 2 }{ n }  \]
+    Prove that both \( ({f}_{n}) \) and \( ({g}_{n}) \) converge uniformly on the set \( \R  \), but \( ({f}_{n}{g}_{n}) \) does not converge uniformly on \( \R  \).
+\end{problem}
+\begin{proof}
+Clearly, we see that \( {f}_{n} \to f = 2 \) uniformly. Also, it is not difficult to see that \( {g}_{n} \to g   \) where \( g(x) = x  \) for all \( x \in \R  \). We will show that this convergence is uniform. Let \( \epsilon > 0  \) be given. Choose \( N = \frac{ 5  }{ \epsilon }  \) and observe that for any \( x \in \R  \) and for any \( n > N  \), we have 
+\begin{align*}
+    | {g}_{n}(x) - g(x) | &= \Big| \Big(  x + \frac{ 5 }{ n }  \Big) - x  \Big|  
+                          = \frac{ 5  }{ n }  
+                          < \frac{ 5 }{ N }  
+                          = \epsilon.
+\end{align*}
+Hence, we see that \( {g}_{n} \to g  \) uniformly on \( \R  \). Note that 
+\begin{align*}
+    {f}_{n}{g}_{n}(x) &= \Big(  2 + \frac{ 5 }{ n }  \Big) \Big(  x + \frac{ 2 }{ n }  \Big) \\
+                      &=  \Big( 2 + \frac{ 5 }{ n } \Big) x + \frac{ 4 }{ n } + \frac{ 10}{ n^{2}  }.
+\end{align*}
+Since we see that \( {f}_{n} {g}_{n} \to 2x \), we have 
+\begin{align*}
+    {f}_{n}{g}_{n}(x) - 2x &= \frac{ 5 }{ n } x + \frac{ 6 }{ n }.  \\
+\end{align*}
+Define \( {b}_{n} = {f}_{n}{g}_{n}(n) - 2n \). Then it follows that 
+\[  {b}_{n} = 5 + \frac{ 6 }{ n }  \]
+which implies that \( \lim_{ n \to \infty  } {b}_{n} = 5 > 0  \) and that 
+\[  \sup_{x \in \R } | {f}_{n}{g}_{n}(x) - 2x | \geq {b}_{n}.  \]
+Hence, \( {f}_{n}{g}_{n}(x) \to 2x  \) for any \( x \in \R  \) is NOT uniform.
+\end{proof}
+
+\begin{problem}
+    Let \( A \subseteq (X,d)  \). Let \( ({f}_{n}: A \to \R ) \) be a sequence of continuous functions which converges uniformly to a function \( f  \) on the set \( A  \). Let \( ({x}_{n}) \) be a sequence in \( A  \) such that \( {x}_{n} \to x \in A  \). Prove that 
+    \[  \lim_{ n \to \infty  }  {f}_{n}({x}_{n}) = f(x). \]
+\end{problem}
+\begin{proof}
+Our goal is to show that for any \( \epsilon > 0  \), there exists an \( N \in \N \) such that for any \( n > N  \), we have 
+\[  | {f}_{n}({x}_{n}) - f(x) |  < \epsilon. \]
+Let \( \epsilon > 0  \) be given. Since \( {f}_{n} \to f  \) uniformly where each \( {f}_{n} \) is a continuous function, we also have that \( f  \) is a continuous function by a theorem proven in class. Since \( {x}_{n} \to x \in A  \) and \( f  \) is continuous on \( A  \), it follows from the sequential criterion of continuity that \( f({x}_{n}) \to f(x) \) on \( A  \). With our given \( \epsilon  \), there exists an \( {N}_{1} \in \N \) such that for any \( n > {N}_{1} \), we have 
+\[  | f({x}_{n}) - f(x) |  < \frac{ \epsilon }{ 2 }. \tag{1} \]
+Since \( {f}_{n} \to f  \) uniformly, there exists an \( {N}_{2} \in \N \) such that for any \( n > {N}_{2} \) and any \( x \in A  \), we have
+\[  | {f}_{n}(x) - f(x) | < \frac{ \epsilon }{ 2 }. \tag{2}  \]
+Choose \( N = \max \{ {N}_{1} , {N}_{2} \} + 1  \). Because \( {x}_{n} \in A  \) for all \( n \in \N  \), it follows that for any \( n > {N}_{1}  \), we have 
+\[  | {f}_{n}({x}_{n}) - f({x}_{n}) | < \frac{ \epsilon }{ 2 }   \]
+from (1). For any \( n > N \), it follows that 
+\begin{align*}
+    | f_n({x}_{n}) - f(x) | &\leq | f_n({x}_{n}) - f({x}_{n}) | + | f({x}_{n}) - f(x) |    \\
+                            &< \frac{ \epsilon }{ 2 }  + \frac{ \epsilon }{ 2 }  \\
+                            &= \epsilon.
+\end{align*}
+Hence, we conclude that 
+\[  \lim_{ n \to \infty  } {f}_{n}({x}_{n}) = f(x). \]
+\end{proof}
+
+\begin{problem}
+    Let \( A \subseteq  (X,d) \). Suppose \( g : \R \to \R  \) is continuous. Prove that if \( ({f}_{n}: A \to \R )_{n \geq 1} \) is a sequence of bounded functions that converges uniformly to \( f: A \to \R  \), then \( (g \circ {f}_{n})_{n \geq 1} \) converges uniformly to \( g \circ f \).
+\end{problem} 
+\begin{proof}
+Our goal is to show that for any \( \epsilon > 0  \), there exists an \( N \in \N \) such that for any \( n > N  \) and for any \( x \in A  \), we have 
+\[  | (g \circ {f}_{n})(x) - (g \circ f)(x) | < \epsilon. \]
+That is, we want to find an \( N \in \N \) such that for any \( n > N  \) and for any \( x \in A  \),
+\[  | g({f}_{n}(x)) - g(f(x)) | < \epsilon. \tag{*}   \]
+To this end, let \( \epsilon > 0 \) be given. Since \( ({f}_{n}) \) is a sequence of bounded functions that converges uniformly to \( f: A \to \R  \), we have that \( ({f}_{n}) \) is uniformly bounded by problem 1. Hence, there exists an \( M > 0  \) such that \( | {f}_{n}(x) |  \leq M  \) for all \( x \in A  \). As a consequence, we see that \( | f(x) | \leq M  \) for all \( x \in A  \). Consider the compact interval \( [-M,M] \) and \( g |_{[-M,M]} \). Since \( g  \) is continuous and \( [-M,M] \) is compact, it follows that \( g  \) is uniformly continuous. Hence, there exists (with our given \( \epsilon \)) a \( \delta > 0  \) such that for all \( s,t \in [-M,M] \) whenever \( | s - t  |  < \delta \), we have  
+\[  | g(s) - g(t)  | < \epsilon. \]
+Since \( {f}_{n} \to f  \) uniformly, we can find an \( \hat{N} \in \N \) such that for any \( n > \hat{N} \) and for any \( x \in A  \), we have 
+\[  | {f}_{n}(x) - f(x)  | < \epsilon.  \]
+We claim that this \( \hat{N} \) can be used as the same \( N  \) we were looking for. Indeed, if we take \( \epsilon = \delta \), then if \( | {f}_{n}(x) - f(x) | < \delta \), then (*) will hold for any \( n > \hat{N} \) and we are done.
+\end{proof}
+
+\begin{problem}
+    For each \( n \in \N \), let \( {f}_{n}: (0,1) \to \R  \) be defined by \( {f}_{n}(x) = \frac{ 1  }{  n x + 1  }  \).
+\end{problem}
+\begin{enumerate}
+    \item Explain in one line why \( {f}_{n} \to f  \) pointwise where \( f \equiv 0  \).
+        \begin{proof}
+        Note that for all \( x \in (0,1)\) and for all \( n \in \N \), we have 
+        \[  0 \leq \frac{ 1  }{  nx + 1  }  \leq \frac{ 1 }{ nx } \to 0. \]
+        Thus, the Squeeze Theorem implies that \( \frac{ 1 }{ nx + 1  }  \to  0  \) pointwise.
+        \end{proof}
+    \item Explain in one line why each \( {f}_{n} \) is continuous. 
+        \begin{proof}
+        Since \( 1  \) is a constant function and \( nx + 1  \) is a polynomial function which are both continuous function where \( nx + 1 \neq 0  \), it follows from the Algebraic Continuity Theorem that each \( {f}_{n} \) is continuous.
+        \end{proof}
+    \item Explain why for each \( n \in \N \), we have \( {f}_{n+1}\leq {f}_{n} \).
+        \begin{proof}
+            It immediately follows that for all \( n \in \N \), \( 1 + nx  \) is an increasing function. Define \( \hat{f}_{n}(x) = 1 + nx \). Then from our observation \( \hat{f}_{n} \leq \hat{f}_{n+1} \) for all \( n \in \N \). Dividing we get 
+            \[  \frac{ 1 }{ \hat{f}_{n+1} } \leq \frac{ 1 }{ \hat{f}_{n} } \implies {f}_{n+1} \leq {f}_{n}  \ \ \ \forall n \in \N.\]
+            Thus, \( {f}_{n} \) is a decreasing sequence of functions.
+        \end{proof}
+    \item Explain why \( {f}_{n} \to f  \) is NOT uniform.
+        \begin{solution}
+        Since \( {f}_{n} \) is defined over a non-compact interval \( (0,1) \), it follows from Dini's Theorem that \( {f}_{n} \to f  \) is NOT uniform.
+        \end{solution}
+    \item Explain why this example does not contradict the following theorem.
+        \begin{solution}
+        This does not contradict the theorem because we still have pointwise convergence of \( {f}_{n} \to f  \).
+        \end{solution}
+\end{enumerate}
+
+\begin{problem}
+    \begin{enumerate}
+        \item[(a)] Prove that \( ({f}_{n}: A \to \R )_{n \geq 1} \) converges uniformly to \( 0  \) if and only if \( (| {f}_{n} | )_{n \geq1} \) converges uniformly to 0.
+        \item[(b)] Let \( f: [0,1] \to \R  \) be a continuous function and assume that \( f(1) = 0  \). Prove that \( (x^{n} f(x))  \) converges uniformly on \( [0,1] \).
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] \( (\Longrightarrow) \) Our goal is to show that \( (| {f}_{n} | )_{n \geq 1}  \) converges uniformly to \( 0  \). It suffices to show that for any \( \epsilon > 0  \), there exists an \( N \in \N \) such that for any \( m,n > N  \) and for any \( x \in A  \), we have  
+        \[  \big| | {f}_{n}(x) | - | {f}_{m}(x)  |   \big| < \epsilon. \]
+        Let \( \epsilon > 0  \). Since \( ({f}_{n})_{n \geq1}  \) converges uniformly on \( A  \), it follows from our given \( \epsilon   \) that there exists an \( \hat{N} \in \N \) such that for any \( n,m > \hat{N} \), we have  
+        \[  | {f}_{n}(x) - {f}_{m}(x) | < \epsilon. \]
+        We claim that we can use \( \hat{N} \) as the \( N  \) we were looking for. Indeed, we can see that for any \( n,m > \hat{N} \) and \( x \in A  \) that 
+        \[ \big| | {f}_{n}(x) | - | {f}_{m}(x) |  \big| \leq | {f}_{n}(x) - {f}_{m}(x) | < \epsilon  \]
+       which is our desired result. 
+
+       \( (\Longleftarrow) \) Our goal is to show that \( ({f}_{n}: A \to \R )_{n \geq 1} \) converges uniformly to \( 0  \). It suffices to show that for any \( \epsilon > 0  \), there exists an \( N \in \N \) such that for any \( n > N  \) and for any \( x \in A  \), we have   
+       \[  | {f}_{n}(x) | < \epsilon. \]
+       Let \( \epsilon > 0  \). Clearly, since \( | {f}_{n} |  \) converges uniformly to \( 0  \), then there exists an \( \hat{N} \in \N \) such that for any \( n > \hat{N} \) and \( x \in A  \), 
+       \[  | {f}_{n}(x) | < \epsilon \]
+       with \( \hat{N} \) as the same \( N  \) we were looking for as desired. Hence, \( {f}_{n} \to 0  \) uniformly.
+   \item[(b)] We will show that \( {f}_{n}  \) defined by \( {f}_{n}(x) = x^{n} f(x) \) for all \( x \in [0,1] \) converges to \( 0  \) uniformly using Dini's theorem. In what follows, we will show that each \( {f}_{n} \) satisfies the following conditions:
+       \begin{enumerate}
+           \item[(1)] \( [0,1] \) is a compact set.
+           \item[(2)] For each \( n \in \N \), \( {f}_{n} : [0,1] \to \R  \) is continuous.
+            \item[(3)] \( {f}_{n} \to 0  \) pointwise on \( K  \) (Clearly, the zero function is continuous). 
+            \item[(4)] For each \( n \in \N \), we have \( {f}_{n+1} \leq {f}_{n} \).
+       \end{enumerate}
+       Clearly, (1) is satisfied by the Heine-Borel theorem on \( \R  \). Also, since \( f  \) is continuous on \( [0,1] \) and \( x^{n} \) is a polynomial function which is clearly continuous on \( [0,1] \), it follows from the Algebraic Continuity Theorem that each \( {f}_{n} \) is a continuous function and so (2) is satisfied. Next, notice that for \( x = 0  \), \( {f}_{n} \to 0  \) immediately. Similarly, if \( x = 1  \), then it immediately follows that \( {f}_{n} \to 0  \). On the other hand, if \( x \in (0,1) \), then \( x^{n} \to 0  \). Using the Algebraic Limit Theorem, it follows that \( f(x) x^{n} \to 0  \) for any \( x \in (0,1) \). Thus, we see that (3) is satisfied with the pointwise limit being clearly continuous on \( [0,1] \). Lastly, we see that for any \( x \in [0,1] \), \( x^{n} \) is a decreasing function. Hence, \( {f}_{n}(x) =  f(x) x^{n} \) is a decreasing function and so (4) is satisfied.
+
+       By Dini's Theorem, we can conclude that \( {f}_{n} \to 0  \) uniformly on \( [0,1] \).
+\end{enumerate} 
+\end{proof}
+
+\begin{problem}
+    Let \( f: \R \to \R  \) be a uniformly continuous function, and for each \( n \in \N \), let \( {f}_{n}: \R \to \R  \) be defined by \( {f}_{n}(x) = f(x + \frac{ 1 }{ n } ) \). Prove that \( ({f}_{n})_{n \geq 1} \) converges uniformly to \( f  \) on \( \R  \).
+\end{problem}
+\begin{proof}
+    It suffices to show that for any \( \epsilon > 0  \), there exists an \( N \in \N \) such that for any \( n,m > N  \) and for any \( x \in \R  \), we have 
+    \[  | {f}_{n}(x) - {f}_{m}(x) | < \epsilon. \tag{*} \]
+    That is, we need to find an \( N \in \N \) such that for any \( n,m > N  \) and for any \( x \in \R  \), we have 
+    \[  \Big| f \Big(  x + \frac{ 1 }{ n }  \Big)  - f \Big(  x + \frac{ 1 }{ m }  \Big) \Big| < \epsilon. \]
+    Since \( f  \) is uniformly continuous, it follows from our given \( \epsilon  \) that there exists a \( \delta > 0  \) such that for all \( x,y \in \R  \) satisfying \( | x - y  |  < \delta \), we have 
+    \[  | f(x) - f(y)  | < \epsilon. \]
+    Notice that \( {x}_{n} = x + \frac{ 1 }{ n }  \) converges to \( x  \in \R  \). Hence, \( ({x}_{n}) \) is a Cauchy sequence in \( \R  \). Thus, for any \( \epsilon > 0  \), there exists an \( \hat{N} \in \N \) such that for any \( n,m > \hat{N}  \), we have 
+    \[ | {x}_{n} - {x}_{m} | < \epsilon. \]
+    That is, 
+    \begin{align*}
+        | {x}_{n} - {x}_{m} | &= \Big| \Big(  x - \frac{ 1 }{ n }  \Big) - \Big(  x - \frac{ 1 }{ m }  \Big) \Big|  
+                              = \Big| \frac{ 1 }{ n }  - \frac{ 1 }{ m }  \Big|  < \epsilon
+    \end{align*}
+    for any \( n,m > \hat{N} \). Using \( \epsilon = \delta \), it follows from (*) that whenever \( | {x}_{n} - {x}_{m} | = \big| \frac{ 1 }{ n }  - \frac{ 1 }{ m }  \big| < \delta\), 
+    \[ \Big| f \Big(  x + \frac{ 1 }{ n }   \Big) - f \Big(  x + \frac{ 1 }{ m }  \Big) \Big|  < \epsilon \ \ \ \forall n,m > \hat{N}.  \]
+    That is, 
+    \[  | {f}_{n}(x) - {f}_{m}(x) | < \epsilon \]
+   for any \( n,m > \hat{N} \). Hence, \( ({f}_{n}) \) converges to \( f  \) uniformly.
+\end{proof}
+
+\begin{problem}
+    For each case, determine whether the given sequence of functions converges pointwise. If it does, determine whether the convergence is uniform.
+\end{problem}
+\begin{enumerate}
+    \item[10-1)] \( {f}_{n}: [0,1] \to \R  \) defined by \( {f}_{n}(x) = n^{3} x^{n} \).
+        \begin{solution}
+        \( {f}_{n}  \) diverges since \( n^{3} \to \infty   \) as \( n \to \infty  \).
+        \end{solution}
+    \item[10-2)] \( {f}_{n}: [0,\pi] \to \R  \) defined by \( {f}_{n}(x) = \sin^{n}(x) \).
+        \begin{solution}
+            Note that \( | \sin x  | \leq 1  \) for all \( x \in [0,\pi]  \). Furthermore, \( {f}_{n} \) is a sequence of continuous functions (since \( \sin x  \) is a continuous function and \( x^{n} \) is a polynomial which is continuous so their composition is continuous) and decreasing.  Also, note that the convergence of \( {f}_{n} \) to \( 0  \) is pointwise and \( [0,1] \) is a compact set in \( \R  \). Dini's theorem implies that \( {f}_{n} \to 0  \) uniformly.
+        \end{solution}
+    \item[10-3)] \( {f}_{n}: (0,1) \to \R  \) defined by \( {f}_{n}(x) = 2nx e^{- n^{2} x^{2}} \).
+        \begin{proof}
+        Converges pointwise to \( 0  \) but convergence is not uniform since \( (0,\infty ) \) is not a compact set (By Dini's Theorem).
+        \end{proof}
+    \item[10-4)] \( {f}_{n}: (0,\infty) \to \R   \) defined by \( {f}_{n}(x) = \frac{ n^{2} x }{ (nx + 1)^{3} }  \).
+        \begin{proof}
+        Converges pointwise to \( 0  \) but convergence is not uniform since \( (0,\infty) \) is not a compact set (By Dini's theorem).
+        \end{proof}
+    \item[10-5)] \( {f}_{n}: (0,1) \to \R  \) defined by \( {f}_{n}(x) = \frac{ x  }{ nx + 1 }  \).
+        \begin{proof}
+        Converges pointwise to \( 0  \) but convergence is not uniform since \( (0,1) \) is not a compact set (By Dini's theorem).
+        \end{proof}
+    \item[10-6)] \( {f}_{n}: \R \to \R  \) defined by \( {f}_{n}(x) = \frac{ x  }{ n x^{2} + 1 }  \).
+        \begin{proof}
+        Converges pointwise to \( 0  \) but convergence is not uniform since \( \R \) is not a compact set (By Dini's theorem).
+        \end{proof}
+    \item[10-7)] \( {f}_{n}: [0,\infty)  \to \R \) defined by \( {f}_{n}(x) = \frac{ nx  }{ n^{3} + x^{3} }  \).
+        \begin{solution}
+            Note that \( {f}_{n} \) is a sequence of continuous functions (since it is a ratio of continuous functions) which converges to \( 0  \) pointwise, but not uniform since \( [0,\infty) \) is not a compact set by Dini's Theorem.
+        \end{solution}
+    \item[10-8)] \( {f}_{n}: [0,\infty) \to \R  \) defined by \( {f}_{n}(x) = \frac{ n x^{2} }{ n^{3} + x^{3} }  \).
+        \begin{solution}
+            Note that \( {f}_{n} \) is a sequence of continuous functions (since it is a ratio of continuous functions) which converges to \( 0  \) pointwise, but not uniform since \( [0,\infty) \) is not a compact set by Dini's Theorem.
+        \end{solution}
+    \item[10-9)]  \( {f}_{n}: [0,1] \to \R  \) with \( {g}_{n} = {f}_{n}' \) where \( {f}_{n}: [0,1] \to \R  \) is defined by \( {f}_{n}(x) = \frac{ \ln(1 + nx) }{ n }  \). 
+        \begin{solution}
+            Note that for all \( x \in [0,1] \), we have 
+            \[  {g}_{n}(x) = {f}_{n}'(x) = \frac{ 1 }{ nx + 1 }  \]
+            which is a sequence of continuous functions and that converges to \( 0  \) pointwise.
+            Since \( [0,1] \) is compact and \( {g}_{n} \) is a decreasing sequence of functions, it follows from Dini's Theorem that \( {g}_{n} \to 0 \) uniformly. Notice that for \( x = 0  \), the sequence \( {f}_{n}(0) \to 0  \). Hence, Exercise 12 from homework 5 implies that \( {f}_{n} \to 0   \) uniformly on \( [0,1] \).
+        \end{solution}
+\end{enumerate}
+
+\begin{problem}
+    For each \( n \in \N \), let \( {f}_{n}: [0,1] \to \R  \) be defined by
+    \[  {f}_{n}(x) = 
+    \begin{cases}
+        \frac{ 1 }{ n }  &\text{if} \ \frac{ 1 }{ 2^{n} }  < x \leq \frac{ 1 }{ 2^{n-1} } \\
+        0 &\text{otherwise}
+    \end{cases} \]
+    Prove that the Weierstrass M-Test cannot be applied to establish the uniform convergence of \( \sum_{ n=1  }^{ \infty  } {f}_{n} \). Nevertheless, show that this series converges uniformly.
+\end{problem}
+\begin{proof}
+    Note that we cannot use the Weierstrass M-Test because \( \sum_{ n=1  }^{ \infty  } \frac{ 1 }{ n }  \) is a harmonic series which diverges. Hence, we will show via the Cauchy Criterion that \( \sum  {f}_{n}  \) converges uniformly on \( [0,1] \).
+
+    Clearly, if \( x \notin (\frac{ 1 }{ 2^{n} } , \frac{ 1 }{ 2^{n-1} } ] \), then \( {f}_{n}(x) = 0  \) for all \( n \in \N \), then the series \( \sum_{ n=1  }^{ \infty  } {f}_{n}(x) \) converges. Suppose \( x \in (\frac{ 1 }{ 2^{n} } , \frac{ 1 }{ 2^{n-1} } ] \). Then for all \( n \in \N \), \( {f}_{n}(x) = \frac{ 1 }{ n }  \). Our goal is to show that for any \( \epsilon > 0  \), there exists an \( N \in \N \) such that for any \( n,m \geq N  \), we have 
+    \[  | \sum_{ k =  m  + 1  }^{ n } {f}_{n}(x) |  < \epsilon. \]
+    Since at most one \( {f}_{n}(x) \) is nonzero for any \( x  \), and \( {f}_{n}(x) = \frac{ 1 }{ n }  \), it follows that we can find an \( N  \) large enough so that \( \frac{ 1 }{ N  } < \epsilon. \) Then for all \( x \in [0,1] \) and for all \( n,m > N  \), we have 
+    \[  \Big| \sum_{ k=m+1 }^{ n } {f}_{n}(x) \Big| \leq \sup_{n \in \N} \frac{ 1 }{ n } < \frac{ 1 }{ N } < \epsilon.  \]
+    Hence, \( {f}_{n}  \) converges uniformly on \( [0,1] \).
+\end{proof}
+
+\begin{problem}
+    Prove that \( \sum_{ n=1  }^{ \infty  } \frac{ x  }{  1  +n^{4} x^{2} }   \) converges uniformly on \( [0,\infty) \).
+\end{problem}
+\begin{proof}
+    Our goal is to show that the series \( \sum_{ n=1  }^{ \infty  } \frac{ x  }{  1 + n^{4} x^{2} }  \) converges uniformly. It suffices to show that the series above satisfies the Weierstrass M-Test. Indeed, we see that for all \( n \in \N \) and for all \( x \in [0,\infty ] \), 
+\[ \Big| \frac{ x  }{  1 + n^{4} x^{2}  }   \Big|  \leq \Big| \frac{ x  }{ n^{4} x^{2} }  \Big| = \Big| \frac{ 1 }{ n^{4} x  }  \Big| = \frac{ 1 }{ | n^{4} | | x  |  } \leq \frac{ 1 }{ n^{4} }    \]
+where \( {M}_{n} = \frac{ 1 }{ n^{4} }  \). Clearly, the series \( \sum_{ n=1  }^{ \infty  } {M}_{n} \) converges via the p-series test. Hence, the Weierstrass M-Test implies that \( \sum_{ n=1  }^{ \infty  } \frac{ x  }{  1 + n^{4} x^{2} }  \) converges uniformly.
+\end{proof}
+
+\begin{problem}
+    \begin{enumerate}
+        \item[(a)] Use Taylor's Theorem with Lagrange remainder to prove that for all \( x > 0  \), we have \( e^{x} > \frac{ x^{2} }{ 2 }  \).
+        \item[(b)] Prove that \( \sum_{ n=1  }^{ \infty  } x^{2} e^{-nx} \) converges uniformly on \( [0,\infty) \).
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Clearly, we can see that \( e^{x} \) is differentiable \( n + 1  \) times and so by Taylor's Theorem with Lagrange Remainder, it follows that  
+        \[  e^{x} = \sum_{ k=1  }^{ n } \frac{ x^{k} }{ k! } > \frac{ x^{2} }{ 2! }  = \frac{ x^{2} }{ 2 } \]
+        for all \( x > 0  \).
+    \item[(b)] We proceed via the Weierstrass M-Test to prove that \(\sum_{ n=1  }^{ \infty  } x^{2} e^{-nx}\) converges uniformly on \( [0,\infty) \). From part (a), it follows for all \( n \in \N \) that 
+        \[  | x^{2} e^{-nx} | = x^{2} e^{-nx} < 2 e^{x} \cdot e^{-nx} = 2 e^{x(1-n)} = \frac{ 2 }{ e^{x(n-1)} } < 2e \cdot \Big(  \frac{ 1 }{ e }  \Big)^{n}.  \]
+        Note that \( | r  |  = \frac{ 1 }{ e  }  < 1  \) and so the series 
+        \[  \sum_{ n=1  }^{ \infty  } 2e \cdot \Big(  \frac{ 1 }{ e  }  \Big)^{n}. \]
+        is geometric which converges.
+        Hence, the Weierstrass M-Test implies that \( \sum_{ n=1  }^{ \infty  } x^{2} e^{-nx} \) converges uniformly.
+\end{enumerate}
+\end{proof}
+
+\begin{problem}
+    Let \( a > 0  \) be a fixed number. Prove that \( \sum_{ n=1  }^{ \infty  } 2^{n} \sin (\frac{ 1 }{ 3^{n}x  } ) \) converges uniformly on \( [a,\infty) \) and does not converge uniformly on \( (0,\infty ) \). 
+\end{problem}
+\begin{proof}
+    Our goal is to show that \( \sum_{ n=1  }^{ \infty  } 2^{n} \sin (\frac{ 1 }{ 3^{n} x  } ) \) converges uniformly on \( [a,\infty) \). We will do this via the Weierstrass M-Test. Note that for all \( n \in \N \) and for all \( x \in [a,\infty) \), we can use a result from homework 10 in Math 230A to write   
+    \begin{align*}
+        \Big| 2^{n} \sin \Big(  \frac{ 1 }{ 3^{n} x  }  \Big) \Big| \leq  \frac{ 2^{n}  }{  | x  | 3^{n}     } = \frac{ 1 }{ | x  |  }  \cdot \Big(  \frac{ 2 }{ 3 }  \Big)^{n} \leq \frac{ 1 }{ a }  \cdot \Big(  \frac{ 2 }{ 3 }  \Big)^{n}. \tag{*}
+    \end{align*}
+    Observe that \( \sum_{ n=1  }^{ \infty  } \Big(  \frac{ 2 }{ 3 }  \Big)^{n} \) is a convergent series because it is geometric series (\( | r  |  = \frac{ 2 }{ 3 } < 1  \)). Thus, the Algebraic Theorem for Series implies that \( \sum_{ n=1  }^{ \infty  } \frac{ 1 }{ a }  \cdot (\frac{ 2 }{ 3 } )^{n} \) converges. Using the Weierstrass M-Test, it follows that \( \sum_{ n=1  }^{ \infty  } 2^{n} \sin (\frac{ 1 }{ 3^{n} x  } ) \) converges uniformly on \( [a,\infty) \).
+
+    Now, let us consider the same series on the interval \( (0,\infty ) \). From our inequality in (*), we see that the series defined on the following sequence term
+    \[ \frac{ 1 }{ | x  |  }  \cdot \Big(  \frac{ 2 }{ 3 }  \Big)^{n}   \]
+    depends on \( x \in (0,\infty )  \) and is not a constant sequence. Hence, it follows that \( \sum_{ n=1  }^{ \infty  } 2^{n} \sin (\frac{ 1 }{ 3^{n}x  } ) \) does not converge uniformly via the Weierstrass M-Test.
+\end{proof}
+
+\begin{problem}
+    Let \( a > 0  \) be a fixed number. Prove that the series 
+    \[  \sum_{ n=1  }^{ \infty  } \frac{ nx  }{ 1 + n^{4} x^{2} }  \]
+    converges uniformly on \( [a,\infty) \) and does not converge uniformly on \( [0,\infty ] \).
+\end{problem}
+\begin{proof}
+    Consider \( \sum_{ n=1  }^{ \infty  } \frac{ nx  }{ 1 + n^{4} x^{2} }  \) over the interval \( [a,\infty)  \) where \( a > 0  \) is fixed. For all \( n \in \N \), it follows that 
+    \begin{align*}
+        \Big| \frac{ nx }{ 1 + n^{4} x^{2} }  \Big| \leq \frac{ n | x  |  }{ | 1 + n^{4} x^{2} |  } \leq \frac{ 1  }{ n^{3} |  x  |  } \leq \frac{ 1 }{ a n^{3} }.
+    \end{align*}
+    Since \( \sum_{ n=1  }^{ \infty  } \frac{ 1 }{ n^{3} }  \) is a convergent series (via the P-Series Test), we know by the Algebraic Limit Theorem for Series that \( \sum_{ n=1  }^{ \infty  } \frac{ 1 }{ a n^{3} }  \) is also a convergent series. Hence, the Weierstrass M-Test implies that \( \sum_{ n=1  }^{ \infty  } \frac{ nx }{ 1 + n^{4} x^{2} }  \) converges uniformly on \( [a,\infty) \)
+
+    Now, consider the same series over \( [0,\infty) \). Clearly, the series converges if \( x = 0  \). Performing a similar set of computations, we obtain the following inequality
+    \[  \Big| \frac{ nx }{ 1 + n^{4} x^{2} }  \Big| \leq \frac{ n | x  |  }{  |  1 + n^{4} x^{2} |  } \leq \frac{ n | x  |  }{ 2 n^{2} |  x  |  } \leq   \frac{ 1 }{ 2n } \]
+    for any \( x \in (0,\infty ) \). Note that the series on the right-hand side of the above inequality diverges because it is a harmonic series. Hence, it follows from the Weierstrass M-Test that the series does NOT converge uniformly on the interval \( (0,\infty ) \). 
+\end{proof}
+
+
+\end{document}
+

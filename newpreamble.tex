@@ -133,9 +133,9 @@
 \declaretheoremstyle[
     headfont=\bfseries\sffamily, bodyfont=\normalfont,
     numbered=no,
-    mdframed={
-        rightline=true, topline=false, bottomline=true,
-    },
+    % mdframed={
+    %     rightline=true, topline=false, bottomline=true,
+    % },
     qed=\qedsymbol
 ]{thmproofbox}
 
@@ -181,11 +181,11 @@
                 name = Solution
                 ]{replacementsolution}
 
-\renewenvironment{proof}[1][\proofname]{\vspace{-10pt}\begin{replacementproof}}{\end{replacementproof}}
+\renewenvironment{proof}[1][\proofname]{\vspace{-8pt}\begin{replacementproof}}{\end{replacementproof}}
 
 \newenvironment{solution}
     {
-        \vspace{-10pt}\begin{replacementsolution}
+        \vspace{-8pt}\begin{replacementsolution}
     }
     { 
             \end{replacementsolution}
