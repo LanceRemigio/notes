@@ -1,0 +1,103 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{Extra Credit Problems}
+\author{Lance Remigio}
+\begin{document}
+\maketitle
+
+\begin{problem}
+    Assume \( \alpha: [a,b] \to \R  \) is increasing and \( G : [a,b] \to \R  \) be differentiable with continuous derivative. Prove that 
+    \[  \int_{ a }^{ b }  G  \ d \alpha = \Big[ G(x) \alpha(x) \Big]_{a}^{b} - \int_{ a }^{ b }  \alpha  \ d G. \tag{*} \]
+\end{problem}
+\begin{proof}
+    First, observe that since \( \alpha:[a,b] \to \R   \) is increasing and \( x  \) is an increasing and continuous function, we have that \( \alpha \in R[a,b] \) by Theorem 6.9 (in Rudin). Since \( G:[a,b] \to \R    \) is differentiable and its derivative \( G'  \) is continuous, it follows that \( G' \in R[a,b] \) by Theorem 6.8 (in Rudin). As a consequence, both \( G' \) and \( \alpha \) are bounded on \( [a,b] \). Hence, it follows that from the product of two integrable functions that \( \alpha G' \in R[a,b]  \), and so  
+    \[  \int_{ a }^{ b }  \alpha(x) G'(x) \  dx = \int_{ a }^{ b }  \alpha  \ dG  \  \text{exists.}  \tag{1} \]
+   Also, since \( G  \) is differentiable, we have that \( G  \) is continuous on \( [a,b] \). This means that, with respect to the integrator \( \alpha  \) on \( [a,b] \), we have \( G \in {R}_{\alpha}[a,b] \). Hence, we have  
+   \[ \int_{ a }^{ b }  G  \ d \alpha \  \text{exists}. \tag{2} \]
+
+    From (1), we know that for any \( r > 0  \), we can find a partition \( {P}_{1} = \{ {x}_{0}, {x}_{1}, \dots, {x}_{n} \}  \) of  \( [a,b] \) such that 
+            \[  U(\alpha G' , P) - L(\alpha G', P ) < r. \]
+    Using this partition and using the fact that \( G  \) is differentiable on \( [a,b] \), it follows from the Mean Value Theorem that for all \( 1 \leq i \leq n  \), there exists a \( {t}_{i} \in ({x}_{i-1}, {x}_{i}) \) such that 
+    \[  G'({t}_{i}) = \frac{ G({x}_{i}) - G({x}_{i-1}) }{ \Delta {x}_{i} } \implies G'({t}_{i}) \Delta {x}_{i} = G({x}_{i}) - G({x}_{i-1}). \tag{3} \]
+    As a step towards showing (*), we first need to show that 
+    \[  \sum_{ i=1  }^{ n } \alpha({x}_{i}) G'({t}_{i}) \Delta {x}_{i} + \sum_{ i=1  }^{ n } G({x}_{i-1}) \Delta {\alpha}_{i} = G(b) \alpha(b) - G(a) \alpha(a). \tag{**}  \]
+Indeed, note that 
+    \[  \sum_{ i=1  }^{ n } [G \alpha({x}_{i}) - G \alpha({x}_{i-1})] = G(b) \alpha(b) - G(a) \alpha(a). \]
+    and so from (3), we obtain
+    \begin{align*}
+        &\sum_{ i=1  }^{ n } [G({x}_{i}) \alpha ({x}_{i}) - G({x}_{i-1}) \alpha({x}_{i-1})] \\ 
+                                                                                          &= \sum_{ i=1  }^{ n } [ G({x}_{i}) \alpha({x}_{i}) - G({x}_{i-1}) \alpha({x}_{i-1}) + G({x}_{i-1}) \alpha({x}_{i}) - G({x}_{i-1}) \alpha({x}_{i})] \\
+                                                                                          &= \sum_{ i=1  }^{ n } \big[\alpha({x}_{i}) [G({x}_{i}) - G({x}_{i-1})] + G({x}_{i-1}) [\alpha({x}_{i}) - \alpha({x}_{i-1})]\big] \\
+                                                                                          &= \sum_{ i=1  }^{ n } \alpha({x}_{i}) [G({x}_{i}) - G({x}_{i-1})] + \sum_{ i=1  }^{ n } G({x}_{i-1}) [\alpha({x}_{i}) - \alpha({x}_{i-1})] \\
+                                                                                          &= \sum_{ i=1  }^{ n } \alpha({x}_{i}) G'({t}_{i}) \Delta {x}_{i} + \sum_{ i=1  }^{ n } G({x}_{i-1}) \Delta \alpha_{i}
+    \end{align*}
+     Hence, we see that (**) is satisfied. Next, we will show that the following equations hold:
+     \[ \sum_{ i=1  }^{ n } G({x}_{i-1}) \Delta {\alpha}_{i} = \int_{ a }^{ b }  G \ d \alpha. \tag{4}  \]
+    and
+    \[  \sum_{ i=1  }^{ n } \alpha({x}_{i}) G'({t}_{i}) \Delta {x}_{i} = \int_{ a }^{ b }  \alpha(x) G'(x) \ dx \tag{5} \]
+Note that the first equation follows from the fact that
+    \[  L(G, \alpha, Q) \leq \sum_{ i=1  }^{ n } G({x}_{i-1}) \Delta {\alpha}_{i} \leq U(G, \alpha, Q)  \]
+    for any \( Q \in \Pi [a,b] \).
+      Taking the supremum and infimum of the respective sides of the inequality above over all partitions in \( [a,b] \), we have 
+     \[  L(G, \alpha) \leq \sum_{ i=1  }^{ n } G({x}_{i-1}) \Delta {\alpha}_{i} \leq U(G, \alpha).  \]
+     Since \( G \in {R}_{\alpha}[a,b] \), we obtain
+     \[  \sum_{ i=1  }^{ n } G({x}_{i-1}) \Delta {\alpha}_{i} = \int_{ a }^{ b }  G  \ d \alpha.   \]
+
+Now, our goal is to show that
+\[  \sum_{ i=1  }^{ n } \alpha({x}_{i}) G'({t}_{i}) \Delta {x}_{i} = \int_{ a }^{ b } \alpha(x) G'(x) \ dx.  \]
+ It suffices to show that for any \( \epsilon > 0  \)
+\[  \Big| \sum_{ i=1  }^{ n } \alpha({x}_{i}) G'({t}_{i}) \Delta {x}_{i} - \int_{ a }^{ b }  \alpha(x) G'(x) \ dx  \Big|  < \epsilon. \]
+Let \( \epsilon > 0  \) be given.
+Note that \( \alpha \in R[a,b] \) implies that there exists a \( {P}_{2} \in \Pi[a,b] \) such that   
+\[  U(\alpha,  {P}_{2}) - L(\alpha, {P}_{2}) < \frac{ \epsilon }{ 2 M  }. \]
+Choose \( \hat{P} = {P}_{1} \cup {P}_{2} \).
+ Also, since \( {t}_{i} \in [{x}_{i-1}, {x}_{i}] \) for all \( 1 \leq i \leq n  \), we have (by Theorem 6.7) 
+\[  \Big| \sum_{ i=1  }^{ n } \alpha({t}_{i}) G'({t}_{i}) \Delta {x}_{i} - \int_{ a }^{ b }  \alpha(x) G'(x) \ dx \Big| < \frac{ \epsilon }{ 2 }. \]
+Now, all that is left to show is that 
+\[ \Big| \sum_{ i=1  }^{ n  } \alpha({t}_{i}) G'({t}_{i}) \Delta {x}_{i} - \sum_{ i=1  }^{ n } \alpha({x}_{i}) G'({t}_{i}) \Big| < \frac{ \epsilon }{ 2 }.   \]
+Since \( G'  \) is bounded on \( [a,b] \), there exists an \( M > 0  \) such that \( | G'(x) | \leq M  \) for all \( x \in [a,b] \).  Then using \( \hat{P} \) as our partition, we write
+\begin{align*}
+    \Big| \sum_{ i=1  }^{ n } \alpha({x}_{i}) G'({t}_{i}) \Delta {x}_{i} - \sum_{ i=1  }^{ n } \alpha({t}_{i}) G'({t}_{i}) \Delta {x}_{i} \Big|  &= \Big| \sum_{ i=1  }^{ n } G'({t}_{i}) [\alpha({x}_{i}) - \alpha({t}_{i})] \Delta {x}_{i} \Big|  \\
+                                                                                                                                                 &\leq \sum_{ i=1  }^{ n } | G'({t}_{i}) | | \alpha({x}_{i})  - \alpha({t}_{i})  | \Delta {x}_{i} \\
+                                                                                                                                                 &\leq M \sum_{ i=1  }^{ n } | \alpha({x}_{i}) - \alpha({t}_{i}) | \Delta {x}_{i} \\
+                                                                                                                                                 &\leq M \sum_{ i=1  }^{ n } \Big[ \sup_{{I}_{i}} \alpha - \inf_{{I}_{i}} \alpha  \Big] \Delta {x}_{i} \\
+                                                                                                                                                 &= M (U(\alpha, \hat{P}) - L(\alpha, \hat{P})) \\
+                                                                                                                                                 &< M \cdot \frac{ \epsilon }{ 2 M  } = \frac{ \epsilon }{ 2 }.
+\end{align*}
+where \( {I}_{i} = [{x}_{i-1}, {x}_{i}] \) and so we conclude that
+\[  \Big| \sum_{ i=1  }^{ n } \alpha({x}_{i}) G'({t}_{i}) \Delta {x}_{i} - \sum_{ i=1  }^{ n } \alpha({t}_{i}) G'({t}_{i}) \Delta {x}_{i}  \Big|  < \frac{ \epsilon }{ 2 }. \]
+Using the triangle inequality, we have 
+\begin{align*}
+    \Big| \sum_{ i=1  }^{ n } \alpha({x}_{i}) G'({t}_{i}) \Delta {x}_{i} - \int_{ a }^{ b }  \alpha(x) G'(x) \ dx  \Big| &\leq \Big| \sum_{ i=1  }^{ n } \alpha({x}_{i}) G'({t}_{i}) \Delta {x}_{i} - \sum_{ i=1  }^{ n } \alpha({t}_{i}) G'({t}_{i}) \Delta {}_{i} \Big| \\  &+ \Big| \sum_{ i=1  }^{ n } \alpha({t}_{i}) G'({t}_{i}) - \int_{ a }^{ b }  \alpha(x) G'(x) \ dx  \Big|  \\
+                                                                                                                         &< \frac{ \epsilon }{ 2 }  + \frac{ \epsilon }{ 2 } = \epsilon.
+\end{align*}
+Thus, we have 
+\[  \sum_{ i=1  }^{ n } \alpha({x}_{i}) G'({t}_{i}) \Delta {x}_{i} = \int_{ a }^{ b }  \alpha(x) G'(x) \ dx  \]
+and so we can conclude that 
+
+\begin{align*}
+&\int_{ a }^{ b }  \alpha(x) G'(x) \ dx + \int_{ a }^{ b }  G  \ d \alpha = \Big[ G(x) \alpha(x) \Big]_{a}^{b} \\ 
+&\implies \int_{ a }^{ b }  G  \ d \alpha = \Big[G(x) \alpha(x) \Big]_{a}^{b} - \int_{ a }^{ b }  \alpha(x) G'(x) \ dx \\
+&\implies \int_{ a }^{ b } G \ d \alpha = \Big[G(x) \alpha(x)\Big]_{a}^{b} - \int_{ a }^{ b }  \alpha  \ d G
+\end{align*}
+which is our desired result.
+\end{proof}
+
+\begin{problem}
+    Define \( f(x) = \int_{ x }^{ x + 1  }  \sin t^{2} \ dt  \). 
+    \begin{enumerate}
+        \item[(2-1)] Prove that \( | f(x)  |  < \frac{ 1 }{ x }   \) if \( x > 0  \).
+        \item[(2-2)] Prove that 
+            \[ 2x f(x) = \cos (x^{2}) - \cos ((x+1)^{2}) + r(x)  \]
+            where \( | r(x) |  < \frac{ c  }{  x  }   \) and \( c  \) is constant.
+        \item[(2-3)] Does \( \displaystyle \int_{ 0 }^{  \infty   }  \sin (t^{2}) \ dt  \) converge? 
+    \end{enumerate}
+\end{problem}
+
+\begin{enumerate}
+    \item[(2-1)]
+\end{enumerate}
+
+
+\end{document}
+

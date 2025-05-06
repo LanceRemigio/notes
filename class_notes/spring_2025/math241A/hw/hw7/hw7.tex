@@ -1,0 +1,303 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{Homework 7}
+\author{Lance Remigio}
+
+\begin{document}
+\maketitle
+
+\begin{problem}
+   Let \( (V, \|\cdot\|_V ) \) be a finite dimensional normed space.  
+   \begin{enumerate}
+       \item[(i)] Let \( W  \) be a subspace of \( V  \) such that \( \dim(W) < \dim(V) \). Let \( f: W \to \F  \) be a linear functional.
+        \item[(ii)] Let \( v \in V \setminus  \{ 0  \}  \). Show that there is \( f \in V^{*} \) such that \( f(v) = 1  \) and \( \|f \| = \| v \| \).
+   \end{enumerate}
+\end{problem}
+\begin{proof}
+    \textit{(i)} Since \( V  \) is finite dimensional and \( f  \) is a linear functional, it follows that \( f  \) is also bounded. That is, \( f  \) is a continuous linear functional. Hence, for any \( {v}_{n} \to v  \), we have \( f({v}_{n}) \to f(v)  \). So, define a functional \( \tilde{f}: V \to \F  \) by
+    \[  \tilde{f}(v) = \lim_{ n \to \infty  } f({v}_{n}). \]
+    It follows from the algebraic properties of the limit and the linearity of \( f  \) that \( \tilde{f} \) is also linear. Indeed, for any \( x , y \in V  \) such that \( {x}_{n} \to x  \) and \( {y}_{n} \to y  \) with \( \alpha \in \F  \), we have 
+    \begin{align*}
+        \tilde{f}(x  + \alpha y ) &= \lim_{ n \to \infty  } f({x}_{n} + \alpha {y}_{n}) \\
+                                  &= \lim_{ n \to \infty  } [ f({x}_{n}) + \alpha f({y}_{n}) ] \tag{\( f \) is linear}  \\
+                                  &= \lim_{ n \to \infty  }  f({x}_{n}) + \alpha \lim_{ n \to \infty  }  f({y}_{n}) \tag{Algebraic Limit Theorem} \\
+                                  &= \tilde{f}(x) + \alpha \tilde{x}(y).
+    \end{align*}
+
+      
+\end{proof}
+
+\begin{proof}
+\textit{(ii)} Using the linear functional \( f  \) we constructed from part (i), it follows from its linearity that for every \( v \in V \setminus  \{  0  \}  \), we have 
+\begin{align*}
+     \Big\| f \Big(  \frac{ v  }{  \| f(v) \| }  \Big) \Big\| &= \Big\| f \Big(  \frac{ v  }{  \|f(v)\| }  \Big)\Big\|   \\
+                                                   &= \Big\| \frac{ 1  }{  \|f(v)\| }  f(v) \Big\| \\
+                                                   &= \frac{ 1  }{ \|f(v)\| }  \cdot \|f(v)\| \\
+                                                   &= 1.
+\end{align*}
+So, define \( \hat{f}: V \to \F  \) by
+\[  \hat{f}(v) = \Big\| f \Big(  \frac{  v  }{  \| f(v) \| }  \Big)\Big\| = 1. \]
+Now, our goal is to show that \( \|\hat{f}\| = \|v \| \). Clearly, we see that \( \hat{f} \) is bounded and so 
+\[  \|\hat{f}(v)\| \leq \|\hat{f}\| \|v \| = 1 \cdot \|v\| = \|v\|. \]
+Taking the supremum of the left-hand side above over all \( v  \) such that \( \|v \| = 1  \), we have
+\[  \|\hat{f}\| \leq \|v\|.  \]
+Now, we want to show that \( \|\hat{f}\| \geq \|v \| \). Indeed, we have
+\begin{align*}
+    \|\hat{f}\| = \sup_{\|v\| = 1} \|\hat{f}(v)\| &\geq \|\hat{f}(v)\|  \\ 
+                                                  &= \Big\| \|v \| \hat{f}(v) \Big\| \\
+                                                  &= \|v \| \| \hat{f}(v) \| \\
+                                                  &= \|v\|. 
+\end{align*}
+Hence, we conclude that \( \|\hat{f}\| = \|v\| \).
+\end{proof}
+
+\begin{problem}
+    Let \( (V , \|\cdot\|_V ) \) and \( (W, \|\cdot\|_W ) \) be normed spaces. Let \( B(V,W) = \{ T: V \to W  : T \ \text{is bounded and linear} \}.   \)
+    We proved that \( B(V,W) \) is a normed space. Assume that \( B(V,W) \) is Banach. The goal of this exercise is to show \( B(V,W) \) is a Banach space.
+\end{problem}
+\begin{enumerate}
+    \item[(i)] Let \( ({T}_{n}) \) be a Cauchy sequence in \( B(V,W) \) is a Banach Space.
+        \begin{proof}
+        Suppose \( ({T}_{n}) \) is a Cauchy sequence in \( B(V,W) \). That is, for \( n,m \to \infty   \), we have
+        \[  \|{T}_{n} - {T}_{m} \| \to 0. \] 
+        Our goal is to show that \( ({T}_{n}v ) \) is convergent in \( W  \). It suffices to show that Cauchy in \( W \) since \( W  \) is a Banach normed space; that is, we need to show that 
+        \[  \|{T}_{n} v - {T}_{m}v \|_W \to 0   \]
+        as \( n,m \to \infty   \). Note that for all \( n \in \N \), \( {T}_{n} \) is bounded since \( ({T}_{n})   \) is a sequence in \( B(V,W) \). Hence, we have 
+        \[ 0 \leq \|({T}_{n} - {T}_{m})(v) \|_{W} \leq \|{T}_{n} - {T}_{m}\| \|v\|_{V} \to 0     \]
+        as \( n,m \to \infty   \). Hence, we have that \( \|({T}_{n} - {T}_{m})(v)\|_W \to 0  \) as \( n, m \to \infty   \). Thus, \( ({T}_{n}v ) \) is Cauchy in \( W  \) which is our desired result.
+        \end{proof}
+    \item[(ii)] Use (i) to define \( T: V \to W  \) and show that \( T  \) is linear.
+        \begin{proof} Define \( T: V \to W  \) by  
+        \[  T(v) = \lim_{ n \to \infty } {T}_{n}(v).  \]
+        We will show that \( T  \) is linear. Indeed, we see that for any \( x,y \in V  \) and \( \alpha \in \F  \), we have
+        \begin{align*}
+            T(x + \alpha y) &= \lim_{ n \to \infty  }  {T}_{n}(x + \alpha y ) \\
+                            &= \lim_{ n \to \infty  }  [{T}_{n}(x) + \alpha {T}_{n}(y) ] \\
+                            &= \lim_{ n \to \infty  }  {T}_{n}(x) + \alpha \lim_{ n \to \infty  }  {T}_{n}(y) \\
+                            &= T(x) + \alpha T(y).
+        \end{align*}
+        \end{proof}
+    \item[(iii)] Prove that for large \( n  \), \( {T}_{n} - T \in B(V,W)  \) and \( \|{T}_{n} - T \| \to  0  \) as \( n \to \infty  \).
+        \begin{proof}
+            Note that \( {T}_{n} - {T}_{m} \in B(V,W) \). Using the continuity of the norm and that \( \|{T}_{n} - {T}_{m}\| \to 0  \), we have
+            \begin{align*}
+                \|({T}_{n} - T)v \|_W &= \| {T}_{n}v - \lim_{ m \to \infty  }  {T}_{m}v \|_W \\ 
+                                    &= \lim_{ m \to \infty  }  \|({T}_{n} - {T}_{m}) v \|_W  \\
+                                    &\leq \Big( \lim_{ m \to \infty  }  \|{T}_{n} - {T}_{m} \| \Big) \cdot \|v\|_V.
+        \end{align*}
+        Dividing by \( \|v\|_V \) (assuming that \( v \neq 0  \)) and taking the supremum of the left-hand side of the inequality, 
+        \[  \|{T}_{n} - T \| \leq \lim_{ m \to \infty  }  \|{T}_{n} - {T}_{m}\| \to 0.   \]
+        Hence, \( \|{T}_{n} - T \| \to 0  \). Using the fact that \( \|\cdot\|  \) is continuous and \( {T}_{m}(v) \to T(v) \), it follows that for some \( R > 0  \)
+        \begin{align*}
+            &\|({T}_{n} - {T}_{m}) v \|_W  \leq R \|v\|_V\\
+            &\implies \|({T}_{n} - T ) v \|_W \leq R \|v\|_V.
+        \end{align*}
+        for all \( v \in V  \). Hence, \( {T}_{n} - T \in B(V,W) \).
+        
+        \end{proof}
+    \item[(iv)] Prove that \( T \in B(V,W) \) and conclude that \( B(V,W) \) is complete.
+    \begin{proof}
+    Since \( {T}_{n}  \) for all \( n \in \N  \) is bounded, we can find \( {C}_{1} > 0  \) such that   
+    \[  \|{T}_{n}v\|_W \leq {C}_{1} \|v\|_V \tag{1} \]
+    Moreover, \( T - {T }_{n}  \) is bounded from part (iii), so we can find a 
+    \( {C}_{2} > 0  \) such that 
+    \[  \| (T - {T}_{n}) v\|_W \leq {C}_{2} \|v\|_V. \]
+    Using (1) and (2), we have
+    \begin{align*}
+        \|T(v)\|_W &= \|(T - {T}_{n} + {T}_{n})v \|_W \\
+                   &= \|(T - {T}_{n})v + {T}_{n}v\|_W \\
+                   &\leq \|(T -{T}_{n})v \|_W + \|{T}_{n}v \|_W \\
+                   &\leq {C}_{2} \|v\|_V + {C}_{1} \|v\|_V \\
+                   &= ({C}_{1} + {C}_{2}) \|v\|_V
+    \end{align*}
+    where \( C = {C}_{1} + {C}_{2} \) is our desired constant.
+    \end{proof}
+\end{enumerate}
+
+\begin{problem}
+    Let \( p > 1  \). Prove that \( ((\ell^{r})', \|\cdot\|) \) is isomorphic to \( (\ell^{q}, \|\cdot\|_q) \) where \( q  \) is such that \( \frac{ 1 }{ p  }  + \frac{ 1 }{ q }  = 1  \).
+\end{problem}
+\begin{proof}
+Using the Schauder basis for \( \ell^{p} \) is \( (e^{(k)}) \) where \( e^{(k)} = ({\delta}_{kj}) \). Since \( x \in \ell^{p} \), we have   
+\[  x = \sum_{ k=1  }^{ \infty  } {x}_{k} e^{(k)}.   \]
+Let \( f \in (\ell^{p})' \). Since \( f  \) is linear and bounded, we have 
+\[  f(x) = \sum_{ k=1  }^{ \infty  } {x}_{k} {\alpha}_{k} \tag{1}  \]
+where \( {\alpha}_{k} =  f(e^{(k)}) \). Since \( \frac{ 1 }{ p  }  + \frac{ 1 }{ q  }  = 1  \) and define
+\[  {x}_{k}^{(n)} = 
+\begin{cases}
+    | {\alpha}_{k}  |^{1} / {\alpha}_{k} &\text{if} \ k \leq n \ \text{and} \ {\alpha}_{k} \neq 0 \\
+    0 &\text{if} \ k > n \ \text{or} \ {\alpha}_{k} = 0 
+\end{cases} \]
+Using (1) and our expression above, we have 
+\[  f({x}_{n}) = \sum_{ k=1  }^{ \infty  } {x}_{k}^{(n)} {\alpha}_{k} = \sum_{ k=1  }^{ n  } | {\alpha}_{k} |^{q}. \]
+Furthermore, since \( (q-1)p = q  \), we have 
+\begin{align*}
+    f({x}_{n}) \leq \|f\| \|{x}_{n}\| &= \|f\| \Big(  \sum_{ k=1  }^{ n  } | {x}_{k}^{(n)}  |^{p} \Big)^{1/p} \\
+               &= \|f\| \Big(  \sum_{ k=1  }^{ n  } | {\alpha}_{k} |^{(q-1)p} \Big)^{1/p} \\
+               &= \|f\| \Big(  \sum_{ k=1  }^{ n  } | {\alpha}_{k} |^{q} \Big)^{1/p}.
+\end{align*}
+Hence, we have
+\[  f({x}_{n}) = \sum_{ k=1  }^{ n } | {\alpha}_{k} |^{q} \leq \|f \| \Big(  \sum_{ k=1  }^{ n } | {\alpha}_{k} |^{q} \Big)^{1/q} \leq \|f\|. \]
+
+Letting \( n \to \infty   \), we obtain 
+\[  \Big(  \sum_{ k=1  }^{ n } | {\alpha}_{k} |^{1/q} \Big) \leq \|f\|. \tag{*} \]
+Thus, \( ({\alpha}_{k}) \in \ell^{q} \). 
+
+To obtain the other inequality, observe that for any \( b = ({\beta}_{k}) \in \ell^{q} \), we associate a bounded linear functional \( g  \) on \( \ell^{p} \). Hence, we may define \( g  \) on \( \ell^{p} \) by setting
+\[  g(x) = \sum_{ k=1  }^{ \infty  } {x}_{k} {\beta}_{k} \]
+where \( x = ({x}_{k}) \) in \( \ell^{p} \). Since \( g  \) is linear and bounded (which follows from applying the Holder's Inequality on (1)), it follows that \( g \in (\ell^{p})' \). From (1) and the Holder's Inequality, we have 
+\begin{align*}
+    | f(x) |  = \Big| \sum_{ k=1  }^{ \infty  } {x}_{k} {\alpha}_{k } \Big|  &\leq  \Big(  \sum_{ k=1  }^{ \infty  } | {\alpha}_{k} |^{p} \Big)^{1/p} \Big(  \sum_{ k=1  }^{ \infty  } | {\alpha}_{k} | \Big)^{1/q} \\
+                                                                             &= \|x\| \Big(  \sum_{ k=1  }^{ \infty  } | {\alpha}_{k} |^{q} \Big)^{1/q}  
+\end{align*}
+and so by taking the supremum over all \( x  \) such that \( \|x\| = 1  \), we have
+\[  \|f\| \leq \Big(  \sum_{ k=1  }^{ \infty  } | {\alpha}_{k} |^{q} \Big)^{1/q}. \tag{**} \]
+Using (*) and (**), we can conclude that 
+\[  \|f\| = \|\alpha\|_q \]
+where \( \alpha = ({\alpha}_{k}) \) and \( {\alpha}_{k} = f(e^{(k)}) \). Moreover, the mapping of \( (\ell^{p})' \) onto \( \ell^{q} \) defined by \( f \mapsto \alpha \) is linear and bijective, so it follows that \( \ell^{q}  \) and \( (\ell^{p})' \) are isomorphic.
+\end{proof}
+
+
+\begin{problem}
+    Let \( V  \) be a vector space.
+\end{problem}
+\begin{enumerate}
+    \item[(i)] Let \( \beta  \) be a basis for \( V  \). Show that for each \( b \in \beta  \) there is \( {f}_{b} \in V^{*}  \) such that \( {f}_{b}(b) = 1  \).
+        \begin{proof}
+        We will consider two different cases. Suppose \( V  \) is finite dimensional and so denote \( \text{dim}(V) = n  \). Then \( \beta  \) is finite and denote \( \beta = \{ {x}_{1}, {x}_{2}, \dots , {x}_{n} \}  \). Since \( \beta  \) is a basis, we know that for any \( x \in V  \)
+        \[  x = \sum_{ i=1  }^{ n } {\alpha}_{i} {x}_{i} \]
+        for some \( {\alpha}_{i} \in \F   \) for all \( 1 \leq i \leq n  \). Note that if we are trying to represent an \( {x}_{i} \) in \( \beta  \), we have
+        \begin{align*}
+        {x}_{i} = \sum_{ i=1  }^{ n } {\alpha}_{i} {x}_{i} = 0 \cdot {x}_{1} + \cdots +  1 \cdot {x}_{i} + \cdots + 0 \cdot {x}_{n}. 
+        \end{align*}
+        Hence, for each \( 1 \leq i \leq n  \) we can define a map \( f: V \to \F  \) such that \( {f}_{{x}_{i}}({x}_{i}) = 1  \) for each \( 1 \leq i \leq n  \). More generally, for any \( i \in \N \) where \( {x}_{i} \in \beta  \), we have \( {f}_{{x}_{i}}({x}_{i}) = 1  \).  
+        \end{proof}
+    \item[(ii)] Let \( v \in V \setminus  \{ 0  \}  \). Show that there is \( f \in V^{*} \) such that \( f(v) \neq 0  \).
+        \begin{proof}
+        Let \( v \in V \setminus \{ 0  \}  \). Since \( v = 1 \cdot v  \), we can define a functional \( f: V \to \F  \), we have \( f(v) = 1 \neq 0  \). Clearly, this is linear. 
+    \end{proof}
+    \item[(iii)] Use (ii) to prove the Canonical map \( C: V \to V^{**} \) is injective.
+        \begin{proof}
+        Suppose \( v \neq u  \) where \( v, u \in V  \). Our goal is to show that \( C(v) \neq C(u) \). By assumption, we have 
+        \[  v- u \neq 0 \implies \ \exists f \in V^{*} \ \text{such that} \ f(v - u) \neq 0.   \]
+        From the linearity of \( f  \), we have \( f(v) - f(u) \neq 0  \) implies \( f(v) \neq f(u) \). But this tells us that \( C(v) \neq C(u) \).
+        \end{proof}
+\end{enumerate}
+
+\begin{problem}
+    Let \( V  \) be an infinite dimensional normed space. Note that \( V'  \) is a subspace of \( V^{*} \). Prove that there is \( f \in V^{*} \) such that \( f \notin V' \). 
+\end{problem}
+\begin{proof}
+    Since \( V  \) is infinite dimensional, we can find a sequence of vectors \( {v}_{n} \) in \( V  \) such that 
+    \begin{enumerate}
+        \item[(i)] \( \|{v}_{n}\| = 1  \) 
+        \item[(ii)] \( \|{v}_{n} - {v}_{m} \| \geq \frac{ 1 }{ 2 }  \) for all \( n \neq m  \).
+    \end{enumerate}
+    Define \( T({v}_{n}) = \|{v}_{n}\|  \) which is linear. From the above properties, we can find a subsequence \( ({v}_{{n}_{k}}) \) such that \( T({v}_{{n}_{k}}) \) does not converge which means that \( T  \) is an unbounded linear operator. Hence, \( T \notin V' \).
+\end{proof}
+
+
+\begin{problem}
+    Let \( (V, \|\cdot\|) \) be an infinite dimensional normed space.
+\end{problem}
+
+\begin{enumerate}
+    \item[(i)] Assume that \( (V, \|\cdot\|) \) is Banach. Let \( ({v}_{n}) \) be a sequence in \( V  \). Assume that \( \sum_{ n=1  }^{ \infty  } \|{v}_{n}\| \) converges in \( \R  \). Prove that \( \sum_{ n=1  }^{ \infty  }{v}_{n} \) converges in \( V  \). 
+        \begin{proof}
+            Let \( n > m  \). Assume that \( \sum_{ n=1  }^{ \infty  } \| {v}_{n} \| \) converges in \( V  \). Our goal is to show that \(  \sum_{ n=1  }^{ \infty   } {v}_{n} \)
+            converges in \( V  \). Since \( V  \) is a Banach space, it suffices to show that the sequence of partial sums \( {s}_{n} = \sum_{ k=1  }^{ n } {v}_{k} \) is Cauchy in \( V  \). Denote the sequence of partial sums \( (\xi_n )  \) by
+            \[  {\xi}_{n} = \sum_{ k=1  }^{ n } \|{v}_{k}\|. \]
+            Since \( (\xi_n) \) converges by assumption, it follows that \( (\xi_n) \) is a Cauchy sequence in \( V  \). Hence, 
+            \[  | \xi_n - \xi_m  | = \Big| \sum_{ k = m + 1  }^{ n  } \|{v}_{k}\| \Big| \to 0  \ \text{as} \ n,m \to \infty.  \]
+        Now, we can see from the triangle inequality property of \( \|\cdot\|  \) that
+        \begin{align*}
+            0 \leq \| {s}_{n} - {s}_{m} \| \leq \Big\| \sum_{ k= m + 1  }^{ n } {v}_{k}\Big\| 
+                                    \leq \sum_{ k= m + 1  }^{ n } \|{v}_{k }\| 
+                                    = | {\xi}_{n} - {\xi}_{m} | \to 0 \ \text{as} \ n,m \to \infty.
+        \end{align*}
+        Hence, we can see that \( ({s}_{n}) \) is a Cauchy sequence in \( V  \) which is our desired result.
+        \end{proof}
+    \item[(ii)] Let \( V \subseteq  \ell' \) that consists of sequences \( x = ({x}_{n}) \) such that \( {x}_{n} = 0  \) for all \( n \geq N  \) for some \( N  \); that is, \( V  \) consists of all sequences for which all terms are zero after some \( Nth  \) term.
+        Define \( y^{(n)} \in \ell^{\infty } \) by setting 
+\[  {y}_{j}^{(n)} = 
+\begin{cases}
+    \frac{ 1 }{ 2^{n} }  &\text{if} \ j = n \\
+    0 &\text{otherwise}
+\end{cases}. \]
+That is, the \( n \)th term of \( y^{(n)} \) is \( \frac{ 1 }{ 2^{n} }   \) and all other terms are zero. Then \( y^{(n)} \in V  \) for all \( n  \).
+
+Show that 
+\begin{enumerate}
+    \item[(a)] \( \sum_{ n=1  }^{ \infty  } \|y^{(n)}\| < \infty  \).
+        \begin{proof}
+       Let \( n > m  \). Define the sequence of partial sums \( ( \xi^{(n)} )  \) by 
+        \[  \xi^{(n)} = \sum_{ k=1  }^{ n } \|y^{(k)}\|. \]
+        Since \( \R  \) is complete, it suffices to show that \( \xi^{(n)} \) is a Cauchy sequence in \( \R  \). This will show that the infinite series of the terms \( \|y^{(n)}\| \) converges. Note that  
+        \begin{align*}
+           0 \leq | \xi^{(n)} - \xi^{(m)} |  &= \Big| \sum_{ k=1  }^{ n } \|y^{(k)}\| - \sum_{ k=1  }^{ n } \|y^{(k)}\| \Big|  \\
+                                             &= \Big| \|y^{(n)}\| - \|y^{(m)}\| \Big| \\
+                                             &= \|y^{(n)} - y^{(m)} \| \\
+                                             &\leq \| y^{(n)} - y^{(m)} \|_{\infty } \\
+                                             &\leq \frac{ 1 }{ 2^{m} }  \to 0. \tag{\( n,m \to \infty \)} 
+        \end{align*}
+        Hence, we see that \(  ( \xi^{(n)} ) \) is a Cauchy sequence in \( \R  \) which is our desired result.
+
+        \end{proof}
+    \item[(b)] \( \sum_{ n=1  }^{ \infty  } y^{(n)} \) does not converge in \( V  \).
+        \begin{proof}
+        Note that by \( \lim_{ n \to \infty  }  y^{(n)} \neq 0   \); that is, \( y^{(n)} \to \frac{ 1 }{ 2^{i} }   \) for all \( i \in \N \). Clearly, the limit \( \Big(  \frac{ 1 }{ 2^{i} }  \Big)  \) for all \( i \in \N \) is non-zero.  Hence, \( \sum_{ n=1  }^{ \infty  } y^{(n)} \) does not converge.  
+        \end{proof}
+\end{enumerate}
+\end{enumerate}
+
+\begin{problem}[Extra Credit]
+   Let \( (V, \|\cdot\|) \) be a normed space in which for any sequence \( ({v}_{n}) \) in \( V  \)  
+   \[  \sum_{ n=1  }^{ \infty  } \|{v}_{n}\| < \infty \implies \sum_{ n=1  }^{ \infty  } {v}_{n} \ \text{converges in} \ V.  \]
+   Prove that \( (V , \|\cdot\|) \) is Banach.
+\end{problem}
+\begin{proof}
+Suppose that every absolutely convergent series is convergent. Our goal is to show that \( (V, \|\cdot\|) \) is a Banach space. To do this, we will show that every Cauchy sequence in \( V  \) converges. Let \( ({v}_{n}) \) be a Cauchy sequence in \( V  \). From here, our strategy is to find a subsequence \( ({v}_{{n}_{k}}) \) of \( ({v}_{n}) \) such that \( ({v}_{{n}_{k}}) \) converges in \( V  \) (by the {\hyperref[lemma]{lemma}}). By definition, \( ({v}_{n}) \) being Cauchy implies that for all \( \epsilon > 0  \), there exists an \( N \in \N \) such that for any \( n > m > N  \), we have 
+\[  \|{v}_{n} - {v}_{m}\| < \epsilon. \]
+For \( \epsilon = 1 \), there exists an \( {n}_{1} \in \N \) such that for any \( n > m > {n}_{1} \), we have 
+\[  \|{v}_{n} - {v}_{m}\| < 1. \]
+Furthermore, if \( \epsilon = \frac{ 1 }{ 2 }   \). So, there exists an \( {n}_{2} > {n}_{1} \) by the Archimedean Property such that for any \( n > m > {n}_{2} \), we have 
+\[  \|{v}_{n} - {v}_{m}\| < \frac{ 1 }{ 2 }. \] 
+In particular, if \( \epsilon = \frac{ 1 }{ 2^{k-1} }   \) for all \( k \in \N \), then we can find an \( {n}_{k} \in \N \) 
+such that for any \( n > m > {n}_{k}   \), we have 
+\[  \|{v}_{n} - {v}_{m}\| < \frac{ 1 }{ 2^{k-1} }. \]
+Moreover, by the Archimedean Property we can find an \( {n}_{k+1} \in \N    \) such that \( {n}_{k+1} > {n}_{k} > {n}_{k-1} \). Hence, it follows that \( ({v}_{{n}_{k}} ) \) is a subsequence in \( V  \) such that
+\[   0 \leq  \|{v}_{{n}_{k+1}} - {v}_{{n}_{k}} \| < \frac{ 1 }{ 2^{k-1} }. \tag{*} \]
+Note that since \( \sum_{ k=1  }^{ \infty  } \frac{ 1 }{ 2^{k-1} }  \) is a geometric series it follows from the Comparison Test that  
+\[  \sum_{ k=1  }^{ \infty  } \|{v}_{{n}_{k+1}} - {v}_{{n}_{k}} \|   \]
+converges to some \( v \in V  \). By assumption, this tells us that 
+\[  \sum_{ k=1  }^{ \infty  } ({v}_{{n}_{k+1}} - {v}_{{n}_{k}})  \]
+converges to some \( v  \) in \( V  \). Now, observe that 
+\begin{align*}
+    {v}_{{n}_{1}} + \sum_{ j=1  }^{ k - 1  } ({v}_{{n}_{j+1}} - {v}_{{n}_{j}}) &= {v}_{{n}_{1}} + ({v}_{{n}_{2}} - {v}_{{n}_{1}}) + ({v}_{{n}_{3}} - {v}_{{n}_{2}}) + \cdots + ({v}_{{n}_{k}} - {v}_{{n}_{k-1}}) \\ &= {v}_{{n}_{k}}.  
+\end{align*}
+Taking the limit on both sides of the above equality, we see that 
+\begin{align*}
+    \lim_{ k  \to \infty  }  {v}_{{n}_{k}} &= \lim_{ k  \to \infty  }  \Big[ {v}_{{n}_{k }} + \sum_{ j=1  }^{ k - 1  } ({v}_{{n}_{j-1}} - {v}_{{n}_{j}})\Big]  \\
+                                           &= {v}_{{n}_{1}} + \lim_{ k  \to \infty  }  \sum_{ j=1  }^{ k-1  } ({v}_{{n}_{j+1}} - {v}_{{n}_{j}}) \\
+                                           &= {v}_{{n}_{1}} + v.
+\end{align*}
+Thus, we now see that \( ({v}_{{n}_{k}}) \) converges in \( V  \) which tells us that \( ({v}_{n}) \) is a converges in \( V  \). Hence, 
+\end{proof}
+
+\begin{lemma}\label{lemma}
+   Let \( (V, \|\cdot\|) \) be a normed space. Suppose \( ({v}_{n}) \) is a Cauchy sequence, and some subsequence \( ({v}_{{n}_{k}}) \) converges to a point \( v  \) in \( V  \). Then \( ({v}_{n}) \) converges to \( v  \) in \( V  \).   
+\end{lemma}
+\begin{proof}
+Let \( n > m  \). Since \( ({v}_{n}) \) is a Cauchy sequence in \( V  \), it follows that 
+\[  \|{v}_{n} - {v}_{m} \| \to 0  \]
+as \( n,m \to \infty  \). Also, \( ({v}_{{n}_{k}}) \) converges to some \( v \in V  \). So, for \( k \to \infty  \), we have 
+\[  \|{v}_{{n}_{k}} - v \| \to 0. \]
+Using the triangle inequality, it follows that 
+\[  0 \leq \|{v}_{n} - v \| \leq \|{v}_{n} - {v}_{{n}_{k}} \| + \|{v}_{{n}_{k }} - v \| \to 0.  \]
+Using the Squeeze Theorem, we have 
+\[  \|{v}_{n} - v \| \to 0  \]
+as \( n \to \infty  \) and we are done.
+\end{proof}
+
+\end{document}
+

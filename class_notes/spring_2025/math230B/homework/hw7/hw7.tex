@@ -1,0 +1,68 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{Homework 7}
+\author{Lance Remigio}
+\begin{document}
+\maketitle
+
+\begin{problem}
+    Let \( (V, \|\cdot\|) \) be an infinite dimensional normed space.
+\end{problem}
+
+\begin{enumerate}
+    \item[(i)] Assume that \( (V, \|\cdot\|) \) is Banach.
+\end{enumerate}
+
+
+\begin{problem}[Extra Credit]
+   Let \( (V, \|\cdot\|) \) be a normed space in which for any sequence \( ({v}_{n}) \) in \( V  \)  
+   \[  \sum_{ n=1  }^{ \infty  } \|{v}_{n}\| < \infty \implies \sum_{ n=1  }^{ \infty  } {v}_{n} \ \text{converges in} \ V.  \]
+   Prove that \( (V , \|\cdot\|) \) is Banach.
+\end{problem}
+\begin{proof}
+Suppose that every absolutely convergent series is convergent. Our goal is to show that \( (V, \|\cdot\|) \) is a Banach space. To do this, we will show that every Cauchy sequence in \( V  \) converges. Let \( ({v}_{n}) \) be a Cauchy sequence in \( V  \). From here, our strategy is to find a subsequence \( ({v}_{{n}_{k}}) \) of \( ({v}_{n}) \) such that \( ({v}_{{n}_{k}}) \) converges in \( V  \) (by the {\hyperref[lemma]{lemma}}). By definition, \( ({v}_{n}) \) being Cauchy implies that for all \( \epsilon > 0  \), there exists an \( N \in \N \) such that for any \( n > m > N  \), we have 
+\[  \|{v}_{n} - {v}_{m}\| < \epsilon. \]
+For \( \epsilon = 1 \), there exists an \( {n}_{1} \in \N \) such that for any \( n > m > {n}_{1} \), we have 
+\[  \|{v}_{n} - {v}_{m}\| < 1. \]
+Furthermore, if \( \epsilon = \frac{ 1 }{ 2 }   \). So, there exists an \( {n}_{2} > {n}_{1} \) by the Archimedean Property such that for any \( n > m > {n}_{2} \), we have 
+\[  \|{v}_{n} - {v}_{m}\| < \frac{ 1 }{ 2 }. \] 
+In particular, if \( \epsilon = \frac{ 1 }{ 2^{k-1} }   \) for all \( k \in \N \), then we can find an \( {n}_{k} \in \N \) 
+such that for any \( n > m > {n}_{k}   \), we have 
+\[  \|{v}_{n} - {v}_{m}\| < \frac{ 1 }{ 2^{k-1} }. \]
+Moreover, by the Archimedean Property we can find an \( {n}_{k+1} \in \N    \) such that \( {n}_{k+1} > {n}_{k} > {n}_{k-1} \). Hence, it follows that \( ({v}_{{n}_{k}} ) \) is a subsequence in \( V  \) such that
+\[   0 \leq  \|{v}_{{n}_{k+1}} - {v}_{{n}_{k}} \| < \frac{ 1 }{ 2^{k-1} }. \tag{*} \]
+Note that since \( \sum_{ k=1  }^{ \infty  } \frac{ 1 }{ 2^{k-1} }  \) is a geometric series it follows from the Comparison Test that  
+\[  \sum_{ k=1  }^{ \infty  } \|{v}_{{n}_{k+1}} - {v}_{{n}_{k}} \|   \]
+converges to some \( v \in V  \). By assumption, this tells us that 
+\[  \sum_{ k=1  }^{ \infty  } ({v}_{{n}_{k+1}} - {v}_{{n}_{k}})  \]
+converges to some \( v  \) in \( V  \). Now, observe that 
+\begin{align*}
+    {v}_{{n}_{1}} + \sum_{ j=1  }^{ k - 1  } ({v}_{{n}_{j+1}} - {v}_{{n}_{j}}) &= {v}_{{n}_{1}} + ({v}_{{n}_{2}} - {v}_{{n}_{1}}) + ({v}_{{n}_{3}} - {v}_{{n}_{2}}) + \cdots + ({v}_{{n}_{k}} - {v}_{{n}_{k-1}}) \\ &= {v}_{{n}_{k}}.  
+\end{align*}
+Taking the limit on both sides of the above equality, we see that 
+\begin{align*}
+    \lim_{ k  \to \infty  }  {v}_{{n}_{k}} &= \lim_{ k  \to \infty  }  \Big[ {v}_{{n}_{k }} + \sum_{ j=1  }^{ k - 1  } ({v}_{{n}_{j-1}} - {v}_{{n}_{j}})\Big]  \\
+                                           &= {v}_{{n}_{1}} + \lim_{ k  \to \infty  }  \sum_{ j=1  }^{ k-1  } ({v}_{{n}_{j+1}} - {v}_{{n}_{j}}) \\
+                                           &= {v}_{{n}_{1}} + v.
+\end{align*}
+Thus, we now see that \( ({v}_{{n}_{k}}) \) converges in \( V  \) which tells us that \( ({v}_{n}) \) is a converges in \( V  \). Hence, 
+\end{proof}
+
+\begin{lemma}\label{lemma}
+   Let \( (V, \|\cdot\|) \) be a normed space. Suppose \( ({v}_{n}) \) is a Cauchy sequence, and some subsequence \( ({v}_{{n}_{k}}) \) converges to a point \( v  \) in \( V  \). Then \( ({v}_{n}) \) converges to \( v  \) in \( V  \).   
+\end{lemma}
+\begin{proof}
+Let \( n > m  \). Since \( ({v}_{n}) \) is a Cauchy sequence in \( V  \), it follows that 
+\[  \|{v}_{n} - {v}_{m} \| \to 0  \]
+as \( n,m \to \infty  \). Also, \( ({v}_{{n}_{k}}) \) converges to some \( v \in V  \). So, for \( k \to \infty  \), we have 
+\[  \|{v}_{{n}_{k}} - v \| \to 0. \]
+Using the triangle inequality, it follows that 
+\[  0 \leq \|{v}_{n} - v \| \leq \|{v}_{n} - {v}_{{n}_{k}} \| + \|{v}_{{n}_{k }} - v \| \to 0.  \]
+Using the Squeeze Theorem, we have 
+\[  \|{v}_{n} - v \| \to 0  \]
+as \( n \to \infty  \) and we are done.
+\end{proof}
+
+
+\end{document}
+

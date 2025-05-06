@@ -1,9 +1,126 @@
 \documentclass[a4paper]{article}
 \input{../../../../../newpreamble.tex}
-\title{Regular Surface Exercises}
+\title{Exercises}
 \author{Lance Remigio}
 \begin{document}
 \maketitle
+
+\section{Regular Curves}
+
+\begin{problem}
+    Show that it is not possible to parametrize the cissoid of Diocles 
+    \[  x (x^{2} + y^{2}) = 2 R y^{2} \]
+    so that it is regular at the origin.
+\end{problem}
+\begin{proof}
+Let \( x = r \cos \theta   \) and \( y = r \sin \theta  \). Then the cissoid of Diocles can be parametrized via polar coordinates:
+\begin{align*}
+    &x(x^{2} + y^{2}) = 2 R y^{2} \\
+    &\implies r \cos \theta \cdot r^{2} = 2 R \cdot r^{2} \sin^{2} \theta \\
+    &\implies r^{3} \cos \theta = 2 R \cdot r^{2} \sin^{2} \theta \\
+    &\implies r = 2 R \sin \theta \tan \theta. 
+\end{align*}
+Now, for \( - \frac{ \pi }{ 2 }  < \theta < \frac{ \pi  }{ 2  }  \), we obtain
+\begin{align*}
+    x &= 2 R \sin \theta \tan \theta = 2 R \sin^{2} \theta \\
+    y &= 2 R \sin \theta \tan \theta \cdot \sin \theta \\
+      &= 2 R \frac{ \sin^{3} \theta  }{  \cos \theta  }.
+\end{align*}
+Note that if we let \( t = \sin \theta  \), we get 
+\[  q(t) = 2 R (x(t), y(y)) = 2 R \Big(  t^{2}, \frac{ t^{3} }{ \sqrt{ 1 - t^{2} }  }  \Big). \]
+Differentiating, we get
+\begin{align*}
+    \dot{x}(t) &= 4 R t  \\
+    \dot{y}(t) &= 2 R \frac{ 3 t^{2} - 2 t^{4} }{ (1 - t^{3})^{3/2} }.
+\end{align*}
+and so we have 
+\[  | \dot{q}(t) |  = 2 R \sqrt{  4t^{2} + \frac{ 3t^{2} - 2t^{4} }{ (1 - t^{2})^{3/2} }  }. \]
+But note that if \( {t}_{0} = 0  \), then \( | \dot{q}(t) |  = 0  \) which tells us that the cissoid of Diocles is not regular at the origin.
+\end{proof}
+
+
+
+
+\section{Curvature}
+
+\begin{problem}
+    Let \( q(t) = r(t) (\cos t , \sin t ) \). Show that the speed is given by
+    \[  \Big(  \frac{ ds  }{ dt }  \Big)^{2} = \Big(  \frac{ dr }{ dt }  \Big)^{2} + r^{2} \]
+    and the curvature 
+    \[  \kappa = \frac{ \Big| 2 (\frac{ dr }{ dt })^{2} + r^{2} - r \frac{ d^{2} r  }{ d t^{2} }   \Big|  }{  ((\frac{ dr }{ dt } )^{2} + r^{2})^{3/2} }. \]
+\end{problem}
+\begin{proof}
+    To find the curvature of \( q  \), it suffices to use the following formula: 
+    \[  \kappa = \frac{ | \dot{x} \ddot{y} - \ddot{x} \dot{y} |  }{ | \dot{q} |^{3} }. \]
+    Differentiating \( q(t) \) once, we obtain
+    \begin{align*}
+        \dot{q}(t) &= \dot{r} (\cos t , \sin t ) + r(- \sin t , \cos t)  \\
+                   &= (\dot{r} \cos t - r \sin t , \dot{r} \sin t + r \cos t ) 
+    \end{align*}
+    and so the magnitude of \( \dot{q}(t)  \) is given by:
+    \begin{align*}
+        \dot{s}(t) =  |\dot{q}(t)| &= \sqrt{ (\dot{r} \cos t - r \sin t)^{2} + (\dot{r} \sin t + r \cos t )^{2} }  \\
+                       &= \sqrt{ \dot{r}^{2} \cos^{2}t - 2 r \dot{r} \sin t \cos t + 2 r \dot{r} \sin t \cos t + r^{2} \sin^{2}t  + \dot{r}^{2} \sin^{2} t + r^{2} \cos^{2}t  } \\
+                       &= \sqrt{ \dot{r}^{2} + r^{2} }.
+    \end{align*}
+    But this implies that 
+    \[  |\dot{q}(t)|^{2} = \dot{r}^{2} + r^{2}. \]
+    Now, notice that 
+    \begin{align*}
+        \dot{x} \ddot{y} &= (\dot{r} \cos t - r \sin t )(2 \dot{r} \cos t + (\ddot{r} - r)\sin t) \\
+                         &= 2 \dot{r}^{2} + \dot{r} \ddot{r} \sin t \cos t - \dot{r} r \sin t \cos t - 2 \dot{r} r \sin t \cos t - r \ddot{r} \sin^{2}t + r^{2} \sin^{2} t
+    \end{align*}
+    and
+    \begin{align*}
+        \ddot{x} \dot{y} &= ((\ddot{r} - r) \cos t - 2 \dot{r} \sin t) (\dot{r} \sin t + r \cos t) \\
+                         &= \ddot{r} \dot{r} \sin t \cos t - \dot{R} r \sin t \cos t - 2 \dot{r}^{2} \sin^{2} t + r \ddot{r} \cos^{2} t - r^{2} \cos^{2}t - 2 \dot{r} r \sin t \cos t. 
+    \end{align*}
+    Subtracting \( \dot{x} \ddot{y}   \) and \( \ddot{x} \dot{y} \), we get that 
+    \[  2 \dot{r}^{2} + r^{2} - r \ddot{r} \]
+    and so the curvature of \( q  \) is just
+    \begin{align*}
+        \kappa &= \frac{ | \dot{x} \ddot{y} - \dot{x} \dot{y} | }{ | \dot{q} |^{3} }  \\
+               &= \frac{ | 2 \dot{r}^{2} + r^{2} - r \ddot{r} |  }{ (\dot{r}^{2} + r^{2})^{3/2} }
+    \end{align*}
+    which is our desired result.
+
+\end{proof}
+
+
+
+\begin{problem}
+    Compute the curvature of the logarithmic spiral
+    \[ a e^{b t} (\cos t , \sin t). \]
+\end{problem}
+\begin{solution}
+Let \( q(t) = a e^{bt} (\cos t, \sin t) \). To compute the curvature of the logarithmic spiral, we first need to differentiate \( q(t)  \) twice. Indeed, we have 
+\begin{align*}
+    \dot{q}(t) &= ab e^{bt } (\cos t, \sin t) + a e^{bt } (-\sin t, \cos t) \\
+               &= ae^{bt } (b \cos t - \sin t, b \sin t + \cos t )
+\end{align*}
+and so 
+\begin{align*}
+    \| \dot{q}(t) \| &= a e^{bt } \sqrt{ (b \cos t  - \sin t )^{2} + (b \sin t + \cos t)^{2} }   \\
+        &= a e^{bt } \sqrt{ b^{2} + 1  }.
+\end{align*}
+Now, differentiating one more time, we get 
+\begin{align*}  \ddot{q}(t) &= ab e^{bt } (-b \sin t - \cos t , b \cos t - \sin t ) + a e^{bt } (-n \sin t - \cos t , b \cos t - \sin t )  \\
+    &= a e^{bt } ((b^{2} - 1) \cos t - 2b \sin t , (b^{2} - 1 ) \sin t + 2b \cos t).
+\end{align*}
+Since curvature is given by the following formula
+\[  \kappa = \frac{ | \dot{x} \ddot{y} - \ddot{x} \dot{y} |  }{ | \dot{q} |^{3}  },  \]
+we can obtain the following 
+\begin{align*}
+    \dot{x} \ddot{y} &= a e^{bt } (b(b^{2} -1)\sin t \cos t + 2 b^{2} \cos^{2} t - (b^{2} - 1) \sin^{2} t - 2b \sin t \cos t  )  \\
+    \dot{y} \ddot{x} &= ae^{bt } (b (b^{2} -1) \sin t \cos t - 2 b^{2} \sin^{2} t + (b^{2} - 1) \cos^{2}t - 2b \sin t \cos t ).
+\end{align*}
+Hence, we have the following
+\[  \dot{x} \ddot{y} - \dot{y} \ddot{x} = a^{2} e^{2bt} (b^{2} + 1) \]
+and so our curvature is just 
+\[  \kappa = \frac{ | \dot{x} \ddot{y} - \dot{y} \ddot{x} |  }{ | \dot{q} |^{3}  }  = \frac{ e^{-bt} }{ a \sqrt{ b^{2} + 1 }  }. \]
+\end{solution}
+
+\section{Regular Surfaces}
 
 \begin{definition}[Regular Surfaces]
     A subset \( S \subseteq \R^{3} \) is a regular surface if, for each \( p \in S  \), there exists a neighborhood \( V  \) in \( \R^{3} \) and a map \( x: U \to V \cap S  \) of an open set \( U \subseteq  \R^{2} \) onto \( V \cap S \subseteq \R^{3}  \) such that 
@@ -36,8 +153,58 @@ Indeed, we have
 Since properties (1)-(3) are satisfied, it follows that \( C  \) is a regular surface.
 \end{proof}
 
+\section{Gauss Map and Fundamental Properties}
 
+\begin{problem}
+    Show that the mean curvature \( H  \) at \( p \in S  \) is given by
+    \[  H = \frac{ 1 }{ \pi }  \int_{ 0 }^{ \pi  }  {k}_{n}(\theta) \ d\theta \tag{*} \] where \( {k}_{n}(\theta) \) is the normal curvature at \( p  \) along a direction making an angle \( \theta  \) with a fixed direction.
+\end{problem}
+\begin{proof}
+Let \( {k}_{1} \) and \( {k}_{2} \) be the maximum normal curvature and minimum normal curvature, respectively. To show (*), it suffices to show that 
+\[  \frac{ 1 }{ \pi  }  \int_{ 0  }^{ \pi  }  {k }_{n}(\theta) \ d\theta = \frac{ {k}_{1} + {k}_{2}  }{ 2  }. \]
+Choose \( \{ {e}_{1}, {e}_{2} \}   \) as our basis for \( {T}_{p}(S) \). Then for any \( v \in {T}_{p}(S) \), we have 
+\[  v = {e}_{1} \cos \theta + {e}_{2} \sin \theta  \]
+where \( \theta  \) is a fixed direction. Using the Second Fundamental Form, we have
+\[  {k}_{n} = {k}_{1} \cos^{2}\theta + {k}_{2} \sin^{2} \theta.  \]
+Hence, we can see that 
+\begin{align*}
+    \frac{ 1 }{ \pi  }  \int_{ 0  }^{ \pi  }  {k }_{n}(\theta) \ d\theta &= \frac{ 1 }{ \pi  }  \int_{ 0 }^{ \pi  } [{k}_{1} \cos^{2} \theta + {k}_{2} \sin^{2} \theta ]  \ d\theta  \\
+                                                                         &= \frac{ 1 }{ \pi  }  \int_{ 0 }^{ \pi  }  {k }_{1} \cos^{2} \theta  \ d \theta + \frac{ 1 }{ \pi  }  \int_{ 0 }^{  \pi  } {k}_{2} \sin^{2} \theta  \ d \theta \\
+                                                                         &= \frac{ {k}_{1}  }{ 2 \pi  }  \int_{ 0 }^{ \pi  }  [1 + \cos 2 \theta] \ d\theta + \frac{ {k}_{2}  }{ 2 \pi  }  \int_{ 0  }^{  \pi  }  [1 - \cos 2 \theta ] \ d \theta \\ 
+                                                                         &=\frac{ {k}_{1} }{ 2 \pi  }  \Big[ \pi + \frac{ 1 }{ 2 } \sin 4 \pi \Big] + \frac{ {k }_{2}  }{  2 \pi  } \Big[\pi - \frac{ 1 }{ 2 } \sin 4 \pi \Big] \\
+                                                                         &= \frac{ {k}_{1} + {k}_{2}  }{  2  } \\
+                                                                         &= H.
+\end{align*}
+Thus, we have 
+\[  H = \frac{ 1 }{ \pi  }  \int_{ 0  }^{  \pi  }  {k}_{n}(\theta) \ d \theta. \]
+\end{proof}
 
+\begin{problem}
+    Show that if \( H \equiv 0  \) on \( S  \) and \( S  \) has no planar points, then the Gauss map \( N : S \to \S^{2} \) has the following property:
+    \[  \langle d {N}_{p} ({w}_{1}) , d {N}_{p} ({w}_{2}) \rangle = - K(p) \langle {w}_{1}  ,  {w}_{2} \rangle \]
+    for all \( p \in S  \) and all \( {w}_{1}, {w}_{2} \in {T}_{p}(S) \).
+\end{problem}
+\begin{proof}
+Note that since \( H \equiv  0  \), then \( {k}_{1} = - {k}_{2} \). Also, since \( S  \) has no planar points \( d {N}_{p} \neq 0  \) for all \( p \in S  \). Choose an orthonormal eigenbasis \( \{ {e}_{1}, {e}_{2} \}  \). Then for \( {w}_{1}, {w}_{2} \in {T}_{p}(S) \), we have 
+\[  {w}_{1} = {e}_{1} \cos \theta + {e}_{2} \sin \theta \tag{1}  \]
+and
+\[  {w}_{2} = {e}_{1} \cos \phi + {e}_{2} \sin \phi. \tag{2} \]
+where \( \phi  \) and \( \theta  \) are angles formed with \( {e}_{1} \). Hence, we have 
+\begin{align*}
+    d {N}_{p} ({w}_{1}) &= {e}_{1} {k}_{1} \cos \theta + {e}_{2} {k}_{2} \sin \theta   \\
+    d {N}_{p} ({w}_{2}) &= {e}_{1} {k}_{1} \cos \phi + {e}_{2} {k}_{2} \sin \phi.
+\end{align*}
+Then we have 
+\begin{align*}
+    - K(p) \langle {w}_{1}  , {w}_{2} \rangle &= - {k}_{1} {k}_{2} \langle {w}_{1} ,  {w}_{2} \rangle  \\
+                                              &=  \langle - {k}_{1} {w}_{1}  , {k}_{2} {w }_{2} \rangle \\
+                                              &= \langle - {k}_{1} [{e}_{1} \cos \theta + {e}_{2} \sin \theta ]  ,  {k}_{2} [ {e}_{1} \cos \phi + {e}_{2} \sin \phi ] \rangle \\
+                                              &= \langle {k}_{2} {e}_{1} \cos \theta + {k}_{2} {e}_{2} \sin \theta ,  {k}_{2} {e}_{1} \cos \phi + {k}_{2} {e}_{2} \sin \phi \rangle \\
+                                              &= \langle d {N}_{p}({w}_{1}) , d {N}_{p}({w}_{2}) \rangle.
+\end{align*}
+Hence, we conclude that 
+\[  \langle d {N}_{p}({w}_{1}) ,  d {N}_{p} ({w}_{2}) \rangle = - K(p) \langle {w}_{1}   ,  {w}_{2} \rangle. \]
+\end{proof}
 
 
 \end{document}

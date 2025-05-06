@@ -1,0 +1,197 @@
+\section{Properties of Spectral Family}
+
+Our goal for this section is to, indeed, prove that our notion of a spectral family \( \mathcal{G} \) introduced in the previous section does have all the properties that we desired for a representation of \( T  \) that was characterized.
+
+To define \( \mathcal{G} \), we will use the following operator
+\[  {T}_{\lambda} = T - \lambda I  \]
+and the positive square root of \( {T}_{\lambda}^{2}  \), which we denote by \( {B}_{\lambda} \); that is,
+\[  {B}_{\lambda} = ({T}_{\lambda}^{2})^{1/2} \]
+as well as 
+\[  {T}_{\lambda}^{+} = \frac{ 1 }{ 2 }  ({B}_{\lambda} - {T}_{\lambda}) \]
+which is denoted as the \textbf{positive part} of \( {T}_{\lambda} \).
+
+\begin{definition}[Spectral Family \( \mathcal{G} \) of \( T  \)]
+    We denote the \textbf{Spectral Family \( \mathcal{G} \) of \( T  \)} by \( \mathcal{G} = ({E}_{\lambda})_{\lambda \in |R } \) where \( {E}_{\lambda}  \) is the projection of \( H  \) onto the null space \( N({T}_{\lambda}^{+}) \) of \( {T}_{\lambda}^{+} \).
+\end{definition}
+
+Our goal for the remaining of this section is to prove that indeed \( \mathcal{G} \) contains all the properties outlined in definition {\hyperref[9.7-1]{9.7-1}}. Consider the following operators 
+\begin{align*}
+    B &= (T^{2})^{1/2} \tag{Postive Square Root of \( T^{2} \)} \\
+    T^{+} &= \frac{ 1 }{ 2 } ( B +T ) \tag{Positive part of \( T  \)} \\
+    T^{-}&= \frac{ 1 }{ 2 }  (B - T ) \tag{Negative part of \( T  \)}
+\end{align*}
+and the projection of \( H  \) onto the null space \( T^{+ } \) which we denote by \( E  \) i.e  
+\[  E: H \to Y = N(T^{+}). \]
+Subtracting and adding the positive and negative part of \( T  \), respectively, we see that 
+\begin{align*}
+    T &= T^{+ } - T^{-} \\
+    B &= T^{+} + T^{-}.
+\end{align*}
+
+
+\begin{lemma}[Operators Related to \( T  \)]\label{9.8-1} 
+    The operators just defined have the following properties 
+    \begin{enumerate}
+        \item[(a)] \( B , T^{+},  \) and \( T^{-} \) are bounded and self-adjoint.
+        \item[(b)] \( B, T^{+},  \) and \( T^{-} \) commute with every bounded linear operator that \( T  \) commutes with; in particular,
+            \[  BT = TB  \ \ T^{+}T = T T^{+} \ \ T^{-} T = T T^{-} \ \ T^{+} T^{-} = T^{-} T^{+}.  \]
+        \item[(c)] \( E  \) commutes with every bounded self-adjoint linear operator that \( T  \) commutes with; in particular, 
+            \[  E T = TE  \ \ \ EB = BE.  \]
+        \item[(d)] Furthermore,
+            \begin{align*}
+                T^{+} T^{-} &= 0  \ \ \ \ T^{-} T^{+} = 0   \\
+                T^{+} E &= E T^{+ } = 0 \ \ \ \  T^{-}E = E T^{-} = T^{-} \\
+                TE  &= - T^{-}  \ \ \  \  T(I  - E ) = T^{+} \\
+                T^{+} &\geq 0  \ \ \ \ T^{-1} \geq 0. 
+            \end{align*}
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] By definition of \( B  \) and \( T  \), it follows immediately that \( B , T^{+} \) and \( T^{-} \) are bounded and self-adjoint. 
+    \item[(b)] Suppose \( T S  = ST  \). Then we have 
+        \[  T^{2} S = T (T S) = T (ST) = (TS)T = (ST)T = S T^{2}  \]
+        Hence, \( T^{2} S = S T^{2} \). From {\hyperref[9.4-2]{9.4-2}}, it also follows that \( BS = SB \) when applied \( T^{2} \). Hence, we have 
+        \[  T^{+}S = \frac{ 1 }{ 2 }  (BS  + TS) = \frac{ 1 }{ 2 }  (SB + ST) = S T^{+}.  \]
+        Similarly, we have 
+        \[  T^{-} S = \frac{ 1 }{ 2 } (BS - TS) = \frac{ 1 }{ 2 }  (SB - ST) = S T^{-}.  \]
+        Hence, we have \( T^{+}S = S T^{+} \) and \( T^{-} S = S T^{-} \).
+    \item[(c)] For every \( x \in H  \), we have \( y  = Ex \in Y = N(T^{+}) \) since \( E  \) is a projection of \( H  \) onto \( Y  \). Also, we have \( E S E x = SE x   \) for all \( x \in H  \); that is, \( ESE = SE \). Since projections are self-adjoint by {\hyperref[9.5-1]{9.5-1}}, we see that \( S  \) is also self-adjoint. Using {\hyperref[(6g)-3.9]{(6g)-3..9}}, we obtain   
+        \[  ES = E^{*} S^{*} = (SE)^{*} = (ESE)^{*} = E^{*} S^{*} E^{*} = ESE = SE. \]
+    \item[(d)] We will prove the following   
+            \begin{align*}
+                T^{+} T^{-} &= 0    &T^{-} T^{+} &= 0 \tag{i}   \\
+                T^{+} E &= E T^{+ } = 0    &T^{-}E &= E T^{-} = T^{-} \tag{ii} \\
+                TE  &= - T^{-}      &T(I  - E ) &= T^{+} \tag{iii} \\
+                T^{+} &\geq 0    &T^{-1} &\geq 0. \tag{iv} 
+            \end{align*}
+            From \( B = (T^{2})^{1/2} \), we have \( B^{2} = T^{2} \). Note that \( BT = TB \) by (a). Hence, we see that 
+            \[  T^{+}T = T^{-}T^{+} = \frac{ 1 }{ 2 } (B - T ) \frac{ 1 }{ 2 }  (B+T) = \frac{ 1 }{ 4 }  (B^{2} + BT - TB - T^{2}) = 0.  \]
+            This gives us (i).
+
+            Next, we prove (ii). By definition of \( E  \), we can see that \( Ex \in N (T^{+}) \) and so \( T^{+ } E x = 0  \) for all \( x \in  H \). Because \( T^{+ }  \) is self-adjoint, we have \( ET^{+} x = T^{+} E x = 0  \) by (a) and (c); that is, we have 
+            \[  E T^{+} = T^{+}E = 0.  \]
+            Moreover, we have \( T^{+} T^{-}x  = 0  \) by (i). Indeed, we have 
+            \[  T^{+}T^{-}x = T^{-}T^{+}x = T^{-}0 = 0. \]
+
+            Next, we prove (iii). Since \( T = T^{+ } - T^{-} \) and (ii), we can see that   
+            \[  TE = (T^{+} - T^{-}) E = T^{+}E - T^{-}E = 0 - T^{-} E = -T^{-}.   \]
+            Using \( T=  T^{+ } + T^{-} \) again, we get
+            \[  T(I - E ) = T - T E = T + T^{-} = T^{+}. \]
+            Finally, we prove (iv). Using \( B = T^{+ } + T^{-} \), part (ii), and {\hyperref[9.3-1]{Theorem 9.3-1}}, we have  
+            \[  T^{+} = B - T^{-} = B - EB = (I - E) B \geq 0  \]
+            where \( I - E \geq 0  \) by {\hyperref[9.5-2]{9.5-2}}.
+\end{enumerate}
+\end{proof}
+
+As our next step in developing the associated spectral family of \( T  \) with \( \lambda  \) as the parameter, we shall replace our notion of \( T, B , T^{+}, T^{-} ,   \) and \( E  \) by \( {T}_{\lambda} = T - \lambda I  \), \( {B}_{\lambda} = ({T}_{\lambda}^{2})^{1/2}  \), and the positive part and negative part of \( T  \) given by
+\begin{align*}
+    {T}_{\lambda}^{+} &= \frac{ 1 }{ 2 }  ({B}_{\lambda} + {T}_{\lambda}) \\
+    {T}_{\lambda}^{-} &= \frac{ 1 }{ 2 }  ({B}_{\lambda} - {T}_{\lambda})
+\end{align*}
+and the projection
+\[  {E}_{\lambda} : H \to {Y}_{\lambda} = N({T}_{\lambda}^{+}) \]
+of \( H \) onto the null space \( {Y}_{\lambda} = N({T}_{\lambda}^{+}) \) of \( {T}_{\lambda}^{+} \). Now, we will restate the lemma we just proved in the following way: 
+
+\begin{lemma}[Operators Related to \( T_{\lambda} \)]\label{9.8-2}
+   The previous lemma remains true if we replace \( T, B , T^{+}, T^{-}, E  \) by \( {T}_{\lambda}, {B}_{\lambda}, {T}_{\lambda}^{+}, {T}_{\lambda}^{-}, {E}_{\lambda} \) where \( {T}_{\lambda} = T - \lambda I  \) and \( \lambda \in \R  \). Moreover, for any real \( \kappa, \lambda , \mu, \nu, \tau  \), the following operators all commute:
+   \begin{align*}  {T}_{\kappa} \ \ \   {B}_{\lambda} \ \ \  {T}_{\mu}^{+} \ \ \  {T}_{\nu}^{-} \ \ \   {E}_{\tau}   \end{align*}
+\end{lemma}
+\begin{proof}
+The first statement follows from the previous lemma. To show the second statement, we observe that \( IS = SI  \) and 
+\[  {T}_{\lambda} = T - \lambda I  = T - \mu I + \mu I - \lambda I  = T - \mu I + (\mu - \lambda)I  = {T}_{\mu} + (\mu - \lambda) I. \]
+Hence, we have 
+\begin{align*}
+    ST = TS &\implies S {T}_{\mu } = {T}_{\mu } S   \\
+            &\implies S  {T}_{\lambda} = {T}_{\lambda} S  \\
+            &\implies S {B}_{\lambda} = {B}_{\lambda} S, S {B}_{\mu } = {B}_{\mu } S  
+\end{align*}
+and etc. For \( S = {T}_{\kappa} \) and so we have \( {T}_{\kappa} {B}_{\lambda} = {B}_{\lambda} {T}_{\kappa}   \) etc.
+\end{proof}
+
+In fact, it can be proven that from the lemma above, we can express \( T  \) in terms of a spectral family \( \mathcal{G} = ({E}_{\lambda}) \) that is unique.
+
+\begin{theorem}[Spectal Family Associated with an Operator]\label{9.8-3}
+    Let \( T : H \to H  \) be a bounded self-adjoint linear operator on a complex Hilbert space \( H  \). Furthermore, let \( {E}_{\lambda}  \) (\( \lambda \in \R  \)) be the projection of \( H  \) onto the null space \( {Y}_{\lambda } = N({T}_{\lambda}^{+}) \) of the positive part \( {T}_{\lambda}^{+}  \) of \( {T}_{\lambda} = T - \lambda I  \). Then \( G = ({E}_{\lambda})_{\lambda \in \R }\) is a spectral family on the interval \( [m,M ] \subseteq \R  \) where \( m  \) and \( M  \) are given by (1) in Section 9.2.
+\end{theorem}
+\begin{proof}
+Our goal is to show that 
+\begin{enumerate}
+    \item[(i)] \( \lambda < \mu \implies {E}_{\lambda} \leq {E}_{\mu } \)
+    \item[(ii)] \( \lambda < m   \implies {E}_{\lambda} =  0 \) 
+    \item[(iii)] \( \lambda \geq M  \implies {E}_{\lambda } =  I \) 
+    \item[(iv)] \( \lambda \geq M  \implies {E}_{\lambda} = I  \)
+    \item[(v)] \( \mu \to \lambda + 0  \implies {E}_{\mu}x \to {E}_{\lambda}x \). 
+\end{enumerate}
+
+To prove (i) through (v), we will use part of {\hyperref[9.8-1]{9.8-1}} formulated for \( {T}_{\lambda}, {T}_{\mu} , {T}_{\lambda}^{+} \) instead of \( T  \), \( T^{+} \); namely,  
+\begin{enumerate}
+    \item[(I)] \( {T}_{\mu }^{+} {T}_{\mu }^{-} = 0  \)
+    \item[(II)] \( {T}_{\lambda} {E}_{\lambda} = - {T}_{\lambda}^{-}  \), \( {T}_{\lambda} (I - {E}_{\lambda}) = {T}_{\lambda}^{+} \), \( {T}_{\mu } {E}_{\mu} \)
+    \item[(III)] \( {T}_{\lambda}^{+} \geq 0  \), \( {T}_{\lambda}^{-} \geq 0  \), \( {T}_{\mu }^{+} \geq 0  \) and \( {T}_{\mu }^{k-} \geq 0  \).
+\end{enumerate}
+
+\begin{enumerate}
+    \item[(i)] Let \( \lambda < \mu  \). Then 
+        \[  {T}_{\lambda} = {T}_{\lambda}^{+} - {T}_{\lambda}^{-} \leq {T}_{\lambda}^{+}  \] because \( -T^{-} \leq 0  \) by (III). Hence, we have  
+        \[  {T}_{\lambda}^{+} - {T}_{\mu } \geq {T}_{\lambda } - {T}_{\mu  } = (\mu  - \lambda ) I \geq 0.  \] 
+    Note that \( {T}_{\lambda}^{+} - {T}_{\mu  } \) is self-adjoint and commutes with \( {T}_{\mu }^{+} \) by {\hyperref[9.8-2]{9.8-2}}, and \( {T}_{\mu }^{+} \geq 0  \) by (III). Using Theorem {\hyperref[9.3-1]{9.3-1}}, we have  
+    \[  {T}_{\mu }^{+} ({T}_{\lambda}^{+} - {T}_{\mu }) = {T}_{\mu }^{+} ({T}_{\lambda}^{+} - {T}_{\mu  }^{+} + {T}_{\mu }^{+}) \geq 0.  \]
+    Here, we have \( {T}_{\mu }^{+} {T}_{\mu}^{-}  = 0 \) by (I). Hence, we have \( {T}_{\mu  }^{+} {T}_{\lambda}^{+} \geq {T}_{\mu }^{+2}  \); that is, for all \( x \in H  \), 
+    \[  \langle {T}_{\mu  }^{+} {T}_{\lambda}^{+} x  , x  \rangle \geq \langle {T}_{\mu }^{+} x  , x  \rangle = \|{T}_{\mu }^{+} x \|^{2} \geq 0.  \]
+    This tell us that \( {T}_{\lambda}^{+} x = 0  \) implies \( {T}_{\mu  }^{+} x = 0  \) for all \( x \in H  \). Thus, \( N({T}_{\lambda}^{+}) \subseteq  N({T}_{\mu }^{+}) \), and so we have \( {E}_{\lambda } \leq {E}_{\mu }  \) by {\hyperref[9.6-1]{9.6-1}}. Here, we have \( \lambda < \mu  \). 
+\item[(ii)] Let \( \lambda < m  \). Suppose for contradiction that \( {E}_{\lambda} \neq 0  \). Then \( {E}_{\lambda}z \neq 0   \) for some \( z \in H  \). We set \( x = {E}_{\lambda}z  \). Then we have
+    \[  {E}_{\lambda} x  = {E}_{\lambda} ({E}_{\lambda} z ) = {E}_{\lambda}^{2} z = x.    \]
+    Without loss of generality, suppose \( \|x\| = 1  \). Hence, we have 
+    \begin{align*}
+        \langle {T}_{\lambda}{E}_{\lambda} x  ,  x  \rangle &= \langle {T}_{\lambda} x  ,  x  \rangle \\
+                                                            &= \langle (T - \lambda I ) x  , x  \rangle \\
+                                                            &= \langle Tx , x  \rangle - \langle \lambda x  ,  x  \rangle \\
+                                                            &= \langle Tx , x  \rangle - \lambda \langle x , x  \rangle \\
+                                                            &= \langle Tx , x  \rangle - \lambda  \tag{\( \|x\| = 1  \)} \\
+                                                            &\geq \inf_{\|\tilde{x}\| = 1 } \langle T \tilde{x} ,  \tilde{x} \rangle - \lambda \\
+                                                            &= m - \lambda > 0. 
+    \end{align*}
+    But note that this contradicts the fact that \( {T}_{\lambda} {E}_{\lambda} = - {T}_{\lambda}^{-} \leq 0  \) from (II) and (III).
+    \item[(iii)] Suppose for contradiction that \( \lambda > M  \) but \( {E}_{\lambda} \neq I  \), so that \( I - {E}_{\lambda} \neq 0  \). Then \( (I - {E}_{\lambda})x = x  \) for some \( x  \) of norm \( \|x\| = 1  \). Hence, we have 
+        \begin{align*}
+            \langle {T}_{\lambda}(I - {E}_{\lambda}) x  ,  x  \rangle &= \langle {T}_{\lambda} x  ,  x  \rangle  \\
+                                                                      &=  \langle {T}_{\lambda} x - {T}_{\lambda} {E}_{\lambda} x    ,  x  \rangle \\
+                                                                      &= \langle {T}_{\lambda} x  ,  x  \rangle - \langle {T}_{\lambda} ({E}_{\lambda} x ) , x  \rangle \\
+                                                                      &= \langle {T}_{\lambda}x  ,  x  \rangle - \langle {T}_{\lambda}(0)  ,  x  \rangle \\
+                                                                      &= \langle {T}_{\lambda} x  ,  x  \rangle \\
+                                                                      &= \langle (T - \lambda I ) x  ,  x  \rangle \\
+                                                                      &= \langle T x  ,  x  \rangle - \lambda \langle x  ,  x  \rangle \\
+                                                                      &= \langle T x  ,  x  \rangle - \lambda \tag{\( \|x\| = 1  \)} \\
+                                                                      &\leq \sup_{\|\tilde{x}\| = 1 } \langle T \tilde{x}  ,  \tilde{x} \rangle - \lambda \\
+                                                                      &= M - \lambda < 0. 
+        \end{align*}
+        But this contradicts \( {T}_{\lambda}(I - {E}_{\lambda} ) = {T}_{\lambda}^{+} \geq 0  \) which is obtained from (II) and (III). Moreover, \( {E}_{M} = I  \) by the continuity from the right.
+    \item[(iv)] With an interval \( \Delta = (\lambda, \mu ] \), we associate the operator  
+        \[  \Delta E = {E}_{\mu } - {E}_{\lambda}. \]
+        Since \( \lambda < \mu   \), we have \( {E}_{\lambda} \leq {E}_{\mu } \) by (i) and so \( {E}_{\lambda}(H) \subseteq  {E}_{\mu  }(H)  \) by {\hyperref[9.6-1]{9.6-1}}. Moreover, \( \Delta E  \) is a projection by {\hyperref[9.6-2]{9.6-2}} and \( \Delta E \geq 0  \) by {\hyperref[9.5-2]{9.5-2}}. Using {\hyperref[9.6-1]{9.6-1}},     
+        \[  {E}_{\mu } \Delta E = {E}_{\mu }^{2} - {E}_{\mu } {E}_{\lambda} = {E}_{\mu } - {E}_{\lambda} = \Delta E \tag{*} \]
+        and
+        \[  (I - {E}_{\lambda}) \Delta E = \Delta E - {E}_{\lambda} ({E}_{\mu  } - {E}_{\lambda}) = \Delta E. \tag{**} \]
+        Since \( \Delta E  \), \( {T}_{\mu  }^{-}  \) and \( {T}_{\lambda}^{+} \) are positive and commute by {\hyperref[9.8-2]{9.8-2}}, we have that \( {T}_{\mu }^{-} \Delta E  \) and \( {T}_{\lambda}^{+} \Delta E  \) are positive by {\hyperref[9.3-1]{9.3-1}}. From (*) and (**), we can see that 
+        \begin{align*}
+            {T}_{\mu } \Delta E  &= {T}_{\mu } {E}_{\mu  } \Delta E = - {T}_{\mu }^{-} \Delta E \leq 0  \\
+            {T}_{\lambda} \Delta E &= {T}_{\lambda} (I - {E}_{\lambda}) \Delta E = {T}_{\lambda}^{+} \Delta E  \geq 0.  
+        \end{align*}
+        This tells us that \( T\Delta E \leq \mu \Delta E  \) and \( T \Delta E \geq \lambda \Delta E  \), respectively. Together, we have 
+        \[ \lambda \Delta E \leq T \Delta E \leq \mu \Delta E \tag{\( \dagger \)}   \]
+        where \( \Delta E = {E}_{\mu  } - {E}_{\lambda} \).
+\end{enumerate}
+
+Now, fix \( \lambda  \) and let \( \mu  \to \lambda  \) form the right in a monotone fashion. Then \( \Delta E x \to P(\lambda) \) by the analogue of Theorem {\hyperref[9.3-3]{9.3-3}} for a decreasing sequence. Here \( P(\lambda) \) is bounded and self-adjoint. Now, since \( \Delta E  \) is idempotent (because it is a projection), we can see that \( P(\lambda) \) is also idempotent. Thus, \( P(\lambda) \) is a projection. Also, \( \lambda P(\lambda) = TP(\lambda) \) by (\( \dagger \)); that is, \( {T}_{\lambda} P(\lambda) = 0  \). Thus, by using (II) and {\hyperref[9.8-2]{[9.8-2]}}, we have 
+\[  {T}_{\lambda}^{+} P(\lambda) = {T}_{\lambda}(I - {E}_{\lambda}) P(\lambda) = (I - {E}_{\lambda}) {T}_{\lambda} P(\lambda) = 0.  \]
+Hence, we have \( {T}_{\lambda}^{+} P(\lambda) x = 0  \) for all \( x \in H  \).  This tell us that \( P(\lambda) x \in N ({T}_{\lambda}^{+}) \). Also, \( {E}_{\lambda} \) is a projection from \( H  \) onto \( N({T}_{\lambda}^{+}) \). As a consequence, we have 
+\[  {E}_{\lambda}P(\lambda) x = P(\lambda) x,  \]
+that is, \( {E}_{\lambda} P(\lambda) = P(\lambda) \). However, if we let \( \mu \to \lambda + 0  \) in (*), then 
+\[  (I - {E}_{\lambda}) P(\lambda) = P(\lambda). \]
+All together, we have \( P(\lambda) = 0  \). Since \( \Delta E x \to P(\lambda) x \), we see that (16) holds and so our Spectral family \( \mathcal{G} \) is continuous from the right.
+\end{proof}  
+\begin{remark}
+   Note that (\( \dagger \)) is a key inequality that we will use in our proof of the spectral representation of \( T  \) in the next section.
+\end{remark}
+

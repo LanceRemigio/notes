@@ -1,0 +1,80 @@
+\section{Spectral Family}
+
+\begin{itemize}
+    \item Recall that our main goal of this chapter is to find a way to represent bounded self-adjoint linear operators on a Hilbert Space in terms of simpler operators which are projections of our Hilbert space. 
+    \item Such representations are called a spectral representations.
+    \item We will do this by associating our linear operator \( T  \) with a spectral family.    
+    \item In this section, we will motivate the use of these spectral families.
+\end{itemize}
+
+Recall that in the finite dimensional case that if we let \( T: H \to H  \) be a self-adjoint linear operator on the unitary space \( H = C^{n} \). Then \( T  \) is bounded and so we can choose a basis for \( H  \) and represent \( T  \) in terms of a Hermitian matrix which we can denote by \( T  \).
+
+Suppose that the matrix that represents \( T  \) consists of distinct eigenvalues which are real by {\hyperref[9.1-1]{9.1-1}}. Furthermore, assume that we have an \( n  \) number of these eigenvalues \( {\lambda}_{1} < {\lambda}_{2} < \dots < {\lambda}_{n} \). This implies that \( T  \) contains an orthonormal set of \( n  \) eigenvectors \( \{ {x}_{1}, {x}_{2}, \dots, {x}_{n} \}  \) 
+where each \( {x}_{j }  \) corresponds to \( {\lambda}_{j} \) and represents the column vectors of the matrix representation of \( T  \). Since our orthonormal set produces a unique representation of every \( x \in H  \), we can write the following formulas
+\begin{align*}
+    x &= \sum_{ j=1  }^{ n } {\gamma}_{j} {x}_{j} \tag{1} \\ 
+    {\gamma}_{j} &= \langle x , {x}_{j} \rangle x^{T} \overline{{x}_{j}}. 
+\end{align*}
+Applying \( T  \) to the above formula, we obtain that
+\[  Tx = \sum_{ j=1  }^{ n } {\lambda}_{j} {\gamma}_{j} {x}_{j} \tag{2} \]
+We find that even if \( T  \) may be a complicated operator to deal with, it acts on each \( {x}_{j} \) in a relatively simple way.
+
+If we define an operator \( {P}_{j}: H \to H  \) where \( x \mapsto {\gamma}_{j} {\gamma}_{j} {x}_{j} \), then each \( {P}_{j} \) is a (orthonormal) projection of \( H  \) onto the eigenspace of \( T  \) corresponding to \( {\lambda}_{j} \). Note that (1) can be written as 
+\[  x = \sum_{ j=1  }^{ n } {P}_{j} x \implies I = \sum_{ j=1  }^{ n } {P}_{j} \tag{3}  \] 
+where \( I  \) is the identity operator on \( H  \). Now, (2) can be written as 
+\[  Tx = \sum_{ j=1  }^{ n } {\lambda}_{j} {P}_{j}x \implies T = \sum_{ j=1  }^{ n } {\lambda}_{j} {P}_{j}. \tag{4} \]
+
+This gives us the representation of \( T  \) in terms of our projections \( {P}_{j} \) for \( 1 \leq j \leq n  \). 
+
+Given how "nice" our representation are for the linear operator \( T  \), it is unfortunate that the same representation cannot be applied in infinite dimensional vector spaces. Instead of using projections \( {P}_{1}, {P}_{2} ,\dots , {P}_{n} \), we will sum such projections; that is, we will have, for any real \( \lambda  \), define 
+\[  {E}_{\lambda} = \sum_{ {\lambda}_{j} \leq \lambda  }^{  } {P}_{j}. \tag{5} \]
+The family projections \( {P}_{j}  \) for \( j \in \N  \) are associated with one-parameter. From the above definition, we can see that for any \( \lambda  \), the operator \( {E}_{\lambda} \) is the projection of \( H  \) onto the subspace \( {V}_{\lambda} \) are spanned by the \( {x}_{j}'s \) such that \( {\lambda}_{j} \leq \lambda  \).   
+
+\begin{definition}[Spectral Family or Decomposition of Unity]\label{9.7-1}
+    A real spectral family (or real \textit{decomposition of unity} ) is a one-parameter family \( \mathcal{G} = ({E}_{\lambda})_{\lambda \in \R } \) of projections \( {E}_{\lambda}  \) defined on a Hilbert Space \( H  \) (of any dimension) which depends on a real parameter \( \lambda \) and is such that  
+    \begin{enumerate}
+        \item[(i)] \( {E}_{\lambda} \leq {E}_{\mu} \implies  {E}_{\lambda} {E}_{\mu} = {E}_{\mu} {E}_{\lambda} = {E}_{\lambda}  \) for \( \lambda < \mu \). 
+        \item[(ii)] \( \lim_{ \lambda  \to - \infty   }  {E}_{\lambda} x = 0 \).
+        \item[(iii)] \( \lim_{ \lambda  \to  + \infty   }  {E}_{\lambda}x = x  \).
+        \item[(iv)] \( {E}_{\lambda + 0}x = \lim_{ \mu \to \lambda + 0  }  {E}_{\mu} x = {E}_{\lambda}x  \) for \( x \in H  \).
+    \end{enumerate}
+\end{definition}
+
+From the definition above, we can interpret a real spectral family as a mapping from \( \R  \) to \( B(H,H) \) where \( \lambda \in \R  \) maps to \( {E}_{\lambda} \in B(H,H) \) where \( B(H,H) \) is the space of all bounded linear operators from \( H  \) into \( H  \). Note that in the definition above, the implication in (i) is actually bidirectional; that is, the two statements are equivalent by {\hyperref[9.6-1]{9.6-1}}. Also, we can see that \( \mathcal{G} \) is called a \textbf{spectral family on an interval} on \( [a,b] \) if the following conditions hold
+\begin{enumerate}
+    \item[(i)] \( {E}_{\lambda} = 0  \) for \( \lambda < a  \) 
+    \item[(ii)] \( {E}_{\lambda} = I  \) for \( \lambda \geq b  \).
+\end{enumerate}
+
+The fact that \( \mathcal{G} \) lies in a finite interval will prove to be advantageous when it comes to the spectrum of a bounded self-adjoint linear operator; that is, expressing such an operator in terms of Riemann-Stieltjes Integral. In the finite dimensional case, the integral representation reduces to a finite sum in terms of the spectral family. Indeed, we can still write the representation given in (3) in terms of (4)
+
+Assume that the eigenvalues \( {\lambda}_{1}, \dots, {\lambda}_{n} \) are distinct and that \( {\lambda}_{1} < {\lambda}_{2} < \cdots < {\lambda}_{n} \). Then we have
+\begin{align*}
+    {E}_{{\lambda}_{1}} &= {P}_{1} \\
+    {E}_{{\lambda}_{2}} &= {P}_{1} + {P}_{2} \\
+                        &\vdots \\ 
+    {E}_{{\lambda}_{n}} &= {P}_{1} + \cdots + {P}_{n}.
+\end{align*}
+
+Conversely, we have
+\begin{align*}
+    {P}_{1} &= {E}_{{\lambda}_{1}} \\
+    {P}_{j} &= {E}_{{\lambda}_{j}} - {E}_{{\lambda}_{j-1}} \tag{\( 2 \leq j \leq n  \)}.
+\end{align*}
+
+Since \( {E}_{\lambda} \) does not change for \( \lambda  \) in \( [{\lambda}_{j-1}, {\lambda}_{j}) \), we can write
+\[  {P}_{j} = {E}_{{\lambda}_{j}} - {E}_{{\lambda}_{j} - 0} \]
+and so (4) becomes
+\[  x = \sum_{ j=1  }^{ n } {P}_{j}x = \sum_{ j=1  }^{ n } ({E}_{{\lambda}_{j}} - {E}_{{\lambda}_{j} - 0}) x \]
+and subsequently (5) becomes
+\[  Tx = \sum_{ j=1  }^{ n } {\lambda}_{j} {P}_{j}x = \sum_{ j=1  }^{ n } {\lambda}_{j} ({E}_{{\lambda}_{j}} - {E}_{{\lambda}_{j} - 0})x. \]
+Dropping \( x  \), we have
+\( \Delta {E}_{\lambda} = {E}_{\lambda} - {E}_{\lambda - 0} \)
+and so 
+\[  T = \sum_{ j=1  }^{ n } {\lambda}_{j} \Delta {E}_{{\lambda}_{j}}. \tag{*} \]
+As we can see, (*) is the \textit{spectral representation} of the self-adjoint linear operator \(  T  \) we are after with eigenvalues \( {\lambda}_{1} < {\lambda}_{2} < \cdots < {\lambda}_{n} \) on the \( n- \)dimensional Hilbert Space \( H  \).  This tells us that for any \( x,y \in H  \) 
+\[  \langle Tx , y  \rangle = \sum_{ j=1  }^{ n } {\lambda}_{j} \langle \Delta {E}_{{\lambda}_{j}} x   , y  \rangle. \]
+We can write the above in terms of a Riemann-Stieltjes integral 
+\[  \langle Tx  , y  \rangle = \int_{ - \infty   }^{  + \infty  }  \lambda  \ d w(\lambda) \]
+where \( w (\lambda) = \langle {E}_{\lambda} x  , y \rangle \).
+

@@ -15,7 +15,7 @@ We can also rewrite (1) in the following way
 \[  x = y + z = Px + (I-P)x. \]
 Another way to characterize the projection on \( H  \) is the presented in the following theorem below:
 
-\begin{theorem}[Projection]
+\begin{theorem}[Projection]\label{9.5-1}
     A bounded linear operator \( P: H \to H  \) on a Hilbert Space \( H  \) is a projection if and only if \( P  \) is self-adjoint and idempotent (That is, \( P^{2} = P  \)).
 \end{theorem}
 
@@ -29,6 +29,18 @@ Another way to characterize the projection on \( H  \) is the presented in the f
     \[  Py = {P}_{1} {P}_{2} y = {P}_{1} y = y.  \]
 
     (\( \Longleftarrow \)) If \( P = {P}_{1} {P}_{2}  \) is a projection defined on \( H  \), then \( P \) is self-adjoint by {\hyperref[9.5-1]{9.5-1}}. Also, we see that \( {P}_{1} \) and \( {P}_{2} \) commute by Theorem {\hyperref[3.10-4]{3.10-4}}.
+\end{proof}
+
+\begin{theorem}[Positivity, norm]\label{9.5-2}
+   For any projection \( P  \) on a Hilbert space \( H  \), 
+   \begin{enumerate}
+       \item[(i)] \( \langle Px , x  \rangle = \|Px\|^{2} \)
+        \item[(ii)] \( P \geq 0  \) 
+        \item[(iii)] \( \|P\| \leq   1  \) and \( \|P\| = 1  \) if \( P(H) \neq \{ 0 \}  \).
+   \end{enumerate}
+\end{theorem}
+\begin{proof}
+
 \end{proof}
 
 \begin{theorem}[Sum of Projections]
@@ -79,3 +91,4 @@ Another way to characterize the projection on \( H  \) is the presented in the f
         \end{align*}
         Hence, \( v \in Y  \) and so we have \( {Y}_{1} \oplus {Y}_{2} \subseteq  Y  \). Thus, we conclude that \(  Y = {Y}_{1} \oplus {Y}_{2} \).
 \end{enumerate}
+

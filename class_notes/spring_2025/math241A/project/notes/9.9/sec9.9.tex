@@ -1,0 +1,82 @@
+\section{Spectral Representation}
+
+In the previous section, we showed that we can associate a given bounded self-adjoint linear operator \( T  \) on a complex Hilbert space \( H  \) with a spectral family \( \mathcal{G} = ({E}_{\lambda}) \). In this section, we will prove that \( T  \) can be represented in terms of a Riemann-Stieltjes integral. 
+
+\begin{theorem}[Spectral Theorem for Bounded Self-Adjoint Linear Operators]
+    Let \( T : H \to H  \) be a bounded self-adjoint linear operator on a complex Hilbert space \( H  \). Then:
+    \begin{enumerate}
+        \item[(a)] \( T  \) has the spectral representation 
+            \[  T = \int_{ m - 0  }^{ M  }  \lambda  \ d {E}_{\lambda} \tag{1} \]
+            where \( \mathcal{G} = ({E}_{\lambda}) \) is the spectral family associated with \( T  \); the integral is to be understood in the sense of uniform convergence (convergence in the norm on \(B(H,H) \)), for all \( x,y \in H \) 
+            \[  \langle Tx , y \rangle = \int_{ m - 0  }^{  M  } \lambda  \ d w(\lambda) \tag{1*} \]
+            where \( w(\lambda) = \langle {E}_{\lambda} x  ,  y  \rangle  \) where the integral is an ordinary Riemann-Stieltjes integral. 
+        \item[(b)] More generally, if \( p  \) is a polynomial in \( \lambda  \) with real coefficients,
+            \[ p(\lambda) = {\alpha}_{n} \lambda^{n} + {\alpha}_{n-1} \lambda^{n-1} + \cdots  + {\alpha}_{0}, \]
+            then the operator \( p(T) \) defined by  
+            \[  p(T)  = {\alpha}_{n} T^{n} + {\alpha}_{n-1} T^{n-1} + \cdots + {\alpha}_{0} I \]
+            has the spectral representation 
+            \[  p(T) = \int_{ m - 0  }^{ M  }  p(\lambda) \ d {E}_{\lambda} \tag{2} \]
+            and for all \( x,y \in H  \) 
+            \[  \langle p(T) x  , y  \rangle = \int_{ m - 0  }^{  M  }  p(\lambda)  \ d w(\lambda) \tag{2*} \]
+            where \( w(\lambda) = \langle {E}_{\lambda}x  , y \rangle \).
+    \end{enumerate}
+\end{theorem}
+
+% dependencies: properties of the spectral family presented in section 9.8
+
+
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] We choose a sequence of partitions \( ({P}_{n}) \) of \( [a,b] \) where \( a  < m  \) and \( M < b \). Here, we denote our subintervals of \( (a,b] \) as
+        \[  \Delta_{nj} = ({\lambda}_{nj}, {\mu}_{nj}] \tag{\( 1 \leq j \leq n  \)} \]
+        with length \( \ell(\Delta_{nj}) = {\mu}_{nj} - {\lambda}_{nj} \). Note that \( \mu_{nj} = {\lambda}_{n,j+1}  \) for \( 1 \leq j \leq n - 1  \). We assume that this sequence of partitions to have the following property:
+        \[  \eta({P}_{n}) = \max_{j \in \N} \ell (\Delta_{nj}) \to 0 \ \ \text{as} \ n \to \infty. \tag{\(\dagger\)} \]
+        Also, in the last section, we have the following inequality with \( \Delta = {\Delta}_{nj} \); that is, 
+        \[  {\lambda}_{nj} \Delta_{nj} E \leq T \Delta_{nj} E  \leq \mu_{nj} \Delta_{nj} E. \tag{4}   \]
+        Since \( \mu_{nj} = {\lambda}_{n,j+1}  \) for \( 1 \leq j \leq n - 1  \) from the fact that whenever \( \lambda <  \mu  \), \( {E}_{\lambda} \leq {E}_{\mu} \) and whenever \( \lambda \geq M  \), \( {E}_{\lambda} = I  \). Hence, we have
+        \[  T \Big(  \sum_{ j=1  }^{ n  } \Delta_{nj} E  \Big) = T \Big(  \sum_{ j=1  }^{ n } ({E}_{{\mu }_{nj}} - {E}_{{\lambda}_{nj}}) \Delta_{nj} E  \Big) < \epsilon I  = \epsilon. \]
+        From the above equality and from (1), we can see that for any \( \epsilon > 0  \), there exists an \( N  \) such that for every \( n  > N  \) and every choice of \( {\lambda}_{nj} \in \Delta_{nj} \), we have 
+        \[  \|T  - \sum_{ j=1  }^{ n } \hat{\delta}_{nj} \Delta_{nj} E  \| < \epsilon. \tag{5} \]
+        \textbf{Add more explanation of the above later.} Indeed, we can see that for every choice of \( \hat{{\lambda}_{nj}} \in \Delta_{nj} \), we can see that from (4), we have
+        \[  0 \leq T - \sum_{ j=1  }^{ n } {\hat{\lambda}}_{nj} \Delta_{nj} E \leq \sum_{ j=1  }^{ n } ({\mu }_{nj} - {\lambda}_{nj}) \Delta_{nj} E.  \tag{6} \]
+        Then from the above, we have for every \( n > N  \)
+        \begin{align*}
+            \Big\|T - \sum_{ j=1  }^{ n} \hat{\lambda_{nj}} \Delta_{nj} E \Big\| &\leq \Big\|\sum_{ j=1  }^{ n } ({\mu }_{nj } - {\lambda}_{nj } )  \Delta_{nj} E \Big\|  \\
+                                                                                 &\leq \sum_{ j=1  }^{ n } \|{\mu}_{nj} - {\lambda}_{nj} \| \Delta_{nj} E \\
+                                                                                 &< \epsilon \sum_{ j=1  }^{ n } \Delta_{nj} E \\
+                                                                                 &= \epsilon I = \epsilon
+        \end{align*}
+
+        
+        Since \( {E}_{\lambda} \) is constant for \( \lambda < m  \) and for \( \lambda \geq M  \), the particular of \( a < m  \) and \( b > M  \) is arbitrary. This proves (1), where (5) shows that the integral is to be understood in terms of uniform operator convergence. Subsequently, this gives us strong operator convergence  since the inner product is continuous and the sum in (5) is a Riemann-Stieltjes Sum. Hence, (1) tells us that (1*) holds for every choice of \( x  \) and \( y  \) in \( H  \).
+    \item[(b)] Let \( p(\lambda) = \lambda^{r} \) where \( r \in \N \). For any \( \kappa < \lambda \leq \mu < \nu \), we can see from (7) of section 9.7 that 
+        \begin{align*}
+            \Delta_{nj} E  \cdot \Delta_{nk} =   ({E}_{\lambda} - {E}_{\kappa} ) ({E}_{\mu} - {E}_{\nu}) &= {E}_{\lambda} {E}_{\mu} - {E}_{\lambda } {E}_{\nu} - {E}_{\kappa} {E}_{\mu} + {E}_{\kappa} {E}_{\nu} \\
+                                                                                                         &= {E}_{\lambda} - {E}_{\lambda} - {E}_{\kappa} + {E}_{\kappa} \\
+                                                                                                         &= 0
+        \end{align*}
+        for \( j \neq k  \). Also, since \( {\Delta}_{nj} E  \) is a projection, \( (\Delta_{nj} E )^{s} = E (\Delta_{nj}) \) for every \( s \in \N  \). Hence, we obtain
+        \[  \Big[ \sum_{ j=1  }^{ n } \hat{{\lambda}_{nj}} \Delta_{nj} E \Big] = \sum_{ j=1  }^{ n } \hat{{\lambda}_{nj}}^{r} \Delta_{nj} E.  \tag{7} \]
+        Note that if the sum in (5) is close to \( T  \), then the expression in (7) implies that for any \( \epsilon > 0  \), there exists an \( N  \) such that for any \( n > N  \), we have 
+        \[  \Big\|T^{r} - \sum_{ j=1  }^{ n } \hat{{\lambda}_{nj}}^{r}  \Delta_{nj} E \Big\| < \epsilon. \]
+        This proves (2) and (2*) for \( p(\lambda) = \lambda^{r} \). Now, it follows immediately from this result that the two formulas presented in (2) and (2*) hold for any polynomial with real coefficients.
+\end{enumerate}
+\end{proof}
+
+Below are some properties of operators \( p(T) \) as a consequence of the above theorem.
+
+\begin{theorem}[Properties of \( p(T) \)]
+   Let \( T  \) be as in the previous theorem, and let \( p, {p}_{1}, \) and \( {p}_{2} \) be polynomials with real coefficients. Then: 
+   \begin{enumerate}
+       \item[(a)] \( p(T) \) is self-adjoint.
+        \item[(b)] If \( p(\lambda) = \alpha {p}_{1}(\lambda) + \beta {p}_{2}(\lambda) \), then \( p(T) = \alpha {p}_{1}(T) + \beta {p}_{2} (T) \).
+        \item[(c)] If \( p(\lambda) = {p}_{1}(\lambda) {p}_{2}(\lambda)  \), then \( p(T) = {p}_{1}(T) {p}_{2}(T) \).
+        \item[(d)] If \( p(\lambda) \geq 0  \) for all \( \lambda \in [m,M] \), then \( p(T) \geq 0  \).
+        \item[(e)] If \( {p}_{1}(\lambda) \leq {p}_{2}(\lambda)  \) for all \( \lambda \in [m,M ]  \), then \( {p}_{1}(T) \leq {p}_{2}(T) \).
+        \item[(f)] \( \|p(T)\| \leq \max_{\lambda \in J } | p(\lambda) |  \), where \( J = [m,M] \).
+        \item[(g)] If a bounded linear operator commutes with \( T  \), it also commutes with \( p(T) \).
+    \end{enumerate}
+\end{theorem}
+
+
+

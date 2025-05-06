@@ -1,5 +1,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{fourier}
 \usepackage{textcomp}
 \usepackage{hyperref}
 \usepackage[english]{babel}
@@ -36,6 +37,7 @@
 \renewcommand\O{\ensuremath{\emptyset}}
 \newcommand\Q{\ensuremath{\mathbb{Q}}}
 \newcommand\C{\ensuremath{\mathbb{C}}}
+\newcommand\F{\ensuremath{\mathbb{F}}}
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\diam}{diam}
 \DeclareMathOperator{\LO}{LO}
@@ -181,11 +183,11 @@
                 name = Solution
                 ]{replacementsolution}
 
-\renewenvironment{proof}[1][\proofname]{\vspace{-8pt}\begin{replacementproof}}{\end{replacementproof}}
+\renewenvironment{proof}[1][\proofname]{\vspace{-1pt}\begin{replacementproof}}{\end{replacementproof}}
 
 \newenvironment{solution}
     {
-        \vspace{-8pt}\begin{replacementsolution}
+        \vspace{-1pt}\begin{replacementsolution}
     }
     { 
             \end{replacementsolution}
