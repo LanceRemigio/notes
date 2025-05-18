@@ -1,0 +1,190 @@
+We dedicate this section to stating key results that are frequently used throughout the paper. While we will not include full proofs, we assume the reader has at least some familiarity with these theorems. Providing detailed proofs would lead us beyond the intended scope of this work. Readers may omit reading this section and skip to reading the beginning of the paper at the {\hyperref[section 2]{introduction}}.
+
+\subsection{Linear Operators}
+
+\begin{definition}[Linear Operator Kreyszig (2.6-1)]
+    A \textbf{Linear Operator} \( T  \) is an operator such that
+    \begin{enumerate}
+        \item[(i)] The domain \( D(T) \) of \( T  \) is a vector space and the range \( R(T) \) lies in a vector space over the same field,
+        \item[(ii)] For all \( x,y \in D(T) \) and scalars \( \alpha  \), we have
+            \begin{align*}
+                T(x + y) &= Tx + Ty \\
+                T(\alpha x) &= \alpha Tx.
+            \end{align*}
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Bounded Linear Operator Kreyszig (2.7-1)]
+    Let \( X  \) and \( Y  \) be normed spaces and \( T : D(T) \to Y  \) a linear operator, where \( D(T) \subseteq X \). The operator \( T  \) is said to be \textbf{bounded} if there is a real number \( c  \) such that for all \( x \in D(T) \), 
+    \[  \|Tx\| \leq c \|x \|. \]
+\end{definition}
+
+
+\subsection{Inner Product Spaces and Hilbert Spaces}
+
+\begin{definition}[Inner Product Space Kreyszig (3.1-1)]
+   An \textbf{inner product space} is a vector space \( X  \) with an inner product defined on \( X  \). A \textbf{Hilbert space} is a complete inner product space (complete in the metric defined by the inner product). An \textbf{inner product} on \( X  \) is a mapping of \( X \times X  \) into the scalar field \( K  \) of \( X  \); that is, with every pair of vectors \( x  \) and \( y \) there is associated a scalar which is written  
+   \[  \langle x , y \rangle \] 
+   and is called the \textbf{inner product} of \( x  \) and \( y \), such that for all \( x,y,z \in V  \) and \( \alpha \in K  \), we have
+   \begin{enumerate}
+       \item[(IP1)] \( \langle x + y  ,  z  \rangle = \langle x  ,  z  \rangle + \langle y  ,  z  \rangle \)
+        \item[(IP2)] \( \langle \alpha x  ,  y  \rangle = \alpha \langle x , y \rangle \)
+        \item[(IP3)] \( \langle x , y \rangle = \overline{\langle y , x \rangle} \)
+        \item[(IP4)] \( \langle x  ,  x  \rangle \geq 0  \) and \( \langle x  ,  x  \rangle = 0   \) if and only if \( x = 0  \). 
+   \end{enumerate}
+   An inner product on \( X  \) defines a \textbf{norm} on \( X  \) given by 
+   \[  \|x \| = \sqrt{ \langle x  , x  \rangle }  \]
+   and a metric on \( X  \) given by
+   \[  d(x,y) = \|x - y \| = \sqrt{  \langle  x - y  ,  x - y  \rangle }.  \]
+\end{definition}
+
+
+\begin{corollary}[Continuity, null space Kreyszig (2.7-10)]\label{2.7-10}
+    Let \( T  \) be a bounded linear operator. Then:
+    \begin{enumerate}
+        \item[(a)] \( {x}_{n} \to x  \) [where \( {x}_{n}, x \in D(T) \)] implies \( T {x}_{n} \to T x  \). 
+        \item[(b)] The null space \( N(T) \) is closed.
+    \end{enumerate}
+\end{corollary}
+
+
+
+
+\begin{lemma}[Continuity of Inner Product Kreyszig (3.2-2)]\label{3.2-2}
+   If in an inner product space, \( {x}_{n} \to x  \) and \( {y}_{n} \to y  \), then \( \langle {x}_{n}  ,  {y}_{n} \rangle \to \langle x , y \rangle \). 
+\end{lemma}
+
+\begin{definition}[Projection Kreyszig 3.3]
+   Let \( H  \) be a Hilbert space and let \( Y  \) be some non-empty subspace of \( H  \). A \textbf{projection} is a map \( P : H \to Y  \) such that 
+   \[ Px = y  \]
+   where \( x \in H  \) and \( y \in Y  \).
+\end{definition}
+
+\begin{lemma}[Null Space Kreyszig (3.3-5)]\label{3.3-5}
+    The orthogonal complement \( Y^{\perp} \) of a closed subspace \( Y  \) of a Hilbert Space \( H \) is the null space \( N(P) \) of the orthogonal projection \( P  \) of \( H  \) onto \( Y \).
+\end{lemma}
+
+\begin{lemma}[Equality Kreyszig (3.8-2)]\label{3.8-2}
+   If \( \langle {v}_{1} , w  \rangle = \langle {v}_{2} , w  \rangle  \) for all \( w  \) in an inner product space \( X  \), then \( {v}_{1} = {v}_{2} \). In particular, \( \langle {v}_{1} , w  \rangle = 0  \) for all \( w \in X  \) implies \( {v}_{1} = 0  \). 
+\end{lemma}
+
+\begin{theorem}[Self-Adjointness of Product Kreyszig (3.10-4)]\label{3.10-4}
+    The product of two bounded self-adjoint linear operators \( S  \) and \( T  \) on a Hilbert Space \( H \) is self-adjoint if and only if the operators commute, 
+    \[  ST = TS. \]
+\end{theorem}
+
+\begin{theorem}[Uniform Boundedness Theorem Kreyszig (4.7-3)]\label{4.7-3}
+    Let \( ({T}_{n}) \) be a sequence of bounded linear operators \( {T}_{n}: X \to Y  \) from a Banach space \( X  \) into a normed space \( Y  \) such that \( \|{T}_{n} x \| \) is bounded for every \( x \in X  \), say,  
+    \[  \|{T}_{n} x \| \leq {c}_{x}  \tag{\( n \in \N \)}\]
+    Then the sequence of the norms \( \|{T}_{n}\| \) is bounded, that is, there is a \( c  \) such that 
+    \[  \|{T}_{n}\| \leq c  \tag{\( n \in \N \)}.\]
+\end{theorem}
+
+\begin{definition}[Self-Adjoint, Unitary, Normal Operators Kreyszig 3.10-1]
+   A bounded linear operator \( T: H \to H  \) on a Hilbert space \( H  \) is said to be \textbf{self-adjoint} or \textbf{Hermitian} if \( T^{*} = T  \), \textbf{unitary} if \( T  \) is bijective i.e \( T^{*} = T^{-1} \), and \textbf{normal} if \( T T^{*} = T^{*} T  \).
+\end{definition}
+
+
+\subsection{Resolvent and Spectrum of \( T  \)}
+
+Suppose \( T: D(T) \to H  \) where \( H  \) is a Hilbert space. We associate \( T  \) with the real eigenvalue \( \lambda  \) as   
+\[ {T}_{\lambda} = T - \lambda I  \]
+where \( I  \) is the identity operator on \( D(T) \). 
+
+\begin{definition}[Resolvent Operator Kreyszig 7.2]
+    Assuming that \( {T}_{\lambda} \) contains an inverse, define the \textbf{resolvent operator} \( {R}_{\lambda}(T) \) by 
+    \[  {R}_{\lambda}(T) = {T}_{\lambda}^{-1}  = (T - \lambda I )^{-1}. \]
+\end{definition}
+
+In the remainder of the section, we will denote \( T \)'s resolvent operator as \( {R}_{\lambda} \) for convenience. Below, we will give a brief overview of the resolvent and spectrum sets of \( T  \).
+
+\begin{definition}[Regular value, Resolvent set, Spectrum Kreyszig (7.2-1)]
+    Let \( H  \) be a complex Hilbert Space and \( T : D(T) \to H  \) be a linear operator with domain \( D(T) \subseteq  H \). A \textbf{regular value} \( \lambda  \) of \( T  \) is a complex number such that 
+    \begin{enumerate}
+        \item[(I)] \( {R}_{\lambda}(T) \) exists,
+        \item[(II)] \( {T}_{\lambda}(T)  \) is bounded,
+        \item[(III)] \( {R}_{\lambda}(T) \) is defined on a set which is dense in \( H  \).
+    \end{enumerate}
+    The \textbf{resolvent set} \( \rho(T) \) of \( T  \) is the set of all regular values \( \lambda  \) of \( T  \). The complement \( \sigma(T) = \C \setminus  \rho(T) \) in the complex plane \( \C  \) is called the \textbf{spectrum} of \( T  \), and \( \lambda \in \sigma(T) \) is called the \textbf{spectral value} of \( T  \).
+\end{definition}
+
+Below are the three distinctions usually discussed about the spectrum of \( T  \): 
+\begin{itemize}
+    \item The \textbf{point spectrum} \( \sigma_{p}(T) \) is the set such that \( {R}_{\lambda}(T) \) does not exist.
+    \item The \textbf{continuous spectrum} \( {\sigma}_{c}(T) \) is the set such that \( {R}_{\lambda}(T)  \) exist and satisfies (III) but is not bounded.
+    \item The \textbf{resdidual spectrum} \( {\sigma}_{r}(T) \) is the set such that \( {R}_{\lambda}(T) \) exists (may or may not be bounded) but does not satisfy (III).
+\end{itemize}
+
+\subsection{Fourier Transform}
+
+\begin{definition}[Fourier Transform Folland (7.2-1)]\label{Fourier Transform}
+    Suppose \( f  \) is an integrable function that is defined on \( \R \). The \textbf{Fourier Transform} of \( f \) is defined by the function \( \hat{f} \) on \( \R \) where
+    \[  \hat{f}(\xi) = \int e^{- i \xi x } f(x)  \ dx. \]
+\end{definition}
+
+
+\begin{definition}[\( L^1 \) space]\label{L1 Space}
+    We denote \( L^{1}([a,b]) \) by the set
+    \[ L([a,b]) =  \Big\{ f[a,b] \to \R : \int_{ a }^{ b } | f(x) |  \ dx < \infty  \Big\}.  \]
+\end{definition}
+
+\begin{definition}[\( L^2 \) spaces Folland (3.3)]\label{L2 Space}
+    We call \( L^{2}([a,b]) \) the space of \textbf{square-integrable} functions on \( [a,b] \), more specifically, 
+    \[  L^{2}([a,b]) = \Big\{ f : \int_{ a }^{ b }  | f(x) |^{2} \ dx < \infty  \Big\} \]
+\end{definition}
+
+\begin{remark}
+    If \( [a,b] \) is replaced by \( \R  \), then the Riemann integral in the previous two definitions would turn into an improper integral. That is,
+    \[   L^{2}(\R)  =  \Big\{ f:[a,b] \to \R : \int_{ - \infty  }^{ + \infty  }  | f(x) |^{2}  \ dx < \infty  \Big\}  \]
+    and
+    \[  L^{1}(\R) = \Big\{ f:[a,b] \to \R : \int_{ - \infty   }^{  \infty  }  | f(x) |  \ dx < \infty \Big\}.  \]
+\end{remark}
+
+
+\begin{remark}
+    Another way to write \( \hat{f}(\xi) \) is \( \mathcal{F} [f(x)] = \hat{f}(\xi) \).
+\end{remark}
+
+\begin{lemma}[Riemann-Lebesgue Lemma Folland (7.2-1)]\label{Riemann-Lebesgue}
+    If \( f \in L^{1} \), then \( \hat{f}(\xi) \to 0 \) as \( \xi \to \pm \infty  \).
+\end{lemma}
+
+For sake of convenience, we use the notation \( f \in R[a,b] \) to denote Riemann-integrable functions over a compact interval \( [a,b] \) in \( \R  \).
+
+\begin{theorem}[Fubini's Theorem Rudin ]\label{Fubini's Theorem}
+    Let \( f: [a,b] \times [c,d]  \) be a bounded function. Suppose \( f  \) is Riemann-integrable on the rectangle \( [a,b] \times [c,d] \). For each fixed \( x \in [a,b]  \), the function \( y \mapsto f(x,y) \in R[c,d] \) and for each fixed \( y \in [c,d] \), the function \( x \mapsto f(x,y) \in R[a,b] \). Then the iterated integrals exist and satisfy: 
+    \[  \int_{ a }^{ b }  \Big(  \int_{ c }^{ d }  f(x,y) \ dy  \Big) \ dx = \int_{ c }^{ d } \Big(  \int_{ a }^{ b }  f(x,y) \ dx   \Big) \ dy = \int_{ [a,b] \times [c,d] } f(x,y) dx dy. \]
+\end{theorem}
+
+\begin{theorem}[Convolution Theorem (8.14)]\label{Convolution Theorem}
+   Let \( f,g \in L^{1}(\R) \), and define their \textbf{convolution} by 
+   \[  (f * g)(x) = \int_{ - \infty  }^{  \infty  }  f(x- t)g(t) \ dt.  \]
+   Then \( f * g \in L^{1}(\R) \) and the Fourier Transform of the convolution satisfies:
+   \[  \mathcal{F}(f * g)(\xi) = \mathcal{F}(f)(\xi) \cdot \mathcal{F}(g)(\xi), \]
+   where
+   \[  \mathcal{F}(f)(\xi) = \int_{ - \infty  }^{ \infty   }  f(x) e^{-2 \pi i x \xi } \ dx  \]
+   is the Fourier transform of \( f \in L^{1}(\R) \).
+\end{theorem}
+
+
+\begin{definition}[Partition]
+    A partition \( P \) of an interval \( [a,b] \subseteq \R  \) is a finite set of points in \( [a,b] \) that includes both \( a \) and \( b  \). Denote \( P = \{ {x}_{0}, {x}_{1}, \dots, {x}_{n}  \}  \) whose elements are listed in the following increasing order
+    \[  a =  {x}_{0} < {x}_{1} < \cdots < {x}_{n} = b.   \]
+\end{definition}
+
+
+\begin{definition}[Riemann-Stieltjes Integrable Functions Rudin (Chapter 6)]
+    Let \( \alpha: [a,b] \to \R  \) be an increasing function. A function \( f:[a,b] \to \R  \) is said to be Riemann-Stieltjes integrable on \( [a,b] \) if 
+    \begin{enumerate}
+        \item[(i)] \( f \) is bounded
+        \item[(ii)] \( L(f,\alpha) = U(f,\alpha) \)
+    \end{enumerate}
+    In this case, the Riemann-Stieltjes integral of \( f  \) with respect to \( \alpha \), denoted by
+    \[  \int_{ a }^{ b }  f \ d \alpha \]
+    is the common value of \( L(f,\alpha) \) and \( U(f,\alpha) \). That is,
+    \[ \int_{ a }^{ b }  f  \ d \alpha = L(f,\alpha) = U(f,\alpha). \]
+\end{definition}
+
+\begin{remark}
+    \( U(f,\alpha) = \inf_{P \in \pi [a,b]} U(f,\alpha, P) \) and \( L(f,\alpha) = \sup_{P \in \pi [a,b]} L(f, \alpha , P) \) above are the upper and lower integrals of \( f  \) where \( U(f,\alpha, P) \) and \( L(f,\alpha, P) \) are the upper and lower sum with respect to the partition \( P  \) of \( [a,b] \). 
+\end{remark}

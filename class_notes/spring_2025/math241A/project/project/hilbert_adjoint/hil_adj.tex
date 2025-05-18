@@ -1,0 +1,228 @@
+In this chapter, we will give a brief review of linear self-adjoint operators and their spectral properties.
+
+First, we will give a brief definition of self-adjoint and some properties as a consequence.
+
+\subsection{Basic Properties of Linear Self-adjoint Operators}
+
+\begin{definition}[Hilbert-Adjoint Operator Kreyszig 9.1]
+    Let \( T: H \to H  \) be a bounded linear operator on  a complex Hilber space \( H  \). Then the \textbf{Hilbert-adjoint} operator \( T^{*} : H \to H  \) is defined to be the operator satisfying
+    \[  \langle T(x) , y \rangle = \langle x ,  T^{*}(y) \rangle \ \ \forall x,y \in H. \tag{*}  \]
+\end{definition}
+
+Note that \( T  \) is said to be \textbf{self-adjoint} or \textbf{Hermitian} if 
+\[  T = T^{*}. \]
+If the above holds, then it follows from (*) that 
+\[ \langle T(x) , y \rangle = \langle x  ,  T(y) \rangle \ \ \forall  x,y \in H.\]
+
+As our first step towards the representation shown in the last section, we need to make sure that \( T  \) induces real eigenvalues and orthogonal eigenvectors.
+
+\begin{theorem}[Eigenvalues, eigenvectors Kreyszig 9.1-1]
+    Let \( T: H \to H  \) be a bounded self-adjoint linear operator on a complex Hilber space \( H  \). Then:
+    \begin{enumerate}
+        \item[(a)] All the eigenvalues of \( T  \) (if they exist) are real.
+        \item[(b)] Eigenvectors corresponding to (numerically) different eigenvalues of \( T  \) are orthogonal.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Our goal is to show that \( \lambda = \overline{\lambda} \) for all eigenvalues \( \lambda  \) of \( T  \). To this end, Let \( \lambda  \) be an eigenvalue of \( T  \) and \( x  \) be the corresponding eigenvector. Then \( x \neq 0  \) and \( Tx = \lambda x  \). Since \( T  \) is self-adjoint, it follows that 
+        \begin{align*}
+            \lambda \langle x  ,  x  \rangle = \langle \lambda x  ,  x  \rangle &= \langle Tx  ,  x  \rangle    \\
+                                                                                &= \langle x  ,  Tx  \rangle = \langle x  , \lambda x  \rangle = \overline{\lambda} \langle x  ,  x  \rangle.
+        \end{align*}
+        Since \( \langle x  ,  x  \rangle \neq 0  \), then it follows that \( \lambda = \overline{\lambda} \), implying that \( \lambda  \) must be real.
+    \item[(b)] Our goal is to show that for any two (distinct) eigenvalues \( \lambda  \) and \( \mu  \) corresponding to eigenvectors \(  x \) and \( y  \), respectively, we have \( \langle x , y \rangle = 0  \). To this end, let \(\lambda \) and \( \mu  \) be eigenvalues of \( T  \), and let \( x  \) and \( y  \) be corresponding eigenvectors. Then it follows that \( Tx = \lambda x  \) and \( T  y = \mu y   \). Since \( T  \) is self-adjoint and \( \mu  \) is real, we have  
+        \begin{align*}
+            \lambda \langle  x  , y \rangle = \langle \lambda x  , y \rangle &= \langle Tx  , y \rangle \\
+                                                                             &= \langle x  ,  Ty \rangle = \langle x  ,  \mu y  \rangle = \overline{\mu} \langle x , y \rangle = \mu \langle x  , y \rangle.
+        \end{align*}
+        Since we have assumed that \( \lambda \neq \mu \), it follows that \( \langle x , y  \rangle = 0  \). Hence, \( x  \) and \( y  \) are orthogonal.
+\end{enumerate}
+\end{proof}
+
+\subsection{Spectrum and Resolvent sets of \( T  \) and Properties}
+
+We will now discuss the consequences of the self-adjointness of \( T  \) on its spectrum and resolvent sets.
+
+The following theorem gives us the ability to test whether \( \lambda    \) is in the spectrum or in its resolvent set. 
+
+\begin{theorem}[Resolvent Set Kreyszig (9.1-2)]\label{9.1-2}
+    Let \( T: H \to H  \) be a bounded self-adjoint linear operator on a complex Hilbert space \( H \). Then a number \( \lambda  \) belongs to the resolvent set \( \rho(T)  \) of \( T  \) if and only if there exists a \( c > 0  \) such that for every \( x \in H \),
+    \[  \|{T}_{\lambda}(x)\| \geq c \|x\|. \tag{\( {T}_{\lambda} = T - \lambda I  \)} \]
+
+\end{theorem}
+
+\begin{proof}
+    (\( \Longrightarrow \)) Our goal is to show that there exists a \( c > 0  \) such that for every \( x \in H \), we have  
+    \[  \|{T}_{\lambda}x \| \geq c \|x \| \tag{2} \]
+    where \( {T}_{\lambda} = T - \lambda I  \). 
+    Since \( \lambda \in \rho(T) \), it follows that \( {R}_{\lambda} = T^{-1}_{\lambda} \) exists and is bounded. That is, \( \|{R}_{\lambda}\| = k  \), where \( k > 0  \) since \( {R}_{\lambda} \neq 0  \). Now, we have \( I = {R}_{\lambda} {T}_{\lambda} \) such that every \( x \in H \), we have 
+    \[  \|x \| = \|{R}_{\lambda} {T}_{\lambda}x \| \leq  \|{R}_{\lambda} \| \|{T}_{\lambda} x \| = k \|{T}_{\lambda}x \|  \]
+    which gives us the following inequality
+    \[  \|{T}_{\lambda}x \| \geq c | x  |  \]
+    where \( c = \frac{ 1 }{ k  }  \).
+
+    \( (\Longleftarrow) \) Our goal is to show that \( \lambda \in \rho(T) \). We need to show that \( \lambda  \) satisfies the following three properties:
+    \begin{enumerate}
+        \item[(1)] \( {T}_{\lambda} : H \to {T}_{\lambda}(H) \) is bijective.
+        \item[(2)] \( {T}_{\lambda}(H) \) is dense in \( H  \);
+        \item[(3)] \( {T}_{\lambda}(H) \) is closed in \( H \).
+    \end{enumerate}
+    (1) Clearly, \( T  \) is onto by definition. Our goal is to show that for any \( {x}_{1}, {x}_{2} \in H  \) such that \( {T}_{\lambda} {x}_{1} = {T}_{\lambda} {x}_{2} \), we have \( {x}_{1} = {x}_{2} \). Since \( T  \) is linear and our assumption, it follows that 
+    \[  0 = \|{T}_{\lambda}{x}_{1} - {T}_{\lambda} {x}_{2} \| = \|{T}_{\lambda} ({x}_{1} - {x}_{2})\| \geq c \| {x}_{1} - {x}_{2} \| \]
+    for some \( c > 0  \). Since \( \|{x}_{1} - {x}_{2}\| \geq 0  \), it follows from the above inequality that \( {x}_{1} = {x}_{2} \). Hence, \( T  \) is injective and thus \( T  \) is bijective.
+
+    (2) Our goal is to show that \( {T}_{\lambda}(H) \) is dense in \( H  \); that is, \( \overline{{T}_{\lambda}(H)} = H  \). It suffices to show via the Projection Theorem in Chapter 3 that \( {x}_{0} \perp \overline{{T}_{\lambda}(H)} \) implies \( {x}_{0} = 0  \). Let \( {x}_{0} \perp \overline{{T}_{\lambda}(H)} \). Then we have \( {x}_{0} \perp \overline{{T}_{\lambda}(H)} \). Hence, for all \( x \in H  \), we have 
+    \begin{align*}
+        0 = \langle {T}_{\lambda}x  , {x}_{0} \rangle &= \langle (T - \lambda I)x , {x}_{0}  \rangle \\
+                                                      &= \langle Tx  , {x}_{0} \rangle - \lambda \langle x  , {x}_{0} \rangle.
+\end{align*}
+Since \( T  \) is self-adjoint, it follows that 
+\[  \langle x , T {x}_{0} \rangle = \langle Tx  , {x}_{0} \rangle = \langle x , \overline{\lambda} {x}_{0} \rangle. \]
+Hence, we have \( T {x}_{0} = \overline{\lambda} {x}_{0} \) by {\hyperref[(3.8-2)]{(3.8-2)}}. Note that we would need to have \( {x}_{0} = 0  \) because otherwise if \( {x}_{0} \neq 0  \), it would mean that \( \overline{\lambda}  \) is an eigenvalue of \( T  \) so that \( \overline{\lambda} = \lambda  \) by {\hyperref[(9.1-1)]{(9.1-1)}} and \( T {x}_{0} - \lambda {x}_{0} = {T}_{\lambda}{x}_{0} = 0  \), and (2) would imply  
+\[  0 = \|{T}_{\lambda} {x}_{0} \| \geq c \|{x}_{0}\| >  0  \]
+since \( c > 0  \) which is absurd. Hence, we can see that \( \overline{{T}_{\lambda}(H)^{\perp}} = \{ 0  \}   \) where \( {x}_{0} \) is an arbitrary vector orthogonal to \( {T}_{\lambda}(H) \). Hence, it follows that \( \overline{{T}_{\lambda}(H)} = H  \) by the Projection Theorem and so we can conclude that \( {T}_{\lambda}(H)  \) is dense in \( H  \).
+
+(3) Finally, we will show that \( {T}_{\lambda}(H) \) is closed in \( H  \). In what follows, we will show \( \overline{{T}_{\lambda}(H)} = {T}_{\lambda}(H) \). Clearly, we can see that \( {T}_{\lambda}(H) \subseteq \overline{{T}_{\lambda}(H)} \). So, it suffices to show that \( \overline{{T}_{\lambda}(H)} \subseteq  {T}_{\lambda}(H) \). Let \( y \in \overline{{T}_{\lambda}(H)} \). Then there is a sequence \( (y_{n}) \) in \( {T}_{\lambda}(H) \)j such that \( {y}_{n} \to y \). Note that \( {y}_{n} \in {T}_{\lambda}(H) \) and so \( {y}_{n} {T}_{\lambda} {x}_{n} \) for some \( {x}_{n} \in H  \). By (2), we obtain 
+\[ \|{x}_{n} - {x}_{m}\| \leq \frac{ 1 }{ c }  \|{T}_{\lambda}({x}_{n} - {x}_{m})\| = \frac{ 1 }{ c }  \|{y}_{n} - {y}_{m}\|.  \]
+Since \( {y}_{n} \to y  \), it follows that \( {y}_{n} \) is a Cauchy sequence. From the inequality above, we can see that \( ({x}_{n}) \) must also be Cauchy when we let \( m,n \to \infty  \). Since \( H  \) is complete, \( {x}_{n} \to x  \) for some \( x \in H \). Since \( T  \) is continuous (because it is bounded), we have that 
+\[  {y}_{n} = {T}_{\lambda}{x}_{n} \to {T}_{\lambda}x. \]
+Since limits are unique, it follows that \( y = {T}_{\lambda}x \) and so we have \( y \in {T}_{\lambda}(H) \). Hence, \( {T}_{\lambda}(H) \) must be closed. As a consequence, we have \( {T}_{\lambda}(H) = H  \) from (2).
+
+This tells us that \( {R}_{\lambda} = T^{-1}_{\lambda} \) is defined on all of \( H  \), and is bounded, which follows from the Bounded Inverse Theorem {\hyperref[(4.12-2)]{(4.12-2)}}. Thus, we see that \( \lambda \in \rho(T) \).
+\end{proof}
+
+This is particularly useful because in more general Hilbert spaces since we may have cases where operators may not have eigenvalues at all. The following theorem makes sure that our spectrum does indeed live on \( \R  \).
+
+\begin{theorem}[Spectrum]
+    The spectrum \( \sigma(T) \) of a bounded self-adjoint linear operator \( T: H \to H  \) on a complex Hilber space \( H  \) is real. 
+\end{theorem}
+\begin{proof}
+    Using the previous theorem, we will show that for every \( \lambda = \alpha + i \beta \in \sigma(T)  \) where \( \alpha, \beta \in \R  \) with \( \beta \neq 0  \) that \( \lambda \in \rho(T) \). Since \( T \) is self-adjoint, it follows from {\hyperref[(9,1-1)]{(9.1-1)}} that \( \sigma(T) \subseteq \R  \). Hence, it suffices to show that there exists a \( c > 0  \) such that \[  \|{T}_{\lambda}x\| \geq c \|x \|. \tag{*} \] 
+    For every \( x \neq 0  \) in \( H  \), we have 
+    \[  \langle {T}_{\lambda}x  , x  \rangle = \langle Tx  ,  x  \rangle - \lambda \langle x , x  \rangle. \]
+    Since \( \langle x , x \rangle  \) and \( \langle Tx , x  \rangle  \) are real and so 
+    \[  \overline{\langle {T}_{\lambda}x  ,  x  \rangle} = \langle Tx  ,  x  \rangle - \overline{\lambda } \langle x , x \rangle.  \]
+    Note that \( \overline{\lambda} = \alpha - i \beta  \). Subtracting the two quantities above, we can see that 
+    \[ -2i \Im \langle {T}_{\lambda}x  , x  \rangle =  \overline{\langle {T}_{\lambda}x  ,  x  \rangle } - \langle {T}_{\lambda}x  ,  x  \rangle = (\lambda - \overline{\lambda}) \langle x , x \rangle = 2 i \beta \|x\|^{2} \]
+    which imply that 
+    \[  - \langle {T}_{\lambda}x  ,  x  \rangle = \beta \|x\|^{2}. \]
+    Applying the Cauchy-Schwarz inequality, we can see that 
+    \[  | \beta | \|x\|^{2} = | \Im \langle {T}_{\lambda}x  ,  x \rangle | \leq | \langle {T}_{\lambda}x  ,  x  \rangle | = | \langle {T}_{\lambda}x  ,  x  \rangle  |  \leq \|{T}_{\lambda}x \| \|x\|. \]
+    Since \( \|x \| \neq 0  \), we see that \( | \beta  | \|x \| \leq \|{T}_{\lambda}x \| \). If \( \beta \neq 0  \), then \( \lambda \in \rho(T) \) by {\hyperref[(9.1-2)]{(9.1-2)}}. Hence, for \( \lambda \in \sigma(T) \) we see that \( \beta = 0  \), and so \( \lambda  \) is real. 
+    
+\end{proof}
+
+The next theorem takes things a step further and tells us that not only does the spectrum of \( T  \) live on the real line, it also (assuming that \( T  \) is bounded) lives in a compact interval.
+
+\begin{theorem}[Spectrum Kreyszig (9.2-1)]\label{9.2-1}
+    The spectrum \( \sigma(T) \) of a bounded self-adjoint linear operator \( T: H \to H  \) on a complex Hilbert space \( H  \) lies in the closed interval \( [m,M] \) on the real axis, where 
+    \[  m = \inf_{\|x\|=1} \langle T(x) , x \rangle \ \ \text{and} \ \ M = \sup_{\|x\|=1} \langle T(x) , x \rangle.  \tag{1}\]
+\end{theorem}
+
+\begin{proof}
+    By {\hyperref[(9.1-3)]{(9.1-3)}}, we see that \( \sigma(T) \) lies on the real axis. We will show that for any real \( \lambda = M + c  \) where \( M  \) is defined above lies in the resolvent set \( \rho(T) \). For every \( x \neq 0  \), define \( v = \|x\|^{-1} x  \) and so \( x = \|x \| v   \). As a consequence, we have 
+    \begin{align*}
+        \langle Tx ,x  \rangle = \|x\|^{2} \langle Tv  , v  \rangle \leq \|x\|^{2} \sup_{\|\tilde{v}\| = 1} \langle T \tilde{v} , \tilde{v} \rangle = \langle x , x \rangle M.  
+    \end{align*}
+    Hence, we see that 
+    \[  - \langle Tx , x  \rangle \geq - \langle x , x \rangle M  \]
+    and so by the Schwarz Inequality we obtain
+    \begin{align*}
+        \|{T}_{\lambda}x \| \|x\| \geq - \langle {T}_{\lambda}x , x \rangle &= - \langle Tx , x \rangle + \lambda \langle x , x \rangle \\
+                                                                            &\geq (-M + \lambda) \langle x , x \rangle \\ 
+                                                                            &= c \|x\|^{2}
+    \end{align*}
+    where \( c = \lambda - M  > 0  \) by assumption. Since \( x \neq 0  \), it follows by division of \( \|x\| \) on both sides of the above inequality yields
+    \[  \|{T}_{\lambda}x \| \geq c \|x\|. \]
+    By {\hyperref[(9.1-2)]{(9.1-2)}}, \( \lambda \in \rho(T) \). If we assume \( \lambda < m  \), then a similar argument will lead to the same result.
+\end{proof}
+
+The following theorem takes this notion a step further and says that \( \|T \| \) is determined by the biggest possible inner product \( \langle Tx  ,  y  \rangle  \) for \( x, y \in H  \) by taking the absolute value of \( m  \) and \( M  \).
+
+\begin{theorem}[Norm Kreyszig (9.2-2)]\label{9.2-2}
+    For any bounded self-adjoint linear operator \( T \) on a complex Hilbert space \( H  \) we have 
+    \[  \|T\| = \max(| m | , | M | ) = \sup_{\|x\|=1} | \langle T(x) , x \rangle |.  \]
+\end{theorem}
+
+\begin{proof}
+Our goal is to show that for any bounded self-adjoint linear operator \( T  \), we have 
+\[  \|T\| = \max (| m | , | M | ) = \sup_{\|x\| = 1} | \langle Tx , x \rangle |. \]
+Denote \( K = \sup_{\|x\| = 1} | \langle Tx , x \rangle |  \). It suffices to show that \( \|T\| \leq K  \) and \( K \leq \|T\| \). Using the Schwarz Inequality, it follows that
+\[  K \leq \sup_{\|x\| =1} \|Tx\| \|x\| = \|T\|. \]
+Hence, the second inequality is satisfied. Now, we show \( \|T\| \leq K  \). Observe that if \( Tz = 0  \) for all \( z  \) such that \( \|z\| = 1  \), then \( T  = 0  \) and we are done. Suppose, otherwise that for any \( z  \) such that \( \|z\| = 1  \), we have \( Tz \neq 0  \). Set \( v = \|Tz\|^{1/2} z  \) and \( w = \|Tz\|^{-1/2} Tz  \). Then we have
+\[  \|v\|^{2} = \|w\|^{2} = \|Tz\|. \]
+Furthermore, set 
+\[  {y}_{1} = v + w  \ \ \text{and} \ \ {y}_{2} = v - w. \]
+By a straight-forward calculation and the fact that \( T  \) is self-adjoint, we obtain the following 
+\begin{align*}
+    \langle T {y}_{1} ,  {y}_{1} \rangle - \langle T {y}_{2} ,  {y}_{2} \rangle &= 2 (\langle Tv  , w  \rangle + \langle Tw , v  \rangle) \\
+                                                                                &= 2 (\langle Tz  , Tz   \rangle + \langle T^{2} z  ,  z  \rangle) \\ 
+                                                                                &= 4 \|Tz\|^{2}.
+\end{align*}
+Now, for every \( y \neq 0  \) and \( x =  \|y\|^{-1} y  \), we have \( y = \|y\| x  \) and so 
+\[  | \langle Ty , y \rangle | = \|y\|^{2} | \langle Tx , x \rangle |  \leq \|y\|^{2} \sup_{\|\tilde{x}\|   = 1} | \langle T \tilde{x} , \tilde{x} \rangle | = K \|y\|^{2}. \]
+Using the triangle inequality, it follows that 
+\begin{align*}
+    | \langle T {y}_{1} , {y}_{1} \rangle - \langle T {y}_{2} , {y}_{2} \rangle | &\leq | \langle T {y}_{1}  ,  {y}_{1} \rangle  |  + | \langle T {y}_{2} ,  {y}_{2} \rangle |  \\
+                                                                                  &\leq K (\|{y}_{1}\|^{2} + \|{y}_{2}\|^{2}) \\
+                                                                                  &= 2K (\|v\|^{2} + \|w\|^{2}) \\
+                                                                                  &= 4K \|Tz\|.
+\end{align*}
+Note that the left-hand side of the above inequality is equal to \( 4 \|Tz\|^{2} \). As a consequence with \( \|Tz \| \neq 0  \), we have 
+\begin{align*}  4 \|Tz\|^{2} \leq 4K \|Tz\| \implies \|Tz\| \leq K.
+\end{align*}
+Taking the supremum over all \( z  \) of norm \( 1  \), it follows that \( \|T\| \leq K   \).
+\end{proof}
+
+A remarkable property given by bounded self-adjoint linear operators is that \( m  \) and \( M  \) are contained in the spectrum of \( T  \). 
+
+\begin{theorem}[\( m \) and \( M \) are spectral values Kreyszig (9.2-3)]\label{9.2-3}
+    Let \( H  \) and \( T  \) be as in Theorem 9.2-1 and \( H \neq \{ 0  \}  \). Then \( m  \) and \( M  \) are defined in (1) are spectral values of \( T  \).
+\end{theorem}
+
+\begin{proof}
+Our goal is to show that \( m,M  \) are contained in \( \sigma(T) \). The proof to show that \( m \in \sigma(T) \) is directly analogous. By the {\hyperref[Spectral Mapping Theorem]{Spectral Mapping Theorem}}, the spectrum of \( T + kI \), where \( K \in \R  \) is a constant, can be obtained from that of \( T  \) via a translation, and so we have 
+\[  M \in \sigma(T) \iff M + k \in \sigma(T).  \]
+We will show that \( \lambda = M  \) cannot belong to the resolvent set of \( T  \) by {\hyperref[9.1-2]{9.1-2}}. Indeed, without loss of generality assume \( 0 \leq m \leq M  \). Using the previous theorem, we see that 
+\[  M = \sup_{\|x\| = 1} \langle Tx , x \rangle = \|T\|. \]
+Using the definition of a supremum, we can find a sequence \( ({x}_{n})  \) such that \( \|{x}_{n}\| = 1  \) and 
+\[  \langle T {x}_{n} ,  {x}_{n} \rangle = M - \delta_n \]
+where \( \delta_n \geq 0  \) and that \( \delta_n \to 0  \). Then we have 
+\[  \|T {x}_{n}\| \leq \|T\| \|{x}_{n}\| = \|T\| = M.   \]
+Since \( T  \) is self-adjoint, we have
+\begin{align*}
+    \|T {x}_{n} -  M {x}_{n} \| &= \langle T {x}_{n} - M {x}_{n} ,  T{x}_{n} - M {x}_{n} \rangle \\
+                                &= \|T {x}_{n}\|^{2} - 2M \langle T {x}_{n} ,  {x}_{n} \rangle + M^{2} \|{x}_{n}\|^{2} \\
+                                &\leq M^{2} - 2M (M - {\delta}_{n}) + M^{2} \\
+                                &= 2M {\delta}_{n}.
+\end{align*}
+Since \( {\delta}_{n} \to 0  \), it follows from the Squeeze Theorem that 
+\[  \|T {x}_{n} - M {x}_{n} \| \to 0.  \]
+Hence, there is no positive \( c  \) such that 
+\[  \|{T}_{M} {x}_{n} \| = \|T {x}_{n} - {Mx}_{n} \| \geq c = c \|{x}_{n}\|. \] 
+Using {\hyperref[9.1-2]{9.1-2}} , we now have that \( M \notin \rho(T)  \) and so we must have \( M \in \sigma(T) \) which is our desired result.
+\end{proof}
+
+
+Another remarkable property of \( T  \), is that \( T \)'s residual spectrum is empty. This establishes the fact that the eigenvalues we are considering are all real and, without a doubt, makes our integral presented in the spectral theorem to be well-defined.
+
+\begin{theorem}[Residual Spectrum Kreyszig (9.2-4)]
+    The residual spectrum \( \sigma_r(T) \) of a bounded self-adjoint linear operator \( T: H \to H  \) on a complex Hilbert Space \( H  \) is empty. 
+\end{theorem}
+\begin{proof}
+    Suppose for sake of contradiction that \( \sigma_r(T) \neq \emptyset \) leads to a contradiction. Let \( \lambda \in \sigma_r(T) \). By definition, the inverse of \( {T}_{\lambda} \) exists, but its domain \( D(T^{-1}_{\lambda}) \) is not dense in \( H  \). By the {\hyperref[Projection Theorem]{Projection Theorem}} there exist a \( y \neq 0  \) in \( H  \) such that \( y  \) is orthogonal to \( D({T}_{\lambda}^{-1}) \). However, \( D(T^{-1}_{\lambda}) \) is the range of \( {T}_{\lambda} \). Thus,  
+    \[  \langle {T}_{\lambda} x  ,  y  \rangle = 0  \] 
+    for all \( x \in H \). Since \( \lambda  \) is real by {\hyperref[9.1-3]{9.1-3}} and \( T  \) is self-adjoint, we obtain  
+    \[  \langle x  ,  {T}_{\lambda}y  \rangle = 0  \]
+    for all \( x  \). Since \( y \neq 0  \), we see that \( \lambda  \) is an eigenvalue of \( T  \). But this contradicts the assumption that \( \lambda \in {\sigma}_{r}(T) \), making \( \sigma_r(T) \neq \emptyset \) absurd. Hence, it must follow that \( \sigma_r(T) = \emptyset \).
+\end{proof}
+
+From the theorems presented in this section, it follows that when \( T  \) is a bounded self-adjoint linear operator over \( H  \), we have
+\begin{itemize}
+    \item All are eigenvalues are real 
+    \item The spectrum of \( T  \) \( \sigma(T) \) lives on the real line and contained in the compact interval \( [m,M] \) where \( m  \) and \( M  \) are the infimum and supremum of \( \langle Tx , y \rangle \) (\( x,y \in H  \)).  
+    \item The resolvent set \( \rho(T) \) is empty, meaning that there is no chance that ou integral representation of \( T  \) in terms of the spectrum will break.
+\end{itemize}
+

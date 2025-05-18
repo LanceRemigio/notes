@@ -1,0 +1,268 @@
+\subsection{Projection Operators}
+
+\begin{prop}
+    A linear operator \( P : H \to H  \) is a projection on \( H  \) is there is a closed subspace \( Y  \) of \( H  \) such that \( Y  \) is the range of \( P  \) and \( Y^{\perp} \) is the null space of \( P \) and \( P |_{Y} \) is the identity operator on \( Y  \).
+\end{prop}
+The above implies that we can write any \( x \in H  \) in the following way
+\[  x = y + z  \tag{1} \]
+where \( y \in Y  \) and \( z \in Y^{\perp} \). Furthermore, we can write \( H  \) in terms of \( Y  \) and \( Y^{\perp} \) as a direct sum; that is,
+\[  H = Y \oplus Y^{\perp}. \]
+We can also rewrite (1) in the following way
+\[  x = y + z = Px + (I-P)x. \]
+Another way to characterize the projection on \( H  \) is the presented in the following theorem below:
+
+\begin{theorem}[Projection Kreyszig (9.5-1)]\label{9.5-1}
+    A bounded linear operator \( P: H \to H  \) on a Hilbert Space \( H  \) is a projection if and only if \( P  \) is self-adjoint and idempotent (That is, \( P^{2} = P  \)).
+\end{theorem}
+
+% \begin{proof}
+%     (\( \Longrightarrow \)) Suppose that \( {P}_{1} {P}_{2} = {P}_{2} {P}_{1} \). Then by Theorem {\hyperref[3.10-4]{3.10-4}}, \( P \) is self-adjoint. Also, we see that \( P \) is idempotent because
+%     \[  P^{2} = ({P}_{1} {P}_{2})({P}_{1} {P}_{2}) = {P}_{1}^{2} {P}_{2}^{2} = {P}_{1} {P}_{2} = P ] \]
+%     where \( {P}_{1}  \) and \( {P}_{2}  \) are projections on \( H  \).
+%     By {\hyperref[9.5-1]{9.5-1}} , \( P  \) is a projection, and for every \( x \in H  \), we have 
+%     \[  Px = {P}_{1}({P}_{2}x) = {P}_{2}({P}_{1}x). \]
+%     Since \( {P}_{1}  \) is a projects \( H  \) onto \( {Y}_{1} \), we must have \( {P}_{1}({P}_{2}x) \in {Y}_{1} \). Similarly, we see that \( {P}_{2}({P}_{1}x \in {Y}_{2}) \). Hence, we see that \( Px \in {Y}_{1} \cap {Y}_{2} \). Note that this projection is onto since   
+%     \[  Py = {P}_{1} {P}_{2} y = {P}_{1} y = y.  \]
+
+%     (\( \Longleftarrow \)) If \( P = {P}_{1} {P}_{2}  \) is a projection defined on \( H  \), then \( P \) is self-adjoint by {\hyperref[9.5-1]{9.5-1}}. Also, we see that \( {P}_{1} \) and \( {P}_{2} \) commute by Theorem {\hyperref[3.10-4]{3.10-4}}.
+% \end{proof}
+
+The above theorem is more or less an instrumental in proving properties that we desire and need in order for our spectral family to represent \( T  \) properly. Roughly speaking, the theorem helps us, among many other tools in our disposable, to create increasing families of projections that are associated with \( ({E}_{\lambda}) \) (family of projections).
+
+\begin{theorem}[Positivity, norm Kreyszig (9.5-2)]\label{9.5-2} For any projection \( P  \) on a Hilbert space \( H  \), 
+   \begin{enumerate}
+       \item[(i)] \( \langle Px , x  \rangle = \|Px\|^{2} \)
+        \item[(ii)] \( P \geq 0  \) 
+        \item[(iii)] \( \|P\| \leq   1  \) and \( \|P\| = 1  \) if \( P(H) \neq \{ 0 \}  \).
+   \end{enumerate}
+\end{theorem}
+
+% \begin{proof}
+
+% \end{proof}
+
+In this theorem, we essentially have that 
+\begin{enumerate}
+    \item[(i)] tells us that for any projection \( P  \), it projects elements of the Hilbert space \( H  \) onto some closed subspace of \( H  \), thereby preserving the geometry of \( H  \). This further tells us that the projection valued measure \( {E}_{\lambda} \) satisfy the following property   
+\[ \langle {E}_{\lambda} x  ,  x  \rangle = \|{E}_{\lambda}x \|^{2} \]
+which is a key step in defining our integrator for our integral representation.
+    \item[(ii)]  the positivity for any projection \( P  \) ensures that our integral representation converges meaningfully.
+    \item[(iii)] the spectral projections \( {E}_{\lambda} \) are uniformly bounded by 1.
+\end{enumerate}
+
+Now, these two theorems gives us a valuable tool for establishing the following seemingly simple facts (but extremely valuable) needed for our integral representation.
+
+\begin{theorem}[Product of Projections Kreyszig (9.5-3)]\label{9.5-3}
+    In connection with products (composites) of projections on a Hilbert spcae \( H  \), the following two statements hold:
+    \begin{enumerate}
+        \item[(a)] \( P = {P}_{1} {P}_{2} \) is a projection on \( H  \) if and only if the projections \( {P}_{1} \) and \( {P}_{2} \) commute, that is, \( {P}_{1} {P}_{2} = {P}_{2} {P}_{1} \). Then \( P \) projects \( H  \) onto \( Y = {Y}_{1} \cap {Y}_{2}  \), where \( {Y}_{j} = {P}_{j}(H) \).
+    \end{enumerate}
+\end{theorem}
+
+
+\begin{theorem}[Sum of Projections Kreyszig (9.5-4)]\label{9.5-4}
+    Let \( {P}_{1} \) and \( {P}_{2} \) be projections on a Hilbert space \( H  \). Then:
+    \begin{enumerate}
+    \item[(a)] The sum \( P = {P}_{1} + {P}_{2} \) is a projection on \( H  \) if and only if \( {Y}_{1} = {P}_{1}(H) \) and \( {Y}_{2} = {P}_{2}(H) \) are orthogonal.
+    \item[(b)] If \( P = {P}_{1} + {P}_{2}  \) is a projection, \( P  \) projects \( H \) onto \( Y = {Y}_{1} \oplus {Y}_{2} \). 
+    \end{enumerate}
+\end{theorem}
+% \begin{proof}
+% \begin{enumerate}
+%     \item[(a)] \( (\Longrightarrow) \) Suppose that \( P =  {P}_{1} + {P}_{2}  \) is a projection on \( H  \). Our goal is to show that \( {Y}_{1} \) and \( {Y}_{2}  \) are orthogonal; that is, it suffices to show that \( {P}_{1} {P}_{2} = 0  \) by Theorem {\hyperref[9.5-3]{9.5-3}}(b). Observe that \( P  \) is idempotent. Hence, we have  
+%         \begin{align*}
+%             {P}_{1} + {P}_{2} &= ({P}_{1} + {P}_{2})^{2} \\
+%                               &= {P}_{1}^{2} + {P}_{1} {P}_{2} + {P}_{2} {P}_{1} + {P}_{2}^{2} \\
+%                               &= {P}_{1} + {P}_{1} {P}_{2} + {P}_{2} {P}_{1}  +{P}_{2}.
+%         \end{align*}
+%         Hence, we are left with 
+%         \[  {P}_{1}{P}_{2} + {P}_{2} {P}_{1} = 0.  \]
+%         Multiplying the quantity above by \( {P}_{2}  \) on the left, we get 
+%         \[  {P}_{2} {P}_{1} {P}_{2} + {P}_{2}^{2} {P}_{1} = 0 \iff {P}_{2} {P}_{1} {P}_{2} + {P}_{2} {P}_{1} = 0. \]
+%         Multiplying the quantity above by \( {P}_{2} \) on the right side, we obtain
+%         \[  {P}_{2} {P}_{1} {P}_{2}^{2} + {P}_{2} {P}_{1} {P}_{2} = 0 \implies 2{P}_{2} {P}_{1} {P}_{2} = 0.    \]
+%         Hence, it follows that 
+%         \[  {P}_{1}{P}_{2} = 0  \]
+%         which is our desired result.
+%         (\( \Longleftarrow \)) Suppose \( {Y}_{1} \perp {Y}_{2} \). To show that \( P = {P}_{1} + {P}_{2} \) is a projection on \( H  \), it suffices to show that \( P^{2} = P  \) and \( P  \) is self-adjoint. Starting with the first result, since \( {P}_{1} \) and \( {P}_{2} \) are both idempotent, we have that 
+%         \begin{align*}
+%             P^{2} &= ({P}_{1} + {P}_{2})^{2} \\
+%                   &= {P}_{1}^{2} + {P}_{1} {P}_{2}  +{P}_{2} {P}_{1} + {P}_{2}^{2} \\
+%                   &= {P}_{1}^{2} + {P}_{2}^{2} \\
+%                   &= {P}_{1} + {P}_{2} \\
+%                   &= P.
+%         \end{align*}
+%         Hence, we see that \( P^{2} = P  \) and so \( P  \) is idempotent. Also, since \( {P}_{1} \) and \( {P}_{2}  \) are also self-adjoint, we can see immediately that \( P  = {P}_{1} + {P}_{2} \) is also idempotent. Thus, we can conclude based on Theorem {\hyperref[9.5-3]{9.5-3}} that \( P  \) is indeed a projection on \( H  \).
+%     \item[(b)] Suppose \( P = {P}_{1} + {P}_{2} \) is a projection. Note that \( Y  \) is the closed subspace onto which \( P  \) projects to. By definition of \( P  \), it follows that for all \( x \in  H \), we have 
+%         \begin{align*}
+%             Px &= ({P}_{1} + {P}_{2})x  \\
+%                &= {P}_{1}x + {P}_{2}x.
+%         \end{align*}
+%         Since \( P  \) is an onto projection, we have 
+%         \[  y = Px = {P}_{1}x + {P}_{2}x \tag{*} \]
+%         where \( {P}_{1}x \in {Y}_{1}  \) and \( {P}_{2}x \in {Y}_{2} \). We will show now that \( Y = {Y}_{1} \oplus {Y}_{2} \). Let \( y \in Y  \). From (*), it follows that \( y \in {Y}_{1} \oplus {Y}_{2} \) (clearly, \( P \) being a projection on \( Y  \) means that \( {Y}_{1} \perp {Y}_{2}  \) and so \( {Y}_{1} \cap {Y}_{2} = \{ 0  \}  \)). Now, let \( v \in {Y}_{1} \oplus {Y}_{2} \). Then it follows that 
+%         \begin{align*}
+%             P(v) &= {P}_{1}v + {P}_{2}v  \\
+%                  &= {P}_{1}({y}_{1}) + {P}_{2}({y}_{2}) \\
+%                  &= {Y}_{1} + {Y}_{2} \\
+%                  &= v.
+%         \end{align*}
+%         Hence, \( v \in Y  \) and so we have \( {Y}_{1} \oplus {Y}_{2} \subseteq  Y  \). Thus, we conclude that \(  Y = {Y}_{1} \oplus {Y}_{2} \).
+% \end{enumerate}
+% \end{proof}
+\subsection{Properties of Projections}
+
+\begin{theorem}[Partial Order Kreyszig (9.6-1)]\label{9.6-1}
+    Let \( {P}_{1}  \) and \( {P}_{2} \) be projections defined on a Hilbert space \( H  \). Denote by \( {Y}_{1} = {P}_{1}(H) \) and \( {Y}_{2} = {P}_{2}(H) \), the subspaces onto which \( H  \) is projected by \( {P}_{1} \) and \( {P}_{2} \), and let \( N({P}_{1}) \) and \( N({P}_{2}) \) be the null spaces of these projections. Then the following conditions are equivalent.
+    \begin{enumerate}
+        \item[(1)] \( {P}_{2}{P}_{1} = {P}_{1} {P}_{2} = {P}_{1} \)
+        \item[(2)] \( {Y}_{1} \subseteq {Y}_{2} \)
+        \item[(3)] \( N({P}_{1}) \supseteq N({P}_{2}) \)
+        \item[(4)] \( \|{P}_{1}x\| \leq \|{P}_{2}x \|  \) for all \( x \in H  \)
+        \item[(5)] \( {P}_{1} \leq {P}_{2} \).
+    \end{enumerate}
+\end{theorem}
+
+ This theorem refines our understanding of partial ordering for positive operators by demonstrating not only the monotonicity of projections, but also an analogue of the nested interval property through the inclusion relationships among their corresponding null spaces. More specifically, for a sequence of projections 
+\[  {P}_{1} \leq {P}_{2} \leq {P}_{3} \leq \cdots  \]
+we have
+\[  N({P}_{1}) \supseteq N({P}_{2}) \supseteq N({P}_{3}) \supseteq \cdots \ .  \]
+Roughly speaking, the nesting of null spaces can be interpreted as becoming progressively more refined as the sequence of projections \( {P}_{j} \) increases. In fact, there is a theorem that formalizes this idea. However, before we state it, we introduce an important algebraic fact that allows us to take the difference of projections—providing a way to measure how close two projections are to one another. This will ultimately lead us to a notion of the limit of a sequence of projections.
+
+
+
+% \begin{proof}
+% \( (1) \implies (4) \) From {\hyperref[9.5-2]{9.5-2}}, it follows that \( \|{P}_{1}\| \leq 1  \). Using (1), we can see that for all \( x \in H \)
+% \[  \|{P}_{1}x\| = \|{P}_{1} {P}_{2} x \| \leq \|{P}_{1}\| \|{P}_{2}x\| \leq \|{P}_{2}x\|.  \]
+% Hence, \( \|{P}_{1}x \| \leq \|{P}_{2}x \| \).
+
+% \( (4) \implies (5) \) Since \( \langle {P}_{1}x ,  x  \rangle = \|P_1 x\|^{2} \), it follows that for all \( x \in H  \)
+% \[  \langle {P}_{1}x  , x \rangle = \|{P}_{1}x \|^{2} \leq \|{P}_{2}x\|^{2} = \langle {P}_{2}x  ,  x  \rangle. \]
+% Thus, we have \( {P}_{1} \leq {P}_{2} \) by definition.
+
+% \( (5) \implies (3) \) Assume \( {P}_{1}\leq {P}_{2} \). Our goal is to show \( N({P}_{2}) \subseteq N({P}_{1})  \). Let \( x \in N({P}_{2}) \). Then \( {P}_{2}x = 0  \) by definition. Using the fact that \( \langle {P}_{1}x  ,  x  \rangle = \|{P}_{1}x\|^{2} \) and (5) from our theorem, it follows that 
+% \[  \|{P}_{1}x\|^{2} = \langle {P}_{1}x  ,  x  \rangle \leq \langle {P}_{2}x  ,  x  \rangle = 0.   \]
+% Thus, we can see that \( {P}_{1}x = 0  \) and so \( x \in N({P}_{1}) \) and \( N({P}_{2}) \subseteq N({P}_{1})  \).
+
+%   \( (3) \implies (2) \) By {\hyperref[3.3-5]{3.3-5}}, since \( N({P}_{j})   \) is the orthogonal complement of \( {Y}_{j} \) in \( H  \), it immediately follows that \( {Y}_{1} \subseteq {Y}_{2} \). 
+
+%   \( (2) \implies (1) \) Assume \( {Y}_{1} \subseteq {Y}_{2} \). For every \( x \in H  \), we have \( {P}_{1}x \in {Y}_{1} \). Thus, \( {P}_{1}x \in {Y}_{2} \) by assumption and so we have 
+%   \[  {P}_{2}({P}_{1}x) = {P}_{1}x.   \]
+%   Thus, \( {P}_{2}{P}_{1} = {P}_{1} \). Note that since \( {P}_{1} \) is a projection, \( {P}_{1} \) must also be self-adjoint by {\hyperref[9.5-1]{9.5-1}}. Using {\hyperref[3.10-4]{3.10-4}}, we see immediately that   
+%   \[  {P}_{1} = {P}_{2}{P}_{1} = {P}_{1} {P}_{2}. \]
+% \end{proof}
+
+
+\begin{theorem}[Difference of Projections Kreyszig (9.6-2)]\label{9.6-2}
+    Let \( {P}_{1}  \) and \( {P}_{2} \) be projections on a Hilbert space \( H  \). Then:
+    \begin{enumerate}
+        \item[(a)] The difference \( P = {P}_{2} - {P}_{1} \) is a projection on \( H  \) if and only if \( {Y}_{1} \subseteq  {Y}_{2} \), where \( {Y}_{j} = {P}_{j}(H) \).
+        \item[(b)] If \( P = {P}_{2} - {P}_{1} \), then \( P  \) projects \( H  \) onto \( Y  \), where \( Y  \) is the orthogonal complement of \( {Y}_{1} \) in \( {Y}_{2} \).
+    \end{enumerate}
+\end{theorem}
+% \begin{proof}
+% \begin{enumerate}
+%     \item[(a)] \( (\Longrightarrow) \) Suppose \( P = {P}_{2} - {P}_{1} \) is a projection on \( H  \). Our goal is to show that \( {Y}_{1} \subseteq {Y}_{2} \). Our strategy is to prove that 
+%         \[  {P}_{2}{P}_{1} = {P}_{1} {P}_{2} = {P}_{1} \]
+%         so that we may apply {\hyperref[9.6-1]{9.6-1}} to obtain our result. By assumption, we see that \( P^{2} = P  \) by {\hyperref[9.5-1]{9.5-1}} and so we obtain
+%         \[  {P}_{2} - {P}_{1} = ({P}_{2} - {P}_{1})^{2} = {P}_{2}^{2} - {P}_{2} {P}_{1} - {P}_{1} {P}_{2} + {P}_{1}^{2}.\]
+%         On the right-hand side, since \( {P}_{1} \) and \( {P}_{2} \) are also projections, we have \( {P}_{2}^{2} = {P}_{2} \) and \( {P}_{1}^{2} = {P}_{1} \) by {\hyperref[9.5-1]{9.5-1}}. And so the above equation enables us to write
+%         \[  {P}_{1}{P}_{2} = {P}_{2}{P}_{1} = 2 {P}_{1}. \tag{I} \]
+%         Multiplying \( {P}_{2} \) on the left-hand side of (I) gives us
+%         \[  {P}_{2}{P}_{1} {P}_{2} + {P}_{2}{P}_{1} = 2 {P}_{2} {P}_{1}. \]
+%         Then we have
+%         \[  {P}_{2} {P}_{1} {P}_{2} = {P}_{2} {P}_{1}. \tag{1} \]
+%         Multiplying \( {P}_{2}  \) on the right-hand side of (I) gives us
+%         \[ {P}_{1}{P}_{2} + {P}_{2} {P}_{1} {P}_{2} = 2 {P}_{1} {P}_{2}.  \]
+%         Then we have 
+%         \[  {P}_{2} {P}_{1} {P}_{2} = {P}_{1} {P}_{2}. \tag{2} \]
+%         From (1) and (2), it follows that 
+%         \[  {P}_{2} {P}_{1} = {P}_{1} {P}_{2} = {P}_{1} \]
+%         which is our desired result.
+       
+%         \( (\Longleftarrow) \) Our goal is to show that \( P  \) is idempotent and \( P  \) is self-adjoint by {\hyperref[9.5-1]{9.5-1}}. If \( {Y}_{1} \subseteq {Y}_{2} \), we see from {\hyperref[9.6-1]{9.6-1}} that \( {P}_{2}{P}_{1} = {P}_{1} {P}_{2} = {P}_{1} \) which further implies that 
+%         \[  {P}_{1}{P}_{2} + {P}_{2} {P}_{1} = 2 {P}_{1} \]
+%         and consequently shows that \( P \) is idempotent. Indeed, we see that  
+%         \begin{align*}
+%             P^{2} = ({P}_{2} - {P}_{1})^{2} 
+%                   &= {P}_{2}^{2} - ({P}_{2} {P}_{1} + {P}_{1} {P}_{2}) + {P}_{1}^{2} \\
+%                   &= {P}_{2} - ({P}_{2} {P}_{1} + {P}_{1} {P}_{2}) + {P}_{1} \\
+%                   &= {P}_{2} - {P}_{1} \\
+%                   &= P.
+%         \end{align*}
+%         Hence, \( P^{2} = P  \).
+%         Since \( {P}_{1} \) and \( {P}_{2} \) are self-adjoint, it follows that \( P = {P}_{2} - {P}_{1} \) is also self-adjoint, and so \( P  \) is a projection.
+%     \item[(b)] Our goal is to show that \( Y  = V =  {Y}_{2} \cap {Y}_{1}^{\perp}  \). Note that \( Y = P(H) \) consists of all vectors of the form 
+%         \[  y = Px = {P}_{2}x - {P}_{1}x \]
+%         for all \( x \in H \). Suppose \( P = {P}_{2} - {P}_{1} \) is a projection. Then from part (a), it follows that \( {Y}_{1} \subseteq {Y}_{2} \) and so we have \( {P}_{2} {P}_{1} = {P}_{1} \). Thus, we obtain from the above equation that 
+%         \[  {P}_{2} y = {P}_{2}^{2} x - {P}_{2} {P}_{1} x = {P}_{2} x - {P}_{1} x = y.  \]
+%         This tells us that \( y \in {Y}_{2} \). Similarly, we have   
+%         \[  {P}_{1}y = {P}_{1}{P}_{2}x - {P}_{1}^{2}x = {P}_{1}x - {P}_{1}x = 0.  \]
+%         This tells us that \( y \in N({P}_{1}) = {Y}_{1}^{\perp} \) by \( {\hyperref[3.3-5]{3.3-5}}  \). Together, \( y \in V  \) where \( V = {Y}_{2} \cap {Y}_{1}^{\perp} \). Since \( y \in Y  \) was arbitrary, we have \( Y \subseteq V  \) 
+
+%         Now, we will show that \( V \subseteq Y  \). Observe that the projection of \( H  \) onto \( {Y}_{1}^{\perp}  \) is \( I - {P}_{1} \), and so for every \( v \in V  \), we can see that 
+%         \[  v = (I - {P}_{1}){y}_{2}. \]
+%         Using \( {P}_{2} {P}_{1} = {P}_{1} \), we obtain from the above equation that, since \( {P}_{2} {y}_{2} = {y}_{2} \), we have 
+%         \begin{align*}
+%             Pv &= ({P}_{2} - {P}_{1}) (I - {P}_{1}){y}_{2}  \\
+%                &= ({P}_{2} - {P}_{2} {P}_{1} - {P}_{1} + {P}_{1}^{2}) {y}_{2} \\
+%                &= ({P}_{2} - {P}_{2}{P}_{1}){y}_{2} \\
+%                &= {P}_{2}{y}_{2} - ({P}_{2} {P}_{1}){y}_{2} \\
+%                &= (I - {P}_{1}){y}_{2} \\
+%                &= v.
+%         \end{align*}
+%         Hence, we have \( v \in Y  \) and so \( V \subseteq Y  \) since \( v  \) is arbitrary. Together, we identify \( Y = P(H) \) with \( V = {Y}_{2} \cap {Y}_{1}^{\perp} \).
+% \end{enumerate}
+% \end{proof}
+
+With our observation made earlier, we now see, with the following theorem, that our intuition is correct.
+
+\begin{theorem}[Monotone Increasing Sequence Kreyszig (9.6-3)]
+    Let \( ({P}_{n}) \) be a monotone increasing sequence of projections \( {P}_{n} \) defined on a Hilbert space \( H  \). Then:
+    \begin{enumerate}
+        \item[(a)] \( ({P}_{n}) \) is strongly operator convergent, say, \( {P}_{n}x \to Px   \) for every \( x \in H  \), and the limit operator \( P  \) is a projection defined on \( H  \).
+        \item[(b)] \( P \) projects \(H  \) onto 
+            \[  P(H) = \overline{\bigcup_{ n=1  }^{ \infty  }  {P}_{n}(H) }. \]
+        \item[(c)] \( P  \) has the null space 
+            \[  N(P) = \bigcap_{ n=1  }^{ \infty  }  N({P}_{n}). \]
+    \end{enumerate}
+\end{theorem}
+
+
+    \begin{proof}
+    \begin{enumerate}
+        \item[(a)] Let \( m < n  \). By assumption, we can see that \( {P}_{m} \leq {P}_{n}  \) so that we have \( {P}_{m}(H) \subseteq  {P}_{n}(H) \) by {\hyperref[9.6-1]{9.6-1}} and \( {P}_{n} - {P}_{m}  \) is a projection by {\hyperref[9.6-2]{9.6-2}}. Hence, for every fixed \( x \in H  \), we get via {\hyperref[9.5-2]{9.5-2}} that 
+            \begin{align*}
+                \|{P}_{n}x -  {P}_{m}x\|^{2} &= \|({P}_{n} - {P}_{m})x\|^{2} \\
+                                             &= \langle ({P}_{n} - {P}_{m})x  ,  x \rangle \\
+                                             &= \langle {P}_{n} x  ,  x  \rangle - \langle {P}_{m}x  , x  \rangle \\
+                                             &= \|{P}_{n}x\|^{2} - \|{P}_{m}x\|^{2}.
+            \end{align*}
+            Using {\hyperref[9.5-2]{9.5-2}}, we get \( \|{P}_{n}\| \leq 1  \) and so \( \|{P}_{n}x \| \leq \|x \|  \) for every \( n \in \N \). This tells us that \( \|{P}_{n}x\| \) is a bounded sequence of numbers. Also, \( (\|{P}_{n}x\|) \) is a monotone sequence by {\hyperref[9.6-1]{9.6-1}}. By the Monotone Convergence Theorem, it follows that \( \|{P}_{n}x\| \) is a convergent sequence and hence \( (\|{P}_{n}x\|) \) is a Cauchy sequence. As a consequence, \( ({P}_{n})  \) is also a Cauchy sequence in \( H  \) and so using the completeness of \( H  \) allows us to now say that \( {P}_{n}x \to Px   \) for some \( Px  \) in \( H  \). It is immediate that \( P  \) must be a projection on \( H  \) since is linear, self-adjoint and idempotent by {\hyperref[9.5-3]{9.5-3}} 
+        \item[(b)] Our goal is to show that 
+            \[  P(H) = \overline{\bigcup_{ n=1  }^{ \infty  }  {P}_{n}(H)}. \]
+            Let \( m < n  \). Then \( {P}_{m} \leq {P}_{n} \), that is, \( {P}_{n} - {P}_{m} \geq 0  \) and so \( \langle ({P}_{n} - {P}_{m})x  , x  \rangle \geq 0  \) by definition. Letting \( n \to \infty   \), we obtain \( \langle (P - {P}_{m})x  ,  x  \rangle \geq 0  \) using the continuity of the inner product {\hyperref[3.2-2]{3.2-2}}; that is, we have \( {P}_{m} \leq P  \) and so {\hyperref[9.6-1]{9.6-1}} gives us \( {P}_{m}(H) \subseteq P(H)  \) for every \( m  \). Thus, we have 
+            \[  \bigcup {P}_{m}(H) \subseteq P(H). \]
+            Furthermore, for every \( m  \) and for every \( x \in H  \), we have 
+            \[  {P}_{m}x \in {P}_{m}(H) \subseteq \bigcup {P}_{m}(H). \]
+            Since \( {P}_{m}x \to Px  \), we see from {\hyperref[1.4-6]{1.4-6(a)}} that \( Px \in \overline{\bigcup {P}_{m}(H) } \). Hence, we have 
+            \[  \bigcup {P}_{m}(H) \subseteq P(H) \subseteq \overline{ \bigcup {P}_{m}(H) }. \]
+            From {\hyperref[3.3-5]{3.3-5}} , it follows that \( P(h) = N(I - P) \) so that \( P(H) \) is closed by \( {\hyperref[2.7-10]{2.7-10(b)}}  \). This implies that from the above containments that (since \( P(H) \) is closed)
+            \[ \overline{\bigcup {P}_{m}(H) } \subseteq P(H)  \]
+            Together, we see that 
+            \[ P(H) = \overline{\bigcup {P}_{m}(H) }.\]
+        \item[(c)] We determine \( N(P)  \). Using \( {\hyperref[3.3-5]{3.3-5}}  \), we see that 
+            \[  N(P) = P(H)^{\perp} \subseteq {P}_{n}(H)^{\perp} \] for every \( n \in \N \) due to part (b). Hence, we have 
+            \[  N(P) \subseteq \bigcap {P}_{n}(H)^{\perp} = \bigcap N({P}_{n}).  \]
+            On the other hand, if \( x \in \bigcap N({P}_{n}) \), then \( x \in N({P}_{n}) \) for every \( n  \) so that \( {P}_{n}x = 0  \) and so \( {P}_{n}x \to Px  \) implies that \( Px = 0  \); that is, \( x \in   N(P) \). Thus, we see that 
+            \[ \bigcap N({P}_{n}) \subseteq N(P). \]
+            Together, we obtain our result that 
+            \[ N(P) = \bigcap N({P}_{n}). \]
+            \end{enumerate}
+    \end{proof}
+
+This theorem shows that even without compactness, monotone increasing sequences of orthogonal projections converge strongly to a projection whose range captures the union of the original projection ranges and whose null space is the intersection of the corresponding null spaces. This elegant behavior reflects the well-structured geometry of Hilbert spaces and plays a foundational role in the construction of spectral projections used in the spectral theorem.
+
+In the next section, we will make use of these tools by defining a spectral family along with the essential properties needed to establish the integral representation of the operator \( T \).
+
+

@@ -1,0 +1,126 @@
+\subsection{Motivation}
+
+Recall that in a finite-dimensional unitary space \( H = \mathbb{C}^n \), any self-adjoint linear operator \( T: H \to H \) can be represented as a Hermitian matrix \( A \) with respect to some orthonormal basis of \( H \).
+
+This matrix representation has real eigenvalues, as guaranteed by {\hyperref[9.1-1]{9.1-1}}. Since \( H \) is \( n \)-dimensional, we can label these eigenvalues as \( \lambda_1 < \lambda_2 < \dots < \lambda_n \), corresponding to an orthonormal set of eigenvectors \( \beta = \{ x_1, x_2, \dots, x_n \} \). This set \( \beta \) forms a basis for \( H \), and each eigenvector \( x_j \) corresponds to the eigenvalue \( \lambda_j \) (\( 1 \leq j \leq n \)). These vectors form the columns of the matrix \( A \) representing \( T \). As \( \beta \) is an orthonormal basis, any vector \( x \in H \) can be uniquely written as a linear combination of the vectors in \( \beta \). In particular,
+\begin{align*}
+    x &= \sum_{j=1}^n \gamma_j x_j \tag{1} \\
+    \gamma_j &= \langle x, x_j \rangle,
+\end{align*}
+where the coefficients \( \gamma_j \) are obtained by projecting \( x \) onto each basis vector \( x_j \).
+
+Applying the linearity of \( T \) to (1), we obtain
+\[
+    Tx = \sum_{j=1}^n \gamma_j \lambda_j x_j. \tag{2}
+\]
+
+Although \( T \) may seem complicated in general, its action on each eigenvector \( x_j \) is particularly simple: it scales \( x_j \) by \( \lambda_j \).
+
+Next, define an operator \( P_j: H \to H \) by \( P_j(x) = \gamma_j x_j \). Each \( P_j \) is the orthogonal projection of \( x \) onto the eigenspace corresponding to \( \lambda_j \). Then equation (1) can be written as
+\[
+    x = \sum_{j=1}^n P_j x \quad \Rightarrow \quad I = \sum_{j=1}^n P_j, \tag{3}
+\]
+where \( I \) denotes the identity operator on \( H \). Similarly, equation (2) becomes
+\[
+    Tx = \sum_{j=1}^n \lambda_j P_j x \quad \Rightarrow \quad T = \sum_{j=1}^n \lambda_j P_j. \tag{4}
+\]
+
+This shows that the self-adjoint operator \( T \) admits a simple and elegant decomposition in terms of orthogonal projections. However, this nice finite-dimensional representation does not extend directly to infinite-dimensional inner product spaces. As is often the case, difficulties arise from handling the infinite structure.
+
+To generalize this representation, we introduce the concept of a \textbf{spectral family of projections} \( \{E_\lambda\}_{\lambda \in \mathbb{R}} \), which captures the cumulative effect of projections up to a certain threshold \( \lambda \). In the finite-dimensional setting, we can define
+\[
+    E_\lambda = \sum_{\lambda_j \leq \lambda} P_j. \tag{5}
+\]
+Here, \( E_\lambda \) is the projection of \( H \) onto the subspace spanned by those eigenvectors \( x_j \) for which \( \lambda_j \leq \lambda \).
+
+\begin{definition}[Spectral Family or Decomposition of Unity, Kreyszig (9.7-1)]\label{9.7-1}
+A real spectral family (or real \textit{decomposition of unity}) is a one-parameter family \( \mathcal{G} = \{E_\lambda\}_{\lambda \in \mathbb{R}} \) of projections \( E_\lambda \) on a Hilbert space \( H \) satisfying:
+\begin{enumerate}
+    \item[(i)] \( E_\lambda \leq E_\mu \) for \( \lambda < \mu \) (i.e., \( E_\lambda E_\mu = E_\mu E_\lambda = E_\lambda \)),
+    \item[(ii)] \( \lim_{\lambda \to -\infty} E_\lambda x = 0 \) for all \( x \in H \),
+    \item[(iii)] \( \lim_{\lambda \to +\infty} E_\lambda x = x \) for all \( x \in H \),
+    \item[(iv)] \( \lim_{\mu \to \lambda^+} E_\mu x = E_\lambda x \) for all \( x \in H \).
+\end{enumerate}
+\end{definition}
+
+This means a spectral family is a mapping from \( \mathbb{R} \) to \( B(H) \), the space of all bounded linear operators on \( H \). Note that condition (i) is bidirectional: \( E_\lambda \leq E_\mu \) if and only if \( E_\lambda E_\mu = E_\mu E_\lambda = E_\lambda \) (see Kreyszig {\hyperref[9.6-1]{9.6-1}}).
+
+We say that \( \mathcal{G} \) is a \textbf{spectral family on an interval} \( [a,b] \) if:
+\begin{enumerate}
+    \item[(i)] \( E_\lambda = 0 \) for \( \lambda < a \),
+    \item[(ii)] \( E_\lambda = I \) for \( \lambda \geq b \).
+\end{enumerate}
+
+This restriction to a compact interval will prove useful when studying the spectrum of bounded self-adjoint operators, particularly in expressing them as Riemann–Stieltjes integrals. In finite dimensions, the integral representation reduces to a finite sum.
+
+Assuming distinct eigenvalues \( \lambda_1 < \lambda_2 < \dots < \lambda_n \), we find:
+\begin{align*}
+    E_{\lambda_1} &= P_1, \\
+    E_{\lambda_2} &= P_1 + P_2, \\
+                  &\vdots \\
+    E_{\lambda_n} &= P_1 + \dots + P_n.
+\end{align*}
+Conversely,
+\begin{align*}
+    P_1 &= E_{\lambda_1}, \\
+    P_j &= E_{\lambda_j} - E_{\lambda_{j-1}} \quad \text{for } 2 \leq j \leq n.
+\end{align*}
+
+Since \( E_\lambda \) remains constant on each interval \( [\lambda_{j-1}, \lambda_j) \), we can express the projections as
+\[
+    P_j = E_{\lambda_j} - E_{\lambda_j - 0}.
+\]
+Thus, equation (4) becomes:
+\[
+    T = \sum_{j=1}^n \lambda_j P_j = \sum_{j=1}^n \lambda_j (E_{\lambda_j} - E_{\lambda_j - 0}). \tag{*}
+\]
+
+This equation (*) gives the \textit{spectral representation} of the self-adjoint operator \( T \) on the \( n \)-dimensional Hilbert space \( H \). For any \( x, y \in H \), we have:
+\[
+    \langle Tx, y \rangle = \sum_{j=1}^n \lambda_j \langle (E_{\lambda_j} - E_{\lambda_j - 0})x, y \rangle.
+\]
+
+This sum can be written as a Riemann–Stieltjes integral:
+\[
+    \langle Tx, y \rangle = \int_{-\infty}^{+\infty} \lambda \, d w(\lambda),
+\]
+where \( w(\lambda) = \langle E_\lambda x, y \rangle \). This integral form captures the action of \( T \) through the cumulative effect of the spectral family \( \{E_\lambda\} \), and serves as the prototype for the spectral representation in infinite-dimensional Hilbert spaces.
+
+
+
+\subsection{Main Theorem}
+
+\begin{theorem}[Spectral Theorem for Bounded Self-Adjoint Linear Operators]
+    Let \( T : H \to H  \) be a bounded self-adjoint linear operator on a complex Hilbert space \( H  \). Then:
+    \begin{enumerate}
+        \item[(a)] \( T  \) has the spectral representation 
+            \[  T = \int_{ m - 0  }^{ M  }  \lambda  \ d {E}_{\lambda} \tag{1} \]
+            where \( \mathcal{G} = ({E}_{\lambda}) \) is the spectral family associated with \( T  \); the integral is to be understood in the sense of uniform convergence (convergence in the norm on \(B(H,H) \)), for all \( x,y \in H \) \[  \langle Tx , y \rangle = \int_{ m - 0  }^{  M  } \lambda  \ d w(\lambda) \tag{1*} \]
+            where \( w(\lambda) = \langle {E}_{\lambda} x  ,  y  \rangle  \) where the integral is an ordinary Riemann-Stieltjes integral. 
+        \item[(b)] More generally, if \( p  \) is a polynomial in \( \lambda  \) with real coefficients,
+            \[ p(\lambda) = {\alpha}_{n} \lambda^{n} + {\alpha}_{n-1} \lambda^{n-1} + \cdots  + {\alpha}_{0}, \]
+            then the operator \( p(T) \) defined by  
+            \[  p(T)  = {\alpha}_{n} T^{n} + {\alpha}_{n-1} T^{n-1} + \cdots + {\alpha}_{0} I \]
+            has the spectral representation 
+            \[  p(T) = \int_{ m - 0  }^{ M  }  p(\lambda) \ d {E}_{\lambda} \tag{2} \]
+            and for all \( x,y \in H  \) 
+            \[  \langle p(T) x  , y  \rangle = \int_{ m - 0  }^{  M  }  p(\lambda)  \ d w(\lambda) \tag{2*} \]
+            where \( w(\lambda) = \langle {E}_{\lambda}x  , y \rangle \).
+    \end{enumerate}
+\end{theorem}
+
+Our goal, for the remainder of this paper, is to develop the integral representation outlined in the spectral theorem above. To guide the reader, we provide an outline of the paper's structure below.
+
+\begin{itemize}
+    \item In {\hyperref[section 3]{section 3}}, we introduce some fundamental properties of bounded self-adjoint linear operators, laying the groundwork for understanding their spectral behavior and setting the stage for the spectral representation.
+    \item In {\hyperref[section 4]{section 4}}, we extend this foundation by exploring positive operators and the square roots of operators, highlighting how these concepts help establish the framework for operator convergence—an essential component of the spectral theorem.
+    \item In {\hyperref[section 5]{section 5}} , we further enrich our understanding by introducing orthogonal projections. Building on the results of the previous sections, we examine how projections contribute to the convergence of the integral representation and serve as the key link to the spectral resolution of operators.
+    \item Leading up to the proof of the spectral theorem {\hyperref[section 6]{(section 6)}} , we introduce the notion of spectral families and analyze their properties. This analysis reveals how spectral families encapsulate the behavior of bounded self-adjoint operators and facilitate their representation via Riemann-Stieltjes integrals.
+    \item Finally, after establishing the proof of the spectral theorem ({\hyperref[section 7]{section 7}}), we present a general convolution operator on \( L^{2}(\R) \) in terms of Riemann-Stieltjes integral in ours spectral theorem by using tools from Fourier analysis. In particular, we will present a more concrete example by looking at the Gaussian Kernel of a Fourier Transform and representing it in terms of its spectral representation.
+\end{itemize}
+
+
+
+
+
+

@@ -1,0 +1,160 @@
+\subsection{Positive Operators}
+
+In this section, we study the partial ordering of bounded self-adjoint linear operators. Our goal is to show that the family of projections serves as an integrator in the integral representation, which is a key step toward our desired spectral representation of \( T \). To establish this, we need to demonstrate that the family of projections is monotonic.
+
+First, we will clarify what is meant by the term partial ordering in this context.
+
+\begin{definition}[Partial Order Kreyszig (9.3)]
+    We define a \textbf{partial order} on the set of bounded self-adjoint linear operators defined over the complex Hilbert Space \( H  \) by \( {T}_{1} \leq {T}_{2}  \) if and only if \( \langle {T}_{1}x  , x   \rangle \leq \langle {T}_{2} x  ,  x  \rangle  \).
+\end{definition}
+
+A key requirement to show monotonicity involves positive operators.
+
+\begin{definition}[Positive Operators Kreyszig (9.3-1)]
+    Let \( H  \) be a complex Hilbert Space. We say that \( T: H \to  H \) is \textbf{positive}; that is, \( T \geq  0  \) if \( \langle Tx  ,  x  \rangle \geq 0  \).
+\end{definition}
+
+A few results that follows immediately from the above definition are given below.
+
+\begin{lemma}
+    Let \( H  \) be a Complex Hilbert Space and let \( {T}_{1}, {T}_{2} : H \to H  \) be two linear operators such that \( {T}_{1} \leq {T}_{1} \). We say that \( {T}_{2} - {T}_{1}  \) is positive if \( {T}_{2} - {T}_{1} \geq 0  \). 
+\end{lemma}
+
+\begin{lemma}
+    The sum of two positive operators is positive.
+\end{lemma}
+
+In the remainder of this section, we will prove some basic algebraic properties of positive operators which are dependent upon the essential fact that the product of two self-adjoint operators commute.
+
+\begin{theorem}[Product Of Positive Operators Kreyszig (9.3)]
+    If two bounded self-adjoint linear operators \( S  \) and \( T  \) on a Hilbert space \( H  \) are positive and commute (\( ST  = TS \)), then their product \( S T  \) is positive.
+\end{theorem}
+% \begin{proof}
+% Our goal is to show that \( \langle ST x  , x  \rangle \geq 0  \) for all \( x \in H \). Clearly, if \( S = 0  \), then the result holds. Suppose \( S \neq 0  \). We will show the following:
+% \begin{enumerate}
+%     \item[(a)] If we consider \( {S}_{1} = \frac{ 1 }{ \|S\| }  S  \), \( {S}_{n+1} = {S}_{n} - {S}_{n}^{2} \) for all \( n \in \N \), then we will show via induction that 
+%         \[  0 \leq {S}_{n} \leq  I. \tag{*} \]
+%     \item[(b)] Then we conclude that \( \langle ST x  ,  x  \rangle \geq 0  \) for all \( x \in H  \). 
+% \end{enumerate}
+
+% (a) For \( n = 1  \), then the inequality in (*) holds. Indeed, using the Cauchy-Schwarz inequality, we have 
+% \[  \langle {S}_{1} x  ,  x  \rangle = \frac{ 1  }{  \|S \| }  \langle Sx  ,  x  \rangle \leq \frac{ 1  }{ \|S\| } \|Sx \| \|x \| \leq \|x\|^{2} = \langle Ix  ,  x  \rangle \implies {S}_{1} \leq I. \]
+% Suppose (*) holds for all \( n = k  \); that is, 
+% \[  0 \leq {S}_{k} \leq I \implies 0 \leq I - {S}_{k} \leq I. \]
+% Since each \( {S}_{k} \) is self-adjoint for every \( x \in H  \) and \( y = {S}_{k}x  \), we obtain
+% \begin{align*}
+%     \langle {S}_{k}^{2}(I - {S}_{k})x  ,  x  \rangle &= \langle (I - {S}_{k}){S}_{k}x  ,  {S}_{k } x  \rangle \\
+%                                                      &= \langle (I - {S}_{k}) y  , y \rangle \geq 0.
+% \end{align*}
+% By definition, we see that 
+% \[  {S}_{k}^{2} (I - {S}_{k}) \geq 0 \tag{1}  \]
+% and similarly, we have 
+% \[  {S}_{k}(I - {S}_{k})^{2} \geq 0.  \tag{2} \]
+% Adding (1) and (2) together, we have 
+% \[  0 \leq {S}_{k}^{2} (I - {S}_{k}) + {S}_{k}(I - {S}_{k})^{2} = {S}_{k} - {S}_{k}^{2} = {S}_{k+1}. \]
+% Hence, we see that \(  0 \leq {S}_{k+1}  \). And \( {S}_{k+1} \leq I  \) follows from \( {S}_{k}^{2} \geq 0  \) and \( I - {S}_{k} \geq 0  \) by addition. Indeed, we see that 
+% \[  0 \leq I - {S}_{k} + {S}_{k}^{2} = I - {S}_{k+1} \]
+% which completes the induction proof of (a).
+
+% (b) We now show that \( \langle ST x  , x  \rangle \geq 0  \) for all \( x \in H  \). Because \( {S}_{1} = \frac{ 1 }{ \|S\| } S  \), \( {S}_{n+1} = {S}_{n} - {S}_{n}^{2} \) for all \( n \in \N \), we obtain
+% \begin{align*}
+%     {S}_{1} &= {S}_{1}^{2} + {S}_{2} \\
+%             &= {S}_{1}^{2} + {S}_{2}^{2} + {S}_{3} \\
+%             &= {S}_{1}^{2} + {S}_{2}^{2} + \cdots  +{S}_{n}^{2} + {S}_{n+1}.
+% \end{align*}
+% Since \( {S}_{n+1} \geq  0 \), we have 
+% \[  {S}_{1}^{2} + \cdots + {S}_{n}^{2} = {S}_{1} - {S}_{n+1} \leq {S}_{1}. \]
+% Since \( n \) is arbitrary, the infinite series
+% \[  \|{S}_{1}x \|^{2} + \|{S}_{2}x\|^{2} + \cdots   \]
+% converges. Thus, \( \|{S}_{n}x \| \to 0  \) and \( {S}_{n}x  \to 0  \). By (5), we have 
+% \[  \Big(  \sum_{ j=1  }^{ n } {S}_{j}^{2} \Big) x = ({S}_{1} -{S}_{n+1})x \to {S}_{1}x  \tag{\( n \to \infty  \)}\]
+% By positivity and self-adjointness of \( {S}_{j} \), we obtain
+% \[  \sum_{ j=1  }^{ n } \|{S}_{j} x \|^{2} = \sum_{ j=1 }^{ n } \langle {S}_{j} x  ,  {S}_{j}x  \rangle = \sum_{ j=1  }^{ n } \langle {S}_{j}^{2}x  , x  \rangle \leq \langle {S}_{1}x  , x  \rangle. \tag{\( \dagger \)} \]
+% Note that our \( {S}_{j} \)'s commute with \( T  \), they are sums and products of \( {S}_{1} = \|S\|^{-1} S  \), and \( S  \) and \( T  \) commute. Thus, with \( S = \|S\| {S}_{1} \), (\( \dagger \)), \( T \geq 0  \), and the continuity of the inner product, we find that for every \( x \in H  \) and \( {y}_{j} = {S}_{j} x  \), we have 
+% \begin{align*}
+%     \langle ST x  ,  x  \rangle &= \|S \| \langle TS x  ,  x  \rangle \\
+%                                 &= \|S\| \lim_{ n \to \infty  }  \sum_{ j=1  }^{ n } \langle T {S}_{j}^{2} x  ,  x  \rangle \\
+%                                 &= \|S \| \lim_{ n \to \infty  }  \sum_{ j=1  }^{ n } \langle T {y}_{j} ,  {y}_{j} \rangle \geq 0;
+% \end{align*}
+% that is, \( \langle ST x  ,  x  \rangle \geq 0  \).
+% \end{proof}
+Just as the validity of algebraic operations with real numbers is foundational in real analysis, the result above ensures that similar operations can be meaningfully performed with bounded self-adjoint linear operators. This is essential for the integral representation in the spectral theorem to be well-defined. Without the assumptions of commutativity and boundedness, these operations can fail, and the integrity of the integral representation may quickly break down.
+
+\begin{theorem}[Monotone Sequence Kreyszig (9.3-3)]\label{9.3-3}
+    Let \( ({T}_{n}) \) be a sequence of bounded self-adjoint linear operators on a complex Hilbert space \( H \) such that  \[  {T}_{1} \leq {T}_{2} \leq \cdots \leq {T}_{n} \leq \cdots \leq K \tag{*}  \]
+   where \( K   \) is a bounded self-adjoint linear operator on \( H  \). Suppose that any \( {T}_{j} \) commutes with \( K  \) and with every \( {T}_{m} \). Then \( ({T}_{m}) \) is strongly operator convergent i.e \( {T}_{n}x \to Tx \) for all \( x \in H \) and the limit operator \( T  \) is linear, bounded, self-adjoint and satisfies \( T \leq K  \).
+\end{theorem}
+% \begin{proof}
+% We consider \( {S}_{n} = K - {T}_{n} \) and prove:
+% \begin{enumerate}
+%     \item[(a)] The sequence \( (\langle {S}_{n}^{2} , x  \rangle ) \) converges for all \( x \in H  \).
+%     \item[(b)] \( {T}_{n}x \to Tx  \) where \( T  \) is linear and self-adjoint, and is bounded by the uniform boundedness theorem.
+% \end{enumerate}
+
+% (a) Our goal is to show that \( {S}_{n} \) converges using the Monotone Convergence Theorem. From our definition of \( {S}_{n} \), we can see that for all \( n \in \N  \), \( {T}_{n} \) is self-adjoint and \( K  \) is also a self-adjoint operator. Hence, \( {S}_{n}  \) is also a self-adjoint operator. Observe that
+% \begin{align*}
+%     {S}_{m}^{2} - {S}_{n} {S}_{m} &= ({S}_{m} - {S}_{n}) {S}_{m}     \\
+%                                   &= ({T}_{n} - {T}_{m})(K - {T}_{m}).
+% \end{align*}
+
+% Let \( m < n  \). By property (*), it follows that \( {T}_{n} - {T}_{m} \) and \( K - {T}_{m} \) are both positive. Also,  
+% \begin{align*}  {S}_{n}{S}_{m} - {S}_{n}^{2} &= {S}_{n}({S}_{m} - {S}_{n}) \\  
+%     &= (K - {T}_{n}) ({T}_{n} - {T}_{m}).  
+% \end{align*}
+% Hence, we see that \( {T}_{n} - {T}_{m} \) and \( K - {T}_{m} \) commute and so their product must be positive. Therefore, \( {S}_{m}^{2} - {S}_{n} {S}_{m} \geq 0   \) and \( {S}_{m}^{2} - {S}_{n}{S}_{m} \geq 0  \) for \( m < n  \). As a consequence, \( {S}_{m}^{2} \geq {S}_{n} {S}_{m} \) and \( {S}_{n} {S}_{m} \geq {S}_{n}^{2} \). Furthermore, 
+% \[  {S}_{m}^{2} \geq {S}_{n} {S}_{m} \geq {S}_{n}^{2}. \]
+% Because each \( {S}_{n} \) is self-adjoint, we must have
+% \begin{align*}
+%     \langle {S}_{m}^{2} x  ,  x  \rangle &\geq \langle {S}_{n}{S}_{m} x  ,  x  \rangle \geq \langle {S}_{n}^{2} x   , x   \rangle  \\
+%                                          &= \langle {S}_{n} x  , {S}_{n} x  \rangle \\
+%                                          &= \|{S}_{n}x\|^{2} \geq 0. 
+% \end{align*}
+
+% This shows that \( (\langle {S}_{n}^{2} x  , x  \rangle) \) with fixed \( x  \) is a monotone decreasing sequence of nonnegative numbers. Hence, the monotone convergence theorem implies that \( {S}_{n} \) converges. 
+
+% (b) Our goal is to show that \( ({T}_{n}x) \) converges. By assumption, each \( {T}_{n} \) commutes with each \( {T}_{m} \) and with \( K  \). Hence, each \( {S}_{j} \) commute. From (a), each \( {S}_{j} \) is self-adjoint. Also, the fact that \( -2 \langle {S}_{m} {S}_{n} x  ,  x  \rangle \leq -2 \langle {S}_{n}^{2} x  ,  x  \rangle \) implies that, for \( m < n  \), we have 
+% \begin{align*}
+%     \|{S}_{m} x - {S}_{n}x  \|^{2} &= \langle ({S}_{m} -{S}_{n}) x  , ({S}_{m} - {S}_{n}) x  \rangle \\
+%                                    &= \langle ({S}_{m} - {S}_{n})^{2} x  ,  x  \rangle \\
+%                                    &= \langle {S}_{m}^{2} x  ,  x  \rangle - 2 \langle {S}_{m}{S}_{n} x  ,  x  \rangle + \langle {S}_{n}^{2} x   , x    \rangle \\
+%                                    &\leq \langle {S}_{m}^{2} x  ,  x  \rangle - \langle {S}_{n}^{2} x  ,  x  \rangle.
+% \end{align*}
+
+% Since \( ({S}_{n}^{2}x) \) converges for all \( x \in H  \) from part (a), it follows that \( ({S}_{n}x ) \) is a Cauchy sequence. Since \( H  \) is a complete normed space, \( ({S}_{n} x ) \) must converge. Note that the limit depends on \( x \in H  \) and so \( {T}_{n}x \to  Tx  \) for every \( x \in H  \). We see that \( T  \) is self-adjoint because each \( {T}_{n} \) is self-adjoint and the inner product is continuous. Because \( ({T}_{n}x) \) is also convergent, it is also bounded for every \( x \in H \). By the uniform boundedness theorem, it follows that \( T  \) is also bounded. Finally, the convergence of \( {T}_{n}x  \) to \(  Tx  \) implies that \( T  \) is also bounded.
+% \end{proof}
+
+The result above guarantees the monotonicity and countable additivity required for the spectral theorem's integral representation to be well-defined. Moreover, it provides a crucial ingredient for establishing the validity of the Riemann–Stieltjes integral formulation: namely, the monotonicity of bounded self-adjoint operators allows us to construct an appropriate integrator—an essential component in the spectral representation of such operators.
+
+
+
+\subsection{Square Roots of Positive Operators}
+
+\begin{definition}[Positive Square Root Kreyszig (9.4-1)]
+    Let \( T: H \to H  \) be a positive bounded self-adjoint linear operator on a complex Hilbert space \( H  \). Then a bounded self-adjoint linear operator \( A  \) is called a \textbf{square root} of \( T  \) if  
+    \[  A^{2} = T.  \]
+    If, in addition, \( A \geq 0  \), then \( A  \) is called a \textbf{positive square root} of \( T  \) and is denoted by
+    \[  A = T^{1/2}. \]
+    That is, \( T^{1/2}  \) exists and unique.
+\end{definition}
+
+This theorem provides a method for decomposing operators, which is especially useful for constructing orthogonal projections from positive operators. It also equips us with additional tools for analyzing the convergence of operator sequences, particularly in establishing both norm and strong operator convergence—topics that will be explored in later sections of this paper.
+% \begin{proof}
+
+% \end{proof}
+\begin{theorem}[Positive Square Root Kreyszig (9.4-2)]\label{9.4-2}
+Every positive bounded self-adjoint linear operator \( T: H \to H  \) on a complex Hilbert Space \( H  \) has a positive square root \( A  \), which is unique. This operator \( A  \) commutes with every bounded linear operator on \( H  \) which commutes with \( T  \).    
+\end{theorem}
+
+The fact that \( A  \) commutes with every bounded linear operator on \( H  \) which commutes with \( T  \) is critically important in preserving the algebraic structure of operator relationships. In terms of the spectral theorem, it is even more important that our algebraic operations commute because we want to be able to determine if an approximation of an operator is stable.  
+
+Overall, the theorems above enables us to ensure that
+\begin{itemize}
+    \item our approximations of operators are valid,
+    \item algebraic operations are preserved, and
+    \item our integral representation behave consistently with respect to the operator topology and commutation relations.
+\end{itemize}
+% \begin{proof}
+
+% \end{proof}
+
+

@@ -1,0 +1,183 @@
+\subsection{Spectral Representation}
+
+In the previous section, we showed that we can associate a given bounded self-adjoint linear operator \( T  \) on a complex Hilbert space \( H  \) with a spectral family \( \mathcal{G} = ({E}_{\lambda}) \). In this section, we will prove that \( T  \) can be represented in terms of a Riemann-Stieltjes integral. 
+
+\begin{theorem}[Spectral Theorem for Bounded Self-Adjoint Linear Operators]
+    Let \( T : H \to H  \) be a bounded self-adjoint linear operator on a complex Hilbert space \( H  \). Then:
+    \begin{enumerate}
+        \item[(a)] \( T  \) has the spectral representation 
+            \[  T = \int_{ m - 0  }^{ M  }  \lambda  \ d {E}_{\lambda} \tag{1} \]
+            where \( \mathcal{G} = ({E}_{\lambda}) \) is the spectral family associated with \( T  \); the integral is to be understood in the sense of uniform convergence (convergence in the norm on \(B(H,H) \)), for all \( x,y \in H \) \[  \langle Tx , y \rangle = \int_{ m - 0  }^{  M  } \lambda  \ d w(\lambda) \tag{1*} \]
+            where \( w(\lambda) = \langle {E}_{\lambda} x  ,  y  \rangle  \) where the integral is an ordinary Riemann-Stieltjes integral. 
+        \item[(b)] More generally, if \( p  \) is a polynomial in \( \lambda  \) with real coefficients,
+            \[ p(\lambda) = {\alpha}_{n} \lambda^{n} + {\alpha}_{n-1} \lambda^{n-1} + \cdots  + {\alpha}_{0}, \]
+            then the operator \( p(T) \) defined by  
+            \[  p(T)  = {\alpha}_{n} T^{n} + {\alpha}_{n-1} T^{n-1} + \cdots + {\alpha}_{0} I \]
+            has the spectral representation 
+            \[  p(T) = \int_{ m - 0  }^{ M  }  p(\lambda) \ d {E}_{\lambda} \tag{2} \]
+            and for all \( x,y \in H  \) 
+            \[  \langle p(T) x  , y  \rangle = \int_{ m - 0  }^{  M  }  p(\lambda)  \ d w(\lambda) \tag{2*} \]
+            where \( w(\lambda) = \langle {E}_{\lambda}x  , y \rangle \).
+    \end{enumerate}
+\end{theorem}
+
+% dependencies: properties of the spectral family presented in section 9.8
+
+\begin{remark}
+    Before we embark on the proof, the \( m - 0  \) written in the notation of the theorem above is there so that we can take into account the contribution made at \( \lambda = m  \) occurring at \( {E}_{m} \neq 0  \) (and \( m \neq 0  \)). Thus, we can use any \( a < m  \) so that 
+    \[  \int_{ a }^{ M  } \lambda  \ d {E}_{\lambda} = \int_{ m - 0  }^{  M  }  \lambda d {E}_{\lambda} = m {E}_{m} + \int_{ m  }^{ M  }  \lambda  \ d {E}_{\lambda}. \]
+    Similarly with part (b), we have
+    \[  \int_{ a }^{ M }  p(\lambda) \ d {E}_{\lambda} = \int_{ m - 0  }^{ M  }  p(\lambda) \ d {E}_{\lambda} = p(m) {E}_{m} + \int_{ m }^{ M  } p(\lambda) \ d {E}_{\lambda}. \]
+\end{remark}
+
+
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] We choose a sequence of partitions \( ({P}_{n}) \) of \( [a,b] \) where \( a  < m  \) and \( M < b \). Here, we denote our subintervals of \( (a,b] \) as
+        \[  \Delta_{nj} = ({\lambda}_{nj}, {\mu}_{nj}] \tag{\( 1 \leq j \leq n  \)} \]
+        with length \( \ell(\Delta_{nj}) = {\mu}_{nj} - {\lambda}_{nj} \). Note that \( \mu_{nj} = {\lambda}_{n,j+1}  \) for \( 1 \leq j \leq n - 1  \). We assume that this sequence of partitions to have the following property:
+        \[  \eta({P}_{n}) = \max_{j \in \N} \ell (\Delta_{nj}) \to 0 \ \ \text{as} \ n \to \infty. \tag{2} \]
+        Also, in the last section, we have the following inequality with \( \Delta = {\Delta}_{nj} \); that is, 
+        \[  {\lambda}_{nj} \Delta_{nj} E \leq T \Delta_{nj} E  \leq \mu_{nj} \Delta_{nj} E. \tag{3}   \]
+        Since \( \mu_{nj} = {\lambda}_{n,j+1}  \) for \( 1 \leq j \leq n - 1  \) from the fact that whenever \( \lambda <  \mu  \), \( {E}_{\lambda} \leq {E}_{\mu} \) and whenever \( \lambda \geq M  \), \( {E}_{\lambda} = I  \). Hence, we have
+        \[  T \Big(  \sum_{ j=1  }^{ n  } \Delta_{nj} E  \Big) = T \Big(  \sum_{ j=1  }^{ n } ({E}_{{\mu }_{nj}} - {E}_{{\lambda}_{nj}}) \Delta_{nj} E  \Big) < \epsilon I  = \epsilon. \tag{4} \]
+        From the above equality and from (1), we can see that for any \( \epsilon > 0  \), there exists an \( N  \) such that for every \( n  > N  \) and every choice of \( {\lambda}_{nj} \in \Delta_{nj} \), we have 
+        \[  \|T  - \sum_{ j=1  }^{ n } \hat{\delta}_{nj} \Delta_{nj} E  \| < \epsilon.  \]
+        Indeed, we can see that for every choice of \( \hat{{\lambda}_{nj}} \in \Delta_{nj} \), we can see that from (3), we have
+        \[  0 \leq T - \sum_{ j=1  }^{ n } {\hat{\lambda}}_{nj} \Delta_{nj} E \leq \sum_{ j=1  }^{ n } ({\mu }_{nj} - {\lambda}_{nj}) \Delta_{nj} E.  \tag{5} \]
+        Then from the above, we have for every \( n > N  \)
+        \begin{align*}
+            \Big\|T - \sum_{ j=1  }^{ n} \hat{\lambda_{nj}} \Delta_{nj} E \Big\| &\leq \Big\|\sum_{ j=1  }^{ n } ({\mu }_{nj } - {\lambda}_{nj } )  \Delta_{nj} E \Big\|  \\
+                                                                                 &\leq \sum_{ j=1  }^{ n } \|{\mu}_{nj} - {\lambda}_{nj} \| \Delta_{nj} E \\
+                                                                                 &< \epsilon \sum_{ j=1  }^{ n } \Delta_{nj} E \\
+                                                                                 &= \epsilon I = \epsilon
+        \end{align*}
+
+        
+        Since \( {E}_{\lambda} \) is constant for \( \lambda < m  \) and for \( \lambda \geq M  \), the particular of \( a < m  \) and \( b > M  \) is arbitrary. This proves (1), where (4) shows that the integral is to be understood in terms of uniform operator convergence. Subsequently, this gives us strong operator convergence  since the inner product is continuous and the sum in (5) is a Riemann-Stieltjes Sum. Hence, (1) tells us that (1*) holds for every choice of \( x  \) and \( y  \) in \( H  \).
+    \item[(b)] Let \( p(\lambda) = \lambda^{r} \) where \( r \in \N \). For any \( \kappa < \lambda \leq \mu < \nu \), we can see from (7) of section 9.7 that 
+        \begin{align*}
+            \Delta_{nj} E  \cdot \Delta_{nk} =   ({E}_{\lambda} - {E}_{\kappa} ) ({E}_{\mu} - {E}_{\nu}) &= {E}_{\lambda} {E}_{\mu} - {E}_{\lambda } {E}_{\nu} - {E}_{\kappa} {E}_{\mu} + {E}_{\kappa} {E}_{\nu} \\
+                                                                                                         &= {E}_{\lambda} - {E}_{\lambda} - {E}_{\kappa} + {E}_{\kappa} \\
+                                                                                                         &= 0
+        \end{align*}
+        for \( j \neq k  \). Also, since \( {\Delta}_{nj} E  \) is a projection, \( (\Delta_{nj} E )^{s} = E (\Delta_{nj}) \) for every \( s \in \N  \). Hence, we obtain
+        \[  \Big[ \sum_{ j=1  }^{ n } \hat{{\lambda}_{nj}} \Delta_{nj} E \Big] = \sum_{ j=1  }^{ n } \Big(\hat{{\lambda}_{nj}}\Big)^{r} \Delta_{nj} E.  \tag{6} \]
+        Note that if the sum in (4) is close to \( T  \), then the expression in (6) implies that for any \( \epsilon > 0  \), there exists an \( N  \) such that for any \( n > N  \), we have 
+        \[  \Big\|T^{r} - \sum_{ j=1  }^{ n } \Big(\hat{{\lambda}_{nj}}\Big)^{r}  \Delta_{nj} E \Big\| < \epsilon. \]
+        This proves (2) and (2*) for \( p(\lambda) = \lambda^{r} \). Now, it follows immediately from this result that the two formulas presented in (2) and (2*) hold for any polynomial with real coefficients.
+\end{enumerate}
+\end{proof}
+
+In the proof above, we see that the limit in (2) relies on a key inequality established in the previous section to demonstrate convergence. This result is made possible by the properties discussed in {\hyperref[section 4]{Section 4}} and {\hyperref[section 5]{Section 5}}, specifically those concerning the positivity, monotonicity, and convergence of the orthogonal projections in the spectral family \( \mathcal{G} = ({E}_{\lambda}) \).
+
+
+We conclude this paper by exploring an application of the Spectral Theorem to convolution operators on the Hilbert space \( L^{2}(\R) \). The spectral theorem provides a powerful framework for understanding such operators by showing that they can be viewed as multiplication operators in the frequency domain. Specifically, through the Fourier transform, convolution operators—which are translation-invariant—are diagonalized, meaning that their action in the spatial domain corresponds to pointwise multiplication in the frequency domain. This perspective not only simplifies the analysis of these operators but also reveals their spectral properties in a clear and tractable way, making the spectral theorem an essential tool in both theoretical and applied contexts involving convolution.
+
+\subsection{Applications}
+
+Before we see how the significance of the Spectral Theorem in representing Convolution Operators, we first need to define what a convolution is.
+
+\begin{definition}[Convolution of two functions (Folland 7.1)]
+    Given \( f \) and \( g  \) defined on \( \R  \), the \textbf{convolution} is defined by the function \( f * g   \) where
+    \[  (f * g) (x) = \int_{\R} f(x-y) g(y)   \ dy, \]
+    provided that the integral exists.
+\end{definition}
+
+% Fubini's Theorem, Fourier Transform, Convolution Theorem
+
+\subsection{Convolution Operator on \( L^2(\R) \)}
+
+   Let \( k \in L^{1}(\R) \) be a \textbf{real-valued, symmetric function}; that is,  
+   \[  k(-x) = k(x)  \]
+   for all \( x \in \R \). Define the operator \( T  \) on \( L^{2}(\R) \) by:
+   \[  (Tf)(x) = (k * f)(x) = \int_{ \R } k (x-y) f(y) \ dy. \]
+   We will first show that this operator is linear, self-adjoint and bounded. Then we will show that the spectral representation of \( T  \) can be expressed as a {\hyperref[Fourier Transform]{Fourier Transform}}.  
+
+   To show that \( T  \) is bounded, first note that \( k \in L^{1}(\R) \). Using Young's inequality, we have 
+   \[  \|T f \|_{L^{2}} = \|k * f\|_{L^{2}} \leq \|k\|_{L^{1}} \cdot \|f\|_{L^{2}}.  \]
+   Thus, \( T \in B(L^{2}(\R)) \) and \( M = \|k\|_{L^{1}} \).
+
+   Next, we will show that \( T  \) is self-adjoint. Using the symmetry of \( k  \), we know that for any \( f,g \in L^{2}(\R) \), we have 
+   \[  \langle Tf  , g  \rangle = \int_{ \R  } (k * f)(x) \overline{g(x)}   \ dx. \]
+   Using {\hyperref[Fubini's Theorem]{Fubini's Theorem}}  and symmetry of \( k  \), we obtain
+   \begin{align*}
+       \langle Tf , g  \rangle &= \int_{ \R  } \int_{ \R  } k (x-y) f(y) \overline{g(x)} \ dy dx \\
+                               &=  \int_{\R} f(y) \overline{(k * g)(y) dy} \\
+                               &= \langle f , Tg \rangle.
+\end{align*}
+
+Hence, we have that \( T^{*} = T  \) and so we conclude that \( T  \) is self-adjoint.
+
+Now, for the spectral representation of \( T \). Let 
+\[ \hat{f}(\xi) = \int_{ \R } f(x) e^{-2 \pi i x \xi}  \ dx  \]
+be the Fourier Transform of \( f \). Using the {\hyperref[Convolution Theorem]{Convolution Theorem}}, we can say that 
+\[  \hat{k * f(\xi)} = \hat{k}(\xi) \cdot \hat{f} (\xi). \]
+In a frequency domain, we can see that \( T  \) essentially acts a multiplication operator by the function \( \hat{k}(\xi) \); that is, 
+\[  \hat{Tf}(\xi) = \hat{k}(\xi) \hat{f}(\xi). \]
+Since \( k \in L^{1} (\R) \), real-valued, and symmetric, we have that \( \hat{k} \) is also real-valued and \( \hat{k} \in {C}_{0}(\R) \) using the {\hyperref[Riemann-Lebesgue]{Riemann-Lebesgue}}.
+
+Thus, \( T  \) is unitarily equivalent to a multiplication operator \( {M}_{\hat{k}}  \) on \( L^{2}(\R) \), defined by 
+\[  ({M}_{\hat{k}}f)(\xi) = \hat{k}(\xi) f(\xi). \]
+In terms of our spectral theorem, we can represent \( T  \) in the following way:
+\[  w(\lambda) = \int_{ \{ \xi: \hat{k}(\xi) \leq \lambda \} } \hat{f}(\xi) \overline{\hat{g}(\xi)}    \ d \xi \]
+where \( f,g \in L^{2}(\R) \) fixed and \( \mu(\lambda) \) is the measure on \( \R  \) induced by the level sets of \( \hat{k} \). The spectral projection in this example is the multiplication by \( \chi \{ \xi : \hat{k}(\xi) \leq \lambda \}  \) in the corresponding Fourier Space. Roughly speaking, \( w(\lambda) \) is monotone and defines a scalar measure derived from the projection-valued measure \( {E}_{\lambda} \) under the spectral theorem. Thus, we obtain the Riemann-Stieltjes integral: 
+\[  \langle Tf  ,  g  \rangle = \int_{ m - 0  }^{ M  }  \lambda  \ d w(\lambda) \]
+where \( m = \inf_{\xi \in [0,1)} \hat{k}(\xi) \), \( M = \sup_{\xi \in [0,1)} \hat{k}(\xi) \).
+
+In the next section, we will see an example of how the convolution operator gets represented in terms of its spectrum with respect to the Gaussian Kernel. 
+
+\subsection{Gaussian Function}
+
+Define the Gaussian kernel \( k: \R \to \C (\text{or} \R) \) by \( k(x) = e^{- x^{2}} \in L(\R) \cap L^{2}(\R)  \) with the linear operator \( T   \) defined as before for all \( f \in L^{2}(\R) \).
+ 
+Taking the fourier transform of \( k  \). The (unitary) Fourier transform \( \mathcal{F} \) on \( L^{2}(\R) \) is defined as 
+\[  \hat{f}(\xi) = \int_{ - \infty  }^{ \infty  }  f(x) e^{-2 \pi i \xi x } \ dx.  \]
+Computing this integral, we get 
+\[  \mathcal{F}[e^{- x^{2}}](\xi) = \sqrt{ \pi } e^{- \pi^{2} \xi^{2}}. \]
+Normalizing this kernel, we obtain
+\[  k(x) = \frac{ 1  }{ \sqrt{ 2 \pi  }  } e^{- x^{2} /2} \ \text{such that} \ \hat{k}(x) = e^{-2\pi^{2} \xi^{2}}. \]
+
+Note that the \( k(x) \) above is real-valued and even. With respect to this kernel \( T = k * \cdot \) is self-adjoint and in the Fourier space
+\[  \hat{Tf}(\xi) = \hat{k}(\xi) \cdot \hat{f}(\xi). \]
+
+This tells us that \( T  \) is unitarily equivalent to the multiplication operator:
+\[  {M}_{\hat{k}}f(\xi)  = \hat{k}(\xi)f(\xi) = e^{- 2 \pi^{2} \xi^{2}}f(\xi).\]
+
+Using the Spectral Theorem, we can write
+\[  T = \int_{ 0 }^{ 1 }  \lambda  \ d {E}_{\lambda}  \]
+since the spectrum of \( T  \) is the \textbf{essential range} of \( \hat{k}(\xi) = e^{-2 \pi^{2} \xi^{2}} \), which is: 
+\[  R(\hat{k}) = (0,1]  \]
+where \( \xi \in \R  \). Also, the scalar-valued spectral measure:
+\[  w(\lambda) = \langle {E}_{\lambda} f  ,  g  \rangle, \]
+which, in the Fourier domain, becomes:
+Then:
+\[ \langle Tf  , g  \rangle = \int_{ 0 }^{ 1 }  \lambda  \ dw (\lambda). \]
+where
+\[ w(\lambda) = \int_{ \{  \xi : \hat{k}(\xi) \leq \lambda\}  } \hat{f}(\xi) \overline{\hat{g}(\xi)}   \ d \xi. \]
+
+
+ 
+
+% For this example, make reference to 
+% Rudin: Functional Analysis (thm 13.30, thm 13.32, 13.35)
+% Conway: A course in Functional analysis (theorem 1.4, section 5: Functional calculus, section 6: multiplication operators)
+% Reed and Simon Functional Analysis (section VI.1: The Spectral Theorem for Bounded Self-Adjoint Operators, section IX.2: multiplication operators and spectral representation, section IX.7: Convolution Operators)
+% Folland: Fourier Analysis and its applications
+
+% \begin{thebibliography}{9}
+%     \bibitem{Textbook} 
+%     Walter Rudin, \emph{Real and Complex Analysis 3rd Edition}, McGraw-Hill
+% \end{thebibliography}
+
+
+\begin{thebibliography}{999}
+\bibitem{textbook}
+Erwin Kreyszig (1978) \emph{Introductory Functional Analysis with Applications} John-Wiley \& Sons. Inc. 
+
+\bibitem{texbook}
+Walter Rudin (1987) \emph{Real and Complex Analysis}, Mcgraw-Hill 3rd ed.
+
+\bibitem{lamport94}
+Gerald B. Folland (1992) \emph{Fourier Analysis and its Applications}, Wadsworth \& Brooks/Cole
+\end{thebibliography}

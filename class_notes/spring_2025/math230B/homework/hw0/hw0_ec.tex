@@ -1,0 +1,41 @@
+\documentclass[a4paper]{article}
+\input{../../../../../newpreamble.tex}
+\title{Homework 0: Extra Credit}
+\author{Lance Remigio}
+\begin{document}
+\maketitle
+
+\begin{problem}
+    Let \( \Omega \) be a nonempty open bounded set in \( \R^{n} \). Prove (or disprove) that for all \( x \in \Omega \), \( \text{dist}(x, \partial \Omega) = \dist (x , \Omega^{c}) \). 
+\end{problem}
+\begin{proof}
+    Let \( x \in \Omega \). Our goal is to show that for any \( \epsilon > 0  \)
+    \begin{enumerate}
+        \item[(i)]  \( \dist(x,  \Omega^{c}) \leq \dist(x, \partial \Omega) + \epsilon \)
+        \item[(ii)] \( \dist(x, \partial \Omega) \leq \dist(x, \Omega^{c}) + \epsilon \) 
+    \end{enumerate}
+    Proving (i) and (ii), will give us our desired result.
+    Let \( \epsilon > 0  \) be given. Note that since \( \dist(x, \partial \Omega )\) exists, there exists an \( {x}_{0} \in \partial \Omega \) such that  
+    \[  \|x - {x}_{0}\| < \dist(x, \partial \Omega) + \epsilon. \tag{1} \]
+    Since \( {x}_{0} \in \partial \Omega \) and \( \partial \Omega = \overline{\Omega} \cap \overline{\Omega^{c}} \), it follows that \( {x}_{0} \in \overline{ \Omega^{c} }  \) and \( {x}_{0} \in \overline{\Omega} \). Since \( \Omega \) is open in \( \R^{n} \), we get that \( \Omega^{c} \) is closed and so, \( \|x - {x}_{0}\| \geq \dist(x, \Omega^{c})  \). Taking the infimum over all elements on the left-hand side of (1), we have 
+    \[ \dist(x, \Omega^{c}) \leq \dist(x, \partial \Omega) + \epsilon  \]
+    which gives us (i).
+
+    Now, we will prove (ii). Since \( \dist(x, \Omega^{c})  \) exists, there exists a \( y \in \Omega^{c} \) such that    
+    \[  \|x - y  \| < \dist(x, \Omega^{c}) + \epsilon. \]
+    Note that \( \Omega  \) and \(  \Omega^{c} \) are separated sets in \( \R^{n} \); that is, \( \overline{\Omega} \cap \Omega^{c} = \emptyset \) and \( \Omega \cap \overline{\Omega^{c}} = \emptyset \). Consider the line segment from \( x \in \Omega \) to \( y \in \Omega^{c} \) defined by the map \( f(t) = x + t(y-x)  \) for all \( t \in [0,1] \). Observe that if \( t = 0  \), then \( f(0) = x \in \Omega \) and \( f(1) = y \in \Omega^{c} \). For some \( {t}_{0} \in (0,1) \), it follows that \( z = f({t}_{0}) = x + {t}_{0} (y-x) \) is in \( \partial \Omega \).
+    Hence, we have \( \|x - z \| \geq \dist(x, \partial \Omega) \). Since \( t \in (0,1) \), we get that
+    \[  \|x - y \| > t \| x - y \| = \|t (x-y)\| = \|x - z \| \geq \dist(x, \partial \Omega). \]
+    Hence, 
+    \[  \dist(x, \partial \Omega ) \leq \|x - y \| < \dist(x, \Omega^{c}) + \epsilon  \]
+    which gives us (ii).
+\end{proof}
+
+Let \( A  \) be a nonempty set. Let \( X = A \times A \times A \cdots \times A = \{ ({a}_{1} ,{a}_{2}, \dots, {a}_{n}) : {a}_{i} \in A , 1 \leq i \leq n  \}  \). We denote \( \vec{ a } = ({a}_{1}, {a}_{2}, \dots, {a}_{n}) \in X    \). Define \( d: X \times X \to \R  \) by 
+\[  d(\vec{ a } , \vec{ b } ) = \# \{ 1 \leq i \leq n : {a}_{i} \neq {b}_{i} \} . \]
+Is the \( d \) define a metric on \( X  \)? 
+
+\end{document}
+
+
+

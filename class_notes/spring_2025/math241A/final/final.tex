@@ -1,0 +1,654 @@
+\documentclass[a4paper]{article}
+\input{../../../../newpreamble.tex}
+\title{Math 241A Final}
+\author{Lance Remigio}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[EL]{\nouppercase\leftmark}
+\fancyhead[OR]{\nouppercase\rightmark}
+\fancyhead[C]{241A Final}
+\fancyhead[R]{Lance Remigio}
+\fancyhead[ER,OL]{\thepage}
+\begin{document}
+\maketitle
+
+\begin{problem}
+  \begin{enumerate}
+      \item[(a)] Let \( (X,d) \) be a metric space (assume that \( X \neq \emptyset \)) and let \( \alpha > 0  \). Define \( {d}_{\alpha}: X \times X \to \R  \) by 
+          \[ {d}_{\alpha}(x, x') = \frac{ d(x,x') }{ 1 + \alpha d(x,x')  }. \]
+          Prove that \( {d}_{\alpha}   \) defines a metric on \( X  \).
+      \item[(b)] Let \( A  \) be a non-empty set. Let \( X = \underbrace{A \times A \times \cdots \times A}_{ n  \ \text{times}} = \{ ({a}_{1}, {a}_{2}, \dots, {a}_{n}) : {a}_{i} \in A, \ 1 \leq i \leq n  \}   \). Does \( d  \) define a metric on \( X  \). If it does, provide a detailed proof. If it does not, justify in detail why it does not. Here, \( \# A  \) denotes the number of elements in the set \( A  \).
+  \end{enumerate}  
+\end{problem}
+
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Clearly, we see that \( {d}_{\alpha}(x,y) \geq 0  \) since \( d(x,y) \geq 0  \) for all \( x,y \in X  \) and \( \alpha > 0  \).   
+
+        First, we will show that \( {d}_{\alpha}(x,y) = 0  \) if and only if \( x = y  \). Hence, 
+        \begin{align*}
+            {d}_{\alpha}(x,y) = 0 &\iff \frac{ d(x,y)  }{  1  + \alpha d(x,y)  }  = 0  \\
+                                  &\iff d(x,y) = 0  \\
+                                  &\iff x = y \tag{\( d \) is a metric on \( X  \)}
+        \end{align*}
+        Hence, we see that property (1) of metrics is satisfied.
+
+        Second, we will show that \( {d}_{\alpha}(x,y) = {d}_{\alpha}(y,x) \) for all \( x,y \in X  \). We have 
+        \[  {d}_{\alpha}(x,y) = \frac{ d(x,y)  }{  1 + \alpha d(x,y)  }  = \frac{ d(y,x) }{  1 + \alpha d(y,x) } = {d}_{\alpha}(y,x). \]
+        Hence, the symmetric property of metrics is satisfied.
+        
+        Lastly, we show that \( d  \) satisfied the triangle inequality. Indeed, we will first show that the function \( f: [0,\infty) \to \R  \) defined by 
+        \[  f(t) = \frac{ t  }{  1 + \alpha t  }  \] 
+        is an increasing function. Suppose \( s \leq t  \) with \( s,t \in [0,\infty) \). Our goal is to show that \( f(s) \leq f(t) \). Indeed, we have 
+        \begin{align*}
+            s + \alpha s t \leq t + \alpha s t  &\iff s(1 + \alpha t ) \leq t (1 + \alpha s)  \\
+                                                &\iff \frac{ s  }{ 1 + \alpha s  }  \leq \frac{ t  }{ 1 + \alpha t  }  \\
+                                                &\iff f(s) \leq f(t).
+        \end{align*}
+        Hence, \( f \) is an increasing function. We shall use this property to prove that \( {d}_{\alpha}  \) satisfies the triangle inequality. Indeed, let \( x,y,z \in X  \). We will consider three cases:
+        \begin{enumerate}
+            \item[(1)] \( d(x,y) \leq d(x,z) \)
+            \item[(2)] \( d(x,y)  \leq d(z,y)\)
+            \item[(3)] \( d(x,y) > d(x,z)  \) and \( d(x,z) > d(z,y) \)
+        \end{enumerate}
+        Starting with case (1), we can use the monotonicity of \( f  \) to get 
+        \begin{align*}
+            {d}_{\alpha}(x,y) = \frac{ d(x,y) }{  1 + \alpha d(x,y) }  \leq \frac{ d(x,z)  }{  1 + \alpha d(x,z) } &= d_{\alpha}(x,z)     \\
+                                                                                                                   &\leq d_{\alpha}(x,z) + d_{\alpha}(z,y)
+        \end{align*}
+        Similarly, if \( d(x,y) \leq d(z,y) \), then 
+        \begin{align*}
+            {d}_{\alpha}(x,y) = \frac{ d(x,y)  }{  1 + \alpha d(x,y) }  \leq \frac{ d(z,y)  }{  1 + \alpha d(z,y) }  &= {d}_{\alpha}(z,y)  \\
+                                                                                                                     &\leq {d}_{\alpha}(x,z) + {d}_{\alpha}(z,y). 
+        \end{align*}
+        Finally, assume \( d(x,y) > d(x,z)  \) and \( d(x,z) > d(z,y) \). Indeed, we have 
+        \begin{align*}
+            {d}_{\alpha}(x,y) = \frac{ d(x,y)  }{  1 + \alpha d(x,y) } &\leq \frac{ d(x,z) + d(z,y) }{ 1 + \alpha d(x,y) }    \\
+                                                                       &= \frac{ d(x,z) }{  1 + \alpha d(x,y) } + \frac{ d(z,y) }{  1 + \alpha d(x,y) } \\
+                                                                       &\leq \frac{ d(x,z) }{  1 + \alpha d(x,z) }  + \frac{ d(z,y)  }{  1 + \alpha d(z,y) } \\
+                                                                       &= {d}_{\alpha}(x,z) + {d}_{\alpha}(z,y).
+        \end{align*} 
+Hence, we conclude that \( {d}_{\alpha}  \) satisfies the triangle inequality.
+\item[(b)] We claim that \( d  \) defines a metric on \( X  \). Clearly, we can see that for any \( \textbf{a } , \textbf{ b }  \in X  \), we have \( d(\textbf{a},\textbf{b}) \geq 0  \).
+
+    Starting with the first property, we can see that \( \textbf{a} = \textbf{b} \) holds true if and only if \( {a}_{i} = {b}_{i} \) for all \( 1 \leq i \leq n  \). This holds true if and only if  
+    \[  \# \{  1 \leq i \leq n : {a}_{i} \neq {b}_{i} \}  = 0 \iff d(\textbf{a}, \textbf{b}) = 0.     \]
+    
+    Next, we will show that \( d  \) satisfies the symmetric property. Clearly, we have
+    \[  d(\textbf{a}, \textbf{b}) = \# \{  1 \leq i \leq n : {a}_{i} \neq {b}_{i} \}  = \# \{  1 \leq i \leq n : {b}_{i} \neq {a}_{i} \}  = d(\textbf{b}, \textbf{a}). \]
+
+    Finally, we show that the \( d   \) satisfies the triangle inequality. Denote the following sets
+    \begin{align*}
+        A &= \{  1 \leq i \leq n : {a}_{i} \neq {b}_{i} \}  \\
+        B &= \{  1 \leq i \leq n : {a}_{i} \neq {c}_{i} \} \\
+        C &= \{ 1 \leq i \leq n : {c}_{i} \neq {b}_{i}   \} 
+    \end{align*}
+    Note that if \( {a}_{i} \neq {b}_{i} \), then either \( {a}_{i} \neq {c}_{i}  \) or \( {c}_{i} \neq {b}_{i} \). This tells us that \( A \subseteq  B \cup C  \). Hence, we have    
+    \[  \# A \leq \#(B \cup C ) = \# B + \# C \implies \# A \leq \# B + \# C     \]
+    and so 
+    \[  d(\textbf{a}, \textbf{b}) \leq d(\textbf{a}, \textbf{c}) + d(\textbf{c}, \textbf{b}). \]
+    Hence, we conclude that \( d  \) defines a metric on \( X  \).
+
+\end{enumerate}
+\end{proof}
+
+\begin{problem}
+    Let \( (X,d) \) be a metric space (assume that \( X \neq \emptyset \)). Let \( \alpha > 0  \) and let \( {d}_{\alpha} \) be the metric on \( X  \) defined in problem 1(a).
+\end{problem}
+
+\begin{enumerate}
+    \item[(a)] Let \( ({x}_{n}) \) be a sequence in \( X  \) and \( x \in X  \) such that \( \lim_{ n \to \infty  }  d({x}_{n},x) = 0  \). Justify whether the following holds: \( \lim_{ n \to \infty  }  {d}_{\alpha}({x}_{n}, x) = 0  \).
+        \begin{proof}
+            We claim that \( \lim_{ n \to \infty  }  {d}_{\alpha}({x}_{n}, x) = 0 \) holds given \( \lim_{ n \to \infty  }  d({x}_{n}, x) = 0  \). Indeed, we have
+            \begin{align*}
+                \lim_{ n \to \infty  }  {d}_{\alpha}({x}_{n}, x) &= \lim_{ n \to \infty  }  \frac{ d({x}_{n}, x) }{  1 + \alpha d({x}_{n}, x) }  \\
+                                                                 &= \frac{ \lim_{ n \to \infty  } d({x}_{n}, x) }{  1 + \alpha \lim_{ n \to \infty  } d({x}_{n},x) }  \\
+                                                                 &= \frac{  0  }{  1 + \alpha \cdot  0 }  \\
+                                                                 &= 0.
+            \end{align*}
+        \end{proof}
+    \item[(b)] Let \( (x_{n}) \) be a sequence in \( X  \) and \( x \in X  \) such that \( \lim_{ n \to \infty  }  d_{\alpha}({x}_{n}, x) = 0  \). Justify whether the following holds: \( \lim_{ n  \to  \infty   }  d({x}_{n}, x)  = 0  \).
+        \begin{solution}
+            The limit \( \lim_{ n \to \infty  }  d({x}_{n}, x) = 0  \). Define the function \( f: [0,1) \to \infty   \) by
+            \[  f(x) = \frac{ x  }{  1- \alpha x }.  \]
+            Our first goal is to show that \( f(x) \leq 2x  \) for all \( x \in [0,1/2] \). Let \( x \in [0,1/2] \). Then we have 
+            \begin{align*}
+                0 \leq x \leq \frac{ 1 }{ 2 } &\implies  - \frac{ 1}{ 2 }  \leq - x \leq 0  \\
+                                              &\implies - \frac{ \alpha }{ 2 } \leq - \alpha x \leq 0 \\  
+                                              &\implies \frac{ 2 - \alpha }{ 2  }  \leq 1 - \alpha x \leq 1 \\
+                                              &\implies 1 - \alpha x \geq \frac{ 2 - \alpha }{  2  }  \\
+                                              &\implies \frac{ 1 }{ 1 - \alpha x  }  \leq \frac{ 2  }{  2 - \alpha } \leq 2 \\
+                                              &\implies \frac{ x  }{  1 - \alpha x  }  \leq  2 x.
+            \end{align*}
+            One can prove easily that 
+            \[  d(x,y) = \frac{ {d}_{\alpha}(x,y) }{  1 - \alpha d_{\alpha}(x,y) }.  \]
+            Indeed, we have
+            \begin{align*}
+                {d}_{\alpha}(x,y) = \frac{ d(x,y)  }{  1 + \alpha d(x,y) } &\implies {d}_{\alpha}(x,y) + \alpha d(x,y) {d}_{\alpha(x,y} = d(x,y)  \\
+                                                                           &\implies {d}_{\alpha}(x,y) = d(x,y) [1 - \alpha {d}_{\alpha}(x,y) ] \\
+                                                                           &\implies d(x,y) = \frac{ {d}_{\alpha}(x,y)  }{  1 - \alpha {d}_{\alpha}(x,y) }. 
+            \end{align*}
+            We can see from our derivation above that \( {d}_{\alpha}(x,y) \leq \frac{ 1 }{ 2 }  \). Hence, we have
+            \[  0 \leq d({x}_{n},x) \leq 2 {d}_{\alpha}({x}_{n},x). \]
+            Now, assuming that \( {d}_{\alpha}({x}_{n}, x) \to 0  \), we can apply the squeeze theorem on the inequality above to get 
+            \[  d({x}_{n}, x) \to 0. \]
+        \end{solution}
+    \item[(c)] Let \( ({x}_{n}) \) be a sequence in \( X  \) such that \( \lim_{ m,n  \to  \infty   }  d({x}_{n}, {x}_{m} ) = 0  \). Justify whether the following holds: 
+
+        \( \lim_{ m,n \to \infty  }  {d}_{\alpha}({x}_{n}, {x}_{m}) = 0  \).
+        \begin{proof}
+        We claim that \( \lim_{ m,n  \to \infty  }  {d}_{\alpha}({x}_{n}, {x}_{m}) = 0  \) holds given \( \lim_{ m,n \to \infty  } d({x}_{n},{x}_{m}) = 0  \). Indeed, using the Algebraic Limit Theorem, we have
+        \begin{align*}
+            \lim_{ m,n  \to  \infty   }  {d}_{\alpha}({x}_{n}, {x}_{m}) &= \lim_{ m,n  \to  \infty   }  \Big[ \frac{ d({x}_{n}, {x}_{m}) }{  1 + \alpha d({x}_{n}, {x}_{m}) } \Big] \\
+                                                                        &= \frac{ \lim_{ m,n \to  \to \infty  } d({x}_{n}, {x}_{m}) }{ 1 + \alpha \lim_{ m,n  \to \infty  }  d({x}_{n}, {x}_{m}) } \\
+                                                                        &= \frac{  0  }{  1+ \alpha \cdot  0  }  \\
+                                                                        &= 0.
+        \end{align*}
+        \end{proof}
+    \item[(d)] Let \( ({x}_{n}) \) be a sequence in \( X  \) such that \( \lim_{ m,n  \to  \infty  }  {d}_{\alpha}({x}_{n}, {x}_{m}) = 0  \).
+        \begin{solution}
+        Using the fact that \( d(x,x') \leq 2 {d}_{\alpha}(x,x') \) from part (b), we can see that if \( {d}_{\alpha}({x}_{n}, {x}_{m}) \to 0   \) as \( m,n \to \infty   \), we have
+        \[  d({x}_{n}, {x}_{m}) \to 0 \ \text{as} \ m,n \to \infty.  \]
+        \end{solution}
+\end{enumerate}
+
+\begin{problem}
+    Let \( X = C[0,1]  = \{ f: [0,1] \to \R : f \ \text{is continuous} \} \).
+\end{problem}
+\begin{enumerate}
+    \item[(a)] Define \( d: X \times X \to \R  \) by
+        \[  d(f,g) = \Big(  \int_{ 0 }^{ 1 }  (f(t) - g(t))^{2} \ dt  \Big)^{\frac{ 1 }{ 2 }}.  \]
+        Prove that \( d  \) defines a metric on \( X  \). \textbf{Hint:} Think about whhat does \( \displaystyle \int_{ 0 }^{ 1 }  f(t) g(t) \ d t   \) represent.
+        \begin{proof}
+            Note that it is clear that \( d(f,g) \geq 0  \) for any \( f,g \in X  \). 
+
+            Suppose \( d(f,g) = 0  \). Then we have
+            \begin{align*}
+                &\Big(  \int_{ 0  }^{  1  }  [f(t) - g(t)]^{2} \ dt  \Big)^{1/2} = 0  \\
+                &\implies \int_{ 0 }^{ 1 }  [f(t)-g(t)]^{2} \ dt = 0. 
+            \end{align*}
+            Note that \( f,g \in C[0,1] \) implies \( f - g \in C[0,1] \) and that \( (f-g)^{2} \in C[0,1] \). Since \( (f-g)^{2} \geq 0  \) on \( [0,1] \), \( (f-g)^{2} \in C[0,1] \), and \( \displaystyle \int_{ 0 }^{ 1 }  [f(t) - g(t)]^{2} \ dt = 0 \), we have 
+            \begin{align*}
+                &[f(t) - g(t)]^{2} = 0  \\
+                &\implies f(t) = g(t) \ \ \forall t \in [0,1].
+            \end{align*}
+            Conversely, if \( f(t) = g(t) \), then 
+            \[  \Big(  \int_{ a }^{ b }  [f(t) - g(t)]^{2} \ dt \Big)^{\frac{ 1 }{ 2 }} = 0 \implies d(f,g) = 0.  \]
+
+            Next, we show symmetry of \( d  \). Indeed, we have  
+            \begin{align*}
+                d(f,g) &= \Big(  \int_{ 0 }^{ 1 }  (f(t) - g(t))^{2} \ dt  \Big)^{1/2} \\
+                       &= \Big(  \int_{ 0 }^{ 1 } (g(t) - f(t))^{2} \ dt  \Big)^{1/2} \\
+                       &= d(g,f) \ \ \forall f,g \in C[0,1].
+            \end{align*}
+            Thus, we have \( d(f,g) = d(g,f) \).
+
+            Finally, we show that \( d \) satisfies the triangle inequality. Let \( f,g,h \in C[0,1] \). We have 
+           \begin{align*}
+               d^{2}(f,g) &= \int_{ 0 }^{ 1 }  (f(t) -  g(t))^{2} \ dt \\
+                          &= \int_{ 0 }^{ 1 }  | f(t) - g(t) |^{2}  \ dt \\
+                          &= \int_{ 0 }^{ 1 }  | f(t) - h(t) + h(t) - g(t) |^{2} \ dt \\
+                          &\leq \int_{ 0 }^{ 1 }  (| f(t) - h(t) | + | h(t) - g(t) | )^{2}  \ dt \\
+                          &= \int_{ 0 }^{ 1 }  | f(t) - h(t) |^{2} \ dt + 2 \int_{ 0 }^{ 1 } | f(t) - h(t) | | h(t) - g(t) |    \ dt + \int_{ 0 }^{ 1 }  | h(t) - g(t) |^{2} \ dt.
+           \end{align*}
+           Now, consider the middle term and notice, by applying the Cauchy-Schwarz Inequality, we have 
+           \begin{align*}
+               2 \int_{ 0 }^{ 1 }  | f(t) - h(t) | | h(t) - g(t) |  \ dt &\leq 2 \Big(  \int_{ 0 }^{ 1 }  | f(t) - h(t) |^{2} \ dt  \Big)^{1/2} \Big(  \int_{ 0 }^{ 1 }  | h(t) - g(t) |^{2}  \ dt \Big)^{1/2}.
+           \end{align*}
+            Hence, we have 
+            \begin{align*}
+                d^{2}(f,g) &\leq \int_{ 0 }^{ 1 } | f(t) - h(t) |^{2}  \ dt + 2 \Big(  \int_{ 0 }^{ 1 } | f(t) - h(t) |^{2} \ dt  \Big)^{1/2} \Big(  \int_{ 0 }^{ 1 }  | h(t) - g(t) |^{2} \ dt  \Big)^{1/2} \\ 
+                           &+ \int_{ 0 }^{ 1 }  | h(t) - g(t) |^{2} \ dt \\
+                           &= \Bigg( \Big(  \int_{ 0 }^{ 1 }  | f(t) - h(t) |^{2} \ dt  \Big)^{1/2} +  \Big( \int_{ 0 }^{ 1 }  | h(t) - g(t) |^{2} \ dt    \Big)^{1/2}   \Bigg)^{2} \\
+                           &= \Bigg( \Big(  \int_{ 0 }^{ 1 }   (f(t) - h(t)) ^{2} \ dt  \Big)^{1/2} +  \Big( \int_{ 0 }^{ 1 }  (h(t) - g(t) )^{2} \ dt    \Big)^{1/2}   \Bigg)^{2} \\
+                           &= \Big(  d(f,h) + d(h,g) \Big)^{2}.
+            \end{align*}
+            Now, we obtain 
+            \[  d(f,g) \leq d(f,h) + d(h,g). \]
+            We conclude that \( d  \) is a metric on \( X  \).
+        \end{proof} 
+    \item[(b)] Consider the sequence \( ({f}_{n})  \) in \( X  \) defined by
+        \[  {f}_{n}(t) = 
+        \begin{cases}
+            0 &\text{if} \ 0 \leq t \leq 1 - 1/n \\
+            \sqrt{ n (t - (1 - \frac{ 1 }{ n } )) }  &\text{if} \ 1 - 1 /n \leq t \leq 1.
+        \end{cases} \]
+        Prove that \( ({f}_{n}) \) is a Cauchy sequence in \( X  \). 
+        \begin{proof}
+        Our goal is to show that \( d({f}_{n}, {f}_{m}) \to 0  \) as \( m,n \to \infty   \). From the hint, we have  
+        \begin{align*}
+            &({f}_{n} - {f}_{m})^{2} = {f}_{n}^{2} - 2 {f}_{n} {f}_{m} + {f}_{m}^{2} \leq {f}_{n}^{2} + {f}_{m}^{2} \\
+                                    &\implies \int_{ 0 }^{ 1 } ({f}_{n} - {f}_{m})^{2} \ dt \leq \int_{ 0 }^{ 1 }  {f}_{n}^{2}  \ dt + \int_{ 0 }^{ 1 }  {f}_{m}^{2} \ dt \\
+                                    &\implies d^{2}({f}_{n}, {f}_{m}) \leq \int_{ 0 }^{ 1 } {f}_{n}^{2}  \ d t + \int_{ 0 }^{ 1 }  {f}_{m}^{2} \ dt. 
+    \end{align*}
+    Next, we compute the first term on the right-hand side of the inequality above. Computing the second term will follow analogously. Note that for any \( t \in [0, 1 - 1/n] \), we have \( {f}_{n}(t) = 0  \). Hence, 
+    \[  \int_{ 0 }^{ 1- 1/n }  {f}_{n}^{2}(t) \ dt = 0.  \]
+    Now, we have 
+    \begin{align*}
+        \int_{ 0 }^{ 1 }  {f}_{n} \ dt &= \int_{ 0 }^{ 1 - 1/n }  {f}_{n}^{2} \ dt + \int_{ 1 - 1/n }^{  1  } {f}_{n}^{2}  \ dt  \\
+                                       &= 0 + \int_{ 1 - 1/n }^{ 1  }  {f}_{n}^{2} \ dt \\
+                                       &= \int_{ 1 - 1/n }^{ 1  } n \Bigg(  t - \Big( 1 - \frac{ 1 }{ n }  \Big)  \Bigg) \ dt \\
+                                       &= \int_{ 1 - 1/n }^{ 1  }  [ nt - n  + 1] \ dt \\
+                                       &= \frac{ n }{ 2 }  t^{2} - nt + t \Big]_{1- 1/n}^{1} \\
+                                       &= \frac{ n }{ 2 }  - n + 1 - \Big(  \frac{ n }{ 2 }  (1 - 1/n)^{2} - (n-1) (1 - 1/n) \Big) \\
+                                       &= \frac{ 1 }{ n }  - \frac{ 1 }{ 2n }  \\
+                                       &= \frac{ 1 }{ 2n }.
+    \end{align*}
+    Similarly, we have 
+    \[  \int_{ 0 }^{ 1 }  {f}_{m} \ dt = \frac{ 1 }{ 2m }. \]
+    So, we see that 
+    \begin{align*}
+        0 \leq d^{2}({f}_{n}, {f}_{m}) &\leq \int_{ 0 }^{ 1 }  {f}_{n}^{2} \ dt + \int_{ 0 }^{ 1 }  {f}_{m}^{2} \ dt = \frac{ 1 }{ 2n }  + \frac{ 1 }{ 2m }  \to 0  \ \text{as} \ n,m \to \infty.
+    \end{align*}
+    Via the squeeze theorem, we have \( d^{2}({f}_{n}, {f}_{m}) \to 0  \) which implies \( d({f}_{n}, {f}_{m}) \to 0  \) (since \( \phi: \R \to \R  \) defined by \( \phi(x) = x^{2} \) is continuous). Hence, we conclude that \( ({f}_{n}) \) is a Cauchy sequence in \( X  \).
+        \end{proof}
+    \item[(c)] Prove that the sequence \( ({f}_{n})  \) does not converge in \( X  \) by explicitly identifying the potential limit function. Note that \( ({f}_{n})  \) does converge in a space that is bigger than \( C[0,1] \).
+        \begin{proof}
+        The pointwise limit of the sequence \( ({f}_{n}) \) is 
+        \[  f(t) = 
+        \begin{cases}
+            0 &\text{if} \ t \in [0,1) \\
+            1 &\text{if} \ t = 1
+        \end{cases}. \]
+        Indeed, if \( t = 1  \), then
+        \[  {f}_{n}(1) = 1  \]
+        and for any \( t \neq 1  \) in \( [0,1] \), we have \( {f}_{n}(t) = 0  \). 
+        This tells us that \( ({f}_{n}) \) is a sequence of continuous functions but the pointwise limit \( f(t) \) is clearly not continuous. 
+        \end{proof}
+\end{enumerate}
+
+\begin{problem}
+   \begin{enumerate}
+       \item[(a)] Let \( (V, \|\cdot\|) \) be a normed space. Consider the closed unit ball \[ \overline{B}(0,1) = \{  v \in V : \|v \| \leq 1  \}.  \]
+           Prove that \( \overline{B}(0,1) \) is convex; that is, \( v,w \in \overline{B}(0,1) \) implies \( (1-t) v + tw \in \overline{B}(0,1) \) for all \( 0 \leq t \leq  1  \).
+   \item[(b)] Let \( V = \R^{n}  \). Define \( \|\cdot\|: \R^{n} \to \R  \) by \( \|\vec{ x } \| = \Big(  \sum_{ j=1  }^{ n } | {x}_{j} |^{1/2} \Big)^{2} \). Does \( \|\cdot\|  \) define a norm on \( \R^{n} \)? 
+   \item[(c)] Let \( V = \R^{n} \) and \( \|\cdot\|: \R^{n} \to \R  \) by \( \|\vec{ x } \| = \# \{  1 \leq i \leq n : {x}_{i} \neq 0  \}  \). Here, \( \# A  \) denotes the number of elements in the set \( A  \). Prove that \( \|\cdot\| \) satisfies N1, N2, and N4 but it does not satisfy N3. Compare this with problem 1-c and state your observation. 
+   \end{enumerate} 
+\end{problem}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] Our goal is to show that for all \( v,w \in \overline{B}(0,1) \), we have 
+        \[  (1-t)v + tw \in \overline{B}(0,1)  \]
+        for all \( 0 \leq t \leq 1  \); that is, we need to show that 
+        \[  \|(1-t)v + tw\| \leq 1.  \]
+        Let \( v,w \in \overline{B}(0,1) \). Then we have \( \|v\| \leq 1  \) and \( \|w \| \leq 1  \). Thus, we have 
+        \begin{align*}
+            \|(1-t) v + t w \| &\leq \|(1-t)v\| + \|tw\|  \\
+                               &= | 1 - t  |  \| v \| + | t  |  \|w\| \\
+                               &\leq | 1 - t  |  + | t |  \\
+                               &= (1- t) + t \text{\( t [0,1] \)} \\
+                               &= 1.
+        \end{align*}
+        Indeed, we have \( (1-t)v + tw \in \overline{B}(0,1) \) and so \( \overline{B}(0,1) \) is convex.
+    \item[(b)] We claim that \( \|\cdot\| \) does not define a metric on \( \R^{n} \). Let \( n = 2  \) and let \( (1,0) \) and \(  (0,1) \) be two vectors in \( \R^{2} \). Then with respect to the norm given, we have 
+        \[  \|(1,0) + (0,1) \| = \|(1,1)\| = (1^{1/2} + 1^{1/2})^{2}  = 4. \]
+        However, \( \|(1,0)\| = (1^{1/2} + 0^{1/2})^{2} = 1 \) and similarly, \( \| (0,1)\| = 1  \). This implies that 
+        \[  \|(1,0) + (0,1)\| \geq \|(1,0)\| + \|(0,1)\| \]
+        which violates the triangle inequality for norms.
+    \item[(c)]
+        \begin{enumerate}
+            \item[(N1)] It is clear that for any \( x \in \R^{n} \), we have \( \|x\| \geq 0  \).
+            \item[(N2)] Note that 
+                \begin{align*}
+                    \vec{ x } = 0 &\iff {x}_{i} = 0 \ \ \forall 1 \leq i \leq n  \\  
+                    &\iff \# \{  1 \leq i \leq n : {x}_{i} \neq 0  \}  = 0  \\
+                    &\iff \|\vec{ x } \| = 0.
+                \end{align*}
+            \item[(N4)] Let \( \vec{ x } , \vec{ y }, \in \R^{n} \). Denote the following sets
+                \begin{align*}
+                    A &= \{ 1 \leq i \leq n : {x}_{i} + {y}_{i} \neq 0  \}  \\
+                    B &= \{ 1 \leq i \leq n : {x}_{i} \neq 0  \}  \\
+                    C &= \{ 1 \leq i \leq n : {y}_{i} \neq 0  \}.
+                \end{align*}
+                We see that if \( {x}_{i} + {y}_{i} \neq 0  \), then \( {x}_{i} \neq - {y}_{i}  \). From here, it follows that either \( {x}_{i} \neq 0  \) or \( {y}_{i} \neq 0  \). Hence, \( A \subseteq  B \cup C  \) and so we have \( \# A \leq \#(B \cup C) = \# B + \#C  \).  Thus, \( \|\vec{ x }  + \vec{ y } \| \leq \|\vec{ x  }\| + \|\vec{ y }\| \).
+            \item[(N3)] By definition, we can see that scaling the components of any vector \( \vec{ x }  \) in \( \R^{n} \) should not change the number of nonzero components; that is, \( \|\alpha \vec{ x } \| =   | \alpha | \|\vec{ x } \|   \) cannot be possible. Indeed, as a counter-example, let \( V = \R^{2} \) and consider \( (1,0)  \) in \( \R^{2} \). Clearly, \( \|(1,0)\| = 1 \). But note that if we multiply by any nonzero scalar \( \alpha  \), then immediately \( \alpha \|1,0\| = \alpha \cdot 1 = \alpha > 1 = \|(1,0)\| \). 
+
+From observation, the difference between this problem and problem 1-c) is that here, we are measuring the number of non-zero components in a vector in \( \R^{n} \), whereas problem 1-c) compares elements of a direct products based on the positions at which they differ. Furthermore, the fact that \( \|\cdot\| \) fails the scaling property tells us that \( d  \) from 1-c) cannot be induced by a norm. In particular, \( d  \) fails the following property
+\[  d(\alpha x, \alpha y) = | \alpha | d(x,y).  \]
+        \end{enumerate}
+\end{enumerate}
+\end{proof}
+
+\begin{problem}
+    Let \( (V, \|\cdot\|) \) be a normed space (real or complex).
+\end{problem}
+\begin{enumerate}
+    \item[(a)] Let \(  v,w \in V  \) be two non-zero elements of \( V  \). Show that 
+        \[  \|v\| \Big\| \frac{ v }{ \|v\|  }  - \frac{ w  }{  \|w\| }  \Big\|  \leq \|v - w \| + \Big| \|v\| - \|w\| \Big|  \] 
+        and use this to prove that 
+        \[  \Big\| \frac{ v }{  \|v \| }  - \frac{ w }{ \|w\| }  \Big\| \leq \frac{ 4 \|v - w \| }{  \|v \| + \|w \| }. \]
+        \begin{proof}
+        Observe that 
+        \begin{align*}
+            \Big\| \frac{ v  }{  \|v \| }  - \frac{ w }{ \|w\| }  \Big\| &= \frac{ 1 }{ \|v\| \|w\| }  \|v \|w\| - w \| v \| \| \\
+                                                                         &= \frac{ 1 }{ \|v\| \|w\| }  \|v \|w \| - \|w \| w + \|w \| w - w \|v \| \| \\ \\
+                                                                         &\leq \frac{ 1 }{ \|v\| \|w \| }  \| \|w\| (v -w) + w (\|w\| - \|v\|) \| \\
+                                                                         &\leq \frac{ 1 }{ \|v\| \|w\| } \Big( \|w\|\| v - w \| +  \Big| \|v\| - \|w\| \Big|   \|w\|  \Big) \\
+                                                                         &= \frac{ 1 }{ \|v\| } \Big(\|v - w\| + \Big| \|v\| - \|w\| \Big|  \Big).
+        \end{align*}
+        Since \( v \neq 0  \), we can divide by \( \|v\| \) on both sides of the inequality above to obtain
+        \[  \|v\| \Big\| \frac{  v  }{ \|v \| }  - \frac{ w }{ \|w\| }  \Big\|  \leq \|v - w \| + \Big| \|v\| - \|w\| \Big|. \tag{1}\]
+        Similarly, we can show that (by adding and subtracting \( \|v\|v  \) to the quantity above, applying the triangle inequality, and collecting terms)
+        \[  \|w\| \Big\| \frac{ v  }{  \|v \|  }  - \frac{ w }{  \|w\| } \Big\|\leq \|v - w \| + \Big| \|v\| - \|w\| \Big|. \tag{2}  \]
+       Using (1) and (2), we get that  
+       \[  (\|v\| + \|w\|) \Big\| \frac{  v  }{  \|v \|   }  - \frac{ w }{ \|w\| }\Big\| \leq 2 \|v - w \| + 2 \Big|  \|v \| - \|w \| \Big|.  \]
+       Using the reverse triangle inequality on the second term on the right hand side of the inequality above, we have 
+       \[  (\|v\| + \|w\|) \Big\| \frac{ v }{  \|v\| }  - \frac{ w }{ \|w\| } \Big\| \leq 4 \|v - w \|. \]
+       Thus, we have our desired result
+       \[   \Big\| \frac{ v }{  \|v\| }  - \frac{ w }{ \|w\| } \Big\| \leq \frac{ 4 \|v - w \|}{\|v\| + \|w\|} . \]
+
+        \end{proof}
+    \item[(b)] Assume that \( \langle  ,  \rangle  \) is an inner product on \( V  \) such that \( \|v \| = \sqrt{ \langle v  ,  v  \rangle }  \). Let \( v,w \in V  \) be two non-zero elements of \( V  \). Prove that 
+        \[  \Big\|\frac{ v }{ \|v\| }  - \frac{ w }{ \|w\| } \Big\| \leq \frac{ 2 \| v - w \| }{ \|v\| + \|w\| }. \]
+        \begin{proof}
+        Our goal is to show that 
+        \[  \frac{ 1 }{ 4 }  (\|v\| + \|w\|)^{2} \Big\|\frac{ v }{ \|v\| }  - \frac{ w }{ \|w\| } \Big\|^{2} \leq \|v - w\|^{2}; \tag{*} \]
+        that is, 
+        \[  \frac{ 1 }{ 4 }  (\|v\| + \|w\|)^{2} \Big| \frac{ v }{ \|v\| }  - \frac{ w }{ \|w\| }  \Big| ^{2} \leq \|v\|^{2} - 2 \Re \langle v , w \rangle + \|w\|^{2} \]
+        Starting with the left-hand side, we have 
+        \begin{align*}
+            \frac{ 1 }{ 4 } (\|v\| + \|w\|)^{2} \Big\|\frac{ v }{ \|v\| }  - \frac{ w  }{  \|w \| }    \Big\|^{2} &= \frac{ 1 }{ 4 \|v\|^{2} \|w\|^{2} }  \Big[ \|v\|^{2} + 2 \|v \| \|w \| + \|w\|^{2} \Big] \Big\| v \|w \| - w \| v \| \Big\|^{2}. \tag{1}
+        \end{align*}
+        Set \( \tilde{v} = v \|w \| \) and \( \tilde{w} = w \|v \| \). Then we have 
+        \begin{align*}
+            \|\tilde{v} - \tilde{w}\|^{2} &= \|\tilde{v}\|^{2} - 2 \Re \langle \tilde{v} ,  \tilde{w} \rangle + \| \tilde{w}\|^{2} \\
+                                          &= \|w\|^{2} \|v|^{2} - 2 \Re \langle \|w\| v  ,  \|v\| w  \rangle + \|v\|^{2} \|w\|^{2} \\ 
+                                          &= 2 \|w\|^{2} \|v\|^{2} - 2 \|w\| \|v\| \Re \langle v   , w  \rangle.
+        \end{align*}
+        From (1), we have 
+        \begin{align*}
+            \frac{ 1 }{ 4 } (\|v\| + \|w\|)^{2} \Big\| \frac{ v  }{ \|v\| }  - \frac{ w }{  \|w\| } \Big\|^{2} &= \Big[\|v\|^{2} + 2 \|v \| \|w \| + \|w\|^{2}\Big] \Big(  \frac{ 1 }{ 2 }  - \frac{ 1 }{ 2 \|w \| \|v \| }  \Re \langle v , w \rangle \Big) \\ 
+                                                                                                               &= \frac{ \|v\|^{2} }{ 2  }  - \frac{ \|v\| }{ 2 \|w \| }  \Re \langle v , w \rangle + \|v\| \|w \| - \Re \langle v , w \rangle  \\
+                                                                                                               &+ \frac{ \|w\|^{2} }{ 2  }  - \frac{ \|w\| }{ 2 \|v \| }  \Re \langle v , w \rangle \\
+                                                                                                               &\leq \frac{ 1 }{ 2 }  \big[ \|v\|^{2} - 2 \Re \langle v , w \rangle + \|w\|^{2} \big] - \Big[ \frac{ \|v\| }{ \|w\| } \Re \langle v , w \rangle + \frac{ \|w\| }{ \|v\| }  \Re \langle v , w \rangle\Big] \\
+                                                                                                               &\leq  \frac{ 1 }{ 2 } \big[ \|v\|^{2} - 2 \Re \langle v , w \rangle + \|w\|^{2} \big] \\
+                                                                                                               &\leq \|v\|^{2} - 2 \Re \langle v , w \rangle + \|w\|^{2} \\
+                                                                                                               &= \|v-w\|^{2}.
+        \end{align*}
+        Hence, (*) is obtained by rearranging terms and taking the square root of both sides of the above inequality.
+        \end{proof}
+    \item[(c)] In homework, we proved that the following inequalities for non-zero elements \( v,w \in V  \):
+        \[  \|v + w\| \leq \|v \| + \|w \| - \Big(  2 - \Big\| \frac{ v  }{  \|w \| }  + \frac{  w  }{ \|w\| } \Big\| \Big) \min \{  \|v\| , \|w\| \}  \]
+        and
+        \[  \|v + w\| \geq \|v \| + \|w \| - \Big(  2 - \Big\| \frac{ v  }{  \|w \| }  + \frac{  w  }{ \|w\| } \Big\| \Big) \max \{  \|v\| , \|w\| \}.  \]
+        Prove that equality holds in any of these inequalities if either \( \|v\| = \|w\| \) or \( v = cw  \) for some \( c > 0  \).
+        \begin{proof}
+        Suppose \( \|v \| = \|w \| \). Then we have \( \max \{  \|v\|, \|w\| \}  = \min \{ \|v\|, \|w\| \}  \). It follows immediately that 
+        \[  \|v + w\| = \|v\| + \|w\| - \Big(  2 - \Big\| \frac{ v }{ \|v\| }  + \frac{ w }{ \|w\| }  \Big\| \Big) \max \{  \|v\|, \|w\| \}. \]
+
+        Suppose \( v = cw  \) for some \( c > 0  \). Then observe that 
+        \begin{align*}
+            \|v + w \| &\leq \|cw\| + \|w \| - \Big(  2 - \Big\| 2 \cdot \frac{ w  }{ \|w\| } \Big\| \Big) \min \{  \|v\|, \|w\| \}  \\
+                       &= \|cw\| + \|w\| - \Big( 2 - 2 \cdot \frac{ \|w\| }{ \|w\| }  \Big)\min \{  \|v\|, \|w\|  \} \\
+                       &= \|cw\| + \|w\| \\
+                       &= (|c| + 1 ) \|w\|.
+        \end{align*}
+        Similarly, we have 
+        \begin{align*}
+            \|v + w \| &\geq \|cw\| + \|w \| - \Big(  2 - \Big\| 2 \cdot \frac{ w  }{ \|w\| } \Big\| \Big) \min \{  \|v\|, \|w\| \}  \\
+                       &= \|cw\| + \|w\| - \Big( 2 - 2 \cdot \frac{ \|w\| }{ \|w\| }  \Big)\max \{  \|v\|, \|w\|  \} \\
+                       &= \|cw\| + \|w\| \\
+                       &= (|c| + 1 ) \|w\|.
+        \end{align*}
+        Hence, equality holds in this case too.
+        \end{proof}
+    \item[(d)] Using (c), for any non-zero \( v,w \in V  \), prove that 
+        \[  \frac{ \|v - w \| - | \|v \| - \|w \| |  }{ \min \{  \|v\|, \|w \| \}  }  \leq \Big\| \frac{ v }{ \|v\| }  - \frac{ w }{ \|w\| } \Big\| \leq \frac{ \|v - w \| + | \|v \| - \|w \| |  }{ \max \{ \|v\|, \|w\| \}  }. \]
+        \begin{proof}
+        First, we prove the left-hand side of the inequality above. Let \( v,w \in V \setminus  \{  0  \}  \). Using the triangle inequality, we have  
+        \begin{align*}
+            \Big\|\frac{ v }{ \|v\| }  +  \frac{  w  }{  \|w\| } \Big\| &= \Big\| \frac{ v }{ \|v\|  }  - \frac{ w }{ \|w\| }  + \frac{ w }{ \|w\| }  + \frac{ w }{ \|w\| } \Big\| \\
+                                                                        &\leq \Big\| \frac{ v  }{  \|v\| }  - \frac{ w }{ \|w\| } \Big\| + 2 \cdot \frac{ \|w\| }{ \|w\| }  \\
+                                                                        &= \Big\|\frac{ v }{ \|v\| }  - \frac{ w }{ \|w\| } \Big\| + 2. 
+        \end{align*}
+        Hence, we have 
+        \[  \Big\|\frac{ v }{ \|v\|  }  + \frac{ w }{ \|w\| } \Big\| - 2 \leq \Big\| \frac{ v }{ \|v\|  }  - \frac{ w }{ \|w\| } \Big\| \]
+        that is,
+        \[  - \Big(  2 - \Big\| \frac{ v }{ \|v\| }  + \frac{ w }{ \|w\| } \Big\| \Big)  \leq \Big\|\frac{ v }{ \|v\| }  - \frac{ w }{ \|w\| } \Big\|. \tag{*} \]
+        Using the first inequality in the previous part and (*), we have 
+        \begin{align*}
+            \frac{ \|v - w \| - | \|v\| - \|w\| |  }{ \min \{ \|v\|, \|w\| \}  } &\leq \frac{ \|v + w \| - (\|v\| + \|w\|) }{  \min \{ \|v\|, \|w\| \}  }  \\
+                                                                                 &\leq \frac{ \|v + w \| - \|v\| - \|w\| }{ \min \{ \|v\|, \|w\| \}  } \\
+                                                                                 &\leq - \Big(  2 - \Big\|\frac{ v }{ \|v\| }  + \frac{ w }{ \|w\| } \Big\| \Big) \\
+                                                                                 &\leq \Big\|\frac{ v }{ \|v\| }  - \frac{ w }{ \|w\| } \Big\|.
+        \end{align*}
+        This gives us the left-hand side of our desired result.
+
+        For the right-hand side of the desired inequality, we assume (without loss of generality) that \( \|v\| > \|w \| \). From the first inequality in part (a), we have
+        \begin{align*}
+            \Big\|\frac{ v }{ \|v\| }  - \frac{ w }{ \|w\| } \Big\| &\leq \frac{ \|v - w \| + | \|v\| - \|w\|  |  }{ \|v\| }  = \frac{ \|v - w \| + | \| v \| - \|w\| |  }{ \max \{ \|v\|, \|w\| \}  }. 
+        \end{align*}
+        All together, we have 
+        \[  \frac{ \|v - w \| - | \|v \| - \|w \| |  }{ \min \{  \|v\|, \|w \| \}  }  \leq \Big\| \frac{ v }{ \|v\| }  - \frac{ w }{ \|w\| } \Big\| \leq \frac{ \|v - w \| + | \|v \| - \|w \| |  }{ \max \{ \|v\|, \|w\| \}  }. \]
+        \end{proof}
+        \item[(e)] Using (d), give a different proof of (a).
+            \begin{proof}
+            Suppose without loss of generality that \( \|v \| > \|w \| \). Hence, we have
+            \[  \|v \| = \max \{ \|v\| , \|w\|  \} \geq \|w\|.  \]
+            Using the right-hand side of what was proved in part (d), we have 
+            \[  \Big\| \frac{  v }{  \|v \| }  - \frac{ w }{ \|w\| } \Big\| \leq \frac{ \|v - w \| + | \|v\| - \|w\| |  }{ \|v\|  } \implies \|v\| \Big\| \frac{ v }{ \|v\| }  - \frac{ w }{ \|w\| } \Big\| \leq \|v -w \| + | \|v\| - \|w\| |. \tag{1}  \]
+            Also, Since \( \max \{ \|v\| , \|w\| \}  \geq \|w\| \), we have 
+            \[  \Big\|\frac{ v }{  \|v\|  } - \frac{ w }{ \|w\| }  \Big\| \leq \frac{ \|v - w \| + | \|v\| - \|w\| |  }{ \max \{ \|v\|, \|w\| \}  } \leq \frac{ \|v - w \| + | \|v\| - \|w\| |  }{ \|w\| }. \]
+            This implies that 
+            \[  \|w\| \Big\| \frac{ v }{ \|v\| } - \frac{ w }{ \|w\| } \Big\| \leq \|v - w \| + | \|v\| - \|w\| |. \tag{2} \]
+            Adding (1) and (2), we get
+            \[  (\|v\| + \|w\|) \Big\| \frac{ v  }{ \|v\|  }  - \frac{ w }{ \|w\| } \Big\| \leq 2 (\|v  -w \| + | \|v\| - \|w\| | ). \]
+            Using the reverse triangle inequality on \( | \|v \| - \|w\| |  \), we have 
+            \[  (\|v\| + \|w\|) \Big\| \frac{ v }{ \|v\| }  - \frac{ w }{ \|w\| } \Big\| \leq 4 \|v - w\|  \]
+            and so
+            \[ \Big\| \frac{ v }{ \|v\| }  - \frac{ w }{ \|w\| }  \Big\| \leq \frac{ 4 \|v - w \| }{ \|v \| + \|w\| }. \]
+            \end{proof}
+\end{enumerate}
+
+\begin{problem}
+    Let \( V = \R^{n} \), \( \vec{ b }  \in V  \), and \( A = ({a}_{ij})_{1 \leq i,j \leq n } \) be an \( n \times n  \) matrix. Define \( T : V \to V  \) by \( T \vec{ x }  = A \vec{ x }  + \vec{ b }  \).
+\end{problem}
+\begin{enumerate}
+    \item[(a)] Suppose that \( \max_{1 \leq k \leq n } \sum_{ j=1  }^{ n } | {a}_{jk} | < 1  \). Prove that \( T  \) has a unique fixed point.
+        \begin{proof}
+        Since \( \R^{n} \) is a complete metric space with respect to the \( {d}_{\infty } \) metric, it suffices to show that \( T  \) is a contraction by the Banach Fixed Point Theorem. It is enough to show that there exists \( 0 < \alpha < 1  \) such that for any \( \vec{ x } , \vec{ y }  \in \R^{n} \)
+        \[  \|T \vec{ x }  - T \vec{ y } \|_{\infty } \leq \alpha \|\vec{ x } - \vec{ y } \|_{\infty }. \] 
+        Let \( \vec{ x } , \vec{ y }  \in \R^{n} \). Hence, we have
+        \begin{align*}
+            \|T \vec{ x }  - T \vec{ y } \|_{\infty } &= \|(A \vec{ x }  + \vec{ b } ) - (A \vec{ y }  + \vec{ b } ) \|_{\infty }  \\
+                                                      &= \|A \vec{ x } - A \vec{ y } \|_{\infty } \\
+                                                      &= \|A (\vec{ x }  - \vec{ y } )\|_{\infty } \\
+                                                      &=  \max_{1 \leq k \leq n } \Big| \sum_{ j=1  }^{ n } {a}_{jk} ({x}_{k} -{y}_{k}) \Big|  \\
+                                                      &\leq \|\vec{ x }  - \vec{ y } \|_{\infty } \max_{1 \leq k \leq n } \sum_{ j=1  }^{ n } | {a}_{jk} |.
+        \end{align*}
+        Now, now that 
+        \[  0 < \max_{1 \leq k \leq n  } \sum_{ j=1  }^{ n } | {a}_{jk} |  < 1  \]
+        and so set \( \alpha = \max_{1 \leq k \leq n } \sum_{ j=1  }^{ n } | {a}_{jk} |  \). Hence, 
+        \[  \|T \vec{ x }  - T \vec{ y } \|_{\infty } \leq \alpha \|\vec{ x }  - \vec{ y } \|_{\infty }. \] 
+        Thus, \( T  \) is a contraction as desired. Hence, \( T  \) contains a unique fixed point.
+        \end{proof} 
+    \item[(b)] Suppose that \( \sum_{ k=1  }^{ n } \sum_{ j=1  }^{ n } {a}_{jk }^{2} < 1  \). Prove that \( T  \) has a unique fixed point.
+        \begin{proof}
+        Just as in part (a), it suffices to show that \( T  \) is a contraction by the Banach Fixed Point Theorem. Let \( \vec{ x } , \vec{ y }  \in \R^{n} \). Our approach is to use the \( 2 \)-norm to show the result. Using the Cauchy-Schwarz inequality, we get 
+        \begin{align*}
+            \|T \vec{ x }  - T \vec{ y } \|^{2} = \|T(\vec{ x }  - \vec{ y } )\|^{2}   
+                                                   &= \sum_{ j=1  }^{ n } \Big[\sum_{ k=1  }^{ n } {a}_{jk} ({x}_{k} - {y}_{k})\Big]^{2} \\ 
+                                                   &\leq \sum_{ j=1  }^{ n } \Big[ \Big(  \sum_{ k=1  }^{ n } {a}_{jk}^{2}  \Big)^{1/2} \Big(  \sum_{ \ell = 1  }^{ n  } ({x}_{\ell} - {y}_{\ell})^{2} \Big)^{1/2} \Big]^{2} \\
+                                                   &= \|\vec{ x } - \vec{ y } \|^{2} \sum_{ j=1  }^{ n } \sum_{ k=1  }^{ n } {a}_{jk}^{2}.
+        \end{align*}
+        Note that 
+        \[ 0 < \sum_{ j=1  }^{ n } \sum_{ k=1  }^{ n } {a}_{jk}^{2} < 1  \]
+        so set 
+        \[  \alpha^{2} = \sum_{ j=1  }^{ n } \sum_{ k=1  }^{ n } {a}_{jk}^{2} \implies \alpha = \sqrt{ \sum_{ j=1  }^{ n } \sum_{ k=1  }^{ n } {a}_{jk}^{2} }.  \]
+        Taking the square root, we have 
+        \[  \|T \vec{ x }  = T \vec{ y } \| \leq \alpha \|\vec{ x } - \vec{ y } \|. \]
+        Hence, \( T  \) is a contraction. Thus, \( T  \) contains a unique fixed point. 
+        \end{proof}
+\end{enumerate} 
+
+\begin{problem}
+   \begin{enumerate}
+       \item[(a)] Let \( a,b \in \R  \) such that \( a < b  \). Let \( \textbf{J} = [a,b]^{n} = \underbrace{ [a,b] \times [a,b] \times \cdots \times [a,b]}_{n \ \text{times}} \subseteq \R^{n} \). Assume that \( U \) is an open set in \( \R^{n} \) containing \( \textbf{J} \), \( f: U \to \R^{n} \) is continuous, and component functions \( {f}_{1}, \dots, {f}_{n} \) of \( f  \) have continuous partial derivative. In addition, assume that 
+           \begin{enumerate}
+               \item[(i)] \( f(\textbf{J}) \subseteq J  \).
+                \item[(ii)] There is \( 0 < \alpha < 1  \) such that on \( \textbf{J} \) the following holds:
+                    \[ \Big| \frac{ \partial {f}_{i} }{  \partial {x}_{j} }  \Big|  < \frac{ \alpha }{ n } \ \ \forall \ 1 \leq j \leq n \ \ 1 \leq i \leq n.  \]
+                    Prove that \( f \) has a fixed point in \( \textbf{J} \).
+           \end{enumerate}
+        \item[(b)] Use (a) to prove that the system of equations 
+            \begin{align*}
+                x^{2} - 20x + y^{2} + 10 &= 0  \\
+                xy^{2} + x - 20y + 10 &= 0 
+            \end{align*}
+            has a solution in \( [0,2] \times [0,2] \).
+   \end{enumerate} 
+\end{problem}
+\begin{proof}
+\begin{enumerate}
+    \item[(a)] 
+It suffices to show that \( f  \) is a contraction; that is, there exists an \( 0 < \alpha < 1  \) such that for all \( \vec{ x } , \vec{ y }  \in U  \), we have 
+\[  \|f(\vec{ x }) - f(\vec{ y } )\|_{\infty } \leq \alpha \|\vec{ x }  -\vec{ y } \|_{\infty }. \]
+Let \( \vec{ x } ,\vec{ y }  \in U  \) with 
+\[  \vec{ x  }  = ({x}_{1}, {x}_{2}, \dots , {x}_{n}) \]
+and 
+\[  \vec{ y  }  = ({y}_{1}, {y}_{2}, \dots, {y}_{n}). \]
+Note that since \( U  \) is an open set in \( \R^{n} \), we know that \(  U \) is a convex set. Hence, \( U  \) is a connected in \( \R^{n} \). As a consequence, let \( L  \) be a line segment connecting \( \vec{ x }  \) and \( \vec{ y }  \). Since each component \( {f}_{i} \) of \( f  \) is differentiable and contains partial derivatives that are continuously differentiable, we can use the Mean Value Theorem to find a \( \vec{ c }  \in L  \) such that 
+\[  f(\vec{ x } ) - f(\vec{ y } ) = \nabla f(\vec{ c }) \cdot (\vec{ x }  - \vec{ y }). \]
+By definition of the standard dot product on \( \R^{n} \), we have
+\[  \nabla f \cdot (\vec{ x }  - \vec{ y } ) = \sum_{ i= 1   }^{ n } \frac{\partial {f}_{i} }{\partial {f}_{j} } (\vec{ c } ) \cdot (\vec{ x }  - \vec{ y } ).  \]
+From here, we claim that \( \alpha \in (0,1) \) is the desired constant we were looking for.
+Indeed, using our assumption that 
+\[  \Big| \frac{\partial {f}_{i} }{\partial {x}_{j} }  \Big|  < \frac{ \alpha }{ n },  \]
+we have
+\begin{align*}
+    | f(\vec{ x } ) - f(\vec{ y } ) | &= \Big| \sum_{ i=1  }^{ n } \frac{\partial {f}_{i}  }{\partial {f}_{j} } (\vec{ c } ) \cdot (\vec{ x } -  \vec{ y } ) \Big|  \\
+                                      &\leq \sum_{ i=1  }^{ n } \Big| \frac{\partial {f}_{i} }{\partial {f}_{j} } (\vec{ c } ) \cdot (\vec{ x  } - \vec{ y }) \Big| \\
+                                      &\leq \| \vec{ x  }  - \vec{ y } \|_{\infty } \sum_{ i=1  }^{ n } \Big| \frac{\partial {f}_{i} }{\partial {x}_{j} } (\vec{ c } ) \Big| \\
+                                      &< \|\vec{ x }  -\vec{ y } \|_{\infty } \sum_{ i=1  }^{ n } \frac{ \alpha }{ n } \\
+                                      &= \|\vec{ x }  - \vec{ y } \|_{\infty } \frac{ \alpha }{ n }  \sum_{ i=1  }^{ n } \\
+                                      &= \alpha \|\vec{ x }  - \vec{ y } \|_{\infty }.
+\end{align*}
+Taking the maximum of the left-hand side of the inequality above, we have  
+\[  \|f(\vec{ x }  - f(\vec{ y } ))\|_{\infty } \leq \alpha \|\vec{ x }  - \vec{ y } \|_{\infty }.  \]
+Hence, we conclude that \( f  \) is a contraction and so \( f \) contains a fixed point.
+
+    \item[(b)] Let \( \vec{ x }  =  (x,y) \in \textbf{J} = [0,2] \times [0,2]   \) and let \( {x}_{1} = x  \) and \( {x}_{2} = y \). Denote \( {f}_{1}(\vec{ x }) = x^{2} - 20 x + y^{2} + 10   \) and \( {f}_{2}(x) = x y^{2} + x -20 y + 10 \). It is clear that \( {f}_{1} \) and \( {f}_{2} \) are differentiable and contain partial derivatives that are continuous. Since \( {f}_{1} \) and \( {f}_{2} \) are continuous, it also follows that \( f  = ({f}_{1}, {f}_{2}) \) is continuous and \( f(\textbf{J}) \subseteq J \). All that is left to show is that there exists some \( 0 < \alpha < 1  \) such that for all \( i = 1,2 \) and \( j = 1,2 \), we have
+        \[ \Big|  \frac{\partial {f}_{i} }{\partial {x}_{j} }  \Big|  < \frac{ \alpha }{ n }.  \]
+        First, we compute the partial derivatives of each component function. Indeed, we have 
+        \begin{align*}
+            \frac{\partial {f}_{1} }{\partial x  }  &= 2x - 20 &\frac{\partial {f}_{1} }{\partial y }  &= 2y \\
+            \frac{\partial {f}_{2} }{\partial x }  &= 2x y^{2} + 1 &\frac{\partial {f}_{2} }{\partial y }  &= 2 x^{2} y - 20.
+        \end{align*}
+        Since \( \frac{\partial {f}_{1} }{\partial x }  \) is continuous at \( 0  \), for any \( \epsilon > 0  \),  we can find an \( 0 < \alpha_1 < 1  \) such that if \( | x  | < {\alpha}_{1} \), then 
+        \[  \Big| \frac{\partial {f}_{1} }{\partial x }  \Big| < \frac{ \epsilon }{ 2  }.  \]
+        In particular, for \( \epsilon = {\alpha}_{1} \), then
+        \[  \Big| \frac{\partial {f}_{1} }{\partial x  }  \Big| < \frac{ {\alpha}_{1} }{ 2 } \tag{1} \]
+        if \( | x  |  < {\alpha}_{1} \). Similarly, since \( \frac{\partial {f}_{1} }{\partial y }  \) is continuous at \( 0  \), we know that for any \( \epsilon > 0  \), there exists an \( 0 < {\alpha}_{2} < 1  \) such that if \( | y  |  < {\alpha}_{2} \), we have 
+        \[ \Big| \frac{\partial {f}_{1} }{\partial y }  \Big| < \frac{ \epsilon }{ 2 }.   \]
+        In particular, for \( \epsilon = {\alpha}_{2}  \), we have 
+        \[  \Big| \frac{\partial {f}_{1} }{\partial y }  \Big| < \frac{ {\alpha}_{2} }{ 2  }. \tag{2}  \]
+        Again, since \( \frac{\partial {f}_{2} }{\partial x  }   \) is continuous at \( 0 \), for any \( \epsilon > 0  \),  we can find an \( 0 < {\alpha}_{3} < 1  \) such that if \( | x  |  < {\alpha}_{3} \), we have 
+        \[  \Big| \frac{\partial {f}_{2} }{\partial x }  \Big| < \frac{ \epsilon}{ 2 }. \]
+        In particular, for \( \epsilon = {\alpha}_{3} \), we have 
+        \[  \Big| \frac{\partial {f}_{2} }{\partial x }  \Big| < \frac{ {\alpha}_{3} }{ 2 }. \tag{3}  \]
+        Lastly, since \( \frac{\partial {f}_{2} }{\partial y }  \) is continuous at \( 0 \), we know that for any \( \epsilon > 0  \), we can find an \( 0 < \alpha_{4} < 1  \) such that if \( | y  |  < {\alpha}_{4} \), then
+        \[ \Big| \frac{\partial {f}_{2} }{\partial y }  \Big|  < \frac{\epsilon}{ 2 }.  \]
+        In particular, for \( \epsilon = {\alpha}_{4} \), we have 
+        \[  \Big| \frac{\partial {f}_{2} }{\partial y }  \Big|  < \frac{ {\alpha}_{4} }{ 2 } \tag{4}  \]
+        if \( | y  |  < {\alpha}_{4} \). Let \( \alpha = \frac{ 1 }{ 2 } \min \{ {\alpha}_{1}, {\alpha}_{2}, {\alpha}_{3}, {\alpha}_{4} \}  \) (clearly, this is between \( 0 \) and \( 1  \)). Then for all \( i = 1,2 \) and \( j = 1,2 \), we have 
+        \[  \Big| \frac{\partial {f}_{i} }{\partial {x}_{j} }  \Big| < \frac{ \alpha }{ 2 }.  \]
+        Using part (a), we can now conclude that \( f  \) contains a fixed point in \( [0,2] \times [0,2] \).
+\end{enumerate}
+\end{proof}
+
+\begin{problem}
+    Let \( (V, \|\cdot\|) \) be a finite dimensional normed space (real or complex). Let \( W  \) be a \textbf{non-zero proper subspace} of \( V  \) and let \( {v}_{0} \in V  \) such that \( {v}_{0} \notin W  \). Let \( \delta = \min \{ \|{v}_{0} - w \| : w \in W  \}  \).
+\end{problem}
+\begin{enumerate}
+    \item[(a)] Prove that \( \delta > 0  \).
+        \begin{proof}
+        Since \( {v}_{0} \notin W  \), we have \( 0 < \|{v}_{0} - w \| \). Hence, \( 0  \) is a lower bound for the set 
+        \[  \{ \|{v}_{0} -w \| : w \in W \}.\]
+        Taking the infimum of the right-hand side, we see that \( \delta > 0  \).
+        \end{proof}
+    \item[(b)] Prove that there is \( f \in V' \) such that \( \|f\| = 1  \), \( f({v}_{0}) = \delta \), and \( f(w) = 0  \) for all \( w \in W  \). Here, \( V'  \) is the dual of \( V  \).
+        \begin{proof}
+            First note that since \( V \) is finite-dimensional, any given linear functional on \( V  \) is automatically contained in \( V' \); that is, every linear functional in a finite-dimensional normed space is bounded where \( V^{*} = V' \). 
+
+            First, we construct the desired linear functional and show that it contains all the desired properties. Define the set \( {W}_{1} = \text{span} \{ {v}_{0}, w  \}  \) for \( w \in W  \). Observe that for each \( {w}_{1} \in {W}_{1}  \), \( {w}_{1} \) can be uniquely expressed as 
+            \[  {w}_{1} = \alpha {v}_{0} + w  \]
+            where \( w \in W  \) and \( \alpha \in \F \). Define \( \tilde{f}({w}_{1}) = \alpha \delta\). We will first show that \( \tilde{f} \) is linear. Let \( {w}_{1}, {w}_{2} \in {W}_{1} \). Then  
+            \begin{align*}
+                {w}_{1} &= {\varphi}_{1} + {\alpha}_{1} {v}_{0} \\
+                {w}_{2} &= {\varphi}_{2} + {\alpha}_{2} {v}_{0}
+            \end{align*}
+            are unique representations of \( {w}_{1} \) and \( {w}_{2} \), respectively. Let \( \alpha , \beta \in \F  \). Then we can see that  
+            \[  \alpha {w}_{1} + \beta {w}_{2} = \alpha {\varphi}_{1} + \beta {\varphi}_{2} + (\alpha {\alpha}_{1} + \beta {\alpha}_{2}) {v}_{0}. \]
+            Hence, we obtain
+            \begin{align*}
+                \tilde{f}(\alpha {w}_{1} + \beta {w}_{2}) &= (\alpha {\alpha}_{1} + \beta {\alpha}_{2} ) \delta \\
+                                                          &= \alpha ({\alpha}_{1} \delta) + \beta ({\alpha}_{2} \delta) \\
+                                                          &= \alpha \tilde{f}({w}_{1}) + \beta \tilde{f}({w}_{2}).
+            \end{align*}
+            Hence, we can see that \( \tilde{f} \) is linear in \( V  \) (and bounded since \( V \) is finite-dimensional). Note that \( w \in W  \) can expressed as \( w = 0 \cdot {v}_{0} + w  \) and so \( \tilde{f}(w) = 0  \). Similarly, \( {v}_{0} \in V  \) implies \( {v}_{0} = 1 \cdot {v}_{0} + 0    \). Hence, \( \tilde{f}({v}_{0}) = \delta \). 
+
+            Next, we will show that \( \|\tilde{f}\| = 1  \). Our goal is to show that \( \|\tilde{f} \| \leq 1  \) and \( \|\tilde{f}\| \geq 1 \). Note that for every \( {w}_{1}  \in {W}_{1} \setminus \{ 0 \}  \), we have  
+            \[  | \tilde{f}({w}_{1}) |  \leq \|{w}_{1}\|. \]
+            Assuming that \( {w}_{1} \in {W}_{1} \setminus \{ 0  \}  \), we have
+            \[  \frac{ | \tilde{f}({w}_{1}) |  }{ \|{w}_{1}\| }  \leq 1.  \]
+            Taking the supremum over all \( {w}_{1} \in W \setminus \{ 0  \}  \), we have 
+            \[  \sup_{{w}_{1} \in {W}_{1} \setminus  \{ 0  \} } \frac{ | \tilde{f}({w}_{1}) | }{ \|{w}_{1}\| } \leq 1 \implies \|\tilde{f}\| \leq 1.  \]
+
+            Now, we show that \( \|\tilde{f}\| \geq 1 \). Let \( \epsilon > 0  \) be given. By definition of \( \delta \), there exists \( w' \in W  \) such that 
+            \begin{align*}
+                \|{v}_{0} - w' \| < \delta + \epsilon &\implies \frac{ 1 }{ \delta + \epsilon  }  < \frac{ 1  }{  \|{v}_{0} - w'\| }  \\
+                                                      &\implies \frac{ | \tilde{f}({v}_{0} - w') |  }{ \delta + \epsilon  }  < \frac{ | \tilde{f}({v}_{0} -w') |   }{ \|{v}_{0} -w'\| } \leq \|\tilde{f}\|.
+            \end{align*}
+            Note that \( \tilde{f}({v}_{0} - w') = \delta \) and so we have 
+            \[  \frac{ \delta }{ \delta + \epsilon }  \leq \|\tilde{f}\| \underbrace{\implies}_{\epsilon \to 0} \frac{ \delta }{ \delta  } \leq \|\tilde{f}\| \implies 1 \leq \|\tilde{f}\|. \]
+            Hence, we conclude that \( \|\tilde{f}\| = 1  \). Since \( V  \) is finite-dimensional, we can extend \( {W}_{1} \) to \( V  \) inductively.
+        \end{proof}
+\end{enumerate}
+
+\begin{problem}
+    Let \( V = C[0,1] = \{ f: [0,1] \to \R : f \ \text{is continuous}  \}  \).
+\end{problem}
+\begin{enumerate}
+    \item[(a)] Prove that \( (V, \langle  ,  \rangle) \) is an inner product space where 
+        \[  \langle f , g \rangle = \int_{ 0 }^{ 1 }  f(t) g(t) \ dt. \]
+        \begin{proof}
+        \begin{enumerate}
+            \item[(IP1)] Let \( f,g,h \in V  \). Then by the linearity of the integral, we have 
+                \begin{align*}
+                    \langle f + g  , h  \rangle &= \int_{ 0 }^{ 1 } (f+g)(t) h(t) \ dt  \\
+                                                &= \int_{ 0 }^{ 1 } [f(t) + g(t)] h(t) \ dt \\
+                                                &= \int_{ 0 }^{ 1 } [f(t)h(t) + g(t)h(t)] \ dt \\
+                                                &= \int_{ 0 }^{ 1 }  f(t) h(t) \ dt + \int_{ 0 }^{ 1 }  g(t)h(t) \ dt \\
+                                                &= \langle f , h \rangle + \langle g , h \rangle.
+                \end{align*}
+                Hence, (IP1) is satisfied.
+            \item[(IP2)] Let \( \alpha \in \F  \) and \( f,g \in V  \). Then using the linearity of the integral again, we have
+                \begin{align*}
+                    \langle \alpha f  ,  g  \rangle &= \int_{ 0 }^{ 1 }  (\alpha f )(t) g(t) \ dt \\
+                                                    &= \int_{ 0 }^{ 1 }  \alpha f(t) g(t) \ dt \\
+                                                    &= \alpha \int_{ 0 }^{ 1 }  f(t) g(t) \ dt \\
+                                                    &= \alpha \langle f , g \rangle.
+                \end{align*}
+        \end{enumerate}
+        \end{proof}
+        \[  \langle f , g \rangle = \int_{ 0 }^{ 1 }  f(t) g(t) \ dt. \]
+        Hence, (IP2) is satisfied.
+    \item[(IP3)] Let \( f \in V  \). Since \( f  \) is continuous on \( [0,1] \), it follows that \( f^{2}  \) is also continuous on \( [0,1] \) (since \( \varphi: \R \to \R  \) defined by \( \varphi(x) = x^{2} \) is continuous and the composition of \( \varphi \) and \( f  \) is a continuous function). Also, \( f^{2} \in R[0,1] \) and \( f^{2} \geq 0  \) on \( [0,1] \). Hence, 
+        \[  \langle f , f \rangle = \int_{ 0 }^{ 1 }  f^{2}(t)  \ dt \geq 0.   \]
+    \item[(IP4)] Let \( f \in V  \) be such that \( \langle f , f \rangle = 0  \). Since \( f^{2} \geq 0  \), \( f^{2}  \) is continuous on \( [0,1] \), \( \int_{ 0 }^{ 1 }  f^{2}(t) \ dt = 0  \), we have \( f^{2} = 0  \) on \( [0,1] \) and \( f = 0  \) on \( [0,1] \). Conversely, if \( f = 0  \), then \( f^{2} =  0 \) on \( [0,1] \). Thus, 
+        \[  \int_{ 0 }^{ 1 }  f^{2}  \ dt = 0 \implies \langle f , f \rangle = 0.  \]
+        Hence, we see from the properties above that \( (V, \langle  ,  \rangle) \) is an inner product space.
+    \item[(b)] Prove that \( (V, \langle  ,  \rangle) \) is \textbf{NOT} a Hilbert space. 
+        \begin{proof}
+        We can induce a norm \( \|\cdot\|: V \to \R  \) out of the inner product \( \langle  ,  \rangle \) by defining
+    \[ \|f\| =   \sqrt{  \langle f   ,  f  \rangle }   = \Big( \int_{ 0 }^{ 1 }  f^{2}(t) \ dt \Big)^{1/2}. \]
+    From this norm, we can rewrite the metric defined in problem 3 can be written in the following way:  
+    \[  d(f,g) = \|f - g\| = \sqrt{ \langle f-g  , f-g  \rangle } = \Big(  \int_{ 0 }^{ 1 } (f -g)^{2}(t) \ dt \Big)^{1/2}.  \]
+        Using the sequence of functions \( ({f}_{n}) \) defined in part (b) of problem 3, we know that \( ({f}_{n}) \) is Cauchy with respect to this metric \( d \), but \( ({f}_{n}) \) does not converge to a continuous function. Hence, \( (V, \langle  ,  \rangle) \) cannot be complete in \( V  \).
+        \end{proof}
+\end{enumerate}
+    
+
+
+\end{document}
+
