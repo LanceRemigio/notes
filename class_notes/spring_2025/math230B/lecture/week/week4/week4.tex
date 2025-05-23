@@ -1,0 +1,59 @@
+\subsection{Topics}
+
+\begin{enumerate}
+    \item[(1)] The definition of Riemann-Stieltjes integral
+    \item[(2)] Refinement of partitions 
+\end{enumerate}
+
+\begin{definition}[Almost Disjoint Intervals]
+    We say that two intervals \( I  \) and \( J  \) are \textbf{almost disjoint} if either \( I \cap J  \) is empty or \(  I \cap J  \) has exactly one point.
+\end{definition}
+
+\begin{definition}[Partition]
+    A partition \( P  \) of an interval \( [a,b] \) is a finite set of points in \( [a,b] \) that includes both \( a  \) and \( b  \). We always list the points of a partition \( P = \{  {x}_{0} , {x}_{1}, {x}_{2}, \dots, {x}_{n} \}  \) in an increasing order; so, 
+    \[  a = {x}_{0} < {x}_{1}< \cdots < {x}_{n} = b.  \]
+\end{definition}
+
+\begin{remark}
+    A partition of \( P  \) of an interval \( [a,b] \) is a finite collection of almost disjoint (nonempty) compact intervals whose union is \( [a,b] \): 
+    \[  P = {I}_{1}, {I}_{2}, \dots, {I}_{n} \]
+    where
+    \[  {I}_{1} = [{x}_{0}, {x}_{1}], \ \ {I}_{2} = [{x}_{1}, {x}_{2}], \ \ \cdots \ \ {I}_{n} = [{x}_{n-1}, {x}_{n}]. \]
+    Again, we denote \( {x}_{0} = a  \) and \( {x}_{n} = b  \).
+\end{remark}
+
+\begin{definition}[Lower Sum, Upper Sum]
+    Let \( f: [a,b] \to \R  \) be bounded, \( \alpha : [a,b] \to \R  \) be increasing, and \( P = \{ {x}_{0}, {x}_{2}, \dots, {x}_{n} \}  \) be a partition of \( [a,b] \). Let \( \Delta {\alpha}_{k} = \alpha({x}_{k}) - \alpha({x}_{k-1}) \). 
+    \begin{enumerate}
+        \item[(i)] The \textbf{Lower Riemann-Stieltjes Sum} of \( f  \) with respect to the integrator \( \alpha \) for the partition \( P  \) is defined by 
+            \[  L(f, \alpha, P ) = \sum_{ k=1  }^{ n } {m}_{k} (\alpha({x}_{k}) - \alpha({x}_{k-1})) = \sum_{ k=1  }^{ n } {m}_{k} \Delta {\alpha}_{ k }. \] 
+        \item[(ii)] The upper \textbf{Riemann-Stieltjes sum} of \( f  \) with respect to the integrator \( \alpha  \) for the partition \( P  \) is defined by
+            \[  U(f, \alpha, P) = \sum_{ k=1  }^{ n } {M}_{k} (\alpha({x}_{k}) - \alpha({x}_{k-1})) = \sum_{ k=1  }^{ n } {M}_{k } \Delta {\alpha}_{k }. \]
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Upper R.S Integral, Lower R.s Integral]
+    Let \( f: [a,b] \to \R  \) be bounded, \( \alpha: [a,b] \to \R  \) be increasing. Then 
+    \begin{enumerate}
+        \item[(i)] The \textbf{Upper R.S integral} of \( f  \) with respect to \( \alpha \) (on \( [a,b] \)) is defined by 
+            \[  U(f,\alpha) = \inf_{P \in \Pi} U(f,\alpha, P).   \]
+            Note that the set \( \{  U(f,\alpha, P) : P \in \Pi \}   \) is bounded below by \( m (\alpha(b) - \alpha(a)) \). So the infimum above is a real number. 
+        \item[(ii)] The \textbf{Lower R.S Integral} of \( f  \) with respect to \( \alpha \) (on \( [a,b] \)) is defined by
+            \[  L(f,\alpha) = \sup_{P \in \Pi} L(f,\alpha, P ). \]
+            Note that the set \( \{  L(f,\alpha, P ) : P \in \Pi \} \)
+            the lower sums is bounded above by \( M(\alpha(b) - \alpha(a)) \). So, the supremum above is a real number.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Riemann-Stieltjes integrable functions]
+    Let \( \alpha : [a,b] \to \R  \) be an increasing function. A function \( f: [a,b] \to \R  \) is said to be \textbf{Riemann-Stieltjes integrable} (on \( [a,b] \)) if 
+    \begin{enumerate}
+        \item[(i)] \( f \) is bounded
+        \item[(ii)] \( L(f,\alpha) = U(f,\alpha) \).
+    \end{enumerate}
+    In this case, the R.S integral of \( f  \) with respect to \( \alpha \), denoted by
+    \[ \int_{ a }^{ b }  f  \ d \alpha \ \ \text{or} \ \ \int_{ a }^{ b }  f(x)  \ d \alpha(x) \ \ \text{or} \ \ \int_{ [a,b] } f   \ d \alpha  \]
+    is the common value of \( L(f,\alpha) \) and \( U(f,\alpha) \). That is, 
+    \[  \int_{ a }^{ b }  f  \ d \alpha = L (f,\alpha) = U(f,\alpha). \]
+\end{definition}
+

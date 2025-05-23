@@ -1,4 +1,4 @@
-We dedicate this section to stating key results that are frequently used throughout the paper. While we will not include full proofs, we assume the reader has at least some familiarity with these theorems. Providing detailed proofs would lead us beyond the intended scope of this work. Readers may omit reading this section and skip to reading the beginning of the paper at the {\hyperref[section 2]{introduction}}.
+We dedicate this section to stating key results that are frequently used throughout the paper. While we will not include full proofs (as proving them will take us outside the scope of the paper), we assume the reader has at least some familiarity with these theorems. Readers may omit this section and skip to the beginning of the paper here {\hyperref[section 2]{introduction}}.
 
 \subsection{Linear Operators}
 
@@ -46,8 +46,6 @@ We dedicate this section to stating key results that are frequently used through
         \item[(b)] The null space \( N(T) \) is closed.
     \end{enumerate}
 \end{corollary}
-
-
 
 
 \begin{lemma}[Continuity of Inner Product Kreyszig (3.2-2)]\label{3.2-2}
@@ -115,13 +113,12 @@ Below are the three distinctions usually discussed about the spectrum of \( T  \
     \item The \textbf{resdidual spectrum} \( {\sigma}_{r}(T) \) is the set such that \( {R}_{\lambda}(T) \) exists (may or may not be bounded) but does not satisfy (III).
 \end{itemize}
 
-\subsection{Fourier Transform}
+\subsection{Definitions and Results from Analysis}
 
 \begin{definition}[Fourier Transform Folland (7.2-1)]\label{Fourier Transform}
     Suppose \( f  \) is an integrable function that is defined on \( \R \). The \textbf{Fourier Transform} of \( f \) is defined by the function \( \hat{f} \) on \( \R \) where
     \[  \hat{f}(\xi) = \int e^{- i \xi x } f(x)  \ dx. \]
 \end{definition}
-
 
 \begin{definition}[\( L^1 \) space]\label{L1 Space}
     We denote \( L^{1}([a,b]) \) by the set
@@ -140,9 +137,16 @@ Below are the three distinctions usually discussed about the spectrum of \( T  \
     \[  L^{1}(\R) = \Big\{ f:[a,b] \to \R : \int_{ - \infty   }^{  \infty  }  | f(x) |  \ dx < \infty \Big\}.  \]
 \end{remark}
 
-
 \begin{remark}
     Another way to write \( \hat{f}(\xi) \) is \( \mathcal{F} [f(x)] = \hat{f}(\xi) \).
+\end{remark}
+
+\begin{remark}
+    \begin{itemize}
+        \item The \label{Frequency Domain} refers to the space where the Fourier transform resides.
+        \item The \label{Spatial Domain} refers to the space where the function that is being transformed under.
+        \item The parameter \( \xi \in \R  \) refers to the \label{frequency variable} of the Fourier transform.
+    \end{itemize}
 \end{remark}
 
 \begin{lemma}[Riemann-Lebesgue Lemma Folland (7.2-1)]\label{Riemann-Lebesgue}
@@ -151,12 +155,12 @@ Below are the three distinctions usually discussed about the spectrum of \( T  \
 
 For sake of convenience, we use the notation \( f \in R[a,b] \) to denote Riemann-integrable functions over a compact interval \( [a,b] \) in \( \R  \).
 
-\begin{theorem}[Fubini's Theorem Rudin ]\label{Fubini's Theorem}
+\begin{theorem}[Fubini's Theorem Rudin]\label{Fubini's Theorem}
     Let \( f: [a,b] \times [c,d]  \) be a bounded function. Suppose \( f  \) is Riemann-integrable on the rectangle \( [a,b] \times [c,d] \). For each fixed \( x \in [a,b]  \), the function \( y \mapsto f(x,y) \in R[c,d] \) and for each fixed \( y \in [c,d] \), the function \( x \mapsto f(x,y) \in R[a,b] \). Then the iterated integrals exist and satisfy: 
     \[  \int_{ a }^{ b }  \Big(  \int_{ c }^{ d }  f(x,y) \ dy  \Big) \ dx = \int_{ c }^{ d } \Big(  \int_{ a }^{ b }  f(x,y) \ dx   \Big) \ dy = \int_{ [a,b] \times [c,d] } f(x,y) dx dy. \]
 \end{theorem}
 
-\begin{theorem}[Convolution Theorem (8.14)]\label{Convolution Theorem}
+\begin{theorem}[Convolution Theorem Rudin (8.14)]\label{Convolution Theorem}
    Let \( f,g \in L^{1}(\R) \), and define their \textbf{convolution} by 
    \[  (f * g)(x) = \int_{ - \infty  }^{  \infty  }  f(x- t)g(t) \ dt.  \]
    Then \( f * g \in L^{1}(\R) \) and the Fourier Transform of the convolution satisfies:

@@ -1,6 +1,6 @@
-\documentclass[a4paper]{article}
-\input{../../../../../../newpreamble.tex}
-\begin{document}
+% \documentclass[a4paper]{article}
+% \input{../../../../../../newpreamble.tex}
+% \begin{document}
 
 \section{Lecture 1}
 
@@ -97,6 +97,20 @@ So, we have
         \end{proof}
 \end{enumerate}
 
+\begin{theorem}[Algebraic Differentiability Theorem]
+    Assume that \( f: I \to \R  \) and \( g : I \to \R  \) are differentiable at \( c \in I  \) where (\( I  \) is an interval on \( \R  \)). Then
+    \begin{enumerate}
+        \item[(i)] For all \( k \in \R  \), \( kf  \) is differentiable at \( c  \), and
+            \[  (kf)'(c) = k f'(c) \]
+        \item[(ii)] \( f+ g  \) is differentiable at \( c  \), and 
+            \[  (f+gk)'(c) = f'(c) + g'(c) \]
+        \item[(iii)] \( fg  \) is differentiable at \( c  \), and 
+            \[  (fg)'(c) = f'(c) g(c) + f(c) g'(c) \]
+        \item[(iv)] \( \frac{ f }{ g }  \) is differentiable at \( c  \) provided that \( g(c) \neq 0  \). Then
+            \[  \Big(  \frac{ f }{ g }  \Big)' (c) = \frac{ f'(c) g(c) - f(c) g'(c) }{ [g(c)]^{2} }. \]
+    \end{enumerate} 
+\end{theorem}
 
-\end{document}
+
+% \end{document}
 

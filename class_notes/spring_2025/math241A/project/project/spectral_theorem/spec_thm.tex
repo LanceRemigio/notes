@@ -69,20 +69,42 @@ In the previous section, we showed that we can associate a given bounded self-ad
 \end{enumerate}
 \end{proof}
 
-In the proof above, we see that the limit in (2) relies on a key inequality established in the previous section to demonstrate convergence. This result is made possible by the properties discussed in {\hyperref[section 4]{Section 4}} and {\hyperref[section 5]{Section 5}}, specifically those concerning the positivity, monotonicity, and convergence of the orthogonal projections in the spectral family \( \mathcal{G} = ({E}_{\lambda}) \).
+In the proof above, we see that the limit in (2) relies on a {\hyperref[dagger]{key inequality}} established in the previous section to demonstrate convergence. This result is made possible by the properties discussed in {\hyperref[section 4]{Section 4}} and {\hyperref[section 5]{Section 5}}, specifically those concerning the positivity, monotonicity, and convergence of the orthogonal projections in the spectral family \( \mathcal{G} = ({E}_{\lambda}) \).
 
 
-We conclude this paper by exploring an application of the Spectral Theorem to convolution operators on the Hilbert space \( L^{2}(\R) \). The spectral theorem provides a powerful framework for understanding such operators by showing that they can be viewed as multiplication operators in the frequency domain. Specifically, through the Fourier transform, convolution operators—which are translation-invariant—are diagonalized, meaning that their action in the spatial domain corresponds to pointwise multiplication in the frequency domain. This perspective not only simplifies the analysis of these operators but also reveals their spectral properties in a clear and tractable way, making the spectral theorem an essential tool in both theoretical and applied contexts involving convolution.
+We conclude this paper by exploring an application of the Spectral Theorem to convolution operators on the Hilbert space \( L^{2}(\R) \). The spectral theorem provides a powerful framework for understanding such operators by showing that they can be viewed as multiplication operators in the frequency domain. Specifically, through the Fourier transform, convolution operators—which are translation-invariant—are diagonalized, meaning that their action in the {\hyperref[Spatial Domain]{spatial domain}} to pointwise multiplication in the {\hyperref[Frequency Domain]{frequency domain}}. This perspective not only simplifies the analysis of these operators but also reveals their spectral properties in a clear and tractable way, making the Spectral Theorem an essential tool in both theoretical and applied contexts involving convolution.
+
 
 \subsection{Applications}
 
-Before we see how the significance of the Spectral Theorem in representing Convolution Operators, we first need to define what a convolution is.
+Before exploring the significance of the Spectral Theorem in representing Convolution Operators, we must first define what a convolution is.
 
 \begin{definition}[Convolution of two functions (Folland 7.1)]
     Given \( f \) and \( g  \) defined on \( \R  \), the \textbf{convolution} is defined by the function \( f * g   \) where
     \[  (f * g) (x) = \int_{\R} f(x-y) g(y)   \ dy, \]
     provided that the integral exists.
 \end{definition}
+
+In general, the function \( f \) is referred to as the (Chapter 2 of Stein-Shakarchi \cite{Stein}) \textbf{kernel} of the convolution when it is the fixed function being convolved with another function. However, in the context of the Fourier transform, the term \textbf{kernel} refers instead to the complex exponential function \( e^{-2\pi i x t} \), which defines the integral transform. That is, in a convolution of the form
+\[
+(f * g)(x) = \int_{-\infty}^{\infty} f(x - t)\, g(t)\, dt,
+\]
+the kernel is typically the function \( f \) that defines the operation.
+
+\medskip
+
+On the other hand, the Fourier transform of a function \( g \) is given by
+\[
+\hat{g}(x) = \int_{-\infty}^{\infty} g(t)\, e^{-2\pi i x t}\, dt,
+\]
+where the function \( e^{-2\pi i x t} \) acts as the kernel of the transform.
+
+Some key properties that Convolution Operators possess, as we will see shortly, are that they are 
+\begin{itemize}
+    \item Compact (under specific kernel conditions)
+    \item Self-adjoint via the {\hyperref[Fourier Transform]{Fourier Transform}} 
+    \item Diagonalizable
+\end{itemize}
 
 % Fubini's Theorem, Fourier Transform, Convolution Theorem
 
@@ -92,7 +114,20 @@ Before we see how the significance of the Spectral Theorem in representing Convo
    \[  k(-x) = k(x)  \]
    for all \( x \in \R \). Define the operator \( T  \) on \( L^{2}(\R) \) by:
    \[  (Tf)(x) = (k * f)(x) = \int_{ \R } k (x-y) f(y) \ dy. \]
-   We will first show that this operator is linear, self-adjoint and bounded. Then we will show that the spectral representation of \( T  \) can be expressed as a {\hyperref[Fourier Transform]{Fourier Transform}}.  
+
+   It is not to hard to see that \( T  \) is linear given the linearity properties that the Riemann-integral already possesses. In fact, the following theorem from \cite{Folland} Folland, 
+without a doubt, shows that \( T  \) is linear and even further, the collection of convolutions forms a vector space over \( \R  \).
+
+\begin{theorem}[Linearity Properties of the Convolution Folland (7.1)]
+   Assuming that the integrals of \( f  \), \( g  \), and \( h \) exists, the convolution obeys the following properties:
+   \begin{enumerate}
+       \item[(i)] \( f * (ag+ bh) = a (f * g) + b (f * h) \) for any constants \( a \) and \( b \);
+       \item[(ii)] \( f * g = g * f  \);
+        \item[(iii)] \( f * (g * h) = (f * g) * h \)
+   \end{enumerate}
+\end{theorem}
+
+   Hence, all that is left to show is that \( T  \) is self-adjoint and bounded. Then we will show that the spectral representation of \( T  \) can be expressed as a {\hyperref[Fourier Transform]{Fourier Transform}}.  
 
    To show that \( T  \) is bounded, first note that \( k \in L^{1}(\R) \). Using Young's inequality, we have 
    \[  \|T f \|_{L^{2}} = \|k * f\|_{L^{2}} \leq \|k\|_{L^{1}} \cdot \|f\|_{L^{2}}.  \]
@@ -115,7 +150,7 @@ be the Fourier Transform of \( f \). Using the {\hyperref[Convolution Theorem]{C
 \[  \hat{k * f(\xi)} = \hat{k}(\xi) \cdot \hat{f} (\xi). \]
 In a frequency domain, we can see that \( T  \) essentially acts a multiplication operator by the function \( \hat{k}(\xi) \); that is, 
 \[  \hat{Tf}(\xi) = \hat{k}(\xi) \hat{f}(\xi). \]
-Since \( k \in L^{1} (\R) \), real-valued, and symmetric, we have that \( \hat{k} \) is also real-valued and \( \hat{k} \in {C}_{0}(\R) \) using the {\hyperref[Riemann-Lebesgue]{Riemann-Lebesgue}}.
+Since \( k \in L^{1} (\R) \), real-valued, and symmetric, we have that \( \hat{k} \) is also real-valued and \( \hat{k} \in {C}_{0}(\R) \) using the {\hyperref[Riemann-Lebesgue]{Riemann-Lebesgue lemma}}.
 
 Thus, \( T  \) is unitarily equivalent to a multiplication operator \( {M}_{\hat{k}}  \) on \( L^{2}(\R) \), defined by 
 \[  ({M}_{\hat{k}}f)(\xi) = \hat{k}(\xi) f(\xi). \]
@@ -127,9 +162,8 @@ where \( m = \inf_{\xi \in [0,1)} \hat{k}(\xi) \), \( M = \sup_{\xi \in [0,1)} \
 
 In the next section, we will see an example of how the convolution operator gets represented in terms of its spectrum with respect to the Gaussian Kernel. 
 
-\subsection{Gaussian Function}
-
-Define the Gaussian kernel \( k: \R \to \C (\text{or} \R) \) by \( k(x) = e^{- x^{2}} \in L(\R) \cap L^{2}(\R)  \) with the linear operator \( T   \) defined as before for all \( f \in L^{2}(\R) \).
+\begin{eg}[Gaussian Function]
+    Define the Gaussian kernel \( k: \R \to \C (\text{or} \R) \) by \( k(x) = e^{- x^{2}} \in L(\R) \cap L^{2}(\R)  \) with the linear operator \( T   \) defined as before for all \( f \in L^{2}(\R) \).
  
 Taking the fourier transform of \( k  \). The (unitary) Fourier transform \( \mathcal{F} \) on \( L^{2}(\R) \) is defined as 
 \[  \hat{f}(\xi) = \int_{ - \infty  }^{ \infty  }  f(x) e^{-2 \pi i \xi x } \ dx.  \]
@@ -156,28 +190,10 @@ Then:
 where
 \[ w(\lambda) = \int_{ \{  \xi : \hat{k}(\xi) \leq \lambda\}  } \hat{f}(\xi) \overline{\hat{g}(\xi)}   \ d \xi. \]
 
+\end{eg}
+
+
+
 
  
 
-% For this example, make reference to 
-% Rudin: Functional Analysis (thm 13.30, thm 13.32, 13.35)
-% Conway: A course in Functional analysis (theorem 1.4, section 5: Functional calculus, section 6: multiplication operators)
-% Reed and Simon Functional Analysis (section VI.1: The Spectral Theorem for Bounded Self-Adjoint Operators, section IX.2: multiplication operators and spectral representation, section IX.7: Convolution Operators)
-% Folland: Fourier Analysis and its applications
-
-% \begin{thebibliography}{9}
-%     \bibitem{Textbook} 
-%     Walter Rudin, \emph{Real and Complex Analysis 3rd Edition}, McGraw-Hill
-% \end{thebibliography}
-
-
-\begin{thebibliography}{999}
-\bibitem{textbook}
-Erwin Kreyszig (1978) \emph{Introductory Functional Analysis with Applications} John-Wiley \& Sons. Inc. 
-
-\bibitem{texbook}
-Walter Rudin (1987) \emph{Real and Complex Analysis}, Mcgraw-Hill 3rd ed.
-
-\bibitem{lamport94}
-Gerald B. Folland (1992) \emph{Fourier Analysis and its Applications}, Wadsworth \& Brooks/Cole
-\end{thebibliography}
